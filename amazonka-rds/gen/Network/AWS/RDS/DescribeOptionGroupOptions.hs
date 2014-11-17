@@ -137,6 +137,13 @@ dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroup
 dogorOptionGroupOptions =
     lens _dogorOptionGroupOptions (\s a -> s { _dogorOptionGroupOptions = a })
 
+instance ToPath DescribeOptionGroupOptions where
+    toPath = const "/"
+
+instance ToQuery DescribeOptionGroupOptions
+
+instance ToHeaders DescribeOptionGroupOptions
+
 instance AWSRequest DescribeOptionGroupOptions where
     type Sv DescribeOptionGroupOptions = RDS
     type Rs DescribeOptionGroupOptions = DescribeOptionGroupOptionsResponse
@@ -147,10 +154,3 @@ instance AWSRequest DescribeOptionGroupOptions where
 instance FromXML DescribeOptionGroupOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeOptionGroupOptionsResponse"
-
-instance ToPath DescribeOptionGroupOptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeOptionGroupOptions
-
-instance ToQuery DescribeOptionGroupOptions

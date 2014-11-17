@@ -149,6 +149,16 @@ ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN =
     lens _ccscsivrVolumeARN (\s a -> s { _ccscsivrVolumeARN = a })
 
+instance ToPath CreateCachediSCSIVolume where
+    toPath = const "/"
+
+instance ToQuery CreateCachediSCSIVolume where
+    toQuery = const mempty
+
+instance ToHeaders CreateCachediSCSIVolume
+instance ToJSON CreateCachediSCSIVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateCachediSCSIVolume where
     type Sv CreateCachediSCSIVolume = StorageGateway
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
@@ -158,14 +168,3 @@ instance AWSRequest CreateCachediSCSIVolume where
 
 instance FromJSON CreateCachediSCSIVolumeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateCachediSCSIVolume where
-    toPath = const "/"
-
-instance ToHeaders CreateCachediSCSIVolume
-
-instance ToQuery CreateCachediSCSIVolume where
-    toQuery = const mempty
-
-instance ToJSON CreateCachediSCSIVolume where
-    toJSON = genericToJSON jsonOptions

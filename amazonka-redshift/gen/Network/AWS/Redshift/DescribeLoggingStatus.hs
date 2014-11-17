@@ -137,6 +137,13 @@ dlsrLoggingEnabled =
 dlsrS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrS3KeyPrefix = lens _dlsrS3KeyPrefix (\s a -> s { _dlsrS3KeyPrefix = a })
 
+instance ToPath DescribeLoggingStatus where
+    toPath = const "/"
+
+instance ToQuery DescribeLoggingStatus
+
+instance ToHeaders DescribeLoggingStatus
+
 instance AWSRequest DescribeLoggingStatus where
     type Sv DescribeLoggingStatus = Redshift
     type Rs DescribeLoggingStatus = DescribeLoggingStatusResponse
@@ -147,10 +154,3 @@ instance AWSRequest DescribeLoggingStatus where
 instance FromXML DescribeLoggingStatusResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoggingStatusResponse"
-
-instance ToPath DescribeLoggingStatus where
-    toPath = const "/"
-
-instance ToHeaders DescribeLoggingStatus
-
-instance ToQuery DescribeLoggingStatus

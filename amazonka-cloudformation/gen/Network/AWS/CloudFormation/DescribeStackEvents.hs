@@ -108,6 +108,13 @@ dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a })
 
+instance ToPath DescribeStackEvents where
+    toPath = const "/"
+
+instance ToQuery DescribeStackEvents
+
+instance ToHeaders DescribeStackEvents
+
 instance AWSRequest DescribeStackEvents where
     type Sv DescribeStackEvents = CloudFormation
     type Rs DescribeStackEvents = DescribeStackEventsResponse
@@ -118,10 +125,3 @@ instance AWSRequest DescribeStackEvents where
 instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeStackEventsResponse"
-
-instance ToPath DescribeStackEvents where
-    toPath = const "/"
-
-instance ToHeaders DescribeStackEvents
-
-instance ToQuery DescribeStackEvents

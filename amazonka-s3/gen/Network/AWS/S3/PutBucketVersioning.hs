@@ -97,28 +97,27 @@ data PutBucketVersioningResponse = PutBucketVersioningResponse
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 
-instance AWSRequest PutBucketVersioning where
-    type Sv PutBucketVersioning = S3
-    type Rs PutBucketVersioning = PutBucketVersioningResponse
-
-    request  = put
-    response = nullResponse PutBucketVersioningResponse
-
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat
         [ "/"
         , toText _pbvBucket
         ]
 
+instance ToQuery PutBucketVersioning where
+    toQuery = const "versioning"
+
 instance ToHeaders PutBucketVersioning where
     toHeaders PutBucketVersioning{..} = mconcat
         [ "Content-MD5" =: _pbvContentMD5
         , "x-amz-mfa"   =: _pbvMFA
         ]
-
-instance ToQuery PutBucketVersioning where
-    toQuery = const "versioning"
-
 instance ToXML PutBucketVersioning where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketVersioning"
+
+instance AWSRequest PutBucketVersioning where
+    type Sv PutBucketVersioning = S3
+    type Rs PutBucketVersioning = PutBucketVersioningResponse
+
+    request  = put
+    response = nullResponse PutBucketVersioningResponse

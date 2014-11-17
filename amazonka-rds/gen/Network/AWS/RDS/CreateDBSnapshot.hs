@@ -109,6 +109,13 @@ createDBSnapshotResponse = CreateDBSnapshotResponse
 cdbsr1DBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
 
+instance ToPath CreateDBSnapshot where
+    toPath = const "/"
+
+instance ToQuery CreateDBSnapshot
+
+instance ToHeaders CreateDBSnapshot
+
 instance AWSRequest CreateDBSnapshot where
     type Sv CreateDBSnapshot = RDS
     type Rs CreateDBSnapshot = CreateDBSnapshotResponse
@@ -119,10 +126,3 @@ instance AWSRequest CreateDBSnapshot where
 instance FromXML CreateDBSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBSnapshotResponse"
-
-instance ToPath CreateDBSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CreateDBSnapshot
-
-instance ToQuery CreateDBSnapshot

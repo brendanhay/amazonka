@@ -78,24 +78,16 @@ data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse
 
+instance ToPath DeleteInternetGateway where
+    toPath = const "/"
+
+instance ToQuery DeleteInternetGateway
+
+instance ToHeaders DeleteInternetGateway
+
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2
     type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
 
     request  = post "DeleteInternetGateway"
     response = nullResponse DeleteInternetGatewayResponse
-
-instance ToPath DeleteInternetGateway where
-    toPath = const "/"
-
-instance ToHeaders DeleteInternetGateway
-
-instance ToQuery DeleteInternetGateway where
-    toQuery DeleteInternetGateway{..} = mconcat
-        [ "dryRun"            =? _dig2DryRun
-        , "internetGatewayId" =? _dig2InternetGatewayId
-        ]
-
-instance ToXML DeleteInternetGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteInternetGateway"

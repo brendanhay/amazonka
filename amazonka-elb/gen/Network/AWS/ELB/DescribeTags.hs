@@ -91,6 +91,13 @@ dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions =
     lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
 
+instance ToPath DescribeTags where
+    toPath = const "/"
+
+instance ToQuery DescribeTags
+
+instance ToHeaders DescribeTags
+
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = ELB
     type Rs DescribeTags = DescribeTagsResponse
@@ -101,10 +108,3 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeTagsResponse"
-
-instance ToPath DescribeTags where
-    toPath = const "/"
-
-instance ToHeaders DescribeTags
-
-instance ToQuery DescribeTags

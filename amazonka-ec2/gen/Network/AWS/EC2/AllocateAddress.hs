@@ -112,6 +112,13 @@ aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
 
+instance ToPath AllocateAddress where
+    toPath = const "/"
+
+instance ToQuery AllocateAddress
+
+instance ToHeaders AllocateAddress
+
 instance AWSRequest AllocateAddress where
     type Sv AllocateAddress = EC2
     type Rs AllocateAddress = AllocateAddressResponse
@@ -122,18 +129,3 @@ instance AWSRequest AllocateAddress where
 instance FromXML AllocateAddressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AllocateAddressResponse"
-
-instance ToPath AllocateAddress where
-    toPath = const "/"
-
-instance ToHeaders AllocateAddress
-
-instance ToQuery AllocateAddress where
-    toQuery AllocateAddress{..} = mconcat
-        [ "dryRun" =? _aaDryRun
-        , "Domain" =? _aaDomain
-        ]
-
-instance ToXML AllocateAddress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AllocateAddress"

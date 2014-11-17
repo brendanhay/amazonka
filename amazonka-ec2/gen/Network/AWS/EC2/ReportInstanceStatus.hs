@@ -140,29 +140,16 @@ data ReportInstanceStatusResponse = ReportInstanceStatusResponse
 reportInstanceStatusResponse :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse
 
+instance ToPath ReportInstanceStatus where
+    toPath = const "/"
+
+instance ToQuery ReportInstanceStatus
+
+instance ToHeaders ReportInstanceStatus
+
 instance AWSRequest ReportInstanceStatus where
     type Sv ReportInstanceStatus = EC2
     type Rs ReportInstanceStatus = ReportInstanceStatusResponse
 
     request  = post "ReportInstanceStatus"
     response = nullResponse ReportInstanceStatusResponse
-
-instance ToPath ReportInstanceStatus where
-    toPath = const "/"
-
-instance ToHeaders ReportInstanceStatus
-
-instance ToQuery ReportInstanceStatus where
-    toQuery ReportInstanceStatus{..} = mconcat
-        [ "dryRun"      =? _risDryRun
-        , "instanceId"  =? _risInstances
-        , "status"      =? _risStatus
-        , "startTime"   =? _risStartTime
-        , "endTime"     =? _risEndTime
-        , "reasonCode"  =? _risReasonCodes
-        , "description" =? _risDescription
-        ]
-
-instance ToXML ReportInstanceStatus where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReportInstanceStatus"

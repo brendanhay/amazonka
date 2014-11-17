@@ -85,20 +85,19 @@ data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 
+instance ToPath DetachElasticLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery DetachElasticLoadBalancer where
+    toQuery = const mempty
+
+instance ToHeaders DetachElasticLoadBalancer
+instance ToJSON DetachElasticLoadBalancer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks
     type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse
 
     request  = post
     response = nullResponse DetachElasticLoadBalancerResponse
-
-instance ToPath DetachElasticLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders DetachElasticLoadBalancer
-
-instance ToQuery DetachElasticLoadBalancer where
-    toQuery = const mempty
-
-instance ToJSON DetachElasticLoadBalancer where
-    toJSON = genericToJSON jsonOptions

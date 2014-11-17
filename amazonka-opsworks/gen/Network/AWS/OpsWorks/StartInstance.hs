@@ -72,20 +72,19 @@ data StartInstanceResponse = StartInstanceResponse
 startInstanceResponse :: StartInstanceResponse
 startInstanceResponse = StartInstanceResponse
 
+instance ToPath StartInstance where
+    toPath = const "/"
+
+instance ToQuery StartInstance where
+    toQuery = const mempty
+
+instance ToHeaders StartInstance
+instance ToJSON StartInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StartInstance where
     type Sv StartInstance = OpsWorks
     type Rs StartInstance = StartInstanceResponse
 
     request  = post
     response = nullResponse StartInstanceResponse
-
-instance ToPath StartInstance where
-    toPath = const "/"
-
-instance ToHeaders StartInstance
-
-instance ToQuery StartInstance where
-    toQuery = const mempty
-
-instance ToJSON StartInstance where
-    toJSON = genericToJSON jsonOptions

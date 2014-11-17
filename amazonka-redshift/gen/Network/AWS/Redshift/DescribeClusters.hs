@@ -130,6 +130,13 @@ dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a })
 dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\s a -> s { _dcrMarker = a })
 
+instance ToPath DescribeClusters where
+    toPath = const "/"
+
+instance ToQuery DescribeClusters
+
+instance ToHeaders DescribeClusters
+
 instance AWSRequest DescribeClusters where
     type Sv DescribeClusters = Redshift
     type Rs DescribeClusters = DescribeClustersResponse
@@ -140,10 +147,3 @@ instance AWSRequest DescribeClusters where
 instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClustersResponse"
-
-instance ToPath DescribeClusters where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusters
-
-instance ToQuery DescribeClusters

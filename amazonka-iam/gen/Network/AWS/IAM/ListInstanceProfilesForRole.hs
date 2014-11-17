@@ -135,6 +135,13 @@ lipfrrIsTruncated =
 lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
 
+instance ToPath ListInstanceProfilesForRole where
+    toPath = const "/"
+
+instance ToQuery ListInstanceProfilesForRole
+
+instance ToHeaders ListInstanceProfilesForRole
+
 instance AWSRequest ListInstanceProfilesForRole where
     type Sv ListInstanceProfilesForRole = IAM
     type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse
@@ -145,10 +152,3 @@ instance AWSRequest ListInstanceProfilesForRole where
 instance FromXML ListInstanceProfilesForRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListInstanceProfilesForRoleResponse"
-
-instance ToPath ListInstanceProfilesForRole where
-    toPath = const "/"
-
-instance ToHeaders ListInstanceProfilesForRole
-
-instance ToQuery ListInstanceProfilesForRole

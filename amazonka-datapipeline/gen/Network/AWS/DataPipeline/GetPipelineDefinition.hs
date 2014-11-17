@@ -103,6 +103,16 @@ gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })
 
+instance ToPath GetPipelineDefinition where
+    toPath = const "/"
+
+instance ToQuery GetPipelineDefinition where
+    toQuery = const mempty
+
+instance ToHeaders GetPipelineDefinition
+instance ToJSON GetPipelineDefinition where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetPipelineDefinition where
     type Sv GetPipelineDefinition = DataPipeline
     type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
@@ -112,14 +122,3 @@ instance AWSRequest GetPipelineDefinition where
 
 instance FromJSON GetPipelineDefinitionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetPipelineDefinition where
-    toPath = const "/"
-
-instance ToHeaders GetPipelineDefinition
-
-instance ToQuery GetPipelineDefinition where
-    toQuery = const mempty
-
-instance ToJSON GetPipelineDefinition where
-    toJSON = genericToJSON jsonOptions

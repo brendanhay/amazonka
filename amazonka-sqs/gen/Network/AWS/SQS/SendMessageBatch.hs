@@ -115,6 +115,13 @@ smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
 
+instance ToPath SendMessageBatch where
+    toPath = const "/"
+
+instance ToQuery SendMessageBatch
+
+instance ToHeaders SendMessageBatch
+
 instance AWSRequest SendMessageBatch where
     type Sv SendMessageBatch = SQS
     type Rs SendMessageBatch = SendMessageBatchResponse
@@ -125,10 +132,3 @@ instance AWSRequest SendMessageBatch where
 instance FromXML SendMessageBatchResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendMessageBatchResponse"
-
-instance ToPath SendMessageBatch where
-    toPath = const "/"
-
-instance ToHeaders SendMessageBatch
-
-instance ToQuery SendMessageBatch

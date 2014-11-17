@@ -84,6 +84,16 @@ describeClusterResponse = DescribeClusterResponse
 dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 
+instance ToPath DescribeCluster where
+    toPath = const "/"
+
+instance ToQuery DescribeCluster where
+    toQuery = const mempty
+
+instance ToHeaders DescribeCluster
+instance ToJSON DescribeCluster where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeCluster where
     type Sv DescribeCluster = EMR
     type Rs DescribeCluster = DescribeClusterResponse
@@ -93,14 +103,3 @@ instance AWSRequest DescribeCluster where
 
 instance FromJSON DescribeClusterResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeCluster where
-    toPath = const "/"
-
-instance ToHeaders DescribeCluster
-
-instance ToQuery DescribeCluster where
-    toQuery = const mempty
-
-instance ToJSON DescribeCluster where
-    toJSON = genericToJSON jsonOptions

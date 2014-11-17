@@ -105,20 +105,19 @@ data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 
+instance ToPath RespondActivityTaskFailed where
+    toPath = const "/"
+
+instance ToQuery RespondActivityTaskFailed where
+    toQuery = const mempty
+
+instance ToHeaders RespondActivityTaskFailed
+instance ToJSON RespondActivityTaskFailed where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF
     type Rs RespondActivityTaskFailed = RespondActivityTaskFailedResponse
 
     request  = post
     response = nullResponse RespondActivityTaskFailedResponse
-
-instance ToPath RespondActivityTaskFailed where
-    toPath = const "/"
-
-instance ToHeaders RespondActivityTaskFailed
-
-instance ToQuery RespondActivityTaskFailed where
-    toQuery = const mempty
-
-instance ToJSON RespondActivityTaskFailed where
-    toJSON = genericToJSON jsonOptions

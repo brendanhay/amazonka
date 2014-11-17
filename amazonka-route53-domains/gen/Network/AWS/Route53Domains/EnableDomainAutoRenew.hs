@@ -75,20 +75,19 @@ data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse :: EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse = EnableDomainAutoRenewResponse
 
+instance ToPath EnableDomainAutoRenew where
+    toPath = const "/"
+
+instance ToQuery EnableDomainAutoRenew where
+    toQuery = const mempty
+
+instance ToHeaders EnableDomainAutoRenew
+instance ToJSON EnableDomainAutoRenew where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest EnableDomainAutoRenew where
     type Sv EnableDomainAutoRenew = Route53Domains
     type Rs EnableDomainAutoRenew = EnableDomainAutoRenewResponse
 
     request  = post
     response = nullResponse EnableDomainAutoRenewResponse
-
-instance ToPath EnableDomainAutoRenew where
-    toPath = const "/"
-
-instance ToHeaders EnableDomainAutoRenew
-
-instance ToQuery EnableDomainAutoRenew where
-    toQuery = const mempty
-
-instance ToJSON EnableDomainAutoRenew where
-    toJSON = genericToJSON jsonOptions

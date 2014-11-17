@@ -104,20 +104,19 @@ data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 
+instance ToPath SetLoadBasedAutoScaling where
+    toPath = const "/"
+
+instance ToQuery SetLoadBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToHeaders SetLoadBasedAutoScaling
+instance ToJSON SetLoadBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse
 
     request  = post
     response = nullResponse SetLoadBasedAutoScalingResponse
-
-instance ToPath SetLoadBasedAutoScaling where
-    toPath = const "/"
-
-instance ToHeaders SetLoadBasedAutoScaling
-
-instance ToQuery SetLoadBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToJSON SetLoadBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions

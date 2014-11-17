@@ -102,6 +102,16 @@ describeLayersResponse = DescribeLayersResponse
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a })
 
+instance ToPath DescribeLayers where
+    toPath = const "/"
+
+instance ToQuery DescribeLayers where
+    toQuery = const mempty
+
+instance ToHeaders DescribeLayers
+instance ToJSON DescribeLayers where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeLayers where
     type Sv DescribeLayers = OpsWorks
     type Rs DescribeLayers = DescribeLayersResponse
@@ -111,14 +121,3 @@ instance AWSRequest DescribeLayers where
 
 instance FromJSON DescribeLayersResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeLayers where
-    toPath = const "/"
-
-instance ToHeaders DescribeLayers
-
-instance ToQuery DescribeLayers where
-    toQuery = const mempty
-
-instance ToJSON DescribeLayers where
-    toJSON = genericToJSON jsonOptions

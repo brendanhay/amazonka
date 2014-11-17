@@ -77,24 +77,16 @@ data EnableVolumeIOResponse = EnableVolumeIOResponse
 enableVolumeIOResponse :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse
 
+instance ToPath EnableVolumeIO where
+    toPath = const "/"
+
+instance ToQuery EnableVolumeIO
+
+instance ToHeaders EnableVolumeIO
+
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2
     type Rs EnableVolumeIO = EnableVolumeIOResponse
 
     request  = post "EnableVolumeIO"
     response = nullResponse EnableVolumeIOResponse
-
-instance ToPath EnableVolumeIO where
-    toPath = const "/"
-
-instance ToHeaders EnableVolumeIO
-
-instance ToQuery EnableVolumeIO where
-    toQuery EnableVolumeIO{..} = mconcat
-        [ "dryRun"   =? _evioDryRun
-        , "volumeId" =? _evioVolumeId
-        ]
-
-instance ToXML EnableVolumeIO where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "EnableVolumeIO"

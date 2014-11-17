@@ -111,6 +111,13 @@ authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
 
+instance ToPath AuthorizeSnapshotAccess where
+    toPath = const "/"
+
+instance ToQuery AuthorizeSnapshotAccess
+
+instance ToHeaders AuthorizeSnapshotAccess
+
 instance AWSRequest AuthorizeSnapshotAccess where
     type Sv AuthorizeSnapshotAccess = Redshift
     type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse
@@ -121,10 +128,3 @@ instance AWSRequest AuthorizeSnapshotAccess where
 instance FromXML AuthorizeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResponse"
-
-instance ToPath AuthorizeSnapshotAccess where
-    toPath = const "/"
-
-instance ToHeaders AuthorizeSnapshotAccess
-
-instance ToQuery AuthorizeSnapshotAccess

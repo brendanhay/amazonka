@@ -98,6 +98,13 @@ daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe Avai
 daorAvailabilityOptions =
     lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })
 
+instance ToPath DescribeAvailabilityOptions where
+    toPath = const "/"
+
+instance ToQuery DescribeAvailabilityOptions
+
+instance ToHeaders DescribeAvailabilityOptions
+
 instance AWSRequest DescribeAvailabilityOptions where
     type Sv DescribeAvailabilityOptions = CloudSearch
     type Rs DescribeAvailabilityOptions = DescribeAvailabilityOptionsResponse
@@ -108,10 +115,3 @@ instance AWSRequest DescribeAvailabilityOptions where
 instance FromXML DescribeAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAvailabilityOptionsResponse"
-
-instance ToPath DescribeAvailabilityOptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeAvailabilityOptions
-
-instance ToQuery DescribeAvailabilityOptions

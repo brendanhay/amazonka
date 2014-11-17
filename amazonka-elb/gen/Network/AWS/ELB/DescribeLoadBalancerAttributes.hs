@@ -86,6 +86,13 @@ dlbarLoadBalancerAttributes =
     lens _dlbarLoadBalancerAttributes
         (\s a -> s { _dlbarLoadBalancerAttributes = a })
 
+instance ToPath DescribeLoadBalancerAttributes where
+    toPath = const "/"
+
+instance ToQuery DescribeLoadBalancerAttributes
+
+instance ToHeaders DescribeLoadBalancerAttributes
+
 instance AWSRequest DescribeLoadBalancerAttributes where
     type Sv DescribeLoadBalancerAttributes = ELB
     type Rs DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributesResponse
@@ -96,10 +103,3 @@ instance AWSRequest DescribeLoadBalancerAttributes where
 instance FromXML DescribeLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesResponse"
-
-instance ToPath DescribeLoadBalancerAttributes where
-    toPath = const "/"
-
-instance ToHeaders DescribeLoadBalancerAttributes
-
-instance ToQuery DescribeLoadBalancerAttributes

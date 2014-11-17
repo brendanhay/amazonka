@@ -93,6 +93,16 @@ addUploadBufferResponse = AddUploadBufferResponse
 aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\s a -> s { _aubrGatewayARN = a })
 
+instance ToPath AddUploadBuffer where
+    toPath = const "/"
+
+instance ToQuery AddUploadBuffer where
+    toQuery = const mempty
+
+instance ToHeaders AddUploadBuffer
+instance ToJSON AddUploadBuffer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddUploadBuffer where
     type Sv AddUploadBuffer = StorageGateway
     type Rs AddUploadBuffer = AddUploadBufferResponse
@@ -102,14 +112,3 @@ instance AWSRequest AddUploadBuffer where
 
 instance FromJSON AddUploadBufferResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddUploadBuffer where
-    toPath = const "/"
-
-instance ToHeaders AddUploadBuffer
-
-instance ToQuery AddUploadBuffer where
-    toQuery = const mempty
-
-instance ToJSON AddUploadBuffer where
-    toJSON = genericToJSON jsonOptions

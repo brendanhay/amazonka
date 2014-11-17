@@ -105,6 +105,13 @@ deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalance
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a })
 
+instance ToPath DeregisterInstancesFromLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery DeregisterInstancesFromLoadBalancer
+
+instance ToHeaders DeregisterInstancesFromLoadBalancer
+
 instance AWSRequest DeregisterInstancesFromLoadBalancer where
     type Sv DeregisterInstancesFromLoadBalancer = ELB
     type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
@@ -115,10 +122,3 @@ instance AWSRequest DeregisterInstancesFromLoadBalancer where
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeregisterInstancesFromLoadBalancerResponse"
-
-instance ToPath DeregisterInstancesFromLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders DeregisterInstancesFromLoadBalancer
-
-instance ToQuery DeregisterInstancesFromLoadBalancer

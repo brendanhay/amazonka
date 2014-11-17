@@ -129,6 +129,13 @@ createSubnetResponse = CreateSubnetResponse
 csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
 
+instance ToPath CreateSubnet where
+    toPath = const "/"
+
+instance ToQuery CreateSubnet
+
+instance ToHeaders CreateSubnet
+
 instance AWSRequest CreateSubnet where
     type Sv CreateSubnet = EC2
     type Rs CreateSubnet = CreateSubnetResponse
@@ -139,20 +146,3 @@ instance AWSRequest CreateSubnet where
 instance FromXML CreateSubnetResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSubnetResponse"
-
-instance ToPath CreateSubnet where
-    toPath = const "/"
-
-instance ToHeaders CreateSubnet
-
-instance ToQuery CreateSubnet where
-    toQuery CreateSubnet{..} = mconcat
-        [ "dryRun"           =? _cs1DryRun
-        , "VpcId"            =? _cs1VpcId
-        , "CidrBlock"        =? _cs1CidrBlock
-        , "AvailabilityZone" =? _cs1AvailabilityZone
-        ]
-
-instance ToXML CreateSubnet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateSubnet"

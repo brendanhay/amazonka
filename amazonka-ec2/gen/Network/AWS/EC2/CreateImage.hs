@@ -141,6 +141,13 @@ createImageResponse = CreateImageResponse
 cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
 
+instance ToPath CreateImage where
+    toPath = const "/"
+
+instance ToQuery CreateImage
+
+instance ToHeaders CreateImage
+
 instance AWSRequest CreateImage where
     type Sv CreateImage = EC2
     type Rs CreateImage = CreateImageResponse
@@ -151,22 +158,3 @@ instance AWSRequest CreateImage where
 instance FromXML CreateImageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateImageResponse"
-
-instance ToPath CreateImage where
-    toPath = const "/"
-
-instance ToHeaders CreateImage
-
-instance ToQuery CreateImage where
-    toQuery CreateImage{..} = mconcat
-        [ "dryRun"             =? _ci1DryRun
-        , "instanceId"         =? _ci1InstanceId
-        , "name"               =? _ci1Name
-        , "description"        =? _ci1Description
-        , "noReboot"           =? _ci1NoReboot
-        , "blockDeviceMapping" =? _ci1BlockDeviceMappings
-        ]
-
-instance ToXML CreateImage where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateImage"

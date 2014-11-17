@@ -74,6 +74,14 @@ describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a })
 
+instance ToPath DescribeScalingProcessTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeScalingProcessTypes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeScalingProcessTypes
+
 instance AWSRequest DescribeScalingProcessTypes where
     type Sv DescribeScalingProcessTypes = AutoScaling
     type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
@@ -84,10 +92,3 @@ instance AWSRequest DescribeScalingProcessTypes where
 instance FromXML DescribeScalingProcessTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeScalingProcessTypesResponse"
-
-instance ToPath DescribeScalingProcessTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeScalingProcessTypes
-
-instance ToQuery DescribeScalingProcessTypes

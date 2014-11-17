@@ -106,6 +106,13 @@ dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks =
     lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
 
+instance ToPath DescribeConversionTasks where
+    toPath = const "/"
+
+instance ToQuery DescribeConversionTasks
+
+instance ToHeaders DescribeConversionTasks
+
 instance AWSRequest DescribeConversionTasks where
     type Sv DescribeConversionTasks = EC2
     type Rs DescribeConversionTasks = DescribeConversionTasksResponse
@@ -116,19 +123,3 @@ instance AWSRequest DescribeConversionTasks where
 instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeConversionTasksResponse"
-
-instance ToPath DescribeConversionTasks where
-    toPath = const "/"
-
-instance ToHeaders DescribeConversionTasks
-
-instance ToQuery DescribeConversionTasks where
-    toQuery DescribeConversionTasks{..} = mconcat
-        [ "dryRun"           =? _dctDryRun
-        , "filter"           =? _dctFilters
-        , "conversionTaskId" =? _dctConversionTaskIds
-        ]
-
-instance ToXML DescribeConversionTasks where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeConversionTasks"

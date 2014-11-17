@@ -72,20 +72,19 @@ data CreateLogGroupResponse = CreateLogGroupResponse
 createLogGroupResponse :: CreateLogGroupResponse
 createLogGroupResponse = CreateLogGroupResponse
 
+instance ToPath CreateLogGroup where
+    toPath = const "/"
+
+instance ToQuery CreateLogGroup where
+    toQuery = const mempty
+
+instance ToHeaders CreateLogGroup
+instance ToJSON CreateLogGroup where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs
     type Rs CreateLogGroup = CreateLogGroupResponse
 
     request  = post
     response = nullResponse CreateLogGroupResponse
-
-instance ToPath CreateLogGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateLogGroup
-
-instance ToQuery CreateLogGroup where
-    toQuery = const mempty
-
-instance ToJSON CreateLogGroup where
-    toJSON = genericToJSON jsonOptions

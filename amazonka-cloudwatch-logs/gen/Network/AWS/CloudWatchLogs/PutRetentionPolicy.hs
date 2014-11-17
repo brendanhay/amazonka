@@ -79,20 +79,19 @@ data PutRetentionPolicyResponse = PutRetentionPolicyResponse
 putRetentionPolicyResponse :: PutRetentionPolicyResponse
 putRetentionPolicyResponse = PutRetentionPolicyResponse
 
+instance ToPath PutRetentionPolicy where
+    toPath = const "/"
+
+instance ToQuery PutRetentionPolicy where
+    toQuery = const mempty
+
+instance ToHeaders PutRetentionPolicy
+instance ToJSON PutRetentionPolicy where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs
     type Rs PutRetentionPolicy = PutRetentionPolicyResponse
 
     request  = post
     response = nullResponse PutRetentionPolicyResponse
-
-instance ToPath PutRetentionPolicy where
-    toPath = const "/"
-
-instance ToHeaders PutRetentionPolicy
-
-instance ToQuery PutRetentionPolicy where
-    toQuery = const mempty
-
-instance ToJSON PutRetentionPolicy where
-    toJSON = genericToJSON jsonOptions

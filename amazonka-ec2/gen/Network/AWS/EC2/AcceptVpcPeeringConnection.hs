@@ -96,6 +96,13 @@ avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection
         (\s a -> s { _avpcrVpcPeeringConnection = a })
 
+instance ToPath AcceptVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToQuery AcceptVpcPeeringConnection
+
+instance ToHeaders AcceptVpcPeeringConnection
+
 instance AWSRequest AcceptVpcPeeringConnection where
     type Sv AcceptVpcPeeringConnection = EC2
     type Rs AcceptVpcPeeringConnection = AcceptVpcPeeringConnectionResponse
@@ -106,18 +113,3 @@ instance AWSRequest AcceptVpcPeeringConnection where
 instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResponse"
-
-instance ToPath AcceptVpcPeeringConnection where
-    toPath = const "/"
-
-instance ToHeaders AcceptVpcPeeringConnection
-
-instance ToQuery AcceptVpcPeeringConnection where
-    toQuery AcceptVpcPeeringConnection{..} = mconcat
-        [ "dryRun"                 =? _avpcDryRun
-        , "vpcPeeringConnectionId" =? _avpcVpcPeeringConnectionId
-        ]
-
-instance ToXML AcceptVpcPeeringConnection where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AcceptVpcPeeringConnection"

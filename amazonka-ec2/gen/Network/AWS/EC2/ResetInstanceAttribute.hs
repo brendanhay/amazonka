@@ -93,25 +93,16 @@ data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse
 
+instance ToPath ResetInstanceAttribute where
+    toPath = const "/"
+
+instance ToQuery ResetInstanceAttribute
+
+instance ToHeaders ResetInstanceAttribute
+
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2
     type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
 
     request  = post "ResetInstanceAttribute"
     response = nullResponse ResetInstanceAttributeResponse
-
-instance ToPath ResetInstanceAttribute where
-    toPath = const "/"
-
-instance ToHeaders ResetInstanceAttribute
-
-instance ToQuery ResetInstanceAttribute where
-    toQuery ResetInstanceAttribute{..} = mconcat
-        [ "dryRun"     =? _riaDryRun
-        , "instanceId" =? _riaInstanceId
-        , "attribute"  =? _riaAttribute
-        ]
-
-instance ToXML ResetInstanceAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResetInstanceAttribute"

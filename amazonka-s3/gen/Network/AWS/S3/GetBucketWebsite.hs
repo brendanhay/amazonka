@@ -108,6 +108,20 @@ gbwrRedirectAllRequestsTo =
 gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
 
+instance ToPath GetBucketWebsite where
+    toPath GetBucketWebsite{..} = mconcat
+        [ "/"
+        , toText _gbwBucket
+        ]
+
+instance ToQuery GetBucketWebsite where
+    toQuery = const "website"
+
+instance ToHeaders GetBucketWebsite
+instance ToXML GetBucketWebsite where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketWebsite"
+
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteResponse
@@ -118,18 +132,3 @@ instance AWSRequest GetBucketWebsite where
 instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketWebsiteResponse"
-
-instance ToPath GetBucketWebsite where
-    toPath GetBucketWebsite{..} = mconcat
-        [ "/"
-        , toText _gbwBucket
-        ]
-
-instance ToHeaders GetBucketWebsite
-
-instance ToQuery GetBucketWebsite where
-    toQuery = const "website"
-
-instance ToXML GetBucketWebsite where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketWebsite"

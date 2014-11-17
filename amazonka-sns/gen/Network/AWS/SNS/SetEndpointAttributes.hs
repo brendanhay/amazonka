@@ -89,16 +89,16 @@ data SetEndpointAttributesResponse = SetEndpointAttributesResponse
 setEndpointAttributesResponse :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse
 
+instance ToPath SetEndpointAttributes where
+    toPath = const "/"
+
+instance ToQuery SetEndpointAttributes
+
+instance ToHeaders SetEndpointAttributes
+
 instance AWSRequest SetEndpointAttributes where
     type Sv SetEndpointAttributes = SNS
     type Rs SetEndpointAttributes = SetEndpointAttributesResponse
 
     request  = post "SetEndpointAttributes"
     response = nullResponse SetEndpointAttributesResponse
-
-instance ToPath SetEndpointAttributes where
-    toPath = const "/"
-
-instance ToHeaders SetEndpointAttributes
-
-instance ToQuery SetEndpointAttributes

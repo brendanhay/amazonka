@@ -415,6 +415,33 @@ horWebsiteRedirectLocation =
     lens _horWebsiteRedirectLocation
         (\s a -> s { _horWebsiteRedirectLocation = a })
 
+instance ToPath HeadObject where
+    toPath HeadObject{..} = mconcat
+        [ "/"
+        , toText _hoBucket
+        , "/"
+        , toText _hoKey
+        ]
+
+instance ToQuery HeadObject where
+    toQuery rq = "versionId" =? _hoVersionId rq
+
+instance ToHeaders HeadObject where
+    toHeaders HeadObject{..} = mconcat
+        [ "If-Match"                                        =: _hoIfMatch
+        , "If-Modified-Since"                               =: _hoIfModifiedSince
+        , "If-None-Match"                                   =: _hoIfNoneMatch
+        , "If-Unmodified-Since"                             =: _hoIfUnmodifiedSince
+        , "Range"                                           =: _hoRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _hoSSEKMSKeyId
+        ]
+instance ToXML HeadObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HeadObject"
+
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectResponse
@@ -442,31 +469,3 @@ instance AWSRequest HeadObject where
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
         <*> h ~:? "x-amz-website-redirect-location"
-
-instance ToPath HeadObject where
-    toPath HeadObject{..} = mconcat
-        [ "/"
-        , toText _hoBucket
-        , "/"
-        , toText _hoKey
-        ]
-
-instance ToHeaders HeadObject where
-    toHeaders HeadObject{..} = mconcat
-        [ "If-Match"                                        =: _hoIfMatch
-        , "If-Modified-Since"                               =: _hoIfModifiedSince
-        , "If-None-Match"                                   =: _hoIfNoneMatch
-        , "If-Unmodified-Since"                             =: _hoIfUnmodifiedSince
-        , "Range"                                           =: _hoRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _hoSSEKMSKeyId
-        ]
-
-instance ToQuery HeadObject where
-    toQuery rq = "versionId" =? _hoVersionId rq
-
-instance ToXML HeadObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HeadObject"

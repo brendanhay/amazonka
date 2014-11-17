@@ -324,6 +324,13 @@ uerTier = lens _uerTier (\s a -> s { _uerTier = a })
 uerVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
 uerVersionLabel = lens _uerVersionLabel (\s a -> s { _uerVersionLabel = a })
 
+instance ToPath UpdateEnvironment where
+    toPath = const "/"
+
+instance ToQuery UpdateEnvironment
+
+instance ToHeaders UpdateEnvironment
+
 instance AWSRequest UpdateEnvironment where
     type Sv UpdateEnvironment = ElasticBeanstalk
     type Rs UpdateEnvironment = UpdateEnvironmentResponse
@@ -334,10 +341,3 @@ instance AWSRequest UpdateEnvironment where
 instance FromXML UpdateEnvironmentResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateEnvironmentResponse"
-
-instance ToPath UpdateEnvironment where
-    toPath = const "/"
-
-instance ToHeaders UpdateEnvironment
-
-instance ToQuery UpdateEnvironment

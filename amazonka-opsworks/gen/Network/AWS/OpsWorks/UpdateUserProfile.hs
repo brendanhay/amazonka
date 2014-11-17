@@ -104,20 +104,19 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse
 updateUserProfileResponse :: UpdateUserProfileResponse
 updateUserProfileResponse = UpdateUserProfileResponse
 
+instance ToPath UpdateUserProfile where
+    toPath = const "/"
+
+instance ToQuery UpdateUserProfile where
+    toQuery = const mempty
+
+instance ToHeaders UpdateUserProfile
+instance ToJSON UpdateUserProfile where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateUserProfile where
     type Sv UpdateUserProfile = OpsWorks
     type Rs UpdateUserProfile = UpdateUserProfileResponse
 
     request  = post
     response = nullResponse UpdateUserProfileResponse
-
-instance ToPath UpdateUserProfile where
-    toPath = const "/"
-
-instance ToHeaders UpdateUserProfile
-
-instance ToQuery UpdateUserProfile where
-    toQuery = const mempty
-
-instance ToJSON UpdateUserProfile where
-    toJSON = genericToJSON jsonOptions

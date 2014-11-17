@@ -137,6 +137,13 @@ lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
 
+instance ToPath ListSigningCertificates where
+    toPath = const "/"
+
+instance ToQuery ListSigningCertificates
+
+instance ToHeaders ListSigningCertificates
+
 instance AWSRequest ListSigningCertificates where
     type Sv ListSigningCertificates = IAM
     type Rs ListSigningCertificates = ListSigningCertificatesResponse
@@ -147,10 +154,3 @@ instance AWSRequest ListSigningCertificates where
 instance FromXML ListSigningCertificatesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSigningCertificatesResponse"
-
-instance ToPath ListSigningCertificates where
-    toPath = const "/"
-
-instance ToHeaders ListSigningCertificates
-
-instance ToQuery ListSigningCertificates

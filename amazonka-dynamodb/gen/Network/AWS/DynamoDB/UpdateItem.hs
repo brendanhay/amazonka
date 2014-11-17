@@ -480,6 +480,16 @@ uirItemCollectionMetrics =
     lens _uirItemCollectionMetrics
         (\s a -> s { _uirItemCollectionMetrics = a })
 
+instance ToPath UpdateItem where
+    toPath = const "/"
+
+instance ToQuery UpdateItem where
+    toQuery = const mempty
+
+instance ToHeaders UpdateItem
+instance ToJSON UpdateItem where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateItem where
     type Sv UpdateItem = DynamoDB
     type Rs UpdateItem = UpdateItemResponse
@@ -489,14 +499,3 @@ instance AWSRequest UpdateItem where
 
 instance FromJSON UpdateItemResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateItem where
-    toPath = const "/"
-
-instance ToHeaders UpdateItem
-
-instance ToQuery UpdateItem where
-    toQuery = const mempty
-
-instance ToJSON UpdateItem where
-    toJSON = genericToJSON jsonOptions

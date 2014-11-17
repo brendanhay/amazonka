@@ -151,6 +151,13 @@ putScalingPolicyResponse = PutScalingPolicyResponse
 psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\s a -> s { _psprPolicyARN = a })
 
+instance ToPath PutScalingPolicy where
+    toPath = const "/"
+
+instance ToQuery PutScalingPolicy
+
+instance ToHeaders PutScalingPolicy
+
 instance AWSRequest PutScalingPolicy where
     type Sv PutScalingPolicy = AutoScaling
     type Rs PutScalingPolicy = PutScalingPolicyResponse
@@ -161,10 +168,3 @@ instance AWSRequest PutScalingPolicy where
 instance FromXML PutScalingPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutScalingPolicyResponse"
-
-instance ToPath PutScalingPolicy where
-    toPath = const "/"
-
-instance ToHeaders PutScalingPolicy
-
-instance ToQuery PutScalingPolicy

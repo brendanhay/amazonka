@@ -95,25 +95,16 @@ data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 associateDhcpOptionsResponse :: AssociateDhcpOptionsResponse
 associateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 
+instance ToPath AssociateDhcpOptions where
+    toPath = const "/"
+
+instance ToQuery AssociateDhcpOptions
+
+instance ToHeaders AssociateDhcpOptions
+
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
 
     request  = post "AssociateDhcpOptions"
     response = nullResponse AssociateDhcpOptionsResponse
-
-instance ToPath AssociateDhcpOptions where
-    toPath = const "/"
-
-instance ToHeaders AssociateDhcpOptions
-
-instance ToQuery AssociateDhcpOptions where
-    toQuery AssociateDhcpOptions{..} = mconcat
-        [ "dryRun"        =? _adoDryRun
-        , "DhcpOptionsId" =? _adoDhcpOptionsId
-        , "VpcId"         =? _adoVpcId
-        ]
-
-instance ToXML AssociateDhcpOptions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AssociateDhcpOptions"

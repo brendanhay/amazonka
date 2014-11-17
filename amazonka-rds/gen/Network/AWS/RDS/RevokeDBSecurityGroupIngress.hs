@@ -141,6 +141,13 @@ rdbsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSe
 rdbsgirDBSecurityGroup =
     lens _rdbsgirDBSecurityGroup (\s a -> s { _rdbsgirDBSecurityGroup = a })
 
+instance ToPath RevokeDBSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery RevokeDBSecurityGroupIngress
+
+instance ToHeaders RevokeDBSecurityGroupIngress
+
 instance AWSRequest RevokeDBSecurityGroupIngress where
     type Sv RevokeDBSecurityGroupIngress = RDS
     type Rs RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngressResponse
@@ -151,10 +158,3 @@ instance AWSRequest RevokeDBSecurityGroupIngress where
 instance FromXML RevokeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeDBSecurityGroupIngressResponse"
-
-instance ToPath RevokeDBSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders RevokeDBSecurityGroupIngress
-
-instance ToQuery RevokeDBSecurityGroupIngress

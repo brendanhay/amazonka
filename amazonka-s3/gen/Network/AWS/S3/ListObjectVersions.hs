@@ -247,6 +247,28 @@ lovrVersionIdMarker =
 lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a })
 
+instance ToPath ListObjectVersions where
+    toPath ListObjectVersions{..} = mconcat
+        [ "/"
+        , toText _lovBucket
+        ]
+
+instance ToQuery ListObjectVersions where
+    toQuery ListObjectVersions{..} = mconcat
+          [   "versions"
+          ,   "delimiter"         =? _lovDelimiter
+          ,   "encoding-type"     =? _lovEncodingType
+          ,   "key-marker"        =? _lovKeyMarker
+          ,   "max-keys"          =? _lovMaxKeys
+          ,   "prefix"            =? _lovPrefix
+          ,   "version-id-marker" =? _lovVersionIdMarker
+        ]
+
+instance ToHeaders ListObjectVersions
+instance ToXML ListObjectVersions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListObjectVersions"
+
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
     type Rs ListObjectVersions = ListObjectVersionsResponse
@@ -257,26 +279,3 @@ instance AWSRequest ListObjectVersions where
 instance FromXML ListObjectVersionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListObjectVersionsResponse"
-
-instance ToPath ListObjectVersions where
-    toPath ListObjectVersions{..} = mconcat
-        [ "/"
-        , toText _lovBucket
-        ]
-
-instance ToHeaders ListObjectVersions
-
-instance ToQuery ListObjectVersions where
-    toQuery ListObjectVersions{..} = mconcat
-        [ "versions"
-        , "delimiter"         =? _lovDelimiter
-        , "encoding-type"     =? _lovEncodingType
-        , "key-marker"        =? _lovKeyMarker
-        , "max-keys"          =? _lovMaxKeys
-        , "prefix"            =? _lovPrefix
-        , "version-id-marker" =? _lovVersionIdMarker
-        ]
-
-instance ToXML ListObjectVersions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListObjectVersions"

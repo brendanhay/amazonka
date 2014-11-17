@@ -118,6 +118,15 @@ lipurMaxResults = lens _lipurMaxResults (\s a -> s { _lipurMaxResults = a })
 lipurNextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
 lipurNextToken = lens _lipurNextToken (\s a -> s { _lipurNextToken = a })
 
+instance ToPath ListIdentityPoolUsage where
+    toPath = const "/identitypools"
+
+instance ToQuery ListIdentityPoolUsage
+
+instance ToHeaders ListIdentityPoolUsage
+instance ToJSON ListIdentityPoolUsage where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListIdentityPoolUsage where
     type Sv ListIdentityPoolUsage = CognitoSync
     type Rs ListIdentityPoolUsage = ListIdentityPoolUsageResponse
@@ -127,17 +136,3 @@ instance AWSRequest ListIdentityPoolUsage where
 
 instance FromJSON ListIdentityPoolUsageResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListIdentityPoolUsage where
-    toPath = const "/identitypools"
-
-instance ToHeaders ListIdentityPoolUsage
-
-instance ToQuery ListIdentityPoolUsage where
-    toQuery ListIdentityPoolUsage{..} = mconcat
-        [ "nextToken"  =? _lipuNextToken
-        , "maxResults" =? _lipuMaxResults
-        ]
-
-instance ToJSON ListIdentityPoolUsage where
-    toJSON = genericToJSON jsonOptions

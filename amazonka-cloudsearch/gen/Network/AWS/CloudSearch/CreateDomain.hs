@@ -84,6 +84,13 @@ createDomainResponse = CreateDomainResponse
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
 
+instance ToPath CreateDomain where
+    toPath = const "/"
+
+instance ToQuery CreateDomain
+
+instance ToHeaders CreateDomain
+
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = CloudSearch
     type Rs CreateDomain = CreateDomainResponse
@@ -94,10 +101,3 @@ instance AWSRequest CreateDomain where
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDomainResponse"
-
-instance ToPath CreateDomain where
-    toPath = const "/"
-
-instance ToHeaders CreateDomain
-
-instance ToQuery CreateDomain

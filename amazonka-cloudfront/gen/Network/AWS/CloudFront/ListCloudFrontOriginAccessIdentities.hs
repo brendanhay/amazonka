@@ -97,6 +97,16 @@ lcfoairCloudFrontOriginAccessIdentityList =
     lens _lcfoairCloudFrontOriginAccessIdentityList
         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
+instance ToPath ListCloudFrontOriginAccessIdentities where
+    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+
+instance ToQuery ListCloudFrontOriginAccessIdentities
+
+instance ToHeaders ListCloudFrontOriginAccessIdentities
+instance ToXML ListCloudFrontOriginAccessIdentities where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentities"
+
 instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Sv ListCloudFrontOriginAccessIdentities = CloudFront
     type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResponse
@@ -107,18 +117,3 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentitiesResponse"
-
-instance ToPath ListCloudFrontOriginAccessIdentities where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
-
-instance ToHeaders ListCloudFrontOriginAccessIdentities
-
-instance ToQuery ListCloudFrontOriginAccessIdentities where
-    toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
-        [ "Marker"   =? _lcfoaiMarker
-        , "MaxItems" =? _lcfoaiMaxItems
-        ]
-
-instance ToXML ListCloudFrontOriginAccessIdentities where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentities"

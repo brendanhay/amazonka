@@ -132,6 +132,13 @@ lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
 lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
 
+instance ToPath ListRolePolicies where
+    toPath = const "/"
+
+instance ToQuery ListRolePolicies
+
+instance ToHeaders ListRolePolicies
+
 instance AWSRequest ListRolePolicies where
     type Sv ListRolePolicies = IAM
     type Rs ListRolePolicies = ListRolePoliciesResponse
@@ -142,10 +149,3 @@ instance AWSRequest ListRolePolicies where
 instance FromXML ListRolePoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListRolePoliciesResponse"
-
-instance ToPath ListRolePolicies where
-    toPath = const "/"
-
-instance ToHeaders ListRolePolicies
-
-instance ToQuery ListRolePolicies

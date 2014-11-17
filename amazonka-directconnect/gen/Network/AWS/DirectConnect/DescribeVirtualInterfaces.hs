@@ -105,6 +105,16 @@ dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterfa
 dvirVirtualInterfaces =
     lens _dvirVirtualInterfaces (\s a -> s { _dvirVirtualInterfaces = a })
 
+instance ToPath DescribeVirtualInterfaces where
+    toPath = const "/"
+
+instance ToQuery DescribeVirtualInterfaces where
+    toQuery = const mempty
+
+instance ToHeaders DescribeVirtualInterfaces
+instance ToJSON DescribeVirtualInterfaces where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeVirtualInterfaces where
     type Sv DescribeVirtualInterfaces = DirectConnect
     type Rs DescribeVirtualInterfaces = DescribeVirtualInterfacesResponse
@@ -114,14 +124,3 @@ instance AWSRequest DescribeVirtualInterfaces where
 
 instance FromJSON DescribeVirtualInterfacesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeVirtualInterfaces where
-    toPath = const "/"
-
-instance ToHeaders DescribeVirtualInterfaces
-
-instance ToQuery DescribeVirtualInterfaces where
-    toQuery = const mempty
-
-instance ToJSON DescribeVirtualInterfaces where
-    toJSON = genericToJSON jsonOptions

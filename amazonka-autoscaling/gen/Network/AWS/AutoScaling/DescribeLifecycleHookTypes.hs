@@ -76,6 +76,14 @@ dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes =
     lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })
 
+instance ToPath DescribeLifecycleHookTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeLifecycleHookTypes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeLifecycleHookTypes
+
 instance AWSRequest DescribeLifecycleHookTypes where
     type Sv DescribeLifecycleHookTypes = AutoScaling
     type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesResponse
@@ -86,10 +94,3 @@ instance AWSRequest DescribeLifecycleHookTypes where
 instance FromXML DescribeLifecycleHookTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesResponse"
-
-instance ToPath DescribeLifecycleHookTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeLifecycleHookTypes
-
-instance ToQuery DescribeLifecycleHookTypes

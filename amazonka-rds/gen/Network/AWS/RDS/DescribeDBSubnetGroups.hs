@@ -130,6 +130,13 @@ ddbsgrDBSubnetGroups =
 ddbsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
 
+instance ToPath DescribeDBSubnetGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeDBSubnetGroups
+
+instance ToHeaders DescribeDBSubnetGroups
+
 instance AWSRequest DescribeDBSubnetGroups where
     type Sv DescribeDBSubnetGroups = RDS
     type Rs DescribeDBSubnetGroups = DescribeDBSubnetGroupsResponse
@@ -140,10 +147,3 @@ instance AWSRequest DescribeDBSubnetGroups where
 instance FromXML DescribeDBSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBSubnetGroupsResponse"
-
-instance ToPath DescribeDBSubnetGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBSubnetGroups
-
-instance ToQuery DescribeDBSubnetGroups

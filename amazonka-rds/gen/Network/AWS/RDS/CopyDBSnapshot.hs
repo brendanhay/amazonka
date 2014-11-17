@@ -114,6 +114,13 @@ copyDBSnapshotResponse = CopyDBSnapshotResponse
 cdbsrDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrDBSnapshot = lens _cdbsrDBSnapshot (\s a -> s { _cdbsrDBSnapshot = a })
 
+instance ToPath CopyDBSnapshot where
+    toPath = const "/"
+
+instance ToQuery CopyDBSnapshot
+
+instance ToHeaders CopyDBSnapshot
+
 instance AWSRequest CopyDBSnapshot where
     type Sv CopyDBSnapshot = RDS
     type Rs CopyDBSnapshot = CopyDBSnapshotResponse
@@ -124,10 +131,3 @@ instance AWSRequest CopyDBSnapshot where
 instance FromXML CopyDBSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyDBSnapshotResponse"
-
-instance ToPath CopyDBSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CopyDBSnapshot
-
-instance ToQuery CopyDBSnapshot

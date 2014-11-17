@@ -123,6 +123,13 @@ copyOptionGroupResponse = CopyOptionGroupResponse
 cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
 
+instance ToPath CopyOptionGroup where
+    toPath = const "/"
+
+instance ToQuery CopyOptionGroup
+
+instance ToHeaders CopyOptionGroup
+
 instance AWSRequest CopyOptionGroup where
     type Sv CopyOptionGroup = RDS
     type Rs CopyOptionGroup = CopyOptionGroupResponse
@@ -133,10 +140,3 @@ instance AWSRequest CopyOptionGroup where
 instance FromXML CopyOptionGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyOptionGroupResponse"
-
-instance ToPath CopyOptionGroup where
-    toPath = const "/"
-
-instance ToHeaders CopyOptionGroup
-
-instance ToQuery CopyOptionGroup

@@ -307,6 +307,13 @@ rdbifdbsrDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBIn
 rdbifdbsrDBInstance =
     lens _rdbifdbsrDBInstance (\s a -> s { _rdbifdbsrDBInstance = a })
 
+instance ToPath RestoreDBInstanceFromDBSnapshot where
+    toPath = const "/"
+
+instance ToQuery RestoreDBInstanceFromDBSnapshot
+
+instance ToHeaders RestoreDBInstanceFromDBSnapshot
+
 instance AWSRequest RestoreDBInstanceFromDBSnapshot where
     type Sv RestoreDBInstanceFromDBSnapshot = RDS
     type Rs RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshotResponse
@@ -317,10 +324,3 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot where
 instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestoreDBInstanceFromDBSnapshotResponse"
-
-instance ToPath RestoreDBInstanceFromDBSnapshot where
-    toPath = const "/"
-
-instance ToHeaders RestoreDBInstanceFromDBSnapshot
-
-instance ToQuery RestoreDBInstanceFromDBSnapshot

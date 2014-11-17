@@ -69,20 +69,19 @@ data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 deregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse
 deregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 
+instance ToPath DeregisterRdsDbInstance where
+    toPath = const "/"
+
+instance ToQuery DeregisterRdsDbInstance where
+    toQuery = const mempty
+
+instance ToHeaders DeregisterRdsDbInstance
+instance ToJSON DeregisterRdsDbInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse
 
     request  = post
     response = nullResponse DeregisterRdsDbInstanceResponse
-
-instance ToPath DeregisterRdsDbInstance where
-    toPath = const "/"
-
-instance ToHeaders DeregisterRdsDbInstance
-
-instance ToQuery DeregisterRdsDbInstance where
-    toQuery = const mempty
-
-instance ToJSON DeregisterRdsDbInstance where
-    toJSON = genericToJSON jsonOptions

@@ -113,6 +113,13 @@ createInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
 
+instance ToPath CreateInstanceExportTask where
+    toPath = const "/"
+
+instance ToQuery CreateInstanceExportTask
+
+instance ToHeaders CreateInstanceExportTask
+
 instance AWSRequest CreateInstanceExportTask where
     type Sv CreateInstanceExportTask = EC2
     type Rs CreateInstanceExportTask = CreateInstanceExportTaskResponse
@@ -123,20 +130,3 @@ instance AWSRequest CreateInstanceExportTask where
 instance FromXML CreateInstanceExportTaskResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateInstanceExportTaskResponse"
-
-instance ToPath CreateInstanceExportTask where
-    toPath = const "/"
-
-instance ToHeaders CreateInstanceExportTask
-
-instance ToQuery CreateInstanceExportTask where
-    toQuery CreateInstanceExportTask{..} = mconcat
-        [ "description"       =? _cietDescription
-        , "instanceId"        =? _cietInstanceId
-        , "targetEnvironment" =? _cietTargetEnvironment
-        , "exportToS3"        =? _cietExportToS3Task
-        ]
-
-instance ToXML CreateInstanceExportTask where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateInstanceExportTask"

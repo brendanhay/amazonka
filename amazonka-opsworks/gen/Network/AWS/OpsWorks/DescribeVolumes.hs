@@ -123,6 +123,16 @@ describeVolumesResponse = DescribeVolumesResponse
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
+instance ToPath DescribeVolumes where
+    toPath = const "/"
+
+instance ToQuery DescribeVolumes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeVolumes
+instance ToJSON DescribeVolumes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = OpsWorks
     type Rs DescribeVolumes = DescribeVolumesResponse
@@ -132,14 +142,3 @@ instance AWSRequest DescribeVolumes where
 
 instance FromJSON DescribeVolumesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeVolumes where
-    toPath = const "/"
-
-instance ToHeaders DescribeVolumes
-
-instance ToQuery DescribeVolumes where
-    toQuery = const mempty
-
-instance ToJSON DescribeVolumes where
-    toJSON = genericToJSON jsonOptions

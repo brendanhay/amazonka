@@ -84,27 +84,26 @@ data PutBucketTaggingResponse = PutBucketTaggingResponse
 putBucketTaggingResponse :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse
 
-instance AWSRequest PutBucketTagging where
-    type Sv PutBucketTagging = S3
-    type Rs PutBucketTagging = PutBucketTaggingResponse
-
-    request  = put
-    response = nullResponse PutBucketTaggingResponse
-
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
         [ "/"
         , toText _pbtBucket
         ]
 
+instance ToQuery PutBucketTagging where
+    toQuery = const "tagging"
+
 instance ToHeaders PutBucketTagging where
     toHeaders PutBucketTagging{..} = mconcat
         [ "Content-MD5" =: _pbtContentMD5
         ]
-
-instance ToQuery PutBucketTagging where
-    toQuery = const "tagging"
-
 instance ToXML PutBucketTagging where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketTagging"
+
+instance AWSRequest PutBucketTagging where
+    type Sv PutBucketTagging = S3
+    type Rs PutBucketTagging = PutBucketTaggingResponse
+
+    request  = put
+    response = nullResponse PutBucketTaggingResponse

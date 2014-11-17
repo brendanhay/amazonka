@@ -108,6 +108,13 @@ ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
+instance ToPath ListDomains where
+    toPath = const "/"
+
+instance ToQuery ListDomains
+
+instance ToHeaders ListDomains
+
 instance AWSRequest ListDomains where
     type Sv ListDomains = SDB
     type Rs ListDomains = ListDomainsResponse
@@ -118,10 +125,3 @@ instance AWSRequest ListDomains where
 instance FromXML ListDomainsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDomainsResponse"
-
-instance ToPath ListDomains where
-    toPath = const "/"
-
-instance ToHeaders ListDomains
-
-instance ToQuery ListDomains

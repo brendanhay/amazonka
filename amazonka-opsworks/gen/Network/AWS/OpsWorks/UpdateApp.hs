@@ -156,20 +156,19 @@ data UpdateAppResponse = UpdateAppResponse
 updateAppResponse :: UpdateAppResponse
 updateAppResponse = UpdateAppResponse
 
+instance ToPath UpdateApp where
+    toPath = const "/"
+
+instance ToQuery UpdateApp where
+    toQuery = const mempty
+
+instance ToHeaders UpdateApp
+instance ToJSON UpdateApp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks
     type Rs UpdateApp = UpdateAppResponse
 
     request  = post
     response = nullResponse UpdateAppResponse
-
-instance ToPath UpdateApp where
-    toPath = const "/"
-
-instance ToHeaders UpdateApp
-
-instance ToQuery UpdateApp where
-    toQuery = const mempty
-
-instance ToJSON UpdateApp where
-    toJSON = genericToJSON jsonOptions

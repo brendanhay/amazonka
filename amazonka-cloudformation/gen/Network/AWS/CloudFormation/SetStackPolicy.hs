@@ -94,16 +94,16 @@ data SetStackPolicyResponse = SetStackPolicyResponse
 setStackPolicyResponse :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse
 
+instance ToPath SetStackPolicy where
+    toPath = const "/"
+
+instance ToQuery SetStackPolicy
+
+instance ToHeaders SetStackPolicy
+
 instance AWSRequest SetStackPolicy where
     type Sv SetStackPolicy = CloudFormation
     type Rs SetStackPolicy = SetStackPolicyResponse
 
     request  = post "SetStackPolicy"
     response = nullResponse SetStackPolicyResponse
-
-instance ToPath SetStackPolicy where
-    toPath = const "/"
-
-instance ToHeaders SetStackPolicy
-
-instance ToQuery SetStackPolicy

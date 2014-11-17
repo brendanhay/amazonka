@@ -228,6 +228,13 @@ createStackResponse = CreateStackResponse
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
+instance ToPath CreateStack where
+    toPath = const "/"
+
+instance ToQuery CreateStack
+
+instance ToHeaders CreateStack
+
 instance AWSRequest CreateStack where
     type Sv CreateStack = CloudFormation
     type Rs CreateStack = CreateStackResponse
@@ -238,10 +245,3 @@ instance AWSRequest CreateStack where
 instance FromXML CreateStackResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateStackResponse"
-
-instance ToPath CreateStack where
-    toPath = const "/"
-
-instance ToHeaders CreateStack
-
-instance ToQuery CreateStack

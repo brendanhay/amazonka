@@ -106,6 +106,16 @@ dccrInitiatorName =
 dccrTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccrTargetARN = lens _dccrTargetARN (\s a -> s { _dccrTargetARN = a })
 
+instance ToPath DeleteChapCredentials where
+    toPath = const "/"
+
+instance ToQuery DeleteChapCredentials where
+    toQuery = const mempty
+
+instance ToHeaders DeleteChapCredentials
+instance ToJSON DeleteChapCredentials where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteChapCredentials where
     type Sv DeleteChapCredentials = StorageGateway
     type Rs DeleteChapCredentials = DeleteChapCredentialsResponse
@@ -115,14 +125,3 @@ instance AWSRequest DeleteChapCredentials where
 
 instance FromJSON DeleteChapCredentialsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteChapCredentials where
-    toPath = const "/"
-
-instance ToHeaders DeleteChapCredentials
-
-instance ToQuery DeleteChapCredentials where
-    toQuery = const mempty
-
-instance ToJSON DeleteChapCredentials where
-    toJSON = genericToJSON jsonOptions

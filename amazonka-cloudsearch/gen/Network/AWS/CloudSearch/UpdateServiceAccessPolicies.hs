@@ -97,6 +97,13 @@ usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesS
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
 
+instance ToPath UpdateServiceAccessPolicies where
+    toPath = const "/"
+
+instance ToQuery UpdateServiceAccessPolicies
+
+instance ToHeaders UpdateServiceAccessPolicies
+
 instance AWSRequest UpdateServiceAccessPolicies where
     type Sv UpdateServiceAccessPolicies = CloudSearch
     type Rs UpdateServiceAccessPolicies = UpdateServiceAccessPoliciesResponse
@@ -107,10 +114,3 @@ instance AWSRequest UpdateServiceAccessPolicies where
 instance FromXML UpdateServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateServiceAccessPoliciesResponse"
-
-instance ToPath UpdateServiceAccessPolicies where
-    toPath = const "/"
-
-instance ToHeaders UpdateServiceAccessPolicies
-
-instance ToQuery UpdateServiceAccessPolicies

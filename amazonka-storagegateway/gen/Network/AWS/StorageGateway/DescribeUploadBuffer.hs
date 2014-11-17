@@ -112,6 +112,16 @@ dubrUploadBufferUsedInBytes =
     lens _dubrUploadBufferUsedInBytes
         (\s a -> s { _dubrUploadBufferUsedInBytes = a })
 
+instance ToPath DescribeUploadBuffer where
+    toPath = const "/"
+
+instance ToQuery DescribeUploadBuffer where
+    toQuery = const mempty
+
+instance ToHeaders DescribeUploadBuffer
+instance ToJSON DescribeUploadBuffer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeUploadBuffer where
     type Sv DescribeUploadBuffer = StorageGateway
     type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
@@ -121,14 +131,3 @@ instance AWSRequest DescribeUploadBuffer where
 
 instance FromJSON DescribeUploadBufferResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeUploadBuffer where
-    toPath = const "/"
-
-instance ToHeaders DescribeUploadBuffer
-
-instance ToQuery DescribeUploadBuffer where
-    toQuery = const mempty
-
-instance ToJSON DescribeUploadBuffer where
-    toJSON = genericToJSON jsonOptions

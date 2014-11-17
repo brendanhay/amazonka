@@ -72,16 +72,16 @@ data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse
 
+instance ToPath DeleteSAMLProvider where
+    toPath = const "/"
+
+instance ToQuery DeleteSAMLProvider
+
+instance ToHeaders DeleteSAMLProvider
+
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM
     type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
 
     request  = post "DeleteSAMLProvider"
     response = nullResponse DeleteSAMLProviderResponse
-
-instance ToPath DeleteSAMLProvider where
-    toPath = const "/"
-
-instance ToHeaders DeleteSAMLProvider
-
-instance ToQuery DeleteSAMLProvider

@@ -102,6 +102,13 @@ deleteCacheClusterResponse = DeleteCacheClusterResponse
 dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
 
+instance ToPath DeleteCacheCluster where
+    toPath = const "/"
+
+instance ToQuery DeleteCacheCluster
+
+instance ToHeaders DeleteCacheCluster
+
 instance AWSRequest DeleteCacheCluster where
     type Sv DeleteCacheCluster = ElastiCache
     type Rs DeleteCacheCluster = DeleteCacheClusterResponse
@@ -112,10 +119,3 @@ instance AWSRequest DeleteCacheCluster where
 instance FromXML DeleteCacheClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCacheClusterResponse"
-
-instance ToPath DeleteCacheCluster where
-    toPath = const "/"
-
-instance ToHeaders DeleteCacheCluster
-
-instance ToQuery DeleteCacheCluster

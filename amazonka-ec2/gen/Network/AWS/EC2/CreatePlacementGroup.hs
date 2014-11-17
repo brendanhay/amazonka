@@ -89,25 +89,16 @@ data CreatePlacementGroupResponse = CreatePlacementGroupResponse
 createPlacementGroupResponse :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse
 
+instance ToPath CreatePlacementGroup where
+    toPath = const "/"
+
+instance ToQuery CreatePlacementGroup
+
+instance ToHeaders CreatePlacementGroup
+
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2
     type Rs CreatePlacementGroup = CreatePlacementGroupResponse
 
     request  = post "CreatePlacementGroup"
     response = nullResponse CreatePlacementGroupResponse
-
-instance ToPath CreatePlacementGroup where
-    toPath = const "/"
-
-instance ToHeaders CreatePlacementGroup
-
-instance ToQuery CreatePlacementGroup where
-    toQuery CreatePlacementGroup{..} = mconcat
-        [ "dryRun"    =? _cpgDryRun
-        , "groupName" =? _cpgGroupName
-        , "strategy"  =? _cpgStrategy
-        ]
-
-instance ToXML CreatePlacementGroup where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreatePlacementGroup"

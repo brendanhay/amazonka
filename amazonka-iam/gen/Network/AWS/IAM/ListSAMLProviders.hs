@@ -74,6 +74,14 @@ lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntr
 lsamlprSAMLProviderList =
     lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })
 
+instance ToPath ListSAMLProviders where
+    toPath = const "/"
+
+instance ToQuery ListSAMLProviders where
+    toQuery = const mempty
+
+instance ToHeaders ListSAMLProviders
+
 instance AWSRequest ListSAMLProviders where
     type Sv ListSAMLProviders = IAM
     type Rs ListSAMLProviders = ListSAMLProvidersResponse
@@ -84,10 +92,3 @@ instance AWSRequest ListSAMLProviders where
 instance FromXML ListSAMLProvidersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSAMLProvidersResponse"
-
-instance ToPath ListSAMLProviders where
-    toPath = const "/"
-
-instance ToHeaders ListSAMLProviders
-
-instance ToQuery ListSAMLProviders

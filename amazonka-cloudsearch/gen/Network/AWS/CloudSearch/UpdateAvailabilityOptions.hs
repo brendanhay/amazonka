@@ -101,6 +101,13 @@ uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe Availa
 uaorAvailabilityOptions =
     lens _uaorAvailabilityOptions (\s a -> s { _uaorAvailabilityOptions = a })
 
+instance ToPath UpdateAvailabilityOptions where
+    toPath = const "/"
+
+instance ToQuery UpdateAvailabilityOptions
+
+instance ToHeaders UpdateAvailabilityOptions
+
 instance AWSRequest UpdateAvailabilityOptions where
     type Sv UpdateAvailabilityOptions = CloudSearch
     type Rs UpdateAvailabilityOptions = UpdateAvailabilityOptionsResponse
@@ -111,10 +118,3 @@ instance AWSRequest UpdateAvailabilityOptions where
 instance FromXML UpdateAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAvailabilityOptionsResponse"
-
-instance ToPath UpdateAvailabilityOptions where
-    toPath = const "/"
-
-instance ToHeaders UpdateAvailabilityOptions
-
-instance ToQuery UpdateAvailabilityOptions

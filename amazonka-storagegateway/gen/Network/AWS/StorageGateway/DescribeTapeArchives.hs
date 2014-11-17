@@ -123,6 +123,16 @@ dtarMarker = lens _dtarMarker (\s a -> s { _dtarMarker = a })
 dtarTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
 dtarTapeArchives = lens _dtarTapeArchives (\s a -> s { _dtarTapeArchives = a })
 
+instance ToPath DescribeTapeArchives where
+    toPath = const "/"
+
+instance ToQuery DescribeTapeArchives where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTapeArchives
+instance ToJSON DescribeTapeArchives where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTapeArchives where
     type Sv DescribeTapeArchives = StorageGateway
     type Rs DescribeTapeArchives = DescribeTapeArchivesResponse
@@ -132,14 +142,3 @@ instance AWSRequest DescribeTapeArchives where
 
 instance FromJSON DescribeTapeArchivesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTapeArchives where
-    toPath = const "/"
-
-instance ToHeaders DescribeTapeArchives
-
-instance ToQuery DescribeTapeArchives where
-    toQuery = const mempty
-
-instance ToJSON DescribeTapeArchives where
-    toJSON = genericToJSON jsonOptions

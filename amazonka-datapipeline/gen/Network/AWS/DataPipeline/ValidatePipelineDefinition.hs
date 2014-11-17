@@ -117,6 +117,16 @@ vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWa
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })
 
+instance ToPath ValidatePipelineDefinition where
+    toPath = const "/"
+
+instance ToQuery ValidatePipelineDefinition where
+    toQuery = const mempty
+
+instance ToHeaders ValidatePipelineDefinition
+instance ToJSON ValidatePipelineDefinition where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ValidatePipelineDefinition where
     type Sv ValidatePipelineDefinition = DataPipeline
     type Rs ValidatePipelineDefinition = ValidatePipelineDefinitionResponse
@@ -126,14 +136,3 @@ instance AWSRequest ValidatePipelineDefinition where
 
 instance FromJSON ValidatePipelineDefinitionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ValidatePipelineDefinition where
-    toPath = const "/"
-
-instance ToHeaders ValidatePipelineDefinition
-
-instance ToQuery ValidatePipelineDefinition where
-    toQuery = const mempty
-
-instance ToJSON ValidatePipelineDefinition where
-    toJSON = genericToJSON jsonOptions

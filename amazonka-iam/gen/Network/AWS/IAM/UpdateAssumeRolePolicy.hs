@@ -80,16 +80,16 @@ data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 
+instance ToPath UpdateAssumeRolePolicy where
+    toPath = const "/"
+
+instance ToQuery UpdateAssumeRolePolicy
+
+instance ToHeaders UpdateAssumeRolePolicy
+
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
 
     request  = post "UpdateAssumeRolePolicy"
     response = nullResponse UpdateAssumeRolePolicyResponse
-
-instance ToPath UpdateAssumeRolePolicy where
-    toPath = const "/"
-
-instance ToHeaders UpdateAssumeRolePolicy
-
-instance ToQuery UpdateAssumeRolePolicy

@@ -116,6 +116,16 @@ cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a })
 cpdtrTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
 cpdtrTruncated = lens _cpdtrTruncated (\s a -> s { _cpdtrTruncated = a })
 
+instance ToPath CountPendingDecisionTasks where
+    toPath = const "/"
+
+instance ToQuery CountPendingDecisionTasks where
+    toQuery = const mempty
+
+instance ToHeaders CountPendingDecisionTasks
+instance ToJSON CountPendingDecisionTasks where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CountPendingDecisionTasks where
     type Sv CountPendingDecisionTasks = SWF
     type Rs CountPendingDecisionTasks = CountPendingDecisionTasksResponse
@@ -125,14 +135,3 @@ instance AWSRequest CountPendingDecisionTasks where
 
 instance FromJSON CountPendingDecisionTasksResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CountPendingDecisionTasks where
-    toPath = const "/"
-
-instance ToHeaders CountPendingDecisionTasks
-
-instance ToQuery CountPendingDecisionTasks where
-    toQuery = const mempty
-
-instance ToJSON CountPendingDecisionTasks where
-    toJSON = genericToJSON jsonOptions

@@ -111,16 +111,16 @@ data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 
+instance ToPath ChangeMessageVisibility where
+    toPath = const "/"
+
+instance ToQuery ChangeMessageVisibility
+
+instance ToHeaders ChangeMessageVisibility
+
 instance AWSRequest ChangeMessageVisibility where
     type Sv ChangeMessageVisibility = SQS
     type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
 
     request  = post "ChangeMessageVisibility"
     response = nullResponse ChangeMessageVisibilityResponse
-
-instance ToPath ChangeMessageVisibility where
-    toPath = const "/"
-
-instance ToHeaders ChangeMessageVisibility
-
-instance ToQuery ChangeMessageVisibility

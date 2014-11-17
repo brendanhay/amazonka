@@ -815,6 +815,7 @@
                 "name": "CreateAliasResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -884,6 +885,8 @@
                 "name": "CreateAlias",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -940,6 +943,7 @@
                 "name": "CreateGrantResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1066,6 +1070,8 @@
                 "name": "CreateGrant",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1249,6 +1255,7 @@
                 "name": "CreateKeyResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1319,6 +1326,8 @@
                 "name": "CreateKey",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1431,6 +1440,7 @@
                 "name": "DecryptResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1543,6 +1553,8 @@
                 "name": "Decrypt",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1641,6 +1653,7 @@
                 "name": "DeleteAliasResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1713,6 +1726,8 @@
                 "name": "DeleteAlias",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1769,6 +1784,7 @@
                 "name": "DescribeKeyResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1871,6 +1887,8 @@
                 "name": "DescribeKey",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1912,6 +1930,7 @@
                 "name": "DisableKeyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1984,6 +2003,8 @@
                 "name": "DisableKey",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2025,6 +2046,7 @@
                 "name": "DisableKeyRotationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2097,6 +2119,8 @@
                 "name": "DisableKeyRotation",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2138,6 +2162,7 @@
                 "name": "EnableKeyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2210,6 +2235,8 @@
                 "name": "EnableKey",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2251,6 +2278,7 @@
                 "name": "EnableKeyRotationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2323,6 +2351,8 @@
                 "name": "EnableKeyRotation",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2364,6 +2394,7 @@
                 "name": "EncryptResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2490,6 +2521,8 @@
                 "name": "Encrypt",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2602,6 +2635,7 @@
                 "name": "GenerateDataKeyResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2742,6 +2776,8 @@
                 "name": "GenerateDataKey",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2896,6 +2932,7 @@
                 "name": "GenerateDataKeyWithoutPlaintextResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3008,6 +3045,8 @@
                 "name": "GenerateDataKeyWithoutPlaintext",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3177,6 +3216,7 @@
                 "name": "GenerateRandomResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3262,6 +3302,8 @@
                 "name": "GenerateRandom",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3335,6 +3377,7 @@
                 "name": "GetKeyPolicyResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3434,6 +3477,8 @@
                 "name": "GetKeyPolicy",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3505,6 +3550,7 @@
                 "name": "GetKeyRotationStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3607,6 +3653,8 @@
                 "name": "GetKeyRotationStatus",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3648,6 +3696,7 @@
                 "name": "ListAliasesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3774,6 +3823,8 @@
                 "name": "ListAliases",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3858,6 +3909,7 @@
                 "name": "ListGrantsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3999,6 +4051,8 @@
                 "name": "ListGrants",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4098,6 +4152,7 @@
                 "name": "ListKeyPoliciesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4239,6 +4294,8 @@
                 "name": "ListKeyPolicies",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4337,6 +4394,7 @@
                 "name": "ListKeysResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4463,6 +4521,8 @@
                 "name": "ListKeys",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4547,6 +4607,7 @@
                 "name": "PutKeyPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4630,6 +4691,8 @@
                 "name": "PutKeyPolicy",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4699,6 +4762,7 @@
                 "name": "ReEncryptResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4853,6 +4917,8 @@
                 "name": "ReEncrypt",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4993,6 +5059,7 @@
                 "name": "RetireGrantResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5065,6 +5132,8 @@
                 "name": "RetireGrant",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5106,6 +5175,7 @@
                 "name": "RevokeGrantResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5175,6 +5245,8 @@
                 "name": "RevokeGrant",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5230,6 +5302,7 @@
                 "name": "UpdateKeyDescriptionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5299,6 +5372,8 @@
                 "name": "UpdateKeyDescription",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

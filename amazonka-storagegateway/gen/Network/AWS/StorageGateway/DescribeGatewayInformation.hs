@@ -146,6 +146,16 @@ dgirNextUpdateAvailabilityDate =
     lens _dgirNextUpdateAvailabilityDate
         (\s a -> s { _dgirNextUpdateAvailabilityDate = a })
 
+instance ToPath DescribeGatewayInformation where
+    toPath = const "/"
+
+instance ToQuery DescribeGatewayInformation where
+    toQuery = const mempty
+
+instance ToHeaders DescribeGatewayInformation
+instance ToJSON DescribeGatewayInformation where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeGatewayInformation where
     type Sv DescribeGatewayInformation = StorageGateway
     type Rs DescribeGatewayInformation = DescribeGatewayInformationResponse
@@ -155,14 +165,3 @@ instance AWSRequest DescribeGatewayInformation where
 
 instance FromJSON DescribeGatewayInformationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeGatewayInformation where
-    toPath = const "/"
-
-instance ToHeaders DescribeGatewayInformation
-
-instance ToQuery DescribeGatewayInformation where
-    toQuery = const mempty
-
-instance ToJSON DescribeGatewayInformation where
-    toJSON = genericToJSON jsonOptions

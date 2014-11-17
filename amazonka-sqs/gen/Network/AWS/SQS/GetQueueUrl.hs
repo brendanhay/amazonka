@@ -100,6 +100,13 @@ getQueueUrlResponse = GetQueueUrlResponse
 gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 
+instance ToPath GetQueueUrl where
+    toPath = const "/"
+
+instance ToQuery GetQueueUrl
+
+instance ToHeaders GetQueueUrl
+
 instance AWSRequest GetQueueUrl where
     type Sv GetQueueUrl = SQS
     type Rs GetQueueUrl = GetQueueUrlResponse
@@ -110,10 +117,3 @@ instance AWSRequest GetQueueUrl where
 instance FromXML GetQueueUrlResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetQueueUrlResponse"
-
-instance ToPath GetQueueUrl where
-    toPath = const "/"
-
-instance ToHeaders GetQueueUrl
-
-instance ToQuery GetQueueUrl

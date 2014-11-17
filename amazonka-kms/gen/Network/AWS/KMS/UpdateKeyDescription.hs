@@ -76,20 +76,19 @@ data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse
 updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse
 updateKeyDescriptionResponse = UpdateKeyDescriptionResponse
 
+instance ToPath UpdateKeyDescription where
+    toPath = const "/"
+
+instance ToQuery UpdateKeyDescription where
+    toQuery = const mempty
+
+instance ToHeaders UpdateKeyDescription
+instance ToJSON UpdateKeyDescription where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateKeyDescription where
     type Sv UpdateKeyDescription = KMS
     type Rs UpdateKeyDescription = UpdateKeyDescriptionResponse
 
     request  = post
     response = nullResponse UpdateKeyDescriptionResponse
-
-instance ToPath UpdateKeyDescription where
-    toPath = const "/"
-
-instance ToHeaders UpdateKeyDescription
-
-instance ToQuery UpdateKeyDescription where
-    toQuery = const mempty
-
-instance ToJSON UpdateKeyDescription where
-    toJSON = genericToJSON jsonOptions

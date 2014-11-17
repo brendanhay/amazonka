@@ -115,6 +115,16 @@ describeElasticIpsResponse = DescribeElasticIpsResponse
 deirElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]
 deirElasticIps = lens _deirElasticIps (\s a -> s { _deirElasticIps = a })
 
+instance ToPath DescribeElasticIps where
+    toPath = const "/"
+
+instance ToQuery DescribeElasticIps where
+    toQuery = const mempty
+
+instance ToHeaders DescribeElasticIps
+instance ToJSON DescribeElasticIps where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeElasticIps where
     type Sv DescribeElasticIps = OpsWorks
     type Rs DescribeElasticIps = DescribeElasticIpsResponse
@@ -124,14 +134,3 @@ instance AWSRequest DescribeElasticIps where
 
 instance FromJSON DescribeElasticIpsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeElasticIps where
-    toPath = const "/"
-
-instance ToHeaders DescribeElasticIps
-
-instance ToQuery DescribeElasticIps where
-    toQuery = const mempty
-
-instance ToJSON DescribeElasticIps where
-    toJSON = genericToJSON jsonOptions

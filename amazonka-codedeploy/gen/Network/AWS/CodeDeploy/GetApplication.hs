@@ -84,6 +84,16 @@ getApplicationResponse = GetApplicationResponse
 garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garApplication = lens _garApplication (\s a -> s { _garApplication = a })
 
+instance ToPath GetApplication where
+    toPath = const "/"
+
+instance ToQuery GetApplication where
+    toQuery = const mempty
+
+instance ToHeaders GetApplication
+instance ToJSON GetApplication where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetApplication where
     type Sv GetApplication = CodeDeploy
     type Rs GetApplication = GetApplicationResponse
@@ -93,14 +103,3 @@ instance AWSRequest GetApplication where
 
 instance FromJSON GetApplicationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetApplication where
-    toPath = const "/"
-
-instance ToHeaders GetApplication
-
-instance ToQuery GetApplication where
-    toQuery = const mempty
-
-instance ToJSON GetApplication where
-    toJSON = genericToJSON jsonOptions

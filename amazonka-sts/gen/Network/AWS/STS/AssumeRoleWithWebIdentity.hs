@@ -272,6 +272,13 @@ arwwirSubjectFromWebIdentityToken =
     lens _arwwirSubjectFromWebIdentityToken
         (\s a -> s { _arwwirSubjectFromWebIdentityToken = a })
 
+instance ToPath AssumeRoleWithWebIdentity where
+    toPath = const "/"
+
+instance ToQuery AssumeRoleWithWebIdentity
+
+instance ToHeaders AssumeRoleWithWebIdentity
+
 instance AWSRequest AssumeRoleWithWebIdentity where
     type Sv AssumeRoleWithWebIdentity = STS
     type Rs AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentityResponse
@@ -282,10 +289,3 @@ instance AWSRequest AssumeRoleWithWebIdentity where
 instance FromXML AssumeRoleWithWebIdentityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumeRoleWithWebIdentityResponse"
-
-instance ToPath AssumeRoleWithWebIdentity where
-    toPath = const "/"
-
-instance ToHeaders AssumeRoleWithWebIdentity
-
-instance ToQuery AssumeRoleWithWebIdentity

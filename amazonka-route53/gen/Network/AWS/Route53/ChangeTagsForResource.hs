@@ -104,13 +104,6 @@ data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
 changeTagsForResourceResponse :: ChangeTagsForResourceResponse
 changeTagsForResourceResponse = ChangeTagsForResourceResponse
 
-instance AWSRequest ChangeTagsForResource where
-    type Sv ChangeTagsForResource = Route53
-    type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
-
-    request  = post
-    response = nullResponse ChangeTagsForResourceResponse
-
 instance ToPath ChangeTagsForResource where
     toPath ChangeTagsForResource{..} = mconcat
         [ "/2013-04-01/tags/"
@@ -119,11 +112,17 @@ instance ToPath ChangeTagsForResource where
         , toText _ctfrResourceId
         ]
 
-instance ToHeaders ChangeTagsForResource
-
 instance ToQuery ChangeTagsForResource where
     toQuery = const mempty
 
+instance ToHeaders ChangeTagsForResource
 instance ToXML ChangeTagsForResource where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeTagsForResource"
+
+instance AWSRequest ChangeTagsForResource where
+    type Sv ChangeTagsForResource = Route53
+    type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
+
+    request  = post
+    response = nullResponse ChangeTagsForResourceResponse

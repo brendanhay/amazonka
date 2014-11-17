@@ -120,6 +120,22 @@ ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Job')
 ljbprNextPageToken =
     lens _ljbprNextPageToken (\s a -> s { _ljbprNextPageToken = a })
 
+instance ToPath ListJobsByPipeline where
+    toPath ListJobsByPipeline{..} = mconcat
+        [ "/2012-09-25/jobsByPipeline/"
+        , toText _ljbpPipelineId
+        ]
+
+instance ToQuery ListJobsByPipeline where
+    toQuery ListJobsByPipeline{..} = mconcat
+          [   "Ascending" =? _ljbpAscending
+          ,   "PageToken" =? _ljbpPageToken
+        ]
+
+instance ToHeaders ListJobsByPipeline
+instance ToJSON ListJobsByPipeline where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListJobsByPipeline where
     type Sv ListJobsByPipeline = ElasticTranscoder
     type Rs ListJobsByPipeline = ListJobsByPipelineResponse
@@ -129,20 +145,3 @@ instance AWSRequest ListJobsByPipeline where
 
 instance FromJSON ListJobsByPipelineResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListJobsByPipeline where
-    toPath ListJobsByPipeline{..} = mconcat
-        [ "/2012-09-25/jobsByPipeline/"
-        , toText _ljbpPipelineId
-        ]
-
-instance ToHeaders ListJobsByPipeline
-
-instance ToQuery ListJobsByPipeline where
-    toQuery ListJobsByPipeline{..} = mconcat
-        [ "Ascending" =? _ljbpAscending
-        , "PageToken" =? _ljbpPageToken
-        ]
-
-instance ToJSON ListJobsByPipeline where
-    toJSON = genericToJSON jsonOptions

@@ -81,6 +81,13 @@ cancelJobResponse = CancelJobResponse
 cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
 cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
 
+instance ToPath CancelJob where
+    toPath = const "/"
+
+instance ToQuery CancelJob
+
+instance ToHeaders CancelJob
+
 instance AWSRequest CancelJob where
     type Sv CancelJob = ImportExport
     type Rs CancelJob = CancelJobResponse
@@ -91,10 +98,3 @@ instance AWSRequest CancelJob where
 instance FromXML CancelJobResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelJobResponse"
-
-instance ToPath CancelJob where
-    toPath = const "/"
-
-instance ToHeaders CancelJob
-
-instance ToQuery CancelJob

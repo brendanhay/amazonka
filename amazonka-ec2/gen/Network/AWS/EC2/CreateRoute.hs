@@ -140,29 +140,16 @@ data CreateRouteResponse = CreateRouteResponse
 createRouteResponse :: CreateRouteResponse
 createRouteResponse = CreateRouteResponse
 
+instance ToPath CreateRoute where
+    toPath = const "/"
+
+instance ToQuery CreateRoute
+
+instance ToHeaders CreateRoute
+
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2
     type Rs CreateRoute = CreateRouteResponse
 
     request  = post "CreateRoute"
     response = nullResponse CreateRouteResponse
-
-instance ToPath CreateRoute where
-    toPath = const "/"
-
-instance ToHeaders CreateRoute
-
-instance ToQuery CreateRoute where
-    toQuery CreateRoute{..} = mconcat
-        [ "dryRun"                 =? _crDryRun
-        , "routeTableId"           =? _crRouteTableId
-        , "destinationCidrBlock"   =? _crDestinationCidrBlock
-        , "gatewayId"              =? _crGatewayId
-        , "instanceId"             =? _crInstanceId
-        , "networkInterfaceId"     =? _crNetworkInterfaceId
-        , "vpcPeeringConnectionId" =? _crVpcPeeringConnectionId
-        ]
-
-instance ToXML CreateRoute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateRoute"

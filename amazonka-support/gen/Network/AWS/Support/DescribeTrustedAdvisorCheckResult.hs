@@ -101,6 +101,16 @@ describeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultRes
 dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrResult = lens _dtacrrResult (\s a -> s { _dtacrrResult = a })
 
+instance ToPath DescribeTrustedAdvisorCheckResult where
+    toPath = const "/"
+
+instance ToQuery DescribeTrustedAdvisorCheckResult where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTrustedAdvisorCheckResult
+instance ToJSON DescribeTrustedAdvisorCheckResult where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTrustedAdvisorCheckResult where
     type Sv DescribeTrustedAdvisorCheckResult = Support
     type Rs DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResultResponse
@@ -110,14 +120,3 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult where
 
 instance FromJSON DescribeTrustedAdvisorCheckResultResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTrustedAdvisorCheckResult where
-    toPath = const "/"
-
-instance ToHeaders DescribeTrustedAdvisorCheckResult
-
-instance ToQuery DescribeTrustedAdvisorCheckResult where
-    toQuery = const mempty
-
-instance ToJSON DescribeTrustedAdvisorCheckResult where
-    toJSON = genericToJSON jsonOptions

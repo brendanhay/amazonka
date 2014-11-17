@@ -120,6 +120,16 @@ ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\s a -> s { _ltfsrHasMoreTags = a })
 ltfsrTags :: Lens' ListTagsForStreamResponse [Tag]
 ltfsrTags = lens _ltfsrTags (\s a -> s { _ltfsrTags = a })
 
+instance ToPath ListTagsForStream where
+    toPath = const "/"
+
+instance ToQuery ListTagsForStream where
+    toQuery = const mempty
+
+instance ToHeaders ListTagsForStream
+instance ToJSON ListTagsForStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListTagsForStream where
     type Sv ListTagsForStream = Kinesis
     type Rs ListTagsForStream = ListTagsForStreamResponse
@@ -129,14 +139,3 @@ instance AWSRequest ListTagsForStream where
 
 instance FromJSON ListTagsForStreamResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListTagsForStream where
-    toPath = const "/"
-
-instance ToHeaders ListTagsForStream
-
-instance ToQuery ListTagsForStream where
-    toQuery = const mempty
-
-instance ToJSON ListTagsForStream where
-    toJSON = genericToJSON jsonOptions

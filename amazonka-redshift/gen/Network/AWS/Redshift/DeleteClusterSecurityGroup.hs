@@ -72,16 +72,16 @@ data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 
+instance ToPath DeleteClusterSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteClusterSecurityGroup
+
+instance ToHeaders DeleteClusterSecurityGroup
+
 instance AWSRequest DeleteClusterSecurityGroup where
     type Sv DeleteClusterSecurityGroup = Redshift
     type Rs DeleteClusterSecurityGroup = DeleteClusterSecurityGroupResponse
 
     request  = post "DeleteClusterSecurityGroup"
     response = nullResponse DeleteClusterSecurityGroupResponse
-
-instance ToPath DeleteClusterSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteClusterSecurityGroup
-
-instance ToQuery DeleteClusterSecurityGroup

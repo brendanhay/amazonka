@@ -154,6 +154,16 @@ lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\s a -> s { _lhcrNextMarker = a })
 
+instance ToPath ListHealthChecks where
+    toPath = const "/2013-04-01/healthcheck"
+
+instance ToQuery ListHealthChecks
+
+instance ToHeaders ListHealthChecks
+instance ToXML ListHealthChecks where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListHealthChecks"
+
 instance AWSRequest ListHealthChecks where
     type Sv ListHealthChecks = Route53
     type Rs ListHealthChecks = ListHealthChecksResponse
@@ -164,18 +174,3 @@ instance AWSRequest ListHealthChecks where
 instance FromXML ListHealthChecksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListHealthChecksResponse"
-
-instance ToPath ListHealthChecks where
-    toPath = const "/2013-04-01/healthcheck"
-
-instance ToHeaders ListHealthChecks
-
-instance ToQuery ListHealthChecks where
-    toQuery ListHealthChecks{..} = mconcat
-        [ "marker"   =? _lhcMarker
-        , "maxitems" =? _lhcMaxItems
-        ]
-
-instance ToXML ListHealthChecks where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListHealthChecks"

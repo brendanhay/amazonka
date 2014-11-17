@@ -75,6 +75,17 @@ lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
 
+instance ToPath ListBuckets where
+    toPath = const "/"
+
+instance ToQuery ListBuckets where
+    toQuery = const mempty
+
+instance ToHeaders ListBuckets
+instance ToXML ListBuckets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListBuckets"
+
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
     type Rs ListBuckets = ListBucketsResponse
@@ -85,15 +96,3 @@ instance AWSRequest ListBuckets where
 instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListBucketsResponse"
-
-instance ToPath ListBuckets where
-    toPath = const "/"
-
-instance ToHeaders ListBuckets
-
-instance ToQuery ListBuckets where
-    toQuery = const mempty
-
-instance ToXML ListBuckets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListBuckets"

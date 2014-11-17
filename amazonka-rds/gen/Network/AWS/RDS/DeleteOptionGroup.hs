@@ -69,16 +69,16 @@ data DeleteOptionGroupResponse = DeleteOptionGroupResponse
 deleteOptionGroupResponse :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse
 
+instance ToPath DeleteOptionGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteOptionGroup
+
+instance ToHeaders DeleteOptionGroup
+
 instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS
     type Rs DeleteOptionGroup = DeleteOptionGroupResponse
 
     request  = post "DeleteOptionGroup"
     response = nullResponse DeleteOptionGroupResponse
-
-instance ToPath DeleteOptionGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteOptionGroup
-
-instance ToQuery DeleteOptionGroup

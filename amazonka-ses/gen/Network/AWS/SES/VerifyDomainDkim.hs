@@ -105,6 +105,13 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a })
 
+instance ToPath VerifyDomainDkim where
+    toPath = const "/"
+
+instance ToQuery VerifyDomainDkim
+
+instance ToHeaders VerifyDomainDkim
+
 instance AWSRequest VerifyDomainDkim where
     type Sv VerifyDomainDkim = SES
     type Rs VerifyDomainDkim = VerifyDomainDkimResponse
@@ -115,10 +122,3 @@ instance AWSRequest VerifyDomainDkim where
 instance FromXML VerifyDomainDkimResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VerifyDomainDkimResponse"
-
-instance ToPath VerifyDomainDkim where
-    toPath = const "/"
-
-instance ToHeaders VerifyDomainDkim
-
-instance ToQuery VerifyDomainDkim

@@ -73,20 +73,19 @@ data DeregisterVolumeResponse = DeregisterVolumeResponse
 deregisterVolumeResponse :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse
 
+instance ToPath DeregisterVolume where
+    toPath = const "/"
+
+instance ToQuery DeregisterVolume where
+    toQuery = const mempty
+
+instance ToHeaders DeregisterVolume
+instance ToJSON DeregisterVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks
     type Rs DeregisterVolume = DeregisterVolumeResponse
 
     request  = post
     response = nullResponse DeregisterVolumeResponse
-
-instance ToPath DeregisterVolume where
-    toPath = const "/"
-
-instance ToHeaders DeregisterVolume
-
-instance ToQuery DeregisterVolume where
-    toQuery = const mempty
-
-instance ToJSON DeregisterVolume where
-    toJSON = genericToJSON jsonOptions

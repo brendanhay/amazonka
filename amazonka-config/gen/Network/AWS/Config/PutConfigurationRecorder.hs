@@ -74,20 +74,19 @@ data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse
 putConfigurationRecorderResponse :: PutConfigurationRecorderResponse
 putConfigurationRecorderResponse = PutConfigurationRecorderResponse
 
+instance ToPath PutConfigurationRecorder where
+    toPath = const "/"
+
+instance ToQuery PutConfigurationRecorder where
+    toQuery = const mempty
+
+instance ToHeaders PutConfigurationRecorder
+instance ToJSON PutConfigurationRecorder where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutConfigurationRecorder where
     type Sv PutConfigurationRecorder = Config
     type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
 
     request  = post
     response = nullResponse PutConfigurationRecorderResponse
-
-instance ToPath PutConfigurationRecorder where
-    toPath = const "/"
-
-instance ToHeaders PutConfigurationRecorder
-
-instance ToQuery PutConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToJSON PutConfigurationRecorder where
-    toJSON = genericToJSON jsonOptions

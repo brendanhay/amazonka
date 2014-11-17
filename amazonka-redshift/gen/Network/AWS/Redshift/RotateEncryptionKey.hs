@@ -84,6 +84,13 @@ rotateEncryptionKeyResponse = RotateEncryptionKeyResponse
 rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
 
+instance ToPath RotateEncryptionKey where
+    toPath = const "/"
+
+instance ToQuery RotateEncryptionKey
+
+instance ToHeaders RotateEncryptionKey
+
 instance AWSRequest RotateEncryptionKey where
     type Sv RotateEncryptionKey = Redshift
     type Rs RotateEncryptionKey = RotateEncryptionKeyResponse
@@ -94,10 +101,3 @@ instance AWSRequest RotateEncryptionKey where
 instance FromXML RotateEncryptionKeyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RotateEncryptionKeyResponse"
-
-instance ToPath RotateEncryptionKey where
-    toPath = const "/"
-
-instance ToHeaders RotateEncryptionKey
-
-instance ToQuery RotateEncryptionKey

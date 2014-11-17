@@ -166,6 +166,13 @@ describeSnapshotsResponse = DescribeSnapshotsResponse
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
 
+instance ToPath DescribeSnapshots where
+    toPath = const "/"
+
+instance ToQuery DescribeSnapshots
+
+instance ToHeaders DescribeSnapshots
+
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = EC2
     type Rs DescribeSnapshots = DescribeSnapshotsResponse
@@ -176,21 +183,3 @@ instance AWSRequest DescribeSnapshots where
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
-
-instance ToPath DescribeSnapshots where
-    toPath = const "/"
-
-instance ToHeaders DescribeSnapshots
-
-instance ToQuery DescribeSnapshots where
-    toQuery DescribeSnapshots{..} = mconcat
-        [ "dryRun"       =? _ds1DryRun
-        , "SnapshotId"   =? _ds1SnapshotIds
-        , "Owner"        =? _ds1OwnerIds
-        , "RestorableBy" =? _ds1RestorableByUserIds
-        , "Filter"       =? _ds1Filters
-        ]
-
-instance ToXML DescribeSnapshots where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSnapshots"

@@ -139,6 +139,16 @@ createTapesResponse = CreateTapesResponse
 ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a })
 
+instance ToPath CreateTapes where
+    toPath = const "/"
+
+instance ToQuery CreateTapes where
+    toQuery = const mempty
+
+instance ToHeaders CreateTapes
+instance ToJSON CreateTapes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateTapes where
     type Sv CreateTapes = StorageGateway
     type Rs CreateTapes = CreateTapesResponse
@@ -148,14 +158,3 @@ instance AWSRequest CreateTapes where
 
 instance FromJSON CreateTapesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateTapes where
-    toPath = const "/"
-
-instance ToHeaders CreateTapes
-
-instance ToQuery CreateTapes where
-    toQuery = const mempty
-
-instance ToJSON CreateTapes where
-    toJSON = genericToJSON jsonOptions

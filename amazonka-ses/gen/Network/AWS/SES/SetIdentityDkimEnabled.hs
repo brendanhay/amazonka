@@ -89,16 +89,16 @@ data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 
+instance ToPath SetIdentityDkimEnabled where
+    toPath = const "/"
+
+instance ToQuery SetIdentityDkimEnabled
+
+instance ToHeaders SetIdentityDkimEnabled
+
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES
     type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
 
     request  = post "SetIdentityDkimEnabled"
     response = nullResponse SetIdentityDkimEnabledResponse
-
-instance ToPath SetIdentityDkimEnabled where
-    toPath = const "/"
-
-instance ToHeaders SetIdentityDkimEnabled
-
-instance ToQuery SetIdentityDkimEnabled

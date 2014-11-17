@@ -97,6 +97,13 @@ daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribu
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
 
+instance ToPath DescribeAccountAttributes where
+    toPath = const "/"
+
+instance ToQuery DescribeAccountAttributes
+
+instance ToHeaders DescribeAccountAttributes
+
 instance AWSRequest DescribeAccountAttributes where
     type Sv DescribeAccountAttributes = EC2
     type Rs DescribeAccountAttributes = DescribeAccountAttributesResponse
@@ -107,18 +114,3 @@ instance AWSRequest DescribeAccountAttributes where
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAccountAttributesResponse"
-
-instance ToPath DescribeAccountAttributes where
-    toPath = const "/"
-
-instance ToHeaders DescribeAccountAttributes
-
-instance ToQuery DescribeAccountAttributes where
-    toQuery DescribeAccountAttributes{..} = mconcat
-        [ "dryRun"        =? _daaDryRun
-        , "attributeName" =? _daaAttributeNames
-        ]
-
-instance ToXML DescribeAccountAttributes where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeAccountAttributes"

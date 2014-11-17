@@ -104,6 +104,13 @@ attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a })
 
+instance ToPath AttachLoadBalancerToSubnets where
+    toPath = const "/"
+
+instance ToQuery AttachLoadBalancerToSubnets
+
+instance ToHeaders AttachLoadBalancerToSubnets
+
 instance AWSRequest AttachLoadBalancerToSubnets where
     type Sv AttachLoadBalancerToSubnets = ELB
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
@@ -114,10 +121,3 @@ instance AWSRequest AttachLoadBalancerToSubnets where
 instance FromXML AttachLoadBalancerToSubnetsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsResponse"
-
-instance ToPath AttachLoadBalancerToSubnets where
-    toPath = const "/"
-
-instance ToHeaders AttachLoadBalancerToSubnets
-
-instance ToQuery AttachLoadBalancerToSubnets

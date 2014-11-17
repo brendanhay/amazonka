@@ -131,6 +131,13 @@ luprMarker = lens _luprMarker (\s a -> s { _luprMarker = a })
 luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprPolicyNames = lens _luprPolicyNames (\s a -> s { _luprPolicyNames = a })
 
+instance ToPath ListUserPolicies where
+    toPath = const "/"
+
+instance ToQuery ListUserPolicies
+
+instance ToHeaders ListUserPolicies
+
 instance AWSRequest ListUserPolicies where
     type Sv ListUserPolicies = IAM
     type Rs ListUserPolicies = ListUserPoliciesResponse
@@ -141,10 +148,3 @@ instance AWSRequest ListUserPolicies where
 instance FromXML ListUserPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListUserPoliciesResponse"
-
-instance ToPath ListUserPolicies where
-    toPath = const "/"
-
-instance ToHeaders ListUserPolicies
-
-instance ToQuery ListUserPolicies

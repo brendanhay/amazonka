@@ -375,6 +375,13 @@ createClusterResponse = CreateClusterResponse
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\s a -> s { _ccrCluster = a })
 
+instance ToPath CreateCluster where
+    toPath = const "/"
+
+instance ToQuery CreateCluster
+
+instance ToHeaders CreateCluster
+
 instance AWSRequest CreateCluster where
     type Sv CreateCluster = Redshift
     type Rs CreateCluster = CreateClusterResponse
@@ -385,10 +392,3 @@ instance AWSRequest CreateCluster where
 instance FromXML CreateClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterResponse"
-
-instance ToPath CreateCluster where
-    toPath = const "/"
-
-instance ToHeaders CreateCluster
-
-instance ToQuery CreateCluster

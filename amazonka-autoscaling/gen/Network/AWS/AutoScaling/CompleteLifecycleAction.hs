@@ -117,16 +117,16 @@ data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
 completeLifecycleActionResponse :: CompleteLifecycleActionResponse
 completeLifecycleActionResponse = CompleteLifecycleActionResponse
 
+instance ToPath CompleteLifecycleAction where
+    toPath = const "/"
+
+instance ToQuery CompleteLifecycleAction
+
+instance ToHeaders CompleteLifecycleAction
+
 instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling
     type Rs CompleteLifecycleAction = CompleteLifecycleActionResponse
 
     request  = post "CompleteLifecycleAction"
     response = nullResponse CompleteLifecycleActionResponse
-
-instance ToPath CompleteLifecycleAction where
-    toPath = const "/"
-
-instance ToHeaders CompleteLifecycleAction
-
-instance ToQuery CompleteLifecycleAction

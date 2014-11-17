@@ -283,16 +283,16 @@ data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 
+instance ToPath CreateLaunchConfiguration where
+    toPath = const "/"
+
+instance ToQuery CreateLaunchConfiguration
+
+instance ToHeaders CreateLaunchConfiguration
+
 instance AWSRequest CreateLaunchConfiguration where
     type Sv CreateLaunchConfiguration = AutoScaling
     type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
 
     request  = post "CreateLaunchConfiguration"
     response = nullResponse CreateLaunchConfigurationResponse
-
-instance ToPath CreateLaunchConfiguration where
-    toPath = const "/"
-
-instance ToHeaders CreateLaunchConfiguration
-
-instance ToQuery CreateLaunchConfiguration

@@ -95,6 +95,22 @@ ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrResourceTagSet =
     lens _ltfrrResourceTagSet (\s a -> s { _ltfrrResourceTagSet = a })
 
+instance ToPath ListTagsForResource where
+    toPath ListTagsForResource{..} = mconcat
+        [ "/2013-04-01/tags/"
+        , toText _ltfrResourceType
+        , "/"
+        , toText _ltfrResourceId
+        ]
+
+instance ToQuery ListTagsForResource where
+    toQuery = const mempty
+
+instance ToHeaders ListTagsForResource
+instance ToXML ListTagsForResource where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListTagsForResource"
+
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = Route53
     type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -105,20 +121,3 @@ instance AWSRequest ListTagsForResource where
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListTagsForResourceResponse"
-
-instance ToPath ListTagsForResource where
-    toPath ListTagsForResource{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toText _ltfrResourceType
-        , "/"
-        , toText _ltfrResourceId
-        ]
-
-instance ToHeaders ListTagsForResource
-
-instance ToQuery ListTagsForResource where
-    toQuery = const mempty
-
-instance ToXML ListTagsForResource where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListTagsForResource"

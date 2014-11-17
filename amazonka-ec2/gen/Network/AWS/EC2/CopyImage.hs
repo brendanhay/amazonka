@@ -134,6 +134,13 @@ copyImageResponse = CopyImageResponse
 cir1ImageId :: Lens' CopyImageResponse (Maybe Text)
 cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
 
+instance ToPath CopyImage where
+    toPath = const "/"
+
+instance ToQuery CopyImage
+
+instance ToHeaders CopyImage
+
 instance AWSRequest CopyImage where
     type Sv CopyImage = EC2
     type Rs CopyImage = CopyImageResponse
@@ -144,22 +151,3 @@ instance AWSRequest CopyImage where
 instance FromXML CopyImageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyImageResponse"
-
-instance ToPath CopyImage where
-    toPath = const "/"
-
-instance ToHeaders CopyImage
-
-instance ToQuery CopyImage where
-    toQuery CopyImage{..} = mconcat
-        [ "dryRun"        =? _ciDryRun
-        , "SourceRegion"  =? _ciSourceRegion
-        , "SourceImageId" =? _ciSourceImageId
-        , "Name"          =? _ciName
-        , "Description"   =? _ciDescription
-        , "ClientToken"   =? _ciClientToken
-        ]
-
-instance ToXML CopyImage where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CopyImage"

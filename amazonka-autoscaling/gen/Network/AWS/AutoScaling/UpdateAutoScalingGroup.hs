@@ -203,16 +203,16 @@ data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 
+instance ToPath UpdateAutoScalingGroup where
+    toPath = const "/"
+
+instance ToQuery UpdateAutoScalingGroup
+
+instance ToHeaders UpdateAutoScalingGroup
+
 instance AWSRequest UpdateAutoScalingGroup where
     type Sv UpdateAutoScalingGroup = AutoScaling
     type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
 
     request  = post "UpdateAutoScalingGroup"
     response = nullResponse UpdateAutoScalingGroupResponse
-
-instance ToPath UpdateAutoScalingGroup where
-    toPath = const "/"
-
-instance ToHeaders UpdateAutoScalingGroup
-
-instance ToQuery UpdateAutoScalingGroup

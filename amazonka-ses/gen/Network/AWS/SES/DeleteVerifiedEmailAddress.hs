@@ -71,16 +71,16 @@ data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
 
+instance ToPath DeleteVerifiedEmailAddress where
+    toPath = const "/"
+
+instance ToQuery DeleteVerifiedEmailAddress
+
+instance ToHeaders DeleteVerifiedEmailAddress
+
 instance AWSRequest DeleteVerifiedEmailAddress where
     type Sv DeleteVerifiedEmailAddress = SES
     type Rs DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddressResponse
 
     request  = post "DeleteVerifiedEmailAddress"
     response = nullResponse DeleteVerifiedEmailAddressResponse
-
-instance ToPath DeleteVerifiedEmailAddress where
-    toPath = const "/"
-
-instance ToHeaders DeleteVerifiedEmailAddress
-
-instance ToQuery DeleteVerifiedEmailAddress

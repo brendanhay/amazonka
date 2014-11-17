@@ -195,6 +195,16 @@ ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrTableDescription =
     lens _ctrTableDescription (\s a -> s { _ctrTableDescription = a })
 
+instance ToPath CreateTable where
+    toPath = const "/"
+
+instance ToQuery CreateTable where
+    toQuery = const mempty
+
+instance ToHeaders CreateTable
+instance ToJSON CreateTable where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateTable where
     type Sv CreateTable = DynamoDB
     type Rs CreateTable = CreateTableResponse
@@ -204,14 +214,3 @@ instance AWSRequest CreateTable where
 
 instance FromJSON CreateTableResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateTable where
-    toPath = const "/"
-
-instance ToHeaders CreateTable
-
-instance ToQuery CreateTable where
-    toQuery = const mempty
-
-instance ToJSON CreateTable where
-    toJSON = genericToJSON jsonOptions

@@ -68,24 +68,23 @@ data HeadBucketResponse = HeadBucketResponse
 headBucketResponse :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse
 
-instance AWSRequest HeadBucket where
-    type Sv HeadBucket = S3
-    type Rs HeadBucket = HeadBucketResponse
-
-    request  = head
-    response = nullResponse HeadBucketResponse
-
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat
         [ "/"
         , toText _hbBucket
         ]
 
-instance ToHeaders HeadBucket
-
 instance ToQuery HeadBucket where
     toQuery = const mempty
 
+instance ToHeaders HeadBucket
 instance ToXML HeadBucket where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HeadBucket"
+
+instance AWSRequest HeadBucket where
+    type Sv HeadBucket = S3
+    type Rs HeadBucket = HeadBucketResponse
+
+    request  = head
+    response = nullResponse HeadBucketResponse

@@ -810,6 +810,7 @@
                 "name": "AddEventSourceResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1146,6 +1147,8 @@
                 "name": "AddEventSource",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1272,6 +1275,7 @@
                 "name": "DeleteFunctionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1348,6 +1352,8 @@
                 "name": "DeleteFunction",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1389,6 +1395,7 @@
                 "name": "GetEventSourceResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1719,6 +1726,8 @@
                 "name": "GetEventSource",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1760,6 +1769,7 @@
                 "name": "GetFunctionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1894,6 +1904,8 @@
                 "name": "GetFunction",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1936,6 +1948,7 @@
                 "name": "GetFunctionConfigurationResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2354,6 +2367,8 @@
                 "name": "GetFunctionConfiguration",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2430,6 +2445,7 @@
                 "name": "InvokeAsyncResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2534,6 +2550,8 @@
                 "name": "InvokeAsync",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2589,6 +2607,7 @@
                 "name": "ListEventSourcesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2708,6 +2727,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2848,6 +2869,7 @@
                 "name": "ListFunctionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2957,6 +2979,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3041,6 +3065,7 @@
                 "name": "RemoveEventSourceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3117,6 +3142,8 @@
                 "name": "RemoveEventSource",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3159,6 +3186,7 @@
                 "name": "UpdateFunctionConfigurationResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3586,6 +3614,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3769,6 +3799,7 @@
                 "name": "UploadFunctionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4284,6 +4315,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

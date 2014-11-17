@@ -254,6 +254,16 @@ createPipelineResponse = CreatePipelineResponse
 cprPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 cprPipeline = lens _cprPipeline (\s a -> s { _cprPipeline = a })
 
+instance ToPath CreatePipeline where
+    toPath = const "/2012-09-25/pipelines"
+
+instance ToQuery CreatePipeline where
+    toQuery = const mempty
+
+instance ToHeaders CreatePipeline
+instance ToJSON CreatePipeline where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = ElasticTranscoder
     type Rs CreatePipeline = CreatePipelineResponse
@@ -263,14 +273,3 @@ instance AWSRequest CreatePipeline where
 
 instance FromJSON CreatePipelineResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreatePipeline where
-    toPath = const "/2012-09-25/pipelines"
-
-instance ToHeaders CreatePipeline
-
-instance ToQuery CreatePipeline where
-    toQuery = const mempty
-
-instance ToJSON CreatePipeline where
-    toJSON = genericToJSON jsonOptions

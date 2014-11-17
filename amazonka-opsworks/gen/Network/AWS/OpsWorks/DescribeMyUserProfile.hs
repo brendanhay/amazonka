@@ -70,6 +70,16 @@ describeMyUserProfileResponse = DescribeMyUserProfileResponse
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile = lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
 
+instance ToPath DescribeMyUserProfile where
+    toPath = const "/"
+
+instance ToQuery DescribeMyUserProfile where
+    toQuery = const mempty
+
+instance ToHeaders DescribeMyUserProfile
+instance ToJSON DescribeMyUserProfile where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeMyUserProfile where
     type Sv DescribeMyUserProfile = OpsWorks
     type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
@@ -79,14 +89,3 @@ instance AWSRequest DescribeMyUserProfile where
 
 instance FromJSON DescribeMyUserProfileResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeMyUserProfile where
-    toPath = const "/"
-
-instance ToHeaders DescribeMyUserProfile
-
-instance ToQuery DescribeMyUserProfile where
-    toQuery = const mempty
-
-instance ToJSON DescribeMyUserProfile where
-    toJSON = genericToJSON jsonOptions

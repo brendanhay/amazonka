@@ -171,6 +171,13 @@ createLoadBalancerResponse = CreateLoadBalancerResponse
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
 
+instance ToPath CreateLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery CreateLoadBalancer
+
+instance ToHeaders CreateLoadBalancer
+
 instance AWSRequest CreateLoadBalancer where
     type Sv CreateLoadBalancer = ELB
     type Rs CreateLoadBalancer = CreateLoadBalancerResponse
@@ -181,10 +188,3 @@ instance AWSRequest CreateLoadBalancer where
 instance FromXML CreateLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoadBalancerResponse"
-
-instance ToPath CreateLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders CreateLoadBalancer
-
-instance ToQuery CreateLoadBalancer

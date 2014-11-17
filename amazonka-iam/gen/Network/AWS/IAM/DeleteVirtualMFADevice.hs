@@ -70,16 +70,16 @@ data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 
+instance ToPath DeleteVirtualMFADevice where
+    toPath = const "/"
+
+instance ToQuery DeleteVirtualMFADevice
+
+instance ToHeaders DeleteVirtualMFADevice
+
 instance AWSRequest DeleteVirtualMFADevice where
     type Sv DeleteVirtualMFADevice = IAM
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
 
     request  = post "DeleteVirtualMFADevice"
     response = nullResponse DeleteVirtualMFADeviceResponse
-
-instance ToPath DeleteVirtualMFADevice where
-    toPath = const "/"
-
-instance ToHeaders DeleteVirtualMFADevice
-
-instance ToQuery DeleteVirtualMFADevice

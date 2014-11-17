@@ -116,6 +116,16 @@ reportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
 rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrTerminate = lens _rtrhrTerminate (\s a -> s { _rtrhrTerminate = a })
 
+instance ToPath ReportTaskRunnerHeartbeat where
+    toPath = const "/"
+
+instance ToQuery ReportTaskRunnerHeartbeat where
+    toQuery = const mempty
+
+instance ToHeaders ReportTaskRunnerHeartbeat
+instance ToJSON ReportTaskRunnerHeartbeat where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ReportTaskRunnerHeartbeat where
     type Sv ReportTaskRunnerHeartbeat = DataPipeline
     type Rs ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeatResponse
@@ -125,14 +135,3 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ReportTaskRunnerHeartbeat where
-    toPath = const "/"
-
-instance ToHeaders ReportTaskRunnerHeartbeat
-
-instance ToQuery ReportTaskRunnerHeartbeat where
-    toQuery = const mempty
-
-instance ToJSON ReportTaskRunnerHeartbeat where
-    toJSON = genericToJSON jsonOptions

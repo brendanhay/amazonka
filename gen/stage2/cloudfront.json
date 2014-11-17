@@ -5885,6 +5885,7 @@
                 "name": "CreateCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6053,6 +6054,8 @@
                 "name": "CreateCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6118,6 +6121,7 @@
                 "name": "CreateDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6286,6 +6290,8 @@
                 "name": "CreateDistribution",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6346,6 +6352,7 @@
                 "name": "CreateInvalidationResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -6493,6 +6500,8 @@
                 "name": "CreateInvalidation",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6572,6 +6581,7 @@
                 "name": "CreateStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6740,6 +6750,8 @@
                 "name": "CreateStreamingDistribution",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6781,6 +6793,7 @@
                 "name": "DeleteCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6846,6 +6859,8 @@
                 "name": "DeleteCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -6916,6 +6931,7 @@
                 "name": "DeleteDistributionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6981,6 +6997,8 @@
                 "name": "DeleteDistribution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -7051,6 +7069,7 @@
                 "name": "DeleteStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -7116,6 +7135,8 @@
                 "name": "DeleteStreamingDistribution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -7205,6 +7226,7 @@
                 "name": "GetCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7339,6 +7361,8 @@
                 "name": "GetCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7399,6 +7423,7 @@
                 "name": "GetCloudFrontOriginAccessIdentityConfigResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7537,6 +7562,8 @@
                 "name": "GetCloudFrontOriginAccessIdentityConfig",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7597,6 +7624,7 @@
                 "name": "GetDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7731,6 +7759,8 @@
                 "name": "GetDistribution",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7791,6 +7821,7 @@
                 "name": "GetDistributionConfigResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7929,6 +7960,8 @@
                 "name": "GetDistributionConfig",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7998,6 +8031,7 @@
                 "name": "GetInvalidationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8109,6 +8143,8 @@
                 "name": "GetInvalidation",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8183,6 +8219,7 @@
                 "name": "GetStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8317,6 +8354,8 @@
                 "name": "GetStreamingDistribution",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8377,6 +8416,7 @@
                 "name": "GetStreamingDistributionConfigResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8515,6 +8555,8 @@
                 "name": "GetStreamingDistributionConfig",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8584,6 +8626,7 @@
                 "name": "ListCloudFrontOriginAccessIdentitiesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8673,6 +8716,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8785,6 +8830,7 @@
                 "name": "ListDistributionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8874,6 +8920,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8986,6 +9034,7 @@
                 "name": "ListInvalidationsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9098,6 +9147,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9224,6 +9275,7 @@
                 "name": "ListStreamingDistributionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9313,6 +9365,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9416,6 +9470,7 @@
                 "name": "UpdateCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9569,6 +9624,8 @@
                 "name": "UpdateCloudFrontOriginAccessIdentity",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -9672,6 +9729,7 @@
                 "name": "UpdateDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9825,6 +9883,8 @@
                 "name": "UpdateDistribution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -9928,6 +9988,7 @@
                 "name": "UpdateStreamingDistributionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10081,6 +10142,8 @@
                 "name": "UpdateStreamingDistribution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",

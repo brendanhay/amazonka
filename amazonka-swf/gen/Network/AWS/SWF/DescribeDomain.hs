@@ -100,6 +100,16 @@ ddrConfiguration = lens _ddrConfiguration (\s a -> s { _ddrConfiguration = a })
 ddrDomainInfo :: Lens' DescribeDomainResponse DomainInfo
 ddrDomainInfo = lens _ddrDomainInfo (\s a -> s { _ddrDomainInfo = a })
 
+instance ToPath DescribeDomain where
+    toPath = const "/"
+
+instance ToQuery DescribeDomain where
+    toQuery = const mempty
+
+instance ToHeaders DescribeDomain
+instance ToJSON DescribeDomain where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeDomain where
     type Sv DescribeDomain = SWF
     type Rs DescribeDomain = DescribeDomainResponse
@@ -109,14 +119,3 @@ instance AWSRequest DescribeDomain where
 
 instance FromJSON DescribeDomainResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeDomain where
-    toPath = const "/"
-
-instance ToHeaders DescribeDomain
-
-instance ToQuery DescribeDomain where
-    toQuery = const mempty
-
-instance ToJSON DescribeDomain where
-    toJSON = genericToJSON jsonOptions

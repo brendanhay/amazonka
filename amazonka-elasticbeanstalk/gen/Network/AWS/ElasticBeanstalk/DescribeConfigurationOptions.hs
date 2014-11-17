@@ -139,6 +139,13 @@ dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorSolutionStackName =
     lens _dcorSolutionStackName (\s a -> s { _dcorSolutionStackName = a })
 
+instance ToPath DescribeConfigurationOptions where
+    toPath = const "/"
+
+instance ToQuery DescribeConfigurationOptions
+
+instance ToHeaders DescribeConfigurationOptions
+
 instance AWSRequest DescribeConfigurationOptions where
     type Sv DescribeConfigurationOptions = ElasticBeanstalk
     type Rs DescribeConfigurationOptions = DescribeConfigurationOptionsResponse
@@ -149,10 +156,3 @@ instance AWSRequest DescribeConfigurationOptions where
 instance FromXML DescribeConfigurationOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeConfigurationOptionsResponse"
-
-instance ToPath DescribeConfigurationOptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeConfigurationOptions
-
-instance ToQuery DescribeConfigurationOptions

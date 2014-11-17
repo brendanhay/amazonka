@@ -112,6 +112,20 @@ updatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
 upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrPipeline = lens _upnrPipeline (\s a -> s { _upnrPipeline = a })
 
+instance ToPath UpdatePipelineNotifications where
+    toPath UpdatePipelineNotifications{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _upnId
+        , "/notifications"
+        ]
+
+instance ToQuery UpdatePipelineNotifications where
+    toQuery = const mempty
+
+instance ToHeaders UpdatePipelineNotifications
+instance ToJSON UpdatePipelineNotifications where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdatePipelineNotifications where
     type Sv UpdatePipelineNotifications = ElasticTranscoder
     type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse
@@ -121,18 +135,3 @@ instance AWSRequest UpdatePipelineNotifications where
 
 instance FromJSON UpdatePipelineNotificationsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdatePipelineNotifications where
-    toPath UpdatePipelineNotifications{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _upnId
-        , "/notifications"
-        ]
-
-instance ToHeaders UpdatePipelineNotifications
-
-instance ToQuery UpdatePipelineNotifications where
-    toQuery = const mempty
-
-instance ToJSON UpdatePipelineNotifications where
-    toJSON = genericToJSON jsonOptions

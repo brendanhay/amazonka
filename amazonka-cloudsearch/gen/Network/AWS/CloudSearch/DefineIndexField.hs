@@ -98,6 +98,13 @@ defineIndexFieldResponse p1 = DefineIndexFieldResponse
 difr1IndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 difr1IndexField = lens _difr1IndexField (\s a -> s { _difr1IndexField = a })
 
+instance ToPath DefineIndexField where
+    toPath = const "/"
+
+instance ToQuery DefineIndexField
+
+instance ToHeaders DefineIndexField
+
 instance AWSRequest DefineIndexField where
     type Sv DefineIndexField = CloudSearch
     type Rs DefineIndexField = DefineIndexFieldResponse
@@ -108,10 +115,3 @@ instance AWSRequest DefineIndexField where
 instance FromXML DefineIndexFieldResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineIndexFieldResponse"
-
-instance ToPath DefineIndexField where
-    toPath = const "/"
-
-instance ToHeaders DefineIndexField
-
-instance ToQuery DefineIndexField

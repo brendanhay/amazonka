@@ -121,6 +121,13 @@ cparPlatformApplicationArn =
     lens _cparPlatformApplicationArn
         (\s a -> s { _cparPlatformApplicationArn = a })
 
+instance ToPath CreatePlatformApplication where
+    toPath = const "/"
+
+instance ToQuery CreatePlatformApplication
+
+instance ToHeaders CreatePlatformApplication
+
 instance AWSRequest CreatePlatformApplication where
     type Sv CreatePlatformApplication = SNS
     type Rs CreatePlatformApplication = CreatePlatformApplicationResponse
@@ -131,10 +138,3 @@ instance AWSRequest CreatePlatformApplication where
 instance FromXML CreatePlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreatePlatformApplicationResponse"
-
-instance ToPath CreatePlatformApplication where
-    toPath = const "/"
-
-instance ToHeaders CreatePlatformApplication
-
-instance ToQuery CreatePlatformApplication

@@ -119,6 +119,16 @@ ldgrDeploymentGroups =
 ldgrNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrNextToken = lens _ldgrNextToken (\s a -> s { _ldgrNextToken = a })
 
+instance ToPath ListDeploymentGroups where
+    toPath = const "/"
+
+instance ToQuery ListDeploymentGroups where
+    toQuery = const mempty
+
+instance ToHeaders ListDeploymentGroups
+instance ToJSON ListDeploymentGroups where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListDeploymentGroups where
     type Sv ListDeploymentGroups = CodeDeploy
     type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
@@ -128,14 +138,3 @@ instance AWSRequest ListDeploymentGroups where
 
 instance FromJSON ListDeploymentGroupsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListDeploymentGroups where
-    toPath = const "/"
-
-instance ToHeaders ListDeploymentGroups
-
-instance ToQuery ListDeploymentGroups where
-    toQuery = const mempty
-
-instance ToJSON ListDeploymentGroups where
-    toJSON = genericToJSON jsonOptions

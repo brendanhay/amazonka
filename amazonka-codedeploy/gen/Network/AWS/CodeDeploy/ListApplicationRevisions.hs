@@ -166,6 +166,16 @@ larrNextToken = lens _larrNextToken (\s a -> s { _larrNextToken = a })
 larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrRevisions = lens _larrRevisions (\s a -> s { _larrRevisions = a })
 
+instance ToPath ListApplicationRevisions where
+    toPath = const "/"
+
+instance ToQuery ListApplicationRevisions where
+    toQuery = const mempty
+
+instance ToHeaders ListApplicationRevisions
+instance ToJSON ListApplicationRevisions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListApplicationRevisions where
     type Sv ListApplicationRevisions = CodeDeploy
     type Rs ListApplicationRevisions = ListApplicationRevisionsResponse
@@ -175,14 +185,3 @@ instance AWSRequest ListApplicationRevisions where
 
 instance FromJSON ListApplicationRevisionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListApplicationRevisions where
-    toPath = const "/"
-
-instance ToHeaders ListApplicationRevisions
-
-instance ToQuery ListApplicationRevisions where
-    toQuery = const mempty
-
-instance ToJSON ListApplicationRevisions where
-    toJSON = genericToJSON jsonOptions

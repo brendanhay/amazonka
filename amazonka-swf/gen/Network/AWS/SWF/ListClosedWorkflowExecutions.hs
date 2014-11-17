@@ -217,6 +217,16 @@ lcwerNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
 lcwerNextPageToken =
     lens _lcwerNextPageToken (\s a -> s { _lcwerNextPageToken = a })
 
+instance ToPath ListClosedWorkflowExecutions where
+    toPath = const "/"
+
+instance ToQuery ListClosedWorkflowExecutions where
+    toQuery = const mempty
+
+instance ToHeaders ListClosedWorkflowExecutions
+instance ToJSON ListClosedWorkflowExecutions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListClosedWorkflowExecutions where
     type Sv ListClosedWorkflowExecutions = SWF
     type Rs ListClosedWorkflowExecutions = ListClosedWorkflowExecutionsResponse
@@ -226,14 +236,3 @@ instance AWSRequest ListClosedWorkflowExecutions where
 
 instance FromJSON ListClosedWorkflowExecutionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListClosedWorkflowExecutions where
-    toPath = const "/"
-
-instance ToHeaders ListClosedWorkflowExecutions
-
-instance ToQuery ListClosedWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToJSON ListClosedWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions

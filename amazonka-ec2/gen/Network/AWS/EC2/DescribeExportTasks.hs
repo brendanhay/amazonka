@@ -92,6 +92,13 @@ describeExportTasksResponse = DescribeExportTasksResponse
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
 
+instance ToPath DescribeExportTasks where
+    toPath = const "/"
+
+instance ToQuery DescribeExportTasks
+
+instance ToHeaders DescribeExportTasks
+
 instance AWSRequest DescribeExportTasks where
     type Sv DescribeExportTasks = EC2
     type Rs DescribeExportTasks = DescribeExportTasksResponse
@@ -102,15 +109,3 @@ instance AWSRequest DescribeExportTasks where
 instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeExportTasksResponse"
-
-instance ToPath DescribeExportTasks where
-    toPath = const "/"
-
-instance ToHeaders DescribeExportTasks
-
-instance ToQuery DescribeExportTasks where
-    toQuery rq = "exportTaskId" =? _detExportTaskIds rq
-
-instance ToXML DescribeExportTasks where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeExportTasks"

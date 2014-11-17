@@ -86,16 +86,16 @@ data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResp
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
 
+instance ToPath DeleteEnvironmentConfiguration where
+    toPath = const "/"
+
+instance ToQuery DeleteEnvironmentConfiguration
+
+instance ToHeaders DeleteEnvironmentConfiguration
+
 instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk
     type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse
 
     request  = post "DeleteEnvironmentConfiguration"
     response = nullResponse DeleteEnvironmentConfigurationResponse
-
-instance ToPath DeleteEnvironmentConfiguration where
-    toPath = const "/"
-
-instance ToHeaders DeleteEnvironmentConfiguration
-
-instance ToQuery DeleteEnvironmentConfiguration

@@ -177,16 +177,16 @@ data PutLifecycleHookResponse = PutLifecycleHookResponse
 putLifecycleHookResponse :: PutLifecycleHookResponse
 putLifecycleHookResponse = PutLifecycleHookResponse
 
+instance ToPath PutLifecycleHook where
+    toPath = const "/"
+
+instance ToQuery PutLifecycleHook
+
+instance ToHeaders PutLifecycleHook
+
 instance AWSRequest PutLifecycleHook where
     type Sv PutLifecycleHook = AutoScaling
     type Rs PutLifecycleHook = PutLifecycleHookResponse
 
     request  = post "PutLifecycleHook"
     response = nullResponse PutLifecycleHookResponse
-
-instance ToPath PutLifecycleHook where
-    toPath = const "/"
-
-instance ToHeaders PutLifecycleHook
-
-instance ToQuery PutLifecycleHook

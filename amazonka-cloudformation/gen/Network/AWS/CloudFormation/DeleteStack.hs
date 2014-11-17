@@ -70,16 +70,16 @@ data DeleteStackResponse = DeleteStackResponse
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
 
+instance ToPath DeleteStack where
+    toPath = const "/"
+
+instance ToQuery DeleteStack
+
+instance ToHeaders DeleteStack
+
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation
     type Rs DeleteStack = DeleteStackResponse
 
     request  = post "DeleteStack"
     response = nullResponse DeleteStackResponse
-
-instance ToPath DeleteStack where
-    toPath = const "/"
-
-instance ToHeaders DeleteStack
-
-instance ToQuery DeleteStack

@@ -74,16 +74,16 @@ data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse
 
+instance ToPath DeleteInstanceProfile where
+    toPath = const "/"
+
+instance ToQuery DeleteInstanceProfile
+
+instance ToHeaders DeleteInstanceProfile
+
 instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
 
     request  = post "DeleteInstanceProfile"
     response = nullResponse DeleteInstanceProfileResponse
-
-instance ToPath DeleteInstanceProfile where
-    toPath = const "/"
-
-instance ToHeaders DeleteInstanceProfile
-
-instance ToQuery DeleteInstanceProfile

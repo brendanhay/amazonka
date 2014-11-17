@@ -211,6 +211,26 @@ lorNextMarker = lens _lorNextMarker (\s a -> s { _lorNextMarker = a })
 lorPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorPrefix = lens _lorPrefix (\s a -> s { _lorPrefix = a })
 
+instance ToPath ListObjects where
+    toPath ListObjects{..} = mconcat
+        [ "/"
+        , toText _loBucket
+        ]
+
+instance ToQuery ListObjects where
+    toQuery ListObjects{..} = mconcat
+          [   "delimiter"     =? _loDelimiter
+          ,   "encoding-type" =? _loEncodingType
+          ,   "marker"        =? _loMarker
+          ,   "max-keys"      =? _loMaxKeys
+          ,   "prefix"        =? _loPrefix
+        ]
+
+instance ToHeaders ListObjects
+instance ToXML ListObjects where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListObjects"
+
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
     type Rs ListObjects = ListObjectsResponse
@@ -221,24 +241,3 @@ instance AWSRequest ListObjects where
 instance FromXML ListObjectsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListObjectsResponse"
-
-instance ToPath ListObjects where
-    toPath ListObjects{..} = mconcat
-        [ "/"
-        , toText _loBucket
-        ]
-
-instance ToHeaders ListObjects
-
-instance ToQuery ListObjects where
-    toQuery ListObjects{..} = mconcat
-        [ "delimiter"     =? _loDelimiter
-        , "encoding-type" =? _loEncodingType
-        , "marker"        =? _loMarker
-        , "max-keys"      =? _loMaxKeys
-        , "prefix"        =? _loPrefix
-        ]
-
-instance ToXML ListObjects where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListObjects"

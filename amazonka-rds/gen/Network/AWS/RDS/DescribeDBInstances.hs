@@ -131,6 +131,13 @@ ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a })
 ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 
+instance ToPath DescribeDBInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeDBInstances
+
+instance ToHeaders DescribeDBInstances
+
 instance AWSRequest DescribeDBInstances where
     type Sv DescribeDBInstances = RDS
     type Rs DescribeDBInstances = DescribeDBInstancesResponse
@@ -141,10 +148,3 @@ instance AWSRequest DescribeDBInstances where
 instance FromXML DescribeDBInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBInstancesResponse"
-
-instance ToPath DescribeDBInstances where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBInstances
-
-instance ToQuery DescribeDBInstances

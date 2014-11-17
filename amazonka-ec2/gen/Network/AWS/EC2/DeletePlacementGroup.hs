@@ -79,24 +79,16 @@ data DeletePlacementGroupResponse = DeletePlacementGroupResponse
 deletePlacementGroupResponse :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse
 
+instance ToPath DeletePlacementGroup where
+    toPath = const "/"
+
+instance ToQuery DeletePlacementGroup
+
+instance ToHeaders DeletePlacementGroup
+
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
     request  = post "DeletePlacementGroup"
     response = nullResponse DeletePlacementGroupResponse
-
-instance ToPath DeletePlacementGroup where
-    toPath = const "/"
-
-instance ToHeaders DeletePlacementGroup
-
-instance ToQuery DeletePlacementGroup where
-    toQuery DeletePlacementGroup{..} = mconcat
-        [ "dryRun"    =? _dpgDryRun
-        , "groupName" =? _dpgGroupName
-        ]
-
-instance ToXML DeletePlacementGroup where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeletePlacementGroup"

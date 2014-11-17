@@ -135,6 +135,16 @@ uccrInitiatorName =
 uccrTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrTargetARN = lens _uccrTargetARN (\s a -> s { _uccrTargetARN = a })
 
+instance ToPath UpdateChapCredentials where
+    toPath = const "/"
+
+instance ToQuery UpdateChapCredentials where
+    toQuery = const mempty
+
+instance ToHeaders UpdateChapCredentials
+instance ToJSON UpdateChapCredentials where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateChapCredentials where
     type Sv UpdateChapCredentials = StorageGateway
     type Rs UpdateChapCredentials = UpdateChapCredentialsResponse
@@ -144,14 +154,3 @@ instance AWSRequest UpdateChapCredentials where
 
 instance FromJSON UpdateChapCredentialsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateChapCredentials where
-    toPath = const "/"
-
-instance ToHeaders UpdateChapCredentials
-
-instance ToQuery UpdateChapCredentials where
-    toQuery = const mempty
-
-instance ToJSON UpdateChapCredentials where
-    toJSON = genericToJSON jsonOptions

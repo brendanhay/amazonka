@@ -99,20 +99,19 @@ data PutMetricFilterResponse = PutMetricFilterResponse
 putMetricFilterResponse :: PutMetricFilterResponse
 putMetricFilterResponse = PutMetricFilterResponse
 
+instance ToPath PutMetricFilter where
+    toPath = const "/"
+
+instance ToQuery PutMetricFilter where
+    toQuery = const mempty
+
+instance ToHeaders PutMetricFilter
+instance ToJSON PutMetricFilter where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs
     type Rs PutMetricFilter = PutMetricFilterResponse
 
     request  = post
     response = nullResponse PutMetricFilterResponse
-
-instance ToPath PutMetricFilter where
-    toPath = const "/"
-
-instance ToHeaders PutMetricFilter
-
-instance ToQuery PutMetricFilter where
-    toQuery = const mempty
-
-instance ToJSON PutMetricFilter where
-    toJSON = genericToJSON jsonOptions

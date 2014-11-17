@@ -95,6 +95,16 @@ lvrprVolumeRecoveryPointInfos =
     lens _lvrprVolumeRecoveryPointInfos
         (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
 
+instance ToPath ListVolumeRecoveryPoints where
+    toPath = const "/"
+
+instance ToQuery ListVolumeRecoveryPoints where
+    toQuery = const mempty
+
+instance ToHeaders ListVolumeRecoveryPoints
+instance ToJSON ListVolumeRecoveryPoints where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListVolumeRecoveryPoints where
     type Sv ListVolumeRecoveryPoints = StorageGateway
     type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
@@ -104,14 +114,3 @@ instance AWSRequest ListVolumeRecoveryPoints where
 
 instance FromJSON ListVolumeRecoveryPointsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListVolumeRecoveryPoints where
-    toPath = const "/"
-
-instance ToHeaders ListVolumeRecoveryPoints
-
-instance ToQuery ListVolumeRecoveryPoints where
-    toQuery = const mempty
-
-instance ToJSON ListVolumeRecoveryPoints where
-    toJSON = genericToJSON jsonOptions

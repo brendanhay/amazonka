@@ -84,24 +84,16 @@ data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 
+instance ToPath DeleteVpnConnectionRoute where
+    toPath = const "/"
+
+instance ToQuery DeleteVpnConnectionRoute
+
+instance ToHeaders DeleteVpnConnectionRoute
+
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2
     type Rs DeleteVpnConnectionRoute = DeleteVpnConnectionRouteResponse
 
     request  = post "DeleteVpnConnectionRoute"
     response = nullResponse DeleteVpnConnectionRouteResponse
-
-instance ToPath DeleteVpnConnectionRoute where
-    toPath = const "/"
-
-instance ToHeaders DeleteVpnConnectionRoute
-
-instance ToQuery DeleteVpnConnectionRoute where
-    toQuery DeleteVpnConnectionRoute{..} = mconcat
-        [ "VpnConnectionId"      =? _dvcrVpnConnectionId
-        , "DestinationCidrBlock" =? _dvcrDestinationCidrBlock
-        ]
-
-instance ToXML DeleteVpnConnectionRoute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteVpnConnectionRoute"

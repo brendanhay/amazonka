@@ -98,6 +98,13 @@ mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
 
+instance ToPath MonitorInstances where
+    toPath = const "/"
+
+instance ToQuery MonitorInstances
+
+instance ToHeaders MonitorInstances
+
 instance AWSRequest MonitorInstances where
     type Sv MonitorInstances = EC2
     type Rs MonitorInstances = MonitorInstancesResponse
@@ -108,18 +115,3 @@ instance AWSRequest MonitorInstances where
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "MonitorInstancesResponse"
-
-instance ToPath MonitorInstances where
-    toPath = const "/"
-
-instance ToHeaders MonitorInstances
-
-instance ToQuery MonitorInstances where
-    toQuery MonitorInstances{..} = mconcat
-        [ "dryRun"     =? _miDryRun
-        , "InstanceId" =? _miInstanceIds
-        ]
-
-instance ToXML MonitorInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "MonitorInstances"

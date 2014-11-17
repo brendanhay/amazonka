@@ -130,6 +130,13 @@ describeNetworkAclsResponse = DescribeNetworkAclsResponse
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
 
+instance ToPath DescribeNetworkAcls where
+    toPath = const "/"
+
+instance ToQuery DescribeNetworkAcls
+
+instance ToHeaders DescribeNetworkAcls
+
 instance AWSRequest DescribeNetworkAcls where
     type Sv DescribeNetworkAcls = EC2
     type Rs DescribeNetworkAcls = DescribeNetworkAclsResponse
@@ -140,19 +147,3 @@ instance AWSRequest DescribeNetworkAcls where
 instance FromXML DescribeNetworkAclsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNetworkAclsResponse"
-
-instance ToPath DescribeNetworkAcls where
-    toPath = const "/"
-
-instance ToHeaders DescribeNetworkAcls
-
-instance ToQuery DescribeNetworkAcls where
-    toQuery DescribeNetworkAcls{..} = mconcat
-        [ "dryRun"       =? _dna1DryRun
-        , "NetworkAclId" =? _dna1NetworkAclIds
-        , "Filter"       =? _dna1Filters
-        ]
-
-instance ToXML DescribeNetworkAcls where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeNetworkAcls"

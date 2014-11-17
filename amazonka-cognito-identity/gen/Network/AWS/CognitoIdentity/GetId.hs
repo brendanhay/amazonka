@@ -105,6 +105,16 @@ getIdResponse = GetIdResponse
 girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
 
+instance ToPath GetId where
+    toPath = const "/"
+
+instance ToQuery GetId where
+    toQuery = const mempty
+
+instance ToHeaders GetId
+instance ToJSON GetId where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetId where
     type Sv GetId = CognitoIdentity
     type Rs GetId = GetIdResponse
@@ -114,14 +124,3 @@ instance AWSRequest GetId where
 
 instance FromJSON GetIdResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetId where
-    toPath = const "/"
-
-instance ToHeaders GetId
-
-instance ToQuery GetId where
-    toQuery = const mempty
-
-instance ToJSON GetId where
-    toJSON = genericToJSON jsonOptions

@@ -226,6 +226,13 @@ drrTotalResizeDataInMegaBytes =
     lens _drrTotalResizeDataInMegaBytes
         (\s a -> s { _drrTotalResizeDataInMegaBytes = a })
 
+instance ToPath DescribeResize where
+    toPath = const "/"
+
+instance ToQuery DescribeResize
+
+instance ToHeaders DescribeResize
+
 instance AWSRequest DescribeResize where
     type Sv DescribeResize = Redshift
     type Rs DescribeResize = DescribeResizeResponse
@@ -236,10 +243,3 @@ instance AWSRequest DescribeResize where
 instance FromXML DescribeResizeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeResizeResponse"
-
-instance ToPath DescribeResize where
-    toPath = const "/"
-
-instance ToHeaders DescribeResize
-
-instance ToQuery DescribeResize

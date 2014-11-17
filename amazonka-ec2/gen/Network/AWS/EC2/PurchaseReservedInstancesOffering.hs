@@ -125,6 +125,13 @@ priorReservedInstancesId =
     lens _priorReservedInstancesId
         (\s a -> s { _priorReservedInstancesId = a })
 
+instance ToPath PurchaseReservedInstancesOffering where
+    toPath = const "/"
+
+instance ToQuery PurchaseReservedInstancesOffering
+
+instance ToHeaders PurchaseReservedInstancesOffering
+
 instance AWSRequest PurchaseReservedInstancesOffering where
     type Sv PurchaseReservedInstancesOffering = EC2
     type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResponse
@@ -135,20 +142,3 @@ instance AWSRequest PurchaseReservedInstancesOffering where
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedInstancesOfferingResponse"
-
-instance ToPath PurchaseReservedInstancesOffering where
-    toPath = const "/"
-
-instance ToHeaders PurchaseReservedInstancesOffering
-
-instance ToQuery PurchaseReservedInstancesOffering where
-    toQuery PurchaseReservedInstancesOffering{..} = mconcat
-        [ "dryRun"                      =? _prioDryRun
-        , "ReservedInstancesOfferingId" =? _prioReservedInstancesOfferingId
-        , "InstanceCount"               =? _prioInstanceCount
-        , "limitPrice"                  =? _prioLimitPrice
-        ]
-
-instance ToXML PurchaseReservedInstancesOffering where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PurchaseReservedInstancesOffering"

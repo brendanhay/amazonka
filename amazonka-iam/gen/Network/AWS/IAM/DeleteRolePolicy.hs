@@ -78,16 +78,16 @@ data DeleteRolePolicyResponse = DeleteRolePolicyResponse
 deleteRolePolicyResponse :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse
 
+instance ToPath DeleteRolePolicy where
+    toPath = const "/"
+
+instance ToQuery DeleteRolePolicy
+
+instance ToHeaders DeleteRolePolicy
+
 instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse
 
     request  = post "DeleteRolePolicy"
     response = nullResponse DeleteRolePolicyResponse
-
-instance ToPath DeleteRolePolicy where
-    toPath = const "/"
-
-instance ToHeaders DeleteRolePolicy
-
-instance ToQuery DeleteRolePolicy

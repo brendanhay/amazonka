@@ -68,20 +68,19 @@ data DeleteAliasResponse = DeleteAliasResponse
 deleteAliasResponse :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse
 
+instance ToPath DeleteAlias where
+    toPath = const "/"
+
+instance ToQuery DeleteAlias where
+    toQuery = const mempty
+
+instance ToHeaders DeleteAlias
+instance ToJSON DeleteAlias where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteAlias where
     type Sv DeleteAlias = KMS
     type Rs DeleteAlias = DeleteAliasResponse
 
     request  = post
     response = nullResponse DeleteAliasResponse
-
-instance ToPath DeleteAlias where
-    toPath = const "/"
-
-instance ToHeaders DeleteAlias
-
-instance ToQuery DeleteAlias where
-    toQuery = const mempty
-
-instance ToJSON DeleteAlias where
-    toJSON = genericToJSON jsonOptions

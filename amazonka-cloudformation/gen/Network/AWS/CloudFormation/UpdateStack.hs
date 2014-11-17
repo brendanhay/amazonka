@@ -233,6 +233,13 @@ updateStackResponse = UpdateStackResponse
 usrStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrStackId = lens _usrStackId (\s a -> s { _usrStackId = a })
 
+instance ToPath UpdateStack where
+    toPath = const "/"
+
+instance ToQuery UpdateStack
+
+instance ToHeaders UpdateStack
+
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = CloudFormation
     type Rs UpdateStack = UpdateStackResponse
@@ -243,10 +250,3 @@ instance AWSRequest UpdateStack where
 instance FromXML UpdateStackResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateStackResponse"
-
-instance ToPath UpdateStack where
-    toPath = const "/"
-
-instance ToHeaders UpdateStack
-
-instance ToQuery UpdateStack

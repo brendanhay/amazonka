@@ -87,13 +87,6 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse
 
-instance AWSRequest AbortMultipartUpload where
-    type Sv AbortMultipartUpload = S3
-    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
-
-    request  = delete
-    response = nullResponse AbortMultipartUploadResponse
-
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat
         [ "/"
@@ -102,11 +95,17 @@ instance ToPath AbortMultipartUpload where
         , toText _amuKey
         ]
 
-instance ToHeaders AbortMultipartUpload
-
 instance ToQuery AbortMultipartUpload where
     toQuery rq = "uploadId" =? _amuUploadId rq
 
+instance ToHeaders AbortMultipartUpload
 instance ToXML AbortMultipartUpload where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "AbortMultipartUpload"
+
+instance AWSRequest AbortMultipartUpload where
+    type Sv AbortMultipartUpload = S3
+    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
+
+    request  = delete
+    response = nullResponse AbortMultipartUploadResponse

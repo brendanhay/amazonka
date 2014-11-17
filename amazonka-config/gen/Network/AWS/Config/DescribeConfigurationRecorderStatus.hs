@@ -101,6 +101,16 @@ dcrsrConfigurationRecordersStatus =
     lens _dcrsrConfigurationRecordersStatus
         (\s a -> s { _dcrsrConfigurationRecordersStatus = a })
 
+instance ToPath DescribeConfigurationRecorderStatus where
+    toPath = const "/"
+
+instance ToQuery DescribeConfigurationRecorderStatus where
+    toQuery = const mempty
+
+instance ToHeaders DescribeConfigurationRecorderStatus
+instance ToJSON DescribeConfigurationRecorderStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeConfigurationRecorderStatus where
     type Sv DescribeConfigurationRecorderStatus = Config
     type Rs DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatusResponse
@@ -110,14 +120,3 @@ instance AWSRequest DescribeConfigurationRecorderStatus where
 
 instance FromJSON DescribeConfigurationRecorderStatusResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeConfigurationRecorderStatus where
-    toPath = const "/"
-
-instance ToHeaders DescribeConfigurationRecorderStatus
-
-instance ToQuery DescribeConfigurationRecorderStatus where
-    toQuery = const mempty
-
-instance ToJSON DescribeConfigurationRecorderStatus where
-    toJSON = genericToJSON jsonOptions

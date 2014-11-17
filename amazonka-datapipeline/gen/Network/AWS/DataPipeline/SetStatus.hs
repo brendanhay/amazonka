@@ -93,20 +93,19 @@ data SetStatusResponse = SetStatusResponse
 setStatusResponse :: SetStatusResponse
 setStatusResponse = SetStatusResponse
 
+instance ToPath SetStatus where
+    toPath = const "/"
+
+instance ToQuery SetStatus where
+    toQuery = const mempty
+
+instance ToHeaders SetStatus
+instance ToJSON SetStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline
     type Rs SetStatus = SetStatusResponse
 
     request  = post
     response = nullResponse SetStatusResponse
-
-instance ToPath SetStatus where
-    toPath = const "/"
-
-instance ToHeaders SetStatus
-
-instance ToQuery SetStatus where
-    toQuery = const mempty
-
-instance ToJSON SetStatus where
-    toJSON = genericToJSON jsonOptions

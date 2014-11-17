@@ -120,6 +120,13 @@ dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
 
+instance ToPath DescribeVolumeAttribute where
+    toPath = const "/"
+
+instance ToQuery DescribeVolumeAttribute
+
+instance ToHeaders DescribeVolumeAttribute
+
 instance AWSRequest DescribeVolumeAttribute where
     type Sv DescribeVolumeAttribute = EC2
     type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse
@@ -130,19 +137,3 @@ instance AWSRequest DescribeVolumeAttribute where
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVolumeAttributeResponse"
-
-instance ToPath DescribeVolumeAttribute where
-    toPath = const "/"
-
-instance ToHeaders DescribeVolumeAttribute
-
-instance ToQuery DescribeVolumeAttribute where
-    toQuery DescribeVolumeAttribute{..} = mconcat
-        [ "dryRun"    =? _dvaDryRun
-        , "VolumeId"  =? _dvaVolumeId
-        , "Attribute" =? _dvaAttribute
-        ]
-
-instance ToXML DescribeVolumeAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVolumeAttribute"

@@ -880,6 +880,7 @@
                 "name": "SearchResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1091,6 +1092,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1469,6 +1472,7 @@
                 "name": "SuggestResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1616,6 +1620,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1700,6 +1706,7 @@
                 "name": "UploadDocumentsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1906,6 +1913,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

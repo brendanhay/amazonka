@@ -78,24 +78,16 @@ data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 
+instance ToPath DeleteCustomerGateway where
+    toPath = const "/"
+
+instance ToQuery DeleteCustomerGateway
+
+instance ToHeaders DeleteCustomerGateway
+
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
     request  = post "DeleteCustomerGateway"
     response = nullResponse DeleteCustomerGatewayResponse
-
-instance ToPath DeleteCustomerGateway where
-    toPath = const "/"
-
-instance ToHeaders DeleteCustomerGateway
-
-instance ToQuery DeleteCustomerGateway where
-    toQuery DeleteCustomerGateway{..} = mconcat
-        [ "dryRun"            =? _dcg1DryRun
-        , "CustomerGatewayId" =? _dcg1CustomerGatewayId
-        ]
-
-instance ToXML DeleteCustomerGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteCustomerGateway"

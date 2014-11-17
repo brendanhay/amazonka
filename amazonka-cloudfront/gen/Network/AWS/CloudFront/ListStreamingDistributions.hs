@@ -97,6 +97,16 @@ lsdrStreamingDistributionList =
     lens _lsdrStreamingDistributionList
         (\s a -> s { _lsdrStreamingDistributionList = a })
 
+instance ToPath ListStreamingDistributions where
+    toPath = const "/2014-05-31/streaming-distribution"
+
+instance ToQuery ListStreamingDistributions
+
+instance ToHeaders ListStreamingDistributions
+instance ToXML ListStreamingDistributions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListStreamingDistributions"
+
 instance AWSRequest ListStreamingDistributions where
     type Sv ListStreamingDistributions = CloudFront
     type Rs ListStreamingDistributions = ListStreamingDistributionsResponse
@@ -107,18 +117,3 @@ instance AWSRequest ListStreamingDistributions where
 instance FromXML ListStreamingDistributionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListStreamingDistributionsResponse"
-
-instance ToPath ListStreamingDistributions where
-    toPath = const "/2014-05-31/streaming-distribution"
-
-instance ToHeaders ListStreamingDistributions
-
-instance ToQuery ListStreamingDistributions where
-    toQuery ListStreamingDistributions{..} = mconcat
-        [ "Marker"   =? _lsdMarker
-        , "MaxItems" =? _lsdMaxItems
-        ]
-
-instance ToXML ListStreamingDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListStreamingDistributions"

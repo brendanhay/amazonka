@@ -86,6 +86,16 @@ gdcrDeploymentConfigInfo =
     lens _gdcrDeploymentConfigInfo
         (\s a -> s { _gdcrDeploymentConfigInfo = a })
 
+instance ToPath GetDeploymentConfig where
+    toPath = const "/"
+
+instance ToQuery GetDeploymentConfig where
+    toQuery = const mempty
+
+instance ToHeaders GetDeploymentConfig
+instance ToJSON GetDeploymentConfig where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetDeploymentConfig where
     type Sv GetDeploymentConfig = CodeDeploy
     type Rs GetDeploymentConfig = GetDeploymentConfigResponse
@@ -95,14 +105,3 @@ instance AWSRequest GetDeploymentConfig where
 
 instance FromJSON GetDeploymentConfigResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetDeploymentConfig where
-    toPath = const "/"
-
-instance ToHeaders GetDeploymentConfig
-
-instance ToQuery GetDeploymentConfig where
-    toQuery = const mempty
-
-instance ToJSON GetDeploymentConfig where
-    toJSON = genericToJSON jsonOptions

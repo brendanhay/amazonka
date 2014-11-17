@@ -119,6 +119,16 @@ updateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
 umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrGatewayARN = lens _umstrGatewayARN (\s a -> s { _umstrGatewayARN = a })
 
+instance ToPath UpdateMaintenanceStartTime where
+    toPath = const "/"
+
+instance ToQuery UpdateMaintenanceStartTime where
+    toQuery = const mempty
+
+instance ToHeaders UpdateMaintenanceStartTime
+instance ToJSON UpdateMaintenanceStartTime where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateMaintenanceStartTime where
     type Sv UpdateMaintenanceStartTime = StorageGateway
     type Rs UpdateMaintenanceStartTime = UpdateMaintenanceStartTimeResponse
@@ -128,14 +138,3 @@ instance AWSRequest UpdateMaintenanceStartTime where
 
 instance FromJSON UpdateMaintenanceStartTimeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateMaintenanceStartTime where
-    toPath = const "/"
-
-instance ToHeaders UpdateMaintenanceStartTime
-
-instance ToQuery UpdateMaintenanceStartTime where
-    toQuery = const mempty
-
-instance ToJSON UpdateMaintenanceStartTime where
-    toJSON = genericToJSON jsonOptions

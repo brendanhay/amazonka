@@ -99,6 +99,13 @@ ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile =
     lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })
 
+instance ToPath CreateInstanceProfile where
+    toPath = const "/"
+
+instance ToQuery CreateInstanceProfile
+
+instance ToHeaders CreateInstanceProfile
+
 instance AWSRequest CreateInstanceProfile where
     type Sv CreateInstanceProfile = IAM
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse
@@ -109,10 +116,3 @@ instance AWSRequest CreateInstanceProfile where
 instance FromXML CreateInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateInstanceProfileResponse"
-
-instance ToPath CreateInstanceProfile where
-    toPath = const "/"
-
-instance ToHeaders CreateInstanceProfile
-
-instance ToQuery CreateInstanceProfile

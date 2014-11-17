@@ -97,16 +97,16 @@ data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse
 
+instance ToPath UpdateSigningCertificate where
+    toPath = const "/"
+
+instance ToQuery UpdateSigningCertificate
+
+instance ToHeaders UpdateSigningCertificate
+
 instance AWSRequest UpdateSigningCertificate where
     type Sv UpdateSigningCertificate = IAM
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
 
     request  = post "UpdateSigningCertificate"
     response = nullResponse UpdateSigningCertificateResponse
-
-instance ToPath UpdateSigningCertificate where
-    toPath = const "/"
-
-instance ToHeaders UpdateSigningCertificate
-
-instance ToQuery UpdateSigningCertificate

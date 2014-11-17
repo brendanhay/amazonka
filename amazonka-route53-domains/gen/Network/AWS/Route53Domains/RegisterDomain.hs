@@ -224,6 +224,16 @@ registerDomainResponse p1 = RegisterDomainResponse
 rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\s a -> s { _rdrOperationId = a })
 
+instance ToPath RegisterDomain where
+    toPath = const "/"
+
+instance ToQuery RegisterDomain where
+    toQuery = const mempty
+
+instance ToHeaders RegisterDomain
+instance ToJSON RegisterDomain where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = Route53Domains
     type Rs RegisterDomain = RegisterDomainResponse
@@ -233,14 +243,3 @@ instance AWSRequest RegisterDomain where
 
 instance FromJSON RegisterDomainResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RegisterDomain where
-    toPath = const "/"
-
-instance ToHeaders RegisterDomain
-
-instance ToQuery RegisterDomain where
-    toQuery = const mempty
-
-instance ToJSON RegisterDomain where
-    toJSON = genericToJSON jsonOptions

@@ -83,16 +83,16 @@ data AttachInstancesResponse = AttachInstancesResponse
 attachInstancesResponse :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse
 
+instance ToPath AttachInstances where
+    toPath = const "/"
+
+instance ToQuery AttachInstances
+
+instance ToHeaders AttachInstances
+
 instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling
     type Rs AttachInstances = AttachInstancesResponse
 
     request  = post "AttachInstances"
     response = nullResponse AttachInstancesResponse
-
-instance ToPath AttachInstances where
-    toPath = const "/"
-
-instance ToHeaders AttachInstances
-
-instance ToQuery AttachInstances

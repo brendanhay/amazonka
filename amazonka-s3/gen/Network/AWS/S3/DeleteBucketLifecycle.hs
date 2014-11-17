@@ -67,24 +67,23 @@ data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 
-instance AWSRequest DeleteBucketLifecycle where
-    type Sv DeleteBucketLifecycle = S3
-    type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
-
-    request  = delete
-    response = nullResponse DeleteBucketLifecycleResponse
-
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat
         [ "/"
         , toText _dblBucket
         ]
 
-instance ToHeaders DeleteBucketLifecycle
-
 instance ToQuery DeleteBucketLifecycle where
     toQuery = const "lifecycle"
 
+instance ToHeaders DeleteBucketLifecycle
 instance ToXML DeleteBucketLifecycle where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteBucketLifecycle"
+
+instance AWSRequest DeleteBucketLifecycle where
+    type Sv DeleteBucketLifecycle = S3
+    type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
+
+    request  = delete
+    response = nullResponse DeleteBucketLifecycleResponse

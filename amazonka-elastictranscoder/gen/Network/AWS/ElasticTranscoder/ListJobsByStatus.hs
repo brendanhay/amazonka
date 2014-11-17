@@ -121,6 +121,22 @@ ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Job')
 ljbsrNextPageToken =
     lens _ljbsrNextPageToken (\s a -> s { _ljbsrNextPageToken = a })
 
+instance ToPath ListJobsByStatus where
+    toPath ListJobsByStatus{..} = mconcat
+        [ "/2012-09-25/jobsByStatus/"
+        , toText _ljbsStatus
+        ]
+
+instance ToQuery ListJobsByStatus where
+    toQuery ListJobsByStatus{..} = mconcat
+          [   "Ascending" =? _ljbsAscending
+          ,   "PageToken" =? _ljbsPageToken
+        ]
+
+instance ToHeaders ListJobsByStatus
+instance ToJSON ListJobsByStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListJobsByStatus where
     type Sv ListJobsByStatus = ElasticTranscoder
     type Rs ListJobsByStatus = ListJobsByStatusResponse
@@ -130,20 +146,3 @@ instance AWSRequest ListJobsByStatus where
 
 instance FromJSON ListJobsByStatusResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListJobsByStatus where
-    toPath ListJobsByStatus{..} = mconcat
-        [ "/2012-09-25/jobsByStatus/"
-        , toText _ljbsStatus
-        ]
-
-instance ToHeaders ListJobsByStatus
-
-instance ToQuery ListJobsByStatus where
-    toQuery ListJobsByStatus{..} = mconcat
-        [ "Ascending" =? _ljbsAscending
-        , "PageToken" =? _ljbsPageToken
-        ]
-
-instance ToJSON ListJobsByStatus where
-    toJSON = genericToJSON jsonOptions

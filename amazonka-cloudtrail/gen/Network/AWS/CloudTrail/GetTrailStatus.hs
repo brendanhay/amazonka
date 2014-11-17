@@ -184,6 +184,16 @@ gtsrStopLoggingTime =
     lens _gtsrStopLoggingTime (\s a -> s { _gtsrStopLoggingTime = a })
         . mapping _Time
 
+instance ToPath GetTrailStatus where
+    toPath = const "/"
+
+instance ToQuery GetTrailStatus where
+    toQuery = const mempty
+
+instance ToHeaders GetTrailStatus
+instance ToJSON GetTrailStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetTrailStatus where
     type Sv GetTrailStatus = CloudTrail
     type Rs GetTrailStatus = GetTrailStatusResponse
@@ -193,14 +203,3 @@ instance AWSRequest GetTrailStatus where
 
 instance FromJSON GetTrailStatusResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetTrailStatus where
-    toPath = const "/"
-
-instance ToHeaders GetTrailStatus
-
-instance ToQuery GetTrailStatus where
-    toQuery = const mempty
-
-instance ToJSON GetTrailStatus where
-    toJSON = genericToJSON jsonOptions

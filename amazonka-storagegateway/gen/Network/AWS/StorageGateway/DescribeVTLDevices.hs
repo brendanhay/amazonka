@@ -136,6 +136,16 @@ dvtldrMarker = lens _dvtldrMarker (\s a -> s { _dvtldrMarker = a })
 dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
 dvtldrVTLDevices = lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a })
 
+instance ToPath DescribeVTLDevices where
+    toPath = const "/"
+
+instance ToQuery DescribeVTLDevices where
+    toQuery = const mempty
+
+instance ToHeaders DescribeVTLDevices
+instance ToJSON DescribeVTLDevices where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeVTLDevices where
     type Sv DescribeVTLDevices = StorageGateway
     type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
@@ -145,14 +155,3 @@ instance AWSRequest DescribeVTLDevices where
 
 instance FromJSON DescribeVTLDevicesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeVTLDevices where
-    toPath = const "/"
-
-instance ToHeaders DescribeVTLDevices
-
-instance ToQuery DescribeVTLDevices where
-    toQuery = const mempty
-
-instance ToJSON DescribeVTLDevices where
-    toJSON = genericToJSON jsonOptions

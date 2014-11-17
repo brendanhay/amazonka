@@ -150,13 +150,6 @@ data PutObjectAclResponse = PutObjectAclResponse
 putObjectAclResponse :: PutObjectAclResponse
 putObjectAclResponse = PutObjectAclResponse
 
-instance AWSRequest PutObjectAcl where
-    type Sv PutObjectAcl = S3
-    type Rs PutObjectAcl = PutObjectAclResponse
-
-    request  = put
-    response = nullResponse PutObjectAclResponse
-
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat
         [ "/"
@@ -164,6 +157,9 @@ instance ToPath PutObjectAcl where
         , "/"
         , toText _poaKey
         ]
+
+instance ToQuery PutObjectAcl where
+    toQuery = const "acl"
 
 instance ToHeaders PutObjectAcl where
     toHeaders PutObjectAcl{..} = mconcat
@@ -175,10 +171,13 @@ instance ToHeaders PutObjectAcl where
         , "x-amz-grant-write"        =: _poaGrantWrite
         , "x-amz-grant-write-acp"    =: _poaGrantWriteACP
         ]
-
-instance ToQuery PutObjectAcl where
-    toQuery = const "acl"
-
 instance ToXML PutObjectAcl where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutObjectAcl"
+
+instance AWSRequest PutObjectAcl where
+    type Sv PutObjectAcl = S3
+    type Rs PutObjectAcl = PutObjectAclResponse
+
+    request  = put
+    response = nullResponse PutObjectAclResponse

@@ -72,20 +72,19 @@ data StopLoggingResponse = StopLoggingResponse
 stopLoggingResponse :: StopLoggingResponse
 stopLoggingResponse = StopLoggingResponse
 
+instance ToPath StopLogging where
+    toPath = const "/"
+
+instance ToQuery StopLogging where
+    toQuery = const mempty
+
+instance ToHeaders StopLogging
+instance ToJSON StopLogging where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail
     type Rs StopLogging = StopLoggingResponse
 
     request  = post
     response = nullResponse StopLoggingResponse
-
-instance ToPath StopLogging where
-    toPath = const "/"
-
-instance ToHeaders StopLogging
-
-instance ToQuery StopLogging where
-    toQuery = const mempty
-
-instance ToJSON StopLogging where
-    toJSON = genericToJSON jsonOptions

@@ -134,6 +134,16 @@ godrSubmittedDate =
 godrType :: Lens' GetOperationDetailResponse (Maybe Text)
 godrType = lens _godrType (\s a -> s { _godrType = a })
 
+instance ToPath GetOperationDetail where
+    toPath = const "/"
+
+instance ToQuery GetOperationDetail where
+    toQuery = const mempty
+
+instance ToHeaders GetOperationDetail
+instance ToJSON GetOperationDetail where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetOperationDetail where
     type Sv GetOperationDetail = Route53Domains
     type Rs GetOperationDetail = GetOperationDetailResponse
@@ -143,14 +153,3 @@ instance AWSRequest GetOperationDetail where
 
 instance FromJSON GetOperationDetailResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetOperationDetail where
-    toPath = const "/"
-
-instance ToHeaders GetOperationDetail
-
-instance ToQuery GetOperationDetail where
-    toQuery = const mempty
-
-instance ToJSON GetOperationDetail where
-    toJSON = genericToJSON jsonOptions

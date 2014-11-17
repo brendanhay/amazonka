@@ -90,16 +90,16 @@ data SetTopicAttributesResponse = SetTopicAttributesResponse
 setTopicAttributesResponse :: SetTopicAttributesResponse
 setTopicAttributesResponse = SetTopicAttributesResponse
 
+instance ToPath SetTopicAttributes where
+    toPath = const "/"
+
+instance ToQuery SetTopicAttributes
+
+instance ToHeaders SetTopicAttributes
+
 instance AWSRequest SetTopicAttributes where
     type Sv SetTopicAttributes = SNS
     type Rs SetTopicAttributes = SetTopicAttributesResponse
 
     request  = post "SetTopicAttributes"
     response = nullResponse SetTopicAttributesResponse
-
-instance ToPath SetTopicAttributes where
-    toPath = const "/"
-
-instance ToHeaders SetTopicAttributes
-
-instance ToQuery SetTopicAttributes

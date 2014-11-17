@@ -67,24 +67,23 @@ data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
-instance AWSRequest DeleteBucketTagging where
-    type Sv DeleteBucketTagging = S3
-    type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
-
-    request  = delete
-    response = nullResponse DeleteBucketTaggingResponse
-
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat
         [ "/"
         , toText _dbtBucket
         ]
 
-instance ToHeaders DeleteBucketTagging
-
 instance ToQuery DeleteBucketTagging where
     toQuery = const "tagging"
 
+instance ToHeaders DeleteBucketTagging
 instance ToXML DeleteBucketTagging where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteBucketTagging"
+
+instance AWSRequest DeleteBucketTagging where
+    type Sv DeleteBucketTagging = S3
+    type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
+
+    request  = delete
+    response = nullResponse DeleteBucketTaggingResponse

@@ -179,6 +179,13 @@ receiveMessageResponse = ReceiveMessageResponse
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
 
+instance ToPath ReceiveMessage where
+    toPath = const "/"
+
+instance ToQuery ReceiveMessage
+
+instance ToHeaders ReceiveMessage
+
 instance AWSRequest ReceiveMessage where
     type Sv ReceiveMessage = SQS
     type Rs ReceiveMessage = ReceiveMessageResponse
@@ -189,10 +196,3 @@ instance AWSRequest ReceiveMessage where
 instance FromXML ReceiveMessageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReceiveMessageResponse"
-
-instance ToPath ReceiveMessage where
-    toPath = const "/"
-
-instance ToHeaders ReceiveMessage
-
-instance ToQuery ReceiveMessage

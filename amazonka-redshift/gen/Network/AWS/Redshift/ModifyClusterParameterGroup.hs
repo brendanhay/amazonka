@@ -113,6 +113,13 @@ mcpgrParameterGroupStatus =
     lens _mcpgrParameterGroupStatus
         (\s a -> s { _mcpgrParameterGroupStatus = a })
 
+instance ToPath ModifyClusterParameterGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyClusterParameterGroup
+
+instance ToHeaders ModifyClusterParameterGroup
+
 instance AWSRequest ModifyClusterParameterGroup where
     type Sv ModifyClusterParameterGroup = Redshift
     type Rs ModifyClusterParameterGroup = ModifyClusterParameterGroupResponse
@@ -123,10 +130,3 @@ instance AWSRequest ModifyClusterParameterGroup where
 instance FromXML ModifyClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyClusterParameterGroupResponse"
-
-instance ToPath ModifyClusterParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyClusterParameterGroup
-
-instance ToQuery ModifyClusterParameterGroup

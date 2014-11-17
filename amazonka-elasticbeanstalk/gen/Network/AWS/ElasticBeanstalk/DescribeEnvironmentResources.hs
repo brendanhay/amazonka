@@ -99,6 +99,13 @@ derrEnvironmentResources =
     lens _derrEnvironmentResources
         (\s a -> s { _derrEnvironmentResources = a })
 
+instance ToPath DescribeEnvironmentResources where
+    toPath = const "/"
+
+instance ToQuery DescribeEnvironmentResources
+
+instance ToHeaders DescribeEnvironmentResources
+
 instance AWSRequest DescribeEnvironmentResources where
     type Sv DescribeEnvironmentResources = ElasticBeanstalk
     type Rs DescribeEnvironmentResources = DescribeEnvironmentResourcesResponse
@@ -109,10 +116,3 @@ instance AWSRequest DescribeEnvironmentResources where
 instance FromXML DescribeEnvironmentResourcesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEnvironmentResourcesResponse"
-
-instance ToPath DescribeEnvironmentResources where
-    toPath = const "/"
-
-instance ToHeaders DescribeEnvironmentResources
-
-instance ToQuery DescribeEnvironmentResources

@@ -284,6 +284,13 @@ mrgrReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationG
 mrgrReplicationGroup =
     lens _mrgrReplicationGroup (\s a -> s { _mrgrReplicationGroup = a })
 
+instance ToPath ModifyReplicationGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyReplicationGroup
+
+instance ToHeaders ModifyReplicationGroup
+
 instance AWSRequest ModifyReplicationGroup where
     type Sv ModifyReplicationGroup = ElastiCache
     type Rs ModifyReplicationGroup = ModifyReplicationGroupResponse
@@ -294,10 +301,3 @@ instance AWSRequest ModifyReplicationGroup where
 instance FromXML ModifyReplicationGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyReplicationGroupResponse"
-
-instance ToPath ModifyReplicationGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyReplicationGroup
-
-instance ToQuery ModifyReplicationGroup

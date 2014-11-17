@@ -112,6 +112,16 @@ lorNextPageMarker =
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a })
 
+instance ToPath ListOperations where
+    toPath = const "/"
+
+instance ToQuery ListOperations where
+    toQuery = const mempty
+
+instance ToHeaders ListOperations
+instance ToJSON ListOperations where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListOperations where
     type Sv ListOperations = Route53Domains
     type Rs ListOperations = ListOperationsResponse
@@ -121,14 +131,3 @@ instance AWSRequest ListOperations where
 
 instance FromJSON ListOperationsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListOperations where
-    toPath = const "/"
-
-instance ToHeaders ListOperations
-
-instance ToQuery ListOperations where
-    toQuery = const mempty
-
-instance ToJSON ListOperations where
-    toJSON = genericToJSON jsonOptions

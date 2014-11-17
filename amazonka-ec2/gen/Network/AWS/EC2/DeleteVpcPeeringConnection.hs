@@ -95,6 +95,13 @@ deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 
+instance ToPath DeleteVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToQuery DeleteVpcPeeringConnection
+
+instance ToHeaders DeleteVpcPeeringConnection
+
 instance AWSRequest DeleteVpcPeeringConnection where
     type Sv DeleteVpcPeeringConnection = EC2
     type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResponse
@@ -105,18 +112,3 @@ instance AWSRequest DeleteVpcPeeringConnection where
 instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVpcPeeringConnectionResponse"
-
-instance ToPath DeleteVpcPeeringConnection where
-    toPath = const "/"
-
-instance ToHeaders DeleteVpcPeeringConnection
-
-instance ToQuery DeleteVpcPeeringConnection where
-    toQuery DeleteVpcPeeringConnection{..} = mconcat
-        [ "dryRun"                 =? _dvpcDryRun
-        , "vpcPeeringConnectionId" =? _dvpcVpcPeeringConnectionId
-        ]
-
-instance ToXML DeleteVpcPeeringConnection where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteVpcPeeringConnection"

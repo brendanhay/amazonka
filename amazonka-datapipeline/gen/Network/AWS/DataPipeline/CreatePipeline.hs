@@ -117,6 +117,16 @@ createPipelineResponse p1 = CreatePipelineResponse
 cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\s a -> s { _cprPipelineId = a })
 
+instance ToPath CreatePipeline where
+    toPath = const "/"
+
+instance ToQuery CreatePipeline where
+    toQuery = const mempty
+
+instance ToHeaders CreatePipeline
+instance ToJSON CreatePipeline where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = DataPipeline
     type Rs CreatePipeline = CreatePipelineResponse
@@ -126,14 +136,3 @@ instance AWSRequest CreatePipeline where
 
 instance FromJSON CreatePipelineResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreatePipeline where
-    toPath = const "/"
-
-instance ToHeaders CreatePipeline
-
-instance ToQuery CreatePipeline where
-    toQuery = const mempty
-
-instance ToJSON CreatePipeline where
-    toJSON = genericToJSON jsonOptions

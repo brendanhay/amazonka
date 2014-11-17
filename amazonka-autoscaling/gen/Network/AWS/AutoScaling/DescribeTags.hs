@@ -117,6 +117,13 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
+instance ToPath DescribeTags where
+    toPath = const "/"
+
+instance ToQuery DescribeTags
+
+instance ToHeaders DescribeTags
+
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = AutoScaling
     type Rs DescribeTags = DescribeTagsResponse
@@ -127,10 +134,3 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeTagsResponse"
-
-instance ToPath DescribeTags where
-    toPath = const "/"
-
-instance ToHeaders DescribeTags
-
-instance ToQuery DescribeTags

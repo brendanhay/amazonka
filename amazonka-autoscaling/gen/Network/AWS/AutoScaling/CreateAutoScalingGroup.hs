@@ -262,16 +262,16 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 
+instance ToPath CreateAutoScalingGroup where
+    toPath = const "/"
+
+instance ToQuery CreateAutoScalingGroup
+
+instance ToHeaders CreateAutoScalingGroup
+
 instance AWSRequest CreateAutoScalingGroup where
     type Sv CreateAutoScalingGroup = AutoScaling
     type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
 
     request  = post "CreateAutoScalingGroup"
     response = nullResponse CreateAutoScalingGroupResponse
-
-instance ToPath CreateAutoScalingGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateAutoScalingGroup
-
-instance ToQuery CreateAutoScalingGroup

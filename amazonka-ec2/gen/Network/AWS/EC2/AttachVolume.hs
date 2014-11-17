@@ -179,6 +179,13 @@ avrState = lens _avrState (\s a -> s { _avrState = a })
 avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
 
+instance ToPath AttachVolume where
+    toPath = const "/"
+
+instance ToQuery AttachVolume
+
+instance ToHeaders AttachVolume
+
 instance AWSRequest AttachVolume where
     type Sv AttachVolume = EC2
     type Rs AttachVolume = AttachVolumeResponse
@@ -189,20 +196,3 @@ instance AWSRequest AttachVolume where
 instance FromXML AttachVolumeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachVolumeResponse"
-
-instance ToPath AttachVolume where
-    toPath = const "/"
-
-instance ToHeaders AttachVolume
-
-instance ToQuery AttachVolume where
-    toQuery AttachVolume{..} = mconcat
-        [ "dryRun"     =? _avDryRun
-        , "VolumeId"   =? _avVolumeId
-        , "InstanceId" =? _avInstanceId
-        , "Device"     =? _avDevice
-        ]
-
-instance ToXML AttachVolume where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AttachVolume"

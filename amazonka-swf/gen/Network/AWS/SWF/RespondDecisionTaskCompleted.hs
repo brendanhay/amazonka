@@ -104,20 +104,19 @@ data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
 
+instance ToPath RespondDecisionTaskCompleted where
+    toPath = const "/"
+
+instance ToQuery RespondDecisionTaskCompleted where
+    toQuery = const mempty
+
+instance ToHeaders RespondDecisionTaskCompleted
+instance ToJSON RespondDecisionTaskCompleted where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RespondDecisionTaskCompleted where
     type Sv RespondDecisionTaskCompleted = SWF
     type Rs RespondDecisionTaskCompleted = RespondDecisionTaskCompletedResponse
 
     request  = post
     response = nullResponse RespondDecisionTaskCompletedResponse
-
-instance ToPath RespondDecisionTaskCompleted where
-    toPath = const "/"
-
-instance ToHeaders RespondDecisionTaskCompleted
-
-instance ToQuery RespondDecisionTaskCompleted where
-    toQuery = const mempty
-
-instance ToJSON RespondDecisionTaskCompleted where
-    toJSON = genericToJSON jsonOptions

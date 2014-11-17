@@ -101,6 +101,13 @@ ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSe
 ccsgrCacheSecurityGroup =
     lens _ccsgrCacheSecurityGroup (\s a -> s { _ccsgrCacheSecurityGroup = a })
 
+instance ToPath CreateCacheSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery CreateCacheSecurityGroup
+
+instance ToHeaders CreateCacheSecurityGroup
+
 instance AWSRequest CreateCacheSecurityGroup where
     type Sv CreateCacheSecurityGroup = ElastiCache
     type Rs CreateCacheSecurityGroup = CreateCacheSecurityGroupResponse
@@ -111,10 +118,3 @@ instance AWSRequest CreateCacheSecurityGroup where
 instance FromXML CreateCacheSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheSecurityGroupResponse"
-
-instance ToPath CreateCacheSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateCacheSecurityGroup
-
-instance ToQuery CreateCacheSecurityGroup

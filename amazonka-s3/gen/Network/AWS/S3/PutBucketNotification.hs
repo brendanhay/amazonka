@@ -86,27 +86,26 @@ data PutBucketNotificationResponse = PutBucketNotificationResponse
 putBucketNotificationResponse :: PutBucketNotificationResponse
 putBucketNotificationResponse = PutBucketNotificationResponse
 
-instance AWSRequest PutBucketNotification where
-    type Sv PutBucketNotification = S3
-    type Rs PutBucketNotification = PutBucketNotificationResponse
-
-    request  = put
-    response = nullResponse PutBucketNotificationResponse
-
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat
         [ "/"
         , toText _pbnBucket
         ]
 
+instance ToQuery PutBucketNotification where
+    toQuery = const "notification"
+
 instance ToHeaders PutBucketNotification where
     toHeaders PutBucketNotification{..} = mconcat
         [ "Content-MD5" =: _pbnContentMD5
         ]
-
-instance ToQuery PutBucketNotification where
-    toQuery = const "notification"
-
 instance ToXML PutBucketNotification where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketNotification"
+
+instance AWSRequest PutBucketNotification where
+    type Sv PutBucketNotification = S3
+    type Rs PutBucketNotification = PutBucketNotificationResponse
+
+    request  = put
+    response = nullResponse PutBucketNotificationResponse

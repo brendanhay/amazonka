@@ -121,6 +121,13 @@ dcsgr1CacheSecurityGroups =
 dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 
+instance ToPath DescribeCacheSecurityGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeCacheSecurityGroups
+
+instance ToHeaders DescribeCacheSecurityGroups
+
 instance AWSRequest DescribeCacheSecurityGroups where
     type Sv DescribeCacheSecurityGroups = ElastiCache
     type Rs DescribeCacheSecurityGroups = DescribeCacheSecurityGroupsResponse
@@ -131,10 +138,3 @@ instance AWSRequest DescribeCacheSecurityGroups where
 instance FromXML DescribeCacheSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCacheSecurityGroupsResponse"
-
-instance ToPath DescribeCacheSecurityGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeCacheSecurityGroups
-
-instance ToQuery DescribeCacheSecurityGroups

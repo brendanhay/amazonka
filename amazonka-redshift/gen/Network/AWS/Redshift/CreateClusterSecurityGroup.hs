@@ -102,6 +102,13 @@ ccsgrClusterSecurityGroup =
     lens _ccsgrClusterSecurityGroup
         (\s a -> s { _ccsgrClusterSecurityGroup = a })
 
+instance ToPath CreateClusterSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery CreateClusterSecurityGroup
+
+instance ToHeaders CreateClusterSecurityGroup
+
 instance AWSRequest CreateClusterSecurityGroup where
     type Sv CreateClusterSecurityGroup = Redshift
     type Rs CreateClusterSecurityGroup = CreateClusterSecurityGroupResponse
@@ -112,10 +119,3 @@ instance AWSRequest CreateClusterSecurityGroup where
 instance FromXML CreateClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterSecurityGroupResponse"
-
-instance ToPath CreateClusterSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateClusterSecurityGroup
-
-instance ToQuery CreateClusterSecurityGroup

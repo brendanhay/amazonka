@@ -145,6 +145,16 @@ createDeploymentResponse = CreateDeploymentResponse
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\s a -> s { _cdrDeploymentId = a })
 
+instance ToPath CreateDeployment where
+    toPath = const "/"
+
+instance ToQuery CreateDeployment where
+    toQuery = const mempty
+
+instance ToHeaders CreateDeployment
+instance ToJSON CreateDeployment where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = CodeDeploy
     type Rs CreateDeployment = CreateDeploymentResponse
@@ -154,14 +164,3 @@ instance AWSRequest CreateDeployment where
 
 instance FromJSON CreateDeploymentResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateDeployment where
-    toPath = const "/"
-
-instance ToHeaders CreateDeployment
-
-instance ToQuery CreateDeployment where
-    toQuery = const mempty
-
-instance ToJSON CreateDeployment where
-    toJSON = genericToJSON jsonOptions

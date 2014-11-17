@@ -84,20 +84,19 @@ data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 
+instance ToPath SetTimeBasedAutoScaling where
+    toPath = const "/"
+
+instance ToQuery SetTimeBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToHeaders SetTimeBasedAutoScaling
+instance ToJSON SetTimeBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks
     type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
 
     request  = post
     response = nullResponse SetTimeBasedAutoScalingResponse
-
-instance ToPath SetTimeBasedAutoScaling where
-    toPath = const "/"
-
-instance ToHeaders SetTimeBasedAutoScaling
-
-instance ToQuery SetTimeBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToJSON SetTimeBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions

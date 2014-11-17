@@ -104,16 +104,16 @@ data SetQueueAttributesResponse = SetQueueAttributesResponse
 setQueueAttributesResponse :: SetQueueAttributesResponse
 setQueueAttributesResponse = SetQueueAttributesResponse
 
+instance ToPath SetQueueAttributes where
+    toPath = const "/"
+
+instance ToQuery SetQueueAttributes
+
+instance ToHeaders SetQueueAttributes
+
 instance AWSRequest SetQueueAttributes where
     type Sv SetQueueAttributes = SQS
     type Rs SetQueueAttributes = SetQueueAttributesResponse
 
     request  = post "SetQueueAttributes"
     response = nullResponse SetQueueAttributesResponse
-
-instance ToPath SetQueueAttributes where
-    toPath = const "/"
-
-instance ToHeaders SetQueueAttributes
-
-instance ToQuery SetQueueAttributes

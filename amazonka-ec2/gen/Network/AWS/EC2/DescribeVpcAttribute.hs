@@ -124,6 +124,13 @@ dvarEnableDnsSupport =
 dvarVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
 
+instance ToPath DescribeVpcAttribute where
+    toPath = const "/"
+
+instance ToQuery DescribeVpcAttribute
+
+instance ToHeaders DescribeVpcAttribute
+
 instance AWSRequest DescribeVpcAttribute where
     type Sv DescribeVpcAttribute = EC2
     type Rs DescribeVpcAttribute = DescribeVpcAttributeResponse
@@ -134,19 +141,3 @@ instance AWSRequest DescribeVpcAttribute where
 instance FromXML DescribeVpcAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpcAttributeResponse"
-
-instance ToPath DescribeVpcAttribute where
-    toPath = const "/"
-
-instance ToHeaders DescribeVpcAttribute
-
-instance ToQuery DescribeVpcAttribute where
-    toQuery DescribeVpcAttribute{..} = mconcat
-        [ "dryRun"    =? _dva1DryRun
-        , "VpcId"     =? _dva1VpcId
-        , "Attribute" =? _dva1Attribute
-        ]
-
-instance ToXML DescribeVpcAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVpcAttribute"

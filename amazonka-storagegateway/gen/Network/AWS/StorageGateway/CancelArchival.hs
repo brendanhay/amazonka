@@ -94,6 +94,16 @@ cancelArchivalResponse = CancelArchivalResponse
 carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\s a -> s { _carTapeARN = a })
 
+instance ToPath CancelArchival where
+    toPath = const "/"
+
+instance ToQuery CancelArchival where
+    toQuery = const mempty
+
+instance ToHeaders CancelArchival
+instance ToJSON CancelArchival where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CancelArchival where
     type Sv CancelArchival = StorageGateway
     type Rs CancelArchival = CancelArchivalResponse
@@ -103,14 +113,3 @@ instance AWSRequest CancelArchival where
 
 instance FromJSON CancelArchivalResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CancelArchival where
-    toPath = const "/"
-
-instance ToHeaders CancelArchival
-
-instance ToQuery CancelArchival where
-    toQuery = const mempty
-
-instance ToJSON CancelArchival where
-    toJSON = genericToJSON jsonOptions

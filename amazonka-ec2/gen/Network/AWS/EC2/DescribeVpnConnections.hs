@@ -128,6 +128,13 @@ dvcrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvcrVpnConnections =
     lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })
 
+instance ToPath DescribeVpnConnections where
+    toPath = const "/"
+
+instance ToQuery DescribeVpnConnections
+
+instance ToHeaders DescribeVpnConnections
+
 instance AWSRequest DescribeVpnConnections where
     type Sv DescribeVpnConnections = EC2
     type Rs DescribeVpnConnections = DescribeVpnConnectionsResponse
@@ -138,19 +145,3 @@ instance AWSRequest DescribeVpnConnections where
 instance FromXML DescribeVpnConnectionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpnConnectionsResponse"
-
-instance ToPath DescribeVpnConnections where
-    toPath = const "/"
-
-instance ToHeaders DescribeVpnConnections
-
-instance ToQuery DescribeVpnConnections where
-    toQuery DescribeVpnConnections{..} = mconcat
-        [ "dryRun"          =? _dvc1DryRun
-        , "VpnConnectionId" =? _dvc1VpnConnectionIds
-        , "Filter"          =? _dvc1Filters
-        ]
-
-instance ToXML DescribeVpnConnections where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVpnConnections"

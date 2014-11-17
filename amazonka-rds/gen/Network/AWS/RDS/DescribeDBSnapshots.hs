@@ -157,6 +157,13 @@ ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a })
 ddbsrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddbsrMarker = lens _ddbsrMarker (\s a -> s { _ddbsrMarker = a })
 
+instance ToPath DescribeDBSnapshots where
+    toPath = const "/"
+
+instance ToQuery DescribeDBSnapshots
+
+instance ToHeaders DescribeDBSnapshots
+
 instance AWSRequest DescribeDBSnapshots where
     type Sv DescribeDBSnapshots = RDS
     type Rs DescribeDBSnapshots = DescribeDBSnapshotsResponse
@@ -167,10 +174,3 @@ instance AWSRequest DescribeDBSnapshots where
 instance FromXML DescribeDBSnapshotsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBSnapshotsResponse"
-
-instance ToPath DescribeDBSnapshots where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBSnapshots
-
-instance ToQuery DescribeDBSnapshots

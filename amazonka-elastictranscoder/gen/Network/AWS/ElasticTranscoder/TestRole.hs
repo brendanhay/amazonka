@@ -131,6 +131,16 @@ trrMessages = lens _trrMessages (\s a -> s { _trrMessages = a })
 trrSuccess :: Lens' TestRoleResponse (Maybe Text)
 trrSuccess = lens _trrSuccess (\s a -> s { _trrSuccess = a })
 
+instance ToPath TestRole where
+    toPath = const "/2012-09-25/roleTests"
+
+instance ToQuery TestRole where
+    toQuery = const mempty
+
+instance ToHeaders TestRole
+instance ToJSON TestRole where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest TestRole where
     type Sv TestRole = ElasticTranscoder
     type Rs TestRole = TestRoleResponse
@@ -140,14 +150,3 @@ instance AWSRequest TestRole where
 
 instance FromJSON TestRoleResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath TestRole where
-    toPath = const "/2012-09-25/roleTests"
-
-instance ToHeaders TestRole
-
-instance ToQuery TestRole where
-    toQuery = const mempty
-
-instance ToJSON TestRole where
-    toJSON = genericToJSON jsonOptions

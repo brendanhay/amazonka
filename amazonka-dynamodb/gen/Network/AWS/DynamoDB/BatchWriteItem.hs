@@ -232,6 +232,16 @@ bwirUnprocessedItems =
     lens _bwirUnprocessedItems (\s a -> s { _bwirUnprocessedItems = a })
         . _Map
 
+instance ToPath BatchWriteItem where
+    toPath = const "/"
+
+instance ToQuery BatchWriteItem where
+    toQuery = const mempty
+
+instance ToHeaders BatchWriteItem
+instance ToJSON BatchWriteItem where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest BatchWriteItem where
     type Sv BatchWriteItem = DynamoDB
     type Rs BatchWriteItem = BatchWriteItemResponse
@@ -241,14 +251,3 @@ instance AWSRequest BatchWriteItem where
 
 instance FromJSON BatchWriteItemResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath BatchWriteItem where
-    toPath = const "/"
-
-instance ToHeaders BatchWriteItem
-
-instance ToQuery BatchWriteItem where
-    toQuery = const mempty
-
-instance ToJSON BatchWriteItem where
-    toJSON = genericToJSON jsonOptions

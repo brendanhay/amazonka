@@ -116,6 +116,13 @@ guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 guprUserName :: Lens' GetUserPolicyResponse Text
 guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
 
+instance ToPath GetUserPolicy where
+    toPath = const "/"
+
+instance ToQuery GetUserPolicy
+
+instance ToHeaders GetUserPolicy
+
 instance AWSRequest GetUserPolicy where
     type Sv GetUserPolicy = IAM
     type Rs GetUserPolicy = GetUserPolicyResponse
@@ -126,10 +133,3 @@ instance AWSRequest GetUserPolicy where
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetUserPolicyResponse"
-
-instance ToPath GetUserPolicy where
-    toPath = const "/"
-
-instance ToHeaders GetUserPolicy
-
-instance ToQuery GetUserPolicy

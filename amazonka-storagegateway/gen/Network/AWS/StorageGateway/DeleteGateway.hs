@@ -93,6 +93,16 @@ deleteGatewayResponse = DeleteGatewayResponse
 dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrGatewayARN = lens _dgrGatewayARN (\s a -> s { _dgrGatewayARN = a })
 
+instance ToPath DeleteGateway where
+    toPath = const "/"
+
+instance ToQuery DeleteGateway where
+    toQuery = const mempty
+
+instance ToHeaders DeleteGateway
+instance ToJSON DeleteGateway where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteGateway where
     type Sv DeleteGateway = StorageGateway
     type Rs DeleteGateway = DeleteGatewayResponse
@@ -102,14 +112,3 @@ instance AWSRequest DeleteGateway where
 
 instance FromJSON DeleteGatewayResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteGateway where
-    toPath = const "/"
-
-instance ToHeaders DeleteGateway
-
-instance ToQuery DeleteGateway where
-    toQuery = const mempty
-
-instance ToJSON DeleteGateway where
-    toJSON = genericToJSON jsonOptions

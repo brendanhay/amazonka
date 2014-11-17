@@ -499,6 +499,16 @@ qrLastEvaluatedKey =
 qrScannedCount :: Lens' QueryResponse (Maybe Int)
 qrScannedCount = lens _qrScannedCount (\s a -> s { _qrScannedCount = a })
 
+instance ToPath Query where
+    toPath = const "/"
+
+instance ToQuery Query where
+    toQuery = const mempty
+
+instance ToHeaders Query
+instance ToJSON Query where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest Query where
     type Sv Query = DynamoDB
     type Rs Query = QueryResponse
@@ -508,14 +518,3 @@ instance AWSRequest Query where
 
 instance FromJSON QueryResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath Query where
-    toPath = const "/"
-
-instance ToHeaders Query
-
-instance ToQuery Query where
-    toQuery = const mempty
-
-instance ToJSON Query where
-    toJSON = genericToJSON jsonOptions

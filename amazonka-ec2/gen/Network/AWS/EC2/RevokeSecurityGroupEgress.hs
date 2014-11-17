@@ -160,31 +160,16 @@ data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
 
+instance ToPath RevokeSecurityGroupEgress where
+    toPath = const "/"
+
+instance ToQuery RevokeSecurityGroupEgress
+
+instance ToHeaders RevokeSecurityGroupEgress
+
 instance AWSRequest RevokeSecurityGroupEgress where
     type Sv RevokeSecurityGroupEgress = EC2
     type Rs RevokeSecurityGroupEgress = RevokeSecurityGroupEgressResponse
 
     request  = post "RevokeSecurityGroupEgress"
     response = nullResponse RevokeSecurityGroupEgressResponse
-
-instance ToPath RevokeSecurityGroupEgress where
-    toPath = const "/"
-
-instance ToHeaders RevokeSecurityGroupEgress
-
-instance ToQuery RevokeSecurityGroupEgress where
-    toQuery RevokeSecurityGroupEgress{..} = mconcat
-        [ "dryRun"                     =? _rsgeDryRun
-        , "groupId"                    =? _rsgeGroupId
-        , "sourceSecurityGroupName"    =? _rsgeSourceSecurityGroupName
-        , "sourceSecurityGroupOwnerId" =? _rsgeSourceSecurityGroupOwnerId
-        , "ipProtocol"                 =? _rsgeIpProtocol
-        , "fromPort"                   =? _rsgeFromPort
-        , "toPort"                     =? _rsgeToPort
-        , "cidrIp"                     =? _rsgeCidrIp
-        , "ipPermissions"              =? _rsgeIpPermissions
-        ]
-
-instance ToXML RevokeSecurityGroupEgress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RevokeSecurityGroupEgress"

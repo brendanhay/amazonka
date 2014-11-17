@@ -131,29 +131,16 @@ data ReplaceRouteResponse = ReplaceRouteResponse
 replaceRouteResponse :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse
 
+instance ToPath ReplaceRoute where
+    toPath = const "/"
+
+instance ToQuery ReplaceRoute
+
+instance ToHeaders ReplaceRoute
+
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2
     type Rs ReplaceRoute = ReplaceRouteResponse
 
     request  = post "ReplaceRoute"
     response = nullResponse ReplaceRouteResponse
-
-instance ToPath ReplaceRoute where
-    toPath = const "/"
-
-instance ToHeaders ReplaceRoute
-
-instance ToQuery ReplaceRoute where
-    toQuery ReplaceRoute{..} = mconcat
-        [ "dryRun"                 =? _rrDryRun
-        , "routeTableId"           =? _rrRouteTableId
-        , "destinationCidrBlock"   =? _rrDestinationCidrBlock
-        , "gatewayId"              =? _rrGatewayId
-        , "instanceId"             =? _rrInstanceId
-        , "networkInterfaceId"     =? _rrNetworkInterfaceId
-        , "vpcPeeringConnectionId" =? _rrVpcPeeringConnectionId
-        ]
-
-instance ToXML ReplaceRoute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReplaceRoute"

@@ -185,6 +185,16 @@ createAppResponse = CreateAppResponse
 carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\s a -> s { _carAppId = a })
 
+instance ToPath CreateApp where
+    toPath = const "/"
+
+instance ToQuery CreateApp where
+    toQuery = const mempty
+
+instance ToHeaders CreateApp
+instance ToJSON CreateApp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateApp where
     type Sv CreateApp = OpsWorks
     type Rs CreateApp = CreateAppResponse
@@ -194,14 +204,3 @@ instance AWSRequest CreateApp where
 
 instance FromJSON CreateAppResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateApp where
-    toPath = const "/"
-
-instance ToHeaders CreateApp
-
-instance ToQuery CreateApp where
-    toQuery = const mempty
-
-instance ToJSON CreateApp where
-    toJSON = genericToJSON jsonOptions

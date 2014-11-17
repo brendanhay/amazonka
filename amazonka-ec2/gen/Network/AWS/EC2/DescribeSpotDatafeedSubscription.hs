@@ -83,6 +83,13 @@ dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription
         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
 
+instance ToPath DescribeSpotDatafeedSubscription where
+    toPath = const "/"
+
+instance ToQuery DescribeSpotDatafeedSubscription
+
+instance ToHeaders DescribeSpotDatafeedSubscription
+
 instance AWSRequest DescribeSpotDatafeedSubscription where
     type Sv DescribeSpotDatafeedSubscription = EC2
     type Rs DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionResponse
@@ -93,15 +100,3 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResponse"
-
-instance ToPath DescribeSpotDatafeedSubscription where
-    toPath = const "/"
-
-instance ToHeaders DescribeSpotDatafeedSubscription
-
-instance ToQuery DescribeSpotDatafeedSubscription where
-    toQuery rq = "dryRun" =? _dsdsDryRun rq
-
-instance ToXML DescribeSpotDatafeedSubscription where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSpotDatafeedSubscription"

@@ -156,6 +156,16 @@ dwerLatestExecutionContext =
 dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwerOpenCounts = lens _dwerOpenCounts (\s a -> s { _dwerOpenCounts = a })
 
+instance ToPath DescribeWorkflowExecution where
+    toPath = const "/"
+
+instance ToQuery DescribeWorkflowExecution where
+    toQuery = const mempty
+
+instance ToHeaders DescribeWorkflowExecution
+instance ToJSON DescribeWorkflowExecution where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeWorkflowExecution where
     type Sv DescribeWorkflowExecution = SWF
     type Rs DescribeWorkflowExecution = DescribeWorkflowExecutionResponse
@@ -165,14 +175,3 @@ instance AWSRequest DescribeWorkflowExecution where
 
 instance FromJSON DescribeWorkflowExecutionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeWorkflowExecution where
-    toPath = const "/"
-
-instance ToHeaders DescribeWorkflowExecution
-
-instance ToQuery DescribeWorkflowExecution where
-    toQuery = const mempty
-
-instance ToJSON DescribeWorkflowExecution where
-    toJSON = genericToJSON jsonOptions

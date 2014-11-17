@@ -70,20 +70,19 @@ data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
 deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
 deleteIdentityPoolResponse = DeleteIdentityPoolResponse
 
+instance ToPath DeleteIdentityPool where
+    toPath = const "/"
+
+instance ToQuery DeleteIdentityPool where
+    toQuery = const mempty
+
+instance ToHeaders DeleteIdentityPool
+instance ToJSON DeleteIdentityPool where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
 
     request  = post
     response = nullResponse DeleteIdentityPoolResponse
-
-instance ToPath DeleteIdentityPool where
-    toPath = const "/"
-
-instance ToHeaders DeleteIdentityPool
-
-instance ToQuery DeleteIdentityPool where
-    toQuery = const mempty
-
-instance ToJSON DeleteIdentityPool where
-    toJSON = genericToJSON jsonOptions

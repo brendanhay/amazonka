@@ -95,25 +95,16 @@ data ReleaseAddressResponse = ReleaseAddressResponse
 releaseAddressResponse :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse
 
+instance ToPath ReleaseAddress where
+    toPath = const "/"
+
+instance ToQuery ReleaseAddress
+
+instance ToHeaders ReleaseAddress
+
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2
     type Rs ReleaseAddress = ReleaseAddressResponse
 
     request  = post "ReleaseAddress"
     response = nullResponse ReleaseAddressResponse
-
-instance ToPath ReleaseAddress where
-    toPath = const "/"
-
-instance ToHeaders ReleaseAddress
-
-instance ToQuery ReleaseAddress where
-    toQuery ReleaseAddress{..} = mconcat
-        [ "dryRun"       =? _raDryRun
-        , "PublicIp"     =? _raPublicIp
-        , "AllocationId" =? _raAllocationId
-        ]
-
-instance ToXML ReleaseAddress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReleaseAddress"

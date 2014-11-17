@@ -139,6 +139,13 @@ ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a })
 
+instance ToPath GetGroup where
+    toPath = const "/"
+
+instance ToQuery GetGroup
+
+instance ToHeaders GetGroup
+
 instance AWSRequest GetGroup where
     type Sv GetGroup = IAM
     type Rs GetGroup = GetGroupResponse
@@ -149,10 +156,3 @@ instance AWSRequest GetGroup where
 instance FromXML GetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetGroupResponse"
-
-instance ToPath GetGroup where
-    toPath = const "/"
-
-instance ToHeaders GetGroup
-
-instance ToQuery GetGroup

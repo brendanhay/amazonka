@@ -117,6 +117,16 @@ ltrLastEvaluatedTableName =
 ltrTableNames :: Lens' ListTablesResponse [Text]
 ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a })
 
+instance ToPath ListTables where
+    toPath = const "/"
+
+instance ToQuery ListTables where
+    toQuery = const mempty
+
+instance ToHeaders ListTables
+instance ToJSON ListTables where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListTables where
     type Sv ListTables = DynamoDB
     type Rs ListTables = ListTablesResponse
@@ -126,14 +136,3 @@ instance AWSRequest ListTables where
 
 instance FromJSON ListTablesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListTables where
-    toPath = const "/"
-
-instance ToHeaders ListTables
-
-instance ToQuery ListTables where
-    toQuery = const mempty
-
-instance ToJSON ListTables where
-    toJSON = genericToJSON jsonOptions

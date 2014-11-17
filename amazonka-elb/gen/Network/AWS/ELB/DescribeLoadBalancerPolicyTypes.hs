@@ -103,6 +103,13 @@ dlbptrPolicyTypeDescriptions =
     lens _dlbptrPolicyTypeDescriptions
         (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
 
+instance ToPath DescribeLoadBalancerPolicyTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeLoadBalancerPolicyTypes
+
+instance ToHeaders DescribeLoadBalancerPolicyTypes
+
 instance AWSRequest DescribeLoadBalancerPolicyTypes where
     type Sv DescribeLoadBalancerPolicyTypes = ELB
     type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
@@ -113,10 +120,3 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes where
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesResponse"
-
-instance ToPath DescribeLoadBalancerPolicyTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeLoadBalancerPolicyTypes
-
-instance ToQuery DescribeLoadBalancerPolicyTypes

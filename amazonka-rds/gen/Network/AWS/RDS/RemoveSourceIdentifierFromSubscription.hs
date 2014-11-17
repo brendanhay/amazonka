@@ -97,6 +97,13 @@ rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse 
 rsifsrEventSubscription =
     lens _rsifsrEventSubscription (\s a -> s { _rsifsrEventSubscription = a })
 
+instance ToPath RemoveSourceIdentifierFromSubscription where
+    toPath = const "/"
+
+instance ToQuery RemoveSourceIdentifierFromSubscription
+
+instance ToHeaders RemoveSourceIdentifierFromSubscription
+
 instance AWSRequest RemoveSourceIdentifierFromSubscription where
     type Sv RemoveSourceIdentifierFromSubscription = RDS
     type Rs RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscriptionResponse
@@ -107,10 +114,3 @@ instance AWSRequest RemoveSourceIdentifierFromSubscription where
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResponse"
-
-instance ToPath RemoveSourceIdentifierFromSubscription where
-    toPath = const "/"
-
-instance ToHeaders RemoveSourceIdentifierFromSubscription
-
-instance ToQuery RemoveSourceIdentifierFromSubscription

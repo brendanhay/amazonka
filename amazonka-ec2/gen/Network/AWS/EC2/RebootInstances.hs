@@ -81,24 +81,16 @@ data RebootInstancesResponse = RebootInstancesResponse
 rebootInstancesResponse :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse
 
+instance ToPath RebootInstances where
+    toPath = const "/"
+
+instance ToQuery RebootInstances
+
+instance ToHeaders RebootInstances
+
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2
     type Rs RebootInstances = RebootInstancesResponse
 
     request  = post "RebootInstances"
     response = nullResponse RebootInstancesResponse
-
-instance ToPath RebootInstances where
-    toPath = const "/"
-
-instance ToHeaders RebootInstances
-
-instance ToQuery RebootInstances where
-    toQuery RebootInstances{..} = mconcat
-        [ "dryRun"     =? _ri2DryRun
-        , "InstanceId" =? _ri2InstanceIds
-        ]
-
-instance ToXML RebootInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RebootInstances"

@@ -459,20 +459,6 @@ corServerSideEncryption :: Lens' CopyObjectResponse (Maybe Text)
 corServerSideEncryption =
     lens _corServerSideEncryption (\s a -> s { _corServerSideEncryption = a })
 
-instance AWSRequest CopyObject where
-    type Sv CopyObject = S3
-    type Rs CopyObject = CopyObjectResponse
-
-    request  = put
-    response = xmlHeaderResponse $ \h x -> CopyObjectResponse
-        <$> x %| "CopyObjectResult"
-        <*> h ~:? "x-amz-copy-source-version-id"
-        <*> h ~:? "x-amz-expiration"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
-        <*> h ~:? "x-amz-server-side-encryption"
-
 instance ToPath CopyObject where
     toPath CopyObject{..} = mconcat
         [ "/"
@@ -480,6 +466,9 @@ instance ToPath CopyObject where
         , "/"
         , toText _coKey
         ]
+
+instance ToQuery CopyObject where
+    toQuery = const mempty
 
 instance ToHeaders CopyObject where
     toHeaders CopyObject{..} = mconcat
@@ -512,10 +501,20 @@ instance ToHeaders CopyObject where
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _coCopySourceSSECustomerKeyMD5
         , "x-amz-copy-source-server-side-encryption-aws-kms-key-id"     =: _coCopySourceSSEKMSKeyId
         ]
-
-instance ToQuery CopyObject where
-    toQuery = const mempty
-
 instance ToXML CopyObject where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CopyObject"
+
+instance AWSRequest CopyObject where
+    type Sv CopyObject = S3
+    type Rs CopyObject = CopyObjectResponse
+
+    request  = put
+    response = xmlHeaderResponse $ \h x -> CopyObjectResponse
+        <$> x %| "CopyObjectResult"
+        <*> h ~:? "x-amz-copy-source-version-id"
+        <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
+        <*> h ~:? "x-amz-server-side-encryption"

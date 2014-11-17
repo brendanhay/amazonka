@@ -111,6 +111,13 @@ csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionArn =
     lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
 
+instance ToPath ConfirmSubscription where
+    toPath = const "/"
+
+instance ToQuery ConfirmSubscription
+
+instance ToHeaders ConfirmSubscription
+
 instance AWSRequest ConfirmSubscription where
     type Sv ConfirmSubscription = SNS
     type Rs ConfirmSubscription = ConfirmSubscriptionResponse
@@ -121,10 +128,3 @@ instance AWSRequest ConfirmSubscription where
 instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"
-
-instance ToPath ConfirmSubscription where
-    toPath = const "/"
-
-instance ToHeaders ConfirmSubscription
-
-instance ToQuery ConfirmSubscription

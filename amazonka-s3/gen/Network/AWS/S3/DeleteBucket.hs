@@ -69,24 +69,23 @@ data DeleteBucketResponse = DeleteBucketResponse
 deleteBucketResponse :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse
 
-instance AWSRequest DeleteBucket where
-    type Sv DeleteBucket = S3
-    type Rs DeleteBucket = DeleteBucketResponse
-
-    request  = delete
-    response = nullResponse DeleteBucketResponse
-
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat
         [ "/"
         , toText _dbBucket
         ]
 
-instance ToHeaders DeleteBucket
-
 instance ToQuery DeleteBucket where
     toQuery = const mempty
 
+instance ToHeaders DeleteBucket
 instance ToXML DeleteBucket where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteBucket"
+
+instance AWSRequest DeleteBucket where
+    type Sv DeleteBucket = S3
+    type Rs DeleteBucket = DeleteBucketResponse
+
+    request  = delete
+    response = nullResponse DeleteBucketResponse

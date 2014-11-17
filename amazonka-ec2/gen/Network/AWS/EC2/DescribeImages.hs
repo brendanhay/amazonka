@@ -162,6 +162,13 @@ describeImagesResponse = DescribeImagesResponse
 dirImages :: Lens' DescribeImagesResponse [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a })
 
+instance ToPath DescribeImages where
+    toPath = const "/"
+
+instance ToQuery DescribeImages
+
+instance ToHeaders DescribeImages
+
 instance AWSRequest DescribeImages where
     type Sv DescribeImages = EC2
     type Rs DescribeImages = DescribeImagesResponse
@@ -172,21 +179,3 @@ instance AWSRequest DescribeImages where
 instance FromXML DescribeImagesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeImagesResponse"
-
-instance ToPath DescribeImages where
-    toPath = const "/"
-
-instance ToHeaders DescribeImages
-
-instance ToQuery DescribeImages where
-    toQuery DescribeImages{..} = mconcat
-        [ "dryRun"       =? _di2DryRun
-        , "ImageId"      =? _di2ImageIds
-        , "Owner"        =? _di2Owners
-        , "ExecutableBy" =? _di2ExecutableUsers
-        , "Filter"       =? _di2Filters
-        ]
-
-instance ToXML DescribeImages where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeImages"

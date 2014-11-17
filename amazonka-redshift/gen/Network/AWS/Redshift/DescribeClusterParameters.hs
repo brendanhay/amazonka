@@ -145,6 +145,13 @@ dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
 
+instance ToPath DescribeClusterParameters where
+    toPath = const "/"
+
+instance ToQuery DescribeClusterParameters
+
+instance ToHeaders DescribeClusterParameters
+
 instance AWSRequest DescribeClusterParameters where
     type Sv DescribeClusterParameters = Redshift
     type Rs DescribeClusterParameters = DescribeClusterParametersResponse
@@ -155,10 +162,3 @@ instance AWSRequest DescribeClusterParameters where
 instance FromXML DescribeClusterParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClusterParametersResponse"
-
-instance ToPath DescribeClusterParameters where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusterParameters
-
-instance ToQuery DescribeClusterParameters

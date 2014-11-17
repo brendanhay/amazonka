@@ -115,6 +115,16 @@ dlgrLogGroups = lens _dlgrLogGroups (\s a -> s { _dlgrLogGroups = a })
 dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\s a -> s { _dlgrNextToken = a })
 
+instance ToPath DescribeLogGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeLogGroups where
+    toQuery = const mempty
+
+instance ToHeaders DescribeLogGroups
+instance ToJSON DescribeLogGroups where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeLogGroups where
     type Sv DescribeLogGroups = CloudWatchLogs
     type Rs DescribeLogGroups = DescribeLogGroupsResponse
@@ -124,14 +134,3 @@ instance AWSRequest DescribeLogGroups where
 
 instance FromJSON DescribeLogGroupsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeLogGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeLogGroups
-
-instance ToQuery DescribeLogGroups where
-    toQuery = const mempty
-
-instance ToJSON DescribeLogGroups where
-    toJSON = genericToJSON jsonOptions

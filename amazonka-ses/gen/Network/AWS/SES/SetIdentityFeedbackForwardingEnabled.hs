@@ -91,16 +91,16 @@ data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardin
 setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
 
+instance ToPath SetIdentityFeedbackForwardingEnabled where
+    toPath = const "/"
+
+instance ToQuery SetIdentityFeedbackForwardingEnabled
+
+instance ToHeaders SetIdentityFeedbackForwardingEnabled
+
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES
     type Rs SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabledResponse
 
     request  = post "SetIdentityFeedbackForwardingEnabled"
     response = nullResponse SetIdentityFeedbackForwardingEnabledResponse
-
-instance ToPath SetIdentityFeedbackForwardingEnabled where
-    toPath = const "/"
-
-instance ToHeaders SetIdentityFeedbackForwardingEnabled
-
-instance ToQuery SetIdentityFeedbackForwardingEnabled

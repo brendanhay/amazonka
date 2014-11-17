@@ -82,24 +82,16 @@ data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 
+instance ToPath UnassignPrivateIpAddresses where
+    toPath = const "/"
+
+instance ToQuery UnassignPrivateIpAddresses
+
+instance ToHeaders UnassignPrivateIpAddresses
+
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse
 
     request  = post "UnassignPrivateIpAddresses"
     response = nullResponse UnassignPrivateIpAddressesResponse
-
-instance ToPath UnassignPrivateIpAddresses where
-    toPath = const "/"
-
-instance ToHeaders UnassignPrivateIpAddresses
-
-instance ToQuery UnassignPrivateIpAddresses where
-    toQuery UnassignPrivateIpAddresses{..} = mconcat
-        [ "networkInterfaceId" =? _upiaNetworkInterfaceId
-        , "privateIpAddress"   =? _upiaPrivateIpAddresses
-        ]
-
-instance ToXML UnassignPrivateIpAddresses where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UnassignPrivateIpAddresses"

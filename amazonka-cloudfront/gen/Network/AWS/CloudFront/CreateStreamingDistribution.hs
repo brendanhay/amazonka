@@ -107,6 +107,17 @@ csdrStreamingDistribution =
     lens _csdrStreamingDistribution
         (\s a -> s { _csdrStreamingDistribution = a })
 
+instance ToPath CreateStreamingDistribution where
+    toPath = const "/2014-05-31/streaming-distribution"
+
+instance ToQuery CreateStreamingDistribution where
+    toQuery = const mempty
+
+instance ToHeaders CreateStreamingDistribution
+instance ToXML CreateStreamingDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateStreamingDistribution"
+
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront
     type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse
@@ -116,15 +127,3 @@ instance AWSRequest CreateStreamingDistribution where
         <$> h ~:? "ETag"
         <*> h ~:? "Location"
         <*> x %| "StreamingDistribution"
-
-instance ToPath CreateStreamingDistribution where
-    toPath = const "/2014-05-31/streaming-distribution"
-
-instance ToHeaders CreateStreamingDistribution
-
-instance ToQuery CreateStreamingDistribution where
-    toQuery = const mempty
-
-instance ToXML CreateStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateStreamingDistribution"

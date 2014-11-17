@@ -87,27 +87,26 @@ data PutBucketLoggingResponse = PutBucketLoggingResponse
 putBucketLoggingResponse :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse
 
-instance AWSRequest PutBucketLogging where
-    type Sv PutBucketLogging = S3
-    type Rs PutBucketLogging = PutBucketLoggingResponse
-
-    request  = put
-    response = nullResponse PutBucketLoggingResponse
-
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat
         [ "/"
         , toText _pblBucket
         ]
 
+instance ToQuery PutBucketLogging where
+    toQuery = const "logging"
+
 instance ToHeaders PutBucketLogging where
     toHeaders PutBucketLogging{..} = mconcat
         [ "Content-MD5" =: _pblContentMD5
         ]
-
-instance ToQuery PutBucketLogging where
-    toQuery = const "logging"
-
 instance ToXML PutBucketLogging where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketLogging"
+
+instance AWSRequest PutBucketLogging where
+    type Sv PutBucketLogging = S3
+    type Rs PutBucketLogging = PutBucketLoggingResponse
+
+    request  = put
+    response = nullResponse PutBucketLoggingResponse

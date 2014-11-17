@@ -88,16 +88,16 @@ data PutMetricDataResponse = PutMetricDataResponse
 putMetricDataResponse :: PutMetricDataResponse
 putMetricDataResponse = PutMetricDataResponse
 
+instance ToPath PutMetricData where
+    toPath = const "/"
+
+instance ToQuery PutMetricData
+
+instance ToHeaders PutMetricData
+
 instance AWSRequest PutMetricData where
     type Sv PutMetricData = CloudWatch
     type Rs PutMetricData = PutMetricDataResponse
 
     request  = post "PutMetricData"
     response = nullResponse PutMetricDataResponse
-
-instance ToPath PutMetricData where
-    toPath = const "/"
-
-instance ToHeaders PutMetricData
-
-instance ToQuery PutMetricData

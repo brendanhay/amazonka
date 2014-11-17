@@ -257,6 +257,13 @@ arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubjectType =
     lens _arwsamlrSubjectType (\s a -> s { _arwsamlrSubjectType = a })
 
+instance ToPath AssumeRoleWithSAML where
+    toPath = const "/"
+
+instance ToQuery AssumeRoleWithSAML
+
+instance ToHeaders AssumeRoleWithSAML
+
 instance AWSRequest AssumeRoleWithSAML where
     type Sv AssumeRoleWithSAML = STS
     type Rs AssumeRoleWithSAML = AssumeRoleWithSAMLResponse
@@ -267,10 +274,3 @@ instance AWSRequest AssumeRoleWithSAML where
 instance FromXML AssumeRoleWithSAMLResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumeRoleWithSAMLResponse"
-
-instance ToPath AssumeRoleWithSAML where
-    toPath = const "/"
-
-instance ToHeaders AssumeRoleWithSAML
-
-instance ToQuery AssumeRoleWithSAML

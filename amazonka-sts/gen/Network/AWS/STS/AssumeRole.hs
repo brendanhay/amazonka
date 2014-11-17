@@ -250,6 +250,13 @@ arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
         . mapping _Nat
 
+instance ToPath AssumeRole where
+    toPath = const "/"
+
+instance ToQuery AssumeRole
+
+instance ToHeaders AssumeRole
+
 instance AWSRequest AssumeRole where
     type Sv AssumeRole = STS
     type Rs AssumeRole = AssumeRoleResponse
@@ -260,10 +267,3 @@ instance AWSRequest AssumeRole where
 instance FromXML AssumeRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumeRoleResponse"
-
-instance ToPath AssumeRole where
-    toPath = const "/"
-
-instance ToHeaders AssumeRole
-
-instance ToQuery AssumeRole

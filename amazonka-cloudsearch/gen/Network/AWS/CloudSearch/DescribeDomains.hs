@@ -99,6 +99,13 @@ ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddrDomainStatusList =
     lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
 
+instance ToPath DescribeDomains where
+    toPath = const "/"
+
+instance ToQuery DescribeDomains
+
+instance ToHeaders DescribeDomains
+
 instance AWSRequest DescribeDomains where
     type Sv DescribeDomains = CloudSearch
     type Rs DescribeDomains = DescribeDomainsResponse
@@ -109,10 +116,3 @@ instance AWSRequest DescribeDomains where
 instance FromXML DescribeDomainsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDomainsResponse"
-
-instance ToPath DescribeDomains where
-    toPath = const "/"
-
-instance ToHeaders DescribeDomains
-
-instance ToQuery DescribeDomains

@@ -77,6 +77,14 @@ gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
 
+instance ToPath GetSendStatistics where
+    toPath = const "/"
+
+instance ToQuery GetSendStatistics where
+    toQuery = const mempty
+
+instance ToHeaders GetSendStatistics
+
 instance AWSRequest GetSendStatistics where
     type Sv GetSendStatistics = SES
     type Rs GetSendStatistics = GetSendStatisticsResponse
@@ -87,10 +95,3 @@ instance AWSRequest GetSendStatistics where
 instance FromXML GetSendStatisticsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSendStatisticsResponse"
-
-instance ToPath GetSendStatistics where
-    toPath = const "/"
-
-instance ToHeaders GetSendStatistics
-
-instance ToQuery GetSendStatistics

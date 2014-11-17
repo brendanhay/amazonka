@@ -120,6 +120,16 @@ plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken =
     lens _plerNextSequenceToken (\s a -> s { _plerNextSequenceToken = a })
 
+instance ToPath PutLogEvents where
+    toPath = const "/"
+
+instance ToQuery PutLogEvents where
+    toQuery = const mempty
+
+instance ToHeaders PutLogEvents
+instance ToJSON PutLogEvents where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutLogEvents where
     type Sv PutLogEvents = CloudWatchLogs
     type Rs PutLogEvents = PutLogEventsResponse
@@ -129,14 +139,3 @@ instance AWSRequest PutLogEvents where
 
 instance FromJSON PutLogEventsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PutLogEvents where
-    toPath = const "/"
-
-instance ToHeaders PutLogEvents
-
-instance ToQuery PutLogEvents where
-    toQuery = const mempty
-
-instance ToJSON PutLogEvents where
-    toJSON = genericToJSON jsonOptions

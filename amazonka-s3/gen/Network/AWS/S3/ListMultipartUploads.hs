@@ -249,6 +249,28 @@ lmurUploadIdMarker =
 lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a })
 
+instance ToPath ListMultipartUploads where
+    toPath ListMultipartUploads{..} = mconcat
+        [ "/"
+        , toText _lmuBucket
+        ]
+
+instance ToQuery ListMultipartUploads where
+    toQuery ListMultipartUploads{..} = mconcat
+          [   "uploads"
+          ,   "delimiter"        =? _lmuDelimiter
+          ,   "encoding-type"    =? _lmuEncodingType
+          ,   "key-marker"       =? _lmuKeyMarker
+          ,   "max-uploads"      =? _lmuMaxUploads
+          ,   "prefix"           =? _lmuPrefix
+          ,   "upload-id-marker" =? _lmuUploadIdMarker
+        ]
+
+instance ToHeaders ListMultipartUploads
+instance ToXML ListMultipartUploads where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListMultipartUploads"
+
 instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
     type Rs ListMultipartUploads = ListMultipartUploadsResponse
@@ -259,26 +281,3 @@ instance AWSRequest ListMultipartUploads where
 instance FromXML ListMultipartUploadsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListMultipartUploadsResponse"
-
-instance ToPath ListMultipartUploads where
-    toPath ListMultipartUploads{..} = mconcat
-        [ "/"
-        , toText _lmuBucket
-        ]
-
-instance ToHeaders ListMultipartUploads
-
-instance ToQuery ListMultipartUploads where
-    toQuery ListMultipartUploads{..} = mconcat
-        [ "uploads"
-        , "delimiter"        =? _lmuDelimiter
-        , "encoding-type"    =? _lmuEncodingType
-        , "key-marker"       =? _lmuKeyMarker
-        , "max-uploads"      =? _lmuMaxUploads
-        , "prefix"           =? _lmuPrefix
-        , "upload-id-marker" =? _lmuUploadIdMarker
-        ]
-
-instance ToXML ListMultipartUploads where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListMultipartUploads"

@@ -106,6 +106,13 @@ csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
 
+instance ToPath CancelSpotInstanceRequests where
+    toPath = const "/"
+
+instance ToQuery CancelSpotInstanceRequests
+
+instance ToHeaders CancelSpotInstanceRequests
+
 instance AWSRequest CancelSpotInstanceRequests where
     type Sv CancelSpotInstanceRequests = EC2
     type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
@@ -116,18 +123,3 @@ instance AWSRequest CancelSpotInstanceRequests where
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelSpotInstanceRequestsResponse"
-
-instance ToPath CancelSpotInstanceRequests where
-    toPath = const "/"
-
-instance ToHeaders CancelSpotInstanceRequests
-
-instance ToQuery CancelSpotInstanceRequests where
-    toQuery CancelSpotInstanceRequests{..} = mconcat
-        [ "dryRun"                =? _csirDryRun
-        , "SpotInstanceRequestId" =? _csirSpotInstanceRequestIds
-        ]
-
-instance ToXML CancelSpotInstanceRequests where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CancelSpotInstanceRequests"

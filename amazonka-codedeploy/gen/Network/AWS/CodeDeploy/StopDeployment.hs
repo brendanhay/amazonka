@@ -92,6 +92,16 @@ sdrStatus = lens _sdrStatus (\s a -> s { _sdrStatus = a })
 sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrStatusMessage = lens _sdrStatusMessage (\s a -> s { _sdrStatusMessage = a })
 
+instance ToPath StopDeployment where
+    toPath = const "/"
+
+instance ToQuery StopDeployment where
+    toQuery = const mempty
+
+instance ToHeaders StopDeployment
+instance ToJSON StopDeployment where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StopDeployment where
     type Sv StopDeployment = CodeDeploy
     type Rs StopDeployment = StopDeploymentResponse
@@ -101,14 +111,3 @@ instance AWSRequest StopDeployment where
 
 instance FromJSON StopDeploymentResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath StopDeployment where
-    toPath = const "/"
-
-instance ToHeaders StopDeployment
-
-instance ToQuery StopDeployment where
-    toQuery = const mempty
-
-instance ToJSON StopDeployment where
-    toJSON = genericToJSON jsonOptions

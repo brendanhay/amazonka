@@ -85,25 +85,16 @@ data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 
+instance ToPath DetachNetworkInterface where
+    toPath = const "/"
+
+instance ToQuery DetachNetworkInterface
+
+instance ToHeaders DetachNetworkInterface
+
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2
     type Rs DetachNetworkInterface = DetachNetworkInterfaceResponse
 
     request  = post "DetachNetworkInterface"
     response = nullResponse DetachNetworkInterfaceResponse
-
-instance ToPath DetachNetworkInterface where
-    toPath = const "/"
-
-instance ToHeaders DetachNetworkInterface
-
-instance ToQuery DetachNetworkInterface where
-    toQuery DetachNetworkInterface{..} = mconcat
-        [ "dryRun"       =? _dniDryRun
-        , "attachmentId" =? _dniAttachmentId
-        , "force"        =? _dniForce
-        ]
-
-instance ToXML DetachNetworkInterface where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DetachNetworkInterface"

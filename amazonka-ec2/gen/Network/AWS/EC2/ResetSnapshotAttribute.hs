@@ -89,25 +89,16 @@ data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 
+instance ToPath ResetSnapshotAttribute where
+    toPath = const "/"
+
+instance ToQuery ResetSnapshotAttribute
+
+instance ToHeaders ResetSnapshotAttribute
+
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
 
     request  = post "ResetSnapshotAttribute"
     response = nullResponse ResetSnapshotAttributeResponse
-
-instance ToPath ResetSnapshotAttribute where
-    toPath = const "/"
-
-instance ToHeaders ResetSnapshotAttribute
-
-instance ToQuery ResetSnapshotAttribute where
-    toQuery ResetSnapshotAttribute{..} = mconcat
-        [ "dryRun"     =? _rsaDryRun
-        , "SnapshotId" =? _rsaSnapshotId
-        , "Attribute"  =? _rsaAttribute
-        ]
-
-instance ToXML ResetSnapshotAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResetSnapshotAttribute"

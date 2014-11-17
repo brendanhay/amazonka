@@ -70,16 +70,16 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 
+instance ToPath DeleteEventSubscription where
+    toPath = const "/"
+
+instance ToQuery DeleteEventSubscription
+
+instance ToHeaders DeleteEventSubscription
+
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = Redshift
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
     request  = post "DeleteEventSubscription"
     response = nullResponse DeleteEventSubscriptionResponse
-
-instance ToPath DeleteEventSubscription where
-    toPath = const "/"
-
-instance ToHeaders DeleteEventSubscription
-
-instance ToQuery DeleteEventSubscription

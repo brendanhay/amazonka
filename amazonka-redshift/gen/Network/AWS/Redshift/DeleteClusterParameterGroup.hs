@@ -71,16 +71,16 @@ data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 
+instance ToPath DeleteClusterParameterGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteClusterParameterGroup
+
+instance ToHeaders DeleteClusterParameterGroup
+
 instance AWSRequest DeleteClusterParameterGroup where
     type Sv DeleteClusterParameterGroup = Redshift
     type Rs DeleteClusterParameterGroup = DeleteClusterParameterGroupResponse
 
     request  = post "DeleteClusterParameterGroup"
     response = nullResponse DeleteClusterParameterGroupResponse
-
-instance ToPath DeleteClusterParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteClusterParameterGroup
-
-instance ToQuery DeleteClusterParameterGroup

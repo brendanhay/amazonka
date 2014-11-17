@@ -84,6 +84,16 @@ deleteTapeArchiveResponse = DeleteTapeArchiveResponse
 dtarTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtarTapeARN = lens _dtarTapeARN (\s a -> s { _dtarTapeARN = a })
 
+instance ToPath DeleteTapeArchive where
+    toPath = const "/"
+
+instance ToQuery DeleteTapeArchive where
+    toQuery = const mempty
+
+instance ToHeaders DeleteTapeArchive
+instance ToJSON DeleteTapeArchive where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteTapeArchive where
     type Sv DeleteTapeArchive = StorageGateway
     type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
@@ -93,14 +103,3 @@ instance AWSRequest DeleteTapeArchive where
 
 instance FromJSON DeleteTapeArchiveResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteTapeArchive where
-    toPath = const "/"
-
-instance ToHeaders DeleteTapeArchive
-
-instance ToQuery DeleteTapeArchive where
-    toQuery = const mempty
-
-instance ToJSON DeleteTapeArchive where
-    toJSON = genericToJSON jsonOptions

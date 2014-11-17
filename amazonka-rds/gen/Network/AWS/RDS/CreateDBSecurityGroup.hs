@@ -109,6 +109,13 @@ cdbsgrDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGr
 cdbsgrDBSecurityGroup =
     lens _cdbsgrDBSecurityGroup (\s a -> s { _cdbsgrDBSecurityGroup = a })
 
+instance ToPath CreateDBSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery CreateDBSecurityGroup
+
+instance ToHeaders CreateDBSecurityGroup
+
 instance AWSRequest CreateDBSecurityGroup where
     type Sv CreateDBSecurityGroup = RDS
     type Rs CreateDBSecurityGroup = CreateDBSecurityGroupResponse
@@ -119,10 +126,3 @@ instance AWSRequest CreateDBSecurityGroup where
 instance FromXML CreateDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBSecurityGroupResponse"
-
-instance ToPath CreateDBSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateDBSecurityGroup
-
-instance ToQuery CreateDBSecurityGroup

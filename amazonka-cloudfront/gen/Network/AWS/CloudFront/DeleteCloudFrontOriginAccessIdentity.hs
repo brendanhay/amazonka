@@ -78,27 +78,26 @@ data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccess
 deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
 deleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
 
-instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
-    type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
-    type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
-
-    request  = delete
-    response = nullResponse DeleteCloudFrontOriginAccessIdentityResponse
-
 instance ToPath DeleteCloudFrontOriginAccessIdentity where
     toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
         [ "/2014-05-31/origin-access-identity/cloudfront/"
         , toText _dcfoaiId
         ]
 
+instance ToQuery DeleteCloudFrontOriginAccessIdentity where
+    toQuery = const mempty
+
 instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
     toHeaders DeleteCloudFrontOriginAccessIdentity{..} = mconcat
         [ "If-Match" =: _dcfoaiIfMatch
         ]
-
-instance ToQuery DeleteCloudFrontOriginAccessIdentity where
-    toQuery = const mempty
-
 instance ToXML DeleteCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentity"
+
+instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
+    type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
+    type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
+
+    request  = delete
+    response = nullResponse DeleteCloudFrontOriginAccessIdentityResponse

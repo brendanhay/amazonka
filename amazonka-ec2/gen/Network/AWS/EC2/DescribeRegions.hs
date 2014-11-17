@@ -107,6 +107,13 @@ describeRegionsResponse = DescribeRegionsResponse
 drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
 
+instance ToPath DescribeRegions where
+    toPath = const "/"
+
+instance ToQuery DescribeRegions
+
+instance ToHeaders DescribeRegions
+
 instance AWSRequest DescribeRegions where
     type Sv DescribeRegions = EC2
     type Rs DescribeRegions = DescribeRegionsResponse
@@ -117,19 +124,3 @@ instance AWSRequest DescribeRegions where
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeRegionsResponse"
-
-instance ToPath DescribeRegions where
-    toPath = const "/"
-
-instance ToHeaders DescribeRegions
-
-instance ToQuery DescribeRegions where
-    toQuery DescribeRegions{..} = mconcat
-        [ "dryRun"     =? _dr1DryRun
-        , "RegionName" =? _dr1RegionNames
-        , "Filter"     =? _dr1Filters
-        ]
-
-instance ToXML DescribeRegions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeRegions"

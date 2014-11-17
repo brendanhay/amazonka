@@ -80,16 +80,16 @@ data DeleteScheduledActionResponse = DeleteScheduledActionResponse
 deleteScheduledActionResponse :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse
 
+instance ToPath DeleteScheduledAction where
+    toPath = const "/"
+
+instance ToQuery DeleteScheduledAction
+
+instance ToHeaders DeleteScheduledAction
+
 instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse
 
     request  = post "DeleteScheduledAction"
     response = nullResponse DeleteScheduledActionResponse
-
-instance ToPath DeleteScheduledAction where
-    toPath = const "/"
-
-instance ToHeaders DeleteScheduledAction
-
-instance ToQuery DeleteScheduledAction

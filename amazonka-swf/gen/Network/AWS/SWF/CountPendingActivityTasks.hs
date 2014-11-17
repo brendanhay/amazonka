@@ -116,6 +116,16 @@ cpatrCount = lens _cpatrCount (\s a -> s { _cpatrCount = a })
 cpatrTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
 cpatrTruncated = lens _cpatrTruncated (\s a -> s { _cpatrTruncated = a })
 
+instance ToPath CountPendingActivityTasks where
+    toPath = const "/"
+
+instance ToQuery CountPendingActivityTasks where
+    toQuery = const mempty
+
+instance ToHeaders CountPendingActivityTasks
+instance ToJSON CountPendingActivityTasks where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CountPendingActivityTasks where
     type Sv CountPendingActivityTasks = SWF
     type Rs CountPendingActivityTasks = CountPendingActivityTasksResponse
@@ -125,14 +135,3 @@ instance AWSRequest CountPendingActivityTasks where
 
 instance FromJSON CountPendingActivityTasksResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CountPendingActivityTasks where
-    toPath = const "/"
-
-instance ToHeaders CountPendingActivityTasks
-
-instance ToQuery CountPendingActivityTasks where
-    toQuery = const mempty
-
-instance ToJSON CountPendingActivityTasks where
-    toJSON = genericToJSON jsonOptions

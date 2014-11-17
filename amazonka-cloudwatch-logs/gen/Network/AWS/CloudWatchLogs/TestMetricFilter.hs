@@ -99,6 +99,16 @@ testMetricFilterResponse = TestMetricFilterResponse
 tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrMatches = lens _tmfrMatches (\s a -> s { _tmfrMatches = a })
 
+instance ToPath TestMetricFilter where
+    toPath = const "/"
+
+instance ToQuery TestMetricFilter where
+    toQuery = const mempty
+
+instance ToHeaders TestMetricFilter
+instance ToJSON TestMetricFilter where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest TestMetricFilter where
     type Sv TestMetricFilter = CloudWatchLogs
     type Rs TestMetricFilter = TestMetricFilterResponse
@@ -108,14 +118,3 @@ instance AWSRequest TestMetricFilter where
 
 instance FromJSON TestMetricFilterResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath TestMetricFilter where
-    toPath = const "/"
-
-instance ToHeaders TestMetricFilter
-
-instance ToQuery TestMetricFilter where
-    toQuery = const mempty
-
-instance ToJSON TestMetricFilter where
-    toJSON = genericToJSON jsonOptions

@@ -96,6 +96,13 @@ rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 
+instance ToPath RejectVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToQuery RejectVpcPeeringConnection
+
+instance ToHeaders RejectVpcPeeringConnection
+
 instance AWSRequest RejectVpcPeeringConnection where
     type Sv RejectVpcPeeringConnection = EC2
     type Rs RejectVpcPeeringConnection = RejectVpcPeeringConnectionResponse
@@ -106,18 +113,3 @@ instance AWSRequest RejectVpcPeeringConnection where
 instance FromXML RejectVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RejectVpcPeeringConnectionResponse"
-
-instance ToPath RejectVpcPeeringConnection where
-    toPath = const "/"
-
-instance ToHeaders RejectVpcPeeringConnection
-
-instance ToQuery RejectVpcPeeringConnection where
-    toQuery RejectVpcPeeringConnection{..} = mconcat
-        [ "dryRun"                 =? _rvpcDryRun
-        , "vpcPeeringConnectionId" =? _rvpcVpcPeeringConnectionId
-        ]
-
-instance ToXML RejectVpcPeeringConnection where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RejectVpcPeeringConnection"

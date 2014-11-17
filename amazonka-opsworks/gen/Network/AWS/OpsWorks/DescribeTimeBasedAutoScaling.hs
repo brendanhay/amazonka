@@ -100,6 +100,16 @@ dtbasrTimeBasedAutoScalingConfigurations =
     lens _dtbasrTimeBasedAutoScalingConfigurations
         (\s a -> s { _dtbasrTimeBasedAutoScalingConfigurations = a })
 
+instance ToPath DescribeTimeBasedAutoScaling where
+    toPath = const "/"
+
+instance ToQuery DescribeTimeBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTimeBasedAutoScaling
+instance ToJSON DescribeTimeBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTimeBasedAutoScaling where
     type Sv DescribeTimeBasedAutoScaling = OpsWorks
     type Rs DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScalingResponse
@@ -109,14 +119,3 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTimeBasedAutoScaling where
-    toPath = const "/"
-
-instance ToHeaders DescribeTimeBasedAutoScaling
-
-instance ToQuery DescribeTimeBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToJSON DescribeTimeBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions

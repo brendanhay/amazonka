@@ -124,6 +124,13 @@ drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
 drnrReservedNodes =
     lens _drnrReservedNodes (\s a -> s { _drnrReservedNodes = a })
 
+instance ToPath DescribeReservedNodes where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedNodes
+
+instance ToHeaders DescribeReservedNodes
+
 instance AWSRequest DescribeReservedNodes where
     type Sv DescribeReservedNodes = Redshift
     type Rs DescribeReservedNodes = DescribeReservedNodesResponse
@@ -134,10 +141,3 @@ instance AWSRequest DescribeReservedNodes where
 instance FromXML DescribeReservedNodesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedNodesResponse"
-
-instance ToPath DescribeReservedNodes where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedNodes
-
-instance ToQuery DescribeReservedNodes

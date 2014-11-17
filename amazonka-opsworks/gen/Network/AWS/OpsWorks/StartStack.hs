@@ -71,20 +71,19 @@ data StartStackResponse = StartStackResponse
 startStackResponse :: StartStackResponse
 startStackResponse = StartStackResponse
 
+instance ToPath StartStack where
+    toPath = const "/"
+
+instance ToQuery StartStack where
+    toQuery = const mempty
+
+instance ToHeaders StartStack
+instance ToJSON StartStack where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks
     type Rs StartStack = StartStackResponse
 
     request  = post
     response = nullResponse StartStackResponse
-
-instance ToPath StartStack where
-    toPath = const "/"
-
-instance ToHeaders StartStack
-
-instance ToQuery StartStack where
-    toQuery = const mempty
-
-instance ToJSON StartStack where
-    toJSON = genericToJSON jsonOptions

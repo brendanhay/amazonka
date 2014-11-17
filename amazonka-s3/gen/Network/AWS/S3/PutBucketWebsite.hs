@@ -85,27 +85,26 @@ data PutBucketWebsiteResponse = PutBucketWebsiteResponse
 putBucketWebsiteResponse :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse
 
-instance AWSRequest PutBucketWebsite where
-    type Sv PutBucketWebsite = S3
-    type Rs PutBucketWebsite = PutBucketWebsiteResponse
-
-    request  = put
-    response = nullResponse PutBucketWebsiteResponse
-
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat
         [ "/"
         , toText _pbwBucket
         ]
 
+instance ToQuery PutBucketWebsite where
+    toQuery = const "website"
+
 instance ToHeaders PutBucketWebsite where
     toHeaders PutBucketWebsite{..} = mconcat
         [ "Content-MD5" =: _pbwContentMD5
         ]
-
-instance ToQuery PutBucketWebsite where
-    toQuery = const "website"
-
 instance ToXML PutBucketWebsite where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketWebsite"
+
+instance AWSRequest PutBucketWebsite where
+    type Sv PutBucketWebsite = S3
+    type Rs PutBucketWebsite = PutBucketWebsiteResponse
+
+    request  = put
+    response = nullResponse PutBucketWebsiteResponse

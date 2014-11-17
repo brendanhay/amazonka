@@ -112,6 +112,16 @@ ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageMarker =
     lens _ldrNextPageMarker (\s a -> s { _ldrNextPageMarker = a })
 
+instance ToPath ListDomains where
+    toPath = const "/"
+
+instance ToQuery ListDomains where
+    toQuery = const mempty
+
+instance ToHeaders ListDomains
+instance ToJSON ListDomains where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListDomains where
     type Sv ListDomains = Route53Domains
     type Rs ListDomains = ListDomainsResponse
@@ -121,14 +131,3 @@ instance AWSRequest ListDomains where
 
 instance FromJSON ListDomainsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListDomains where
-    toPath = const "/"
-
-instance ToHeaders ListDomains
-
-instance ToQuery ListDomains where
-    toQuery = const mempty
-
-instance ToJSON ListDomains where
-    toJSON = genericToJSON jsonOptions

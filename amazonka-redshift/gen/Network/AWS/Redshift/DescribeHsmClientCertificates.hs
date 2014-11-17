@@ -132,6 +132,13 @@ dhccrHsmClientCertificates =
 dhccrMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
 dhccrMarker = lens _dhccrMarker (\s a -> s { _dhccrMarker = a })
 
+instance ToPath DescribeHsmClientCertificates where
+    toPath = const "/"
+
+instance ToQuery DescribeHsmClientCertificates
+
+instance ToHeaders DescribeHsmClientCertificates
+
 instance AWSRequest DescribeHsmClientCertificates where
     type Sv DescribeHsmClientCertificates = Redshift
     type Rs DescribeHsmClientCertificates = DescribeHsmClientCertificatesResponse
@@ -142,10 +149,3 @@ instance AWSRequest DescribeHsmClientCertificates where
 instance FromXML DescribeHsmClientCertificatesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeHsmClientCertificatesResponse"
-
-instance ToPath DescribeHsmClientCertificates where
-    toPath = const "/"
-
-instance ToHeaders DescribeHsmClientCertificates
-
-instance ToQuery DescribeHsmClientCertificates

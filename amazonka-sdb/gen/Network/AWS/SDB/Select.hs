@@ -125,6 +125,13 @@ srItems = lens _srItems (\s a -> s { _srItems = a })
 srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
 
+instance ToPath Select where
+    toPath = const "/"
+
+instance ToQuery Select
+
+instance ToHeaders Select
+
 instance AWSRequest Select where
     type Sv Select = SDB
     type Rs Select = SelectResponse
@@ -135,10 +142,3 @@ instance AWSRequest Select where
 instance FromXML SelectResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SelectResponse"
-
-instance ToPath Select where
-    toPath = const "/"
-
-instance ToHeaders Select
-
-instance ToQuery Select

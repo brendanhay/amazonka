@@ -93,6 +93,13 @@ createRouteTableResponse = CreateRouteTableResponse
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
 
+instance ToPath CreateRouteTable where
+    toPath = const "/"
+
+instance ToQuery CreateRouteTable
+
+instance ToHeaders CreateRouteTable
+
 instance AWSRequest CreateRouteTable where
     type Sv CreateRouteTable = EC2
     type Rs CreateRouteTable = CreateRouteTableResponse
@@ -103,18 +110,3 @@ instance AWSRequest CreateRouteTable where
 instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateRouteTableResponse"
-
-instance ToPath CreateRouteTable where
-    toPath = const "/"
-
-instance ToHeaders CreateRouteTable
-
-instance ToQuery CreateRouteTable where
-    toQuery CreateRouteTable{..} = mconcat
-        [ "dryRun" =? _crtDryRun
-        , "vpcId"  =? _crtVpcId
-        ]
-
-instance ToXML CreateRouteTable where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateRouteTable"

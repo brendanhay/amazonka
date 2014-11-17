@@ -117,6 +117,16 @@ drKeyId = lens _drKeyId (\s a -> s { _drKeyId = a })
 drPlaintext :: Lens' DecryptResponse (Maybe Base64)
 drPlaintext = lens _drPlaintext (\s a -> s { _drPlaintext = a })
 
+instance ToPath Decrypt where
+    toPath = const "/"
+
+instance ToQuery Decrypt where
+    toQuery = const mempty
+
+instance ToHeaders Decrypt
+instance ToJSON Decrypt where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest Decrypt where
     type Sv Decrypt = KMS
     type Rs Decrypt = DecryptResponse
@@ -126,14 +136,3 @@ instance AWSRequest Decrypt where
 
 instance FromJSON DecryptResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath Decrypt where
-    toPath = const "/"
-
-instance ToHeaders Decrypt
-
-instance ToQuery Decrypt where
-    toQuery = const mempty
-
-instance ToJSON Decrypt where
-    toJSON = genericToJSON jsonOptions

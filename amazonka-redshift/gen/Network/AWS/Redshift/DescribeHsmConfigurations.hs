@@ -129,6 +129,13 @@ dhcrHsmConfigurations =
 dhcrMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
 dhcrMarker = lens _dhcrMarker (\s a -> s { _dhcrMarker = a })
 
+instance ToPath DescribeHsmConfigurations where
+    toPath = const "/"
+
+instance ToQuery DescribeHsmConfigurations
+
+instance ToHeaders DescribeHsmConfigurations
+
 instance AWSRequest DescribeHsmConfigurations where
     type Sv DescribeHsmConfigurations = Redshift
     type Rs DescribeHsmConfigurations = DescribeHsmConfigurationsResponse
@@ -139,10 +146,3 @@ instance AWSRequest DescribeHsmConfigurations where
 instance FromXML DescribeHsmConfigurationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeHsmConfigurationsResponse"
-
-instance ToPath DescribeHsmConfigurations where
-    toPath = const "/"
-
-instance ToHeaders DescribeHsmConfigurations
-
-instance ToQuery DescribeHsmConfigurations

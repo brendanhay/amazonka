@@ -89,6 +89,16 @@ dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrConfigSnapshotId =
     lens _dcsrConfigSnapshotId (\s a -> s { _dcsrConfigSnapshotId = a })
 
+instance ToPath DeliverConfigSnapshot where
+    toPath = const "/"
+
+instance ToQuery DeliverConfigSnapshot where
+    toQuery = const mempty
+
+instance ToHeaders DeliverConfigSnapshot
+instance ToJSON DeliverConfigSnapshot where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeliverConfigSnapshot where
     type Sv DeliverConfigSnapshot = Config
     type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse
@@ -98,14 +108,3 @@ instance AWSRequest DeliverConfigSnapshot where
 
 instance FromJSON DeliverConfigSnapshotResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeliverConfigSnapshot where
-    toPath = const "/"
-
-instance ToHeaders DeliverConfigSnapshot
-
-instance ToQuery DeliverConfigSnapshot where
-    toQuery = const mempty
-
-instance ToJSON DeliverConfigSnapshot where
-    toJSON = genericToJSON jsonOptions

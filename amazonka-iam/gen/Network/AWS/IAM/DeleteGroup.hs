@@ -69,16 +69,16 @@ data DeleteGroupResponse = DeleteGroupResponse
 deleteGroupResponse :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse
 
+instance ToPath DeleteGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteGroup
+
+instance ToHeaders DeleteGroup
+
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM
     type Rs DeleteGroup = DeleteGroupResponse
 
     request  = post "DeleteGroup"
     response = nullResponse DeleteGroupResponse
-
-instance ToPath DeleteGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteGroup
-
-instance ToQuery DeleteGroup

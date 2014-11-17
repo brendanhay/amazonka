@@ -350,6 +350,16 @@ cloneStackResponse = CloneStackResponse
 csrStackId :: Lens' CloneStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
+instance ToPath CloneStack where
+    toPath = const "/"
+
+instance ToQuery CloneStack where
+    toQuery = const mempty
+
+instance ToHeaders CloneStack
+instance ToJSON CloneStack where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CloneStack where
     type Sv CloneStack = OpsWorks
     type Rs CloneStack = CloneStackResponse
@@ -359,14 +369,3 @@ instance AWSRequest CloneStack where
 
 instance FromJSON CloneStackResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CloneStack where
-    toPath = const "/"
-
-instance ToHeaders CloneStack
-
-instance ToQuery CloneStack where
-    toQuery = const mempty
-
-instance ToJSON CloneStack where
-    toJSON = genericToJSON jsonOptions

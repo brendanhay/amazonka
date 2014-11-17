@@ -123,6 +123,13 @@ dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
 
+instance ToPath DescribeSnapshotAttribute where
+    toPath = const "/"
+
+instance ToQuery DescribeSnapshotAttribute
+
+instance ToHeaders DescribeSnapshotAttribute
+
 instance AWSRequest DescribeSnapshotAttribute where
     type Sv DescribeSnapshotAttribute = EC2
     type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResponse
@@ -133,19 +140,3 @@ instance AWSRequest DescribeSnapshotAttribute where
 instance FromXML DescribeSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResponse"
-
-instance ToPath DescribeSnapshotAttribute where
-    toPath = const "/"
-
-instance ToHeaders DescribeSnapshotAttribute
-
-instance ToQuery DescribeSnapshotAttribute where
-    toQuery DescribeSnapshotAttribute{..} = mconcat
-        [ "dryRun"     =? _dsaDryRun
-        , "SnapshotId" =? _dsaSnapshotId
-        , "Attribute"  =? _dsaAttribute
-        ]
-
-instance ToXML DescribeSnapshotAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSnapshotAttribute"

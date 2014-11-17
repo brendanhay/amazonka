@@ -380,20 +380,6 @@ porServerSideEncryption =
 porVersionId :: Lens' PutObjectResponse (Maybe Text)
 porVersionId = lens _porVersionId (\s a -> s { _porVersionId = a })
 
-instance AWSRequest PutObject where
-    type Sv PutObject = S3
-    type Rs PutObject = PutObjectResponse
-
-    request  = put
-    response = xmlHeaderResponse $ \h x -> PutObjectResponse
-        <$> h ~:? "ETag"
-        <*> h ~:? "x-amz-expiration"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> h ~:? "x-amz-version-id"
-
 instance ToPath PutObject where
     toPath PutObject{..} = mconcat
         [ "/"
@@ -401,6 +387,9 @@ instance ToPath PutObject where
         , "/"
         , toText _poKey
         ]
+
+instance ToQuery PutObject where
+    toQuery = const mempty
 
 instance ToHeaders PutObject where
     toHeaders PutObject{..} = mconcat
@@ -427,8 +416,18 @@ instance ToHeaders PutObject where
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _poSSEKMSKeyId
         ]
 
-instance ToQuery PutObject where
-    toQuery = const mempty
-
 instance ToBody PutObject where
 
+instance AWSRequest PutObject where
+    type Sv PutObject = S3
+    type Rs PutObject = PutObjectResponse
+
+    request  = put
+    response = xmlHeaderResponse $ \h x -> PutObjectResponse
+        <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-version-id"

@@ -125,6 +125,13 @@ getAttributesResponse = GetAttributesResponse
 garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
 
+instance ToPath GetAttributes where
+    toPath = const "/"
+
+instance ToQuery GetAttributes
+
+instance ToHeaders GetAttributes
+
 instance AWSRequest GetAttributes where
     type Sv GetAttributes = SDB
     type Rs GetAttributes = GetAttributesResponse
@@ -135,10 +142,3 @@ instance AWSRequest GetAttributes where
 instance FromXML GetAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetAttributesResponse"
-
-instance ToPath GetAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetAttributes
-
-instance ToQuery GetAttributes

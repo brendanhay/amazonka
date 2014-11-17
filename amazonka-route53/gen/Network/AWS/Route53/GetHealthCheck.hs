@@ -85,6 +85,20 @@ getHealthCheckResponse p1 = GetHealthCheckResponse
 ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\s a -> s { _ghcrHealthCheck = a })
 
+instance ToPath GetHealthCheck where
+    toPath GetHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _ghcHealthCheckId
+        ]
+
+instance ToQuery GetHealthCheck where
+    toQuery = const mempty
+
+instance ToHeaders GetHealthCheck
+instance ToXML GetHealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHealthCheck"
+
 instance AWSRequest GetHealthCheck where
     type Sv GetHealthCheck = Route53
     type Rs GetHealthCheck = GetHealthCheckResponse
@@ -95,18 +109,3 @@ instance AWSRequest GetHealthCheck where
 instance FromXML GetHealthCheckResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetHealthCheckResponse"
-
-instance ToPath GetHealthCheck where
-    toPath GetHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _ghcHealthCheckId
-        ]
-
-instance ToHeaders GetHealthCheck
-
-instance ToQuery GetHealthCheck where
-    toQuery = const mempty
-
-instance ToXML GetHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheck"

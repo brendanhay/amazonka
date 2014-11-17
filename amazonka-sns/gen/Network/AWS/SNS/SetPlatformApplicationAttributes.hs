@@ -96,16 +96,16 @@ data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributes
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
 
+instance ToPath SetPlatformApplicationAttributes where
+    toPath = const "/"
+
+instance ToQuery SetPlatformApplicationAttributes
+
+instance ToHeaders SetPlatformApplicationAttributes
+
 instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS
     type Rs SetPlatformApplicationAttributes = SetPlatformApplicationAttributesResponse
 
     request  = post "SetPlatformApplicationAttributes"
     response = nullResponse SetPlatformApplicationAttributesResponse
-
-instance ToPath SetPlatformApplicationAttributes where
-    toPath = const "/"
-
-instance ToHeaders SetPlatformApplicationAttributes
-
-instance ToQuery SetPlatformApplicationAttributes

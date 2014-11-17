@@ -192,6 +192,16 @@ girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girItem = lens _girItem (\s a -> s { _girItem = a })
     . _Map
 
+instance ToPath GetItem where
+    toPath = const "/"
+
+instance ToQuery GetItem where
+    toQuery = const mempty
+
+instance ToHeaders GetItem
+instance ToJSON GetItem where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetItem where
     type Sv GetItem = DynamoDB
     type Rs GetItem = GetItemResponse
@@ -201,14 +211,3 @@ instance AWSRequest GetItem where
 
 instance FromJSON GetItemResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetItem where
-    toPath = const "/"
-
-instance ToHeaders GetItem
-
-instance ToQuery GetItem where
-    toQuery = const mempty
-
-instance ToJSON GetItem where
-    toJSON = genericToJSON jsonOptions

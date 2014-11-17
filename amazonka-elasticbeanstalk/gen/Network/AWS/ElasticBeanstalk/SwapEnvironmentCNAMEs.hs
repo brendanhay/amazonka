@@ -114,16 +114,16 @@ data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 
+instance ToPath SwapEnvironmentCNAMEs where
+    toPath = const "/"
+
+instance ToQuery SwapEnvironmentCNAMEs
+
+instance ToHeaders SwapEnvironmentCNAMEs
+
 instance AWSRequest SwapEnvironmentCNAMEs where
     type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
     type Rs SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEsResponse
 
     request  = post "SwapEnvironmentCNAMEs"
     response = nullResponse SwapEnvironmentCNAMEsResponse
-
-instance ToPath SwapEnvironmentCNAMEs where
-    toPath = const "/"
-
-instance ToHeaders SwapEnvironmentCNAMEs
-
-instance ToQuery SwapEnvironmentCNAMEs

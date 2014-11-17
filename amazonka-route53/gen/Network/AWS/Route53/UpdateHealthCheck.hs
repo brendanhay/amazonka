@@ -176,6 +176,20 @@ updateHealthCheckResponse p1 = UpdateHealthCheckResponse
 uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrHealthCheck = lens _uhcrHealthCheck (\s a -> s { _uhcrHealthCheck = a })
 
+instance ToPath UpdateHealthCheck where
+    toPath UpdateHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _uhcHealthCheckId
+        ]
+
+instance ToQuery UpdateHealthCheck where
+    toQuery = const mempty
+
+instance ToHeaders UpdateHealthCheck
+instance ToXML UpdateHealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateHealthCheck"
+
 instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
     type Rs UpdateHealthCheck = UpdateHealthCheckResponse
@@ -186,18 +200,3 @@ instance AWSRequest UpdateHealthCheck where
 instance FromXML UpdateHealthCheckResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateHealthCheckResponse"
-
-instance ToPath UpdateHealthCheck where
-    toPath UpdateHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _uhcHealthCheckId
-        ]
-
-instance ToHeaders UpdateHealthCheck
-
-instance ToQuery UpdateHealthCheck where
-    toQuery = const mempty
-
-instance ToXML UpdateHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateHealthCheck"

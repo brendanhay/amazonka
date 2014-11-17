@@ -107,6 +107,16 @@ lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a })
 lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 
+instance ToPath ListGateways where
+    toPath = const "/"
+
+instance ToQuery ListGateways where
+    toQuery = const mempty
+
+instance ToHeaders ListGateways
+instance ToJSON ListGateways where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListGateways where
     type Sv ListGateways = StorageGateway
     type Rs ListGateways = ListGatewaysResponse
@@ -116,14 +126,3 @@ instance AWSRequest ListGateways where
 
 instance FromJSON ListGatewaysResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListGateways where
-    toPath = const "/"
-
-instance ToHeaders ListGateways
-
-instance ToQuery ListGateways where
-    toQuery = const mempty
-
-instance ToJSON ListGateways where
-    toJSON = genericToJSON jsonOptions

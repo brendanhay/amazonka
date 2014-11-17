@@ -91,6 +91,14 @@ gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap Text Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
     . _Map
 
+instance ToPath GetAccountSummary where
+    toPath = const "/"
+
+instance ToQuery GetAccountSummary where
+    toQuery = const mempty
+
+instance ToHeaders GetAccountSummary
+
 instance AWSRequest GetAccountSummary where
     type Sv GetAccountSummary = IAM
     type Rs GetAccountSummary = GetAccountSummaryResponse
@@ -101,10 +109,3 @@ instance AWSRequest GetAccountSummary where
 instance FromXML GetAccountSummaryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetAccountSummaryResponse"
-
-instance ToPath GetAccountSummary where
-    toPath = const "/"
-
-instance ToHeaders GetAccountSummary
-
-instance ToQuery GetAccountSummary

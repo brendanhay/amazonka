@@ -121,6 +121,13 @@ iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask =
     lens _iirConversionTask (\s a -> s { _iirConversionTask = a })
 
+instance ToPath ImportInstance where
+    toPath = const "/"
+
+instance ToQuery ImportInstance
+
+instance ToHeaders ImportInstance
+
 instance AWSRequest ImportInstance where
     type Sv ImportInstance = EC2
     type Rs ImportInstance = ImportInstanceResponse
@@ -131,21 +138,3 @@ instance AWSRequest ImportInstance where
 instance FromXML ImportInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImportInstanceResponse"
-
-instance ToPath ImportInstance where
-    toPath = const "/"
-
-instance ToHeaders ImportInstance
-
-instance ToQuery ImportInstance where
-    toQuery ImportInstance{..} = mconcat
-        [ "dryRun"              =? _iiDryRun
-        , "description"         =? _iiDescription
-        , "launchSpecification" =? _iiLaunchSpecification
-        , "diskImage"           =? _iiDiskImages
-        , "platform"            =? _iiPlatform
-        ]
-
-instance ToXML ImportInstance where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ImportInstance"

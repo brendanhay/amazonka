@@ -104,6 +104,13 @@ createVpnGatewayResponse = CreateVpnGatewayResponse
 cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
 
+instance ToPath CreateVpnGateway where
+    toPath = const "/"
+
+instance ToQuery CreateVpnGateway
+
+instance ToHeaders CreateVpnGateway
+
 instance AWSRequest CreateVpnGateway where
     type Sv CreateVpnGateway = EC2
     type Rs CreateVpnGateway = CreateVpnGatewayResponse
@@ -114,19 +121,3 @@ instance AWSRequest CreateVpnGateway where
 instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpnGatewayResponse"
-
-instance ToPath CreateVpnGateway where
-    toPath = const "/"
-
-instance ToHeaders CreateVpnGateway
-
-instance ToQuery CreateVpnGateway where
-    toQuery CreateVpnGateway{..} = mconcat
-        [ "dryRun"           =? _cvgDryRun
-        , "Type"             =? _cvgType
-        , "AvailabilityZone" =? _cvgAvailabilityZone
-        ]
-
-instance ToXML CreateVpnGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVpnGateway"

@@ -140,6 +140,16 @@ dcrCommunications =
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\s a -> s { _dcrNextToken = a })
 
+instance ToPath DescribeCommunications where
+    toPath = const "/"
+
+instance ToQuery DescribeCommunications where
+    toQuery = const mempty
+
+instance ToHeaders DescribeCommunications
+instance ToJSON DescribeCommunications where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeCommunications where
     type Sv DescribeCommunications = Support
     type Rs DescribeCommunications = DescribeCommunicationsResponse
@@ -149,14 +159,3 @@ instance AWSRequest DescribeCommunications where
 
 instance FromJSON DescribeCommunicationsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeCommunications where
-    toPath = const "/"
-
-instance ToHeaders DescribeCommunications
-
-instance ToQuery DescribeCommunications where
-    toQuery = const mempty
-
-instance ToJSON DescribeCommunications where
-    toJSON = genericToJSON jsonOptions

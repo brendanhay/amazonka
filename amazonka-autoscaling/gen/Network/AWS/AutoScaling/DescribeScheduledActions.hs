@@ -151,6 +151,13 @@ dsarScheduledUpdateGroupActions =
     lens _dsarScheduledUpdateGroupActions
         (\s a -> s { _dsarScheduledUpdateGroupActions = a })
 
+instance ToPath DescribeScheduledActions where
+    toPath = const "/"
+
+instance ToQuery DescribeScheduledActions
+
+instance ToHeaders DescribeScheduledActions
+
 instance AWSRequest DescribeScheduledActions where
     type Sv DescribeScheduledActions = AutoScaling
     type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
@@ -161,10 +168,3 @@ instance AWSRequest DescribeScheduledActions where
 instance FromXML DescribeScheduledActionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeScheduledActionsResponse"
-
-instance ToPath DescribeScheduledActions where
-    toPath = const "/"
-
-instance ToHeaders DescribeScheduledActions
-
-instance ToQuery DescribeScheduledActions

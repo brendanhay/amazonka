@@ -109,6 +109,13 @@ ccsgrCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnet
 ccsgrCacheSubnetGroup =
     lens _ccsgrCacheSubnetGroup (\s a -> s { _ccsgrCacheSubnetGroup = a })
 
+instance ToPath CreateCacheSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery CreateCacheSubnetGroup
+
+instance ToHeaders CreateCacheSubnetGroup
+
 instance AWSRequest CreateCacheSubnetGroup where
     type Sv CreateCacheSubnetGroup = ElastiCache
     type Rs CreateCacheSubnetGroup = CreateCacheSubnetGroupResponse
@@ -119,10 +126,3 @@ instance AWSRequest CreateCacheSubnetGroup where
 instance FromXML CreateCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheSubnetGroupResponse"
-
-instance ToPath CreateCacheSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateCacheSubnetGroup
-
-instance ToQuery CreateCacheSubnetGroup

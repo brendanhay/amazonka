@@ -90,6 +90,16 @@ shutdownGatewayResponse = ShutdownGatewayResponse
 sgr1GatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgr1GatewayARN = lens _sgr1GatewayARN (\s a -> s { _sgr1GatewayARN = a })
 
+instance ToPath ShutdownGateway where
+    toPath = const "/"
+
+instance ToQuery ShutdownGateway where
+    toQuery = const mempty
+
+instance ToHeaders ShutdownGateway
+instance ToJSON ShutdownGateway where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ShutdownGateway where
     type Sv ShutdownGateway = StorageGateway
     type Rs ShutdownGateway = ShutdownGatewayResponse
@@ -99,14 +109,3 @@ instance AWSRequest ShutdownGateway where
 
 instance FromJSON ShutdownGatewayResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ShutdownGateway where
-    toPath = const "/"
-
-instance ToHeaders ShutdownGateway
-
-instance ToQuery ShutdownGateway where
-    toQuery = const mempty
-
-instance ToJSON ShutdownGateway where
-    toJSON = genericToJSON jsonOptions

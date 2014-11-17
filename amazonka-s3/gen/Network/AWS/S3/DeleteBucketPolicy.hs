@@ -67,24 +67,23 @@ data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
-instance AWSRequest DeleteBucketPolicy where
-    type Sv DeleteBucketPolicy = S3
-    type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
-
-    request  = delete
-    response = nullResponse DeleteBucketPolicyResponse
-
 instance ToPath DeleteBucketPolicy where
     toPath DeleteBucketPolicy{..} = mconcat
         [ "/"
         , toText _dbpBucket
         ]
 
-instance ToHeaders DeleteBucketPolicy
-
 instance ToQuery DeleteBucketPolicy where
     toQuery = const "policy"
 
+instance ToHeaders DeleteBucketPolicy
 instance ToXML DeleteBucketPolicy where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteBucketPolicy"
+
+instance AWSRequest DeleteBucketPolicy where
+    type Sv DeleteBucketPolicy = S3
+    type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
+
+    request  = delete
+    response = nullResponse DeleteBucketPolicyResponse

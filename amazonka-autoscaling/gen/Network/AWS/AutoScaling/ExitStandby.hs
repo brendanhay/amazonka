@@ -103,6 +103,13 @@ exitStandbyResponse = ExitStandbyResponse
 esrActivities :: Lens' ExitStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a })
 
+instance ToPath ExitStandby where
+    toPath = const "/"
+
+instance ToQuery ExitStandby
+
+instance ToHeaders ExitStandby
+
 instance AWSRequest ExitStandby where
     type Sv ExitStandby = AutoScaling
     type Rs ExitStandby = ExitStandbyResponse
@@ -113,10 +120,3 @@ instance AWSRequest ExitStandby where
 instance FromXML ExitStandbyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ExitStandbyResponse"
-
-instance ToPath ExitStandby where
-    toPath = const "/"
-
-instance ToHeaders ExitStandby
-
-instance ToQuery ExitStandby

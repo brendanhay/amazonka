@@ -84,16 +84,16 @@ data ChangePasswordResponse = ChangePasswordResponse
 changePasswordResponse :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse
 
+instance ToPath ChangePassword where
+    toPath = const "/"
+
+instance ToQuery ChangePassword
+
+instance ToHeaders ChangePassword
+
 instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM
     type Rs ChangePassword = ChangePasswordResponse
 
     request  = post "ChangePassword"
     response = nullResponse ChangePasswordResponse
-
-instance ToPath ChangePassword where
-    toPath = const "/"
-
-instance ToHeaders ChangePassword
-
-instance ToQuery ChangePassword

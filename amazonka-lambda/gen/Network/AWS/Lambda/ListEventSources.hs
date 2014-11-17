@@ -125,6 +125,15 @@ lesrEventSources = lens _lesrEventSources (\s a -> s { _lesrEventSources = a })
 lesrNextMarker :: Lens' ListEventSourcesResponse (Maybe Text)
 lesrNextMarker = lens _lesrNextMarker (\s a -> s { _lesrNextMarker = a })
 
+instance ToPath ListEventSources where
+    toPath = const "/2014-11-13/event-source-mappings/"
+
+instance ToQuery ListEventSources
+
+instance ToHeaders ListEventSources
+instance ToJSON ListEventSources where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListEventSources where
     type Sv ListEventSources = Lambda
     type Rs ListEventSources = ListEventSourcesResponse
@@ -134,19 +143,3 @@ instance AWSRequest ListEventSources where
 
 instance FromJSON ListEventSourcesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListEventSources where
-    toPath = const "/2014-11-13/event-source-mappings/"
-
-instance ToHeaders ListEventSources
-
-instance ToQuery ListEventSources where
-    toQuery ListEventSources{..} = mconcat
-        [ "EventSource"  =? _lesEventSourceArn
-        , "FunctionName" =? _lesFunctionName
-        , "Marker"       =? _lesMarker
-        , "MaxItems"     =? _lesMaxItems
-        ]
-
-instance ToJSON ListEventSources where
-    toJSON = genericToJSON jsonOptions

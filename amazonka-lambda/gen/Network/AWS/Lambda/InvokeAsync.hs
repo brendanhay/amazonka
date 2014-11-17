@@ -97,6 +97,20 @@ invokeAsyncResponse p1 = InvokeAsyncResponse
 iarStatus :: Lens' InvokeAsyncResponse Int
 iarStatus = lens _iarStatus (\s a -> s { _iarStatus = a })
 
+instance ToPath InvokeAsync where
+    toPath InvokeAsync{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _iaFunctionName
+        , "/invoke-async/"
+        ]
+
+instance ToQuery InvokeAsync where
+    toQuery = const mempty
+
+instance ToHeaders InvokeAsync
+instance ToJSON InvokeAsync where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest InvokeAsync where
     type Sv InvokeAsync = Lambda
     type Rs InvokeAsync = InvokeAsyncResponse
@@ -106,18 +120,3 @@ instance AWSRequest InvokeAsync where
 
 instance FromJSON InvokeAsyncResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath InvokeAsync where
-    toPath InvokeAsync{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _iaFunctionName
-        , "/invoke-async/"
-        ]
-
-instance ToHeaders InvokeAsync
-
-instance ToQuery InvokeAsync where
-    toQuery = const mempty
-
-instance ToJSON InvokeAsync where
-    toJSON = genericToJSON jsonOptions

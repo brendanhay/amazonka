@@ -95,6 +95,13 @@ dasrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasrAnalysisScheme =
     lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })
 
+instance ToPath DeleteAnalysisScheme where
+    toPath = const "/"
+
+instance ToQuery DeleteAnalysisScheme
+
+instance ToHeaders DeleteAnalysisScheme
+
 instance AWSRequest DeleteAnalysisScheme where
     type Sv DeleteAnalysisScheme = CloudSearch
     type Rs DeleteAnalysisScheme = DeleteAnalysisSchemeResponse
@@ -105,10 +112,3 @@ instance AWSRequest DeleteAnalysisScheme where
 instance FromXML DeleteAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAnalysisSchemeResponse"
-
-instance ToPath DeleteAnalysisScheme where
-    toPath = const "/"
-
-instance ToHeaders DeleteAnalysisScheme
-
-instance ToQuery DeleteAnalysisScheme

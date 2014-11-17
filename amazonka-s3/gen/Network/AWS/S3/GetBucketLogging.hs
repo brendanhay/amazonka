@@ -82,6 +82,20 @@ gblrLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblrLoggingEnabled =
     lens _gblrLoggingEnabled (\s a -> s { _gblrLoggingEnabled = a })
 
+instance ToPath GetBucketLogging where
+    toPath GetBucketLogging{..} = mconcat
+        [ "/"
+        , toText _gbl2Bucket
+        ]
+
+instance ToQuery GetBucketLogging where
+    toQuery = const "logging"
+
+instance ToHeaders GetBucketLogging
+instance ToXML GetBucketLogging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketLogging"
+
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
     type Rs GetBucketLogging = GetBucketLoggingResponse
@@ -92,18 +106,3 @@ instance AWSRequest GetBucketLogging where
 instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketLoggingResponse"
-
-instance ToPath GetBucketLogging where
-    toPath GetBucketLogging{..} = mconcat
-        [ "/"
-        , toText _gbl2Bucket
-        ]
-
-instance ToHeaders GetBucketLogging
-
-instance ToQuery GetBucketLogging where
-    toQuery = const "logging"
-
-instance ToXML GetBucketLogging where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketLogging"

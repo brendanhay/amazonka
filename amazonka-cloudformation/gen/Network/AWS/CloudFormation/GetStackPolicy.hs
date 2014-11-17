@@ -87,6 +87,13 @@ gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody =
     lens _gsprStackPolicyBody (\s a -> s { _gsprStackPolicyBody = a })
 
+instance ToPath GetStackPolicy where
+    toPath = const "/"
+
+instance ToQuery GetStackPolicy
+
+instance ToHeaders GetStackPolicy
+
 instance AWSRequest GetStackPolicy where
     type Sv GetStackPolicy = CloudFormation
     type Rs GetStackPolicy = GetStackPolicyResponse
@@ -97,10 +104,3 @@ instance AWSRequest GetStackPolicy where
 instance FromXML GetStackPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetStackPolicyResponse"
-
-instance ToPath GetStackPolicy where
-    toPath = const "/"
-
-instance ToHeaders GetStackPolicy
-
-instance ToQuery GetStackPolicy

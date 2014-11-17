@@ -115,6 +115,13 @@ acsgirCacheSecurityGroup =
     lens _acsgirCacheSecurityGroup
         (\s a -> s { _acsgirCacheSecurityGroup = a })
 
+instance ToPath AuthorizeCacheSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery AuthorizeCacheSecurityGroupIngress
+
+instance ToHeaders AuthorizeCacheSecurityGroupIngress
+
 instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     type Sv AuthorizeCacheSecurityGroupIngress = ElastiCache
     type Rs AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngressResponse
@@ -125,10 +132,3 @@ instance AWSRequest AuthorizeCacheSecurityGroupIngress where
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResponse"
-
-instance ToPath AuthorizeCacheSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders AuthorizeCacheSecurityGroupIngress
-
-instance ToQuery AuthorizeCacheSecurityGroupIngress

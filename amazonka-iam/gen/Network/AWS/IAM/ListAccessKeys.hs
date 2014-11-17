@@ -135,6 +135,13 @@ lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
 
+instance ToPath ListAccessKeys where
+    toPath = const "/"
+
+instance ToQuery ListAccessKeys
+
+instance ToHeaders ListAccessKeys
+
 instance AWSRequest ListAccessKeys where
     type Sv ListAccessKeys = IAM
     type Rs ListAccessKeys = ListAccessKeysResponse
@@ -145,10 +152,3 @@ instance AWSRequest ListAccessKeys where
 instance FromXML ListAccessKeysResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListAccessKeysResponse"
-
-instance ToPath ListAccessKeys where
-    toPath = const "/"
-
-instance ToHeaders ListAccessKeys
-
-instance ToQuery ListAccessKeys

@@ -106,6 +106,13 @@ bundleInstanceResponse = BundleInstanceResponse
 birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
 
+instance ToPath BundleInstance where
+    toPath = const "/"
+
+instance ToQuery BundleInstance
+
+instance ToHeaders BundleInstance
+
 instance AWSRequest BundleInstance where
     type Sv BundleInstance = EC2
     type Rs BundleInstance = BundleInstanceResponse
@@ -116,19 +123,3 @@ instance AWSRequest BundleInstance where
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "BundleInstanceResponse"
-
-instance ToPath BundleInstance where
-    toPath = const "/"
-
-instance ToHeaders BundleInstance
-
-instance ToQuery BundleInstance where
-    toQuery BundleInstance{..} = mconcat
-        [ "dryRun"     =? _biDryRun
-        , "InstanceId" =? _biInstanceId
-        , "Storage"    =? _biStorage
-        ]
-
-instance ToXML BundleInstance where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "BundleInstance"

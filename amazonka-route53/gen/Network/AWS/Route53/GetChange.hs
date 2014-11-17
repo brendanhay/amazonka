@@ -91,6 +91,20 @@ getChangeResponse p1 = GetChangeResponse
 gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\s a -> s { _gcrChangeInfo = a })
 
+instance ToPath GetChange where
+    toPath GetChange{..} = mconcat
+        [ "/2013-04-01/change/"
+        , toText _gcId
+        ]
+
+instance ToQuery GetChange where
+    toQuery = const mempty
+
+instance ToHeaders GetChange
+instance ToXML GetChange where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetChange"
+
 instance AWSRequest GetChange where
     type Sv GetChange = Route53
     type Rs GetChange = GetChangeResponse
@@ -101,18 +115,3 @@ instance AWSRequest GetChange where
 instance FromXML GetChangeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetChangeResponse"
-
-instance ToPath GetChange where
-    toPath GetChange{..} = mconcat
-        [ "/2013-04-01/change/"
-        , toText _gcId
-        ]
-
-instance ToHeaders GetChange
-
-instance ToQuery GetChange where
-    toQuery = const mempty
-
-instance ToXML GetChange where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetChange"

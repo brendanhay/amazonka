@@ -104,6 +104,13 @@ confirmProductInstanceResponse = ConfirmProductInstanceResponse
 cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
 
+instance ToPath ConfirmProductInstance where
+    toPath = const "/"
+
+instance ToQuery ConfirmProductInstance
+
+instance ToHeaders ConfirmProductInstance
+
 instance AWSRequest ConfirmProductInstance where
     type Sv ConfirmProductInstance = EC2
     type Rs ConfirmProductInstance = ConfirmProductInstanceResponse
@@ -114,19 +121,3 @@ instance AWSRequest ConfirmProductInstance where
 instance FromXML ConfirmProductInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfirmProductInstanceResponse"
-
-instance ToPath ConfirmProductInstance where
-    toPath = const "/"
-
-instance ToHeaders ConfirmProductInstance
-
-instance ToQuery ConfirmProductInstance where
-    toQuery ConfirmProductInstance{..} = mconcat
-        [ "dryRun"      =? _cpiDryRun
-        , "ProductCode" =? _cpiProductCode
-        , "InstanceId"  =? _cpiInstanceId
-        ]
-
-instance ToXML ConfirmProductInstance where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ConfirmProductInstance"

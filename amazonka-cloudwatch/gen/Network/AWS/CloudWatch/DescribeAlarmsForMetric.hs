@@ -137,6 +137,13 @@ dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms =
     lens _dafmrMetricAlarms (\s a -> s { _dafmrMetricAlarms = a })
 
+instance ToPath DescribeAlarmsForMetric where
+    toPath = const "/"
+
+instance ToQuery DescribeAlarmsForMetric
+
+instance ToHeaders DescribeAlarmsForMetric
+
 instance AWSRequest DescribeAlarmsForMetric where
     type Sv DescribeAlarmsForMetric = CloudWatch
     type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
@@ -147,10 +154,3 @@ instance AWSRequest DescribeAlarmsForMetric where
 instance FromXML DescribeAlarmsForMetricResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAlarmsForMetricResponse"
-
-instance ToPath DescribeAlarmsForMetric where
-    toPath = const "/"
-
-instance ToHeaders DescribeAlarmsForMetric
-
-instance ToQuery DescribeAlarmsForMetric

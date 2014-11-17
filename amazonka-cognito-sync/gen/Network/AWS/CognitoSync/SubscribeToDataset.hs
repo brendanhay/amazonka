@@ -102,13 +102,6 @@ data SubscribeToDatasetResponse = SubscribeToDatasetResponse
 subscribeToDatasetResponse :: SubscribeToDatasetResponse
 subscribeToDatasetResponse = SubscribeToDatasetResponse
 
-instance AWSRequest SubscribeToDataset where
-    type Sv SubscribeToDataset = CognitoSync
-    type Rs SubscribeToDataset = SubscribeToDatasetResponse
-
-    request  = post
-    response = nullResponse SubscribeToDatasetResponse
-
 instance ToPath SubscribeToDataset where
     toPath SubscribeToDataset{..} = mconcat
         [ "/identitypools/"
@@ -121,10 +114,16 @@ instance ToPath SubscribeToDataset where
         , toText _stdDeviceId
         ]
 
-instance ToHeaders SubscribeToDataset
-
 instance ToQuery SubscribeToDataset where
     toQuery = const mempty
 
+instance ToHeaders SubscribeToDataset
 instance ToJSON SubscribeToDataset where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest SubscribeToDataset where
+    type Sv SubscribeToDataset = CognitoSync
+    type Rs SubscribeToDataset = SubscribeToDatasetResponse
+
+    request  = post
+    response = nullResponse SubscribeToDatasetResponse

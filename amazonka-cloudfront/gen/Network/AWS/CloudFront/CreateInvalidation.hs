@@ -103,6 +103,21 @@ cirInvalidation = lens _cirInvalidation (\s a -> s { _cirInvalidation = a })
 cirLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
+instance ToPath CreateInvalidation where
+    toPath CreateInvalidation{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _ciDistributionId
+        , "/invalidation"
+        ]
+
+instance ToQuery CreateInvalidation where
+    toQuery = const mempty
+
+instance ToHeaders CreateInvalidation
+instance ToXML CreateInvalidation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateInvalidation"
+
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront
     type Rs CreateInvalidation = CreateInvalidationResponse
@@ -111,19 +126,3 @@ instance AWSRequest CreateInvalidation where
     response = xmlHeaderResponse $ \h x -> CreateInvalidationResponse
         <$> x %| "Invalidation"
         <*> h ~:? "Location"
-
-instance ToPath CreateInvalidation where
-    toPath CreateInvalidation{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _ciDistributionId
-        , "/invalidation"
-        ]
-
-instance ToHeaders CreateInvalidation
-
-instance ToQuery CreateInvalidation where
-    toQuery = const mempty
-
-instance ToXML CreateInvalidation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateInvalidation"

@@ -162,6 +162,13 @@ gtsrParameters = lens _gtsrParameters (\s a -> s { _gtsrParameters = a })
 gtsrVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrVersion = lens _gtsrVersion (\s a -> s { _gtsrVersion = a })
 
+instance ToPath GetTemplateSummary where
+    toPath = const "/"
+
+instance ToQuery GetTemplateSummary
+
+instance ToHeaders GetTemplateSummary
+
 instance AWSRequest GetTemplateSummary where
     type Sv GetTemplateSummary = CloudFormation
     type Rs GetTemplateSummary = GetTemplateSummaryResponse
@@ -172,10 +179,3 @@ instance AWSRequest GetTemplateSummary where
 instance FromXML GetTemplateSummaryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetTemplateSummaryResponse"
-
-instance ToPath GetTemplateSummary where
-    toPath = const "/"
-
-instance ToHeaders GetTemplateSummary
-
-instance ToQuery GetTemplateSummary

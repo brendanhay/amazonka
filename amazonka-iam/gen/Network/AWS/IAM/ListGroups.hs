@@ -130,6 +130,13 @@ lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
 lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 
+instance ToPath ListGroups where
+    toPath = const "/"
+
+instance ToQuery ListGroups
+
+instance ToHeaders ListGroups
+
 instance AWSRequest ListGroups where
     type Sv ListGroups = IAM
     type Rs ListGroups = ListGroupsResponse
@@ -140,10 +147,3 @@ instance AWSRequest ListGroups where
 instance FromXML ListGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGroupsResponse"
-
-instance ToPath ListGroups where
-    toPath = const "/"
-
-instance ToHeaders ListGroups
-
-instance ToQuery ListGroups

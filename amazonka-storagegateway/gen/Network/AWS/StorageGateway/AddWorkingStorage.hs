@@ -97,6 +97,16 @@ addWorkingStorageResponse = AddWorkingStorageResponse
 awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrGatewayARN = lens _awsrGatewayARN (\s a -> s { _awsrGatewayARN = a })
 
+instance ToPath AddWorkingStorage where
+    toPath = const "/"
+
+instance ToQuery AddWorkingStorage where
+    toQuery = const mempty
+
+instance ToHeaders AddWorkingStorage
+instance ToJSON AddWorkingStorage where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddWorkingStorage where
     type Sv AddWorkingStorage = StorageGateway
     type Rs AddWorkingStorage = AddWorkingStorageResponse
@@ -106,14 +116,3 @@ instance AWSRequest AddWorkingStorage where
 
 instance FromJSON AddWorkingStorageResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddWorkingStorage where
-    toPath = const "/"
-
-instance ToHeaders AddWorkingStorage
-
-instance ToQuery AddWorkingStorage where
-    toQuery = const mempty
-
-instance ToJSON AddWorkingStorage where
-    toJSON = genericToJSON jsonOptions

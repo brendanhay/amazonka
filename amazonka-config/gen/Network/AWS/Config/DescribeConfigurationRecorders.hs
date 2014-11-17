@@ -100,6 +100,16 @@ dcrrConfigurationRecorders =
     lens _dcrrConfigurationRecorders
         (\s a -> s { _dcrrConfigurationRecorders = a })
 
+instance ToPath DescribeConfigurationRecorders where
+    toPath = const "/"
+
+instance ToQuery DescribeConfigurationRecorders where
+    toQuery = const mempty
+
+instance ToHeaders DescribeConfigurationRecorders
+instance ToJSON DescribeConfigurationRecorders where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeConfigurationRecorders where
     type Sv DescribeConfigurationRecorders = Config
     type Rs DescribeConfigurationRecorders = DescribeConfigurationRecordersResponse
@@ -109,14 +119,3 @@ instance AWSRequest DescribeConfigurationRecorders where
 
 instance FromJSON DescribeConfigurationRecordersResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeConfigurationRecorders where
-    toPath = const "/"
-
-instance ToHeaders DescribeConfigurationRecorders
-
-instance ToQuery DescribeConfigurationRecorders where
-    toQuery = const mempty
-
-instance ToJSON DescribeConfigurationRecorders where
-    toJSON = genericToJSON jsonOptions

@@ -77,20 +77,19 @@ data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 
+instance ToPath ModifyInstanceGroups where
+    toPath = const "/"
+
+instance ToQuery ModifyInstanceGroups where
+    toQuery = const mempty
+
+instance ToHeaders ModifyInstanceGroups
+instance ToJSON ModifyInstanceGroups where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR
     type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
 
     request  = post
     response = nullResponse ModifyInstanceGroupsResponse
-
-instance ToPath ModifyInstanceGroups where
-    toPath = const "/"
-
-instance ToHeaders ModifyInstanceGroups
-
-instance ToQuery ModifyInstanceGroups where
-    toQuery = const mempty
-
-instance ToJSON ModifyInstanceGroups where
-    toJSON = genericToJSON jsonOptions

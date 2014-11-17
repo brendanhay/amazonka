@@ -71,16 +71,16 @@ data CancelUpdateStackResponse = CancelUpdateStackResponse
 cancelUpdateStackResponse :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse
 
+instance ToPath CancelUpdateStack where
+    toPath = const "/"
+
+instance ToQuery CancelUpdateStack
+
+instance ToHeaders CancelUpdateStack
+
 instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation
     type Rs CancelUpdateStack = CancelUpdateStackResponse
 
     request  = post "CancelUpdateStack"
     response = nullResponse CancelUpdateStackResponse
-
-instance ToPath CancelUpdateStack where
-    toPath = const "/"
-
-instance ToHeaders CancelUpdateStack
-
-instance ToQuery CancelUpdateStack

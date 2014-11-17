@@ -112,6 +112,13 @@ rebootDBInstanceResponse = RebootDBInstanceResponse
 rdbirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
 
+instance ToPath RebootDBInstance where
+    toPath = const "/"
+
+instance ToQuery RebootDBInstance
+
+instance ToHeaders RebootDBInstance
+
 instance AWSRequest RebootDBInstance where
     type Sv RebootDBInstance = RDS
     type Rs RebootDBInstance = RebootDBInstanceResponse
@@ -122,10 +129,3 @@ instance AWSRequest RebootDBInstance where
 instance FromXML RebootDBInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebootDBInstanceResponse"
-
-instance ToPath RebootDBInstance where
-    toPath = const "/"
-
-instance ToHeaders RebootDBInstance
-
-instance ToQuery RebootDBInstance

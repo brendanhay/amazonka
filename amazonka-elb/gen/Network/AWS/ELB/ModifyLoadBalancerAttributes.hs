@@ -112,6 +112,13 @@ mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName =
     lens _mlbarLoadBalancerName (\s a -> s { _mlbarLoadBalancerName = a })
 
+instance ToPath ModifyLoadBalancerAttributes where
+    toPath = const "/"
+
+instance ToQuery ModifyLoadBalancerAttributes
+
+instance ToHeaders ModifyLoadBalancerAttributes
+
 instance AWSRequest ModifyLoadBalancerAttributes where
     type Sv ModifyLoadBalancerAttributes = ELB
     type Rs ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributesResponse
@@ -122,10 +129,3 @@ instance AWSRequest ModifyLoadBalancerAttributes where
 instance FromXML ModifyLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesResponse"
-
-instance ToPath ModifyLoadBalancerAttributes where
-    toPath = const "/"
-
-instance ToHeaders ModifyLoadBalancerAttributes
-
-instance ToQuery ModifyLoadBalancerAttributes

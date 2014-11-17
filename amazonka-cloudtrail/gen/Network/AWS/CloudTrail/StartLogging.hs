@@ -68,20 +68,19 @@ data StartLoggingResponse = StartLoggingResponse
 startLoggingResponse :: StartLoggingResponse
 startLoggingResponse = StartLoggingResponse
 
+instance ToPath StartLogging where
+    toPath = const "/"
+
+instance ToQuery StartLogging where
+    toQuery = const mempty
+
+instance ToHeaders StartLogging
+instance ToJSON StartLogging where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail
     type Rs StartLogging = StartLoggingResponse
 
     request  = post
     response = nullResponse StartLoggingResponse
-
-instance ToPath StartLogging where
-    toPath = const "/"
-
-instance ToHeaders StartLogging
-
-instance ToQuery StartLogging where
-    toQuery = const mempty
-
-instance ToJSON StartLogging where
-    toJSON = genericToJSON jsonOptions

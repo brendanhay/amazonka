@@ -94,6 +94,13 @@ ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 ltrTopics :: Lens' ListTopicsResponse [Topic]
 ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
 
+instance ToPath ListTopics where
+    toPath = const "/"
+
+instance ToQuery ListTopics
+
+instance ToHeaders ListTopics
+
 instance AWSRequest ListTopics where
     type Sv ListTopics = SNS
     type Rs ListTopics = ListTopicsResponse
@@ -104,10 +111,3 @@ instance AWSRequest ListTopics where
 instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListTopicsResponse"
-
-instance ToPath ListTopics where
-    toPath = const "/"
-
-instance ToHeaders ListTopics
-
-instance ToQuery ListTopics

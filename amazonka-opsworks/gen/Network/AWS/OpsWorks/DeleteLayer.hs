@@ -73,20 +73,19 @@ data DeleteLayerResponse = DeleteLayerResponse
 deleteLayerResponse :: DeleteLayerResponse
 deleteLayerResponse = DeleteLayerResponse
 
+instance ToPath DeleteLayer where
+    toPath = const "/"
+
+instance ToQuery DeleteLayer where
+    toQuery = const mempty
+
+instance ToHeaders DeleteLayer
+instance ToJSON DeleteLayer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks
     type Rs DeleteLayer = DeleteLayerResponse
 
     request  = post
     response = nullResponse DeleteLayerResponse
-
-instance ToPath DeleteLayer where
-    toPath = const "/"
-
-instance ToHeaders DeleteLayer
-
-instance ToQuery DeleteLayer where
-    toQuery = const mempty
-
-instance ToJSON DeleteLayer where
-    toJSON = genericToJSON jsonOptions

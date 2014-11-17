@@ -99,20 +99,19 @@ data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 
+instance ToPath RespondActivityTaskCanceled where
+    toPath = const "/"
+
+instance ToQuery RespondActivityTaskCanceled where
+    toQuery = const mempty
+
+instance ToHeaders RespondActivityTaskCanceled
+instance ToJSON RespondActivityTaskCanceled where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF
     type Rs RespondActivityTaskCanceled = RespondActivityTaskCanceledResponse
 
     request  = post
     response = nullResponse RespondActivityTaskCanceledResponse
-
-instance ToPath RespondActivityTaskCanceled where
-    toPath = const "/"
-
-instance ToHeaders RespondActivityTaskCanceled
-
-instance ToQuery RespondActivityTaskCanceled where
-    toQuery = const mempty
-
-instance ToJSON RespondActivityTaskCanceled where
-    toJSON = genericToJSON jsonOptions

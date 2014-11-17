@@ -140,6 +140,13 @@ ddbprMarker = lens _ddbprMarker (\s a -> s { _ddbprMarker = a })
 ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a })
 
+instance ToPath DescribeDBParameters where
+    toPath = const "/"
+
+instance ToQuery DescribeDBParameters
+
+instance ToHeaders DescribeDBParameters
+
 instance AWSRequest DescribeDBParameters where
     type Sv DescribeDBParameters = RDS
     type Rs DescribeDBParameters = DescribeDBParametersResponse
@@ -150,10 +157,3 @@ instance AWSRequest DescribeDBParameters where
 instance FromXML DescribeDBParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBParametersResponse"
-
-instance ToPath DescribeDBParameters where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBParameters
-
-instance ToQuery DescribeDBParameters

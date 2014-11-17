@@ -70,16 +70,16 @@ data DeleteIdentityResponse = DeleteIdentityResponse
 deleteIdentityResponse :: DeleteIdentityResponse
 deleteIdentityResponse = DeleteIdentityResponse
 
+instance ToPath DeleteIdentity where
+    toPath = const "/"
+
+instance ToQuery DeleteIdentity
+
+instance ToHeaders DeleteIdentity
+
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES
     type Rs DeleteIdentity = DeleteIdentityResponse
 
     request  = post "DeleteIdentity"
     response = nullResponse DeleteIdentityResponse
-
-instance ToPath DeleteIdentity where
-    toPath = const "/"
-
-instance ToHeaders DeleteIdentity
-
-instance ToQuery DeleteIdentity

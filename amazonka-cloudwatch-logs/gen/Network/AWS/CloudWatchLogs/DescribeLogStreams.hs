@@ -124,6 +124,16 @@ dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a })
 dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrNextToken = lens _dlsrNextToken (\s a -> s { _dlsrNextToken = a })
 
+instance ToPath DescribeLogStreams where
+    toPath = const "/"
+
+instance ToQuery DescribeLogStreams where
+    toQuery = const mempty
+
+instance ToHeaders DescribeLogStreams
+instance ToJSON DescribeLogStreams where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeLogStreams where
     type Sv DescribeLogStreams = CloudWatchLogs
     type Rs DescribeLogStreams = DescribeLogStreamsResponse
@@ -133,14 +143,3 @@ instance AWSRequest DescribeLogStreams where
 
 instance FromJSON DescribeLogStreamsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeLogStreams where
-    toPath = const "/"
-
-instance ToHeaders DescribeLogStreams
-
-instance ToQuery DescribeLogStreams where
-    toQuery = const mempty
-
-instance ToJSON DescribeLogStreams where
-    toJSON = genericToJSON jsonOptions

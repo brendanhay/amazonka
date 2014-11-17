@@ -127,6 +127,13 @@ describeAddressesResponse = DescribeAddressesResponse
 darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
 
+instance ToPath DescribeAddresses where
+    toPath = const "/"
+
+instance ToQuery DescribeAddresses
+
+instance ToHeaders DescribeAddresses
+
 instance AWSRequest DescribeAddresses where
     type Sv DescribeAddresses = EC2
     type Rs DescribeAddresses = DescribeAddressesResponse
@@ -137,20 +144,3 @@ instance AWSRequest DescribeAddresses where
 instance FromXML DescribeAddressesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAddressesResponse"
-
-instance ToPath DescribeAddresses where
-    toPath = const "/"
-
-instance ToHeaders DescribeAddresses
-
-instance ToQuery DescribeAddresses where
-    toQuery DescribeAddresses{..} = mconcat
-        [ "dryRun"       =? _daDryRun
-        , "PublicIp"     =? _daPublicIps
-        , "Filter"       =? _daFilters
-        , "AllocationId" =? _daAllocationIds
-        ]
-
-instance ToXML DescribeAddresses where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeAddresses"

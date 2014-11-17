@@ -124,6 +124,15 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srSuggest = lens _srSuggest (\s a -> s { _srSuggest = a })
 
+instance ToPath Suggest where
+    toPath = const "/2013-01-01/suggest"
+
+instance ToQuery Suggest
+
+instance ToHeaders Suggest
+instance ToJSON Suggest where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest Suggest where
     type Sv Suggest = CloudSearchDomains
     type Rs Suggest = SuggestResponse
@@ -133,19 +142,3 @@ instance AWSRequest Suggest where
 
 instance FromJSON SuggestResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath Suggest where
-    toPath = const "/2013-01-01/suggest"
-
-instance ToHeaders Suggest
-
-instance ToQuery Suggest where
-    toQuery Suggest{..} = mconcat
-        [ "format=sdk&pretty=true"
-        , "q"         =? _sQuery
-        , "suggester" =? _sSuggester
-        , "size"      =? _sSize
-        ]
-
-instance ToJSON Suggest where
-    toJSON = genericToJSON jsonOptions

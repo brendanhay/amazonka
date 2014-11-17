@@ -199,6 +199,16 @@ acoirRegion = lens _acoirRegion (\s a -> s { _acoirRegion = a })
 acoirVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Int)
 acoirVlan = lens _acoirVlan (\s a -> s { _acoirVlan = a })
 
+instance ToPath AllocateConnectionOnInterconnect where
+    toPath = const "/"
+
+instance ToQuery AllocateConnectionOnInterconnect where
+    toQuery = const mempty
+
+instance ToHeaders AllocateConnectionOnInterconnect
+instance ToJSON AllocateConnectionOnInterconnect where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AllocateConnectionOnInterconnect where
     type Sv AllocateConnectionOnInterconnect = DirectConnect
     type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse
@@ -208,14 +218,3 @@ instance AWSRequest AllocateConnectionOnInterconnect where
 
 instance FromJSON AllocateConnectionOnInterconnectResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AllocateConnectionOnInterconnect where
-    toPath = const "/"
-
-instance ToHeaders AllocateConnectionOnInterconnect
-
-instance ToQuery AllocateConnectionOnInterconnect where
-    toQuery = const mempty
-
-instance ToJSON AllocateConnectionOnInterconnect where
-    toJSON = genericToJSON jsonOptions

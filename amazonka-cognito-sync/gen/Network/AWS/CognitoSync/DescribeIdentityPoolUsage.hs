@@ -87,6 +87,19 @@ dipurIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe Identit
 dipurIdentityPoolUsage =
     lens _dipurIdentityPoolUsage (\s a -> s { _dipurIdentityPoolUsage = a })
 
+instance ToPath DescribeIdentityPoolUsage where
+    toPath DescribeIdentityPoolUsage{..} = mconcat
+        [ "/identitypools/"
+        , toText _dipuIdentityPoolId
+        ]
+
+instance ToQuery DescribeIdentityPoolUsage where
+    toQuery = const mempty
+
+instance ToHeaders DescribeIdentityPoolUsage
+instance ToJSON DescribeIdentityPoolUsage where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeIdentityPoolUsage where
     type Sv DescribeIdentityPoolUsage = CognitoSync
     type Rs DescribeIdentityPoolUsage = DescribeIdentityPoolUsageResponse
@@ -96,17 +109,3 @@ instance AWSRequest DescribeIdentityPoolUsage where
 
 instance FromJSON DescribeIdentityPoolUsageResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeIdentityPoolUsage where
-    toPath DescribeIdentityPoolUsage{..} = mconcat
-        [ "/identitypools/"
-        , toText _dipuIdentityPoolId
-        ]
-
-instance ToHeaders DescribeIdentityPoolUsage
-
-instance ToQuery DescribeIdentityPoolUsage where
-    toQuery = const mempty
-
-instance ToJSON DescribeIdentityPoolUsage where
-    toJSON = genericToJSON jsonOptions

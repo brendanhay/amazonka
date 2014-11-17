@@ -82,16 +82,16 @@ data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 
+instance ToPath AddRoleToInstanceProfile where
+    toPath = const "/"
+
+instance ToQuery AddRoleToInstanceProfile
+
+instance ToHeaders AddRoleToInstanceProfile
+
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
 
     request  = post "AddRoleToInstanceProfile"
     response = nullResponse AddRoleToInstanceProfileResponse
-
-instance ToPath AddRoleToInstanceProfile where
-    toPath = const "/"
-
-instance ToHeaders AddRoleToInstanceProfile
-
-instance ToQuery AddRoleToInstanceProfile

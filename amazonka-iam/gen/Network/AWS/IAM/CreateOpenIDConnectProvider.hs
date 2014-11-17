@@ -141,6 +141,13 @@ coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn
         (\s a -> s { _coidcprOpenIDConnectProviderArn = a })
 
+instance ToPath CreateOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToQuery CreateOpenIDConnectProvider
+
+instance ToHeaders CreateOpenIDConnectProvider
+
 instance AWSRequest CreateOpenIDConnectProvider where
     type Sv CreateOpenIDConnectProvider = IAM
     type Rs CreateOpenIDConnectProvider = CreateOpenIDConnectProviderResponse
@@ -151,10 +158,3 @@ instance AWSRequest CreateOpenIDConnectProvider where
 instance FromXML CreateOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateOpenIDConnectProviderResponse"
-
-instance ToPath CreateOpenIDConnectProvider where
-    toPath = const "/"
-
-instance ToHeaders CreateOpenIDConnectProvider
-
-instance ToQuery CreateOpenIDConnectProvider

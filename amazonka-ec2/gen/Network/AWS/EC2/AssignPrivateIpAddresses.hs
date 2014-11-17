@@ -116,26 +116,16 @@ data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 assignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
 assignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 
+instance ToPath AssignPrivateIpAddresses where
+    toPath = const "/"
+
+instance ToQuery AssignPrivateIpAddresses
+
+instance ToHeaders AssignPrivateIpAddresses
+
 instance AWSRequest AssignPrivateIpAddresses where
     type Sv AssignPrivateIpAddresses = EC2
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
 
     request  = post "AssignPrivateIpAddresses"
     response = nullResponse AssignPrivateIpAddressesResponse
-
-instance ToPath AssignPrivateIpAddresses where
-    toPath = const "/"
-
-instance ToHeaders AssignPrivateIpAddresses
-
-instance ToQuery AssignPrivateIpAddresses where
-    toQuery AssignPrivateIpAddresses{..} = mconcat
-        [ "networkInterfaceId"             =? _apiaNetworkInterfaceId
-        , "privateIpAddress"               =? _apiaPrivateIpAddresses
-        , "secondaryPrivateIpAddressCount" =? _apiaSecondaryPrivateIpAddressCount
-        , "allowReassignment"              =? _apiaAllowReassignment
-        ]
-
-instance ToXML AssignPrivateIpAddresses where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AssignPrivateIpAddresses"

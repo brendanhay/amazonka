@@ -122,6 +122,13 @@ copyClusterSnapshotResponse = CopyClusterSnapshotResponse
 ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrSnapshot = lens _ccsrSnapshot (\s a -> s { _ccsrSnapshot = a })
 
+instance ToPath CopyClusterSnapshot where
+    toPath = const "/"
+
+instance ToQuery CopyClusterSnapshot
+
+instance ToHeaders CopyClusterSnapshot
+
 instance AWSRequest CopyClusterSnapshot where
     type Sv CopyClusterSnapshot = Redshift
     type Rs CopyClusterSnapshot = CopyClusterSnapshotResponse
@@ -132,10 +139,3 @@ instance AWSRequest CopyClusterSnapshot where
 instance FromXML CopyClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyClusterSnapshotResponse"
-
-instance ToPath CopyClusterSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CopyClusterSnapshot
-
-instance ToQuery CopyClusterSnapshot

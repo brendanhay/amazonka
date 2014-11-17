@@ -100,6 +100,20 @@ gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfig
 gbnrTopicConfiguration =
     lens _gbnrTopicConfiguration (\s a -> s { _gbnrTopicConfiguration = a })
 
+instance ToPath GetBucketNotification where
+    toPath GetBucketNotification{..} = mconcat
+        [ "/"
+        , toText _gbnBucket
+        ]
+
+instance ToQuery GetBucketNotification where
+    toQuery = const "notification"
+
+instance ToHeaders GetBucketNotification
+instance ToXML GetBucketNotification where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketNotification"
+
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
     type Rs GetBucketNotification = GetBucketNotificationResponse
@@ -110,18 +124,3 @@ instance AWSRequest GetBucketNotification where
 instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketNotificationResponse"
-
-instance ToPath GetBucketNotification where
-    toPath GetBucketNotification{..} = mconcat
-        [ "/"
-        , toText _gbnBucket
-        ]
-
-instance ToHeaders GetBucketNotification
-
-instance ToQuery GetBucketNotification where
-    toQuery = const "notification"
-
-instance ToXML GetBucketNotification where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketNotification"

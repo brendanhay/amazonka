@@ -93,20 +93,19 @@ data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 
+instance ToPath DeprecateWorkflowType where
+    toPath = const "/"
+
+instance ToQuery DeprecateWorkflowType where
+    toQuery = const mempty
+
+instance ToHeaders DeprecateWorkflowType
+instance ToJSON DeprecateWorkflowType where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF
     type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
 
     request  = post
     response = nullResponse DeprecateWorkflowTypeResponse
-
-instance ToPath DeprecateWorkflowType where
-    toPath = const "/"
-
-instance ToHeaders DeprecateWorkflowType
-
-instance ToQuery DeprecateWorkflowType where
-    toQuery = const mempty
-
-instance ToJSON DeprecateWorkflowType where
-    toJSON = genericToJSON jsonOptions

@@ -96,6 +96,21 @@ ghclfrrHealthCheckObservations =
     lens _ghclfrrHealthCheckObservations
         (\s a -> s { _ghclfrrHealthCheckObservations = a })
 
+instance ToPath GetHealthCheckLastFailureReason where
+    toPath GetHealthCheckLastFailureReason{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _ghclfrHealthCheckId
+        , "/lastfailurereason"
+        ]
+
+instance ToQuery GetHealthCheckLastFailureReason where
+    toQuery = const mempty
+
+instance ToHeaders GetHealthCheckLastFailureReason
+instance ToXML GetHealthCheckLastFailureReason where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHealthCheckLastFailureReason"
+
 instance AWSRequest GetHealthCheckLastFailureReason where
     type Sv GetHealthCheckLastFailureReason = Route53
     type Rs GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReasonResponse
@@ -106,19 +121,3 @@ instance AWSRequest GetHealthCheckLastFailureReason where
 instance FromXML GetHealthCheckLastFailureReasonResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetHealthCheckLastFailureReasonResponse"
-
-instance ToPath GetHealthCheckLastFailureReason where
-    toPath GetHealthCheckLastFailureReason{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _ghclfrHealthCheckId
-        , "/lastfailurereason"
-        ]
-
-instance ToHeaders GetHealthCheckLastFailureReason
-
-instance ToQuery GetHealthCheckLastFailureReason where
-    toQuery = const mempty
-
-instance ToXML GetHealthCheckLastFailureReason where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckLastFailureReason"

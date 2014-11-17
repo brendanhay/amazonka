@@ -86,6 +86,20 @@ getBucketCorsResponse = GetBucketCorsResponse
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
 
+instance ToPath GetBucketCors where
+    toPath GetBucketCors{..} = mconcat
+        [ "/"
+        , toText _gbcBucket
+        ]
+
+instance ToQuery GetBucketCors where
+    toQuery = const "cors"
+
+instance ToHeaders GetBucketCors
+instance ToXML GetBucketCors where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketCors"
+
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsResponse
@@ -96,18 +110,3 @@ instance AWSRequest GetBucketCors where
 instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketCorsResponse"
-
-instance ToPath GetBucketCors where
-    toPath GetBucketCors{..} = mconcat
-        [ "/"
-        , toText _gbcBucket
-        ]
-
-instance ToHeaders GetBucketCors
-
-instance ToQuery GetBucketCors where
-    toQuery = const "cors"
-
-instance ToXML GetBucketCors where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketCors"

@@ -359,6 +359,13 @@ cerTier = lens _cerTier (\s a -> s { _cerTier = a })
 cerVersionLabel :: Lens' CreateEnvironmentResponse (Maybe Text)
 cerVersionLabel = lens _cerVersionLabel (\s a -> s { _cerVersionLabel = a })
 
+instance ToPath CreateEnvironment where
+    toPath = const "/"
+
+instance ToQuery CreateEnvironment
+
+instance ToHeaders CreateEnvironment
+
 instance AWSRequest CreateEnvironment where
     type Sv CreateEnvironment = ElasticBeanstalk
     type Rs CreateEnvironment = CreateEnvironmentResponse
@@ -369,10 +376,3 @@ instance AWSRequest CreateEnvironment where
 instance FromXML CreateEnvironmentResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateEnvironmentResponse"
-
-instance ToPath CreateEnvironment where
-    toPath = const "/"
-
-instance ToHeaders CreateEnvironment
-
-instance ToQuery CreateEnvironment

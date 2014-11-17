@@ -93,6 +93,21 @@ gcfoaicrCloudFrontOriginAccessIdentityConfig =
 gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicrETag = lens _gcfoaicrETag (\s a -> s { _gcfoaicrETag = a })
 
+instance ToPath GetCloudFrontOriginAccessIdentityConfig where
+    toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
+        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        , toText _gcfoaicId
+        , "/config"
+        ]
+
+instance ToQuery GetCloudFrontOriginAccessIdentityConfig where
+    toQuery = const mempty
+
+instance ToHeaders GetCloudFrontOriginAccessIdentityConfig
+instance ToXML GetCloudFrontOriginAccessIdentityConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityConfig"
+
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront
     type Rs GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfigResponse
@@ -101,19 +116,3 @@ instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     response = xmlHeaderResponse $ \h x -> GetCloudFrontOriginAccessIdentityConfigResponse
         <$> x %| "CloudFrontOriginAccessIdentityConfig"
         <*> h ~:? "ETag"
-
-instance ToPath GetCloudFrontOriginAccessIdentityConfig where
-    toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toText _gcfoaicId
-        , "/config"
-        ]
-
-instance ToHeaders GetCloudFrontOriginAccessIdentityConfig
-
-instance ToQuery GetCloudFrontOriginAccessIdentityConfig where
-    toQuery = const mempty
-
-instance ToXML GetCloudFrontOriginAccessIdentityConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityConfig"

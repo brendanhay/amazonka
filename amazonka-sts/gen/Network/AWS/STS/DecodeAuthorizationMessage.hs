@@ -101,6 +101,13 @@ damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage =
     lens _damrDecodedMessage (\s a -> s { _damrDecodedMessage = a })
 
+instance ToPath DecodeAuthorizationMessage where
+    toPath = const "/"
+
+instance ToQuery DecodeAuthorizationMessage
+
+instance ToHeaders DecodeAuthorizationMessage
+
 instance AWSRequest DecodeAuthorizationMessage where
     type Sv DecodeAuthorizationMessage = STS
     type Rs DecodeAuthorizationMessage = DecodeAuthorizationMessageResponse
@@ -111,10 +118,3 @@ instance AWSRequest DecodeAuthorizationMessage where
 instance FromXML DecodeAuthorizationMessageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DecodeAuthorizationMessageResponse"
-
-instance ToPath DecodeAuthorizationMessage where
-    toPath = const "/"
-
-instance ToHeaders DecodeAuthorizationMessage
-
-instance ToQuery DecodeAuthorizationMessage

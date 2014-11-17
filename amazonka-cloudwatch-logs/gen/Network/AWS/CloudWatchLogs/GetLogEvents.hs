@@ -167,6 +167,16 @@ glerNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glerNextForwardToken =
     lens _glerNextForwardToken (\s a -> s { _glerNextForwardToken = a })
 
+instance ToPath GetLogEvents where
+    toPath = const "/"
+
+instance ToQuery GetLogEvents where
+    toQuery = const mempty
+
+instance ToHeaders GetLogEvents
+instance ToJSON GetLogEvents where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetLogEvents where
     type Sv GetLogEvents = CloudWatchLogs
     type Rs GetLogEvents = GetLogEventsResponse
@@ -176,14 +186,3 @@ instance AWSRequest GetLogEvents where
 
 instance FromJSON GetLogEventsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetLogEvents where
-    toPath = const "/"
-
-instance ToHeaders GetLogEvents
-
-instance ToQuery GetLogEvents where
-    toQuery = const mempty
-
-instance ToJSON GetLogEvents where
-    toJSON = genericToJSON jsonOptions

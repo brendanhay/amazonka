@@ -68,20 +68,19 @@ data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 
+instance ToPath DeleteRetentionPolicy where
+    toPath = const "/"
+
+instance ToQuery DeleteRetentionPolicy where
+    toQuery = const mempty
+
+instance ToHeaders DeleteRetentionPolicy
+instance ToJSON DeleteRetentionPolicy where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs
     type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
 
     request  = post
     response = nullResponse DeleteRetentionPolicyResponse
-
-instance ToPath DeleteRetentionPolicy where
-    toPath = const "/"
-
-instance ToHeaders DeleteRetentionPolicy
-
-instance ToQuery DeleteRetentionPolicy where
-    toQuery = const mempty
-
-instance ToJSON DeleteRetentionPolicy where
-    toJSON = genericToJSON jsonOptions

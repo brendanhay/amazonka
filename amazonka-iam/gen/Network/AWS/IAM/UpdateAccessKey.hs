@@ -96,16 +96,16 @@ data UpdateAccessKeyResponse = UpdateAccessKeyResponse
 updateAccessKeyResponse :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse
 
+instance ToPath UpdateAccessKey where
+    toPath = const "/"
+
+instance ToQuery UpdateAccessKey
+
+instance ToHeaders UpdateAccessKey
+
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
 
     request  = post "UpdateAccessKey"
     response = nullResponse UpdateAccessKeyResponse
-
-instance ToPath UpdateAccessKey where
-    toPath = const "/"
-
-instance ToHeaders UpdateAccessKey
-
-instance ToQuery UpdateAccessKey

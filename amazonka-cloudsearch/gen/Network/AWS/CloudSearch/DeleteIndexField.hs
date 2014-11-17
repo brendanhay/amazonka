@@ -95,6 +95,13 @@ deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
 difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
 
+instance ToPath DeleteIndexField where
+    toPath = const "/"
+
+instance ToQuery DeleteIndexField
+
+instance ToHeaders DeleteIndexField
+
 instance AWSRequest DeleteIndexField where
     type Sv DeleteIndexField = CloudSearch
     type Rs DeleteIndexField = DeleteIndexFieldResponse
@@ -105,10 +112,3 @@ instance AWSRequest DeleteIndexField where
 instance FromXML DeleteIndexFieldResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteIndexFieldResponse"
-
-instance ToPath DeleteIndexField where
-    toPath = const "/"
-
-instance ToHeaders DeleteIndexField
-
-instance ToQuery DeleteIndexField

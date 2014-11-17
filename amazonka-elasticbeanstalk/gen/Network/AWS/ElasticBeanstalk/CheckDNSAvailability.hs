@@ -96,6 +96,13 @@ cdnsarFullyQualifiedCNAME =
     lens _cdnsarFullyQualifiedCNAME
         (\s a -> s { _cdnsarFullyQualifiedCNAME = a })
 
+instance ToPath CheckDNSAvailability where
+    toPath = const "/"
+
+instance ToQuery CheckDNSAvailability
+
+instance ToHeaders CheckDNSAvailability
+
 instance AWSRequest CheckDNSAvailability where
     type Sv CheckDNSAvailability = ElasticBeanstalk
     type Rs CheckDNSAvailability = CheckDNSAvailabilityResponse
@@ -106,10 +113,3 @@ instance AWSRequest CheckDNSAvailability where
 instance FromXML CheckDNSAvailabilityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CheckDNSAvailabilityResponse"
-
-instance ToPath CheckDNSAvailability where
-    toPath = const "/"
-
-instance ToHeaders CheckDNSAvailability
-
-instance ToQuery CheckDNSAvailability

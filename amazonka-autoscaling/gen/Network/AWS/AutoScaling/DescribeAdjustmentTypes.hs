@@ -74,6 +74,14 @@ datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes =
     lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })
 
+instance ToPath DescribeAdjustmentTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeAdjustmentTypes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeAdjustmentTypes
+
 instance AWSRequest DescribeAdjustmentTypes where
     type Sv DescribeAdjustmentTypes = AutoScaling
     type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
@@ -84,10 +92,3 @@ instance AWSRequest DescribeAdjustmentTypes where
 instance FromXML DescribeAdjustmentTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAdjustmentTypesResponse"
-
-instance ToPath DescribeAdjustmentTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeAdjustmentTypes
-
-instance ToQuery DescribeAdjustmentTypes

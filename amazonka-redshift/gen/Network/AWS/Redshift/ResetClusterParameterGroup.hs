@@ -123,6 +123,13 @@ rcpgrParameterGroupStatus =
     lens _rcpgrParameterGroupStatus
         (\s a -> s { _rcpgrParameterGroupStatus = a })
 
+instance ToPath ResetClusterParameterGroup where
+    toPath = const "/"
+
+instance ToQuery ResetClusterParameterGroup
+
+instance ToHeaders ResetClusterParameterGroup
+
 instance AWSRequest ResetClusterParameterGroup where
     type Sv ResetClusterParameterGroup = Redshift
     type Rs ResetClusterParameterGroup = ResetClusterParameterGroupResponse
@@ -133,10 +140,3 @@ instance AWSRequest ResetClusterParameterGroup where
 instance FromXML ResetClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetClusterParameterGroupResponse"
-
-instance ToPath ResetClusterParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders ResetClusterParameterGroup
-
-instance ToQuery ResetClusterParameterGroup

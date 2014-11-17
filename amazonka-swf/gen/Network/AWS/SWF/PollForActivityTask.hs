@@ -184,6 +184,16 @@ pfatrWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
 pfatrWorkflowExecution =
     lens _pfatrWorkflowExecution (\s a -> s { _pfatrWorkflowExecution = a })
 
+instance ToPath PollForActivityTask where
+    toPath = const "/"
+
+instance ToQuery PollForActivityTask where
+    toQuery = const mempty
+
+instance ToHeaders PollForActivityTask
+instance ToJSON PollForActivityTask where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PollForActivityTask where
     type Sv PollForActivityTask = SWF
     type Rs PollForActivityTask = PollForActivityTaskResponse
@@ -193,14 +203,3 @@ instance AWSRequest PollForActivityTask where
 
 instance FromJSON PollForActivityTaskResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PollForActivityTask where
-    toPath = const "/"
-
-instance ToHeaders PollForActivityTask
-
-instance ToQuery PollForActivityTask where
-    toQuery = const mempty
-
-instance ToJSON PollForActivityTask where
-    toJSON = genericToJSON jsonOptions

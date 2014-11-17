@@ -151,6 +151,16 @@ gdkrKeyId = lens _gdkrKeyId (\s a -> s { _gdkrKeyId = a })
 gdkrPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrPlaintext = lens _gdkrPlaintext (\s a -> s { _gdkrPlaintext = a })
 
+instance ToPath GenerateDataKey where
+    toPath = const "/"
+
+instance ToQuery GenerateDataKey where
+    toQuery = const mempty
+
+instance ToHeaders GenerateDataKey
+instance ToJSON GenerateDataKey where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GenerateDataKey where
     type Sv GenerateDataKey = KMS
     type Rs GenerateDataKey = GenerateDataKeyResponse
@@ -160,14 +170,3 @@ instance AWSRequest GenerateDataKey where
 
 instance FromJSON GenerateDataKeyResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GenerateDataKey where
-    toPath = const "/"
-
-instance ToHeaders GenerateDataKey
-
-instance ToQuery GenerateDataKey where
-    toQuery = const mempty
-
-instance ToJSON GenerateDataKey where
-    toJSON = genericToJSON jsonOptions

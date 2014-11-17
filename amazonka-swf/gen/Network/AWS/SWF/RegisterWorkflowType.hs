@@ -188,20 +188,19 @@ data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse = RegisterWorkflowTypeResponse
 
+instance ToPath RegisterWorkflowType where
+    toPath = const "/"
+
+instance ToQuery RegisterWorkflowType where
+    toQuery = const mempty
+
+instance ToHeaders RegisterWorkflowType
+instance ToJSON RegisterWorkflowType where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF
     type Rs RegisterWorkflowType = RegisterWorkflowTypeResponse
 
     request  = post
     response = nullResponse RegisterWorkflowTypeResponse
-
-instance ToPath RegisterWorkflowType where
-    toPath = const "/"
-
-instance ToHeaders RegisterWorkflowType
-
-instance ToQuery RegisterWorkflowType where
-    toQuery = const mempty
-
-instance ToJSON RegisterWorkflowType where
-    toJSON = genericToJSON jsonOptions

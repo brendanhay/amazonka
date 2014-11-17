@@ -131,6 +131,13 @@ lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a })
 
+instance ToPath ListGroupPolicies where
+    toPath = const "/"
+
+instance ToQuery ListGroupPolicies
+
+instance ToHeaders ListGroupPolicies
+
 instance AWSRequest ListGroupPolicies where
     type Sv ListGroupPolicies = IAM
     type Rs ListGroupPolicies = ListGroupPoliciesResponse
@@ -141,10 +148,3 @@ instance AWSRequest ListGroupPolicies where
 instance FromXML ListGroupPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGroupPoliciesResponse"
-
-instance ToPath ListGroupPolicies where
-    toPath = const "/"
-
-instance ToHeaders ListGroupPolicies
-
-instance ToQuery ListGroupPolicies

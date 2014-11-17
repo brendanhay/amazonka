@@ -145,6 +145,16 @@ grrNextShardIterator =
 grrRecords :: Lens' GetRecordsResponse [Record]
 grrRecords = lens _grrRecords (\s a -> s { _grrRecords = a })
 
+instance ToPath GetRecords where
+    toPath = const "/"
+
+instance ToQuery GetRecords where
+    toQuery = const mempty
+
+instance ToHeaders GetRecords
+instance ToJSON GetRecords where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetRecords where
     type Sv GetRecords = Kinesis
     type Rs GetRecords = GetRecordsResponse
@@ -154,14 +164,3 @@ instance AWSRequest GetRecords where
 
 instance FromJSON GetRecordsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetRecords where
-    toPath = const "/"
-
-instance ToHeaders GetRecords
-
-instance ToQuery GetRecords where
-    toQuery = const mempty
-
-instance ToJSON GetRecords where
-    toJSON = genericToJSON jsonOptions

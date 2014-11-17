@@ -166,6 +166,13 @@ dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
 
+instance ToPath DescribeVolumeStatus where
+    toPath = const "/"
+
+instance ToQuery DescribeVolumeStatus
+
+instance ToHeaders DescribeVolumeStatus
+
 instance AWSRequest DescribeVolumeStatus where
     type Sv DescribeVolumeStatus = EC2
     type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse
@@ -176,21 +183,3 @@ instance AWSRequest DescribeVolumeStatus where
 instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVolumeStatusResponse"
-
-instance ToPath DescribeVolumeStatus where
-    toPath = const "/"
-
-instance ToHeaders DescribeVolumeStatus
-
-instance ToQuery DescribeVolumeStatus where
-    toQuery DescribeVolumeStatus{..} = mconcat
-        [ "dryRun"     =? _dvsDryRun
-        , "VolumeId"   =? _dvsVolumeIds
-        , "Filter"     =? _dvsFilters
-        , "NextToken"  =? _dvsNextToken
-        , "MaxResults" =? _dvsMaxResults
-        ]
-
-instance ToXML DescribeVolumeStatus where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVolumeStatus"

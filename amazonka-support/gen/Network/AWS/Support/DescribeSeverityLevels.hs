@@ -93,6 +93,16 @@ dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels =
     lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })
 
+instance ToPath DescribeSeverityLevels where
+    toPath = const "/"
+
+instance ToQuery DescribeSeverityLevels where
+    toQuery = const mempty
+
+instance ToHeaders DescribeSeverityLevels
+instance ToJSON DescribeSeverityLevels where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeSeverityLevels where
     type Sv DescribeSeverityLevels = Support
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
@@ -102,14 +112,3 @@ instance AWSRequest DescribeSeverityLevels where
 
 instance FromJSON DescribeSeverityLevelsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeSeverityLevels where
-    toPath = const "/"
-
-instance ToHeaders DescribeSeverityLevels
-
-instance ToQuery DescribeSeverityLevels where
-    toQuery = const mempty
-
-instance ToJSON DescribeSeverityLevels where
-    toJSON = genericToJSON jsonOptions

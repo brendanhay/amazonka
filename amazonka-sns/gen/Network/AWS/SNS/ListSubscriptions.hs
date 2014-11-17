@@ -94,6 +94,13 @@ lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
 
+instance ToPath ListSubscriptions where
+    toPath = const "/"
+
+instance ToQuery ListSubscriptions
+
+instance ToHeaders ListSubscriptions
+
 instance AWSRequest ListSubscriptions where
     type Sv ListSubscriptions = SNS
     type Rs ListSubscriptions = ListSubscriptionsResponse
@@ -104,10 +111,3 @@ instance AWSRequest ListSubscriptions where
 instance FromXML ListSubscriptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSubscriptionsResponse"
-
-instance ToPath ListSubscriptions where
-    toPath = const "/"
-
-instance ToHeaders ListSubscriptions
-
-instance ToQuery ListSubscriptions

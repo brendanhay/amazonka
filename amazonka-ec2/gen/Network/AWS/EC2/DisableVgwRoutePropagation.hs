@@ -79,24 +79,16 @@ data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
 disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 
+instance ToPath DisableVgwRoutePropagation where
+    toPath = const "/"
+
+instance ToQuery DisableVgwRoutePropagation
+
+instance ToHeaders DisableVgwRoutePropagation
+
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2
     type Rs DisableVgwRoutePropagation = DisableVgwRoutePropagationResponse
 
     request  = post "DisableVgwRoutePropagation"
     response = nullResponse DisableVgwRoutePropagationResponse
-
-instance ToPath DisableVgwRoutePropagation where
-    toPath = const "/"
-
-instance ToHeaders DisableVgwRoutePropagation
-
-instance ToQuery DisableVgwRoutePropagation where
-    toQuery DisableVgwRoutePropagation{..} = mconcat
-        [ "RouteTableId" =? _dvrpRouteTableId
-        , "GatewayId"    =? _dvrpGatewayId
-        ]
-
-instance ToXML DisableVgwRoutePropagation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DisableVgwRoutePropagation"

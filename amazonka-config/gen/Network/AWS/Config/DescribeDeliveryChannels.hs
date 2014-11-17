@@ -97,6 +97,16 @@ ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
 ddcrDeliveryChannels =
     lens _ddcrDeliveryChannels (\s a -> s { _ddcrDeliveryChannels = a })
 
+instance ToPath DescribeDeliveryChannels where
+    toPath = const "/"
+
+instance ToQuery DescribeDeliveryChannels where
+    toQuery = const mempty
+
+instance ToHeaders DescribeDeliveryChannels
+instance ToJSON DescribeDeliveryChannels where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeDeliveryChannels where
     type Sv DescribeDeliveryChannels = Config
     type Rs DescribeDeliveryChannels = DescribeDeliveryChannelsResponse
@@ -106,14 +116,3 @@ instance AWSRequest DescribeDeliveryChannels where
 
 instance FromJSON DescribeDeliveryChannelsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeDeliveryChannels where
-    toPath = const "/"
-
-instance ToHeaders DescribeDeliveryChannels
-
-instance ToQuery DescribeDeliveryChannels where
-    toQuery = const mempty
-
-instance ToJSON DescribeDeliveryChannels where
-    toJSON = genericToJSON jsonOptions

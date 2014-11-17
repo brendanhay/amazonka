@@ -211,6 +211,13 @@ gsrTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
 gsrTrackingNumber =
     lens _gsrTrackingNumber (\s a -> s { _gsrTrackingNumber = a })
 
+instance ToPath GetStatus where
+    toPath = const "/"
+
+instance ToQuery GetStatus
+
+instance ToHeaders GetStatus
+
 instance AWSRequest GetStatus where
     type Sv GetStatus = ImportExport
     type Rs GetStatus = GetStatusResponse
@@ -221,10 +228,3 @@ instance AWSRequest GetStatus where
 instance FromXML GetStatusResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetStatusResponse"
-
-instance ToPath GetStatus where
-    toPath = const "/"
-
-instance ToHeaders GetStatus
-
-instance ToQuery GetStatus

@@ -107,6 +107,13 @@ uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe Applicat
 uavrApplicationVersion =
     lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })
 
+instance ToPath UpdateApplicationVersion where
+    toPath = const "/"
+
+instance ToQuery UpdateApplicationVersion
+
+instance ToHeaders UpdateApplicationVersion
+
 instance AWSRequest UpdateApplicationVersion where
     type Sv UpdateApplicationVersion = ElasticBeanstalk
     type Rs UpdateApplicationVersion = UpdateApplicationVersionResponse
@@ -117,10 +124,3 @@ instance AWSRequest UpdateApplicationVersion where
 instance FromXML UpdateApplicationVersionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateApplicationVersionResponse"
-
-instance ToPath UpdateApplicationVersion where
-    toPath = const "/"
-
-instance ToHeaders UpdateApplicationVersion
-
-instance ToQuery UpdateApplicationVersion

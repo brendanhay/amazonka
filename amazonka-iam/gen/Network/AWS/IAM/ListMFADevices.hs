@@ -132,6 +132,13 @@ lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a })
 lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
 
+instance ToPath ListMFADevices where
+    toPath = const "/"
+
+instance ToQuery ListMFADevices
+
+instance ToHeaders ListMFADevices
+
 instance AWSRequest ListMFADevices where
     type Sv ListMFADevices = IAM
     type Rs ListMFADevices = ListMFADevicesResponse
@@ -142,10 +149,3 @@ instance AWSRequest ListMFADevices where
 instance FromXML ListMFADevicesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListMFADevicesResponse"
-
-instance ToPath ListMFADevices where
-    toPath = const "/"
-
-instance ToHeaders ListMFADevices
-
-instance ToQuery ListMFADevices

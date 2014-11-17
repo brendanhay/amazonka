@@ -91,16 +91,16 @@ data UpdateUserResponse = UpdateUserResponse
 updateUserResponse :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse
 
+instance ToPath UpdateUser where
+    toPath = const "/"
+
+instance ToQuery UpdateUser
+
+instance ToHeaders UpdateUser
+
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM
     type Rs UpdateUser = UpdateUserResponse
 
     request  = post "UpdateUser"
     response = nullResponse UpdateUserResponse
-
-instance ToPath UpdateUser where
-    toPath = const "/"
-
-instance ToHeaders UpdateUser
-
-instance ToQuery UpdateUser

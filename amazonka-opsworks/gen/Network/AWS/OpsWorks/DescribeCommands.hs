@@ -114,6 +114,16 @@ describeCommandsResponse = DescribeCommandsResponse
 dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a })
 
+instance ToPath DescribeCommands where
+    toPath = const "/"
+
+instance ToQuery DescribeCommands where
+    toQuery = const mempty
+
+instance ToHeaders DescribeCommands
+instance ToJSON DescribeCommands where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeCommands where
     type Sv DescribeCommands = OpsWorks
     type Rs DescribeCommands = DescribeCommandsResponse
@@ -123,14 +133,3 @@ instance AWSRequest DescribeCommands where
 
 instance FromJSON DescribeCommandsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeCommands where
-    toPath = const "/"
-
-instance ToHeaders DescribeCommands
-
-instance ToQuery DescribeCommands where
-    toQuery = const mempty
-
-instance ToJSON DescribeCommands where
-    toJSON = genericToJSON jsonOptions

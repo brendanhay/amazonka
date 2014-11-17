@@ -101,6 +101,13 @@ davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [Applicatio
 davrApplicationVersions =
     lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })
 
+instance ToPath DescribeApplicationVersions where
+    toPath = const "/"
+
+instance ToQuery DescribeApplicationVersions
+
+instance ToHeaders DescribeApplicationVersions
+
 instance AWSRequest DescribeApplicationVersions where
     type Sv DescribeApplicationVersions = ElasticBeanstalk
     type Rs DescribeApplicationVersions = DescribeApplicationVersionsResponse
@@ -111,10 +118,3 @@ instance AWSRequest DescribeApplicationVersions where
 instance FromXML DescribeApplicationVersionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeApplicationVersionsResponse"
-
-instance ToPath DescribeApplicationVersions where
-    toPath = const "/"
-
-instance ToHeaders DescribeApplicationVersions
-
-instance ToQuery DescribeApplicationVersions

@@ -184,6 +184,16 @@ csscsivrVolumeSizeInBytes =
     lens _csscsivrVolumeSizeInBytes
         (\s a -> s { _csscsivrVolumeSizeInBytes = a })
 
+instance ToPath CreateStorediSCSIVolume where
+    toPath = const "/"
+
+instance ToQuery CreateStorediSCSIVolume where
+    toQuery = const mempty
+
+instance ToHeaders CreateStorediSCSIVolume
+instance ToJSON CreateStorediSCSIVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateStorediSCSIVolume where
     type Sv CreateStorediSCSIVolume = StorageGateway
     type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
@@ -193,14 +203,3 @@ instance AWSRequest CreateStorediSCSIVolume where
 
 instance FromJSON CreateStorediSCSIVolumeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateStorediSCSIVolume where
-    toPath = const "/"
-
-instance ToHeaders CreateStorediSCSIVolume
-
-instance ToQuery CreateStorediSCSIVolume where
-    toQuery = const mempty
-
-instance ToJSON CreateStorediSCSIVolume where
-    toJSON = genericToJSON jsonOptions

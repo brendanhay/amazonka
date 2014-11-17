@@ -81,24 +81,16 @@ data DeleteVpcResponse = DeleteVpcResponse
 deleteVpcResponse :: DeleteVpcResponse
 deleteVpcResponse = DeleteVpcResponse
 
+instance ToPath DeleteVpc where
+    toPath = const "/"
+
+instance ToQuery DeleteVpc
+
+instance ToHeaders DeleteVpc
+
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2
     type Rs DeleteVpc = DeleteVpcResponse
 
     request  = post "DeleteVpc"
     response = nullResponse DeleteVpcResponse
-
-instance ToPath DeleteVpc where
-    toPath = const "/"
-
-instance ToHeaders DeleteVpc
-
-instance ToQuery DeleteVpc where
-    toQuery DeleteVpc{..} = mconcat
-        [ "dryRun" =? _dv3DryRun
-        , "VpcId"  =? _dv3VpcId
-        ]
-
-instance ToXML DeleteVpc where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteVpc"

@@ -149,6 +149,13 @@ chcrHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfigura
 chcrHsmConfiguration =
     lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
 
+instance ToPath CreateHsmConfiguration where
+    toPath = const "/"
+
+instance ToQuery CreateHsmConfiguration
+
+instance ToHeaders CreateHsmConfiguration
+
 instance AWSRequest CreateHsmConfiguration where
     type Sv CreateHsmConfiguration = Redshift
     type Rs CreateHsmConfiguration = CreateHsmConfigurationResponse
@@ -159,10 +166,3 @@ instance AWSRequest CreateHsmConfiguration where
 instance FromXML CreateHsmConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateHsmConfigurationResponse"
-
-instance ToPath CreateHsmConfiguration where
-    toPath = const "/"
-
-instance ToHeaders CreateHsmConfiguration
-
-instance ToQuery CreateHsmConfiguration

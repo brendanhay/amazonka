@@ -100,20 +100,19 @@ data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResp
 requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
 
+instance ToPath RequestCancelWorkflowExecution where
+    toPath = const "/"
+
+instance ToQuery RequestCancelWorkflowExecution where
+    toQuery = const mempty
+
+instance ToHeaders RequestCancelWorkflowExecution
+instance ToJSON RequestCancelWorkflowExecution where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF
     type Rs RequestCancelWorkflowExecution = RequestCancelWorkflowExecutionResponse
 
     request  = post
     response = nullResponse RequestCancelWorkflowExecutionResponse
-
-instance ToPath RequestCancelWorkflowExecution where
-    toPath = const "/"
-
-instance ToHeaders RequestCancelWorkflowExecution
-
-instance ToQuery RequestCancelWorkflowExecution where
-    toQuery = const mempty
-
-instance ToJSON RequestCancelWorkflowExecution where
-    toJSON = genericToJSON jsonOptions

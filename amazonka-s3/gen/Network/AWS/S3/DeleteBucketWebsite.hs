@@ -67,24 +67,23 @@ data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 
-instance AWSRequest DeleteBucketWebsite where
-    type Sv DeleteBucketWebsite = S3
-    type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
-
-    request  = delete
-    response = nullResponse DeleteBucketWebsiteResponse
-
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat
         [ "/"
         , toText _dbwBucket
         ]
 
-instance ToHeaders DeleteBucketWebsite
-
 instance ToQuery DeleteBucketWebsite where
     toQuery = const "website"
 
+instance ToHeaders DeleteBucketWebsite
 instance ToXML DeleteBucketWebsite where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteBucketWebsite"
+
+instance AWSRequest DeleteBucketWebsite where
+    type Sv DeleteBucketWebsite = S3
+    type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
+
+    request  = delete
+    response = nullResponse DeleteBucketWebsiteResponse

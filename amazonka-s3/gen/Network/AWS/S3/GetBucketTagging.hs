@@ -86,6 +86,20 @@ getBucketTaggingResponse = GetBucketTaggingResponse
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
 
+instance ToPath GetBucketTagging where
+    toPath GetBucketTagging{..} = mconcat
+        [ "/"
+        , toText _gbtBucket
+        ]
+
+instance ToQuery GetBucketTagging where
+    toQuery = const "tagging"
+
+instance ToHeaders GetBucketTagging
+instance ToXML GetBucketTagging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketTagging"
+
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
     type Rs GetBucketTagging = GetBucketTaggingResponse
@@ -96,18 +110,3 @@ instance AWSRequest GetBucketTagging where
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketTaggingResponse"
-
-instance ToPath GetBucketTagging where
-    toPath GetBucketTagging{..} = mconcat
-        [ "/"
-        , toText _gbtBucket
-        ]
-
-instance ToHeaders GetBucketTagging
-
-instance ToQuery GetBucketTagging where
-    toQuery = const "tagging"
-
-instance ToXML GetBucketTagging where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketTagging"

@@ -201,6 +201,13 @@ gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
         . mapping _Nat
 
+instance ToPath GetFederationToken where
+    toPath = const "/"
+
+instance ToQuery GetFederationToken
+
+instance ToHeaders GetFederationToken
+
 instance AWSRequest GetFederationToken where
     type Sv GetFederationToken = STS
     type Rs GetFederationToken = GetFederationTokenResponse
@@ -211,10 +218,3 @@ instance AWSRequest GetFederationToken where
 instance FromXML GetFederationTokenResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetFederationTokenResponse"
-
-instance ToPath GetFederationToken where
-    toPath = const "/"
-
-instance ToHeaders GetFederationToken
-
-instance ToQuery GetFederationToken

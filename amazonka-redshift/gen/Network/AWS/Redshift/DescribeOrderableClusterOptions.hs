@@ -147,6 +147,13 @@ docorOrderableClusterOptions =
     lens _docorOrderableClusterOptions
         (\s a -> s { _docorOrderableClusterOptions = a })
 
+instance ToPath DescribeOrderableClusterOptions where
+    toPath = const "/"
+
+instance ToQuery DescribeOrderableClusterOptions
+
+instance ToHeaders DescribeOrderableClusterOptions
+
 instance AWSRequest DescribeOrderableClusterOptions where
     type Sv DescribeOrderableClusterOptions = Redshift
     type Rs DescribeOrderableClusterOptions = DescribeOrderableClusterOptionsResponse
@@ -157,10 +164,3 @@ instance AWSRequest DescribeOrderableClusterOptions where
 instance FromXML DescribeOrderableClusterOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeOrderableClusterOptionsResponse"
-
-instance ToPath DescribeOrderableClusterOptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeOrderableClusterOptions
-
-instance ToQuery DescribeOrderableClusterOptions

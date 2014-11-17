@@ -125,6 +125,16 @@ erCiphertextBlob = lens _erCiphertextBlob (\s a -> s { _erCiphertextBlob = a })
 erKeyId :: Lens' EncryptResponse (Maybe Text)
 erKeyId = lens _erKeyId (\s a -> s { _erKeyId = a })
 
+instance ToPath Encrypt where
+    toPath = const "/"
+
+instance ToQuery Encrypt where
+    toQuery = const mempty
+
+instance ToHeaders Encrypt
+instance ToJSON Encrypt where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest Encrypt where
     type Sv Encrypt = KMS
     type Rs Encrypt = EncryptResponse
@@ -134,14 +144,3 @@ instance AWSRequest Encrypt where
 
 instance FromJSON EncryptResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath Encrypt where
-    toPath = const "/"
-
-instance ToHeaders Encrypt
-
-instance ToQuery Encrypt where
-    toQuery = const mempty
-
-instance ToJSON Encrypt where
-    toJSON = genericToJSON jsonOptions

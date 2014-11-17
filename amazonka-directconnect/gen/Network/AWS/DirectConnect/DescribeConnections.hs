@@ -87,6 +87,16 @@ describeConnectionsResponse = DescribeConnectionsResponse
 dcrConnections :: Lens' DescribeConnectionsResponse [Connection]
 dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a })
 
+instance ToPath DescribeConnections where
+    toPath = const "/"
+
+instance ToQuery DescribeConnections where
+    toQuery = const mempty
+
+instance ToHeaders DescribeConnections
+instance ToJSON DescribeConnections where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeConnections where
     type Sv DescribeConnections = DirectConnect
     type Rs DescribeConnections = DescribeConnectionsResponse
@@ -96,14 +106,3 @@ instance AWSRequest DescribeConnections where
 
 instance FromJSON DescribeConnectionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeConnections where
-    toPath = const "/"
-
-instance ToHeaders DescribeConnections
-
-instance ToQuery DescribeConnections where
-    toQuery = const mempty
-
-instance ToJSON DescribeConnections where
-    toJSON = genericToJSON jsonOptions

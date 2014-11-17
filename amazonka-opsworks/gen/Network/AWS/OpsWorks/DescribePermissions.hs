@@ -106,6 +106,16 @@ describePermissionsResponse = DescribePermissionsResponse
 dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a })
 
+instance ToPath DescribePermissions where
+    toPath = const "/"
+
+instance ToQuery DescribePermissions where
+    toQuery = const mempty
+
+instance ToHeaders DescribePermissions
+instance ToJSON DescribePermissions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribePermissions where
     type Sv DescribePermissions = OpsWorks
     type Rs DescribePermissions = DescribePermissionsResponse
@@ -115,14 +125,3 @@ instance AWSRequest DescribePermissions where
 
 instance FromJSON DescribePermissionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribePermissions where
-    toPath = const "/"
-
-instance ToHeaders DescribePermissions
-
-instance ToQuery DescribePermissions where
-    toQuery = const mempty
-
-instance ToJSON DescribePermissions where
-    toJSON = genericToJSON jsonOptions

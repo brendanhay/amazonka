@@ -120,6 +120,13 @@ lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a })
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
 
+instance ToPath ListMetrics where
+    toPath = const "/"
+
+instance ToQuery ListMetrics
+
+instance ToHeaders ListMetrics
+
 instance AWSRequest ListMetrics where
     type Sv ListMetrics = CloudWatch
     type Rs ListMetrics = ListMetricsResponse
@@ -130,10 +137,3 @@ instance AWSRequest ListMetrics where
 instance FromXML ListMetricsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListMetricsResponse"
-
-instance ToPath ListMetrics where
-    toPath = const "/"
-
-instance ToHeaders ListMetrics
-
-instance ToQuery ListMetrics

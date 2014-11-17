@@ -155,6 +155,16 @@ gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator =
     lens _gsirShardIterator (\s a -> s { _gsirShardIterator = a })
 
+instance ToPath GetShardIterator where
+    toPath = const "/"
+
+instance ToQuery GetShardIterator where
+    toQuery = const mempty
+
+instance ToHeaders GetShardIterator
+instance ToJSON GetShardIterator where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetShardIterator where
     type Sv GetShardIterator = Kinesis
     type Rs GetShardIterator = GetShardIteratorResponse
@@ -164,14 +174,3 @@ instance AWSRequest GetShardIterator where
 
 instance FromJSON GetShardIteratorResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetShardIterator where
-    toPath = const "/"
-
-instance ToHeaders GetShardIterator
-
-instance ToQuery GetShardIterator where
-    toQuery = const mempty
-
-instance ToJSON GetShardIterator where
-    toJSON = genericToJSON jsonOptions

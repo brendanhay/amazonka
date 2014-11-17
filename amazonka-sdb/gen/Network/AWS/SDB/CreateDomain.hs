@@ -75,16 +75,16 @@ data CreateDomainResponse = CreateDomainResponse
 createDomainResponse :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse
 
+instance ToPath CreateDomain where
+    toPath = const "/"
+
+instance ToQuery CreateDomain
+
+instance ToHeaders CreateDomain
+
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SDB
     type Rs CreateDomain = CreateDomainResponse
 
     request  = post "CreateDomain"
     response = nullResponse CreateDomainResponse
-
-instance ToPath CreateDomain where
-    toPath = const "/"
-
-instance ToHeaders CreateDomain
-
-instance ToQuery CreateDomain

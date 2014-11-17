@@ -75,6 +75,14 @@ loidcprOpenIDConnectProviderList =
     lens _loidcprOpenIDConnectProviderList
         (\s a -> s { _loidcprOpenIDConnectProviderList = a })
 
+instance ToPath ListOpenIDConnectProviders where
+    toPath = const "/"
+
+instance ToQuery ListOpenIDConnectProviders where
+    toQuery = const mempty
+
+instance ToHeaders ListOpenIDConnectProviders
+
 instance AWSRequest ListOpenIDConnectProviders where
     type Sv ListOpenIDConnectProviders = IAM
     type Rs ListOpenIDConnectProviders = ListOpenIDConnectProvidersResponse
@@ -85,10 +93,3 @@ instance AWSRequest ListOpenIDConnectProviders where
 instance FromXML ListOpenIDConnectProvidersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListOpenIDConnectProvidersResponse"
-
-instance ToPath ListOpenIDConnectProviders where
-    toPath = const "/"
-
-instance ToHeaders ListOpenIDConnectProviders
-
-instance ToQuery ListOpenIDConnectProviders

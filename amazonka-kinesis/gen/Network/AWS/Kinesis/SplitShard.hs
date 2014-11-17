@@ -129,20 +129,19 @@ data SplitShardResponse = SplitShardResponse
 splitShardResponse :: SplitShardResponse
 splitShardResponse = SplitShardResponse
 
+instance ToPath SplitShard where
+    toPath = const "/"
+
+instance ToQuery SplitShard where
+    toQuery = const mempty
+
+instance ToHeaders SplitShard
+instance ToJSON SplitShard where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis
     type Rs SplitShard = SplitShardResponse
 
     request  = post
     response = nullResponse SplitShardResponse
-
-instance ToPath SplitShard where
-    toPath = const "/"
-
-instance ToHeaders SplitShard
-
-instance ToQuery SplitShard where
-    toQuery = const mempty
-
-instance ToJSON SplitShard where
-    toJSON = genericToJSON jsonOptions

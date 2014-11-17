@@ -118,6 +118,16 @@ larNextMarker = lens _larNextMarker (\s a -> s { _larNextMarker = a })
 larTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larTruncated = lens _larTruncated (\s a -> s { _larTruncated = a })
 
+instance ToPath ListAliases where
+    toPath = const "/"
+
+instance ToQuery ListAliases where
+    toQuery = const mempty
+
+instance ToHeaders ListAliases
+instance ToJSON ListAliases where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListAliases where
     type Sv ListAliases = KMS
     type Rs ListAliases = ListAliasesResponse
@@ -127,14 +137,3 @@ instance AWSRequest ListAliases where
 
 instance FromJSON ListAliasesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListAliases where
-    toPath = const "/"
-
-instance ToHeaders ListAliases
-
-instance ToQuery ListAliases where
-    toQuery = const mempty
-
-instance ToJSON ListAliases where
-    toJSON = genericToJSON jsonOptions

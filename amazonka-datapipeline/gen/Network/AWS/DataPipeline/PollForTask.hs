@@ -129,6 +129,16 @@ pollForTaskResponse = PollForTaskResponse
 pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\s a -> s { _pftrTaskObject = a })
 
+instance ToPath PollForTask where
+    toPath = const "/"
+
+instance ToQuery PollForTask where
+    toQuery = const mempty
+
+instance ToHeaders PollForTask
+instance ToJSON PollForTask where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PollForTask where
     type Sv PollForTask = DataPipeline
     type Rs PollForTask = PollForTaskResponse
@@ -138,14 +148,3 @@ instance AWSRequest PollForTask where
 
 instance FromJSON PollForTaskResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PollForTask where
-    toPath = const "/"
-
-instance ToHeaders PollForTask
-
-instance ToQuery PollForTask where
-    toQuery = const mempty
-
-instance ToJSON PollForTask where
-    toJSON = genericToJSON jsonOptions

@@ -103,6 +103,17 @@ cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
+instance ToPath CreateDistribution where
+    toPath = const "/2014-05-31/distribution"
+
+instance ToQuery CreateDistribution where
+    toQuery = const mempty
+
+instance ToHeaders CreateDistribution
+instance ToXML CreateDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateDistribution"
+
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront
     type Rs CreateDistribution = CreateDistributionResponse
@@ -112,15 +123,3 @@ instance AWSRequest CreateDistribution where
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"
-
-instance ToPath CreateDistribution where
-    toPath = const "/2014-05-31/distribution"
-
-instance ToHeaders CreateDistribution
-
-instance ToQuery CreateDistribution where
-    toQuery = const mempty
-
-instance ToXML CreateDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateDistribution"

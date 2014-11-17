@@ -106,6 +106,13 @@ rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
 
+instance ToPath ReplaceNetworkAclAssociation where
+    toPath = const "/"
+
+instance ToQuery ReplaceNetworkAclAssociation
+
+instance ToHeaders ReplaceNetworkAclAssociation
+
 instance AWSRequest ReplaceNetworkAclAssociation where
     type Sv ReplaceNetworkAclAssociation = EC2
     type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResponse
@@ -116,19 +123,3 @@ instance AWSRequest ReplaceNetworkAclAssociation where
 instance FromXML ReplaceNetworkAclAssociationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplaceNetworkAclAssociationResponse"
-
-instance ToPath ReplaceNetworkAclAssociation where
-    toPath = const "/"
-
-instance ToHeaders ReplaceNetworkAclAssociation
-
-instance ToQuery ReplaceNetworkAclAssociation where
-    toQuery ReplaceNetworkAclAssociation{..} = mconcat
-        [ "dryRun"        =? _rnaaDryRun
-        , "associationId" =? _rnaaAssociationId
-        , "networkAclId"  =? _rnaaNetworkAclId
-        ]
-
-instance ToXML ReplaceNetworkAclAssociation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReplaceNetworkAclAssociation"

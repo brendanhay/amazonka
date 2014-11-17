@@ -80,24 +80,16 @@ data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 deleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse
 deleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 
+instance ToPath DeleteDhcpOptions where
+    toPath = const "/"
+
+instance ToQuery DeleteDhcpOptions
+
+instance ToHeaders DeleteDhcpOptions
+
 instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
 
     request  = post "DeleteDhcpOptions"
     response = nullResponse DeleteDhcpOptionsResponse
-
-instance ToPath DeleteDhcpOptions where
-    toPath = const "/"
-
-instance ToHeaders DeleteDhcpOptions
-
-instance ToQuery DeleteDhcpOptions where
-    toQuery DeleteDhcpOptions{..} = mconcat
-        [ "dryRun"        =? _ddo1DryRun
-        , "DhcpOptionsId" =? _ddo1DhcpOptionsId
-        ]
-
-instance ToXML DeleteDhcpOptions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteDhcpOptions"

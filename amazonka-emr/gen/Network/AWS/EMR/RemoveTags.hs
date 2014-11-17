@@ -82,20 +82,19 @@ data RemoveTagsResponse = RemoveTagsResponse
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
 
+instance ToPath RemoveTags where
+    toPath = const "/"
+
+instance ToQuery RemoveTags where
+    toQuery = const mempty
+
+instance ToHeaders RemoveTags
+instance ToJSON RemoveTags where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR
     type Rs RemoveTags = RemoveTagsResponse
 
     request  = post
     response = nullResponse RemoveTagsResponse
-
-instance ToPath RemoveTags where
-    toPath = const "/"
-
-instance ToHeaders RemoveTags
-
-instance ToQuery RemoveTags where
-    toQuery = const mempty
-
-instance ToJSON RemoveTags where
-    toJSON = genericToJSON jsonOptions

@@ -160,6 +160,16 @@ grchrConfigurationItems =
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
 grchrNextToken = lens _grchrNextToken (\s a -> s { _grchrNextToken = a })
 
+instance ToPath GetResourceConfigHistory where
+    toPath = const "/"
+
+instance ToQuery GetResourceConfigHistory where
+    toQuery = const mempty
+
+instance ToHeaders GetResourceConfigHistory
+instance ToJSON GetResourceConfigHistory where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetResourceConfigHistory where
     type Sv GetResourceConfigHistory = Config
     type Rs GetResourceConfigHistory = GetResourceConfigHistoryResponse
@@ -169,14 +179,3 @@ instance AWSRequest GetResourceConfigHistory where
 
 instance FromJSON GetResourceConfigHistoryResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetResourceConfigHistory where
-    toPath = const "/"
-
-instance ToHeaders GetResourceConfigHistory
-
-instance ToQuery GetResourceConfigHistory where
-    toQuery = const mempty
-
-instance ToJSON GetResourceConfigHistory where
-    toJSON = genericToJSON jsonOptions

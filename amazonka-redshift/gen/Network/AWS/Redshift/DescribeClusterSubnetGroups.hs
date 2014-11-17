@@ -129,6 +129,13 @@ dcsgrClusterSubnetGroups =
 dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
+instance ToPath DescribeClusterSubnetGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeClusterSubnetGroups
+
+instance ToHeaders DescribeClusterSubnetGroups
+
 instance AWSRequest DescribeClusterSubnetGroups where
     type Sv DescribeClusterSubnetGroups = Redshift
     type Rs DescribeClusterSubnetGroups = DescribeClusterSubnetGroupsResponse
@@ -139,10 +146,3 @@ instance AWSRequest DescribeClusterSubnetGroups where
 instance FromXML DescribeClusterSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClusterSubnetGroupsResponse"
-
-instance ToPath DescribeClusterSubnetGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusterSubnetGroups
-
-instance ToQuery DescribeClusterSubnetGroups

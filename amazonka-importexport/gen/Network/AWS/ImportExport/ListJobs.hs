@@ -99,6 +99,13 @@ ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
 ljrJobs :: Lens' ListJobsResponse [Job]
 ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
 
+instance ToPath ListJobs where
+    toPath = const "/"
+
+instance ToQuery ListJobs
+
+instance ToHeaders ListJobs
+
 instance AWSRequest ListJobs where
     type Sv ListJobs = ImportExport
     type Rs ListJobs = ListJobsResponse
@@ -109,10 +116,3 @@ instance AWSRequest ListJobs where
 instance FromXML ListJobsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListJobsResponse"
-
-instance ToPath ListJobs where
-    toPath = const "/"
-
-instance ToHeaders ListJobs
-
-instance ToQuery ListJobs

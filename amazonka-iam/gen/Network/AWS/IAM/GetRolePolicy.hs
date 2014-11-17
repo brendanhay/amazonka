@@ -117,6 +117,13 @@ grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
 grprRoleName :: Lens' GetRolePolicyResponse Text
 grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
 
+instance ToPath GetRolePolicy where
+    toPath = const "/"
+
+instance ToQuery GetRolePolicy
+
+instance ToHeaders GetRolePolicy
+
 instance AWSRequest GetRolePolicy where
     type Sv GetRolePolicy = IAM
     type Rs GetRolePolicy = GetRolePolicyResponse
@@ -127,10 +134,3 @@ instance AWSRequest GetRolePolicy where
 instance FromXML GetRolePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetRolePolicyResponse"
-
-instance ToPath GetRolePolicy where
-    toPath = const "/"
-
-instance ToHeaders GetRolePolicy
-
-instance ToQuery GetRolePolicy

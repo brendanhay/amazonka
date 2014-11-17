@@ -141,6 +141,16 @@ ldrDeployments = lens _ldrDeployments (\s a -> s { _ldrDeployments = a })
 ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
+instance ToPath ListDeployments where
+    toPath = const "/"
+
+instance ToQuery ListDeployments where
+    toQuery = const mempty
+
+instance ToHeaders ListDeployments
+instance ToJSON ListDeployments where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListDeployments where
     type Sv ListDeployments = CodeDeploy
     type Rs ListDeployments = ListDeploymentsResponse
@@ -150,14 +160,3 @@ instance AWSRequest ListDeployments where
 
 instance FromJSON ListDeploymentsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListDeployments where
-    toPath = const "/"
-
-instance ToHeaders ListDeployments
-
-instance ToQuery ListDeployments where
-    toQuery = const mempty
-
-instance ToJSON ListDeployments where
-    toJSON = genericToJSON jsonOptions

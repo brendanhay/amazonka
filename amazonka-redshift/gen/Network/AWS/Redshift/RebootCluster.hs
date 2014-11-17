@@ -87,6 +87,13 @@ rebootClusterResponse = RebootClusterResponse
 rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
 
+instance ToPath RebootCluster where
+    toPath = const "/"
+
+instance ToQuery RebootCluster
+
+instance ToHeaders RebootCluster
+
 instance AWSRequest RebootCluster where
     type Sv RebootCluster = Redshift
     type Rs RebootCluster = RebootClusterResponse
@@ -97,10 +104,3 @@ instance AWSRequest RebootCluster where
 instance FromXML RebootClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebootClusterResponse"
-
-instance ToPath RebootCluster where
-    toPath = const "/"
-
-instance ToHeaders RebootCluster
-
-instance ToQuery RebootCluster

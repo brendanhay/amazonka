@@ -70,16 +70,16 @@ data DeleteAccountAliasResponse = DeleteAccountAliasResponse
 deleteAccountAliasResponse :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse
 
+instance ToPath DeleteAccountAlias where
+    toPath = const "/"
+
+instance ToQuery DeleteAccountAlias
+
+instance ToHeaders DeleteAccountAlias
+
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse
 
     request  = post "DeleteAccountAlias"
     response = nullResponse DeleteAccountAliasResponse
-
-instance ToPath DeleteAccountAlias where
-    toPath = const "/"
-
-instance ToHeaders DeleteAccountAlias
-
-instance ToQuery DeleteAccountAlias

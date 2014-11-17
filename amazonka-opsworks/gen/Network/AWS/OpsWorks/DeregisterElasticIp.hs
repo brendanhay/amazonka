@@ -73,20 +73,19 @@ data DeregisterElasticIpResponse = DeregisterElasticIpResponse
 deregisterElasticIpResponse :: DeregisterElasticIpResponse
 deregisterElasticIpResponse = DeregisterElasticIpResponse
 
+instance ToPath DeregisterElasticIp where
+    toPath = const "/"
+
+instance ToQuery DeregisterElasticIp where
+    toQuery = const mempty
+
+instance ToHeaders DeregisterElasticIp
+instance ToJSON DeregisterElasticIp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks
     type Rs DeregisterElasticIp = DeregisterElasticIpResponse
 
     request  = post
     response = nullResponse DeregisterElasticIpResponse
-
-instance ToPath DeregisterElasticIp where
-    toPath = const "/"
-
-instance ToHeaders DeregisterElasticIp
-
-instance ToQuery DeregisterElasticIp where
-    toQuery = const mempty
-
-instance ToJSON DeregisterElasticIp where
-    toJSON = genericToJSON jsonOptions

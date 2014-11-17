@@ -115,6 +115,13 @@ csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderArn =
     lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })
 
+instance ToPath CreateSAMLProvider where
+    toPath = const "/"
+
+instance ToQuery CreateSAMLProvider
+
+instance ToHeaders CreateSAMLProvider
+
 instance AWSRequest CreateSAMLProvider where
     type Sv CreateSAMLProvider = IAM
     type Rs CreateSAMLProvider = CreateSAMLProviderResponse
@@ -125,10 +132,3 @@ instance AWSRequest CreateSAMLProvider where
 instance FromXML CreateSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSAMLProviderResponse"
-
-instance ToPath CreateSAMLProvider where
-    toPath = const "/"
-
-instance ToHeaders CreateSAMLProvider
-
-instance ToQuery CreateSAMLProvider

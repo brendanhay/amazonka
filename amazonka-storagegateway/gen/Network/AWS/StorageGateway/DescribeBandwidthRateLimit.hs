@@ -112,6 +112,16 @@ dbrlrAverageUploadRateLimitInBitsPerSec =
 dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
 dbrlrGatewayARN = lens _dbrlrGatewayARN (\s a -> s { _dbrlrGatewayARN = a })
 
+instance ToPath DescribeBandwidthRateLimit where
+    toPath = const "/"
+
+instance ToQuery DescribeBandwidthRateLimit where
+    toQuery = const mempty
+
+instance ToHeaders DescribeBandwidthRateLimit
+instance ToJSON DescribeBandwidthRateLimit where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeBandwidthRateLimit where
     type Sv DescribeBandwidthRateLimit = StorageGateway
     type Rs DescribeBandwidthRateLimit = DescribeBandwidthRateLimitResponse
@@ -121,14 +131,3 @@ instance AWSRequest DescribeBandwidthRateLimit where
 
 instance FromJSON DescribeBandwidthRateLimitResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToHeaders DescribeBandwidthRateLimit
-
-instance ToQuery DescribeBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToJSON DescribeBandwidthRateLimit where
-    toJSON = genericToJSON jsonOptions

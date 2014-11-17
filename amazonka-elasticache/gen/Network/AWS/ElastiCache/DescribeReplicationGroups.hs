@@ -121,6 +121,13 @@ drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGro
 drgrReplicationGroups =
     lens _drgrReplicationGroups (\s a -> s { _drgrReplicationGroups = a })
 
+instance ToPath DescribeReplicationGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeReplicationGroups
+
+instance ToHeaders DescribeReplicationGroups
+
 instance AWSRequest DescribeReplicationGroups where
     type Sv DescribeReplicationGroups = ElastiCache
     type Rs DescribeReplicationGroups = DescribeReplicationGroupsResponse
@@ -131,10 +138,3 @@ instance AWSRequest DescribeReplicationGroups where
 instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReplicationGroupsResponse"
-
-instance ToPath DescribeReplicationGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeReplicationGroups
-
-instance ToQuery DescribeReplicationGroups

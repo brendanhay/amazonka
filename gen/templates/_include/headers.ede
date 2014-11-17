@@ -1,4 +1,5 @@
-{% if (request.headers | length) > 0 %}
+{% if !(request.headers | empty) %}
+
 instance ToHeaders {{ request.name }} where
     toHeaders {{ request.name }}{..} = mconcat
   {% for hdr in request.headers %}
@@ -9,8 +10,7 @@ instance ToHeaders {{ request.name }} where
     {% endif %}
   {% endfor %}
         ]
-
 {% else %}
-instance ToHeaders {{ request.name }}
 
+instance ToHeaders {{ request.name }}
 {% endif %}

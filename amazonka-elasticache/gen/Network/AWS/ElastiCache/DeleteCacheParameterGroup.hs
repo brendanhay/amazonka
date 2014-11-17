@@ -72,16 +72,16 @@ data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 
+instance ToPath DeleteCacheParameterGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteCacheParameterGroup
+
+instance ToHeaders DeleteCacheParameterGroup
+
 instance AWSRequest DeleteCacheParameterGroup where
     type Sv DeleteCacheParameterGroup = ElastiCache
     type Rs DeleteCacheParameterGroup = DeleteCacheParameterGroupResponse
 
     request  = post "DeleteCacheParameterGroup"
     response = nullResponse DeleteCacheParameterGroupResponse
-
-instance ToPath DeleteCacheParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteCacheParameterGroup
-
-instance ToQuery DeleteCacheParameterGroup

@@ -67,24 +67,23 @@ data DeleteBucketCorsResponse = DeleteBucketCorsResponse
 deleteBucketCorsResponse :: DeleteBucketCorsResponse
 deleteBucketCorsResponse = DeleteBucketCorsResponse
 
-instance AWSRequest DeleteBucketCors where
-    type Sv DeleteBucketCors = S3
-    type Rs DeleteBucketCors = DeleteBucketCorsResponse
-
-    request  = delete
-    response = nullResponse DeleteBucketCorsResponse
-
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat
         [ "/"
         , toText _dbcBucket
         ]
 
-instance ToHeaders DeleteBucketCors
-
 instance ToQuery DeleteBucketCors where
     toQuery = const "cors"
 
+instance ToHeaders DeleteBucketCors
 instance ToXML DeleteBucketCors where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteBucketCors"
+
+instance AWSRequest DeleteBucketCors where
+    type Sv DeleteBucketCors = S3
+    type Rs DeleteBucketCors = DeleteBucketCorsResponse
+
+    request  = delete
+    response = nullResponse DeleteBucketCorsResponse

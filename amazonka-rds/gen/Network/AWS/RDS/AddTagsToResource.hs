@@ -83,16 +83,16 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse
 addTagsToResourceResponse :: AddTagsToResourceResponse
 addTagsToResourceResponse = AddTagsToResourceResponse
 
+instance ToPath AddTagsToResource where
+    toPath = const "/"
+
+instance ToQuery AddTagsToResource
+
+instance ToHeaders AddTagsToResource
+
 instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS
     type Rs AddTagsToResource = AddTagsToResourceResponse
 
     request  = post "AddTagsToResource"
     response = nullResponse AddTagsToResourceResponse
-
-instance ToPath AddTagsToResource where
-    toPath = const "/"
-
-instance ToHeaders AddTagsToResource
-
-instance ToQuery AddTagsToResource

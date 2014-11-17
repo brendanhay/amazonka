@@ -1584,6 +1584,7 @@
                 "name": "DeleteDeliveryChannelResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1656,6 +1657,8 @@
                 "name": "DeleteDeliveryChannel",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1714,6 +1717,7 @@
                 "name": "DeliverConfigSnapshotResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1816,6 +1820,8 @@
                 "name": "DeliverConfigSnapshot",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1874,6 +1880,7 @@
                 "name": "DescribeConfigurationRecorderStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1961,6 +1968,8 @@
                 "name": "DescribeConfigurationRecorderStatus",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2034,6 +2043,7 @@
                 "name": "DescribeConfigurationRecordersResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2121,6 +2131,8 @@
                 "name": "DescribeConfigurationRecorders",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2194,6 +2206,7 @@
                 "name": "DescribeDeliveryChannelStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2281,6 +2294,8 @@
                 "name": "DescribeDeliveryChannelStatus",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2354,6 +2369,7 @@
                 "name": "DescribeDeliveryChannelsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2441,6 +2457,8 @@
                 "name": "DescribeDeliveryChannels",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2497,6 +2515,7 @@
                 "name": "GetResourceConfigHistoryResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2624,6 +2643,8 @@
                 "name": "GetResourceConfigHistory",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2820,6 +2841,7 @@
                 "name": "PutConfigurationRecorderResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2889,6 +2911,8 @@
                 "name": "PutConfigurationRecorder",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2930,6 +2954,7 @@
                 "name": "PutDeliveryChannelResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2999,6 +3024,8 @@
                 "name": "PutDeliveryChannel",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3040,6 +3067,7 @@
                 "name": "StartConfigurationRecorderResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3112,6 +3140,8 @@
                 "name": "StartConfigurationRecorder",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3153,6 +3183,7 @@
                 "name": "StopConfigurationRecorderResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3225,6 +3256,8 @@
                 "name": "StopConfigurationRecorder",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

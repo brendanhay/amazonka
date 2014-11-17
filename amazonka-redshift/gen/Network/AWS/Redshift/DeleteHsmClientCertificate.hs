@@ -70,16 +70,16 @@ data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
 deleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 
+instance ToPath DeleteHsmClientCertificate where
+    toPath = const "/"
+
+instance ToQuery DeleteHsmClientCertificate
+
+instance ToHeaders DeleteHsmClientCertificate
+
 instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift
     type Rs DeleteHsmClientCertificate = DeleteHsmClientCertificateResponse
 
     request  = post "DeleteHsmClientCertificate"
     response = nullResponse DeleteHsmClientCertificateResponse
-
-instance ToPath DeleteHsmClientCertificate where
-    toPath = const "/"
-
-instance ToHeaders DeleteHsmClientCertificate
-
-instance ToQuery DeleteHsmClientCertificate

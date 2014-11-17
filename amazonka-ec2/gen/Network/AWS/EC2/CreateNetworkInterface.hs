@@ -153,6 +153,13 @@ cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInter
 cnirNetworkInterface =
     lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })
 
+instance ToPath CreateNetworkInterface where
+    toPath = const "/"
+
+instance ToQuery CreateNetworkInterface
+
+instance ToHeaders CreateNetworkInterface
+
 instance AWSRequest CreateNetworkInterface where
     type Sv CreateNetworkInterface = EC2
     type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse
@@ -163,23 +170,3 @@ instance AWSRequest CreateNetworkInterface where
 instance FromXML CreateNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateNetworkInterfaceResponse"
-
-instance ToPath CreateNetworkInterface where
-    toPath = const "/"
-
-instance ToHeaders CreateNetworkInterface
-
-instance ToQuery CreateNetworkInterface where
-    toQuery CreateNetworkInterface{..} = mconcat
-        [ "subnetId"                       =? _cniSubnetId
-        , "description"                    =? _cniDescription
-        , "privateIpAddress"               =? _cniPrivateIpAddress
-        , "SecurityGroupId"                =? _cniGroups
-        , "privateIpAddresses"             =? _cniPrivateIpAddresses
-        , "secondaryPrivateIpAddressCount" =? _cniSecondaryPrivateIpAddressCount
-        , "dryRun"                         =? _cniDryRun
-        ]
-
-instance ToXML CreateNetworkInterface where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateNetworkInterface"

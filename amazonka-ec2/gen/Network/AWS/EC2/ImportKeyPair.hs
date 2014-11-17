@@ -118,6 +118,13 @@ ikprKeyFingerprint =
 ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 
+instance ToPath ImportKeyPair where
+    toPath = const "/"
+
+instance ToQuery ImportKeyPair
+
+instance ToHeaders ImportKeyPair
+
 instance AWSRequest ImportKeyPair where
     type Sv ImportKeyPair = EC2
     type Rs ImportKeyPair = ImportKeyPairResponse
@@ -128,19 +135,3 @@ instance AWSRequest ImportKeyPair where
 instance FromXML ImportKeyPairResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImportKeyPairResponse"
-
-instance ToPath ImportKeyPair where
-    toPath = const "/"
-
-instance ToHeaders ImportKeyPair
-
-instance ToQuery ImportKeyPair where
-    toQuery ImportKeyPair{..} = mconcat
-        [ "dryRun"            =? _ikpDryRun
-        , "keyName"           =? _ikpKeyName
-        , "publicKeyMaterial" =? _ikpPublicKeyMaterial
-        ]
-
-instance ToXML ImportKeyPair where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ImportKeyPair"

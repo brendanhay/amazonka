@@ -247,6 +247,16 @@ pfdtrWorkflowType :: Lens' PollForDecisionTaskResponse WorkflowType
 pfdtrWorkflowType =
     lens _pfdtrWorkflowType (\s a -> s { _pfdtrWorkflowType = a })
 
+instance ToPath PollForDecisionTask where
+    toPath = const "/"
+
+instance ToQuery PollForDecisionTask where
+    toQuery = const mempty
+
+instance ToHeaders PollForDecisionTask
+instance ToJSON PollForDecisionTask where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PollForDecisionTask where
     type Sv PollForDecisionTask = SWF
     type Rs PollForDecisionTask = PollForDecisionTaskResponse
@@ -256,14 +266,3 @@ instance AWSRequest PollForDecisionTask where
 
 instance FromJSON PollForDecisionTaskResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PollForDecisionTask where
-    toPath = const "/"
-
-instance ToHeaders PollForDecisionTask
-
-instance ToQuery PollForDecisionTask where
-    toQuery = const mempty
-
-instance ToJSON PollForDecisionTask where
-    toJSON = genericToJSON jsonOptions

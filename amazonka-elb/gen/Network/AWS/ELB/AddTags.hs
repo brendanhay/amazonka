@@ -85,16 +85,16 @@ data AddTagsResponse = AddTagsResponse
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
 
+instance ToPath AddTags where
+    toPath = const "/"
+
+instance ToQuery AddTags
+
+instance ToHeaders AddTags
+
 instance AWSRequest AddTags where
     type Sv AddTags = ELB
     type Rs AddTags = AddTagsResponse
 
     request  = post "AddTags"
     response = nullResponse AddTagsResponse
-
-instance ToPath AddTags where
-    toPath = const "/"
-
-instance ToHeaders AddTags
-
-instance ToQuery AddTags

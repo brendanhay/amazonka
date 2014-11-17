@@ -79,16 +79,16 @@ data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 
+instance ToPath DeleteLoadBalancerListeners where
+    toPath = const "/"
+
+instance ToQuery DeleteLoadBalancerListeners
+
+instance ToHeaders DeleteLoadBalancerListeners
+
 instance AWSRequest DeleteLoadBalancerListeners where
     type Sv DeleteLoadBalancerListeners = ELB
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
 
     request  = post "DeleteLoadBalancerListeners"
     response = nullResponse DeleteLoadBalancerListenersResponse
-
-instance ToPath DeleteLoadBalancerListeners where
-    toPath = const "/"
-
-instance ToHeaders DeleteLoadBalancerListeners
-
-instance ToQuery DeleteLoadBalancerListeners

@@ -107,6 +107,13 @@ cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmfadrVirtualMFADevice =
     lens _cvmfadrVirtualMFADevice (\s a -> s { _cvmfadrVirtualMFADevice = a })
 
+instance ToPath CreateVirtualMFADevice where
+    toPath = const "/"
+
+instance ToQuery CreateVirtualMFADevice
+
+instance ToHeaders CreateVirtualMFADevice
+
 instance AWSRequest CreateVirtualMFADevice where
     type Sv CreateVirtualMFADevice = IAM
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
@@ -117,10 +124,3 @@ instance AWSRequest CreateVirtualMFADevice where
 instance FromXML CreateVirtualMFADeviceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVirtualMFADeviceResponse"
-
-instance ToPath CreateVirtualMFADevice where
-    toPath = const "/"
-
-instance ToHeaders CreateVirtualMFADevice
-
-instance ToQuery CreateVirtualMFADevice

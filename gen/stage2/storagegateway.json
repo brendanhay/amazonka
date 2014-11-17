@@ -2529,6 +2529,7 @@
                 "name": "ActivateGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2656,6 +2657,8 @@
                 "name": "ActivateGateway",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2841,6 +2844,7 @@
                 "name": "AddCacheResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2926,6 +2930,8 @@
                 "name": "AddCache",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3013,6 +3019,7 @@
                 "name": "AddUploadBufferResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3098,6 +3105,8 @@
                 "name": "AddUploadBuffer",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3185,6 +3194,7 @@
                 "name": "AddWorkingStorageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3270,6 +3280,8 @@
                 "name": "AddWorkingStorage",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3357,6 +3369,7 @@
                 "name": "CancelArchivalResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3456,6 +3469,8 @@
                 "name": "CancelArchival",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3528,6 +3543,7 @@
                 "name": "CancelRetrievalResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3627,6 +3643,8 @@
                 "name": "CancelRetrieval",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3683,6 +3701,7 @@
                 "name": "CreateCachediSCSIVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3852,6 +3871,8 @@
                 "name": "CreateCachediSCSIVolume",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3979,6 +4000,7 @@
                 "name": "CreateSnapshotResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4106,6 +4128,8 @@
                 "name": "CreateSnapshot",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4162,6 +4186,7 @@
                 "name": "CreateSnapshotFromVolumeRecoveryPointResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4317,6 +4342,8 @@
                 "name": "CreateSnapshotFromVolumeRecoveryPoint",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4373,6 +4400,7 @@
                 "name": "CreateStorediSCSIVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4570,6 +4598,8 @@
                 "name": "CreateStorediSCSIVolume",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4714,6 +4744,7 @@
                 "name": "CreateTapesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4855,6 +4886,8 @@
                 "name": "CreateTapes",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4969,6 +5002,7 @@
                 "name": "DeleteBandwidthRateLimitResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5068,6 +5102,8 @@
                 "name": "DeleteBandwidthRateLimit",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5124,6 +5160,7 @@
                 "name": "DeleteChapCredentialsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5251,6 +5288,8 @@
                 "name": "DeleteChapCredentials",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5323,6 +5362,7 @@
                 "name": "DeleteGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5425,6 +5465,8 @@
                 "name": "DeleteGateway",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5483,6 +5525,7 @@
                 "name": "DeleteSnapshotScheduleResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5585,6 +5628,8 @@
                 "name": "DeleteSnapshotSchedule",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5643,6 +5688,7 @@
                 "name": "DeleteTapeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5742,6 +5788,8 @@
                 "name": "DeleteTape",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5814,6 +5862,7 @@
                 "name": "DeleteTapeArchiveResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5916,6 +5965,8 @@
                 "name": "DeleteTapeArchive",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5974,6 +6025,7 @@
                 "name": "DeleteVolumeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6076,6 +6128,8 @@
                 "name": "DeleteVolume",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6118,6 +6172,7 @@
                 "name": "DescribeBandwidthRateLimitResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6276,6 +6331,8 @@
                 "name": "DescribeBandwidthRateLimit",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6318,6 +6375,7 @@
                 "name": "DescribeCacheResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6588,6 +6646,8 @@
                 "name": "DescribeCache",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6646,6 +6706,7 @@
                 "name": "DescribeCachediSCSIVolumesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6733,6 +6794,8 @@
                 "name": "DescribeCachediSCSIVolumes",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6806,6 +6869,7 @@
                 "name": "DescribeChapCredentialsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6908,6 +6972,8 @@
                 "name": "DescribeChapCredentials",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6949,6 +7015,7 @@
                 "name": "DescribeGatewayInformationResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7219,6 +7286,8 @@
                 "name": "DescribeGatewayInformation",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7261,6 +7330,7 @@
                 "name": "DescribeMaintenanceStartTimeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7475,6 +7545,8 @@
                 "name": "DescribeMaintenanceStartTime",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7517,6 +7589,7 @@
                 "name": "DescribeSnapshotScheduleResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7731,6 +7804,8 @@
                 "name": "DescribeSnapshotSchedule",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7789,6 +7864,7 @@
                 "name": "DescribeStorediSCSIVolumesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7876,6 +7952,8 @@
                 "name": "DescribeStorediSCSIVolumes",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7932,6 +8010,7 @@
                 "name": "DescribeTapeArchivesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8038,6 +8117,8 @@
                 "name": "DescribeTapeArchives",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8150,6 +8231,7 @@
                 "name": "DescribeTapeRecoveryPointsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8299,6 +8381,8 @@
                 "name": "DescribeTapeRecoveryPoints",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8397,6 +8481,7 @@
                 "name": "DescribeTapesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8518,6 +8603,8 @@
                 "name": "DescribeTapes",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8645,6 +8732,7 @@
                 "name": "DescribeUploadBufferResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8831,6 +8919,8 @@
                 "name": "DescribeUploadBuffer",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8872,6 +8962,7 @@
                 "name": "DescribeVTLDevicesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9021,6 +9112,8 @@
                 "name": "DescribeVTLDevices",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9148,6 +9241,7 @@
                 "name": "DescribeWorkingStorageResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9334,6 +9428,8 @@
                 "name": "DescribeWorkingStorage",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9392,6 +9488,7 @@
                 "name": "DisableGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9494,6 +9591,8 @@
                 "name": "DisableGateway",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9535,6 +9634,7 @@
                 "name": "ListGatewaysResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9641,6 +9741,8 @@
                 "name": "ListGateways",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9725,6 +9827,7 @@
                 "name": "ListLocalDisksResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9855,6 +9958,8 @@
                 "name": "ListLocalDisks",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9896,6 +10001,7 @@
                 "name": "ListVolumeRecoveryPointsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10026,6 +10132,8 @@
                 "name": "ListVolumeRecoveryPoints",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10067,6 +10175,7 @@
                 "name": "ListVolumesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10216,6 +10325,8 @@
                 "name": "ListVolumes",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10331,6 +10442,7 @@
                 "name": "RetrieveTapeArchiveResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10430,6 +10542,8 @@
                 "name": "RetrieveTapeArchive",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10502,6 +10616,7 @@
                 "name": "RetrieveTapeRecoveryPointResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10601,6 +10716,8 @@
                 "name": "RetrieveTapeRecoveryPoint",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10673,6 +10790,7 @@
                 "name": "ShutdownGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10775,6 +10893,8 @@
                 "name": "ShutdownGateway",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10833,6 +10953,7 @@
                 "name": "StartGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10935,6 +11056,8 @@
                 "name": "StartGateway",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10993,6 +11116,7 @@
                 "name": "UpdateBandwidthRateLimitResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11078,6 +11202,8 @@
                 "name": "UpdateBandwidthRateLimit",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11177,6 +11303,7 @@
                 "name": "UpdateChapCredentialsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11318,6 +11445,8 @@
                 "name": "UpdateChapCredentials",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11433,6 +11562,7 @@
                 "name": "UpdateGatewayInformationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11518,6 +11648,8 @@
                 "name": "UpdateGatewayInformation",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11633,6 +11765,7 @@
                 "name": "UpdateGatewaySoftwareNowResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11735,6 +11868,8 @@
                 "name": "UpdateGatewaySoftwareNow",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11793,6 +11928,7 @@
                 "name": "UpdateMaintenanceStartTimeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11920,6 +12056,8 @@
                 "name": "UpdateMaintenanceStartTime",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12020,6 +12158,7 @@
                 "name": "UpdateSnapshotScheduleResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12133,6 +12272,8 @@
                 "name": "UpdateSnapshotSchedule",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

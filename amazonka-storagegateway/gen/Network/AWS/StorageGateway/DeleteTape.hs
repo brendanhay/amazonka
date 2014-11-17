@@ -94,6 +94,16 @@ deleteTapeResponse = DeleteTapeResponse
 dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\s a -> s { _dtrTapeARN = a })
 
+instance ToPath DeleteTape where
+    toPath = const "/"
+
+instance ToQuery DeleteTape where
+    toQuery = const mempty
+
+instance ToHeaders DeleteTape
+instance ToJSON DeleteTape where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteTape where
     type Sv DeleteTape = StorageGateway
     type Rs DeleteTape = DeleteTapeResponse
@@ -103,14 +113,3 @@ instance AWSRequest DeleteTape where
 
 instance FromJSON DeleteTapeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteTape where
-    toPath = const "/"
-
-instance ToHeaders DeleteTape
-
-instance ToQuery DeleteTape where
-    toQuery = const mempty
-
-instance ToJSON DeleteTape where
-    toJSON = genericToJSON jsonOptions

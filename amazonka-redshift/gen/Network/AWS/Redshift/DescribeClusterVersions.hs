@@ -142,6 +142,13 @@ dcvrClusterVersions =
 dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
 
+instance ToPath DescribeClusterVersions where
+    toPath = const "/"
+
+instance ToQuery DescribeClusterVersions
+
+instance ToHeaders DescribeClusterVersions
+
 instance AWSRequest DescribeClusterVersions where
     type Sv DescribeClusterVersions = Redshift
     type Rs DescribeClusterVersions = DescribeClusterVersionsResponse
@@ -152,10 +159,3 @@ instance AWSRequest DescribeClusterVersions where
 instance FromXML DescribeClusterVersionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClusterVersionsResponse"
-
-instance ToPath DescribeClusterVersions where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusterVersions
-
-instance ToQuery DescribeClusterVersions

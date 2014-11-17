@@ -178,6 +178,16 @@ prrSequenceNumber =
 prrShardId :: Lens' PutRecordResponse Text
 prrShardId = lens _prrShardId (\s a -> s { _prrShardId = a })
 
+instance ToPath PutRecord where
+    toPath = const "/"
+
+instance ToQuery PutRecord where
+    toQuery = const mempty
+
+instance ToHeaders PutRecord
+instance ToJSON PutRecord where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutRecord where
     type Sv PutRecord = Kinesis
     type Rs PutRecord = PutRecordResponse
@@ -187,14 +197,3 @@ instance AWSRequest PutRecord where
 
 instance FromJSON PutRecordResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PutRecord where
-    toPath = const "/"
-
-instance ToHeaders PutRecord
-
-instance ToQuery PutRecord where
-    toQuery = const mempty
-
-instance ToJSON PutRecord where
-    toJSON = genericToJSON jsonOptions

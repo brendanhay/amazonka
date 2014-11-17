@@ -74,6 +74,16 @@ describeLocationsResponse = DescribeLocationsResponse
 dlrLocations :: Lens' DescribeLocationsResponse [Location]
 dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a })
 
+instance ToPath DescribeLocations where
+    toPath = const "/"
+
+instance ToQuery DescribeLocations where
+    toQuery = const mempty
+
+instance ToHeaders DescribeLocations
+instance ToJSON DescribeLocations where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect
     type Rs DescribeLocations = DescribeLocationsResponse
@@ -83,14 +93,3 @@ instance AWSRequest DescribeLocations where
 
 instance FromJSON DescribeLocationsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeLocations where
-    toPath = const "/"
-
-instance ToHeaders DescribeLocations
-
-instance ToQuery DescribeLocations where
-    toQuery = const mempty
-
-instance ToJSON DescribeLocations where
-    toJSON = genericToJSON jsonOptions

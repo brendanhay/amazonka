@@ -100,16 +100,16 @@ data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLC
 setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
 
+instance ToPath SetLoadBalancerListenerSSLCertificate where
+    toPath = const "/"
+
+instance ToQuery SetLoadBalancerListenerSSLCertificate
+
+instance ToHeaders SetLoadBalancerListenerSSLCertificate
+
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Sv SetLoadBalancerListenerSSLCertificate = ELB
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
 
     request  = post "SetLoadBalancerListenerSSLCertificate"
     response = nullResponse SetLoadBalancerListenerSSLCertificateResponse
-
-instance ToPath SetLoadBalancerListenerSSLCertificate where
-    toPath = const "/"
-
-instance ToHeaders SetLoadBalancerListenerSSLCertificate
-
-instance ToQuery SetLoadBalancerListenerSSLCertificate

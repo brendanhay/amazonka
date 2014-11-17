@@ -135,6 +135,13 @@ describeRouteTablesResponse = DescribeRouteTablesResponse
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
 
+instance ToPath DescribeRouteTables where
+    toPath = const "/"
+
+instance ToQuery DescribeRouteTables
+
+instance ToHeaders DescribeRouteTables
+
 instance AWSRequest DescribeRouteTables where
     type Sv DescribeRouteTables = EC2
     type Rs DescribeRouteTables = DescribeRouteTablesResponse
@@ -145,19 +152,3 @@ instance AWSRequest DescribeRouteTables where
 instance FromXML DescribeRouteTablesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeRouteTablesResponse"
-
-instance ToPath DescribeRouteTables where
-    toPath = const "/"
-
-instance ToHeaders DescribeRouteTables
-
-instance ToQuery DescribeRouteTables where
-    toQuery DescribeRouteTables{..} = mconcat
-        [ "dryRun"       =? _drt2DryRun
-        , "RouteTableId" =? _drt2RouteTableIds
-        , "Filter"       =? _drt2Filters
-        ]
-
-instance ToXML DescribeRouteTables where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeRouteTables"

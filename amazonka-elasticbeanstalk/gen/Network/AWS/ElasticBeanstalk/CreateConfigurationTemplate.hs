@@ -264,6 +264,13 @@ cctrSolutionStackName =
 cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrTemplateName = lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
 
+instance ToPath CreateConfigurationTemplate where
+    toPath = const "/"
+
+instance ToQuery CreateConfigurationTemplate
+
+instance ToHeaders CreateConfigurationTemplate
+
 instance AWSRequest CreateConfigurationTemplate where
     type Sv CreateConfigurationTemplate = ElasticBeanstalk
     type Rs CreateConfigurationTemplate = CreateConfigurationTemplateResponse
@@ -274,10 +281,3 @@ instance AWSRequest CreateConfigurationTemplate where
 instance FromXML CreateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateConfigurationTemplateResponse"
-
-instance ToPath CreateConfigurationTemplate where
-    toPath = const "/"
-
-instance ToHeaders CreateConfigurationTemplate
-
-instance ToQuery CreateConfigurationTemplate

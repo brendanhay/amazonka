@@ -455,6 +455,13 @@ createDBInstanceResponse = CreateDBInstanceResponse
 cdbirDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdbirDBInstance = lens _cdbirDBInstance (\s a -> s { _cdbirDBInstance = a })
 
+instance ToPath CreateDBInstance where
+    toPath = const "/"
+
+instance ToQuery CreateDBInstance
+
+instance ToHeaders CreateDBInstance
+
 instance AWSRequest CreateDBInstance where
     type Sv CreateDBInstance = RDS
     type Rs CreateDBInstance = CreateDBInstanceResponse
@@ -465,10 +472,3 @@ instance AWSRequest CreateDBInstance where
 instance FromXML CreateDBInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBInstanceResponse"
-
-instance ToPath CreateDBInstance where
-    toPath = const "/"
-
-instance ToHeaders CreateDBInstance
-
-instance ToQuery CreateDBInstance

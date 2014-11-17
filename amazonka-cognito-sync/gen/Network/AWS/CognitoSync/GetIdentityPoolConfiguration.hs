@@ -97,6 +97,20 @@ gipcrIdentityPoolId =
 gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\s a -> s { _gipcrPushSync = a })
 
+instance ToPath GetIdentityPoolConfiguration where
+    toPath GetIdentityPoolConfiguration{..} = mconcat
+        [ "/identitypools/"
+        , toText _gipcIdentityPoolId
+        , "/configuration"
+        ]
+
+instance ToQuery GetIdentityPoolConfiguration where
+    toQuery = const mempty
+
+instance ToHeaders GetIdentityPoolConfiguration
+instance ToJSON GetIdentityPoolConfiguration where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetIdentityPoolConfiguration where
     type Sv GetIdentityPoolConfiguration = CognitoSync
     type Rs GetIdentityPoolConfiguration = GetIdentityPoolConfigurationResponse
@@ -106,18 +120,3 @@ instance AWSRequest GetIdentityPoolConfiguration where
 
 instance FromJSON GetIdentityPoolConfigurationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetIdentityPoolConfiguration where
-    toPath GetIdentityPoolConfiguration{..} = mconcat
-        [ "/identitypools/"
-        , toText _gipcIdentityPoolId
-        , "/configuration"
-        ]
-
-instance ToHeaders GetIdentityPoolConfiguration
-
-instance ToQuery GetIdentityPoolConfiguration where
-    toQuery = const mempty
-
-instance ToJSON GetIdentityPoolConfiguration where
-    toJSON = genericToJSON jsonOptions

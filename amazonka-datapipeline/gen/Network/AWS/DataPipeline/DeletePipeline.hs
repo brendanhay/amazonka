@@ -74,20 +74,19 @@ data DeletePipelineResponse = DeletePipelineResponse
 deletePipelineResponse :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse
 
+instance ToPath DeletePipeline where
+    toPath = const "/"
+
+instance ToQuery DeletePipeline where
+    toQuery = const mempty
+
+instance ToHeaders DeletePipeline
+instance ToJSON DeletePipeline where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline
     type Rs DeletePipeline = DeletePipelineResponse
 
     request  = post
     response = nullResponse DeletePipelineResponse
-
-instance ToPath DeletePipeline where
-    toPath = const "/"
-
-instance ToHeaders DeletePipeline
-
-instance ToQuery DeletePipeline where
-    toQuery = const mempty
-
-instance ToJSON DeletePipeline where
-    toJSON = genericToJSON jsonOptions

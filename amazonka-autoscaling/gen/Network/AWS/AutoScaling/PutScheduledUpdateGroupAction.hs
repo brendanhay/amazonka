@@ -164,16 +164,16 @@ data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionRespon
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
 
+instance ToPath PutScheduledUpdateGroupAction where
+    toPath = const "/"
+
+instance ToQuery PutScheduledUpdateGroupAction
+
+instance ToHeaders PutScheduledUpdateGroupAction
+
 instance AWSRequest PutScheduledUpdateGroupAction where
     type Sv PutScheduledUpdateGroupAction = AutoScaling
     type Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse
 
     request  = post "PutScheduledUpdateGroupAction"
     response = nullResponse PutScheduledUpdateGroupActionResponse
-
-instance ToPath PutScheduledUpdateGroupAction where
-    toPath = const "/"
-
-instance ToHeaders PutScheduledUpdateGroupAction
-
-instance ToQuery PutScheduledUpdateGroupAction

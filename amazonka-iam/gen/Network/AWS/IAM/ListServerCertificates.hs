@@ -136,6 +136,13 @@ lscrServerCertificateMetadataList =
     lens _lscrServerCertificateMetadataList
         (\s a -> s { _lscrServerCertificateMetadataList = a })
 
+instance ToPath ListServerCertificates where
+    toPath = const "/"
+
+instance ToQuery ListServerCertificates
+
+instance ToHeaders ListServerCertificates
+
 instance AWSRequest ListServerCertificates where
     type Sv ListServerCertificates = IAM
     type Rs ListServerCertificates = ListServerCertificatesResponse
@@ -146,10 +153,3 @@ instance AWSRequest ListServerCertificates where
 instance FromXML ListServerCertificatesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListServerCertificatesResponse"
-
-instance ToPath ListServerCertificates where
-    toPath = const "/"
-
-instance ToHeaders ListServerCertificates
-
-instance ToQuery ListServerCertificates

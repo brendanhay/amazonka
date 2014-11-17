@@ -289,6 +289,7 @@
                 "name": "CreateTrailResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -556,6 +557,8 @@
                 "name": "CreateTrail",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -752,6 +755,7 @@
                 "name": "DeleteTrailResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -824,6 +828,8 @@
                 "name": "DeleteTrail",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -882,6 +888,7 @@
                 "name": "DescribeTrailsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -969,6 +976,8 @@
                 "name": "DescribeTrails",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1026,6 +1035,7 @@
                 "name": "GetTrailStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1352,6 +1362,8 @@
                 "name": "GetTrailStatus",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1393,6 +1405,7 @@
                 "name": "StartLoggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1465,6 +1478,8 @@
                 "name": "StartLogging",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1506,6 +1521,7 @@
                 "name": "StopLoggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1578,6 +1594,8 @@
                 "name": "StopLogging",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1620,6 +1638,7 @@
                 "name": "UpdateTrailResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1873,6 +1892,8 @@
                 "name": "UpdateTrail",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

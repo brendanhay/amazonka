@@ -94,6 +94,13 @@ gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text 
 gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
     . _Map
 
+instance ToPath GetPlatformApplicationAttributes where
+    toPath = const "/"
+
+instance ToQuery GetPlatformApplicationAttributes
+
+instance ToHeaders GetPlatformApplicationAttributes
+
 instance AWSRequest GetPlatformApplicationAttributes where
     type Sv GetPlatformApplicationAttributes = SNS
     type Rs GetPlatformApplicationAttributes = GetPlatformApplicationAttributesResponse
@@ -104,10 +111,3 @@ instance AWSRequest GetPlatformApplicationAttributes where
 instance FromXML GetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetPlatformApplicationAttributesResponse"
-
-instance ToPath GetPlatformApplicationAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetPlatformApplicationAttributes
-
-instance ToQuery GetPlatformApplicationAttributes

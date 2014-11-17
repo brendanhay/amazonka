@@ -70,16 +70,16 @@ data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
 deleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 
+instance ToPath DeleteHsmConfiguration where
+    toPath = const "/"
+
+instance ToQuery DeleteHsmConfiguration
+
+instance ToHeaders DeleteHsmConfiguration
+
 instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift
     type Rs DeleteHsmConfiguration = DeleteHsmConfigurationResponse
 
     request  = post "DeleteHsmConfiguration"
     response = nullResponse DeleteHsmConfigurationResponse
-
-instance ToPath DeleteHsmConfiguration where
-    toPath = const "/"
-
-instance ToHeaders DeleteHsmConfiguration
-
-instance ToQuery DeleteHsmConfiguration

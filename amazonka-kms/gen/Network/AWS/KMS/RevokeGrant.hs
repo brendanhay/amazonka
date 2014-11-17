@@ -79,20 +79,19 @@ data RevokeGrantResponse = RevokeGrantResponse
 revokeGrantResponse :: RevokeGrantResponse
 revokeGrantResponse = RevokeGrantResponse
 
+instance ToPath RevokeGrant where
+    toPath = const "/"
+
+instance ToQuery RevokeGrant where
+    toQuery = const mempty
+
+instance ToHeaders RevokeGrant
+instance ToJSON RevokeGrant where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RevokeGrant where
     type Sv RevokeGrant = KMS
     type Rs RevokeGrant = RevokeGrantResponse
 
     request  = post
     response = nullResponse RevokeGrantResponse
-
-instance ToPath RevokeGrant where
-    toPath = const "/"
-
-instance ToHeaders RevokeGrant
-
-instance ToQuery RevokeGrant where
-    toQuery = const mempty
-
-instance ToJSON RevokeGrant where
-    toJSON = genericToJSON jsonOptions

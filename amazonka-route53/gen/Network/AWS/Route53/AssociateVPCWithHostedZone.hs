@@ -115,6 +115,21 @@ avpcwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avpcwhzrChangeInfo =
     lens _avpcwhzrChangeInfo (\s a -> s { _avpcwhzrChangeInfo = a })
 
+instance ToPath AssociateVPCWithHostedZone where
+    toPath AssociateVPCWithHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _avpcwhzHostedZoneId
+        , "/associatevpc"
+        ]
+
+instance ToQuery AssociateVPCWithHostedZone where
+    toQuery = const mempty
+
+instance ToHeaders AssociateVPCWithHostedZone
+instance ToXML AssociateVPCWithHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AssociateVPCWithHostedZone"
+
 instance AWSRequest AssociateVPCWithHostedZone where
     type Sv AssociateVPCWithHostedZone = Route53
     type Rs AssociateVPCWithHostedZone = AssociateVPCWithHostedZoneResponse
@@ -125,19 +140,3 @@ instance AWSRequest AssociateVPCWithHostedZone where
 instance FromXML AssociateVPCWithHostedZoneResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssociateVPCWithHostedZoneResponse"
-
-instance ToPath AssociateVPCWithHostedZone where
-    toPath AssociateVPCWithHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _avpcwhzHostedZoneId
-        , "/associatevpc"
-        ]
-
-instance ToHeaders AssociateVPCWithHostedZone
-
-instance ToQuery AssociateVPCWithHostedZone where
-    toQuery = const mempty
-
-instance ToXML AssociateVPCWithHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AssociateVPCWithHostedZone"

@@ -85,6 +85,16 @@ startGatewayResponse = StartGatewayResponse
 sgrGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 sgrGatewayARN = lens _sgrGatewayARN (\s a -> s { _sgrGatewayARN = a })
 
+instance ToPath StartGateway where
+    toPath = const "/"
+
+instance ToQuery StartGateway where
+    toQuery = const mempty
+
+instance ToHeaders StartGateway
+instance ToJSON StartGateway where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StartGateway where
     type Sv StartGateway = StorageGateway
     type Rs StartGateway = StartGatewayResponse
@@ -94,14 +104,3 @@ instance AWSRequest StartGateway where
 
 instance FromJSON StartGatewayResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath StartGateway where
-    toPath = const "/"
-
-instance ToHeaders StartGateway
-
-instance ToQuery StartGateway where
-    toQuery = const mempty
-
-instance ToJSON StartGateway where
-    toJSON = genericToJSON jsonOptions

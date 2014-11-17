@@ -129,6 +129,13 @@ drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings
         (\s a -> s { _drilrReservedInstancesListings = a })
 
+instance ToPath DescribeReservedInstancesListings where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedInstancesListings
+
+instance ToHeaders DescribeReservedInstancesListings
+
 instance AWSRequest DescribeReservedInstancesListings where
     type Sv DescribeReservedInstancesListings = EC2
     type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResponse
@@ -139,19 +146,3 @@ instance AWSRequest DescribeReservedInstancesListings where
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesListingsResponse"
-
-instance ToPath DescribeReservedInstancesListings where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedInstancesListings
-
-instance ToQuery DescribeReservedInstancesListings where
-    toQuery DescribeReservedInstancesListings{..} = mconcat
-        [ "reservedInstancesId"        =? _drilReservedInstancesId
-        , "reservedInstancesListingId" =? _drilReservedInstancesListingId
-        , "filters"                    =? _drilFilters
-        ]
-
-instance ToXML DescribeReservedInstancesListings where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeReservedInstancesListings"

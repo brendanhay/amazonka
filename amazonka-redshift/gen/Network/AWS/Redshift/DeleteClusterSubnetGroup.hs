@@ -70,16 +70,16 @@ data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 
+instance ToPath DeleteClusterSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteClusterSubnetGroup
+
+instance ToHeaders DeleteClusterSubnetGroup
+
 instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift
     type Rs DeleteClusterSubnetGroup = DeleteClusterSubnetGroupResponse
 
     request  = post "DeleteClusterSubnetGroup"
     response = nullResponse DeleteClusterSubnetGroupResponse
-
-instance ToPath DeleteClusterSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteClusterSubnetGroup
-
-instance ToQuery DeleteClusterSubnetGroup

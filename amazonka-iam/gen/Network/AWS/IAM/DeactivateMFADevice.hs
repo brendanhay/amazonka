@@ -83,16 +83,16 @@ data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse
 
+instance ToPath DeactivateMFADevice where
+    toPath = const "/"
+
+instance ToQuery DeactivateMFADevice
+
+instance ToHeaders DeactivateMFADevice
+
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
 
     request  = post "DeactivateMFADevice"
     response = nullResponse DeactivateMFADeviceResponse
-
-instance ToPath DeactivateMFADevice where
-    toPath = const "/"
-
-instance ToHeaders DeactivateMFADevice
-
-instance ToQuery DeactivateMFADevice

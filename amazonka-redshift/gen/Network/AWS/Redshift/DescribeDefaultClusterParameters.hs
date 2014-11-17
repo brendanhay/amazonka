@@ -114,6 +114,13 @@ ddcprDefaultClusterParameters =
     lens _ddcprDefaultClusterParameters
         (\s a -> s { _ddcprDefaultClusterParameters = a })
 
+instance ToPath DescribeDefaultClusterParameters where
+    toPath = const "/"
+
+instance ToQuery DescribeDefaultClusterParameters
+
+instance ToHeaders DescribeDefaultClusterParameters
+
 instance AWSRequest DescribeDefaultClusterParameters where
     type Sv DescribeDefaultClusterParameters = Redshift
     type Rs DescribeDefaultClusterParameters = DescribeDefaultClusterParametersResponse
@@ -124,10 +131,3 @@ instance AWSRequest DescribeDefaultClusterParameters where
 instance FromXML DescribeDefaultClusterParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResponse"
-
-instance ToPath DescribeDefaultClusterParameters where
-    toPath = const "/"
-
-instance ToHeaders DescribeDefaultClusterParameters
-
-instance ToQuery DescribeDefaultClusterParameters

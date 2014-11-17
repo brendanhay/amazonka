@@ -319,6 +319,16 @@ gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a })
 gddrWhoIsServer :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrWhoIsServer = lens _gddrWhoIsServer (\s a -> s { _gddrWhoIsServer = a })
 
+instance ToPath GetDomainDetail where
+    toPath = const "/"
+
+instance ToQuery GetDomainDetail where
+    toQuery = const mempty
+
+instance ToHeaders GetDomainDetail
+instance ToJSON GetDomainDetail where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetDomainDetail where
     type Sv GetDomainDetail = Route53Domains
     type Rs GetDomainDetail = GetDomainDetailResponse
@@ -328,14 +338,3 @@ instance AWSRequest GetDomainDetail where
 
 instance FromJSON GetDomainDetailResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetDomainDetail where
-    toPath = const "/"
-
-instance ToHeaders GetDomainDetail
-
-instance ToQuery GetDomainDetail where
-    toQuery = const mempty
-
-instance ToJSON GetDomainDetail where
-    toJSON = genericToJSON jsonOptions

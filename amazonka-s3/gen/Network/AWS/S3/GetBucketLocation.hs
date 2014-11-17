@@ -81,6 +81,20 @@ gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Text)
 gblrLocationConstraint =
     lens _gblrLocationConstraint (\s a -> s { _gblrLocationConstraint = a })
 
+instance ToPath GetBucketLocation where
+    toPath GetBucketLocation{..} = mconcat
+        [ "/"
+        , toText _gblBucket
+        ]
+
+instance ToQuery GetBucketLocation where
+    toQuery = const "location"
+
+instance ToHeaders GetBucketLocation
+instance ToXML GetBucketLocation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketLocation"
+
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
     type Rs GetBucketLocation = GetBucketLocationResponse
@@ -91,18 +105,3 @@ instance AWSRequest GetBucketLocation where
 instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketLocationResponse"
-
-instance ToPath GetBucketLocation where
-    toPath GetBucketLocation{..} = mconcat
-        [ "/"
-        , toText _gblBucket
-        ]
-
-instance ToHeaders GetBucketLocation
-
-instance ToQuery GetBucketLocation where
-    toQuery = const "location"
-
-instance ToXML GetBucketLocation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketLocation"

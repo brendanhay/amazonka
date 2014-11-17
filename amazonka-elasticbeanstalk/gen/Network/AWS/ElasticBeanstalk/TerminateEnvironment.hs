@@ -264,6 +264,13 @@ terTier = lens _terTier (\s a -> s { _terTier = a })
 terVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
 terVersionLabel = lens _terVersionLabel (\s a -> s { _terVersionLabel = a })
 
+instance ToPath TerminateEnvironment where
+    toPath = const "/"
+
+instance ToQuery TerminateEnvironment
+
+instance ToHeaders TerminateEnvironment
+
 instance AWSRequest TerminateEnvironment where
     type Sv TerminateEnvironment = ElasticBeanstalk
     type Rs TerminateEnvironment = TerminateEnvironmentResponse
@@ -274,10 +281,3 @@ instance AWSRequest TerminateEnvironment where
 instance FromXML TerminateEnvironmentResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TerminateEnvironmentResponse"
-
-instance ToPath TerminateEnvironment where
-    toPath = const "/"
-
-instance ToHeaders TerminateEnvironment
-
-instance ToQuery TerminateEnvironment

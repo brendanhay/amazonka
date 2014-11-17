@@ -142,6 +142,13 @@ adbsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe D
 adbsgirDBSecurityGroup =
     lens _adbsgirDBSecurityGroup (\s a -> s { _adbsgirDBSecurityGroup = a })
 
+instance ToPath AuthorizeDBSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery AuthorizeDBSecurityGroupIngress
+
+instance ToHeaders AuthorizeDBSecurityGroupIngress
+
 instance AWSRequest AuthorizeDBSecurityGroupIngress where
     type Sv AuthorizeDBSecurityGroupIngress = RDS
     type Rs AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngressResponse
@@ -152,10 +159,3 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress where
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeDBSecurityGroupIngressResponse"
-
-instance ToPath AuthorizeDBSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders AuthorizeDBSecurityGroupIngress
-
-instance ToQuery AuthorizeDBSecurityGroupIngress

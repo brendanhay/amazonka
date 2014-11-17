@@ -113,6 +113,13 @@ lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 
+instance ToPath ListIdentities where
+    toPath = const "/"
+
+instance ToQuery ListIdentities
+
+instance ToHeaders ListIdentities
+
 instance AWSRequest ListIdentities where
     type Sv ListIdentities = SES
     type Rs ListIdentities = ListIdentitiesResponse
@@ -123,10 +130,3 @@ instance AWSRequest ListIdentities where
 instance FromXML ListIdentitiesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListIdentitiesResponse"
-
-instance ToPath ListIdentities where
-    toPath = const "/"
-
-instance ToHeaders ListIdentities
-
-instance ToQuery ListIdentities

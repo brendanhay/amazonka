@@ -248,6 +248,16 @@ createInstanceResponse = CreateInstanceResponse
 cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirInstanceId = lens _cirInstanceId (\s a -> s { _cirInstanceId = a })
 
+instance ToPath CreateInstance where
+    toPath = const "/"
+
+instance ToQuery CreateInstance where
+    toQuery = const mempty
+
+instance ToHeaders CreateInstance
+instance ToJSON CreateInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateInstance where
     type Sv CreateInstance = OpsWorks
     type Rs CreateInstance = CreateInstanceResponse
@@ -257,14 +267,3 @@ instance AWSRequest CreateInstance where
 
 instance FromJSON CreateInstanceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateInstance where
-    toPath = const "/"
-
-instance ToHeaders CreateInstance
-
-instance ToQuery CreateInstance where
-    toQuery = const mempty
-
-instance ToJSON CreateInstance where
-    toJSON = genericToJSON jsonOptions

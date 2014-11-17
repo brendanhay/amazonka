@@ -159,6 +159,16 @@ udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp =
     lens _udgrHooksNotCleanedUp (\s a -> s { _udgrHooksNotCleanedUp = a })
 
+instance ToPath UpdateDeploymentGroup where
+    toPath = const "/"
+
+instance ToQuery UpdateDeploymentGroup where
+    toQuery = const mempty
+
+instance ToHeaders UpdateDeploymentGroup
+instance ToJSON UpdateDeploymentGroup where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateDeploymentGroup where
     type Sv UpdateDeploymentGroup = CodeDeploy
     type Rs UpdateDeploymentGroup = UpdateDeploymentGroupResponse
@@ -168,14 +178,3 @@ instance AWSRequest UpdateDeploymentGroup where
 
 instance FromJSON UpdateDeploymentGroupResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateDeploymentGroup where
-    toPath = const "/"
-
-instance ToHeaders UpdateDeploymentGroup
-
-instance ToQuery UpdateDeploymentGroup where
-    toQuery = const mempty
-
-instance ToJSON UpdateDeploymentGroup where
-    toJSON = genericToJSON jsonOptions

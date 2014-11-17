@@ -101,6 +101,13 @@ usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderArn =
     lens _usamlprSAMLProviderArn (\s a -> s { _usamlprSAMLProviderArn = a })
 
+instance ToPath UpdateSAMLProvider where
+    toPath = const "/"
+
+instance ToQuery UpdateSAMLProvider
+
+instance ToHeaders UpdateSAMLProvider
+
 instance AWSRequest UpdateSAMLProvider where
     type Sv UpdateSAMLProvider = IAM
     type Rs UpdateSAMLProvider = UpdateSAMLProviderResponse
@@ -111,10 +118,3 @@ instance AWSRequest UpdateSAMLProvider where
 instance FromXML UpdateSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateSAMLProviderResponse"
-
-instance ToPath UpdateSAMLProvider where
-    toPath = const "/"
-
-instance ToHeaders UpdateSAMLProvider
-
-instance ToQuery UpdateSAMLProvider

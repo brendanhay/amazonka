@@ -143,6 +143,13 @@ dahrAlarmHistoryItems =
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
 
+instance ToPath DescribeAlarmHistory where
+    toPath = const "/"
+
+instance ToQuery DescribeAlarmHistory
+
+instance ToHeaders DescribeAlarmHistory
+
 instance AWSRequest DescribeAlarmHistory where
     type Sv DescribeAlarmHistory = CloudWatch
     type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
@@ -153,10 +160,3 @@ instance AWSRequest DescribeAlarmHistory where
 instance FromXML DescribeAlarmHistoryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAlarmHistoryResponse"
-
-instance ToPath DescribeAlarmHistory where
-    toPath = const "/"
-
-instance ToHeaders DescribeAlarmHistory
-
-instance ToQuery DescribeAlarmHistory

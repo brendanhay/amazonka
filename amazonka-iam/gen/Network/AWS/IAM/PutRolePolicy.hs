@@ -92,16 +92,16 @@ data PutRolePolicyResponse = PutRolePolicyResponse
 putRolePolicyResponse :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse
 
+instance ToPath PutRolePolicy where
+    toPath = const "/"
+
+instance ToQuery PutRolePolicy
+
+instance ToHeaders PutRolePolicy
+
 instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM
     type Rs PutRolePolicy = PutRolePolicyResponse
 
     request  = post "PutRolePolicy"
     response = nullResponse PutRolePolicyResponse
-
-instance ToPath PutRolePolicy where
-    toPath = const "/"
-
-instance ToHeaders PutRolePolicy
-
-instance ToQuery PutRolePolicy

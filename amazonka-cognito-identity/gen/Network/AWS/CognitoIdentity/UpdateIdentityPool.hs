@@ -197,6 +197,16 @@ uiprSupportedLoginProviders =
         (\s a -> s { _uiprSupportedLoginProviders = a })
             . _Map
 
+instance ToPath UpdateIdentityPool where
+    toPath = const "/"
+
+instance ToQuery UpdateIdentityPool where
+    toQuery = const mempty
+
+instance ToHeaders UpdateIdentityPool
+instance ToJSON UpdateIdentityPool where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateIdentityPool where
     type Sv UpdateIdentityPool = CognitoIdentity
     type Rs UpdateIdentityPool = UpdateIdentityPoolResponse
@@ -206,14 +216,3 @@ instance AWSRequest UpdateIdentityPool where
 
 instance FromJSON UpdateIdentityPoolResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateIdentityPool where
-    toPath = const "/"
-
-instance ToHeaders UpdateIdentityPool
-
-instance ToQuery UpdateIdentityPool where
-    toQuery = const mempty
-
-instance ToJSON UpdateIdentityPool where
-    toJSON = genericToJSON jsonOptions

@@ -96,6 +96,16 @@ bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo =
     lens _bgarApplicationsInfo (\s a -> s { _bgarApplicationsInfo = a })
 
+instance ToPath BatchGetApplications where
+    toPath = const "/"
+
+instance ToQuery BatchGetApplications where
+    toQuery = const mempty
+
+instance ToHeaders BatchGetApplications
+instance ToJSON BatchGetApplications where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest BatchGetApplications where
     type Sv BatchGetApplications = CodeDeploy
     type Rs BatchGetApplications = BatchGetApplicationsResponse
@@ -105,14 +115,3 @@ instance AWSRequest BatchGetApplications where
 
 instance FromJSON BatchGetApplicationsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath BatchGetApplications where
-    toPath = const "/"
-
-instance ToHeaders BatchGetApplications
-
-instance ToQuery BatchGetApplications where
-    toQuery = const mempty
-
-instance ToJSON BatchGetApplications where
-    toJSON = genericToJSON jsonOptions

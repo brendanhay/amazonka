@@ -94,6 +94,16 @@ describeTrailsResponse = DescribeTrailsResponse
 dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\s a -> s { _dtrTrailList = a })
 
+instance ToPath DescribeTrails where
+    toPath = const "/"
+
+instance ToQuery DescribeTrails where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTrails
+instance ToJSON DescribeTrails where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTrails where
     type Sv DescribeTrails = CloudTrail
     type Rs DescribeTrails = DescribeTrailsResponse
@@ -103,14 +113,3 @@ instance AWSRequest DescribeTrails where
 
 instance FromJSON DescribeTrailsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTrails where
-    toPath = const "/"
-
-instance ToHeaders DescribeTrails
-
-instance ToQuery DescribeTrails where
-    toQuery = const mempty
-
-instance ToJSON DescribeTrails where
-    toJSON = genericToJSON jsonOptions

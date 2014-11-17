@@ -80,20 +80,19 @@ data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse
 
+instance ToPath RemoveTagsFromStream where
+    toPath = const "/"
+
+instance ToQuery RemoveTagsFromStream where
+    toQuery = const mempty
+
+instance ToHeaders RemoveTagsFromStream
+instance ToJSON RemoveTagsFromStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RemoveTagsFromStream where
     type Sv RemoveTagsFromStream = Kinesis
     type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse
 
     request  = post
     response = nullResponse RemoveTagsFromStreamResponse
-
-instance ToPath RemoveTagsFromStream where
-    toPath = const "/"
-
-instance ToHeaders RemoveTagsFromStream
-
-instance ToQuery RemoveTagsFromStream where
-    toQuery = const mempty
-
-instance ToJSON RemoveTagsFromStream where
-    toJSON = genericToJSON jsonOptions

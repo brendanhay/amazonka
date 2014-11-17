@@ -2475,6 +2475,7 @@
                 "name": "CancelUpdateStackResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2553,6 +2554,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2611,6 +2614,7 @@
                 "name": "CreateStackResponse",
                 "resultWrapper": "CreateStackResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2756,6 +2760,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3106,6 +3112,7 @@
                 "name": "DeleteStackResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3184,6 +3191,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3225,6 +3234,7 @@
                 "name": "DescribeStackEventsResponse",
                 "resultWrapper": "DescribeStackEventsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3342,6 +3352,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3441,6 +3453,7 @@
                 "name": "DescribeStackResourceResponse",
                 "resultWrapper": "DescribeStackResourceResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3551,6 +3564,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3623,6 +3638,7 @@
                 "name": "DescribeStackResourcesResponse",
                 "resultWrapper": "DescribeStackResourcesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3709,6 +3725,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3821,6 +3839,7 @@
                 "name": "DescribeStacksResponse",
                 "resultWrapper": "DescribeStacksResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3938,6 +3957,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4039,6 +4060,7 @@
                 "name": "EstimateTemplateCostResponse",
                 "resultWrapper": "EstimateTemplateCostResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4124,6 +4146,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4253,6 +4277,7 @@
                 "name": "GetStackPolicyResponse",
                 "resultWrapper": "GetStackPolicyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4361,6 +4386,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4419,6 +4446,7 @@
                 "name": "GetTemplateResponse",
                 "resultWrapper": "GetTemplateResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4527,6 +4555,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4568,6 +4598,7 @@
                 "name": "GetTemplateSummaryResponse",
                 "resultWrapper": "GetTemplateSummaryResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4766,6 +4797,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4878,6 +4911,7 @@
                 "name": "ListStackResourcesResponse",
                 "resultWrapper": "ListStackResourcesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5010,6 +5044,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5080,6 +5116,7 @@
                 "name": "ListStacksResponse",
                 "resultWrapper": "ListStacksResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5197,6 +5234,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5281,6 +5320,7 @@
                 "name": "SetStackPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5352,6 +5392,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5450,6 +5492,7 @@
                 "name": "SignalResourceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5568,6 +5611,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5668,6 +5713,7 @@
                 "name": "UpdateStackResponse",
                 "resultWrapper": "UpdateStackResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5808,6 +5854,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6130,6 +6178,7 @@
                 "name": "ValidateTemplateResponse",
                 "resultWrapper": "ValidateTemplateResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6295,6 +6344,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

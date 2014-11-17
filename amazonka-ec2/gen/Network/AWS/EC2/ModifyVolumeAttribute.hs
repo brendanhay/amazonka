@@ -91,25 +91,16 @@ data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 
+instance ToPath ModifyVolumeAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifyVolumeAttribute
+
+instance ToHeaders ModifyVolumeAttribute
+
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse
 
     request  = post "ModifyVolumeAttribute"
     response = nullResponse ModifyVolumeAttributeResponse
-
-instance ToPath ModifyVolumeAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifyVolumeAttribute
-
-instance ToQuery ModifyVolumeAttribute where
-    toQuery ModifyVolumeAttribute{..} = mconcat
-        [ "dryRun"       =? _mvaDryRun
-        , "VolumeId"     =? _mvaVolumeId
-        , "AutoEnableIO" =? _mvaAutoEnableIO
-        ]
-
-instance ToXML ModifyVolumeAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifyVolumeAttribute"

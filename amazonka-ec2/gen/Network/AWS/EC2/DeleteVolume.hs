@@ -79,24 +79,16 @@ data DeleteVolumeResponse = DeleteVolumeResponse
 deleteVolumeResponse :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse
 
+instance ToPath DeleteVolume where
+    toPath = const "/"
+
+instance ToQuery DeleteVolume
+
+instance ToHeaders DeleteVolume
+
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request  = post "DeleteVolume"
     response = nullResponse DeleteVolumeResponse
-
-instance ToPath DeleteVolume where
-    toPath = const "/"
-
-instance ToHeaders DeleteVolume
-
-instance ToQuery DeleteVolume where
-    toQuery DeleteVolume{..} = mconcat
-        [ "dryRun"   =? _dv4DryRun
-        , "VolumeId" =? _dv4VolumeId
-        ]
-
-instance ToXML DeleteVolume where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteVolume"

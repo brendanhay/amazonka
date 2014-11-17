@@ -247,6 +247,16 @@ createLayerResponse = CreateLayerResponse
 clrLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrLayerId = lens _clrLayerId (\s a -> s { _clrLayerId = a })
 
+instance ToPath CreateLayer where
+    toPath = const "/"
+
+instance ToQuery CreateLayer where
+    toQuery = const mempty
+
+instance ToHeaders CreateLayer
+instance ToJSON CreateLayer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateLayer where
     type Sv CreateLayer = OpsWorks
     type Rs CreateLayer = CreateLayerResponse
@@ -256,14 +266,3 @@ instance AWSRequest CreateLayer where
 
 instance FromJSON CreateLayerResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateLayer where
-    toPath = const "/"
-
-instance ToHeaders CreateLayer
-
-instance ToQuery CreateLayer where
-    toQuery = const mempty
-
-instance ToJSON CreateLayer where
-    toJSON = genericToJSON jsonOptions

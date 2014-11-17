@@ -172,6 +172,13 @@ ddbevrDBEngineVersions =
 ddbevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
 
+instance ToPath DescribeDBEngineVersions where
+    toPath = const "/"
+
+instance ToQuery DescribeDBEngineVersions
+
+instance ToHeaders DescribeDBEngineVersions
+
 instance AWSRequest DescribeDBEngineVersions where
     type Sv DescribeDBEngineVersions = RDS
     type Rs DescribeDBEngineVersions = DescribeDBEngineVersionsResponse
@@ -182,10 +189,3 @@ instance AWSRequest DescribeDBEngineVersions where
 instance FromXML DescribeDBEngineVersionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBEngineVersionsResponse"
-
-instance ToPath DescribeDBEngineVersions where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBEngineVersions
-
-instance ToQuery DescribeDBEngineVersions

@@ -118,6 +118,13 @@ describeVpcsResponse = DescribeVpcsResponse
 dvrVpcs :: Lens' DescribeVpcsResponse [Vpc]
 dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
 
+instance ToPath DescribeVpcs where
+    toPath = const "/"
+
+instance ToQuery DescribeVpcs
+
+instance ToHeaders DescribeVpcs
+
 instance AWSRequest DescribeVpcs where
     type Sv DescribeVpcs = EC2
     type Rs DescribeVpcs = DescribeVpcsResponse
@@ -128,19 +135,3 @@ instance AWSRequest DescribeVpcs where
 instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpcsResponse"
-
-instance ToPath DescribeVpcs where
-    toPath = const "/"
-
-instance ToHeaders DescribeVpcs
-
-instance ToQuery DescribeVpcs where
-    toQuery DescribeVpcs{..} = mconcat
-        [ "dryRun" =? _dv1DryRun
-        , "VpcId"  =? _dv1VpcIds
-        , "Filter" =? _dv1Filters
-        ]
-
-instance ToXML DescribeVpcs where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVpcs"

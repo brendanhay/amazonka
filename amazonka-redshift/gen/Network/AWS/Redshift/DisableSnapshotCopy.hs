@@ -86,6 +86,13 @@ disableSnapshotCopyResponse = DisableSnapshotCopyResponse
 dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
 
+instance ToPath DisableSnapshotCopy where
+    toPath = const "/"
+
+instance ToQuery DisableSnapshotCopy
+
+instance ToHeaders DisableSnapshotCopy
+
 instance AWSRequest DisableSnapshotCopy where
     type Sv DisableSnapshotCopy = Redshift
     type Rs DisableSnapshotCopy = DisableSnapshotCopyResponse
@@ -96,10 +103,3 @@ instance AWSRequest DisableSnapshotCopy where
 instance FromXML DisableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableSnapshotCopyResponse"
-
-instance ToPath DisableSnapshotCopy where
-    toPath = const "/"
-
-instance ToHeaders DisableSnapshotCopy
-
-instance ToQuery DisableSnapshotCopy

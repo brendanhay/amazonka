@@ -157,6 +157,16 @@ lrdsrMaxItems = lens _lrdsrMaxItems (\s a -> s { _lrdsrMaxItems = a })
 lrdsrNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrNextMarker = lens _lrdsrNextMarker (\s a -> s { _lrdsrNextMarker = a })
 
+instance ToPath ListReusableDelegationSets where
+    toPath = const "/2013-04-01/delegationset"
+
+instance ToQuery ListReusableDelegationSets
+
+instance ToHeaders ListReusableDelegationSets
+instance ToXML ListReusableDelegationSets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListReusableDelegationSets"
+
 instance AWSRequest ListReusableDelegationSets where
     type Sv ListReusableDelegationSets = Route53
     type Rs ListReusableDelegationSets = ListReusableDelegationSetsResponse
@@ -167,18 +177,3 @@ instance AWSRequest ListReusableDelegationSets where
 instance FromXML ListReusableDelegationSetsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListReusableDelegationSetsResponse"
-
-instance ToPath ListReusableDelegationSets where
-    toPath = const "/2013-04-01/delegationset"
-
-instance ToHeaders ListReusableDelegationSets
-
-instance ToQuery ListReusableDelegationSets where
-    toQuery ListReusableDelegationSets{..} = mconcat
-        [ "marker"   =? _lrdsMarker
-        , "maxitems" =? _lrdsMaxItems
-        ]
-
-instance ToXML ListReusableDelegationSets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListReusableDelegationSets"

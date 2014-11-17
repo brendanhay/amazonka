@@ -96,6 +96,16 @@ retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })
 
+instance ToPath RetrieveTapeRecoveryPoint where
+    toPath = const "/"
+
+instance ToQuery RetrieveTapeRecoveryPoint where
+    toQuery = const mempty
+
+instance ToHeaders RetrieveTapeRecoveryPoint
+instance ToJSON RetrieveTapeRecoveryPoint where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RetrieveTapeRecoveryPoint where
     type Sv RetrieveTapeRecoveryPoint = StorageGateway
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse
@@ -105,14 +115,3 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
 
 instance FromJSON RetrieveTapeRecoveryPointResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RetrieveTapeRecoveryPoint where
-    toPath = const "/"
-
-instance ToHeaders RetrieveTapeRecoveryPoint
-
-instance ToQuery RetrieveTapeRecoveryPoint where
-    toQuery = const mempty
-
-instance ToJSON RetrieveTapeRecoveryPoint where
-    toJSON = genericToJSON jsonOptions

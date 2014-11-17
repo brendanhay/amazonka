@@ -106,16 +106,16 @@ data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResp
 recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
 
+instance ToPath RecordLifecycleActionHeartbeat where
+    toPath = const "/"
+
+instance ToQuery RecordLifecycleActionHeartbeat
+
+instance ToHeaders RecordLifecycleActionHeartbeat
+
 instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling
     type Rs RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeatResponse
 
     request  = post "RecordLifecycleActionHeartbeat"
     response = nullResponse RecordLifecycleActionHeartbeatResponse
-
-instance ToPath RecordLifecycleActionHeartbeat where
-    toPath = const "/"
-
-instance ToHeaders RecordLifecycleActionHeartbeat
-
-instance ToQuery RecordLifecycleActionHeartbeat

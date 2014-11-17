@@ -68,6 +68,14 @@ ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
     . _Map
 
+instance ToPath ListDomainNames where
+    toPath = const "/"
+
+instance ToQuery ListDomainNames where
+    toQuery = const mempty
+
+instance ToHeaders ListDomainNames
+
 instance AWSRequest ListDomainNames where
     type Sv ListDomainNames = CloudSearch
     type Rs ListDomainNames = ListDomainNamesResponse
@@ -78,10 +86,3 @@ instance AWSRequest ListDomainNames where
 instance FromXML ListDomainNamesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDomainNamesResponse"
-
-instance ToPath ListDomainNames where
-    toPath = const "/"
-
-instance ToHeaders ListDomainNames
-
-instance ToQuery ListDomainNames

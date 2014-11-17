@@ -90,16 +90,16 @@ data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProvider
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse
 updateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
 
+instance ToPath UpdateOpenIDConnectProviderThumbprint where
+    toPath = const "/"
+
+instance ToQuery UpdateOpenIDConnectProviderThumbprint
+
+instance ToHeaders UpdateOpenIDConnectProviderThumbprint
+
 instance AWSRequest UpdateOpenIDConnectProviderThumbprint where
     type Sv UpdateOpenIDConnectProviderThumbprint = IAM
     type Rs UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprintResponse
 
     request  = post "UpdateOpenIDConnectProviderThumbprint"
     response = nullResponse UpdateOpenIDConnectProviderThumbprintResponse
-
-instance ToPath UpdateOpenIDConnectProviderThumbprint where
-    toPath = const "/"
-
-instance ToHeaders UpdateOpenIDConnectProviderThumbprint
-
-instance ToQuery UpdateOpenIDConnectProviderThumbprint

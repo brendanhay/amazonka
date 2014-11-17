@@ -97,6 +97,13 @@ configureHealthCheckResponse = ConfigureHealthCheckResponse
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 
+instance ToPath ConfigureHealthCheck where
+    toPath = const "/"
+
+instance ToQuery ConfigureHealthCheck
+
+instance ToHeaders ConfigureHealthCheck
+
 instance AWSRequest ConfigureHealthCheck where
     type Sv ConfigureHealthCheck = ELB
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
@@ -107,10 +114,3 @@ instance AWSRequest ConfigureHealthCheck where
 instance FromXML ConfigureHealthCheckResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfigureHealthCheckResponse"
-
-instance ToPath ConfigureHealthCheck where
-    toPath = const "/"
-
-instance ToHeaders ConfigureHealthCheck
-
-instance ToQuery ConfigureHealthCheck

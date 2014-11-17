@@ -152,6 +152,13 @@ dcevrCacheEngineVersions =
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrMarker = lens _dcevrMarker (\s a -> s { _dcevrMarker = a })
 
+instance ToPath DescribeCacheEngineVersions where
+    toPath = const "/"
+
+instance ToQuery DescribeCacheEngineVersions
+
+instance ToHeaders DescribeCacheEngineVersions
+
 instance AWSRequest DescribeCacheEngineVersions where
     type Sv DescribeCacheEngineVersions = ElastiCache
     type Rs DescribeCacheEngineVersions = DescribeCacheEngineVersionsResponse
@@ -162,10 +169,3 @@ instance AWSRequest DescribeCacheEngineVersions where
 instance FromXML DescribeCacheEngineVersionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCacheEngineVersionsResponse"
-
-instance ToPath DescribeCacheEngineVersions where
-    toPath = const "/"
-
-instance ToHeaders DescribeCacheEngineVersions
-
-instance ToQuery DescribeCacheEngineVersions

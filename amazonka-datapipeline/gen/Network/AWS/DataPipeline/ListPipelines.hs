@@ -111,6 +111,16 @@ lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList =
     lens _lprPipelineIdList (\s a -> s { _lprPipelineIdList = a })
 
+instance ToPath ListPipelines where
+    toPath = const "/"
+
+instance ToQuery ListPipelines where
+    toQuery = const mempty
+
+instance ToHeaders ListPipelines
+instance ToJSON ListPipelines where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = DataPipeline
     type Rs ListPipelines = ListPipelinesResponse
@@ -120,14 +130,3 @@ instance AWSRequest ListPipelines where
 
 instance FromJSON ListPipelinesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListPipelines where
-    toPath = const "/"
-
-instance ToHeaders ListPipelines
-
-instance ToQuery ListPipelines where
-    toQuery = const mempty
-
-instance ToJSON ListPipelines where
-    toJSON = genericToJSON jsonOptions

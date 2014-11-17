@@ -80,24 +80,16 @@ data DisassociateRouteTableResponse = DisassociateRouteTableResponse
 disassociateRouteTableResponse :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse
 
+instance ToPath DisassociateRouteTable where
+    toPath = const "/"
+
+instance ToQuery DisassociateRouteTable
+
+instance ToHeaders DisassociateRouteTable
+
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2
     type Rs DisassociateRouteTable = DisassociateRouteTableResponse
 
     request  = post "DisassociateRouteTable"
     response = nullResponse DisassociateRouteTableResponse
-
-instance ToPath DisassociateRouteTable where
-    toPath = const "/"
-
-instance ToHeaders DisassociateRouteTable
-
-instance ToQuery DisassociateRouteTable where
-    toQuery DisassociateRouteTable{..} = mconcat
-        [ "dryRun"        =? _drtDryRun
-        , "associationId" =? _drtAssociationId
-        ]
-
-instance ToXML DisassociateRouteTable where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DisassociateRouteTable"

@@ -72,20 +72,19 @@ data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse
 stopConfigurationRecorderResponse :: StopConfigurationRecorderResponse
 stopConfigurationRecorderResponse = StopConfigurationRecorderResponse
 
+instance ToPath StopConfigurationRecorder where
+    toPath = const "/"
+
+instance ToQuery StopConfigurationRecorder where
+    toQuery = const mempty
+
+instance ToHeaders StopConfigurationRecorder
+instance ToJSON StopConfigurationRecorder where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StopConfigurationRecorder where
     type Sv StopConfigurationRecorder = Config
     type Rs StopConfigurationRecorder = StopConfigurationRecorderResponse
 
     request  = post
     response = nullResponse StopConfigurationRecorderResponse
-
-instance ToPath StopConfigurationRecorder where
-    toPath = const "/"
-
-instance ToHeaders StopConfigurationRecorder
-
-instance ToQuery StopConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToJSON StopConfigurationRecorder where
-    toJSON = genericToJSON jsonOptions

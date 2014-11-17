@@ -98,6 +98,16 @@ ldcrDeploymentConfigsList =
 ldcrNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
 ldcrNextToken = lens _ldcrNextToken (\s a -> s { _ldcrNextToken = a })
 
+instance ToPath ListDeploymentConfigs where
+    toPath = const "/"
+
+instance ToQuery ListDeploymentConfigs where
+    toQuery = const mempty
+
+instance ToHeaders ListDeploymentConfigs
+instance ToJSON ListDeploymentConfigs where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListDeploymentConfigs where
     type Sv ListDeploymentConfigs = CodeDeploy
     type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse
@@ -107,14 +117,3 @@ instance AWSRequest ListDeploymentConfigs where
 
 instance FromJSON ListDeploymentConfigsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListDeploymentConfigs where
-    toPath = const "/"
-
-instance ToHeaders ListDeploymentConfigs
-
-instance ToQuery ListDeploymentConfigs where
-    toQuery = const mempty
-
-instance ToJSON ListDeploymentConfigs where
-    toJSON = genericToJSON jsonOptions

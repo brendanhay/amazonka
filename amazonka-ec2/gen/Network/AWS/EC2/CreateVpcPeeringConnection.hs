@@ -118,6 +118,13 @@ cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection
         (\s a -> s { _cvpcrVpcPeeringConnection = a })
 
+instance ToPath CreateVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToQuery CreateVpcPeeringConnection
+
+instance ToHeaders CreateVpcPeeringConnection
+
 instance AWSRequest CreateVpcPeeringConnection where
     type Sv CreateVpcPeeringConnection = EC2
     type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResponse
@@ -128,20 +135,3 @@ instance AWSRequest CreateVpcPeeringConnection where
 instance FromXML CreateVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResponse"
-
-instance ToPath CreateVpcPeeringConnection where
-    toPath = const "/"
-
-instance ToHeaders CreateVpcPeeringConnection
-
-instance ToQuery CreateVpcPeeringConnection where
-    toQuery CreateVpcPeeringConnection{..} = mconcat
-        [ "dryRun"      =? _cvpcDryRun
-        , "vpcId"       =? _cvpcVpcId
-        , "peerVpcId"   =? _cvpcPeerVpcId
-        , "peerOwnerId" =? _cvpcPeerOwnerId
-        ]
-
-instance ToXML CreateVpcPeeringConnection where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVpcPeeringConnection"

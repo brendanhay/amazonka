@@ -88,25 +88,16 @@ data DeleteRouteResponse = DeleteRouteResponse
 deleteRouteResponse :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse
 
+instance ToPath DeleteRoute where
+    toPath = const "/"
+
+instance ToQuery DeleteRoute
+
+instance ToHeaders DeleteRoute
+
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2
     type Rs DeleteRoute = DeleteRouteResponse
 
     request  = post "DeleteRoute"
     response = nullResponse DeleteRouteResponse
-
-instance ToPath DeleteRoute where
-    toPath = const "/"
-
-instance ToHeaders DeleteRoute
-
-instance ToQuery DeleteRoute where
-    toQuery DeleteRoute{..} = mconcat
-        [ "dryRun"               =? _drDryRun
-        , "routeTableId"         =? _drRouteTableId
-        , "destinationCidrBlock" =? _drDestinationCidrBlock
-        ]
-
-instance ToXML DeleteRoute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteRoute"

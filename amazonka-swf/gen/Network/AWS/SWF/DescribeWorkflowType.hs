@@ -124,6 +124,16 @@ dwtrConfiguration =
 dwtrTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
 dwtrTypeInfo = lens _dwtrTypeInfo (\s a -> s { _dwtrTypeInfo = a })
 
+instance ToPath DescribeWorkflowType where
+    toPath = const "/"
+
+instance ToQuery DescribeWorkflowType where
+    toQuery = const mempty
+
+instance ToHeaders DescribeWorkflowType
+instance ToJSON DescribeWorkflowType where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeWorkflowType where
     type Sv DescribeWorkflowType = SWF
     type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse
@@ -133,14 +143,3 @@ instance AWSRequest DescribeWorkflowType where
 
 instance FromJSON DescribeWorkflowTypeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeWorkflowType where
-    toPath = const "/"
-
-instance ToHeaders DescribeWorkflowType
-
-instance ToQuery DescribeWorkflowType where
-    toQuery = const mempty
-
-instance ToJSON DescribeWorkflowType where
-    toJSON = genericToJSON jsonOptions

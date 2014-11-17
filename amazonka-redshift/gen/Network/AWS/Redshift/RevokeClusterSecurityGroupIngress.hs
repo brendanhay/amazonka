@@ -129,6 +129,13 @@ rcsgirClusterSecurityGroup =
     lens _rcsgirClusterSecurityGroup
         (\s a -> s { _rcsgirClusterSecurityGroup = a })
 
+instance ToPath RevokeClusterSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery RevokeClusterSecurityGroupIngress
+
+instance ToHeaders RevokeClusterSecurityGroupIngress
+
 instance AWSRequest RevokeClusterSecurityGroupIngress where
     type Sv RevokeClusterSecurityGroupIngress = Redshift
     type Rs RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngressResponse
@@ -139,10 +146,3 @@ instance AWSRequest RevokeClusterSecurityGroupIngress where
 instance FromXML RevokeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeClusterSecurityGroupIngressResponse"
-
-instance ToPath RevokeClusterSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders RevokeClusterSecurityGroupIngress
-
-instance ToQuery RevokeClusterSecurityGroupIngress

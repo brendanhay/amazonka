@@ -106,16 +106,16 @@ data EnableMFADeviceResponse = EnableMFADeviceResponse
 enableMFADeviceResponse :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse
 
+instance ToPath EnableMFADevice where
+    toPath = const "/"
+
+instance ToQuery EnableMFADevice
+
+instance ToHeaders EnableMFADevice
+
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM
     type Rs EnableMFADevice = EnableMFADeviceResponse
 
     request  = post "EnableMFADevice"
     response = nullResponse EnableMFADeviceResponse
-
-instance ToPath EnableMFADevice where
-    toPath = const "/"
-
-instance ToHeaders EnableMFADevice
-
-instance ToQuery EnableMFADevice

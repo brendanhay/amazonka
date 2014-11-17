@@ -193,6 +193,16 @@ ciprSupportedLoginProviders =
         (\s a -> s { _ciprSupportedLoginProviders = a })
             . _Map
 
+instance ToPath CreateIdentityPool where
+    toPath = const "/"
+
+instance ToQuery CreateIdentityPool where
+    toQuery = const mempty
+
+instance ToHeaders CreateIdentityPool
+instance ToJSON CreateIdentityPool where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateIdentityPool where
     type Sv CreateIdentityPool = CognitoIdentity
     type Rs CreateIdentityPool = CreateIdentityPoolResponse
@@ -202,14 +212,3 @@ instance AWSRequest CreateIdentityPool where
 
 instance FromJSON CreateIdentityPoolResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateIdentityPool where
-    toPath = const "/"
-
-instance ToHeaders CreateIdentityPool
-
-instance ToQuery CreateIdentityPool where
-    toQuery = const mempty
-
-instance ToJSON CreateIdentityPool where
-    toJSON = genericToJSON jsonOptions

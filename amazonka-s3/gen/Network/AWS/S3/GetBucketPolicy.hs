@@ -81,6 +81,20 @@ getBucketPolicyResponse = GetBucketPolicyResponse
 gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprPolicy = lens _gbprPolicy (\s a -> s { _gbprPolicy = a })
 
+instance ToPath GetBucketPolicy where
+    toPath GetBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _gbpBucket
+        ]
+
+instance ToQuery GetBucketPolicy where
+    toQuery = const "policy"
+
+instance ToHeaders GetBucketPolicy
+instance ToXML GetBucketPolicy where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketPolicy"
+
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
     type Rs GetBucketPolicy = GetBucketPolicyResponse
@@ -91,18 +105,3 @@ instance AWSRequest GetBucketPolicy where
 instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketPolicyResponse"
-
-instance ToPath GetBucketPolicy where
-    toPath GetBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _gbpBucket
-        ]
-
-instance ToHeaders GetBucketPolicy
-
-instance ToQuery GetBucketPolicy where
-    toQuery = const "policy"
-
-instance ToXML GetBucketPolicy where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketPolicy"

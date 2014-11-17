@@ -213,20 +213,19 @@ data UpdateLayerResponse = UpdateLayerResponse
 updateLayerResponse :: UpdateLayerResponse
 updateLayerResponse = UpdateLayerResponse
 
+instance ToPath UpdateLayer where
+    toPath = const "/"
+
+instance ToQuery UpdateLayer where
+    toQuery = const mempty
+
+instance ToHeaders UpdateLayer
+instance ToJSON UpdateLayer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks
     type Rs UpdateLayer = UpdateLayerResponse
 
     request  = post
     response = nullResponse UpdateLayerResponse
-
-instance ToPath UpdateLayer where
-    toPath = const "/"
-
-instance ToHeaders UpdateLayer
-
-instance ToQuery UpdateLayer where
-    toQuery = const mempty
-
-instance ToJSON UpdateLayer where
-    toJSON = genericToJSON jsonOptions

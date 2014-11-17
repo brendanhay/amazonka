@@ -150,6 +150,16 @@ rerKeyId = lens _rerKeyId (\s a -> s { _rerKeyId = a })
 rerSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rerSourceKeyId = lens _rerSourceKeyId (\s a -> s { _rerSourceKeyId = a })
 
+instance ToPath ReEncrypt where
+    toPath = const "/"
+
+instance ToQuery ReEncrypt where
+    toQuery = const mempty
+
+instance ToHeaders ReEncrypt
+instance ToJSON ReEncrypt where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ReEncrypt where
     type Sv ReEncrypt = KMS
     type Rs ReEncrypt = ReEncryptResponse
@@ -159,14 +169,3 @@ instance AWSRequest ReEncrypt where
 
 instance FromJSON ReEncryptResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ReEncrypt where
-    toPath = const "/"
-
-instance ToHeaders ReEncrypt
-
-instance ToQuery ReEncrypt where
-    toQuery = const mempty
-
-instance ToJSON ReEncrypt where
-    toJSON = genericToJSON jsonOptions

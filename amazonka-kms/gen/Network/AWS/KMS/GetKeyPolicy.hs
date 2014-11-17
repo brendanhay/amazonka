@@ -94,6 +94,16 @@ getKeyPolicyResponse = GetKeyPolicyResponse
 gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\s a -> s { _gkprPolicy = a })
 
+instance ToPath GetKeyPolicy where
+    toPath = const "/"
+
+instance ToQuery GetKeyPolicy where
+    toQuery = const mempty
+
+instance ToHeaders GetKeyPolicy
+instance ToJSON GetKeyPolicy where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetKeyPolicy where
     type Sv GetKeyPolicy = KMS
     type Rs GetKeyPolicy = GetKeyPolicyResponse
@@ -103,14 +113,3 @@ instance AWSRequest GetKeyPolicy where
 
 instance FromJSON GetKeyPolicyResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetKeyPolicy where
-    toPath = const "/"
-
-instance ToHeaders GetKeyPolicy
-
-instance ToQuery GetKeyPolicy where
-    toQuery = const mempty
-
-instance ToJSON GetKeyPolicy where
-    toJSON = genericToJSON jsonOptions

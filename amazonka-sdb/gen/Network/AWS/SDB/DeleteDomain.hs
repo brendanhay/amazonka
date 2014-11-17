@@ -70,16 +70,16 @@ data DeleteDomainResponse = DeleteDomainResponse
 deleteDomainResponse :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse
 
+instance ToPath DeleteDomain where
+    toPath = const "/"
+
+instance ToQuery DeleteDomain
+
+instance ToHeaders DeleteDomain
+
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = SDB
     type Rs DeleteDomain = DeleteDomainResponse
 
     request  = post "DeleteDomain"
     response = nullResponse DeleteDomainResponse
-
-instance ToPath DeleteDomain where
-    toPath = const "/"
-
-instance ToHeaders DeleteDomain
-
-instance ToQuery DeleteDomain

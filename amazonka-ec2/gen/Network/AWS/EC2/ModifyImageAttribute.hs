@@ -155,32 +155,16 @@ data ModifyImageAttributeResponse = ModifyImageAttributeResponse
 modifyImageAttributeResponse :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse
 
+instance ToPath ModifyImageAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifyImageAttribute
+
+instance ToHeaders ModifyImageAttribute
+
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse
 
     request  = post "ModifyImageAttribute"
     response = nullResponse ModifyImageAttributeResponse
-
-instance ToPath ModifyImageAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifyImageAttribute
-
-instance ToQuery ModifyImageAttribute where
-    toQuery ModifyImageAttribute{..} = mconcat
-        [ "dryRun"           =? _miaDryRun
-        , "ImageId"          =? _miaImageId
-        , "Attribute"        =? _miaAttribute
-        , "OperationType"    =? _miaOperationType
-        , "UserId"           =? _miaUserIds
-        , "UserGroup"        =? _miaUserGroups
-        , "ProductCode"      =? _miaProductCodes
-        , "Value"            =? _miaValue
-        , "LaunchPermission" =? _miaLaunchPermission
-        , "Description"      =? _miaDescription
-        ]
-
-instance ToXML ModifyImageAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifyImageAttribute"

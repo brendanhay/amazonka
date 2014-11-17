@@ -120,6 +120,13 @@ ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrWarningMessage =
     lens _ujrWarningMessage (\s a -> s { _ujrWarningMessage = a })
 
+instance ToPath UpdateJob where
+    toPath = const "/"
+
+instance ToQuery UpdateJob
+
+instance ToHeaders UpdateJob
+
 instance AWSRequest UpdateJob where
     type Sv UpdateJob = ImportExport
     type Rs UpdateJob = UpdateJobResponse
@@ -130,10 +137,3 @@ instance AWSRequest UpdateJob where
 instance FromXML UpdateJobResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateJobResponse"
-
-instance ToPath UpdateJob where
-    toPath = const "/"
-
-instance ToHeaders UpdateJob
-
-instance ToQuery UpdateJob

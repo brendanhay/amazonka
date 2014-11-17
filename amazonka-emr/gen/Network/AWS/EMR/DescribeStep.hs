@@ -92,6 +92,16 @@ describeStepResponse = DescribeStepResponse
 dsrStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrStep = lens _dsrStep (\s a -> s { _dsrStep = a })
 
+instance ToPath DescribeStep where
+    toPath = const "/"
+
+instance ToQuery DescribeStep where
+    toQuery = const mempty
+
+instance ToHeaders DescribeStep
+instance ToJSON DescribeStep where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeStep where
     type Sv DescribeStep = EMR
     type Rs DescribeStep = DescribeStepResponse
@@ -101,14 +111,3 @@ instance AWSRequest DescribeStep where
 
 instance FromJSON DescribeStepResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeStep where
-    toPath = const "/"
-
-instance ToHeaders DescribeStep
-
-instance ToQuery DescribeStep where
-    toQuery = const mempty
-
-instance ToJSON DescribeStep where
-    toJSON = genericToJSON jsonOptions

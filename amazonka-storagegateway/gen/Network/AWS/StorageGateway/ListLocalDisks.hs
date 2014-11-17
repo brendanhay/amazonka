@@ -92,6 +92,16 @@ lldrDisks = lens _lldrDisks (\s a -> s { _lldrDisks = a })
 lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrGatewayARN = lens _lldrGatewayARN (\s a -> s { _lldrGatewayARN = a })
 
+instance ToPath ListLocalDisks where
+    toPath = const "/"
+
+instance ToQuery ListLocalDisks where
+    toQuery = const mempty
+
+instance ToHeaders ListLocalDisks
+instance ToJSON ListLocalDisks where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListLocalDisks where
     type Sv ListLocalDisks = StorageGateway
     type Rs ListLocalDisks = ListLocalDisksResponse
@@ -101,14 +111,3 @@ instance AWSRequest ListLocalDisks where
 
 instance FromJSON ListLocalDisksResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListLocalDisks where
-    toPath = const "/"
-
-instance ToHeaders ListLocalDisks
-
-instance ToQuery ListLocalDisks where
-    toQuery = const mempty
-
-instance ToJSON ListLocalDisks where
-    toJSON = genericToJSON jsonOptions

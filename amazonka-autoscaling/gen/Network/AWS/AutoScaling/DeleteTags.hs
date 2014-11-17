@@ -76,16 +76,16 @@ data DeleteTagsResponse = DeleteTagsResponse
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
 
+instance ToPath DeleteTags where
+    toPath = const "/"
+
+instance ToQuery DeleteTags
+
+instance ToHeaders DeleteTags
+
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = AutoScaling
     type Rs DeleteTags = DeleteTagsResponse
 
     request  = post "DeleteTags"
     response = nullResponse DeleteTagsResponse
-
-instance ToPath DeleteTags where
-    toPath = const "/"
-
-instance ToHeaders DeleteTags
-
-instance ToQuery DeleteTags

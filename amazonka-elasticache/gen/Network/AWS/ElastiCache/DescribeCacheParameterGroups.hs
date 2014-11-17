@@ -121,6 +121,13 @@ dcpgrCacheParameterGroups =
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
+instance ToPath DescribeCacheParameterGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeCacheParameterGroups
+
+instance ToHeaders DescribeCacheParameterGroups
+
 instance AWSRequest DescribeCacheParameterGroups where
     type Sv DescribeCacheParameterGroups = ElastiCache
     type Rs DescribeCacheParameterGroups = DescribeCacheParameterGroupsResponse
@@ -131,10 +138,3 @@ instance AWSRequest DescribeCacheParameterGroups where
 instance FromXML DescribeCacheParameterGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCacheParameterGroupsResponse"
-
-instance ToPath DescribeCacheParameterGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeCacheParameterGroups
-
-instance ToQuery DescribeCacheParameterGroups

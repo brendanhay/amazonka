@@ -330,25 +330,18 @@ upcrServerSideEncryption =
     lens _upcrServerSideEncryption
         (\s a -> s { _upcrServerSideEncryption = a })
 
-instance AWSRequest UploadPartCopy where
-    type Sv UploadPartCopy = S3
-    type Rs UploadPartCopy = UploadPartCopyResponse
-
-    request  = put
-    response = xmlHeaderResponse $ \h x -> UploadPartCopyResponse
-        <$> x %| "CopyPartResult"
-        <*> h ~:? "x-amz-copy-source-version-id"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
-        <*> h ~:? "x-amz-server-side-encryption"
-
 instance ToPath UploadPartCopy where
     toPath UploadPartCopy{..} = mconcat
         [ "/"
         , toText _upcBucket
         , "/"
         , toText _upcKey
+        ]
+
+instance ToQuery UploadPartCopy where
+    toQuery UploadPartCopy{..} = mconcat
+          [   "partNumber" =? _upcPartNumber
+          ,   "uploadId"   =? _upcUploadId
         ]
 
 instance ToHeaders UploadPartCopy where
@@ -367,13 +360,19 @@ instance ToHeaders UploadPartCopy where
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _upcCopySourceSSEKMSKeyId
         ]
-
-instance ToQuery UploadPartCopy where
-    toQuery UploadPartCopy{..} = mconcat
-        [ "partNumber" =? _upcPartNumber
-        , "uploadId"   =? _upcUploadId
-        ]
-
 instance ToXML UploadPartCopy where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "UploadPartCopy"
+
+instance AWSRequest UploadPartCopy where
+    type Sv UploadPartCopy = S3
+    type Rs UploadPartCopy = UploadPartCopyResponse
+
+    request  = put
+    response = xmlHeaderResponse $ \h x -> UploadPartCopyResponse
+        <$> x %| "CopyPartResult"
+        <*> h ~:? "x-amz-copy-source-version-id"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
+        <*> h ~:? "x-amz-server-side-encryption"

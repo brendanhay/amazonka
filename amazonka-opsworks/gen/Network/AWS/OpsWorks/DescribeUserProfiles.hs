@@ -95,6 +95,16 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a })
 
+instance ToPath DescribeUserProfiles where
+    toPath = const "/"
+
+instance ToQuery DescribeUserProfiles where
+    toQuery = const mempty
+
+instance ToHeaders DescribeUserProfiles
+instance ToJSON DescribeUserProfiles where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeUserProfiles where
     type Sv DescribeUserProfiles = OpsWorks
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse
@@ -104,14 +114,3 @@ instance AWSRequest DescribeUserProfiles where
 
 instance FromJSON DescribeUserProfilesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeUserProfiles where
-    toPath = const "/"
-
-instance ToHeaders DescribeUserProfiles
-
-instance ToQuery DescribeUserProfiles where
-    toQuery = const mempty
-
-instance ToJSON DescribeUserProfiles where
-    toJSON = genericToJSON jsonOptions

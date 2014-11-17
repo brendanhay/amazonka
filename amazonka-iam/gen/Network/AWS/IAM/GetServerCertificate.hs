@@ -87,6 +87,13 @@ gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate =
     lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })
 
+instance ToPath GetServerCertificate where
+    toPath = const "/"
+
+instance ToQuery GetServerCertificate
+
+instance ToHeaders GetServerCertificate
+
 instance AWSRequest GetServerCertificate where
     type Sv GetServerCertificate = IAM
     type Rs GetServerCertificate = GetServerCertificateResponse
@@ -97,10 +104,3 @@ instance AWSRequest GetServerCertificate where
 instance FromXML GetServerCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetServerCertificateResponse"
-
-instance ToPath GetServerCertificate where
-    toPath = const "/"
-
-instance ToHeaders GetServerCertificate
-
-instance ToQuery GetServerCertificate

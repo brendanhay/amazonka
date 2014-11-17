@@ -123,16 +123,16 @@ data PutAttributesResponse = PutAttributesResponse
 putAttributesResponse :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse
 
+instance ToPath PutAttributes where
+    toPath = const "/"
+
+instance ToQuery PutAttributes
+
+instance ToHeaders PutAttributes
+
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SDB
     type Rs PutAttributes = PutAttributesResponse
 
     request  = post "PutAttributes"
     response = nullResponse PutAttributesResponse
-
-instance ToPath PutAttributes where
-    toPath = const "/"
-
-instance ToHeaders PutAttributes
-
-instance ToQuery PutAttributes

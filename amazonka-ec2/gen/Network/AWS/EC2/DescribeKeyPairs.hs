@@ -106,6 +106,13 @@ describeKeyPairsResponse = DescribeKeyPairsResponse
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
 
+instance ToPath DescribeKeyPairs where
+    toPath = const "/"
+
+instance ToQuery DescribeKeyPairs
+
+instance ToHeaders DescribeKeyPairs
+
 instance AWSRequest DescribeKeyPairs where
     type Sv DescribeKeyPairs = EC2
     type Rs DescribeKeyPairs = DescribeKeyPairsResponse
@@ -116,19 +123,3 @@ instance AWSRequest DescribeKeyPairs where
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeKeyPairsResponse"
-
-instance ToPath DescribeKeyPairs where
-    toPath = const "/"
-
-instance ToHeaders DescribeKeyPairs
-
-instance ToQuery DescribeKeyPairs where
-    toQuery DescribeKeyPairs{..} = mconcat
-        [ "dryRun"  =? _dkp1DryRun
-        , "KeyName" =? _dkp1KeyNames
-        , "Filter"  =? _dkp1Filters
-        ]
-
-instance ToXML DescribeKeyPairs where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeKeyPairs"

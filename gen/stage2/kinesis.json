@@ -763,6 +763,7 @@
                 "name": "AddTagsToStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -817,6 +818,8 @@
                 "name": "AddTagsToStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -887,6 +890,7 @@
                 "name": "CreateStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -956,6 +960,8 @@
                 "name": "CreateStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1011,6 +1017,7 @@
                 "name": "DeleteStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1083,6 +1090,8 @@
                 "name": "DeleteStream",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1154,6 +1163,7 @@
                 "name": "DescribeStreamResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1232,6 +1242,8 @@
                 "name": "DescribeStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1330,6 +1342,7 @@
                 "name": "GetRecordsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1443,6 +1456,8 @@
                 "name": "GetRecords",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1530,6 +1545,7 @@
                 "name": "GetShardIteratorResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1643,6 +1659,8 @@
                 "name": "GetShardIterator",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1757,6 +1775,7 @@
                 "name": "ListStreamsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1849,6 +1868,8 @@
                 "name": "ListStreams",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1948,6 +1969,7 @@
                 "name": "ListTagsForStreamResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2047,6 +2069,8 @@
                 "name": "ListTagsForStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2145,6 +2169,7 @@
                 "name": "MergeShardsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2228,6 +2253,8 @@
                 "name": "MergeShards",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2327,6 +2354,7 @@
                 "name": "PutRecordResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2438,6 +2466,8 @@
                 "name": "PutRecord",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2564,6 +2594,7 @@
                 "name": "RemoveTagsFromStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2633,6 +2664,8 @@
                 "name": "RemoveTagsFromStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2688,6 +2721,7 @@
                 "name": "SplitShardResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2771,6 +2805,8 @@
                 "name": "SplitShard",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

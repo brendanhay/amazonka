@@ -173,6 +173,13 @@ dodbiorOrderableDBInstanceOptions =
     lens _dodbiorOrderableDBInstanceOptions
         (\s a -> s { _dodbiorOrderableDBInstanceOptions = a })
 
+instance ToPath DescribeOrderableDBInstanceOptions where
+    toPath = const "/"
+
+instance ToQuery DescribeOrderableDBInstanceOptions
+
+instance ToHeaders DescribeOrderableDBInstanceOptions
+
 instance AWSRequest DescribeOrderableDBInstanceOptions where
     type Sv DescribeOrderableDBInstanceOptions = RDS
     type Rs DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptionsResponse
@@ -183,10 +190,3 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeOrderableDBInstanceOptionsResponse"
-
-instance ToPath DescribeOrderableDBInstanceOptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeOrderableDBInstanceOptions
-
-instance ToQuery DescribeOrderableDBInstanceOptions

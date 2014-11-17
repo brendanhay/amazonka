@@ -111,6 +111,20 @@ ghzrVPCs :: Lens' GetHostedZoneResponse (NonEmpty VPC)
 ghzrVPCs = lens _ghzrVPCs (\s a -> s { _ghzrVPCs = a })
     . _List1
 
+instance ToPath GetHostedZone where
+    toPath GetHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _ghzId
+        ]
+
+instance ToQuery GetHostedZone where
+    toQuery = const mempty
+
+instance ToHeaders GetHostedZone
+instance ToXML GetHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHostedZone"
+
 instance AWSRequest GetHostedZone where
     type Sv GetHostedZone = Route53
     type Rs GetHostedZone = GetHostedZoneResponse
@@ -121,18 +135,3 @@ instance AWSRequest GetHostedZone where
 instance FromXML GetHostedZoneResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetHostedZoneResponse"
-
-instance ToPath GetHostedZone where
-    toPath GetHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _ghzId
-        ]
-
-instance ToHeaders GetHostedZone
-
-instance ToQuery GetHostedZone where
-    toQuery = const mempty
-
-instance ToXML GetHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHostedZone"

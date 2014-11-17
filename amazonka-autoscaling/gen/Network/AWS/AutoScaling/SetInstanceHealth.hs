@@ -99,16 +99,16 @@ data SetInstanceHealthResponse = SetInstanceHealthResponse
 setInstanceHealthResponse :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse
 
+instance ToPath SetInstanceHealth where
+    toPath = const "/"
+
+instance ToQuery SetInstanceHealth
+
+instance ToHeaders SetInstanceHealth
+
 instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling
     type Rs SetInstanceHealth = SetInstanceHealthResponse
 
     request  = post "SetInstanceHealth"
     response = nullResponse SetInstanceHealthResponse
-
-instance ToPath SetInstanceHealth where
-    toPath = const "/"
-
-instance ToHeaders SetInstanceHealth
-
-instance ToQuery SetInstanceHealth

@@ -94,6 +94,16 @@ gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummar
 gdirInstanceSummary =
     lens _gdirInstanceSummary (\s a -> s { _gdirInstanceSummary = a })
 
+instance ToPath GetDeploymentInstance where
+    toPath = const "/"
+
+instance ToQuery GetDeploymentInstance where
+    toQuery = const mempty
+
+instance ToHeaders GetDeploymentInstance
+instance ToJSON GetDeploymentInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetDeploymentInstance where
     type Sv GetDeploymentInstance = CodeDeploy
     type Rs GetDeploymentInstance = GetDeploymentInstanceResponse
@@ -103,14 +113,3 @@ instance AWSRequest GetDeploymentInstance where
 
 instance FromJSON GetDeploymentInstanceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetDeploymentInstance where
-    toPath = const "/"
-
-instance ToHeaders GetDeploymentInstance
-
-instance ToQuery GetDeploymentInstance where
-    toQuery = const mempty
-
-instance ToJSON GetDeploymentInstance where
-    toJSON = genericToJSON jsonOptions

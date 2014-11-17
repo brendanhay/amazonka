@@ -92,6 +92,13 @@ givarVerificationAttributes =
         (\s a -> s { _givarVerificationAttributes = a })
             . _Map
 
+instance ToPath GetIdentityVerificationAttributes where
+    toPath = const "/"
+
+instance ToQuery GetIdentityVerificationAttributes
+
+instance ToHeaders GetIdentityVerificationAttributes
+
 instance AWSRequest GetIdentityVerificationAttributes where
     type Sv GetIdentityVerificationAttributes = SES
     type Rs GetIdentityVerificationAttributes = GetIdentityVerificationAttributesResponse
@@ -102,10 +109,3 @@ instance AWSRequest GetIdentityVerificationAttributes where
 instance FromXML GetIdentityVerificationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetIdentityVerificationAttributesResponse"
-
-instance ToPath GetIdentityVerificationAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetIdentityVerificationAttributes
-
-instance ToQuery GetIdentityVerificationAttributes

@@ -84,27 +84,26 @@ data PutBucketCorsResponse = PutBucketCorsResponse
 putBucketCorsResponse :: PutBucketCorsResponse
 putBucketCorsResponse = PutBucketCorsResponse
 
-instance AWSRequest PutBucketCors where
-    type Sv PutBucketCors = S3
-    type Rs PutBucketCors = PutBucketCorsResponse
-
-    request  = put
-    response = nullResponse PutBucketCorsResponse
-
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat
         [ "/"
         , toText _pbcBucket
         ]
 
+instance ToQuery PutBucketCors where
+    toQuery = const "cors"
+
 instance ToHeaders PutBucketCors where
     toHeaders PutBucketCors{..} = mconcat
         [ "Content-MD5" =: _pbcContentMD5
         ]
-
-instance ToQuery PutBucketCors where
-    toQuery = const "cors"
-
 instance ToXML PutBucketCors where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketCors"
+
+instance AWSRequest PutBucketCors where
+    type Sv PutBucketCors = S3
+    type Rs PutBucketCors = PutBucketCorsResponse
+
+    request  = put
+    response = nullResponse PutBucketCorsResponse

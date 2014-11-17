@@ -142,6 +142,13 @@ drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstan
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
 
+instance ToPath DescribeReservedInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedInstances
+
+instance ToHeaders DescribeReservedInstances
+
 instance AWSRequest DescribeReservedInstances where
     type Sv DescribeReservedInstances = EC2
     type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
@@ -152,20 +159,3 @@ instance AWSRequest DescribeReservedInstances where
 instance FromXML DescribeReservedInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesResponse"
-
-instance ToPath DescribeReservedInstances where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedInstances
-
-instance ToQuery DescribeReservedInstances where
-    toQuery DescribeReservedInstances{..} = mconcat
-        [ "dryRun"              =? _driDryRun
-        , "ReservedInstancesId" =? _driReservedInstancesIds
-        , "Filter"              =? _driFilters
-        , "offeringType"        =? _driOfferingType
-        ]
-
-instance ToXML DescribeReservedInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeReservedInstances"

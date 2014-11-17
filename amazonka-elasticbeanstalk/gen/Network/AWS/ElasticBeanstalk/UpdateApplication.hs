@@ -94,6 +94,13 @@ updateApplicationResponse = UpdateApplicationResponse
 uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
 uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
 
+instance ToPath UpdateApplication where
+    toPath = const "/"
+
+instance ToQuery UpdateApplication
+
+instance ToHeaders UpdateApplication
+
 instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = ElasticBeanstalk
     type Rs UpdateApplication = UpdateApplicationResponse
@@ -104,10 +111,3 @@ instance AWSRequest UpdateApplication where
 instance FromXML UpdateApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateApplicationResponse"
-
-instance ToPath UpdateApplication where
-    toPath = const "/"
-
-instance ToHeaders UpdateApplication
-
-instance ToQuery UpdateApplication

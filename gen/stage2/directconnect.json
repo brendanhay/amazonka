@@ -2160,6 +2160,7 @@
                 "name": "AllocateConnectionOnInterconnectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2525,6 +2526,8 @@
                 "name": "AllocateConnectionOnInterconnect",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2622,6 +2625,7 @@
                 "name": "AllocatePrivateVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3126,6 +3130,8 @@
                 "name": "AllocatePrivateVirtualInterface",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3195,6 +3201,7 @@
                 "name": "AllocatePublicVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3699,6 +3706,8 @@
                 "name": "AllocatePublicVirtualInterface",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3785,6 +3794,7 @@
                 "name": "ConfirmConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3887,6 +3897,8 @@
                 "name": "ConfirmConnection",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3945,6 +3957,7 @@
                 "name": "ConfirmPrivateVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4044,6 +4057,8 @@
                 "name": "ConfirmPrivateVirtualInterface",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4116,6 +4131,7 @@
                 "name": "ConfirmPublicVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4218,6 +4234,8 @@
                 "name": "ConfirmPublicVirtualInterface",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4260,6 +4278,7 @@
                 "name": "CreateConnectionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4597,6 +4616,8 @@
                 "name": "CreateConnection",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4667,6 +4688,7 @@
                 "name": "CreateInterconnectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4920,6 +4942,8 @@
                 "name": "CreateInterconnect",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4989,6 +5013,7 @@
                 "name": "CreatePrivateVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5479,6 +5504,8 @@
                 "name": "CreatePrivateVirtualInterface",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5534,6 +5561,7 @@
                 "name": "CreatePublicVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6024,6 +6052,8 @@
                 "name": "CreatePublicVirtualInterface",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6080,6 +6110,7 @@
                 "name": "DeleteConnectionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6406,6 +6437,8 @@
                 "name": "DeleteConnection",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6464,6 +6497,7 @@
                 "name": "DeleteInterconnectResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6566,6 +6600,8 @@
                 "name": "DeleteInterconnect",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6624,6 +6660,7 @@
                 "name": "DeleteVirtualInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6726,6 +6763,8 @@
                 "name": "DeleteVirtualInterface",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6784,6 +6823,7 @@
                 "name": "DescribeConnectionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6870,6 +6910,8 @@
                 "name": "DescribeConnections",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6943,6 +6985,7 @@
                 "name": "DescribeConnectionsOnInterconnectResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7045,6 +7088,8 @@
                 "name": "DescribeConnectionsOnInterconnect",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7103,6 +7148,7 @@
                 "name": "DescribeInterconnectsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7189,6 +7235,8 @@
                 "name": "DescribeInterconnects",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7262,6 +7310,7 @@
                 "name": "DescribeLocationsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7313,7 +7362,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeLocations",
                 "headerPad": 0,
@@ -7331,6 +7380,8 @@
                 "name": "DescribeLocations",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -7374,6 +7425,7 @@
                 "name": "DescribeVirtualGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7425,7 +7477,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeVirtualGateways",
                 "headerPad": 0,
@@ -7443,6 +7495,8 @@
                 "name": "DescribeVirtualGateways",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -7486,6 +7540,7 @@
                 "name": "DescribeVirtualInterfacesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7556,6 +7611,8 @@
                 "name": "DescribeVirtualInterfaces",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

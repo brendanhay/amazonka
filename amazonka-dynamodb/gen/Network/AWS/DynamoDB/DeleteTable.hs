@@ -90,6 +90,16 @@ dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrTableDescription =
     lens _dtrTableDescription (\s a -> s { _dtrTableDescription = a })
 
+instance ToPath DeleteTable where
+    toPath = const "/"
+
+instance ToQuery DeleteTable where
+    toQuery = const mempty
+
+instance ToHeaders DeleteTable
+instance ToJSON DeleteTable where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteTable where
     type Sv DeleteTable = DynamoDB
     type Rs DeleteTable = DeleteTableResponse
@@ -99,14 +109,3 @@ instance AWSRequest DeleteTable where
 
 instance FromJSON DeleteTableResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteTable where
-    toPath = const "/"
-
-instance ToHeaders DeleteTable
-
-instance ToQuery DeleteTable where
-    toQuery = const mempty
-
-instance ToJSON DeleteTable where
-    toJSON = genericToJSON jsonOptions

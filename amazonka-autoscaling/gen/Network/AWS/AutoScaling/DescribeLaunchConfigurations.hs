@@ -114,6 +114,13 @@ dlcrLaunchConfigurations =
 dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
 
+instance ToPath DescribeLaunchConfigurations where
+    toPath = const "/"
+
+instance ToQuery DescribeLaunchConfigurations
+
+instance ToHeaders DescribeLaunchConfigurations
+
 instance AWSRequest DescribeLaunchConfigurations where
     type Sv DescribeLaunchConfigurations = AutoScaling
     type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
@@ -124,10 +131,3 @@ instance AWSRequest DescribeLaunchConfigurations where
 instance FromXML DescribeLaunchConfigurationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLaunchConfigurationsResponse"
-
-instance ToPath DescribeLaunchConfigurations where
-    toPath = const "/"
-
-instance ToHeaders DescribeLaunchConfigurations
-
-instance ToQuery DescribeLaunchConfigurations

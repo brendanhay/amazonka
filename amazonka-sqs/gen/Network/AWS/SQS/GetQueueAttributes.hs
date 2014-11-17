@@ -117,6 +117,13 @@ gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
     . _Map
 
+instance ToPath GetQueueAttributes where
+    toPath = const "/"
+
+instance ToQuery GetQueueAttributes
+
+instance ToHeaders GetQueueAttributes
+
 instance AWSRequest GetQueueAttributes where
     type Sv GetQueueAttributes = SQS
     type Rs GetQueueAttributes = GetQueueAttributesResponse
@@ -127,10 +134,3 @@ instance AWSRequest GetQueueAttributes where
 instance FromXML GetQueueAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetQueueAttributesResponse"
-
-instance ToPath GetQueueAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetQueueAttributes
-
-instance ToQuery GetQueueAttributes

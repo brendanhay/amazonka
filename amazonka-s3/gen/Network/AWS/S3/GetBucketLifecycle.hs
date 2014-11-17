@@ -86,6 +86,20 @@ getBucketLifecycleResponse = GetBucketLifecycleResponse
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
 
+instance ToPath GetBucketLifecycle where
+    toPath GetBucketLifecycle{..} = mconcat
+        [ "/"
+        , toText _gbl1Bucket
+        ]
+
+instance ToQuery GetBucketLifecycle where
+    toQuery = const "lifecycle"
+
+instance ToHeaders GetBucketLifecycle
+instance ToXML GetBucketLifecycle where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketLifecycle"
+
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleResponse
@@ -96,18 +110,3 @@ instance AWSRequest GetBucketLifecycle where
 instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketLifecycleResponse"
-
-instance ToPath GetBucketLifecycle where
-    toPath GetBucketLifecycle{..} = mconcat
-        [ "/"
-        , toText _gbl1Bucket
-        ]
-
-instance ToHeaders GetBucketLifecycle
-
-instance ToQuery GetBucketLifecycle where
-    toQuery = const "lifecycle"
-
-instance ToXML GetBucketLifecycle where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketLifecycle"

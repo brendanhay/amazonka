@@ -104,6 +104,16 @@ dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList
         (\s a -> s { _dprPipelineDescriptionList = a })
 
+instance ToPath DescribePipelines where
+    toPath = const "/"
+
+instance ToQuery DescribePipelines where
+    toQuery = const mempty
+
+instance ToHeaders DescribePipelines
+instance ToJSON DescribePipelines where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribePipelines where
     type Sv DescribePipelines = DataPipeline
     type Rs DescribePipelines = DescribePipelinesResponse
@@ -113,14 +123,3 @@ instance AWSRequest DescribePipelines where
 
 instance FromJSON DescribePipelinesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribePipelines where
-    toPath = const "/"
-
-instance ToHeaders DescribePipelines
-
-instance ToQuery DescribePipelines where
-    toQuery = const mempty
-
-instance ToJSON DescribePipelines where
-    toJSON = genericToJSON jsonOptions

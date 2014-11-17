@@ -6003,6 +6003,7 @@
                 "name": "AuthorizeClusterSecurityGroupIngressResponse",
                 "resultWrapper": "AuthorizeClusterSecurityGroupIngressResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6109,6 +6110,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6250,6 +6253,7 @@
                 "name": "AuthorizeSnapshotAccessResponse",
                 "resultWrapper": "AuthorizeSnapshotAccessResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6365,6 +6369,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6464,6 +6470,7 @@
                 "name": "CopyClusterSnapshotResponse",
                 "resultWrapper": "CopyClusterSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6579,6 +6586,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6678,6 +6687,7 @@
                 "name": "CreateClusterResponse",
                 "resultWrapper": "CreateClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6916,6 +6926,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7519,6 +7531,7 @@
                 "name": "CreateClusterParameterGroupResponse",
                 "resultWrapper": "CreateClusterParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7648,6 +7661,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7732,6 +7747,7 @@
                 "name": "CreateClusterSecurityGroupResponse",
                 "resultWrapper": "CreateClusterSecurityGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7842,6 +7858,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7912,6 +7930,7 @@
                 "name": "CreateClusterSnapshotResponse",
                 "resultWrapper": "CreateClusterSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8022,6 +8041,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8092,6 +8113,7 @@
                 "name": "CreateClusterSubnetGroupResponse",
                 "resultWrapper": "CreateClusterSubnetGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8207,6 +8229,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8306,6 +8330,7 @@
                 "name": "CreateEventSubscriptionResponse",
                 "resultWrapper": "CreateEventSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8441,6 +8466,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8652,6 +8679,7 @@
                 "name": "CreateHsmClientCertificateResponse",
                 "resultWrapper": "CreateHsmClientCertificateResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8760,6 +8788,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8816,6 +8846,7 @@
                 "name": "CreateHsmConfigurationResponse",
                 "resultWrapper": "CreateHsmConfigurationResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9002,6 +9033,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9128,6 +9161,7 @@
                 "name": "DeleteClusterResponse",
                 "resultWrapper": "DeleteClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9229,6 +9263,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9327,6 +9363,7 @@
                 "name": "DeleteClusterParameterGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9405,6 +9442,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9446,6 +9485,7 @@
                 "name": "DeleteClusterSecurityGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9524,6 +9564,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9580,6 +9622,7 @@
                 "name": "DeleteClusterSnapshotResponse",
                 "resultWrapper": "DeleteClusterSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9676,6 +9719,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9746,6 +9791,7 @@
                 "name": "DeleteClusterSubnetGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9824,6 +9870,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9865,6 +9913,7 @@
                 "name": "DeleteEventSubscriptionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9943,6 +9992,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9984,6 +10035,7 @@
                 "name": "DeleteHsmClientCertificateResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -10062,6 +10114,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10103,6 +10157,7 @@
                 "name": "DeleteHsmConfigurationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -10181,6 +10236,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10222,6 +10279,7 @@
                 "name": "DescribeClusterParameterGroupsResponse",
                 "resultWrapper": "DescribeClusterParameterGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10344,6 +10402,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10456,6 +10516,7 @@
                 "name": "DescribeClusterParametersResponse",
                 "resultWrapper": "DescribeClusterParametersResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10598,6 +10659,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10724,6 +10787,7 @@
                 "name": "DescribeClusterSecurityGroupsResponse",
                 "resultWrapper": "DescribeClusterSecurityGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10846,6 +10910,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10958,6 +11024,7 @@
                 "name": "DescribeClusterSnapshotsResponse",
                 "resultWrapper": "DescribeClusterSnapshotsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11105,6 +11172,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11357,6 +11426,7 @@
                 "name": "DescribeClusterSubnetGroupsResponse",
                 "resultWrapper": "DescribeClusterSubnetGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11479,6 +11549,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11591,6 +11663,7 @@
                 "name": "DescribeClusterVersionsResponse",
                 "resultWrapper": "DescribeClusterVersionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11718,6 +11791,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11858,6 +11933,7 @@
                 "name": "DescribeClustersResponse",
                 "resultWrapper": "DescribeClustersResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11980,6 +12056,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12107,6 +12185,7 @@
                 "name": "DescribeDefaultClusterParametersResponse",
                 "resultWrapper": "DescribeDefaultClusterParametersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12216,6 +12295,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12331,6 +12412,7 @@
                 "name": "DescribeEventCategoriesResponse",
                 "resultWrapper": "DescribeEventCategoriesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12423,6 +12505,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12479,6 +12563,7 @@
                 "name": "DescribeEventSubscriptionsResponse",
                 "resultWrapper": "DescribeEventSubscriptionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12601,6 +12686,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12713,6 +12800,7 @@
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12855,6 +12943,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13079,6 +13169,7 @@
                 "name": "DescribeHsmClientCertificatesResponse",
                 "resultWrapper": "DescribeHsmClientCertificatesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13201,6 +13292,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13313,6 +13406,7 @@
                 "name": "DescribeHsmConfigurationsResponse",
                 "resultWrapper": "DescribeHsmConfigurationsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13435,6 +13529,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13548,6 +13644,7 @@
                 "name": "DescribeLoggingStatusResponse",
                 "resultWrapper": "DescribeLoggingStatusResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13796,6 +13893,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13837,6 +13936,7 @@
                 "name": "DescribeOrderableClusterOptionsResponse",
                 "resultWrapper": "DescribeOrderableClusterOptionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13964,6 +14064,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14104,6 +14206,7 @@
                 "name": "DescribeReservedNodeOfferingsResponse",
                 "resultWrapper": "DescribeReservedNodeOfferingsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14226,6 +14329,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14338,6 +14443,7 @@
                 "name": "DescribeReservedNodesResponse",
                 "resultWrapper": "DescribeReservedNodesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14460,6 +14566,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14573,6 +14681,7 @@
                 "name": "DescribeResizeResponse",
                 "resultWrapper": "DescribeResizeResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14989,6 +15098,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15031,6 +15142,7 @@
                 "name": "DisableLoggingResponse",
                 "resultWrapper": "DisableLoggingResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15279,6 +15391,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15335,6 +15449,7 @@
                 "name": "DisableSnapshotCopyResponse",
                 "resultWrapper": "DisableSnapshotCopyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15443,6 +15558,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15485,6 +15602,7 @@
                 "name": "EnableLoggingResponse",
                 "resultWrapper": "EnableLoggingResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15740,6 +15858,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15839,6 +15959,7 @@
                 "name": "EnableSnapshotCopyResponse",
                 "resultWrapper": "EnableSnapshotCopyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15954,6 +16075,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16053,6 +16176,7 @@
                 "name": "ModifyClusterResponse",
                 "resultWrapper": "ModifyClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16214,6 +16338,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16649,6 +16775,7 @@
                 "name": "ModifyClusterParameterGroupResponse",
                 "resultWrapper": "ModifyClusterParameterGroupResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16772,6 +16899,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16857,6 +16986,7 @@
                 "name": "ModifyClusterSubnetGroupResponse",
                 "resultWrapper": "ModifyClusterSubnetGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16958,6 +17088,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17071,6 +17203,7 @@
                 "name": "ModifyEventSubscriptionResponse",
                 "resultWrapper": "ModifyEventSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17192,6 +17325,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17417,6 +17552,7 @@
                 "name": "ModifySnapshotCopyRetentionPeriodResponse",
                 "resultWrapper": "ModifySnapshotCopyRetentionPeriodResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17527,6 +17663,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17597,6 +17735,7 @@
                 "name": "PurchaseReservedNodeOfferingResponse",
                 "resultWrapper": "PurchaseReservedNodeOfferingResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17693,6 +17832,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17778,6 +17919,7 @@
                 "name": "RebootClusterResponse",
                 "resultWrapper": "RebootClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17886,6 +18028,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17928,6 +18072,7 @@
                 "name": "ResetClusterParameterGroupResponse",
                 "resultWrapper": "ResetClusterParameterGroupResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18056,6 +18201,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18169,6 +18316,7 @@
                 "name": "RestoreFromClusterSnapshotResponse",
                 "resultWrapper": "RestoreFromClusterSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18354,6 +18502,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18845,6 +18995,7 @@
                 "name": "RevokeClusterSecurityGroupIngressResponse",
                 "resultWrapper": "RevokeClusterSecurityGroupIngressResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18951,6 +19102,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19092,6 +19245,7 @@
                 "name": "RevokeSnapshotAccessResponse",
                 "resultWrapper": "RevokeSnapshotAccessResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19207,6 +19361,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19306,6 +19462,7 @@
                 "name": "RotateEncryptionKeyResponse",
                 "resultWrapper": "RotateEncryptionKeyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19414,6 +19571,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

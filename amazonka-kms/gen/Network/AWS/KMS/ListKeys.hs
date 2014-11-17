@@ -117,6 +117,16 @@ lkrNextMarker = lens _lkrNextMarker (\s a -> s { _lkrNextMarker = a })
 lkrTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrTruncated = lens _lkrTruncated (\s a -> s { _lkrTruncated = a })
 
+instance ToPath ListKeys where
+    toPath = const "/"
+
+instance ToQuery ListKeys where
+    toQuery = const mempty
+
+instance ToHeaders ListKeys
+instance ToJSON ListKeys where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListKeys where
     type Sv ListKeys = KMS
     type Rs ListKeys = ListKeysResponse
@@ -126,14 +136,3 @@ instance AWSRequest ListKeys where
 
 instance FromJSON ListKeysResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListKeys where
-    toPath = const "/"
-
-instance ToHeaders ListKeys
-
-instance ToQuery ListKeys where
-    toQuery = const mempty
-
-instance ToJSON ListKeys where
-    toJSON = genericToJSON jsonOptions

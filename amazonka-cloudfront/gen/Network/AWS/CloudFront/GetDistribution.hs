@@ -92,6 +92,20 @@ gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
 gdrETag :: Lens' GetDistributionResponse (Maybe Text)
 gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
+instance ToPath GetDistribution where
+    toPath GetDistribution{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _gdId
+        ]
+
+instance ToQuery GetDistribution where
+    toQuery = const mempty
+
+instance ToHeaders GetDistribution
+instance ToXML GetDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetDistribution"
+
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront
     type Rs GetDistribution = GetDistributionResponse
@@ -100,18 +114,3 @@ instance AWSRequest GetDistribution where
     response = xmlHeaderResponse $ \h x -> GetDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
-
-instance ToPath GetDistribution where
-    toPath GetDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _gdId
-        ]
-
-instance ToHeaders GetDistribution
-
-instance ToQuery GetDistribution where
-    toQuery = const mempty
-
-instance ToXML GetDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistribution"

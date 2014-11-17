@@ -109,6 +109,13 @@ createLoginProfileResponse p1 = CreateLoginProfileResponse
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
 
+instance ToPath CreateLoginProfile where
+    toPath = const "/"
+
+instance ToQuery CreateLoginProfile
+
+instance ToHeaders CreateLoginProfile
+
 instance AWSRequest CreateLoginProfile where
     type Sv CreateLoginProfile = IAM
     type Rs CreateLoginProfile = CreateLoginProfileResponse
@@ -119,10 +126,3 @@ instance AWSRequest CreateLoginProfile where
 instance FromXML CreateLoginProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoginProfileResponse"
-
-instance ToPath CreateLoginProfile where
-    toPath = const "/"
-
-instance ToHeaders CreateLoginProfile
-
-instance ToQuery CreateLoginProfile

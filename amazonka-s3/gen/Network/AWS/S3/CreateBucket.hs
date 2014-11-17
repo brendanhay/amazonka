@@ -146,19 +146,14 @@ createBucketResponse = CreateBucketResponse
 cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrLocation = lens _cbrLocation (\s a -> s { _cbrLocation = a })
 
-instance AWSRequest CreateBucket where
-    type Sv CreateBucket = S3
-    type Rs CreateBucket = CreateBucketResponse
-
-    request  = put
-    response = xmlHeaderResponse $ \h x -> CreateBucketResponse
-        <$> h ~:? "Location"
-
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat
         [ "/"
         , toText _cbBucket
         ]
+
+instance ToQuery CreateBucket where
+    toQuery = const mempty
 
 instance ToHeaders CreateBucket where
     toHeaders CreateBucket{..} = mconcat
@@ -169,10 +164,14 @@ instance ToHeaders CreateBucket where
         , "x-amz-grant-write"        =: _cbGrantWrite
         , "x-amz-grant-write-acp"    =: _cbGrantWriteACP
         ]
-
-instance ToQuery CreateBucket where
-    toQuery = const mempty
-
 instance ToXML CreateBucket where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateBucket"
+
+instance AWSRequest CreateBucket where
+    type Sv CreateBucket = S3
+    type Rs CreateBucket = CreateBucketResponse
+
+    request  = put
+    response = xmlHeaderResponse $ \h x -> CreateBucketResponse
+        <$> h ~:? "Location"

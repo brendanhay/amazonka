@@ -133,6 +133,13 @@ dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterPar
 dcpgrParameterGroups =
     lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })
 
+instance ToPath DescribeClusterParameterGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeClusterParameterGroups
+
+instance ToHeaders DescribeClusterParameterGroups
+
 instance AWSRequest DescribeClusterParameterGroups where
     type Sv DescribeClusterParameterGroups = Redshift
     type Rs DescribeClusterParameterGroups = DescribeClusterParameterGroupsResponse
@@ -143,10 +150,3 @@ instance AWSRequest DescribeClusterParameterGroups where
 instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClusterParameterGroupsResponse"
-
-instance ToPath DescribeClusterParameterGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusterParameterGroups
-
-instance ToQuery DescribeClusterParameterGroups

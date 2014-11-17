@@ -95,6 +95,16 @@ ldrDistributionList :: Lens' ListDistributionsResponse (Maybe DistributionList)
 ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
+instance ToPath ListDistributions where
+    toPath = const "/2014-05-31/distribution"
+
+instance ToQuery ListDistributions
+
+instance ToHeaders ListDistributions
+instance ToXML ListDistributions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListDistributions"
+
 instance AWSRequest ListDistributions where
     type Sv ListDistributions = CloudFront
     type Rs ListDistributions = ListDistributionsResponse
@@ -105,18 +115,3 @@ instance AWSRequest ListDistributions where
 instance FromXML ListDistributionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDistributionsResponse"
-
-instance ToPath ListDistributions where
-    toPath = const "/2014-05-31/distribution"
-
-instance ToHeaders ListDistributions
-
-instance ToQuery ListDistributions where
-    toQuery ListDistributions{..} = mconcat
-        [ "Marker"   =? _ldMarker
-        , "MaxItems" =? _ldMaxItems
-        ]
-
-instance ToXML ListDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListDistributions"

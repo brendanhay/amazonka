@@ -78,16 +78,16 @@ data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
 deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse
 
+instance ToPath DeleteGroupPolicy where
+    toPath = const "/"
+
+instance ToQuery DeleteGroupPolicy
+
+instance ToHeaders DeleteGroupPolicy
+
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
 
     request  = post "DeleteGroupPolicy"
     response = nullResponse DeleteGroupPolicyResponse
-
-instance ToPath DeleteGroupPolicy where
-    toPath = const "/"
-
-instance ToHeaders DeleteGroupPolicy
-
-instance ToQuery DeleteGroupPolicy

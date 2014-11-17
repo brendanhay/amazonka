@@ -77,16 +77,16 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
 deleteLoadBalancerResponse :: DeleteLoadBalancerResponse
 deleteLoadBalancerResponse = DeleteLoadBalancerResponse
 
+instance ToPath DeleteLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery DeleteLoadBalancer
+
+instance ToHeaders DeleteLoadBalancer
+
 instance AWSRequest DeleteLoadBalancer where
     type Sv DeleteLoadBalancer = ELB
     type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
 
     request  = post "DeleteLoadBalancer"
     response = nullResponse DeleteLoadBalancerResponse
-
-instance ToPath DeleteLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders DeleteLoadBalancer
-
-instance ToQuery DeleteLoadBalancer

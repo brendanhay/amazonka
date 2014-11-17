@@ -175,6 +175,13 @@ drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCac
 drcnrReservedCacheNodes =
     lens _drcnrReservedCacheNodes (\s a -> s { _drcnrReservedCacheNodes = a })
 
+instance ToPath DescribeReservedCacheNodes where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedCacheNodes
+
+instance ToHeaders DescribeReservedCacheNodes
+
 instance AWSRequest DescribeReservedCacheNodes where
     type Sv DescribeReservedCacheNodes = ElastiCache
     type Rs DescribeReservedCacheNodes = DescribeReservedCacheNodesResponse
@@ -185,10 +192,3 @@ instance AWSRequest DescribeReservedCacheNodes where
 instance FromXML DescribeReservedCacheNodesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedCacheNodesResponse"
-
-instance ToPath DescribeReservedCacheNodes where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedCacheNodes
-
-instance ToQuery DescribeReservedCacheNodes

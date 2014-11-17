@@ -126,6 +126,16 @@ lvrMarker = lens _lvrMarker (\s a -> s { _lvrMarker = a })
 lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrVolumeInfos = lens _lvrVolumeInfos (\s a -> s { _lvrVolumeInfos = a })
 
+instance ToPath ListVolumes where
+    toPath = const "/"
+
+instance ToQuery ListVolumes where
+    toQuery = const mempty
+
+instance ToHeaders ListVolumes
+instance ToJSON ListVolumes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListVolumes where
     type Sv ListVolumes = StorageGateway
     type Rs ListVolumes = ListVolumesResponse
@@ -135,14 +145,3 @@ instance AWSRequest ListVolumes where
 
 instance FromJSON ListVolumesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListVolumes where
-    toPath = const "/"
-
-instance ToHeaders ListVolumes
-
-instance ToQuery ListVolumes where
-    toQuery = const mempty
-
-instance ToJSON ListVolumes where
-    toJSON = genericToJSON jsonOptions

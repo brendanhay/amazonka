@@ -118,6 +118,16 @@ createUserProfileResponse = CreateUserProfileResponse
 cuprIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprIamUserArn = lens _cuprIamUserArn (\s a -> s { _cuprIamUserArn = a })
 
+instance ToPath CreateUserProfile where
+    toPath = const "/"
+
+instance ToQuery CreateUserProfile where
+    toQuery = const mempty
+
+instance ToHeaders CreateUserProfile
+instance ToJSON CreateUserProfile where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateUserProfile where
     type Sv CreateUserProfile = OpsWorks
     type Rs CreateUserProfile = CreateUserProfileResponse
@@ -127,14 +137,3 @@ instance AWSRequest CreateUserProfile where
 
 instance FromJSON CreateUserProfileResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateUserProfile where
-    toPath = const "/"
-
-instance ToHeaders CreateUserProfile
-
-instance ToQuery CreateUserProfile where
-    toQuery = const mempty
-
-instance ToJSON CreateUserProfile where
-    toJSON = genericToJSON jsonOptions

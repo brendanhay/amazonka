@@ -110,16 +110,16 @@ data SignalResourceResponse = SignalResourceResponse
 signalResourceResponse :: SignalResourceResponse
 signalResourceResponse = SignalResourceResponse
 
+instance ToPath SignalResource where
+    toPath = const "/"
+
+instance ToQuery SignalResource
+
+instance ToHeaders SignalResource
+
 instance AWSRequest SignalResource where
     type Sv SignalResource = CloudFormation
     type Rs SignalResource = SignalResourceResponse
 
     request  = post "SignalResource"
     response = nullResponse SignalResourceResponse
-
-instance ToPath SignalResource where
-    toPath = const "/"
-
-instance ToHeaders SignalResource
-
-instance ToQuery SignalResource

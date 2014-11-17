@@ -117,6 +117,13 @@ ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 
+instance ToPath CreateKeyPair where
+    toPath = const "/"
+
+instance ToQuery CreateKeyPair
+
+instance ToHeaders CreateKeyPair
+
 instance AWSRequest CreateKeyPair where
     type Sv CreateKeyPair = EC2
     type Rs CreateKeyPair = CreateKeyPairResponse
@@ -127,18 +134,3 @@ instance AWSRequest CreateKeyPair where
 instance FromXML CreateKeyPairResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateKeyPairResponse"
-
-instance ToPath CreateKeyPair where
-    toPath = const "/"
-
-instance ToHeaders CreateKeyPair
-
-instance ToQuery CreateKeyPair where
-    toQuery CreateKeyPair{..} = mconcat
-        [ "dryRun"  =? _ckpDryRun
-        , "KeyName" =? _ckpKeyName
-        ]
-
-instance ToXML CreateKeyPair where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateKeyPair"

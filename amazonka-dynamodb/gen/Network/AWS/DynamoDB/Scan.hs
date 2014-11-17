@@ -391,6 +391,16 @@ srLastEvaluatedKey =
 srScannedCount :: Lens' ScanResponse (Maybe Int)
 srScannedCount = lens _srScannedCount (\s a -> s { _srScannedCount = a })
 
+instance ToPath Scan where
+    toPath = const "/"
+
+instance ToQuery Scan where
+    toQuery = const mempty
+
+instance ToHeaders Scan
+instance ToJSON Scan where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest Scan where
     type Sv Scan = DynamoDB
     type Rs Scan = ScanResponse
@@ -400,14 +410,3 @@ instance AWSRequest Scan where
 
 instance FromJSON ScanResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath Scan where
-    toPath = const "/"
-
-instance ToHeaders Scan
-
-instance ToQuery Scan where
-    toQuery = const mempty
-
-instance ToJSON Scan where
-    toJSON = genericToJSON jsonOptions

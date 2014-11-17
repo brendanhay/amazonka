@@ -101,6 +101,13 @@ dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResou
 dsrrStackResourceDetail =
     lens _dsrrStackResourceDetail (\s a -> s { _dsrrStackResourceDetail = a })
 
+instance ToPath DescribeStackResource where
+    toPath = const "/"
+
+instance ToQuery DescribeStackResource
+
+instance ToHeaders DescribeStackResource
+
 instance AWSRequest DescribeStackResource where
     type Sv DescribeStackResource = CloudFormation
     type Rs DescribeStackResource = DescribeStackResourceResponse
@@ -111,10 +118,3 @@ instance AWSRequest DescribeStackResource where
 instance FromXML DescribeStackResourceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeStackResourceResponse"
-
-instance ToPath DescribeStackResource where
-    toPath = const "/"
-
-instance ToHeaders DescribeStackResource
-
-instance ToQuery DescribeStackResource

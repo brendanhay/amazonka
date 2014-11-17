@@ -71,16 +71,16 @@ data DeleteTopicResponse = DeleteTopicResponse
 deleteTopicResponse :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse
 
+instance ToPath DeleteTopic where
+    toPath = const "/"
+
+instance ToQuery DeleteTopic
+
+instance ToHeaders DeleteTopic
+
 instance AWSRequest DeleteTopic where
     type Sv DeleteTopic = SNS
     type Rs DeleteTopic = DeleteTopicResponse
 
     request  = post "DeleteTopic"
     response = nullResponse DeleteTopicResponse
-
-instance ToPath DeleteTopic where
-    toPath = const "/"
-
-instance ToHeaders DeleteTopic
-
-instance ToQuery DeleteTopic

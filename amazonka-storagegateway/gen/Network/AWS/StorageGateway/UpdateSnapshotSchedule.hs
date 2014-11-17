@@ -123,6 +123,16 @@ updateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
 ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrVolumeARN = lens _ussrVolumeARN (\s a -> s { _ussrVolumeARN = a })
 
+instance ToPath UpdateSnapshotSchedule where
+    toPath = const "/"
+
+instance ToQuery UpdateSnapshotSchedule where
+    toQuery = const mempty
+
+instance ToHeaders UpdateSnapshotSchedule
+instance ToJSON UpdateSnapshotSchedule where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateSnapshotSchedule where
     type Sv UpdateSnapshotSchedule = StorageGateway
     type Rs UpdateSnapshotSchedule = UpdateSnapshotScheduleResponse
@@ -132,14 +142,3 @@ instance AWSRequest UpdateSnapshotSchedule where
 
 instance FromJSON UpdateSnapshotScheduleResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateSnapshotSchedule where
-    toPath = const "/"
-
-instance ToHeaders UpdateSnapshotSchedule
-
-instance ToQuery UpdateSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToJSON UpdateSnapshotSchedule where
-    toJSON = genericToJSON jsonOptions

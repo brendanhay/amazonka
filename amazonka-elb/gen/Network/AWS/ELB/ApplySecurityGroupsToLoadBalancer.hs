@@ -107,6 +107,13 @@ asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups =
     lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
 
+instance ToPath ApplySecurityGroupsToLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery ApplySecurityGroupsToLoadBalancer
+
+instance ToHeaders ApplySecurityGroupsToLoadBalancer
+
 instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     type Sv ApplySecurityGroupsToLoadBalancer = ELB
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
@@ -117,10 +124,3 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer where
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerResponse"
-
-instance ToPath ApplySecurityGroupsToLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders ApplySecurityGroupsToLoadBalancer
-
-instance ToQuery ApplySecurityGroupsToLoadBalancer

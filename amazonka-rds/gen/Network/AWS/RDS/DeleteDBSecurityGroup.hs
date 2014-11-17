@@ -73,16 +73,16 @@ data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
 
+instance ToPath DeleteDBSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteDBSecurityGroup
+
+instance ToHeaders DeleteDBSecurityGroup
+
 instance AWSRequest DeleteDBSecurityGroup where
     type Sv DeleteDBSecurityGroup = RDS
     type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse
 
     request  = post "DeleteDBSecurityGroup"
     response = nullResponse DeleteDBSecurityGroupResponse
-
-instance ToPath DeleteDBSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteDBSecurityGroup
-
-instance ToQuery DeleteDBSecurityGroup

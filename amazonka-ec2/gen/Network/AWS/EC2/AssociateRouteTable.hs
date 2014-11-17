@@ -107,6 +107,13 @@ artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId =
     lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
 
+instance ToPath AssociateRouteTable where
+    toPath = const "/"
+
+instance ToQuery AssociateRouteTable
+
+instance ToHeaders AssociateRouteTable
+
 instance AWSRequest AssociateRouteTable where
     type Sv AssociateRouteTable = EC2
     type Rs AssociateRouteTable = AssociateRouteTableResponse
@@ -117,19 +124,3 @@ instance AWSRequest AssociateRouteTable where
 instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssociateRouteTableResponse"
-
-instance ToPath AssociateRouteTable where
-    toPath = const "/"
-
-instance ToHeaders AssociateRouteTable
-
-instance ToQuery AssociateRouteTable where
-    toQuery AssociateRouteTable{..} = mconcat
-        [ "dryRun"       =? _artDryRun
-        , "subnetId"     =? _artSubnetId
-        , "routeTableId" =? _artRouteTableId
-        ]
-
-instance ToXML AssociateRouteTable where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AssociateRouteTable"

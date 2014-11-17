@@ -83,6 +83,16 @@ describeTableResponse = DescribeTableResponse
 dtrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 dtrTable = lens _dtrTable (\s a -> s { _dtrTable = a })
 
+instance ToPath DescribeTable where
+    toPath = const "/"
+
+instance ToQuery DescribeTable where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTable
+instance ToJSON DescribeTable where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTable where
     type Sv DescribeTable = DynamoDB
     type Rs DescribeTable = DescribeTableResponse
@@ -92,14 +102,3 @@ instance AWSRequest DescribeTable where
 
 instance FromJSON DescribeTableResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTable where
-    toPath = const "/"
-
-instance ToHeaders DescribeTable
-
-instance ToQuery DescribeTable where
-    toQuery = const mempty
-
-instance ToJSON DescribeTable where
-    toJSON = genericToJSON jsonOptions

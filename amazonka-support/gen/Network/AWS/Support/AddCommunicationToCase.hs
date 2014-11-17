@@ -122,6 +122,16 @@ addCommunicationToCaseResponse = AddCommunicationToCaseResponse
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\s a -> s { _actcrResult = a })
 
+instance ToPath AddCommunicationToCase where
+    toPath = const "/"
+
+instance ToQuery AddCommunicationToCase where
+    toQuery = const mempty
+
+instance ToHeaders AddCommunicationToCase
+instance ToJSON AddCommunicationToCase where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddCommunicationToCase where
     type Sv AddCommunicationToCase = Support
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
@@ -131,14 +141,3 @@ instance AWSRequest AddCommunicationToCase where
 
 instance FromJSON AddCommunicationToCaseResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddCommunicationToCase where
-    toPath = const "/"
-
-instance ToHeaders AddCommunicationToCase
-
-instance ToQuery AddCommunicationToCase where
-    toQuery = const mempty
-
-instance ToJSON AddCommunicationToCase where
-    toJSON = genericToJSON jsonOptions

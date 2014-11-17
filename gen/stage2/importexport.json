@@ -232,6 +232,7 @@
                 "name": "CancelJobResponse",
                 "resultWrapper": "CancelJobResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -344,6 +345,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -386,6 +389,7 @@
                 "name": "CreateJobResponse",
                 "resultWrapper": "CreateJobResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -664,6 +668,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -763,6 +769,7 @@
                 "name": "GetStatusResponse",
                 "resultWrapper": "GetStatusResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1295,6 +1302,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1336,6 +1345,7 @@
                 "name": "ListJobsResponse",
                 "resultWrapper": "ListJobsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1457,6 +1467,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1542,6 +1554,7 @@
                 "name": "UpdateJobResponse",
                 "resultWrapper": "UpdateJobResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1722,6 +1735,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

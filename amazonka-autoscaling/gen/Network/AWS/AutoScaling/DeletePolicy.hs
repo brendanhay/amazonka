@@ -78,16 +78,16 @@ data DeletePolicyResponse = DeletePolicyResponse
 deletePolicyResponse :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse
 
+instance ToPath DeletePolicy where
+    toPath = const "/"
+
+instance ToQuery DeletePolicy
+
+instance ToHeaders DeletePolicy
+
 instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling
     type Rs DeletePolicy = DeletePolicyResponse
 
     request  = post "DeletePolicy"
     response = nullResponse DeletePolicyResponse
-
-instance ToPath DeletePolicy where
-    toPath = const "/"
-
-instance ToHeaders DeletePolicy
-
-instance ToQuery DeletePolicy

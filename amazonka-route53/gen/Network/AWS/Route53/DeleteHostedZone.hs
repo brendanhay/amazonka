@@ -93,6 +93,20 @@ deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
 dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrChangeInfo = lens _dhzrChangeInfo (\s a -> s { _dhzrChangeInfo = a })
 
+instance ToPath DeleteHostedZone where
+    toPath DeleteHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _dhzId
+        ]
+
+instance ToQuery DeleteHostedZone where
+    toQuery = const mempty
+
+instance ToHeaders DeleteHostedZone
+instance ToXML DeleteHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteHostedZone"
+
 instance AWSRequest DeleteHostedZone where
     type Sv DeleteHostedZone = Route53
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
@@ -103,18 +117,3 @@ instance AWSRequest DeleteHostedZone where
 instance FromXML DeleteHostedZoneResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteHostedZoneResponse"
-
-instance ToPath DeleteHostedZone where
-    toPath DeleteHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _dhzId
-        ]
-
-instance ToHeaders DeleteHostedZone
-
-instance ToQuery DeleteHostedZone where
-    toQuery = const mempty
-
-instance ToXML DeleteHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteHostedZone"

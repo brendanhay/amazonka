@@ -89,16 +89,16 @@ data UpdateGroupResponse = UpdateGroupResponse
 updateGroupResponse :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse
 
+instance ToPath UpdateGroup where
+    toPath = const "/"
+
+instance ToQuery UpdateGroup
+
+instance ToHeaders UpdateGroup
+
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM
     type Rs UpdateGroup = UpdateGroupResponse
 
     request  = post "UpdateGroup"
     response = nullResponse UpdateGroupResponse
-
-instance ToPath UpdateGroup where
-    toPath = const "/"
-
-instance ToHeaders UpdateGroup
-
-instance ToQuery UpdateGroup

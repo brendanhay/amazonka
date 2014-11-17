@@ -160,6 +160,13 @@ dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterfa
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
 
+instance ToPath DescribeNetworkInterfaces where
+    toPath = const "/"
+
+instance ToQuery DescribeNetworkInterfaces
+
+instance ToHeaders DescribeNetworkInterfaces
+
 instance AWSRequest DescribeNetworkInterfaces where
     type Sv DescribeNetworkInterfaces = EC2
     type Rs DescribeNetworkInterfaces = DescribeNetworkInterfacesResponse
@@ -170,19 +177,3 @@ instance AWSRequest DescribeNetworkInterfaces where
 instance FromXML DescribeNetworkInterfacesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResponse"
-
-instance ToPath DescribeNetworkInterfaces where
-    toPath = const "/"
-
-instance ToHeaders DescribeNetworkInterfaces
-
-instance ToQuery DescribeNetworkInterfaces where
-    toQuery DescribeNetworkInterfaces{..} = mconcat
-        [ "dryRun"             =? _dni1DryRun
-        , "NetworkInterfaceId" =? _dni1NetworkInterfaceIds
-        , "filter"             =? _dni1Filters
-        ]
-
-instance ToXML DescribeNetworkInterfaces where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeNetworkInterfaces"

@@ -88,16 +88,16 @@ data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 
+instance ToPath CreateOrUpdateTags where
+    toPath = const "/"
+
+instance ToQuery CreateOrUpdateTags
+
+instance ToHeaders CreateOrUpdateTags
+
 instance AWSRequest CreateOrUpdateTags where
     type Sv CreateOrUpdateTags = AutoScaling
     type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
 
     request  = post "CreateOrUpdateTags"
     response = nullResponse CreateOrUpdateTagsResponse
-
-instance ToPath CreateOrUpdateTags where
-    toPath = const "/"
-
-instance ToHeaders CreateOrUpdateTags
-
-instance ToQuery CreateOrUpdateTags

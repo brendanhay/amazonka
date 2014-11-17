@@ -129,6 +129,16 @@ lkprPolicyNames = lens _lkprPolicyNames (\s a -> s { _lkprPolicyNames = a })
 lkprTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
 lkprTruncated = lens _lkprTruncated (\s a -> s { _lkprTruncated = a })
 
+instance ToPath ListKeyPolicies where
+    toPath = const "/"
+
+instance ToQuery ListKeyPolicies where
+    toQuery = const mempty
+
+instance ToHeaders ListKeyPolicies
+instance ToJSON ListKeyPolicies where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListKeyPolicies where
     type Sv ListKeyPolicies = KMS
     type Rs ListKeyPolicies = ListKeyPoliciesResponse
@@ -138,14 +148,3 @@ instance AWSRequest ListKeyPolicies where
 
 instance FromJSON ListKeyPoliciesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListKeyPolicies where
-    toPath = const "/"
-
-instance ToHeaders ListKeyPolicies
-
-instance ToQuery ListKeyPolicies where
-    toQuery = const mempty
-
-instance ToJSON ListKeyPolicies where
-    toJSON = genericToJSON jsonOptions

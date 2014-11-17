@@ -335,6 +335,13 @@ modifyCacheClusterResponse = ModifyCacheClusterResponse
 mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
 
+instance ToPath ModifyCacheCluster where
+    toPath = const "/"
+
+instance ToQuery ModifyCacheCluster
+
+instance ToHeaders ModifyCacheCluster
+
 instance AWSRequest ModifyCacheCluster where
     type Sv ModifyCacheCluster = ElastiCache
     type Rs ModifyCacheCluster = ModifyCacheClusterResponse
@@ -345,10 +352,3 @@ instance AWSRequest ModifyCacheCluster where
 instance FromXML ModifyCacheClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyCacheClusterResponse"
-
-instance ToPath ModifyCacheCluster where
-    toPath = const "/"
-
-instance ToHeaders ModifyCacheCluster
-
-instance ToQuery ModifyCacheCluster

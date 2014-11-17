@@ -99,6 +99,16 @@ updateGatewayInformationResponse = UpdateGatewayInformationResponse
 ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirGatewayARN = lens _ugirGatewayARN (\s a -> s { _ugirGatewayARN = a })
 
+instance ToPath UpdateGatewayInformation where
+    toPath = const "/"
+
+instance ToQuery UpdateGatewayInformation where
+    toQuery = const mempty
+
+instance ToHeaders UpdateGatewayInformation
+instance ToJSON UpdateGatewayInformation where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateGatewayInformation where
     type Sv UpdateGatewayInformation = StorageGateway
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
@@ -108,14 +118,3 @@ instance AWSRequest UpdateGatewayInformation where
 
 instance FromJSON UpdateGatewayInformationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateGatewayInformation where
-    toPath = const "/"
-
-instance ToHeaders UpdateGatewayInformation
-
-instance ToQuery UpdateGatewayInformation where
-    toQuery = const mempty
-
-instance ToJSON UpdateGatewayInformation where
-    toJSON = genericToJSON jsonOptions

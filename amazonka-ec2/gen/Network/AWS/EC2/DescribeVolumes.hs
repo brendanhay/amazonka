@@ -167,6 +167,13 @@ dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
+instance ToPath DescribeVolumes where
+    toPath = const "/"
+
+instance ToQuery DescribeVolumes
+
+instance ToHeaders DescribeVolumes
+
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = EC2
     type Rs DescribeVolumes = DescribeVolumesResponse
@@ -177,21 +184,3 @@ instance AWSRequest DescribeVolumes where
 instance FromXML DescribeVolumesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVolumesResponse"
-
-instance ToPath DescribeVolumes where
-    toPath = const "/"
-
-instance ToHeaders DescribeVolumes
-
-instance ToQuery DescribeVolumes where
-    toQuery DescribeVolumes{..} = mconcat
-        [ "dryRun"     =? _dv2DryRun
-        , "VolumeId"   =? _dv2VolumeIds
-        , "Filter"     =? _dv2Filters
-        , "nextToken"  =? _dv2NextToken
-        , "maxResults" =? _dv2MaxResults
-        ]
-
-instance ToXML DescribeVolumes where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVolumes"

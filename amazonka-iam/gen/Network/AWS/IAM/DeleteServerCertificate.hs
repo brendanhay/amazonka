@@ -78,16 +78,16 @@ data DeleteServerCertificateResponse = DeleteServerCertificateResponse
 deleteServerCertificateResponse :: DeleteServerCertificateResponse
 deleteServerCertificateResponse = DeleteServerCertificateResponse
 
+instance ToPath DeleteServerCertificate where
+    toPath = const "/"
+
+instance ToQuery DeleteServerCertificate
+
+instance ToHeaders DeleteServerCertificate
+
 instance AWSRequest DeleteServerCertificate where
     type Sv DeleteServerCertificate = IAM
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse
 
     request  = post "DeleteServerCertificate"
     response = nullResponse DeleteServerCertificateResponse
-
-instance ToPath DeleteServerCertificate where
-    toPath = const "/"
-
-instance ToHeaders DeleteServerCertificate
-
-instance ToQuery DeleteServerCertificate

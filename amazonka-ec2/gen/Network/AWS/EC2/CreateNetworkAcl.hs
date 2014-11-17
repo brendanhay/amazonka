@@ -93,6 +93,13 @@ createNetworkAclResponse = CreateNetworkAclResponse
 cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
 
+instance ToPath CreateNetworkAcl where
+    toPath = const "/"
+
+instance ToQuery CreateNetworkAcl
+
+instance ToHeaders CreateNetworkAcl
+
 instance AWSRequest CreateNetworkAcl where
     type Sv CreateNetworkAcl = EC2
     type Rs CreateNetworkAcl = CreateNetworkAclResponse
@@ -103,18 +110,3 @@ instance AWSRequest CreateNetworkAcl where
 instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateNetworkAclResponse"
-
-instance ToPath CreateNetworkAcl where
-    toPath = const "/"
-
-instance ToHeaders CreateNetworkAcl
-
-instance ToQuery CreateNetworkAcl where
-    toQuery CreateNetworkAcl{..} = mconcat
-        [ "dryRun" =? _cnaDryRun
-        , "vpcId"  =? _cnaVpcId
-        ]
-
-instance ToXML CreateNetworkAcl where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateNetworkAcl"

@@ -275,20 +275,19 @@ data UpdateStackResponse = UpdateStackResponse
 updateStackResponse :: UpdateStackResponse
 updateStackResponse = UpdateStackResponse
 
+instance ToPath UpdateStack where
+    toPath = const "/"
+
+instance ToQuery UpdateStack where
+    toQuery = const mempty
+
+instance ToHeaders UpdateStack
+instance ToJSON UpdateStack where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks
     type Rs UpdateStack = UpdateStackResponse
 
     request  = post
     response = nullResponse UpdateStackResponse
-
-instance ToPath UpdateStack where
-    toPath = const "/"
-
-instance ToHeaders UpdateStack
-
-instance ToQuery UpdateStack where
-    toQuery = const mempty
-
-instance ToJSON UpdateStack where
-    toJSON = genericToJSON jsonOptions

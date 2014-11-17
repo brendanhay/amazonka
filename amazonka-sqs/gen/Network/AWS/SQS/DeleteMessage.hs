@@ -89,16 +89,16 @@ data DeleteMessageResponse = DeleteMessageResponse
 deleteMessageResponse :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse
 
+instance ToPath DeleteMessage where
+    toPath = const "/"
+
+instance ToQuery DeleteMessage
+
+instance ToHeaders DeleteMessage
+
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS
     type Rs DeleteMessage = DeleteMessageResponse
 
     request  = post "DeleteMessage"
     response = nullResponse DeleteMessageResponse
-
-instance ToPath DeleteMessage where
-    toPath = const "/"
-
-instance ToHeaders DeleteMessage
-
-instance ToQuery DeleteMessage

@@ -78,6 +78,14 @@ lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses
         (\s a -> s { _lvearVerifiedEmailAddresses = a })
 
+instance ToPath ListVerifiedEmailAddresses where
+    toPath = const "/"
+
+instance ToQuery ListVerifiedEmailAddresses where
+    toQuery = const mempty
+
+instance ToHeaders ListVerifiedEmailAddresses
+
 instance AWSRequest ListVerifiedEmailAddresses where
     type Sv ListVerifiedEmailAddresses = SES
     type Rs ListVerifiedEmailAddresses = ListVerifiedEmailAddressesResponse
@@ -88,10 +96,3 @@ instance AWSRequest ListVerifiedEmailAddresses where
 instance FromXML ListVerifiedEmailAddressesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListVerifiedEmailAddressesResponse"
-
-instance ToPath ListVerifiedEmailAddresses where
-    toPath = const "/"
-
-instance ToHeaders ListVerifiedEmailAddresses
-
-instance ToQuery ListVerifiedEmailAddresses

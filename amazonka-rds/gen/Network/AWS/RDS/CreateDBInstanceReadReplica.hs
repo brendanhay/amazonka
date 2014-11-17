@@ -245,6 +245,13 @@ cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance
 cdbirrrDBInstance =
     lens _cdbirrrDBInstance (\s a -> s { _cdbirrrDBInstance = a })
 
+instance ToPath CreateDBInstanceReadReplica where
+    toPath = const "/"
+
+instance ToQuery CreateDBInstanceReadReplica
+
+instance ToHeaders CreateDBInstanceReadReplica
+
 instance AWSRequest CreateDBInstanceReadReplica where
     type Sv CreateDBInstanceReadReplica = RDS
     type Rs CreateDBInstanceReadReplica = CreateDBInstanceReadReplicaResponse
@@ -255,10 +262,3 @@ instance AWSRequest CreateDBInstanceReadReplica where
 instance FromXML CreateDBInstanceReadReplicaResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBInstanceReadReplicaResponse"
-
-instance ToPath CreateDBInstanceReadReplica where
-    toPath = const "/"
-
-instance ToHeaders CreateDBInstanceReadReplica
-
-instance ToQuery CreateDBInstanceReadReplica

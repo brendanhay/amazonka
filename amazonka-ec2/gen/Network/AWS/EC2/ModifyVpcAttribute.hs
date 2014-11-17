@@ -95,25 +95,16 @@ data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 modifyVpcAttributeResponse :: ModifyVpcAttributeResponse
 modifyVpcAttributeResponse = ModifyVpcAttributeResponse
 
+instance ToPath ModifyVpcAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifyVpcAttribute
+
+instance ToHeaders ModifyVpcAttribute
+
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2
     type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
 
     request  = post "ModifyVpcAttribute"
     response = nullResponse ModifyVpcAttributeResponse
-
-instance ToPath ModifyVpcAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifyVpcAttribute
-
-instance ToQuery ModifyVpcAttribute where
-    toQuery ModifyVpcAttribute{..} = mconcat
-        [ "vpcId"              =? _mvaVpcId
-        , "EnableDnsSupport"   =? _mvaEnableDnsSupport
-        , "EnableDnsHostnames" =? _mvaEnableDnsHostnames
-        ]
-
-instance ToXML ModifyVpcAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifyVpcAttribute"

@@ -99,6 +99,13 @@ prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedN
 prnorReservedNode =
     lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
 
+instance ToPath PurchaseReservedNodeOffering where
+    toPath = const "/"
+
+instance ToQuery PurchaseReservedNodeOffering
+
+instance ToHeaders PurchaseReservedNodeOffering
+
 instance AWSRequest PurchaseReservedNodeOffering where
     type Sv PurchaseReservedNodeOffering = Redshift
     type Rs PurchaseReservedNodeOffering = PurchaseReservedNodeOfferingResponse
@@ -109,10 +116,3 @@ instance AWSRequest PurchaseReservedNodeOffering where
 instance FromXML PurchaseReservedNodeOfferingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResponse"
-
-instance ToPath PurchaseReservedNodeOffering where
-    toPath = const "/"
-
-instance ToHeaders PurchaseReservedNodeOffering
-
-instance ToQuery PurchaseReservedNodeOffering

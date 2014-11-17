@@ -332,6 +332,13 @@ rdbitpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBIns
 rdbitpitrDBInstance =
     lens _rdbitpitrDBInstance (\s a -> s { _rdbitpitrDBInstance = a })
 
+instance ToPath RestoreDBInstanceToPointInTime where
+    toPath = const "/"
+
+instance ToQuery RestoreDBInstanceToPointInTime
+
+instance ToHeaders RestoreDBInstanceToPointInTime
+
 instance AWSRequest RestoreDBInstanceToPointInTime where
     type Sv RestoreDBInstanceToPointInTime = RDS
     type Rs RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTimeResponse
@@ -342,10 +349,3 @@ instance AWSRequest RestoreDBInstanceToPointInTime where
 instance FromXML RestoreDBInstanceToPointInTimeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestoreDBInstanceToPointInTimeResponse"
-
-instance ToPath RestoreDBInstanceToPointInTime where
-    toPath = const "/"
-
-instance ToHeaders RestoreDBInstanceToPointInTime
-
-instance ToQuery RestoreDBInstanceToPointInTime

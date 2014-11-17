@@ -107,6 +107,15 @@ lpr1NextPageToken =
 lpr1Presets :: Lens' ListPresetsResponse [Preset]
 lpr1Presets = lens _lpr1Presets (\s a -> s { _lpr1Presets = a })
 
+instance ToPath ListPresets where
+    toPath = const "/2012-09-25/presets"
+
+instance ToQuery ListPresets
+
+instance ToHeaders ListPresets
+instance ToJSON ListPresets where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListPresets where
     type Sv ListPresets = ElasticTranscoder
     type Rs ListPresets = ListPresetsResponse
@@ -116,17 +125,3 @@ instance AWSRequest ListPresets where
 
 instance FromJSON ListPresetsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListPresets where
-    toPath = const "/2012-09-25/presets"
-
-instance ToHeaders ListPresets
-
-instance ToQuery ListPresets where
-    toQuery ListPresets{..} = mconcat
-        [ "Ascending" =? _lp1Ascending
-        , "PageToken" =? _lp1PageToken
-        ]
-
-instance ToJSON ListPresets where
-    toJSON = genericToJSON jsonOptions

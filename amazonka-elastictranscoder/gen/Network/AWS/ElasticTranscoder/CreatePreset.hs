@@ -158,6 +158,16 @@ cprPreset = lens _cprPreset (\s a -> s { _cprPreset = a })
 cprWarning :: Lens' CreatePresetResponse (Maybe Text)
 cprWarning = lens _cprWarning (\s a -> s { _cprWarning = a })
 
+instance ToPath CreatePreset where
+    toPath = const "/2012-09-25/presets"
+
+instance ToQuery CreatePreset where
+    toQuery = const mempty
+
+instance ToHeaders CreatePreset
+instance ToJSON CreatePreset where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
     type Rs CreatePreset = CreatePresetResponse
@@ -167,14 +177,3 @@ instance AWSRequest CreatePreset where
 
 instance FromJSON CreatePresetResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreatePreset where
-    toPath = const "/2012-09-25/presets"
-
-instance ToHeaders CreatePreset
-
-instance ToQuery CreatePreset where
-    toQuery = const mempty
-
-instance ToJSON CreatePreset where
-    toJSON = genericToJSON jsonOptions

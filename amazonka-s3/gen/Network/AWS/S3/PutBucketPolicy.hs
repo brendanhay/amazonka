@@ -86,27 +86,26 @@ data PutBucketPolicyResponse = PutBucketPolicyResponse
 putBucketPolicyResponse :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse
 
-instance AWSRequest PutBucketPolicy where
-    type Sv PutBucketPolicy = S3
-    type Rs PutBucketPolicy = PutBucketPolicyResponse
-
-    request  = put
-    response = nullResponse PutBucketPolicyResponse
-
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat
         [ "/"
         , toText _pbpBucket
         ]
 
+instance ToQuery PutBucketPolicy where
+    toQuery = const "policy"
+
 instance ToHeaders PutBucketPolicy where
     toHeaders PutBucketPolicy{..} = mconcat
         [ "Content-MD5" =: _pbpContentMD5
         ]
-
-instance ToQuery PutBucketPolicy where
-    toQuery = const "policy"
-
 instance ToXML PutBucketPolicy where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketPolicy"
+
+instance AWSRequest PutBucketPolicy where
+    type Sv PutBucketPolicy = S3
+    type Rs PutBucketPolicy = PutBucketPolicyResponse
+
+    request  = put
+    response = nullResponse PutBucketPolicyResponse

@@ -75,20 +75,19 @@ data StopInstanceResponse = StopInstanceResponse
 stopInstanceResponse :: StopInstanceResponse
 stopInstanceResponse = StopInstanceResponse
 
+instance ToPath StopInstance where
+    toPath = const "/"
+
+instance ToQuery StopInstance where
+    toQuery = const mempty
+
+instance ToHeaders StopInstance
+instance ToJSON StopInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks
     type Rs StopInstance = StopInstanceResponse
 
     request  = post
     response = nullResponse StopInstanceResponse
-
-instance ToPath StopInstance where
-    toPath = const "/"
-
-instance ToHeaders StopInstance
-
-instance ToQuery StopInstance where
-    toQuery = const mempty
-
-instance ToJSON StopInstance where
-    toJSON = genericToJSON jsonOptions

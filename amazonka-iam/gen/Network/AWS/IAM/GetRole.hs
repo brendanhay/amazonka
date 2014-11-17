@@ -88,6 +88,13 @@ getRoleResponse p1 = GetRoleResponse
 grrRole :: Lens' GetRoleResponse Role
 grrRole = lens _grrRole (\s a -> s { _grrRole = a })
 
+instance ToPath GetRole where
+    toPath = const "/"
+
+instance ToQuery GetRole
+
+instance ToHeaders GetRole
+
 instance AWSRequest GetRole where
     type Sv GetRole = IAM
     type Rs GetRole = GetRoleResponse
@@ -98,10 +105,3 @@ instance AWSRequest GetRole where
 instance FromXML GetRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetRoleResponse"
-
-instance ToPath GetRole where
-    toPath = const "/"
-
-instance ToHeaders GetRole
-
-instance ToQuery GetRole

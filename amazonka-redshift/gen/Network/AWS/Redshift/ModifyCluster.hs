@@ -302,6 +302,13 @@ modifyClusterResponse = ModifyClusterResponse
 mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\s a -> s { _mcrCluster = a })
 
+instance ToPath ModifyCluster where
+    toPath = const "/"
+
+instance ToQuery ModifyCluster
+
+instance ToHeaders ModifyCluster
+
 instance AWSRequest ModifyCluster where
     type Sv ModifyCluster = Redshift
     type Rs ModifyCluster = ModifyClusterResponse
@@ -312,10 +319,3 @@ instance AWSRequest ModifyCluster where
 instance FromXML ModifyClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyClusterResponse"
-
-instance ToPath ModifyCluster where
-    toPath = const "/"
-
-instance ToHeaders ModifyCluster
-
-instance ToQuery ModifyCluster

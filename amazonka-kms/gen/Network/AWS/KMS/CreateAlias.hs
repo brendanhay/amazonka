@@ -86,20 +86,19 @@ data CreateAliasResponse = CreateAliasResponse
 createAliasResponse :: CreateAliasResponse
 createAliasResponse = CreateAliasResponse
 
+instance ToPath CreateAlias where
+    toPath = const "/"
+
+instance ToQuery CreateAlias where
+    toQuery = const mempty
+
+instance ToHeaders CreateAlias
+instance ToJSON CreateAlias where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateAlias where
     type Sv CreateAlias = KMS
     type Rs CreateAlias = CreateAliasResponse
 
     request  = post
     response = nullResponse CreateAliasResponse
-
-instance ToPath CreateAlias where
-    toPath = const "/"
-
-instance ToHeaders CreateAlias
-
-instance ToQuery CreateAlias where
-    toQuery = const mempty
-
-instance ToJSON CreateAlias where
-    toJSON = genericToJSON jsonOptions

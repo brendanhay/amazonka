@@ -103,6 +103,13 @@ avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
 
+instance ToPath AttachVpnGateway where
+    toPath = const "/"
+
+instance ToQuery AttachVpnGateway
+
+instance ToHeaders AttachVpnGateway
+
 instance AWSRequest AttachVpnGateway where
     type Sv AttachVpnGateway = EC2
     type Rs AttachVpnGateway = AttachVpnGatewayResponse
@@ -113,19 +120,3 @@ instance AWSRequest AttachVpnGateway where
 instance FromXML AttachVpnGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachVpnGatewayResponse"
-
-instance ToPath AttachVpnGateway where
-    toPath = const "/"
-
-instance ToHeaders AttachVpnGateway
-
-instance ToQuery AttachVpnGateway where
-    toQuery AttachVpnGateway{..} = mconcat
-        [ "dryRun"       =? _avgDryRun
-        , "VpnGatewayId" =? _avgVpnGatewayId
-        , "VpcId"        =? _avgVpcId
-        ]
-
-instance ToXML AttachVpnGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AttachVpnGateway"

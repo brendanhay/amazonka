@@ -68,20 +68,19 @@ data DeleteLogGroupResponse = DeleteLogGroupResponse
 deleteLogGroupResponse :: DeleteLogGroupResponse
 deleteLogGroupResponse = DeleteLogGroupResponse
 
+instance ToPath DeleteLogGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteLogGroup where
+    toQuery = const mempty
+
+instance ToHeaders DeleteLogGroup
+instance ToJSON DeleteLogGroup where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs
     type Rs DeleteLogGroup = DeleteLogGroupResponse
 
     request  = post
     response = nullResponse DeleteLogGroupResponse
-
-instance ToPath DeleteLogGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteLogGroup
-
-instance ToQuery DeleteLogGroup where
-    toQuery = const mempty
-
-instance ToJSON DeleteLogGroup where
-    toJSON = genericToJSON jsonOptions

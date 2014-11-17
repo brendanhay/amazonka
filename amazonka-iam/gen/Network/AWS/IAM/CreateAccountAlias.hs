@@ -70,16 +70,16 @@ data CreateAccountAliasResponse = CreateAccountAliasResponse
 createAccountAliasResponse :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse
 
+instance ToPath CreateAccountAlias where
+    toPath = const "/"
+
+instance ToQuery CreateAccountAlias
+
+instance ToHeaders CreateAccountAlias
+
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM
     type Rs CreateAccountAlias = CreateAccountAliasResponse
 
     request  = post "CreateAccountAlias"
     response = nullResponse CreateAccountAliasResponse
-
-instance ToPath CreateAccountAlias where
-    toPath = const "/"
-
-instance ToHeaders CreateAccountAlias
-
-instance ToQuery CreateAccountAlias

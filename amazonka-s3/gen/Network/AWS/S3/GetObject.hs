@@ -486,6 +486,41 @@ gorWebsiteRedirectLocation =
     lens _gorWebsiteRedirectLocation
         (\s a -> s { _gorWebsiteRedirectLocation = a })
 
+instance ToPath GetObject where
+    toPath GetObject{..} = mconcat
+        [ "/"
+        , toText _goBucket
+        , "/"
+        , toText _goKey
+        ]
+
+instance ToQuery GetObject where
+    toQuery GetObject{..} = mconcat
+          [   "response-cache-control"       =? _goResponseCacheControl
+          ,   "response-content-disposition" =? _goResponseContentDisposition
+          ,   "response-content-encoding"    =? _goResponseContentEncoding
+          ,   "response-content-language"    =? _goResponseContentLanguage
+          ,   "response-content-type"        =? _goResponseContentType
+          ,   "response-expires"             =? _goResponseExpires
+          ,   "versionId"                    =? _goVersionId
+        ]
+
+instance ToHeaders GetObject where
+    toHeaders GetObject{..} = mconcat
+        [ "If-Match"                                        =: _goIfMatch
+        , "If-Modified-Since"                               =: _goIfModifiedSince
+        , "If-None-Match"                                   =: _goIfNoneMatch
+        , "If-Unmodified-Since"                             =: _goIfUnmodifiedSince
+        , "Range"                                           =: _goRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
+        ]
+instance ToXML GetObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetObject"
+
 instance AWSRequest GetObject where
     type Sv GetObject = S3
     type Rs GetObject = GetObjectResponse
@@ -513,39 +548,3 @@ instance AWSRequest GetObject where
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
         <*> h ~:? "x-amz-website-redirect-location"
-
-instance ToPath GetObject where
-    toPath GetObject{..} = mconcat
-        [ "/"
-        , toText _goBucket
-        , "/"
-        , toText _goKey
-        ]
-
-instance ToHeaders GetObject where
-    toHeaders GetObject{..} = mconcat
-        [ "If-Match"                                        =: _goIfMatch
-        , "If-Modified-Since"                               =: _goIfModifiedSince
-        , "If-None-Match"                                   =: _goIfNoneMatch
-        , "If-Unmodified-Since"                             =: _goIfUnmodifiedSince
-        , "Range"                                           =: _goRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
-        ]
-
-instance ToQuery GetObject where
-    toQuery GetObject{..} = mconcat
-        [ "response-cache-control"       =? _goResponseCacheControl
-        , "response-content-disposition" =? _goResponseContentDisposition
-        , "response-content-encoding"    =? _goResponseContentEncoding
-        , "response-content-language"    =? _goResponseContentLanguage
-        , "response-content-type"        =? _goResponseContentType
-        , "response-expires"             =? _goResponseExpires
-        , "versionId"                    =? _goVersionId
-        ]
-
-instance ToXML GetObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetObject"

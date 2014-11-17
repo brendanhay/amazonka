@@ -218,6 +218,16 @@ utrS3KeyPrefix = lens _utrS3KeyPrefix (\s a -> s { _utrS3KeyPrefix = a })
 utrSnsTopicName :: Lens' UpdateTrailResponse (Maybe Text)
 utrSnsTopicName = lens _utrSnsTopicName (\s a -> s { _utrSnsTopicName = a })
 
+instance ToPath UpdateTrail where
+    toPath = const "/"
+
+instance ToQuery UpdateTrail where
+    toQuery = const mempty
+
+instance ToHeaders UpdateTrail
+instance ToJSON UpdateTrail where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateTrail where
     type Sv UpdateTrail = CloudTrail
     type Rs UpdateTrail = UpdateTrailResponse
@@ -227,14 +237,3 @@ instance AWSRequest UpdateTrail where
 
 instance FromJSON UpdateTrailResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateTrail where
-    toPath = const "/"
-
-instance ToHeaders UpdateTrail
-
-instance ToQuery UpdateTrail where
-    toQuery = const mempty
-
-instance ToJSON UpdateTrail where
-    toJSON = genericToJSON jsonOptions

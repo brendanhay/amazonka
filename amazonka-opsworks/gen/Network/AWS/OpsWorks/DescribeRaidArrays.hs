@@ -102,6 +102,16 @@ describeRaidArraysResponse = DescribeRaidArraysResponse
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
 drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a })
 
+instance ToPath DescribeRaidArrays where
+    toPath = const "/"
+
+instance ToQuery DescribeRaidArrays where
+    toQuery = const mempty
+
+instance ToHeaders DescribeRaidArrays
+instance ToJSON DescribeRaidArrays where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeRaidArrays where
     type Sv DescribeRaidArrays = OpsWorks
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse
@@ -111,14 +121,3 @@ instance AWSRequest DescribeRaidArrays where
 
 instance FromJSON DescribeRaidArraysResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeRaidArrays where
-    toPath = const "/"
-
-instance ToHeaders DescribeRaidArrays
-
-instance ToQuery DescribeRaidArrays where
-    toQuery = const mempty
-
-instance ToJSON DescribeRaidArrays where
-    toJSON = genericToJSON jsonOptions

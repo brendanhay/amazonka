@@ -96,6 +96,16 @@ describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummar
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a })
 
+instance ToPath DescribeTrustedAdvisorCheckSummaries where
+    toPath = const "/"
+
+instance ToQuery DescribeTrustedAdvisorCheckSummaries where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTrustedAdvisorCheckSummaries
+instance ToJSON DescribeTrustedAdvisorCheckSummaries where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
     type Sv DescribeTrustedAdvisorCheckSummaries = Support
     type Rs DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummariesResponse
@@ -105,14 +115,3 @@ instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTrustedAdvisorCheckSummaries where
-    toPath = const "/"
-
-instance ToHeaders DescribeTrustedAdvisorCheckSummaries
-
-instance ToQuery DescribeTrustedAdvisorCheckSummaries where
-    toQuery = const mempty
-
-instance ToJSON DescribeTrustedAdvisorCheckSummaries where
-    toJSON = genericToJSON jsonOptions

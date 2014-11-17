@@ -84,6 +84,13 @@ cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGatewa
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
 
+instance ToPath CreateInternetGateway where
+    toPath = const "/"
+
+instance ToQuery CreateInternetGateway
+
+instance ToHeaders CreateInternetGateway
+
 instance AWSRequest CreateInternetGateway where
     type Sv CreateInternetGateway = EC2
     type Rs CreateInternetGateway = CreateInternetGatewayResponse
@@ -94,15 +101,3 @@ instance AWSRequest CreateInternetGateway where
 instance FromXML CreateInternetGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateInternetGatewayResponse"
-
-instance ToPath CreateInternetGateway where
-    toPath = const "/"
-
-instance ToHeaders CreateInternetGateway
-
-instance ToQuery CreateInternetGateway where
-    toQuery rq = "dryRun" =? _cigDryRun rq
-
-instance ToXML CreateInternetGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateInternetGateway"

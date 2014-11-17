@@ -151,6 +151,16 @@ dcrRegion = lens _dcrRegion (\s a -> s { _dcrRegion = a })
 dcrVlan :: Lens' DeleteConnectionResponse (Maybe Int)
 dcrVlan = lens _dcrVlan (\s a -> s { _dcrVlan = a })
 
+instance ToPath DeleteConnection where
+    toPath = const "/"
+
+instance ToQuery DeleteConnection where
+    toQuery = const mempty
+
+instance ToHeaders DeleteConnection
+instance ToJSON DeleteConnection where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteConnection where
     type Sv DeleteConnection = DirectConnect
     type Rs DeleteConnection = DeleteConnectionResponse
@@ -160,14 +170,3 @@ instance AWSRequest DeleteConnection where
 
 instance FromJSON DeleteConnectionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteConnection where
-    toPath = const "/"
-
-instance ToHeaders DeleteConnection
-
-instance ToQuery DeleteConnection where
-    toQuery = const mempty
-
-instance ToJSON DeleteConnection where
-    toJSON = genericToJSON jsonOptions

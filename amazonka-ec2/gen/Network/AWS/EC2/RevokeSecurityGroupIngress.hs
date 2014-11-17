@@ -167,32 +167,16 @@ data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 
+instance ToPath RevokeSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery RevokeSecurityGroupIngress
+
+instance ToHeaders RevokeSecurityGroupIngress
+
 instance AWSRequest RevokeSecurityGroupIngress where
     type Sv RevokeSecurityGroupIngress = EC2
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
 
     request  = post "RevokeSecurityGroupIngress"
     response = nullResponse RevokeSecurityGroupIngressResponse
-
-instance ToPath RevokeSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders RevokeSecurityGroupIngress
-
-instance ToQuery RevokeSecurityGroupIngress where
-    toQuery RevokeSecurityGroupIngress{..} = mconcat
-        [ "dryRun"                     =? _rsgiDryRun
-        , "GroupName"                  =? _rsgiGroupName
-        , "GroupId"                    =? _rsgiGroupId
-        , "SourceSecurityGroupName"    =? _rsgiSourceSecurityGroupName
-        , "SourceSecurityGroupOwnerId" =? _rsgiSourceSecurityGroupOwnerId
-        , "IpProtocol"                 =? _rsgiIpProtocol
-        , "FromPort"                   =? _rsgiFromPort
-        , "ToPort"                     =? _rsgiToPort
-        , "CidrIp"                     =? _rsgiCidrIp
-        , "IpPermissions"              =? _rsgiIpPermissions
-        ]
-
-instance ToXML RevokeSecurityGroupIngress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RevokeSecurityGroupIngress"

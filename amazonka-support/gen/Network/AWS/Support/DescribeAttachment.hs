@@ -87,6 +87,16 @@ describeAttachmentResponse = DescribeAttachmentResponse
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\s a -> s { _darAttachment = a })
 
+instance ToPath DescribeAttachment where
+    toPath = const "/"
+
+instance ToQuery DescribeAttachment where
+    toQuery = const mempty
+
+instance ToHeaders DescribeAttachment
+instance ToJSON DescribeAttachment where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeAttachment where
     type Sv DescribeAttachment = Support
     type Rs DescribeAttachment = DescribeAttachmentResponse
@@ -96,14 +106,3 @@ instance AWSRequest DescribeAttachment where
 
 instance FromJSON DescribeAttachmentResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeAttachment where
-    toPath = const "/"
-
-instance ToHeaders DescribeAttachment
-
-instance ToQuery DescribeAttachment where
-    toQuery = const mempty
-
-instance ToJSON DescribeAttachment where
-    toJSON = genericToJSON jsonOptions

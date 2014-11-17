@@ -91,25 +91,16 @@ data CancelConversionTaskResponse = CancelConversionTaskResponse
 cancelConversionTaskResponse :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse
 
+instance ToPath CancelConversionTask where
+    toPath = const "/"
+
+instance ToQuery CancelConversionTask
+
+instance ToHeaders CancelConversionTask
+
 instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2
     type Rs CancelConversionTask = CancelConversionTaskResponse
 
     request  = post "CancelConversionTask"
     response = nullResponse CancelConversionTaskResponse
-
-instance ToPath CancelConversionTask where
-    toPath = const "/"
-
-instance ToHeaders CancelConversionTask
-
-instance ToQuery CancelConversionTask where
-    toQuery CancelConversionTask{..} = mconcat
-        [ "dryRun"           =? _cctDryRun
-        , "conversionTaskId" =? _cctConversionTaskId
-        , "reasonMessage"    =? _cctReasonMessage
-        ]
-
-instance ToXML CancelConversionTask where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CancelConversionTask"

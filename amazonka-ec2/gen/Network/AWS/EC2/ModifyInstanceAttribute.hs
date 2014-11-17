@@ -234,37 +234,16 @@ data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 
+instance ToPath ModifyInstanceAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifyInstanceAttribute
+
+instance ToHeaders ModifyInstanceAttribute
+
 instance AWSRequest ModifyInstanceAttribute where
     type Sv ModifyInstanceAttribute = EC2
     type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
 
     request  = post "ModifyInstanceAttribute"
     response = nullResponse ModifyInstanceAttributeResponse
-
-instance ToPath ModifyInstanceAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifyInstanceAttribute
-
-instance ToQuery ModifyInstanceAttribute where
-    toQuery ModifyInstanceAttribute{..} = mconcat
-        [ "dryRun"                            =? _mia1DryRun
-        , "instanceId"                        =? _mia1InstanceId
-        , "attribute"                         =? _mia1Attribute
-        , "value"                             =? _mia1Value
-        , "blockDeviceMapping"                =? _mia1BlockDeviceMappings
-        , "SourceDestCheck"                   =? _mia1SourceDestCheck
-        , "disableApiTermination"             =? _mia1DisableApiTermination
-        , "instanceType"                      =? _mia1InstanceType
-        , "kernel"                            =? _mia1Kernel
-        , "ramdisk"                           =? _mia1Ramdisk
-        , "userData"                          =? _mia1UserData
-        , "instanceInitiatedShutdownBehavior" =? _mia1InstanceInitiatedShutdownBehavior
-        , "GroupId"                           =? _mia1Groups
-        , "ebsOptimized"                      =? _mia1EbsOptimized
-        , "sriovNetSupport"                   =? _mia1SriovNetSupport
-        ]
-
-instance ToXML ModifyInstanceAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifyInstanceAttribute"

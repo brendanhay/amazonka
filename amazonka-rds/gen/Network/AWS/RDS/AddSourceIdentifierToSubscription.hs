@@ -104,6 +104,13 @@ asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Mayb
 asitsrEventSubscription =
     lens _asitsrEventSubscription (\s a -> s { _asitsrEventSubscription = a })
 
+instance ToPath AddSourceIdentifierToSubscription where
+    toPath = const "/"
+
+instance ToQuery AddSourceIdentifierToSubscription
+
+instance ToHeaders AddSourceIdentifierToSubscription
+
 instance AWSRequest AddSourceIdentifierToSubscription where
     type Sv AddSourceIdentifierToSubscription = RDS
     type Rs AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscriptionResponse
@@ -114,10 +121,3 @@ instance AWSRequest AddSourceIdentifierToSubscription where
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddSourceIdentifierToSubscriptionResponse"
-
-instance ToPath AddSourceIdentifierToSubscription where
-    toPath = const "/"
-
-instance ToHeaders AddSourceIdentifierToSubscription
-
-instance ToQuery AddSourceIdentifierToSubscription

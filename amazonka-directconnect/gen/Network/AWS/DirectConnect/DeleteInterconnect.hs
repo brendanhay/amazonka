@@ -82,6 +82,16 @@ dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe Text)
 dirInterconnectState =
     lens _dirInterconnectState (\s a -> s { _dirInterconnectState = a })
 
+instance ToPath DeleteInterconnect where
+    toPath = const "/"
+
+instance ToQuery DeleteInterconnect where
+    toQuery = const mempty
+
+instance ToHeaders DeleteInterconnect
+instance ToJSON DeleteInterconnect where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteInterconnect where
     type Sv DeleteInterconnect = DirectConnect
     type Rs DeleteInterconnect = DeleteInterconnectResponse
@@ -91,14 +101,3 @@ instance AWSRequest DeleteInterconnect where
 
 instance FromJSON DeleteInterconnectResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteInterconnect where
-    toPath = const "/"
-
-instance ToHeaders DeleteInterconnect
-
-instance ToQuery DeleteInterconnect where
-    toQuery = const mempty
-
-instance ToJSON DeleteInterconnect where
-    toJSON = genericToJSON jsonOptions

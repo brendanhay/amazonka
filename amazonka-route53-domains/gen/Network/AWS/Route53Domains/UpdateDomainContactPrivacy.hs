@@ -136,6 +136,16 @@ updateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
 udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\s a -> s { _udcprOperationId = a })
 
+instance ToPath UpdateDomainContactPrivacy where
+    toPath = const "/"
+
+instance ToQuery UpdateDomainContactPrivacy where
+    toQuery = const mempty
+
+instance ToHeaders UpdateDomainContactPrivacy
+instance ToJSON UpdateDomainContactPrivacy where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateDomainContactPrivacy where
     type Sv UpdateDomainContactPrivacy = Route53Domains
     type Rs UpdateDomainContactPrivacy = UpdateDomainContactPrivacyResponse
@@ -145,14 +155,3 @@ instance AWSRequest UpdateDomainContactPrivacy where
 
 instance FromJSON UpdateDomainContactPrivacyResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateDomainContactPrivacy where
-    toPath = const "/"
-
-instance ToHeaders UpdateDomainContactPrivacy
-
-instance ToQuery UpdateDomainContactPrivacy where
-    toQuery = const mempty
-
-instance ToJSON UpdateDomainContactPrivacy where
-    toJSON = genericToJSON jsonOptions

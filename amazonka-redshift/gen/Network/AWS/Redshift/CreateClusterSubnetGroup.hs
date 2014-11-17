@@ -112,6 +112,13 @@ ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe Cluster
 ccsgrClusterSubnetGroup =
     lens _ccsgrClusterSubnetGroup (\s a -> s { _ccsgrClusterSubnetGroup = a })
 
+instance ToPath CreateClusterSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery CreateClusterSubnetGroup
+
+instance ToHeaders CreateClusterSubnetGroup
+
 instance AWSRequest CreateClusterSubnetGroup where
     type Sv CreateClusterSubnetGroup = Redshift
     type Rs CreateClusterSubnetGroup = CreateClusterSubnetGroupResponse
@@ -122,10 +129,3 @@ instance AWSRequest CreateClusterSubnetGroup where
 instance FromXML CreateClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterSubnetGroupResponse"
-
-instance ToPath CreateClusterSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateClusterSubnetGroup
-
-instance ToQuery CreateClusterSubnetGroup

@@ -137,6 +137,13 @@ dlrLoggingEnabled =
 dlrS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
 dlrS3KeyPrefix = lens _dlrS3KeyPrefix (\s a -> s { _dlrS3KeyPrefix = a })
 
+instance ToPath DisableLogging where
+    toPath = const "/"
+
+instance ToQuery DisableLogging
+
+instance ToHeaders DisableLogging
+
 instance AWSRequest DisableLogging where
     type Sv DisableLogging = Redshift
     type Rs DisableLogging = DisableLoggingResponse
@@ -147,10 +154,3 @@ instance AWSRequest DisableLogging where
 instance FromXML DisableLoggingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableLoggingResponse"
-
-instance ToPath DisableLogging where
-    toPath = const "/"
-
-instance ToHeaders DisableLogging
-
-instance ToQuery DisableLogging

@@ -83,6 +83,19 @@ readPipelineResponse = ReadPipelineResponse
 rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
 
+instance ToPath ReadPipeline where
+    toPath ReadPipeline{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _rp1Id
+        ]
+
+instance ToQuery ReadPipeline where
+    toQuery = const mempty
+
+instance ToHeaders ReadPipeline
+instance ToJSON ReadPipeline where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ReadPipeline where
     type Sv ReadPipeline = ElasticTranscoder
     type Rs ReadPipeline = ReadPipelineResponse
@@ -92,17 +105,3 @@ instance AWSRequest ReadPipeline where
 
 instance FromJSON ReadPipelineResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ReadPipeline where
-    toPath ReadPipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _rp1Id
-        ]
-
-instance ToHeaders ReadPipeline
-
-instance ToQuery ReadPipeline where
-    toQuery = const mempty
-
-instance ToJSON ReadPipeline where
-    toJSON = genericToJSON jsonOptions

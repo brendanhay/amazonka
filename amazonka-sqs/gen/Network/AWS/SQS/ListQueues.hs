@@ -92,6 +92,13 @@ listQueuesResponse = ListQueuesResponse
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
 
+instance ToPath ListQueues where
+    toPath = const "/"
+
+instance ToQuery ListQueues
+
+instance ToHeaders ListQueues
+
 instance AWSRequest ListQueues where
     type Sv ListQueues = SQS
     type Rs ListQueues = ListQueuesResponse
@@ -102,10 +109,3 @@ instance AWSRequest ListQueues where
 instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListQueuesResponse"
-
-instance ToPath ListQueues where
-    toPath = const "/"
-
-instance ToHeaders ListQueues
-
-instance ToQuery ListQueues

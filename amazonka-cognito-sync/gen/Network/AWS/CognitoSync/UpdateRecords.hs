@@ -158,16 +158,6 @@ updateRecordsResponse = UpdateRecordsResponse
 urrRecords :: Lens' UpdateRecordsResponse [Record]
 urrRecords = lens _urrRecords (\s a -> s { _urrRecords = a })
 
-instance AWSRequest UpdateRecords where
-    type Sv UpdateRecords = CognitoSync
-    type Rs UpdateRecords = UpdateRecordsResponse
-
-    request  = post
-    response = jsonResponse
-
-instance FromJSON UpdateRecordsResponse where
-    parseJSON = genericParseJSON jsonOptions
-
 instance ToPath UpdateRecords where
     toPath UpdateRecords{..} = mconcat
         [ "/identitypools/"
@@ -178,13 +168,22 @@ instance ToPath UpdateRecords where
         , toText _urDatasetName
         ]
 
+instance ToQuery UpdateRecords where
+    toQuery = const mempty
+
 instance ToHeaders UpdateRecords where
     toHeaders UpdateRecords{..} = mconcat
         [ "x-amz-Client-Context" =: _urClientContext
         ]
-
-instance ToQuery UpdateRecords where
-    toQuery = const mempty
-
 instance ToJSON UpdateRecords where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest UpdateRecords where
+    type Sv UpdateRecords = CognitoSync
+    type Rs UpdateRecords = UpdateRecordsResponse
+
+    request  = post
+    response = jsonResponse
+
+instance FromJSON UpdateRecordsResponse where
+    parseJSON = genericParseJSON jsonOptions

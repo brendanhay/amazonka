@@ -113,6 +113,16 @@ describeDeploymentsResponse = DescribeDeploymentsResponse
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a })
 
+instance ToPath DescribeDeployments where
+    toPath = const "/"
+
+instance ToQuery DescribeDeployments where
+    toQuery = const mempty
+
+instance ToHeaders DescribeDeployments
+instance ToJSON DescribeDeployments where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeDeployments where
     type Sv DescribeDeployments = OpsWorks
     type Rs DescribeDeployments = DescribeDeploymentsResponse
@@ -122,14 +132,3 @@ instance AWSRequest DescribeDeployments where
 
 instance FromJSON DescribeDeploymentsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeDeployments where
-    toPath = const "/"
-
-instance ToHeaders DescribeDeployments
-
-instance ToQuery DescribeDeployments where
-    toQuery = const mempty
-
-instance ToJSON DescribeDeployments where
-    toJSON = genericToJSON jsonOptions

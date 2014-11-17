@@ -89,6 +89,13 @@ getTemplateResponse = GetTemplateResponse
 gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
 
+instance ToPath GetTemplate where
+    toPath = const "/"
+
+instance ToQuery GetTemplate
+
+instance ToHeaders GetTemplate
+
 instance AWSRequest GetTemplate where
     type Sv GetTemplate = CloudFormation
     type Rs GetTemplate = GetTemplateResponse
@@ -99,10 +106,3 @@ instance AWSRequest GetTemplate where
 instance FromXML GetTemplateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetTemplateResponse"
-
-instance ToPath GetTemplate where
-    toPath = const "/"
-
-instance ToHeaders GetTemplate
-
-instance ToQuery GetTemplate

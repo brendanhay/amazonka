@@ -76,24 +76,23 @@ data DeleteHealthCheckResponse = DeleteHealthCheckResponse
 deleteHealthCheckResponse :: DeleteHealthCheckResponse
 deleteHealthCheckResponse = DeleteHealthCheckResponse
 
-instance AWSRequest DeleteHealthCheck where
-    type Sv DeleteHealthCheck = Route53
-    type Rs DeleteHealthCheck = DeleteHealthCheckResponse
-
-    request  = delete
-    response = nullResponse DeleteHealthCheckResponse
-
 instance ToPath DeleteHealthCheck where
     toPath DeleteHealthCheck{..} = mconcat
         [ "/2013-04-01/healthcheck/"
         , toText _dhcHealthCheckId
         ]
 
-instance ToHeaders DeleteHealthCheck
-
 instance ToQuery DeleteHealthCheck where
     toQuery = const mempty
 
+instance ToHeaders DeleteHealthCheck
 instance ToXML DeleteHealthCheck where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteHealthCheck"
+
+instance AWSRequest DeleteHealthCheck where
+    type Sv DeleteHealthCheck = Route53
+    type Rs DeleteHealthCheck = DeleteHealthCheckResponse
+
+    request  = delete
+    response = nullResponse DeleteHealthCheckResponse

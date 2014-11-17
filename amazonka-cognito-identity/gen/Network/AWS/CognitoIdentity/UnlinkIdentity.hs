@@ -90,20 +90,19 @@ data UnlinkIdentityResponse = UnlinkIdentityResponse
 unlinkIdentityResponse :: UnlinkIdentityResponse
 unlinkIdentityResponse = UnlinkIdentityResponse
 
+instance ToPath UnlinkIdentity where
+    toPath = const "/"
+
+instance ToQuery UnlinkIdentity where
+    toQuery = const mempty
+
+instance ToHeaders UnlinkIdentity
+instance ToJSON UnlinkIdentity where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity
     type Rs UnlinkIdentity = UnlinkIdentityResponse
 
     request  = post
     response = nullResponse UnlinkIdentityResponse
-
-instance ToPath UnlinkIdentity where
-    toPath = const "/"
-
-instance ToHeaders UnlinkIdentity
-
-instance ToQuery UnlinkIdentity where
-    toQuery = const mempty
-
-instance ToJSON UnlinkIdentity where
-    toJSON = genericToJSON jsonOptions

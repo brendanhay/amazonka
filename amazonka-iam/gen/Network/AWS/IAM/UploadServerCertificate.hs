@@ -136,6 +136,13 @@ uscrServerCertificateMetadata =
     lens _uscrServerCertificateMetadata
         (\s a -> s { _uscrServerCertificateMetadata = a })
 
+instance ToPath UploadServerCertificate where
+    toPath = const "/"
+
+instance ToQuery UploadServerCertificate
+
+instance ToHeaders UploadServerCertificate
+
 instance AWSRequest UploadServerCertificate where
     type Sv UploadServerCertificate = IAM
     type Rs UploadServerCertificate = UploadServerCertificateResponse
@@ -146,10 +153,3 @@ instance AWSRequest UploadServerCertificate where
 instance FromXML UploadServerCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UploadServerCertificateResponse"
-
-instance ToPath UploadServerCertificate where
-    toPath = const "/"
-
-instance ToHeaders UploadServerCertificate
-
-instance ToQuery UploadServerCertificate

@@ -2417,6 +2417,7 @@
                 "name": "AssociateVPCWithHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2508,6 +2509,8 @@
                 "name": "AssociateVPCWithHostedZone",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2622,6 +2625,7 @@
                 "name": "ChangeResourceRecordSetsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2713,6 +2717,8 @@
                 "name": "ChangeResourceRecordSets",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2768,6 +2774,7 @@
                 "name": "ChangeTagsForResourceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2876,6 +2883,8 @@
                 "name": "ChangeTagsForResource",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2994,6 +3003,7 @@
                 "name": "CreateHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3091,6 +3101,8 @@
                 "name": "CreateHealthCheck",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3209,6 +3221,7 @@
                 "name": "CreateHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3363,6 +3376,8 @@
                 "name": "CreateHostedZone",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3538,6 +3553,7 @@
                 "name": "CreateReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3622,6 +3638,8 @@
                 "name": "CreateReusableDelegationSet",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3692,6 +3710,7 @@
                 "name": "DeleteHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3768,6 +3787,8 @@
                 "name": "DeleteHealthCheck",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3839,6 +3860,7 @@
                 "name": "DeleteHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3930,6 +3952,8 @@
                 "name": "DeleteHostedZone",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3971,6 +3995,7 @@
                 "name": "DeleteReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4047,6 +4072,8 @@
                 "name": "DeleteReusableDelegationSet",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4118,6 +4145,7 @@
                 "name": "DisassociateVPCFromHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4209,6 +4237,8 @@
                 "name": "DisassociateVPCFromHostedZone",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4323,6 +4353,7 @@
                 "name": "GetChangeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4414,6 +4445,8 @@
                 "name": "GetChange",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4473,6 +4506,7 @@
                 "name": "GetCheckerIpRangesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4524,7 +4558,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRanges",
                 "headerPad": 0,
@@ -4542,6 +4576,8 @@
                 "name": "GetCheckerIpRanges",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -4598,6 +4634,7 @@
                 "name": "GetGeoLocationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4669,6 +4706,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4811,6 +4850,7 @@
                 "name": "GetHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4902,6 +4942,8 @@
                 "name": "GetHealthCheck",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4978,6 +5020,7 @@
                 "name": "GetHealthCheckCountResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5014,7 +5057,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCount",
                 "headerPad": 0,
@@ -5032,6 +5075,8 @@
                 "name": "GetHealthCheckCount",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -5075,6 +5120,7 @@
                 "name": "GetHealthCheckLastFailureReasonResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5185,6 +5231,8 @@
                 "name": "GetHealthCheckLastFailureReason",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5243,6 +5291,7 @@
                 "name": "GetHealthCheckStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5353,6 +5402,8 @@
                 "name": "GetHealthCheckStatus",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5423,6 +5474,7 @@
                 "name": "GetHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5557,6 +5609,8 @@
                 "name": "GetHostedZone",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5628,6 +5682,7 @@
                 "name": "GetReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5719,6 +5774,8 @@
                 "name": "GetReusableDelegationSet",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5789,6 +5846,7 @@
                 "name": "ListGeoLocationsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5992,6 +6050,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6175,6 +6235,7 @@
                 "name": "ListHealthChecksResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6334,6 +6395,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6461,6 +6524,7 @@
                 "name": "ListHostedZonesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6625,6 +6689,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6766,6 +6832,7 @@
                 "name": "ListResourceRecordSetsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7011,6 +7078,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7208,6 +7277,7 @@
                 "name": "ListReusableDelegationSetsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7359,6 +7429,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7473,6 +7545,7 @@
                 "name": "ListTagsForResourceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7569,6 +7642,8 @@
                 "name": "ListTagsForResource",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7641,6 +7716,7 @@
                 "name": "ListTagsForResourcesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7744,6 +7820,8 @@
                 "name": "ListTagsForResources",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7829,6 +7907,7 @@
                 "name": "UpdateHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7903,6 +7982,8 @@
                 "name": "UpdateHealthCheck",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

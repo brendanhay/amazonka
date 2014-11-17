@@ -7656,6 +7656,7 @@
                 "name": "AssignVolumeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -7711,6 +7712,8 @@
                 "name": "AssignVolume",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7781,6 +7784,7 @@
                 "name": "AssociateElasticIpResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -7836,6 +7840,8 @@
                 "name": "AssociateElasticIp",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7906,6 +7912,7 @@
                 "name": "AttachElasticLoadBalancerResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -7975,6 +7982,8 @@
                 "name": "AttachElasticLoadBalancer",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8047,6 +8056,7 @@
                 "name": "CloneStackResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8145,6 +8155,8 @@
                 "name": "CloneStack",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8750,6 +8762,7 @@
                 "name": "CreateAppResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8862,6 +8875,8 @@
                 "name": "CreateApp",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9173,6 +9188,7 @@
                 "name": "CreateDeploymentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9271,6 +9287,8 @@
                 "name": "CreateDeployment",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9456,6 +9474,7 @@
                 "name": "CreateInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9555,6 +9574,8 @@
                 "name": "CreateInstance",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9992,6 +10013,7 @@
                 "name": "CreateLayerResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10118,6 +10140,8 @@
                 "name": "CreateLayer",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10527,6 +10551,7 @@
                 "name": "CreateStackResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10653,6 +10678,8 @@
                 "name": "CreateStack",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11146,6 +11173,7 @@
                 "name": "CreateUserProfileResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11231,6 +11259,8 @@
                 "name": "CreateUserProfile",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11357,6 +11387,7 @@
                 "name": "DeleteAppResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11429,6 +11460,8 @@
                 "name": "DeleteApp",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11470,6 +11503,7 @@
                 "name": "DeleteInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11525,6 +11559,8 @@
                 "name": "DeleteInstance",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11623,6 +11659,7 @@
                 "name": "DeleteLayerResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11695,6 +11732,8 @@
                 "name": "DeleteLayer",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11736,6 +11775,7 @@
                 "name": "DeleteStackResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11808,6 +11848,8 @@
                 "name": "DeleteStack",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11849,6 +11891,7 @@
                 "name": "DeleteUserProfileResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11921,6 +11964,8 @@
                 "name": "DeleteUserProfile",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11962,6 +12007,7 @@
                 "name": "DeregisterElasticIpResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12034,6 +12080,8 @@
                 "name": "DeregisterElasticIp",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12075,6 +12123,7 @@
                 "name": "DeregisterRdsDbInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12147,6 +12196,8 @@
                 "name": "DeregisterRdsDbInstance",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12188,6 +12239,7 @@
                 "name": "DeregisterVolumeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12260,6 +12312,8 @@
                 "name": "DeregisterVolume",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12318,6 +12372,7 @@
                 "name": "DescribeAppsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12388,6 +12443,8 @@
                 "name": "DescribeApps",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12489,6 +12546,7 @@
                 "name": "DescribeCommandsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12559,6 +12617,8 @@
                 "name": "DescribeCommands",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12688,6 +12748,7 @@
                 "name": "DescribeDeploymentsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12758,6 +12819,8 @@
                 "name": "DescribeDeployments",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12887,6 +12950,7 @@
                 "name": "DescribeElasticIpsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12957,6 +13021,8 @@
                 "name": "DescribeElasticIps",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13086,6 +13152,7 @@
                 "name": "DescribeElasticLoadBalancersResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13156,6 +13223,8 @@
                 "name": "DescribeElasticLoadBalancers",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13257,6 +13326,7 @@
                 "name": "DescribeInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13327,6 +13397,8 @@
                 "name": "DescribeInstances",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13456,6 +13528,7 @@
                 "name": "DescribeLayersResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13526,6 +13599,8 @@
                 "name": "DescribeLayers",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13627,6 +13702,7 @@
                 "name": "DescribeLoadBasedAutoScalingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13714,6 +13790,8 @@
                 "name": "DescribeLoadBasedAutoScaling",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13785,6 +13863,7 @@
                 "name": "DescribeMyUserProfileResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13836,7 +13915,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeMyUserProfile",
                 "headerPad": 0,
@@ -13854,6 +13933,8 @@
                 "name": "DescribeMyUserProfile",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -13897,6 +13978,7 @@
                 "name": "DescribePermissionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13967,6 +14049,8 @@
                 "name": "DescribePermissions",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14068,6 +14152,7 @@
                 "name": "DescribeRaidArraysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14138,6 +14223,8 @@
                 "name": "DescribeRaidArrays",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14239,6 +14326,7 @@
                 "name": "DescribeRdsDbInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14324,6 +14412,8 @@
                 "name": "DescribeRdsDbInstances",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14411,6 +14501,7 @@
                 "name": "DescribeServiceErrorsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14481,6 +14572,8 @@
                 "name": "DescribeServiceErrors",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14608,6 +14701,7 @@
                 "name": "DescribeStackSummaryResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14710,6 +14804,8 @@
                 "name": "DescribeStackSummary",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -14768,6 +14864,7 @@
                 "name": "DescribeStacksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14855,6 +14952,8 @@
                 "name": "DescribeStacks",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14928,6 +15027,7 @@
                 "name": "DescribeTimeBasedAutoScalingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15015,6 +15115,8 @@
                 "name": "DescribeTimeBasedAutoScaling",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15088,6 +15190,7 @@
                 "name": "DescribeUserProfilesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15175,6 +15278,8 @@
                 "name": "DescribeUserProfiles",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15248,6 +15353,7 @@
                 "name": "DescribeVolumesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15318,6 +15424,8 @@
                 "name": "DescribeVolumes",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15458,6 +15566,7 @@
                 "name": "DetachElasticLoadBalancerResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -15527,6 +15636,8 @@
                 "name": "DetachElasticLoadBalancer",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15582,6 +15693,7 @@
                 "name": "DisassociateElasticIpResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -15654,6 +15766,8 @@
                 "name": "DisassociateElasticIp",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15696,6 +15810,7 @@
                 "name": "GetHostnameSuggestionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15826,6 +15941,8 @@
                 "name": "GetHostnameSuggestion",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15867,6 +15984,7 @@
                 "name": "RebootInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -15939,6 +16057,8 @@
                 "name": "RebootInstance",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -15997,6 +16117,7 @@
                 "name": "RegisterElasticIpResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16096,6 +16217,8 @@
                 "name": "RegisterElasticIp",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -16151,6 +16274,7 @@
                 "name": "RegisterRdsDbInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -16248,6 +16372,8 @@
                 "name": "RegisterRdsDbInstance",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -16348,6 +16474,7 @@
                 "name": "RegisterVolumeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16433,6 +16560,8 @@
                 "name": "RegisterVolume",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16503,6 +16632,7 @@
                 "name": "SetLoadBasedAutoScalingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -16557,6 +16687,8 @@
                 "name": "SetLoadBasedAutoScaling",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16683,6 +16815,7 @@
                 "name": "SetPermissionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -16752,6 +16885,8 @@
                 "name": "SetPermission",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16892,6 +17027,7 @@
                 "name": "SetTimeBasedAutoScalingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -16946,6 +17082,8 @@
                 "name": "SetTimeBasedAutoScaling",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17016,6 +17154,7 @@
                 "name": "StartInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17088,6 +17227,8 @@
                 "name": "StartInstance",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17129,6 +17270,7 @@
                 "name": "StartStackResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17201,6 +17343,8 @@
                 "name": "StartStack",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17242,6 +17386,7 @@
                 "name": "StopInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17314,6 +17459,8 @@
                 "name": "StopInstance",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17355,6 +17502,7 @@
                 "name": "StopStackResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17427,6 +17575,8 @@
                 "name": "StopStack",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17468,6 +17618,7 @@
                 "name": "UnassignVolumeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17540,6 +17691,8 @@
                 "name": "UnassignVolume",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -17581,6 +17734,7 @@
                 "name": "UpdateAppResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17635,6 +17789,8 @@
                 "name": "UpdateApp",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17929,6 +18085,7 @@
                 "name": "UpdateElasticIpResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17984,6 +18141,8 @@
                 "name": "UpdateElasticIp",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18054,6 +18213,7 @@
                 "name": "UpdateInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18109,6 +18269,8 @@
                 "name": "UpdateInstance",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18431,6 +18593,7 @@
                 "name": "UpdateLayerResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18485,6 +18648,8 @@
                 "name": "UpdateLayer",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18891,6 +19056,7 @@
                 "name": "UpdateMyUserProfileResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18947,6 +19113,8 @@
                 "name": "UpdateMyUserProfile",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -19003,6 +19171,7 @@
                 "name": "UpdateRdsDbInstanceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19058,6 +19227,8 @@
                 "name": "UpdateRdsDbInstance",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -19156,6 +19327,7 @@
                 "name": "UpdateStackResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19210,6 +19382,8 @@
                 "name": "UpdateStack",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -19700,6 +19874,7 @@
                 "name": "UpdateUserProfileResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19755,6 +19930,8 @@
                 "name": "UpdateUserProfile",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -19881,6 +20058,7 @@
                 "name": "UpdateVolumeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19936,6 +20114,8 @@
                 "name": "UpdateVolume",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

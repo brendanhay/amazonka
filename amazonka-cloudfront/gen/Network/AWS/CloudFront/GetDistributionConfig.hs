@@ -92,6 +92,21 @@ gdcrDistributionConfig =
 gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
 gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
+instance ToPath GetDistributionConfig where
+    toPath GetDistributionConfig{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _gdcId
+        , "/config"
+        ]
+
+instance ToQuery GetDistributionConfig where
+    toQuery = const mempty
+
+instance ToHeaders GetDistributionConfig
+instance ToXML GetDistributionConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetDistributionConfig"
+
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront
     type Rs GetDistributionConfig = GetDistributionConfigResponse
@@ -100,19 +115,3 @@ instance AWSRequest GetDistributionConfig where
     response = xmlHeaderResponse $ \h x -> GetDistributionConfigResponse
         <$> x %| "DistributionConfig"
         <*> h ~:? "ETag"
-
-instance ToPath GetDistributionConfig where
-    toPath GetDistributionConfig{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _gdcId
-        , "/config"
-        ]
-
-instance ToHeaders GetDistributionConfig
-
-instance ToQuery GetDistributionConfig where
-    toQuery = const mempty
-
-instance ToXML GetDistributionConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistributionConfig"

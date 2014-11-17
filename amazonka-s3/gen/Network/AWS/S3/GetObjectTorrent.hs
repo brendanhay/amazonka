@@ -89,13 +89,6 @@ getObjectTorrentResponse = GetObjectTorrentResponse
 gotrBody :: Lens' GetObjectTorrentResponse (Maybe Base64)
 gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
 
-instance AWSRequest GetObjectTorrent where
-    type Sv GetObjectTorrent = S3
-    type Rs GetObjectTorrent = GetObjectTorrentResponse
-
-    request  = get
-    response = bodyResponse . const $ \b -> GetObjectTorrentResponse
-
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
         [ "/"
@@ -104,11 +97,17 @@ instance ToPath GetObjectTorrent where
         , toText _gotKey
         ]
 
-instance ToHeaders GetObjectTorrent
-
 instance ToQuery GetObjectTorrent where
     toQuery = const "torrent"
 
+instance ToHeaders GetObjectTorrent
 instance ToXML GetObjectTorrent where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GetObjectTorrent"
+
+instance AWSRequest GetObjectTorrent where
+    type Sv GetObjectTorrent = S3
+    type Rs GetObjectTorrent = GetObjectTorrentResponse
+
+    request  = get
+    response = bodyResponse . const $ \b -> GetObjectTorrentResponse

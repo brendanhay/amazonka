@@ -115,16 +115,6 @@ deleteDatasetResponse = DeleteDatasetResponse
 ddr1Dataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 ddr1Dataset = lens _ddr1Dataset (\s a -> s { _ddr1Dataset = a })
 
-instance AWSRequest DeleteDataset where
-    type Sv DeleteDataset = CognitoSync
-    type Rs DeleteDataset = DeleteDatasetResponse
-
-    request  = delete
-    response = jsonResponse
-
-instance FromJSON DeleteDatasetResponse where
-    parseJSON = genericParseJSON jsonOptions
-
 instance ToPath DeleteDataset where
     toPath DeleteDataset{..} = mconcat
         [ "/identitypools/"
@@ -135,10 +125,19 @@ instance ToPath DeleteDataset where
         , toText _dd1DatasetName
         ]
 
-instance ToHeaders DeleteDataset
-
 instance ToQuery DeleteDataset where
     toQuery = const mempty
 
+instance ToHeaders DeleteDataset
 instance ToJSON DeleteDataset where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest DeleteDataset where
+    type Sv DeleteDataset = CognitoSync
+    type Rs DeleteDataset = DeleteDatasetResponse
+
+    request  = delete
+    response = jsonResponse
+
+instance FromJSON DeleteDatasetResponse where
+    parseJSON = genericParseJSON jsonOptions

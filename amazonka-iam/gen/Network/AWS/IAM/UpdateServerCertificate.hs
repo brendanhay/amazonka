@@ -95,16 +95,16 @@ data UpdateServerCertificateResponse = UpdateServerCertificateResponse
 updateServerCertificateResponse :: UpdateServerCertificateResponse
 updateServerCertificateResponse = UpdateServerCertificateResponse
 
+instance ToPath UpdateServerCertificate where
+    toPath = const "/"
+
+instance ToQuery UpdateServerCertificate
+
+instance ToHeaders UpdateServerCertificate
+
 instance AWSRequest UpdateServerCertificate where
     type Sv UpdateServerCertificate = IAM
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse
 
     request  = post "UpdateServerCertificate"
     response = nullResponse UpdateServerCertificateResponse
-
-instance ToPath UpdateServerCertificate where
-    toPath = const "/"
-
-instance ToHeaders UpdateServerCertificate
-
-instance ToQuery UpdateServerCertificate

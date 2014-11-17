@@ -108,6 +108,23 @@ dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a })
 dorErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a })
 
+instance ToPath DeleteObjects where
+    toPath DeleteObjects{..} = mconcat
+        [ "/"
+        , toText _do1Bucket
+        ]
+
+instance ToQuery DeleteObjects where
+    toQuery = const "delete"
+
+instance ToHeaders DeleteObjects where
+    toHeaders DeleteObjects{..} = mconcat
+        [ "x-amz-mfa" =: _do1MFA
+        ]
+instance ToXML DeleteObjects where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteObjects"
+
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsResponse
@@ -118,21 +135,3 @@ instance AWSRequest DeleteObjects where
 instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteObjectsResponse"
-
-instance ToPath DeleteObjects where
-    toPath DeleteObjects{..} = mconcat
-        [ "/"
-        , toText _do1Bucket
-        ]
-
-instance ToHeaders DeleteObjects where
-    toHeaders DeleteObjects{..} = mconcat
-        [ "x-amz-mfa" =: _do1MFA
-        ]
-
-instance ToQuery DeleteObjects where
-    toQuery = const "delete"
-
-instance ToXML DeleteObjects where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteObjects"

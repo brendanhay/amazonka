@@ -132,6 +132,13 @@ desrEventSubscriptionsList =
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 
+instance ToPath DescribeEventSubscriptions where
+    toPath = const "/"
+
+instance ToQuery DescribeEventSubscriptions
+
+instance ToHeaders DescribeEventSubscriptions
+
 instance AWSRequest DescribeEventSubscriptions where
     type Sv DescribeEventSubscriptions = RDS
     type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse
@@ -142,10 +149,3 @@ instance AWSRequest DescribeEventSubscriptions where
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEventSubscriptionsResponse"
-
-instance ToPath DescribeEventSubscriptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeEventSubscriptions
-
-instance ToQuery DescribeEventSubscriptions

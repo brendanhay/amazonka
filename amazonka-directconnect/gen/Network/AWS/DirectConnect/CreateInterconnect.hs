@@ -159,6 +159,16 @@ cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 cirRegion :: Lens' CreateInterconnectResponse (Maybe Text)
 cirRegion = lens _cirRegion (\s a -> s { _cirRegion = a })
 
+instance ToPath CreateInterconnect where
+    toPath = const "/"
+
+instance ToQuery CreateInterconnect where
+    toQuery = const mempty
+
+instance ToHeaders CreateInterconnect
+instance ToJSON CreateInterconnect where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateInterconnect where
     type Sv CreateInterconnect = DirectConnect
     type Rs CreateInterconnect = CreateInterconnectResponse
@@ -168,14 +178,3 @@ instance AWSRequest CreateInterconnect where
 
 instance FromJSON CreateInterconnectResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateInterconnect where
-    toPath = const "/"
-
-instance ToHeaders CreateInterconnect
-
-instance ToQuery CreateInterconnect where
-    toQuery = const mempty
-
-instance ToJSON CreateInterconnect where
-    toJSON = genericToJSON jsonOptions

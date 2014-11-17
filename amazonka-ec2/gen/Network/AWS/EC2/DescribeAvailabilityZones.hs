@@ -114,6 +114,13 @@ dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZo
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
 
+instance ToPath DescribeAvailabilityZones where
+    toPath = const "/"
+
+instance ToQuery DescribeAvailabilityZones
+
+instance ToHeaders DescribeAvailabilityZones
+
 instance AWSRequest DescribeAvailabilityZones where
     type Sv DescribeAvailabilityZones = EC2
     type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResponse
@@ -124,19 +131,3 @@ instance AWSRequest DescribeAvailabilityZones where
 instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResponse"
-
-instance ToPath DescribeAvailabilityZones where
-    toPath = const "/"
-
-instance ToHeaders DescribeAvailabilityZones
-
-instance ToQuery DescribeAvailabilityZones where
-    toQuery DescribeAvailabilityZones{..} = mconcat
-        [ "dryRun"   =? _dazDryRun
-        , "ZoneName" =? _dazZoneNames
-        , "Filter"   =? _dazFilters
-        ]
-
-instance ToXML DescribeAvailabilityZones where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeAvailabilityZones"

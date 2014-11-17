@@ -70,23 +70,22 @@ data DeletePresetResponse = DeletePresetResponse
 deletePresetResponse :: DeletePresetResponse
 deletePresetResponse = DeletePresetResponse
 
-instance AWSRequest DeletePreset where
-    type Sv DeletePreset = ElasticTranscoder
-    type Rs DeletePreset = DeletePresetResponse
-
-    request  = delete
-    response = nullResponse DeletePresetResponse
-
 instance ToPath DeletePreset where
     toPath DeletePreset{..} = mconcat
         [ "/2012-09-25/presets/"
         , toText _dpId
         ]
 
-instance ToHeaders DeletePreset
-
 instance ToQuery DeletePreset where
     toQuery = const mempty
 
+instance ToHeaders DeletePreset
 instance ToJSON DeletePreset where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest DeletePreset where
+    type Sv DeletePreset = ElasticTranscoder
+    type Rs DeletePreset = DeletePresetResponse
+
+    request  = delete
+    response = nullResponse DeletePresetResponse

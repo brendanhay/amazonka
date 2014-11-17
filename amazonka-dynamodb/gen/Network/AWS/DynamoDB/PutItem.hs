@@ -396,6 +396,16 @@ pirItemCollectionMetrics =
     lens _pirItemCollectionMetrics
         (\s a -> s { _pirItemCollectionMetrics = a })
 
+instance ToPath PutItem where
+    toPath = const "/"
+
+instance ToQuery PutItem where
+    toQuery = const mempty
+
+instance ToHeaders PutItem
+instance ToJSON PutItem where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutItem where
     type Sv PutItem = DynamoDB
     type Rs PutItem = PutItemResponse
@@ -405,14 +415,3 @@ instance AWSRequest PutItem where
 
 instance FromJSON PutItemResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PutItem where
-    toPath = const "/"
-
-instance ToHeaders PutItem
-
-instance ToQuery PutItem where
-    toQuery = const mempty
-
-instance ToJSON PutItem where
-    toJSON = genericToJSON jsonOptions

@@ -254,6 +254,26 @@ ufcrTimeout :: Lens' UpdateFunctionConfigurationResponse (Maybe Natural)
 ufcrTimeout = lens _ufcrTimeout (\s a -> s { _ufcrTimeout = a })
     . mapping _Nat
 
+instance ToPath UpdateFunctionConfiguration where
+    toPath UpdateFunctionConfiguration{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _ufcFunctionName
+        , "/configuration"
+        ]
+
+instance ToQuery UpdateFunctionConfiguration where
+    toQuery UpdateFunctionConfiguration{..} = mconcat
+          [   "Role"        =? _ufcRole
+          ,   "Handler"     =? _ufcHandler
+          ,   "Description" =? _ufcDescription
+          ,   "Timeout"     =? _ufcTimeout
+          ,   "MemorySize"  =? _ufcMemorySize
+        ]
+
+instance ToHeaders UpdateFunctionConfiguration
+instance ToJSON UpdateFunctionConfiguration where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateFunctionConfiguration where
     type Sv UpdateFunctionConfiguration = Lambda
     type Rs UpdateFunctionConfiguration = UpdateFunctionConfigurationResponse
@@ -263,24 +283,3 @@ instance AWSRequest UpdateFunctionConfiguration where
 
 instance FromJSON UpdateFunctionConfigurationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateFunctionConfiguration where
-    toPath UpdateFunctionConfiguration{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _ufcFunctionName
-        , "/configuration"
-        ]
-
-instance ToHeaders UpdateFunctionConfiguration
-
-instance ToQuery UpdateFunctionConfiguration where
-    toQuery UpdateFunctionConfiguration{..} = mconcat
-        [ "Role"        =? _ufcRole
-        , "Handler"     =? _ufcHandler
-        , "Description" =? _ufcDescription
-        , "Timeout"     =? _ufcTimeout
-        , "MemorySize"  =? _ufcMemorySize
-        ]
-
-instance ToJSON UpdateFunctionConfiguration where
-    toJSON = genericToJSON jsonOptions

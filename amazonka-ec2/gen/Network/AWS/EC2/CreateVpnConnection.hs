@@ -133,6 +133,13 @@ cvcrVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
 cvcrVpnConnection =
     lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })
 
+instance ToPath CreateVpnConnection where
+    toPath = const "/"
+
+instance ToQuery CreateVpnConnection
+
+instance ToHeaders CreateVpnConnection
+
 instance AWSRequest CreateVpnConnection where
     type Sv CreateVpnConnection = EC2
     type Rs CreateVpnConnection = CreateVpnConnectionResponse
@@ -143,21 +150,3 @@ instance AWSRequest CreateVpnConnection where
 instance FromXML CreateVpnConnectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpnConnectionResponse"
-
-instance ToPath CreateVpnConnection where
-    toPath = const "/"
-
-instance ToHeaders CreateVpnConnection
-
-instance ToQuery CreateVpnConnection where
-    toQuery CreateVpnConnection{..} = mconcat
-        [ "dryRun"            =? _cvcDryRun
-        , "Type"              =? _cvcType
-        , "CustomerGatewayId" =? _cvcCustomerGatewayId
-        , "VpnGatewayId"      =? _cvcVpnGatewayId
-        , "options"           =? _cvcOptions
-        ]
-
-instance ToXML CreateVpnConnection where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVpnConnection"

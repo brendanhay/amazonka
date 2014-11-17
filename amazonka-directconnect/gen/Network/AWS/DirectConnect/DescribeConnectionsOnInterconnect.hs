@@ -91,6 +91,16 @@ describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectRes
 dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
 dcoirConnections = lens _dcoirConnections (\s a -> s { _dcoirConnections = a })
 
+instance ToPath DescribeConnectionsOnInterconnect where
+    toPath = const "/"
+
+instance ToQuery DescribeConnectionsOnInterconnect where
+    toQuery = const mempty
+
+instance ToHeaders DescribeConnectionsOnInterconnect
+instance ToJSON DescribeConnectionsOnInterconnect where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeConnectionsOnInterconnect where
     type Sv DescribeConnectionsOnInterconnect = DirectConnect
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse
@@ -100,14 +110,3 @@ instance AWSRequest DescribeConnectionsOnInterconnect where
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeConnectionsOnInterconnect where
-    toPath = const "/"
-
-instance ToHeaders DescribeConnectionsOnInterconnect
-
-instance ToQuery DescribeConnectionsOnInterconnect where
-    toQuery = const mempty
-
-instance ToJSON DescribeConnectionsOnInterconnect where
-    toJSON = genericToJSON jsonOptions

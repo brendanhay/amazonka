@@ -72,16 +72,16 @@ data VerifyEmailAddressResponse = VerifyEmailAddressResponse
 verifyEmailAddressResponse :: VerifyEmailAddressResponse
 verifyEmailAddressResponse = VerifyEmailAddressResponse
 
+instance ToPath VerifyEmailAddress where
+    toPath = const "/"
+
+instance ToQuery VerifyEmailAddress
+
+instance ToHeaders VerifyEmailAddress
+
 instance AWSRequest VerifyEmailAddress where
     type Sv VerifyEmailAddress = SES
     type Rs VerifyEmailAddress = VerifyEmailAddressResponse
 
     request  = post "VerifyEmailAddress"
     response = nullResponse VerifyEmailAddressResponse
-
-instance ToPath VerifyEmailAddress where
-    toPath = const "/"
-
-instance ToHeaders VerifyEmailAddress
-
-instance ToQuery VerifyEmailAddress

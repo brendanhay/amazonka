@@ -97,16 +97,16 @@ data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 
+instance ToPath SetIdentityNotificationTopic where
+    toPath = const "/"
+
+instance ToQuery SetIdentityNotificationTopic
+
+instance ToHeaders SetIdentityNotificationTopic
+
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES
     type Rs SetIdentityNotificationTopic = SetIdentityNotificationTopicResponse
 
     request  = post "SetIdentityNotificationTopic"
     response = nullResponse SetIdentityNotificationTopicResponse
-
-instance ToPath SetIdentityNotificationTopic where
-    toPath = const "/"
-
-instance ToHeaders SetIdentityNotificationTopic
-
-instance ToQuery SetIdentityNotificationTopic

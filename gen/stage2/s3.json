@@ -5274,6 +5274,7 @@
                 "name": "AbortMultipartUploadResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5376,6 +5377,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5467,6 +5470,7 @@
                 "name": "CompleteMultipartUploadResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5807,6 +5811,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5949,6 +5955,7 @@
                 "name": "CopyObjectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6383,6 +6390,8 @@
                 "name": "CopyObject",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -7232,6 +7241,7 @@
                 "name": "CreateBucketResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": true,
                 "optional": [
                     {
                         "location": "header",
@@ -7365,6 +7375,8 @@
                 "name": "CreateBucket",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -7625,6 +7637,7 @@
                 "name": "CreateMultipartUploadResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -8005,6 +8018,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -8593,6 +8608,7 @@
                 "name": "DeleteBucketResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8670,6 +8686,8 @@
                 "name": "DeleteBucket",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8711,6 +8729,7 @@
                 "name": "DeleteBucketCorsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8793,6 +8812,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8834,6 +8855,7 @@
                 "name": "DeleteBucketLifecycleResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8916,6 +8938,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8957,6 +8981,7 @@
                 "name": "DeleteBucketPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9039,6 +9064,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9080,6 +9107,7 @@
                 "name": "DeleteBucketTaggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9162,6 +9190,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9203,6 +9233,7 @@
                 "name": "DeleteBucketWebsiteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9285,6 +9316,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -9338,6 +9371,7 @@
                 "name": "DeleteObjectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": true,
                 "optional": [
                     {
                         "location": "header",
@@ -9490,6 +9524,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -9602,6 +9638,7 @@
                 "name": "DeleteObjectsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9757,6 +9794,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -9841,6 +9880,7 @@
                 "name": "GetBucketAclResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -9981,6 +10021,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10039,6 +10081,7 @@
                 "name": "GetBucketCorsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10151,6 +10194,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10209,6 +10254,7 @@
                 "name": "GetBucketLifecycleResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10321,6 +10367,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10379,6 +10427,7 @@
                 "name": "GetBucketLocationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10491,6 +10540,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10547,6 +10598,7 @@
                 "name": "GetBucketLoggingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10659,6 +10711,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10700,6 +10754,7 @@
                 "name": "GetBucketNotificationResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -10868,6 +10923,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10939,6 +10996,7 @@
                 "name": "GetBucketPolicyResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11051,6 +11109,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11109,6 +11169,7 @@
                 "name": "GetBucketRequestPaymentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11221,6 +11282,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11279,6 +11342,7 @@
                 "name": "GetBucketTaggingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11391,6 +11455,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11433,6 +11499,7 @@
                 "name": "GetBucketVersioningResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11573,6 +11640,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11614,6 +11683,7 @@
                 "name": "GetBucketWebsiteResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -11810,6 +11880,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -11970,6 +12042,7 @@
                 "name": "GetObjectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12752,6 +12825,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -13256,6 +13331,7 @@
                 "name": "GetObjectAclResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13406,6 +13482,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13518,6 +13596,7 @@
                 "name": "GetObjectTorrentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13635,6 +13714,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13690,6 +13771,7 @@
                 "name": "HeadBucketResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -13767,6 +13849,8 @@
                 "name": "HeadBucket",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13914,6 +13998,7 @@
                 "name": "HeadObjectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": true,
                 "optional": [
                     {
                         "location": "header",
@@ -14638,6 +14723,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -14974,6 +15061,7 @@
                 "name": "ListBucketsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15054,7 +15142,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "listBuckets",
                 "headerPad": 0,
@@ -15072,6 +15160,8 @@
                 "name": "ListBuckets",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -15098,6 +15188,7 @@
                 "name": "ListMultipartUploadsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15546,6 +15637,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15756,6 +15849,7 @@
                 "name": "ListObjectVersionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16232,6 +16326,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16442,6 +16538,7 @@
                 "name": "ListObjectsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16818,6 +16915,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17000,6 +17099,7 @@
                 "name": "ListPartsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17430,6 +17530,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17556,6 +17658,7 @@
                 "name": "PutBucketAclResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17669,6 +17772,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -17935,6 +18040,7 @@
                 "name": "PutBucketCorsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18018,6 +18124,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18116,6 +18224,7 @@
                 "name": "PutBucketLifecycleResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18199,6 +18308,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -18297,6 +18408,7 @@
                 "name": "PutBucketLoggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18394,6 +18506,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -18478,6 +18592,7 @@
                 "name": "PutBucketNotificationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18575,6 +18690,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -18659,6 +18776,7 @@
                 "name": "PutBucketPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18757,6 +18875,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -18841,6 +18961,7 @@
                 "name": "PutBucketRequestPaymentResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18938,6 +19059,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -19022,6 +19145,7 @@
                 "name": "PutBucketTaggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19119,6 +19243,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -19203,6 +19329,7 @@
                 "name": "PutBucketVersioningResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19305,6 +19432,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -19417,6 +19546,7 @@
                 "name": "PutBucketWebsiteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19514,6 +19644,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -19635,6 +19767,7 @@
                 "name": "PutObjectResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": true,
                 "optional": [
                     {
                         "location": "header",
@@ -20033,6 +20166,8 @@
                 "name": "PutObject",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -20705,6 +20840,7 @@
                 "name": "PutObjectAclResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -20840,6 +20976,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -21120,6 +21258,7 @@
                 "name": "RestoreObjectResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -21224,6 +21363,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21363,6 +21504,7 @@
                 "name": "UploadPartResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": true,
                 "optional": [
                     {
                         "location": "header",
@@ -21669,6 +21811,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -21988,6 +22132,7 @@
                 "name": "UploadPartCopyResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",
@@ -22359,6 +22504,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "header",

@@ -83,6 +83,16 @@ dvirVirtualInterfaceState =
     lens _dvirVirtualInterfaceState
         (\s a -> s { _dvirVirtualInterfaceState = a })
 
+instance ToPath DeleteVirtualInterface where
+    toPath = const "/"
+
+instance ToQuery DeleteVirtualInterface where
+    toQuery = const mempty
+
+instance ToHeaders DeleteVirtualInterface
+instance ToJSON DeleteVirtualInterface where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteVirtualInterface where
     type Sv DeleteVirtualInterface = DirectConnect
     type Rs DeleteVirtualInterface = DeleteVirtualInterfaceResponse
@@ -92,14 +102,3 @@ instance AWSRequest DeleteVirtualInterface where
 
 instance FromJSON DeleteVirtualInterfaceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteVirtualInterface where
-    toPath = const "/"
-
-instance ToHeaders DeleteVirtualInterface
-
-instance ToQuery DeleteVirtualInterface where
-    toQuery = const mempty
-
-instance ToJSON DeleteVirtualInterface where
-    toJSON = genericToJSON jsonOptions

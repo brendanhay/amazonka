@@ -72,20 +72,19 @@ data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse
 
+instance ToPath DeleteDeploymentConfig where
+    toPath = const "/"
+
+instance ToQuery DeleteDeploymentConfig where
+    toQuery = const mempty
+
+instance ToHeaders DeleteDeploymentConfig
+instance ToJSON DeleteDeploymentConfig where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteDeploymentConfig where
     type Sv DeleteDeploymentConfig = CodeDeploy
     type Rs DeleteDeploymentConfig = DeleteDeploymentConfigResponse
 
     request  = post
     response = nullResponse DeleteDeploymentConfigResponse
-
-instance ToPath DeleteDeploymentConfig where
-    toPath = const "/"
-
-instance ToHeaders DeleteDeploymentConfig
-
-instance ToQuery DeleteDeploymentConfig where
-    toQuery = const mempty
-
-instance ToJSON DeleteDeploymentConfig where
-    toJSON = genericToJSON jsonOptions

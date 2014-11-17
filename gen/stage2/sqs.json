@@ -1185,6 +1185,7 @@
                 "name": "AddPermissionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1275,6 +1276,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1387,6 +1390,7 @@
                 "name": "ChangeMessageVisibilityResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1486,6 +1490,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1555,6 +1561,7 @@
                 "name": "ChangeMessageVisibilityBatchResponse",
                 "resultWrapper": "ChangeMessageVisibilityBatchResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1678,6 +1685,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1765,6 +1774,7 @@
                 "name": "CreateQueueResponse",
                 "resultWrapper": "CreateQueueResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1860,6 +1870,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1930,6 +1942,7 @@
                 "name": "DeleteMessageResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2010,6 +2023,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2065,6 +2080,7 @@
                 "name": "DeleteMessageBatchResponse",
                 "resultWrapper": "DeleteMessageBatchResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2188,6 +2204,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2258,6 +2276,7 @@
                 "name": "DeleteQueueResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2336,6 +2355,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2394,6 +2415,7 @@
                 "name": "GetQueueAttributesResponse",
                 "resultWrapper": "GetQueueAttributesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2490,6 +2512,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2577,6 +2601,7 @@
                 "name": "GetQueueUrlResponse",
                 "resultWrapper": "GetQueueUrlResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2673,6 +2698,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2761,6 +2788,7 @@
                 "name": "ListDeadLetterSourceQueuesResponse",
                 "resultWrapper": "ListDeadLetterSourceQueuesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2869,6 +2897,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2928,6 +2958,7 @@
                 "name": "ListQueuesResponse",
                 "resultWrapper": "ListQueuesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3020,6 +3051,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3093,6 +3126,7 @@
                 "name": "ReceiveMessageResponse",
                 "resultWrapper": "ReceiveMessageResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3209,6 +3243,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3391,6 +3427,7 @@
                 "name": "RemovePermissionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3471,6 +3508,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3527,6 +3566,7 @@
                 "name": "SendMessageResponse",
                 "resultWrapper": "SendMessageResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3702,6 +3742,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3814,6 +3856,7 @@
                 "name": "SendMessageBatchResponse",
                 "resultWrapper": "SendMessageBatchResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3937,6 +3980,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4007,6 +4052,7 @@
                 "name": "SetQueueAttributesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4072,6 +4118,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

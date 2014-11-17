@@ -191,6 +191,16 @@ createCaseResponse = CreateCaseResponse
 ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrCaseId = lens _ccrCaseId (\s a -> s { _ccrCaseId = a })
 
+instance ToPath CreateCase where
+    toPath = const "/"
+
+instance ToQuery CreateCase where
+    toQuery = const mempty
+
+instance ToHeaders CreateCase
+instance ToJSON CreateCase where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateCase where
     type Sv CreateCase = Support
     type Rs CreateCase = CreateCaseResponse
@@ -200,14 +210,3 @@ instance AWSRequest CreateCase where
 
 instance FromJSON CreateCaseResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateCase where
-    toPath = const "/"
-
-instance ToHeaders CreateCase
-
-instance ToQuery CreateCase where
-    toQuery = const mempty
-
-instance ToJSON CreateCase where
-    toJSON = genericToJSON jsonOptions

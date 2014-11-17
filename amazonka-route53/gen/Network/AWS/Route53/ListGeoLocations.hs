@@ -201,6 +201,16 @@ lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextSubdivisionCode =
     lens _lglrNextSubdivisionCode (\s a -> s { _lglrNextSubdivisionCode = a })
 
+instance ToPath ListGeoLocations where
+    toPath = const "/2013-04-01/geolocations"
+
+instance ToQuery ListGeoLocations
+
+instance ToHeaders ListGeoLocations
+instance ToXML ListGeoLocations where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListGeoLocations"
+
 instance AWSRequest ListGeoLocations where
     type Sv ListGeoLocations = Route53
     type Rs ListGeoLocations = ListGeoLocationsResponse
@@ -211,20 +221,3 @@ instance AWSRequest ListGeoLocations where
 instance FromXML ListGeoLocationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGeoLocationsResponse"
-
-instance ToPath ListGeoLocations where
-    toPath = const "/2013-04-01/geolocations"
-
-instance ToHeaders ListGeoLocations
-
-instance ToQuery ListGeoLocations where
-    toQuery ListGeoLocations{..} = mconcat
-        [ "startcontinentcode"   =? _lglStartContinentCode
-        , "startcountrycode"     =? _lglStartCountryCode
-        , "startsubdivisioncode" =? _lglStartSubdivisionCode
-        , "maxitems"             =? _lglMaxItems
-        ]
-
-instance ToXML ListGeoLocations where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListGeoLocations"

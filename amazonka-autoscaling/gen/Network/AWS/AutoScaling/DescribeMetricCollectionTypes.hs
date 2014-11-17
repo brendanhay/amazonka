@@ -81,6 +81,14 @@ dmctrGranularities =
 dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
 dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a })
 
+instance ToPath DescribeMetricCollectionTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeMetricCollectionTypes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeMetricCollectionTypes
+
 instance AWSRequest DescribeMetricCollectionTypes where
     type Sv DescribeMetricCollectionTypes = AutoScaling
     type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
@@ -91,10 +99,3 @@ instance AWSRequest DescribeMetricCollectionTypes where
 instance FromXML DescribeMetricCollectionTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesResponse"
-
-instance ToPath DescribeMetricCollectionTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeMetricCollectionTypes
-
-instance ToQuery DescribeMetricCollectionTypes

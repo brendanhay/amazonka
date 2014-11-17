@@ -86,6 +86,16 @@ updateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
 ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrGatewayARN = lens _ugsnrGatewayARN (\s a -> s { _ugsnrGatewayARN = a })
 
+instance ToPath UpdateGatewaySoftwareNow where
+    toPath = const "/"
+
+instance ToQuery UpdateGatewaySoftwareNow where
+    toQuery = const mempty
+
+instance ToHeaders UpdateGatewaySoftwareNow
+instance ToJSON UpdateGatewaySoftwareNow where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateGatewaySoftwareNow where
     type Sv UpdateGatewaySoftwareNow = StorageGateway
     type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse
@@ -95,14 +105,3 @@ instance AWSRequest UpdateGatewaySoftwareNow where
 
 instance FromJSON UpdateGatewaySoftwareNowResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateGatewaySoftwareNow where
-    toPath = const "/"
-
-instance ToHeaders UpdateGatewaySoftwareNow
-
-instance ToQuery UpdateGatewaySoftwareNow where
-    toQuery = const mempty
-
-instance ToJSON UpdateGatewaySoftwareNow where
-    toJSON = genericToJSON jsonOptions

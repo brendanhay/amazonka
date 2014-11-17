@@ -94,6 +94,13 @@ chccrHsmClientCertificate =
     lens _chccrHsmClientCertificate
         (\s a -> s { _chccrHsmClientCertificate = a })
 
+instance ToPath CreateHsmClientCertificate where
+    toPath = const "/"
+
+instance ToQuery CreateHsmClientCertificate
+
+instance ToHeaders CreateHsmClientCertificate
+
 instance AWSRequest CreateHsmClientCertificate where
     type Sv CreateHsmClientCertificate = Redshift
     type Rs CreateHsmClientCertificate = CreateHsmClientCertificateResponse
@@ -104,10 +111,3 @@ instance AWSRequest CreateHsmClientCertificate where
 instance FromXML CreateHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateHsmClientCertificateResponse"
-
-instance ToPath CreateHsmClientCertificate where
-    toPath = const "/"
-
-instance ToHeaders CreateHsmClientCertificate
-
-instance ToQuery CreateHsmClientCertificate

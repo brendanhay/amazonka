@@ -93,6 +93,21 @@ gsdcrStreamingDistributionConfig =
     lens _gsdcrStreamingDistributionConfig
         (\s a -> s { _gsdcrStreamingDistributionConfig = a })
 
+instance ToPath GetStreamingDistributionConfig where
+    toPath GetStreamingDistributionConfig{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _gsdcId
+        , "/config"
+        ]
+
+instance ToQuery GetStreamingDistributionConfig where
+    toQuery = const mempty
+
+instance ToHeaders GetStreamingDistributionConfig
+instance ToXML GetStreamingDistributionConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetStreamingDistributionConfig"
+
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront
     type Rs GetStreamingDistributionConfig = GetStreamingDistributionConfigResponse
@@ -101,19 +116,3 @@ instance AWSRequest GetStreamingDistributionConfig where
     response = xmlHeaderResponse $ \h x -> GetStreamingDistributionConfigResponse
         <$> h ~:? "ETag"
         <*> x %| "StreamingDistributionConfig"
-
-instance ToPath GetStreamingDistributionConfig where
-    toPath GetStreamingDistributionConfig{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toText _gsdcId
-        , "/config"
-        ]
-
-instance ToHeaders GetStreamingDistributionConfig
-
-instance ToQuery GetStreamingDistributionConfig where
-    toQuery = const mempty
-
-instance ToXML GetStreamingDistributionConfig where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetStreamingDistributionConfig"

@@ -92,6 +92,22 @@ getInvalidationResponse = GetInvalidationResponse
 girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
+instance ToPath GetInvalidation where
+    toPath GetInvalidation{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _giDistributionId
+        , "/invalidation/"
+        , toText _giId
+        ]
+
+instance ToQuery GetInvalidation where
+    toQuery = const mempty
+
+instance ToHeaders GetInvalidation
+instance ToXML GetInvalidation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetInvalidation"
+
 instance AWSRequest GetInvalidation where
     type Sv GetInvalidation = CloudFront
     type Rs GetInvalidation = GetInvalidationResponse
@@ -102,20 +118,3 @@ instance AWSRequest GetInvalidation where
 instance FromXML GetInvalidationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetInvalidationResponse"
-
-instance ToPath GetInvalidation where
-    toPath GetInvalidation{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _giDistributionId
-        , "/invalidation/"
-        , toText _giId
-        ]
-
-instance ToHeaders GetInvalidation
-
-instance ToQuery GetInvalidation where
-    toQuery = const mempty
-
-instance ToXML GetInvalidation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetInvalidation"

@@ -103,6 +103,16 @@ dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials =
     lens _dccrChapCredentials (\s a -> s { _dccrChapCredentials = a })
 
+instance ToPath DescribeChapCredentials where
+    toPath = const "/"
+
+instance ToQuery DescribeChapCredentials where
+    toQuery = const mempty
+
+instance ToHeaders DescribeChapCredentials
+instance ToJSON DescribeChapCredentials where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeChapCredentials where
     type Sv DescribeChapCredentials = StorageGateway
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
@@ -112,14 +122,3 @@ instance AWSRequest DescribeChapCredentials where
 
 instance FromJSON DescribeChapCredentialsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeChapCredentials where
-    toPath = const "/"
-
-instance ToHeaders DescribeChapCredentials
-
-instance ToQuery DescribeChapCredentials where
-    toQuery = const mempty
-
-instance ToJSON DescribeChapCredentials where
-    toJSON = genericToJSON jsonOptions

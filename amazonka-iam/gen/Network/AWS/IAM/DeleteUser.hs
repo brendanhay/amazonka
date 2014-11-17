@@ -69,16 +69,16 @@ data DeleteUserResponse = DeleteUserResponse
 deleteUserResponse :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse
 
+instance ToPath DeleteUser where
+    toPath = const "/"
+
+instance ToQuery DeleteUser
+
+instance ToHeaders DeleteUser
+
 instance AWSRequest DeleteUser where
     type Sv DeleteUser = IAM
     type Rs DeleteUser = DeleteUserResponse
 
     request  = post "DeleteUser"
     response = nullResponse DeleteUserResponse
-
-instance ToPath DeleteUser where
-    toPath = const "/"
-
-instance ToHeaders DeleteUser
-
-instance ToQuery DeleteUser

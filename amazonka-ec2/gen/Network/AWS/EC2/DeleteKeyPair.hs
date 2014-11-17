@@ -76,24 +76,16 @@ data DeleteKeyPairResponse = DeleteKeyPairResponse
 deleteKeyPairResponse :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse
 
+instance ToPath DeleteKeyPair where
+    toPath = const "/"
+
+instance ToQuery DeleteKeyPair
+
+instance ToHeaders DeleteKeyPair
+
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2
     type Rs DeleteKeyPair = DeleteKeyPairResponse
 
     request  = post "DeleteKeyPair"
     response = nullResponse DeleteKeyPairResponse
-
-instance ToPath DeleteKeyPair where
-    toPath = const "/"
-
-instance ToHeaders DeleteKeyPair
-
-instance ToQuery DeleteKeyPair where
-    toQuery DeleteKeyPair{..} = mconcat
-        [ "dryRun"  =? _dkpDryRun
-        , "KeyName" =? _dkpKeyName
-        ]
-
-instance ToXML DeleteKeyPair where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteKeyPair"

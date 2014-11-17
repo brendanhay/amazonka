@@ -102,6 +102,16 @@ liprIdentityPools =
 liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprNextToken = lens _liprNextToken (\s a -> s { _liprNextToken = a })
 
+instance ToPath ListIdentityPools where
+    toPath = const "/"
+
+instance ToQuery ListIdentityPools where
+    toQuery = const mempty
+
+instance ToHeaders ListIdentityPools
+instance ToJSON ListIdentityPools where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListIdentityPools where
     type Sv ListIdentityPools = CognitoIdentity
     type Rs ListIdentityPools = ListIdentityPoolsResponse
@@ -111,14 +121,3 @@ instance AWSRequest ListIdentityPools where
 
 instance FromJSON ListIdentityPoolsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListIdentityPools where
-    toPath = const "/"
-
-instance ToHeaders ListIdentityPools
-
-instance ToQuery ListIdentityPools where
-    toQuery = const mempty
-
-instance ToJSON ListIdentityPools where
-    toJSON = genericToJSON jsonOptions

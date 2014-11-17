@@ -93,6 +93,16 @@ addCacheResponse = AddCacheResponse
 acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrGatewayARN = lens _acrGatewayARN (\s a -> s { _acrGatewayARN = a })
 
+instance ToPath AddCache where
+    toPath = const "/"
+
+instance ToQuery AddCache where
+    toQuery = const mempty
+
+instance ToHeaders AddCache
+instance ToJSON AddCache where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddCache where
     type Sv AddCache = StorageGateway
     type Rs AddCache = AddCacheResponse
@@ -102,14 +112,3 @@ instance AWSRequest AddCache where
 
 instance FromJSON AddCacheResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddCache where
-    toPath = const "/"
-
-instance ToHeaders AddCache
-
-instance ToQuery AddCache where
-    toQuery = const mempty
-
-instance ToJSON AddCache where
-    toJSON = genericToJSON jsonOptions

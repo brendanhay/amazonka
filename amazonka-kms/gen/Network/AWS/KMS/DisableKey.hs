@@ -69,20 +69,19 @@ data DisableKeyResponse = DisableKeyResponse
 disableKeyResponse :: DisableKeyResponse
 disableKeyResponse = DisableKeyResponse
 
+instance ToPath DisableKey where
+    toPath = const "/"
+
+instance ToQuery DisableKey where
+    toQuery = const mempty
+
+instance ToHeaders DisableKey
+instance ToJSON DisableKey where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DisableKey where
     type Sv DisableKey = KMS
     type Rs DisableKey = DisableKeyResponse
 
     request  = post
     response = nullResponse DisableKeyResponse
-
-instance ToPath DisableKey where
-    toPath = const "/"
-
-instance ToHeaders DisableKey
-
-instance ToQuery DisableKey where
-    toQuery = const mempty
-
-instance ToJSON DisableKey where
-    toJSON = genericToJSON jsonOptions

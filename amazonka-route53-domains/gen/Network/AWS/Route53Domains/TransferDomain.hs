@@ -244,6 +244,16 @@ transferDomainResponse p1 = TransferDomainResponse
 tdrOperationId :: Lens' TransferDomainResponse Text
 tdrOperationId = lens _tdrOperationId (\s a -> s { _tdrOperationId = a })
 
+instance ToPath TransferDomain where
+    toPath = const "/"
+
+instance ToQuery TransferDomain where
+    toQuery = const mempty
+
+instance ToHeaders TransferDomain
+instance ToJSON TransferDomain where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest TransferDomain where
     type Sv TransferDomain = Route53Domains
     type Rs TransferDomain = TransferDomainResponse
@@ -253,14 +263,3 @@ instance AWSRequest TransferDomain where
 
 instance FromJSON TransferDomainResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath TransferDomain where
-    toPath = const "/"
-
-instance ToHeaders TransferDomain
-
-instance ToQuery TransferDomain where
-    toQuery = const mempty
-
-instance ToJSON TransferDomain where
-    toJSON = genericToJSON jsonOptions

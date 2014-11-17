@@ -102,6 +102,13 @@ dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks =
     lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })
 
+instance ToPath DescribeLifecycleHooks where
+    toPath = const "/"
+
+instance ToQuery DescribeLifecycleHooks
+
+instance ToHeaders DescribeLifecycleHooks
+
 instance AWSRequest DescribeLifecycleHooks where
     type Sv DescribeLifecycleHooks = AutoScaling
     type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse
@@ -112,10 +119,3 @@ instance AWSRequest DescribeLifecycleHooks where
 instance FromXML DescribeLifecycleHooksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLifecycleHooksResponse"
-
-instance ToPath DescribeLifecycleHooks where
-    toPath = const "/"
-
-instance ToHeaders DescribeLifecycleHooks
-
-instance ToQuery DescribeLifecycleHooks

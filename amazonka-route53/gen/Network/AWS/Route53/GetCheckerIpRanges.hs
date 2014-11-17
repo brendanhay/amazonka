@@ -79,6 +79,17 @@ gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrCheckerIpRanges =
     lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })
 
+instance ToPath GetCheckerIpRanges where
+    toPath = const "/2013-04-01/checkeripranges"
+
+instance ToQuery GetCheckerIpRanges where
+    toQuery = const mempty
+
+instance ToHeaders GetCheckerIpRanges
+instance ToXML GetCheckerIpRanges where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetCheckerIpRanges"
+
 instance AWSRequest GetCheckerIpRanges where
     type Sv GetCheckerIpRanges = Route53
     type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse
@@ -89,15 +100,3 @@ instance AWSRequest GetCheckerIpRanges where
 instance FromXML GetCheckerIpRangesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetCheckerIpRangesResponse"
-
-instance ToPath GetCheckerIpRanges where
-    toPath = const "/2013-04-01/checkeripranges"
-
-instance ToHeaders GetCheckerIpRanges
-
-instance ToQuery GetCheckerIpRanges where
-    toQuery = const mempty
-
-instance ToXML GetCheckerIpRanges where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCheckerIpRanges"

@@ -104,16 +104,16 @@ data SetAlarmStateResponse = SetAlarmStateResponse
 setAlarmStateResponse :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse
 
+instance ToPath SetAlarmState where
+    toPath = const "/"
+
+instance ToQuery SetAlarmState
+
+instance ToHeaders SetAlarmState
+
 instance AWSRequest SetAlarmState where
     type Sv SetAlarmState = CloudWatch
     type Rs SetAlarmState = SetAlarmStateResponse
 
     request  = post "SetAlarmState"
     response = nullResponse SetAlarmStateResponse
-
-instance ToPath SetAlarmState where
-    toPath = const "/"
-
-instance ToHeaders SetAlarmState
-
-instance ToQuery SetAlarmState

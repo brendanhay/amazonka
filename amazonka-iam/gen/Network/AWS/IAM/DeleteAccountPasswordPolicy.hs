@@ -53,16 +53,17 @@ data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 
+instance ToPath DeleteAccountPasswordPolicy where
+    toPath = const "/"
+
+instance ToQuery DeleteAccountPasswordPolicy where
+    toQuery = const mempty
+
+instance ToHeaders DeleteAccountPasswordPolicy
+
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
 
     request  = post "DeleteAccountPasswordPolicy"
     response = nullResponse DeleteAccountPasswordPolicyResponse
-
-instance ToPath DeleteAccountPasswordPolicy where
-    toPath = const "/"
-
-instance ToHeaders DeleteAccountPasswordPolicy
-
-instance ToQuery DeleteAccountPasswordPolicy

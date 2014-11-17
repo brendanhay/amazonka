@@ -103,6 +103,13 @@ deleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
 dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
 
+instance ToPath DeleteClusterSnapshot where
+    toPath = const "/"
+
+instance ToQuery DeleteClusterSnapshot
+
+instance ToHeaders DeleteClusterSnapshot
+
 instance AWSRequest DeleteClusterSnapshot where
     type Sv DeleteClusterSnapshot = Redshift
     type Rs DeleteClusterSnapshot = DeleteClusterSnapshotResponse
@@ -113,10 +120,3 @@ instance AWSRequest DeleteClusterSnapshot where
 instance FromXML DeleteClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterSnapshotResponse"
-
-instance ToPath DeleteClusterSnapshot where
-    toPath = const "/"
-
-instance ToHeaders DeleteClusterSnapshot
-
-instance ToQuery DeleteClusterSnapshot

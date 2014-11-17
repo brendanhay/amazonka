@@ -453,6 +453,13 @@ modifyDBInstanceResponse = ModifyDBInstanceResponse
 mdbirDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdbirDBInstance = lens _mdbirDBInstance (\s a -> s { _mdbirDBInstance = a })
 
+instance ToPath ModifyDBInstance where
+    toPath = const "/"
+
+instance ToQuery ModifyDBInstance
+
+instance ToHeaders ModifyDBInstance
+
 instance AWSRequest ModifyDBInstance where
     type Sv ModifyDBInstance = RDS
     type Rs ModifyDBInstance = ModifyDBInstanceResponse
@@ -463,10 +470,3 @@ instance AWSRequest ModifyDBInstance where
 instance FromXML ModifyDBInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyDBInstanceResponse"
-
-instance ToPath ModifyDBInstance where
-    toPath = const "/"
-
-instance ToHeaders ModifyDBInstance
-
-instance ToQuery ModifyDBInstance

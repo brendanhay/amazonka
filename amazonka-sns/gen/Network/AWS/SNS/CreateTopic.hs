@@ -88,6 +88,13 @@ createTopicResponse = CreateTopicResponse
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
 
+instance ToPath CreateTopic where
+    toPath = const "/"
+
+instance ToQuery CreateTopic
+
+instance ToHeaders CreateTopic
+
 instance AWSRequest CreateTopic where
     type Sv CreateTopic = SNS
     type Rs CreateTopic = CreateTopicResponse
@@ -98,10 +105,3 @@ instance AWSRequest CreateTopic where
 instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateTopicResponse"
-
-instance ToPath CreateTopic where
-    toPath = const "/"
-
-instance ToHeaders CreateTopic
-
-instance ToQuery CreateTopic

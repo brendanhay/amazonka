@@ -228,16 +228,16 @@ data PutMetricAlarmResponse = PutMetricAlarmResponse
 putMetricAlarmResponse :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse
 
+instance ToPath PutMetricAlarm where
+    toPath = const "/"
+
+instance ToQuery PutMetricAlarm
+
+instance ToHeaders PutMetricAlarm
+
 instance AWSRequest PutMetricAlarm where
     type Sv PutMetricAlarm = CloudWatch
     type Rs PutMetricAlarm = PutMetricAlarmResponse
 
     request  = post "PutMetricAlarm"
     response = nullResponse PutMetricAlarmResponse
-
-instance ToPath PutMetricAlarm where
-    toPath = const "/"
-
-instance ToHeaders PutMetricAlarm
-
-instance ToQuery PutMetricAlarm

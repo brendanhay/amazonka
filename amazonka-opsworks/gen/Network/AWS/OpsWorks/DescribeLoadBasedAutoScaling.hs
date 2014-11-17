@@ -100,6 +100,16 @@ dlbasrLoadBasedAutoScalingConfigurations =
     lens _dlbasrLoadBasedAutoScalingConfigurations
         (\s a -> s { _dlbasrLoadBasedAutoScalingConfigurations = a })
 
+instance ToPath DescribeLoadBasedAutoScaling where
+    toPath = const "/"
+
+instance ToQuery DescribeLoadBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToHeaders DescribeLoadBasedAutoScaling
+instance ToJSON DescribeLoadBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeLoadBasedAutoScaling where
     type Sv DescribeLoadBasedAutoScaling = OpsWorks
     type Rs DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScalingResponse
@@ -109,14 +119,3 @@ instance AWSRequest DescribeLoadBasedAutoScaling where
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeLoadBasedAutoScaling where
-    toPath = const "/"
-
-instance ToHeaders DescribeLoadBasedAutoScaling
-
-instance ToQuery DescribeLoadBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToJSON DescribeLoadBasedAutoScaling where
-    toJSON = genericToJSON jsonOptions

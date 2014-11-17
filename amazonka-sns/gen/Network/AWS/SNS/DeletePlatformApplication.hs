@@ -72,16 +72,16 @@ data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse
 
+instance ToPath DeletePlatformApplication where
+    toPath = const "/"
+
+instance ToQuery DeletePlatformApplication
+
+instance ToHeaders DeletePlatformApplication
+
 instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS
     type Rs DeletePlatformApplication = DeletePlatformApplicationResponse
 
     request  = post "DeletePlatformApplication"
     response = nullResponse DeletePlatformApplicationResponse
-
-instance ToPath DeletePlatformApplication where
-    toPath = const "/"
-
-instance ToHeaders DeletePlatformApplication
-
-instance ToQuery DeletePlatformApplication

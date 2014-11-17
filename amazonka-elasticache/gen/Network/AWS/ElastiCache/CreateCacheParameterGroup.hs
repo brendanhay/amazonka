@@ -110,6 +110,13 @@ ccpgrCacheParameterGroup =
     lens _ccpgrCacheParameterGroup
         (\s a -> s { _ccpgrCacheParameterGroup = a })
 
+instance ToPath CreateCacheParameterGroup where
+    toPath = const "/"
+
+instance ToQuery CreateCacheParameterGroup
+
+instance ToHeaders CreateCacheParameterGroup
+
 instance AWSRequest CreateCacheParameterGroup where
     type Sv CreateCacheParameterGroup = ElastiCache
     type Rs CreateCacheParameterGroup = CreateCacheParameterGroupResponse
@@ -120,10 +127,3 @@ instance AWSRequest CreateCacheParameterGroup where
 instance FromXML CreateCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheParameterGroupResponse"
-
-instance ToPath CreateCacheParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateCacheParameterGroup
-
-instance ToQuery CreateCacheParameterGroup

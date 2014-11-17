@@ -80,16 +80,16 @@ data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
 
+instance ToPath RemoveTagsFromResource where
+    toPath = const "/"
+
+instance ToQuery RemoveTagsFromResource
+
+instance ToHeaders RemoveTagsFromResource
+
 instance AWSRequest RemoveTagsFromResource where
     type Sv RemoveTagsFromResource = RDS
     type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
 
     request  = post "RemoveTagsFromResource"
     response = nullResponse RemoveTagsFromResourceResponse
-
-instance ToPath RemoveTagsFromResource where
-    toPath = const "/"
-
-instance ToHeaders RemoveTagsFromResource
-
-instance ToQuery RemoveTagsFromResource

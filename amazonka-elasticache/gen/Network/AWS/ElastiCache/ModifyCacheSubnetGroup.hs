@@ -107,6 +107,13 @@ mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnet
 mcsgrCacheSubnetGroup =
     lens _mcsgrCacheSubnetGroup (\s a -> s { _mcsgrCacheSubnetGroup = a })
 
+instance ToPath ModifyCacheSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyCacheSubnetGroup
+
+instance ToHeaders ModifyCacheSubnetGroup
+
 instance AWSRequest ModifyCacheSubnetGroup where
     type Sv ModifyCacheSubnetGroup = ElastiCache
     type Rs ModifyCacheSubnetGroup = ModifyCacheSubnetGroupResponse
@@ -117,10 +124,3 @@ instance AWSRequest ModifyCacheSubnetGroup where
 instance FromXML ModifyCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyCacheSubnetGroupResponse"
-
-instance ToPath ModifyCacheSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyCacheSubnetGroup
-
-instance ToQuery ModifyCacheSubnetGroup

@@ -79,24 +79,16 @@ data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
 enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 
+instance ToPath EnableVgwRoutePropagation where
+    toPath = const "/"
+
+instance ToQuery EnableVgwRoutePropagation
+
+instance ToHeaders EnableVgwRoutePropagation
+
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse
 
     request  = post "EnableVgwRoutePropagation"
     response = nullResponse EnableVgwRoutePropagationResponse
-
-instance ToPath EnableVgwRoutePropagation where
-    toPath = const "/"
-
-instance ToHeaders EnableVgwRoutePropagation
-
-instance ToQuery EnableVgwRoutePropagation where
-    toQuery EnableVgwRoutePropagation{..} = mconcat
-        [ "RouteTableId" =? _evrpRouteTableId
-        , "GatewayId"    =? _evrpGatewayId
-        ]
-
-instance ToXML EnableVgwRoutePropagation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "EnableVgwRoutePropagation"

@@ -144,6 +144,13 @@ dsrMarker = lens _dsrMarker (\s a -> s { _dsrMarker = a })
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
 
+instance ToPath DescribeSnapshots where
+    toPath = const "/"
+
+instance ToQuery DescribeSnapshots
+
+instance ToHeaders DescribeSnapshots
+
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = ElastiCache
     type Rs DescribeSnapshots = DescribeSnapshotsResponse
@@ -154,10 +161,3 @@ instance AWSRequest DescribeSnapshots where
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
-
-instance ToPath DescribeSnapshots where
-    toPath = const "/"
-
-instance ToHeaders DescribeSnapshots
-
-instance ToQuery DescribeSnapshots

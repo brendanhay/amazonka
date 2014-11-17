@@ -82,16 +82,16 @@ data DeleteApplicationResponse = DeleteApplicationResponse
 deleteApplicationResponse :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse
 
+instance ToPath DeleteApplication where
+    toPath = const "/"
+
+instance ToQuery DeleteApplication
+
+instance ToHeaders DeleteApplication
+
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = ElasticBeanstalk
     type Rs DeleteApplication = DeleteApplicationResponse
 
     request  = post "DeleteApplication"
     response = nullResponse DeleteApplicationResponse
-
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
-instance ToHeaders DeleteApplication
-
-instance ToQuery DeleteApplication

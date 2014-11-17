@@ -241,6 +241,16 @@ apvirVirtualInterfaceType =
 apvirVlan :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Int)
 apvirVlan = lens _apvirVlan (\s a -> s { _apvirVlan = a })
 
+instance ToPath AllocatePrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToQuery AllocatePrivateVirtualInterface where
+    toQuery = const mempty
+
+instance ToHeaders AllocatePrivateVirtualInterface
+instance ToJSON AllocatePrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AllocatePrivateVirtualInterface where
     type Sv AllocatePrivateVirtualInterface = DirectConnect
     type Rs AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterfaceResponse
@@ -250,14 +260,3 @@ instance AWSRequest AllocatePrivateVirtualInterface where
 
 instance FromJSON AllocatePrivateVirtualInterfaceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AllocatePrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToHeaders AllocatePrivateVirtualInterface
-
-instance ToQuery AllocatePrivateVirtualInterface where
-    toQuery = const mempty
-
-instance ToJSON AllocatePrivateVirtualInterface where
-    toJSON = genericToJSON jsonOptions

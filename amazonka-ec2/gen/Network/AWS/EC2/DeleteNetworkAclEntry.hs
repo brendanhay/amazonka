@@ -97,26 +97,16 @@ data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 deleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse
 deleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 
+instance ToPath DeleteNetworkAclEntry where
+    toPath = const "/"
+
+instance ToQuery DeleteNetworkAclEntry
+
+instance ToHeaders DeleteNetworkAclEntry
+
 instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
     request  = post "DeleteNetworkAclEntry"
     response = nullResponse DeleteNetworkAclEntryResponse
-
-instance ToPath DeleteNetworkAclEntry where
-    toPath = const "/"
-
-instance ToHeaders DeleteNetworkAclEntry
-
-instance ToQuery DeleteNetworkAclEntry where
-    toQuery DeleteNetworkAclEntry{..} = mconcat
-        [ "dryRun"       =? _dnaeDryRun
-        , "networkAclId" =? _dnaeNetworkAclId
-        , "ruleNumber"   =? _dnaeRuleNumber
-        , "egress"       =? _dnaeEgress
-        ]
-
-instance ToXML DeleteNetworkAclEntry where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteNetworkAclEntry"

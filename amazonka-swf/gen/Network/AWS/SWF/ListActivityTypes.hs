@@ -165,6 +165,16 @@ latrNextPageToken =
 latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrTypeInfos = lens _latrTypeInfos (\s a -> s { _latrTypeInfos = a })
 
+instance ToPath ListActivityTypes where
+    toPath = const "/"
+
+instance ToQuery ListActivityTypes where
+    toQuery = const mempty
+
+instance ToHeaders ListActivityTypes
+instance ToJSON ListActivityTypes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListActivityTypes where
     type Sv ListActivityTypes = SWF
     type Rs ListActivityTypes = ListActivityTypesResponse
@@ -174,14 +184,3 @@ instance AWSRequest ListActivityTypes where
 
 instance FromJSON ListActivityTypesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListActivityTypes where
-    toPath = const "/"
-
-instance ToHeaders ListActivityTypes
-
-instance ToQuery ListActivityTypes where
-    toQuery = const mempty
-
-instance ToJSON ListActivityTypes where
-    toJSON = genericToJSON jsonOptions

@@ -84,6 +84,16 @@ deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
 dssr1VolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dssr1VolumeARN = lens _dssr1VolumeARN (\s a -> s { _dssr1VolumeARN = a })
 
+instance ToPath DeleteSnapshotSchedule where
+    toPath = const "/"
+
+instance ToQuery DeleteSnapshotSchedule where
+    toQuery = const mempty
+
+instance ToHeaders DeleteSnapshotSchedule
+instance ToJSON DeleteSnapshotSchedule where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteSnapshotSchedule where
     type Sv DeleteSnapshotSchedule = StorageGateway
     type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
@@ -93,14 +103,3 @@ instance AWSRequest DeleteSnapshotSchedule where
 
 instance FromJSON DeleteSnapshotScheduleResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteSnapshotSchedule where
-    toPath = const "/"
-
-instance ToHeaders DeleteSnapshotSchedule
-
-instance ToQuery DeleteSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToJSON DeleteSnapshotSchedule where
-    toJSON = genericToJSON jsonOptions

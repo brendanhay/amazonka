@@ -100,6 +100,13 @@ createClusterSnapshotResponse = CreateClusterSnapshotResponse
 ccsr1Snapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 ccsr1Snapshot = lens _ccsr1Snapshot (\s a -> s { _ccsr1Snapshot = a })
 
+instance ToPath CreateClusterSnapshot where
+    toPath = const "/"
+
+instance ToQuery CreateClusterSnapshot
+
+instance ToHeaders CreateClusterSnapshot
+
 instance AWSRequest CreateClusterSnapshot where
     type Sv CreateClusterSnapshot = Redshift
     type Rs CreateClusterSnapshot = CreateClusterSnapshotResponse
@@ -110,10 +117,3 @@ instance AWSRequest CreateClusterSnapshot where
 instance FromXML CreateClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterSnapshotResponse"
-
-instance ToPath CreateClusterSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CreateClusterSnapshot
-
-instance ToQuery CreateClusterSnapshot

@@ -87,25 +87,16 @@ data ResetImageAttributeResponse = ResetImageAttributeResponse
 resetImageAttributeResponse :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse
 
+instance ToPath ResetImageAttribute where
+    toPath = const "/"
+
+instance ToQuery ResetImageAttribute
+
+instance ToHeaders ResetImageAttribute
+
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
     request  = post "ResetImageAttribute"
     response = nullResponse ResetImageAttributeResponse
-
-instance ToPath ResetImageAttribute where
-    toPath = const "/"
-
-instance ToHeaders ResetImageAttribute
-
-instance ToQuery ResetImageAttribute where
-    toQuery ResetImageAttribute{..} = mconcat
-        [ "dryRun"    =? _ria1DryRun
-        , "ImageId"   =? _ria1ImageId
-        , "Attribute" =? _ria1Attribute
-        ]
-
-instance ToXML ResetImageAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResetImageAttribute"

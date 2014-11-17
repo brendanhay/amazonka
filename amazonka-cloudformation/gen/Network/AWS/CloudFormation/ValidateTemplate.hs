@@ -131,6 +131,13 @@ vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
 vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a })
 
+instance ToPath ValidateTemplate where
+    toPath = const "/"
+
+instance ToQuery ValidateTemplate
+
+instance ToHeaders ValidateTemplate
+
 instance AWSRequest ValidateTemplate where
     type Sv ValidateTemplate = CloudFormation
     type Rs ValidateTemplate = ValidateTemplateResponse
@@ -141,10 +148,3 @@ instance AWSRequest ValidateTemplate where
 instance FromXML ValidateTemplateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ValidateTemplateResponse"
-
-instance ToPath ValidateTemplate where
-    toPath = const "/"
-
-instance ToHeaders ValidateTemplate
-
-instance ToQuery ValidateTemplate

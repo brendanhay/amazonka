@@ -93,6 +93,13 @@ ginarNotificationAttributes =
         (\s a -> s { _ginarNotificationAttributes = a })
             . _Map
 
+instance ToPath GetIdentityNotificationAttributes where
+    toPath = const "/"
+
+instance ToQuery GetIdentityNotificationAttributes
+
+instance ToHeaders GetIdentityNotificationAttributes
+
 instance AWSRequest GetIdentityNotificationAttributes where
     type Sv GetIdentityNotificationAttributes = SES
     type Rs GetIdentityNotificationAttributes = GetIdentityNotificationAttributesResponse
@@ -103,10 +110,3 @@ instance AWSRequest GetIdentityNotificationAttributes where
 instance FromXML GetIdentityNotificationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetIdentityNotificationAttributesResponse"
-
-instance ToPath GetIdentityNotificationAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetIdentityNotificationAttributes
-
-instance ToQuery GetIdentityNotificationAttributes

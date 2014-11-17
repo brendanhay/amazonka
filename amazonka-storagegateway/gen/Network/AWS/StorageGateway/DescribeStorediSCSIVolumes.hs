@@ -100,6 +100,16 @@ dsscsivrStorediSCSIVolumes =
     lens _dsscsivrStorediSCSIVolumes
         (\s a -> s { _dsscsivrStorediSCSIVolumes = a })
 
+instance ToPath DescribeStorediSCSIVolumes where
+    toPath = const "/"
+
+instance ToQuery DescribeStorediSCSIVolumes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeStorediSCSIVolumes
+instance ToJSON DescribeStorediSCSIVolumes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeStorediSCSIVolumes where
     type Sv DescribeStorediSCSIVolumes = StorageGateway
     type Rs DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumesResponse
@@ -109,14 +119,3 @@ instance AWSRequest DescribeStorediSCSIVolumes where
 
 instance FromJSON DescribeStorediSCSIVolumesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeStorediSCSIVolumes where
-    toPath = const "/"
-
-instance ToHeaders DescribeStorediSCSIVolumes
-
-instance ToQuery DescribeStorediSCSIVolumes where
-    toQuery = const mempty
-
-instance ToJSON DescribeStorediSCSIVolumes where
-    toJSON = genericToJSON jsonOptions

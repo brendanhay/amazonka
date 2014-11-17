@@ -114,6 +114,13 @@ rcpgrCacheParameterGroupName =
     lens _rcpgrCacheParameterGroupName
         (\s a -> s { _rcpgrCacheParameterGroupName = a })
 
+instance ToPath ResetCacheParameterGroup where
+    toPath = const "/"
+
+instance ToQuery ResetCacheParameterGroup
+
+instance ToHeaders ResetCacheParameterGroup
+
 instance AWSRequest ResetCacheParameterGroup where
     type Sv ResetCacheParameterGroup = ElastiCache
     type Rs ResetCacheParameterGroup = ResetCacheParameterGroupResponse
@@ -124,10 +131,3 @@ instance AWSRequest ResetCacheParameterGroup where
 instance FromXML ResetCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetCacheParameterGroupResponse"
-
-instance ToPath ResetCacheParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders ResetCacheParameterGroup
-
-instance ToQuery ResetCacheParameterGroup

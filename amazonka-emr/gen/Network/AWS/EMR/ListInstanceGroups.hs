@@ -101,6 +101,16 @@ ligrInstanceGroups =
 ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligrMarker = lens _ligrMarker (\s a -> s { _ligrMarker = a })
 
+instance ToPath ListInstanceGroups where
+    toPath = const "/"
+
+instance ToQuery ListInstanceGroups where
+    toQuery = const mempty
+
+instance ToHeaders ListInstanceGroups
+instance ToJSON ListInstanceGroups where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListInstanceGroups where
     type Sv ListInstanceGroups = EMR
     type Rs ListInstanceGroups = ListInstanceGroupsResponse
@@ -110,14 +120,3 @@ instance AWSRequest ListInstanceGroups where
 
 instance FromJSON ListInstanceGroupsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListInstanceGroups where
-    toPath = const "/"
-
-instance ToHeaders ListInstanceGroups
-
-instance ToQuery ListInstanceGroups where
-    toQuery = const mempty
-
-instance ToJSON ListInstanceGroups where
-    toJSON = genericToJSON jsonOptions

@@ -72,16 +72,16 @@ data DeleteRoleResponse = DeleteRoleResponse
 deleteRoleResponse :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse
 
+instance ToPath DeleteRole where
+    toPath = const "/"
+
+instance ToQuery DeleteRole
+
+instance ToHeaders DeleteRole
+
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM
     type Rs DeleteRole = DeleteRoleResponse
 
     request  = post "DeleteRole"
     response = nullResponse DeleteRoleResponse
-
-instance ToPath DeleteRole where
-    toPath = const "/"
-
-instance ToHeaders DeleteRole
-
-instance ToQuery DeleteRole

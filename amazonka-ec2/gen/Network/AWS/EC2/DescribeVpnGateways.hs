@@ -124,6 +124,13 @@ describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
 
+instance ToPath DescribeVpnGateways where
+    toPath = const "/"
+
+instance ToQuery DescribeVpnGateways
+
+instance ToHeaders DescribeVpnGateways
+
 instance AWSRequest DescribeVpnGateways where
     type Sv DescribeVpnGateways = EC2
     type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse
@@ -134,19 +141,3 @@ instance AWSRequest DescribeVpnGateways where
 instance FromXML DescribeVpnGatewaysResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpnGatewaysResponse"
-
-instance ToPath DescribeVpnGateways where
-    toPath = const "/"
-
-instance ToHeaders DescribeVpnGateways
-
-instance ToQuery DescribeVpnGateways where
-    toQuery DescribeVpnGateways{..} = mconcat
-        [ "dryRun"       =? _dvg2DryRun
-        , "VpnGatewayId" =? _dvg2VpnGatewayIds
-        , "Filter"       =? _dvg2Filters
-        ]
-
-instance ToXML DescribeVpnGateways where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVpnGateways"

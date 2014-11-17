@@ -84,16 +84,16 @@ data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse
 
+instance ToPath DisableMetricsCollection where
+    toPath = const "/"
+
+instance ToQuery DisableMetricsCollection
+
+instance ToHeaders DisableMetricsCollection
+
 instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling
     type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
 
     request  = post "DisableMetricsCollection"
     response = nullResponse DisableMetricsCollectionResponse
-
-instance ToPath DisableMetricsCollection where
-    toPath = const "/"
-
-instance ToHeaders DisableMetricsCollection
-
-instance ToQuery DisableMetricsCollection

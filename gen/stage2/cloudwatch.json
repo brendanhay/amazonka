@@ -1741,6 +1741,7 @@
                 "name": "DeleteAlarmsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1804,6 +1805,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1860,6 +1863,7 @@
                 "name": "DescribeAlarmHistoryResponse",
                 "resultWrapper": "DescribeAlarmHistoryResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1997,6 +2001,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2193,6 +2199,7 @@
                 "name": "DescribeAlarmsResponse",
                 "resultWrapper": "DescribeAlarmsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2330,6 +2337,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2543,6 +2552,7 @@
                 "name": "DescribeAlarmsForMetricResponse",
                 "resultWrapper": "DescribeAlarmsForMetricResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2672,6 +2682,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2840,6 +2852,7 @@
                 "name": "DisableAlarmActionsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2903,6 +2916,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2959,6 +2974,7 @@
                 "name": "EnableAlarmActionsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3022,6 +3038,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3078,6 +3096,7 @@
                 "name": "GetMetricStatisticsResponse",
                 "resultWrapper": "GetMetricStatisticsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3301,6 +3320,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3469,6 +3490,7 @@
                 "name": "ListMetricsResponse",
                 "resultWrapper": "ListMetricsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3595,6 +3617,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3735,6 +3759,7 @@
                 "name": "PutMetricAlarmResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3963,6 +3988,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4299,6 +4326,7 @@
                 "name": "PutMetricDataResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4364,6 +4392,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4434,6 +4464,7 @@
                 "name": "SetAlarmStateResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4538,6 +4569,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

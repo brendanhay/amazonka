@@ -108,16 +108,16 @@ data DeleteAttributesResponse = DeleteAttributesResponse
 deleteAttributesResponse :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse
 
+instance ToPath DeleteAttributes where
+    toPath = const "/"
+
+instance ToQuery DeleteAttributes
+
+instance ToHeaders DeleteAttributes
+
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SDB
     type Rs DeleteAttributes = DeleteAttributesResponse
 
     request  = post "DeleteAttributes"
     response = nullResponse DeleteAttributesResponse
-
-instance ToPath DeleteAttributes where
-    toPath = const "/"
-
-instance ToHeaders DeleteAttributes
-
-instance ToQuery DeleteAttributes

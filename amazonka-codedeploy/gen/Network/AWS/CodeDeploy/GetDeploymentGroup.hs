@@ -96,6 +96,16 @@ gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGro
 gdgrDeploymentGroupInfo =
     lens _gdgrDeploymentGroupInfo (\s a -> s { _gdgrDeploymentGroupInfo = a })
 
+instance ToPath GetDeploymentGroup where
+    toPath = const "/"
+
+instance ToQuery GetDeploymentGroup where
+    toQuery = const mempty
+
+instance ToHeaders GetDeploymentGroup
+instance ToJSON GetDeploymentGroup where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetDeploymentGroup where
     type Sv GetDeploymentGroup = CodeDeploy
     type Rs GetDeploymentGroup = GetDeploymentGroupResponse
@@ -105,14 +115,3 @@ instance AWSRequest GetDeploymentGroup where
 
 instance FromJSON GetDeploymentGroupResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetDeploymentGroup where
-    toPath = const "/"
-
-instance ToHeaders GetDeploymentGroup
-
-instance ToQuery GetDeploymentGroup where
-    toQuery = const mempty
-
-instance ToJSON GetDeploymentGroup where
-    toJSON = genericToJSON jsonOptions

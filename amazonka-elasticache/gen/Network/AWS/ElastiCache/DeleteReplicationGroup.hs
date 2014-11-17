@@ -115,6 +115,13 @@ drgrReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationG
 drgrReplicationGroup =
     lens _drgrReplicationGroup (\s a -> s { _drgrReplicationGroup = a })
 
+instance ToPath DeleteReplicationGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteReplicationGroup
+
+instance ToHeaders DeleteReplicationGroup
+
 instance AWSRequest DeleteReplicationGroup where
     type Sv DeleteReplicationGroup = ElastiCache
     type Rs DeleteReplicationGroup = DeleteReplicationGroupResponse
@@ -125,10 +132,3 @@ instance AWSRequest DeleteReplicationGroup where
 instance FromXML DeleteReplicationGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteReplicationGroupResponse"
-
-instance ToPath DeleteReplicationGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteReplicationGroup
-
-instance ToQuery DeleteReplicationGroup

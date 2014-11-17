@@ -93,6 +93,16 @@ lar1Applications = lens _lar1Applications (\s a -> s { _lar1Applications = a })
 lar1NextToken :: Lens' ListApplicationsResponse (Maybe Text)
 lar1NextToken = lens _lar1NextToken (\s a -> s { _lar1NextToken = a })
 
+instance ToPath ListApplications where
+    toPath = const "/"
+
+instance ToQuery ListApplications where
+    toQuery = const mempty
+
+instance ToHeaders ListApplications
+instance ToJSON ListApplications where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListApplications where
     type Sv ListApplications = CodeDeploy
     type Rs ListApplications = ListApplicationsResponse
@@ -102,14 +112,3 @@ instance AWSRequest ListApplications where
 
 instance FromJSON ListApplicationsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListApplications where
-    toPath = const "/"
-
-instance ToHeaders ListApplications
-
-instance ToQuery ListApplications where
-    toQuery = const mempty
-
-instance ToJSON ListApplications where
-    toJSON = genericToJSON jsonOptions

@@ -94,6 +94,13 @@ deleteExpressionResponse p1 = DeleteExpressionResponse
 der1Expression :: Lens' DeleteExpressionResponse ExpressionStatus
 der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
 
+instance ToPath DeleteExpression where
+    toPath = const "/"
+
+instance ToQuery DeleteExpression
+
+instance ToHeaders DeleteExpression
+
 instance AWSRequest DeleteExpression where
     type Sv DeleteExpression = CloudSearch
     type Rs DeleteExpression = DeleteExpressionResponse
@@ -104,10 +111,3 @@ instance AWSRequest DeleteExpression where
 instance FromXML DeleteExpressionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteExpressionResponse"
-
-instance ToPath DeleteExpression where
-    toPath = const "/"
-
-instance ToHeaders DeleteExpression
-
-instance ToQuery DeleteExpression

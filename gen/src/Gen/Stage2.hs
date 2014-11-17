@@ -555,23 +555,20 @@ data Request = Request
 
 instance ToJSON Request where
     toJSON Request{..} =
-        Object (x <> operationJSON _rqProto _rqShared _rqName _rqData)
+        Object (x <> operationJSON _rqProto _rqShared True _rqName _rqData)
       where
         Object x = object $
             [ "path"     .= _uriPath _rqUri
             , "query"    .= qry
             , "queryPad" .= fieldPad qs
+            , "queryAll" .= (length qs == length fs && not (null fs))
             , "shared"   .= _rqShared
-            ] ++ style
+            ]
 
         qry = (map toJSON (_uriQuery _rqUri) ++ map fieldLocation qs)
 
         qs = filter isQuery fs
         fs = toListOf dataFields _rqData
-
-        style | Query <- _rqProto
-              , length qs == length fs = ["style" .= "query"]
-              | otherwise              = []
 
 data Response = Response
     { _rsProto         :: !Protocol
@@ -584,7 +581,7 @@ data Response = Response
 
 instance ToJSON Response where
     toJSON Response{..} =
-        Object (x <> operationJSON _rsProto _rsShared _rsName _rsData)
+        Object (x <> operationJSON _rsProto _rsShared False _rsName _rsData)
       where
         Object x = object
             [ "resultWrapper" .= _rsResultWrapper
@@ -592,48 +589,52 @@ instance ToJSON Response where
             , "shared"        .= _rsShared
             ]
 
-operationJSON :: Protocol -> Bool -> Text -> Data -> Object
-operationJSON p s n d = y <> x
+operationJSON :: Protocol -> Bool -> Bool -> Text -> Data -> Object
+operationJSON p s rq n d = y <> x
   where
     Object x = toJSON d
     Object y = object
         [ "ctor"      .= constructor n
         , "protocol"  .= p
         , "streaming" .= stream
-        , "headers"   .= map fieldLocation hdr
-        , "headerPad" .= fieldPad hdr
+        , "headers"   .= map fieldLocation hs
+        , "headerPad" .= fieldPad hs
+        , "headerAll" .= (length hs == length fs && not (null fs))
         , "style"     .= style
         ]
+
+    hs = filter isHeader fs
+    fs = toListOf dataFields d
 
     stream :: Bool
     stream = any (view fStream) $
         case d of
             Newtype _ f  -> [f]
-            Record  _ fs -> fs
+            Record  _ xs -> xs
             _            -> []
 
     style :: Text
-    style | Empty   {} <- d = "nullary"
-          | s {- shared -}  = k
-          | stream          = h "body"
-          | otherwise       = h (b k)
+    style | Empty{} <- d
+          , not rq         = "nullary"
+          | s {- shared -} = k
+          | stream         = h "body"
+          | otherwise      = h (b k)
       where
-        h | null hdr  = id
+        h | null hs   = id
           | otherwise = (<> "-headers")
 
         b | stream    = (<> "-body")
           | otherwise = id
 
         k = case p of
-            Json     -> "json"
-            RestJson -> "json"
-            Xml      -> "xml"
-            RestXml  -> "xml"
-            Query    -> "xml"
-            Ec2      -> "xml"
-
-    hdr :: [Field]
-    hdr = filter isHeader (toListOf dataFields d)
+            Json       -> "json"
+            RestJson   -> "json"
+            Xml        -> "xml"
+            RestXml    -> "xml"
+            Query | rq -> "query"
+            Query      -> "xml"
+            Ec2   | rq -> "query"
+            Ec2        -> "xml"
 
 data Operation = Operation
     { _opName             :: !Text

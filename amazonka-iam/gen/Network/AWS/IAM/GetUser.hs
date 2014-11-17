@@ -87,6 +87,13 @@ getUserResponse p1 = GetUserResponse
 gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\s a -> s { _gurUser = a })
 
+instance ToPath GetUser where
+    toPath = const "/"
+
+instance ToQuery GetUser
+
+instance ToHeaders GetUser
+
 instance AWSRequest GetUser where
     type Sv GetUser = IAM
     type Rs GetUser = GetUserResponse
@@ -97,10 +104,3 @@ instance AWSRequest GetUser where
 instance FromXML GetUserResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetUserResponse"
-
-instance ToPath GetUser where
-    toPath = const "/"
-
-instance ToHeaders GetUser
-
-instance ToQuery GetUser

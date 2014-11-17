@@ -4114,6 +4114,7 @@
                 "name": "AttachInstancesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4180,6 +4181,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4250,6 +4253,7 @@
                 "name": "CompleteLifecycleActionResponse",
                 "resultWrapper": "CompleteLifecycleActionResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4368,6 +4372,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4451,6 +4457,7 @@
                 "name": "CreateAutoScalingGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4623,6 +4630,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5015,6 +5024,7 @@
                 "name": "CreateLaunchConfigurationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5150,6 +5160,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5612,6 +5624,7 @@
                 "name": "CreateOrUpdateTagsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5674,6 +5687,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5730,6 +5745,7 @@
                 "name": "DeleteAutoScalingGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5796,6 +5812,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5866,6 +5884,7 @@
                 "name": "DeleteLaunchConfigurationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5944,6 +5963,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5985,6 +6006,7 @@
                 "name": "DeleteLifecycleHookResponse",
                 "resultWrapper": "DeleteLifecycleHookResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6065,6 +6087,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6120,6 +6144,7 @@
                 "name": "DeleteNotificationConfigurationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6200,6 +6225,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6255,6 +6282,7 @@
                 "name": "DeletePolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6321,6 +6349,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6391,6 +6421,7 @@
                 "name": "DeleteScheduledActionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6457,6 +6488,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6527,6 +6560,7 @@
                 "name": "DeleteTagsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6589,6 +6623,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6646,6 +6682,7 @@
                 "name": "DescribeAccountLimitsResponse",
                 "resultWrapper": "DescribeAccountLimitsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6743,6 +6780,8 @@
                 "name": "DescribeAccountLimits",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -6786,6 +6825,7 @@
                 "name": "DescribeAdjustmentTypesResponse",
                 "resultWrapper": "DescribeAdjustmentTypesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6855,6 +6895,8 @@
                 "name": "DescribeAdjustmentTypes",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -6881,6 +6923,7 @@
                 "name": "DescribeAutoScalingGroupsResponse",
                 "resultWrapper": "DescribeAutoScalingGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7003,6 +7046,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7115,6 +7160,7 @@
                 "name": "DescribeAutoScalingInstancesResponse",
                 "resultWrapper": "DescribeAutoScalingInstancesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7237,6 +7283,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7367,6 +7415,7 @@
                 "name": "DescribeAutoScalingNotificationTypesResponse",
                 "resultWrapper": "DescribeAutoScalingNotificationTypesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7436,6 +7485,8 @@
                 "name": "DescribeAutoScalingNotificationTypes",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -7462,6 +7513,7 @@
                 "name": "DescribeLaunchConfigurationsResponse",
                 "resultWrapper": "DescribeLaunchConfigurationsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7584,6 +7636,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7714,6 +7768,7 @@
                 "name": "DescribeLifecycleHookTypesResponse",
                 "resultWrapper": "DescribeLifecycleHookTypesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7783,6 +7838,8 @@
                 "name": "DescribeLifecycleHookTypes",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -7826,6 +7883,7 @@
                 "name": "DescribeLifecycleHooksResponse",
                 "resultWrapper": "DescribeLifecycleHooksResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7922,6 +7980,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7992,6 +8052,7 @@
                 "name": "DescribeMetricCollectionTypesResponse",
                 "resultWrapper": "DescribeMetricCollectionTypesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8089,6 +8150,8 @@
                 "name": "DescribeMetricCollectionTypes",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -8115,6 +8178,7 @@
                 "name": "DescribeNotificationConfigurationsResponse",
                 "resultWrapper": "DescribeNotificationConfigurationsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8237,6 +8301,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8349,6 +8415,7 @@
                 "name": "DescribePoliciesResponse",
                 "resultWrapper": "DescribePoliciesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8476,6 +8543,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8616,6 +8685,7 @@
                 "name": "DescribeScalingActivitiesResponse",
                 "resultWrapper": "DescribeScalingActivitiesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8743,6 +8813,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8900,6 +8972,7 @@
                 "name": "DescribeScalingProcessTypesResponse",
                 "resultWrapper": "DescribeScalingProcessTypesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8969,6 +9042,8 @@
                 "name": "DescribeScalingProcessTypes",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -8995,6 +9070,7 @@
                 "name": "DescribeScheduledActionsResponse",
                 "resultWrapper": "DescribeScheduledActionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9132,6 +9208,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9328,6 +9406,7 @@
                 "name": "DescribeTagsResponse",
                 "resultWrapper": "DescribeTagsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9449,6 +9528,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9579,6 +9660,7 @@
                 "name": "DescribeTerminationPolicyTypesResponse",
                 "resultWrapper": "DescribeTerminationPolicyTypesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9648,6 +9730,8 @@
                 "name": "DescribeTerminationPolicyTypes",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -9691,6 +9775,7 @@
                 "name": "DetachInstancesResponse",
                 "resultWrapper": "DetachInstancesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9806,6 +9891,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9890,6 +9977,7 @@
                 "name": "DisableMetricsCollectionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9956,6 +10044,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10026,6 +10116,7 @@
                 "name": "EnableMetricsCollectionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -10111,6 +10202,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10212,6 +10305,7 @@
                 "name": "EnterStandbyResponse",
                 "resultWrapper": "EnterStandbyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10327,6 +10421,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10411,6 +10507,7 @@
                 "name": "ExecutePolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -10482,6 +10579,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10597,6 +10696,7 @@
                 "name": "ExitStandbyResponse",
                 "resultWrapper": "ExitStandbyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10693,6 +10793,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10763,6 +10865,7 @@
                 "name": "PutLifecycleHookResponse",
                 "resultWrapper": "PutLifecycleHookResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -10873,6 +10976,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11097,6 +11202,7 @@
                 "name": "PutNotificationConfigurationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11182,6 +11288,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11283,6 +11391,7 @@
                 "name": "PutScalingPolicyResponse",
                 "resultWrapper": "PutScalingPolicyResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11441,6 +11550,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11581,6 +11692,7 @@
                 "name": "PutScheduledUpdateGroupActionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11696,6 +11808,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11948,6 +12062,7 @@
                 "name": "RecordLifecycleActionHeartbeatResponse",
                 "resultWrapper": "RecordLifecycleActionHeartbeatResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12047,6 +12162,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12116,6 +12233,7 @@
                 "name": "ResumeProcessesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12182,6 +12300,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12252,6 +12372,7 @@
                 "name": "SetDesiredCapacityResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12337,6 +12458,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12421,6 +12544,7 @@
                 "name": "SetInstanceHealthResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12506,6 +12630,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12590,6 +12716,7 @@
                 "name": "SuspendProcessesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12656,6 +12783,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12741,6 +12870,7 @@
                 "name": "TerminateInstanceInAutoScalingGroupResponse",
                 "resultWrapper": "TerminateInstanceInAutoScalingGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12851,6 +12981,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12906,6 +13038,7 @@
                 "name": "UpdateAutoScalingGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -13036,6 +13169,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

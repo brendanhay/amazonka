@@ -124,6 +124,13 @@ describeSubnetsResponse = DescribeSubnetsResponse
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
 
+instance ToPath DescribeSubnets where
+    toPath = const "/"
+
+instance ToQuery DescribeSubnets
+
+instance ToHeaders DescribeSubnets
+
 instance AWSRequest DescribeSubnets where
     type Sv DescribeSubnets = EC2
     type Rs DescribeSubnets = DescribeSubnetsResponse
@@ -134,19 +141,3 @@ instance AWSRequest DescribeSubnets where
 instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSubnetsResponse"
-
-instance ToPath DescribeSubnets where
-    toPath = const "/"
-
-instance ToHeaders DescribeSubnets
-
-instance ToQuery DescribeSubnets where
-    toQuery DescribeSubnets{..} = mconcat
-        [ "dryRun"   =? _dsDryRun
-        , "SubnetId" =? _dsSubnetIds
-        , "Filter"   =? _dsFilters
-        ]
-
-instance ToXML DescribeSubnets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSubnets"

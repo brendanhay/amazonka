@@ -95,6 +95,13 @@ createGroupResponse p1 = CreateGroupResponse
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
 
+instance ToPath CreateGroup where
+    toPath = const "/"
+
+instance ToQuery CreateGroup
+
+instance ToHeaders CreateGroup
+
 instance AWSRequest CreateGroup where
     type Sv CreateGroup = IAM
     type Rs CreateGroup = CreateGroupResponse
@@ -105,10 +112,3 @@ instance AWSRequest CreateGroup where
 instance FromXML CreateGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateGroupResponse"
-
-instance ToPath CreateGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateGroup
-
-instance ToQuery CreateGroup

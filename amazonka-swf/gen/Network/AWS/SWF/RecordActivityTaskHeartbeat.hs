@@ -120,6 +120,16 @@ rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrCancelRequested =
     lens _rathrCancelRequested (\s a -> s { _rathrCancelRequested = a })
 
+instance ToPath RecordActivityTaskHeartbeat where
+    toPath = const "/"
+
+instance ToQuery RecordActivityTaskHeartbeat where
+    toQuery = const mempty
+
+instance ToHeaders RecordActivityTaskHeartbeat
+instance ToJSON RecordActivityTaskHeartbeat where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RecordActivityTaskHeartbeat where
     type Sv RecordActivityTaskHeartbeat = SWF
     type Rs RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeatResponse
@@ -129,14 +139,3 @@ instance AWSRequest RecordActivityTaskHeartbeat where
 
 instance FromJSON RecordActivityTaskHeartbeatResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RecordActivityTaskHeartbeat where
-    toPath = const "/"
-
-instance ToHeaders RecordActivityTaskHeartbeat
-
-instance ToQuery RecordActivityTaskHeartbeat where
-    toQuery = const mempty
-
-instance ToJSON RecordActivityTaskHeartbeat where
-    toJSON = genericToJSON jsonOptions

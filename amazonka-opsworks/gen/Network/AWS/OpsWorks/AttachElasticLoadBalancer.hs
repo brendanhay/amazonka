@@ -85,20 +85,19 @@ data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 
+instance ToPath AttachElasticLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery AttachElasticLoadBalancer where
+    toQuery = const mempty
+
+instance ToHeaders AttachElasticLoadBalancer
+instance ToJSON AttachElasticLoadBalancer where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
 
     request  = post
     response = nullResponse AttachElasticLoadBalancerResponse
-
-instance ToPath AttachElasticLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders AttachElasticLoadBalancer
-
-instance ToQuery AttachElasticLoadBalancer where
-    toQuery = const mempty
-
-instance ToJSON AttachElasticLoadBalancer where
-    toJSON = genericToJSON jsonOptions

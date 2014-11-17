@@ -243,6 +243,13 @@ driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings
         (\s a -> s { _driorReservedInstancesOfferings = a })
 
+instance ToPath DescribeReservedInstancesOfferings where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedInstancesOfferings
+
+instance ToHeaders DescribeReservedInstancesOfferings
+
 instance AWSRequest DescribeReservedInstancesOfferings where
     type Sv DescribeReservedInstancesOfferings = EC2
     type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResponse
@@ -253,30 +260,3 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResponse"
-
-instance ToPath DescribeReservedInstancesOfferings where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedInstancesOfferings
-
-instance ToQuery DescribeReservedInstancesOfferings where
-    toQuery DescribeReservedInstancesOfferings{..} = mconcat
-        [ "dryRun"                      =? _drioDryRun
-        , "ReservedInstancesOfferingId" =? _drioReservedInstancesOfferingIds
-        , "InstanceType"                =? _drioInstanceType
-        , "AvailabilityZone"            =? _drioAvailabilityZone
-        , "ProductDescription"          =? _drioProductDescription
-        , "Filter"                      =? _drioFilters
-        , "instanceTenancy"             =? _drioInstanceTenancy
-        , "offeringType"                =? _drioOfferingType
-        , "nextToken"                   =? _drioNextToken
-        , "maxResults"                  =? _drioMaxResults
-        , "IncludeMarketplace"          =? _drioIncludeMarketplace
-        , "MinDuration"                 =? _drioMinDuration
-        , "MaxDuration"                 =? _drioMaxDuration
-        , "MaxInstanceCount"            =? _drioMaxInstanceCount
-        ]
-
-instance ToXML DescribeReservedInstancesOfferings where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeReservedInstancesOfferings"

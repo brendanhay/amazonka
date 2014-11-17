@@ -116,6 +116,17 @@ chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\s a -> s { _chcrLocation = a })
 
+instance ToPath CreateHealthCheck where
+    toPath = const "/2013-04-01/healthcheck"
+
+instance ToQuery CreateHealthCheck where
+    toQuery = const mempty
+
+instance ToHeaders CreateHealthCheck
+instance ToXML CreateHealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateHealthCheck"
+
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53
     type Rs CreateHealthCheck = CreateHealthCheckResponse
@@ -124,15 +135,3 @@ instance AWSRequest CreateHealthCheck where
     response = xmlHeaderResponse $ \h x -> CreateHealthCheckResponse
         <$> x %| "HealthCheck"
         <*> h ~: "Location"
-
-instance ToPath CreateHealthCheck where
-    toPath = const "/2013-04-01/healthcheck"
-
-instance ToHeaders CreateHealthCheck
-
-instance ToQuery CreateHealthCheck where
-    toQuery = const mempty
-
-instance ToXML CreateHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateHealthCheck"

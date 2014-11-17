@@ -196,6 +196,20 @@ gfcrTimeout :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrTimeout = lens _gfcrTimeout (\s a -> s { _gfcrTimeout = a })
     . mapping _Nat
 
+instance ToPath GetFunctionConfiguration where
+    toPath GetFunctionConfiguration{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _gfcFunctionName
+        , "/configuration"
+        ]
+
+instance ToQuery GetFunctionConfiguration where
+    toQuery = const mempty
+
+instance ToHeaders GetFunctionConfiguration
+instance ToJSON GetFunctionConfiguration where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetFunctionConfiguration where
     type Sv GetFunctionConfiguration = Lambda
     type Rs GetFunctionConfiguration = GetFunctionConfigurationResponse
@@ -205,18 +219,3 @@ instance AWSRequest GetFunctionConfiguration where
 
 instance FromJSON GetFunctionConfigurationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetFunctionConfiguration where
-    toPath GetFunctionConfiguration{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _gfcFunctionName
-        , "/configuration"
-        ]
-
-instance ToHeaders GetFunctionConfiguration
-
-instance ToQuery GetFunctionConfiguration where
-    toQuery = const mempty
-
-instance ToJSON GetFunctionConfiguration where
-    toJSON = genericToJSON jsonOptions

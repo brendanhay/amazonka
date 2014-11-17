@@ -108,6 +108,13 @@ prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (May
 prcnorReservedCacheNode =
     lens _prcnorReservedCacheNode (\s a -> s { _prcnorReservedCacheNode = a })
 
+instance ToPath PurchaseReservedCacheNodesOffering where
+    toPath = const "/"
+
+instance ToQuery PurchaseReservedCacheNodesOffering
+
+instance ToHeaders PurchaseReservedCacheNodesOffering
+
 instance AWSRequest PurchaseReservedCacheNodesOffering where
     type Sv PurchaseReservedCacheNodesOffering = ElastiCache
     type Rs PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOfferingResponse
@@ -118,10 +125,3 @@ instance AWSRequest PurchaseReservedCacheNodesOffering where
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResponse"
-
-instance ToPath PurchaseReservedCacheNodesOffering where
-    toPath = const "/"
-
-instance ToHeaders PurchaseReservedCacheNodesOffering
-
-instance ToQuery PurchaseReservedCacheNodesOffering

@@ -72,20 +72,19 @@ data DeleteStackResponse = DeleteStackResponse
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
 
+instance ToPath DeleteStack where
+    toPath = const "/"
+
+instance ToQuery DeleteStack where
+    toQuery = const mempty
+
+instance ToHeaders DeleteStack
+instance ToJSON DeleteStack where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks
     type Rs DeleteStack = DeleteStackResponse
 
     request  = post
     response = nullResponse DeleteStackResponse
-
-instance ToPath DeleteStack where
-    toPath = const "/"
-
-instance ToHeaders DeleteStack
-
-instance ToQuery DeleteStack where
-    toQuery = const mempty
-
-instance ToJSON DeleteStack where
-    toJSON = genericToJSON jsonOptions

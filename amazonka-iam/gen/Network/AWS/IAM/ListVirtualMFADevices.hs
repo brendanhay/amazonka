@@ -138,6 +138,13 @@ lvmfadrVirtualMFADevices =
     lens _lvmfadrVirtualMFADevices
         (\s a -> s { _lvmfadrVirtualMFADevices = a })
 
+instance ToPath ListVirtualMFADevices where
+    toPath = const "/"
+
+instance ToQuery ListVirtualMFADevices
+
+instance ToHeaders ListVirtualMFADevices
+
 instance AWSRequest ListVirtualMFADevices where
     type Sv ListVirtualMFADevices = IAM
     type Rs ListVirtualMFADevices = ListVirtualMFADevicesResponse
@@ -148,10 +155,3 @@ instance AWSRequest ListVirtualMFADevices where
 instance FromXML ListVirtualMFADevicesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListVirtualMFADevicesResponse"
-
-instance ToPath ListVirtualMFADevices where
-    toPath = const "/"
-
-instance ToHeaders ListVirtualMFADevices
-
-instance ToQuery ListVirtualMFADevices

@@ -134,6 +134,13 @@ mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubsc
 mesrEventSubscription =
     lens _mesrEventSubscription (\s a -> s { _mesrEventSubscription = a })
 
+instance ToPath ModifyEventSubscription where
+    toPath = const "/"
+
+instance ToQuery ModifyEventSubscription
+
+instance ToHeaders ModifyEventSubscription
+
 instance AWSRequest ModifyEventSubscription where
     type Sv ModifyEventSubscription = RDS
     type Rs ModifyEventSubscription = ModifyEventSubscriptionResponse
@@ -144,10 +151,3 @@ instance AWSRequest ModifyEventSubscription where
 instance FromXML ModifyEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyEventSubscriptionResponse"
-
-instance ToPath ModifyEventSubscription where
-    toPath = const "/"
-
-instance ToHeaders ModifyEventSubscription
-
-instance ToQuery ModifyEventSubscription

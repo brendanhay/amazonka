@@ -84,20 +84,19 @@ data AddTagsResponse = AddTagsResponse
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
 
+instance ToPath AddTags where
+    toPath = const "/"
+
+instance ToQuery AddTags where
+    toQuery = const mempty
+
+instance ToHeaders AddTags
+instance ToJSON AddTags where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddTags where
     type Sv AddTags = EMR
     type Rs AddTags = AddTagsResponse
 
     request  = post
     response = nullResponse AddTagsResponse
-
-instance ToPath AddTags where
-    toPath = const "/"
-
-instance ToHeaders AddTags
-
-instance ToQuery AddTags where
-    toQuery = const mempty
-
-instance ToJSON AddTags where
-    toJSON = genericToJSON jsonOptions

@@ -116,6 +116,16 @@ aatsrAttachmentSetId =
 aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrExpiryTime = lens _aatsrExpiryTime (\s a -> s { _aatsrExpiryTime = a })
 
+instance ToPath AddAttachmentsToSet where
+    toPath = const "/"
+
+instance ToQuery AddAttachmentsToSet where
+    toQuery = const mempty
+
+instance ToHeaders AddAttachmentsToSet
+instance ToJSON AddAttachmentsToSet where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddAttachmentsToSet where
     type Sv AddAttachmentsToSet = Support
     type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
@@ -125,14 +135,3 @@ instance AWSRequest AddAttachmentsToSet where
 
 instance FromJSON AddAttachmentsToSetResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddAttachmentsToSet where
-    toPath = const "/"
-
-instance ToHeaders AddAttachmentsToSet
-
-instance ToQuery AddAttachmentsToSet where
-    toQuery = const mempty
-
-instance ToJSON AddAttachmentsToSet where
-    toJSON = genericToJSON jsonOptions

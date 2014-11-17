@@ -114,6 +114,16 @@ gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails =
     lens _gglrGeoLocationDetails (\s a -> s { _gglrGeoLocationDetails = a })
 
+instance ToPath GetGeoLocation where
+    toPath = const "/2013-04-01/geolocation"
+
+instance ToQuery GetGeoLocation
+
+instance ToHeaders GetGeoLocation
+instance ToXML GetGeoLocation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetGeoLocation"
+
 instance AWSRequest GetGeoLocation where
     type Sv GetGeoLocation = Route53
     type Rs GetGeoLocation = GetGeoLocationResponse
@@ -124,19 +134,3 @@ instance AWSRequest GetGeoLocation where
 instance FromXML GetGeoLocationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetGeoLocationResponse"
-
-instance ToPath GetGeoLocation where
-    toPath = const "/2013-04-01/geolocation"
-
-instance ToHeaders GetGeoLocation
-
-instance ToQuery GetGeoLocation where
-    toQuery GetGeoLocation{..} = mconcat
-        [ "continentcode"   =? _gglContinentCode
-        , "countrycode"     =? _gglCountryCode
-        , "subdivisioncode" =? _gglSubdivisionCode
-        ]
-
-instance ToXML GetGeoLocation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetGeoLocation"

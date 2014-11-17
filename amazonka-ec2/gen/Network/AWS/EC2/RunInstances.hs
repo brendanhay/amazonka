@@ -386,6 +386,13 @@ rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
 rirReservationId :: Lens' RunInstancesResponse (Maybe Text)
 rirReservationId = lens _rirReservationId (\s a -> s { _rirReservationId = a })
 
+instance ToPath RunInstances where
+    toPath = const "/"
+
+instance ToQuery RunInstances
+
+instance ToHeaders RunInstances
+
 instance AWSRequest RunInstances where
     type Sv RunInstances = EC2
     type Rs RunInstances = RunInstancesResponse
@@ -396,39 +403,3 @@ instance AWSRequest RunInstances where
 instance FromXML RunInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RunInstancesResponse"
-
-instance ToPath RunInstances where
-    toPath = const "/"
-
-instance ToHeaders RunInstances
-
-instance ToQuery RunInstances where
-    toQuery RunInstances{..} = mconcat
-        [ "dryRun"                            =? _riDryRun
-        , "ImageId"                           =? _riImageId
-        , "MinCount"                          =? _riMinCount
-        , "MaxCount"                          =? _riMaxCount
-        , "KeyName"                           =? _riKeyName
-        , "SecurityGroup"                     =? _riSecurityGroups
-        , "SecurityGroupId"                   =? _riSecurityGroupIds
-        , "UserData"                          =? _riUserData
-        , "InstanceType"                      =? _riInstanceType
-        , "Placement"                         =? _riPlacement
-        , "KernelId"                          =? _riKernelId
-        , "RamdiskId"                         =? _riRamdiskId
-        , "BlockDeviceMapping"                =? _riBlockDeviceMappings
-        , "Monitoring"                        =? _riMonitoring
-        , "SubnetId"                          =? _riSubnetId
-        , "disableApiTermination"             =? _riDisableApiTermination
-        , "instanceInitiatedShutdownBehavior" =? _riInstanceInitiatedShutdownBehavior
-        , "privateIpAddress"                  =? _riPrivateIpAddress
-        , "clientToken"                       =? _riClientToken
-        , "additionalInfo"                    =? _riAdditionalInfo
-        , "networkInterface"                  =? _riNetworkInterfaces
-        , "iamInstanceProfile"                =? _riIamInstanceProfile
-        , "ebsOptimized"                      =? _riEbsOptimized
-        ]
-
-instance ToXML RunInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RunInstances"

@@ -130,6 +130,13 @@ ddbsgr1DBSecurityGroups =
 ddbsgr1Marker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgr1Marker = lens _ddbsgr1Marker (\s a -> s { _ddbsgr1Marker = a })
 
+instance ToPath DescribeDBSecurityGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeDBSecurityGroups
+
+instance ToHeaders DescribeDBSecurityGroups
+
 instance AWSRequest DescribeDBSecurityGroups where
     type Sv DescribeDBSecurityGroups = RDS
     type Rs DescribeDBSecurityGroups = DescribeDBSecurityGroupsResponse
@@ -140,10 +147,3 @@ instance AWSRequest DescribeDBSecurityGroups where
 instance FromXML DescribeDBSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBSecurityGroupsResponse"
-
-instance ToPath DescribeDBSecurityGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBSecurityGroups
-
-instance ToQuery DescribeDBSecurityGroups

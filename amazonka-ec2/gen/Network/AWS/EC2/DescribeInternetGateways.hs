@@ -119,6 +119,13 @@ digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
 
+instance ToPath DescribeInternetGateways where
+    toPath = const "/"
+
+instance ToQuery DescribeInternetGateways
+
+instance ToHeaders DescribeInternetGateways
+
 instance AWSRequest DescribeInternetGateways where
     type Sv DescribeInternetGateways = EC2
     type Rs DescribeInternetGateways = DescribeInternetGatewaysResponse
@@ -129,19 +136,3 @@ instance AWSRequest DescribeInternetGateways where
 instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInternetGatewaysResponse"
-
-instance ToPath DescribeInternetGateways where
-    toPath = const "/"
-
-instance ToHeaders DescribeInternetGateways
-
-instance ToQuery DescribeInternetGateways where
-    toQuery DescribeInternetGateways{..} = mconcat
-        [ "dryRun"            =? _dig1DryRun
-        , "internetGatewayId" =? _dig1InternetGatewayIds
-        , "Filter"            =? _dig1Filters
-        ]
-
-instance ToXML DescribeInternetGateways where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeInternetGateways"

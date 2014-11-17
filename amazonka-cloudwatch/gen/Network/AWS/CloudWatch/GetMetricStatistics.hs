@@ -192,6 +192,13 @@ gmsrDatapoints = lens _gmsrDatapoints (\s a -> s { _gmsrDatapoints = a })
 gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
 
+instance ToPath GetMetricStatistics where
+    toPath = const "/"
+
+instance ToQuery GetMetricStatistics
+
+instance ToHeaders GetMetricStatistics
+
 instance AWSRequest GetMetricStatistics where
     type Sv GetMetricStatistics = CloudWatch
     type Rs GetMetricStatistics = GetMetricStatisticsResponse
@@ -202,10 +209,3 @@ instance AWSRequest GetMetricStatistics where
 instance FromXML GetMetricStatisticsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetMetricStatisticsResponse"
-
-instance ToPath GetMetricStatistics where
-    toPath = const "/"
-
-instance ToHeaders GetMetricStatistics
-
-instance ToQuery GetMetricStatistics

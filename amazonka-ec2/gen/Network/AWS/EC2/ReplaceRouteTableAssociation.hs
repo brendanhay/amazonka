@@ -108,6 +108,13 @@ rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
 
+instance ToPath ReplaceRouteTableAssociation where
+    toPath = const "/"
+
+instance ToQuery ReplaceRouteTableAssociation
+
+instance ToHeaders ReplaceRouteTableAssociation
+
 instance AWSRequest ReplaceRouteTableAssociation where
     type Sv ReplaceRouteTableAssociation = EC2
     type Rs ReplaceRouteTableAssociation = ReplaceRouteTableAssociationResponse
@@ -118,19 +125,3 @@ instance AWSRequest ReplaceRouteTableAssociation where
 instance FromXML ReplaceRouteTableAssociationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplaceRouteTableAssociationResponse"
-
-instance ToPath ReplaceRouteTableAssociation where
-    toPath = const "/"
-
-instance ToHeaders ReplaceRouteTableAssociation
-
-instance ToQuery ReplaceRouteTableAssociation where
-    toQuery ReplaceRouteTableAssociation{..} = mconcat
-        [ "dryRun"        =? _rrtaDryRun
-        , "associationId" =? _rrtaAssociationId
-        , "routeTableId"  =? _rrtaRouteTableId
-        ]
-
-instance ToXML ReplaceRouteTableAssociation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ReplaceRouteTableAssociation"

@@ -12085,6 +12085,7 @@
                 "name": "CountClosedWorkflowExecutionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12183,6 +12184,8 @@
                 "name": "CountClosedWorkflowExecutions",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12409,6 +12412,7 @@
                 "name": "CountOpenWorkflowExecutionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12521,6 +12525,8 @@
                 "name": "CountOpenWorkflowExecutions",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12677,6 +12683,7 @@
                 "name": "CountPendingActivityTasksResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12789,6 +12796,8 @@
                 "name": "CountPendingActivityTasks",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12860,6 +12869,7 @@
                 "name": "CountPendingDecisionTasksResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -12972,6 +12982,8 @@
                 "name": "CountPendingDecisionTasks",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13027,6 +13039,7 @@
                 "name": "DeprecateActivityTypeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -13095,6 +13108,8 @@
                 "name": "DeprecateActivityType",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13150,6 +13165,7 @@
                 "name": "DeprecateDomainResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -13222,6 +13238,8 @@
                 "name": "DeprecateDomain",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13263,6 +13281,7 @@
                 "name": "DeprecateWorkflowTypeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -13331,6 +13350,8 @@
                 "name": "DeprecateWorkflowType",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13415,6 +13436,7 @@
                 "name": "DescribeActivityTypeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13512,6 +13534,8 @@
                 "name": "DescribeActivityType",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13596,6 +13620,7 @@
                 "name": "DescribeDomainResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13697,6 +13722,8 @@
                 "name": "DescribeDomain",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -13781,6 +13808,7 @@
                 "name": "DescribeWorkflowExecutionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -13949,6 +13977,8 @@
                 "name": "DescribeWorkflowExecution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -14033,6 +14063,7 @@
                 "name": "DescribeWorkflowTypeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -14130,6 +14161,8 @@
                 "name": "DescribeWorkflowType",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -14185,6 +14218,7 @@
                 "name": "GetWorkflowExecutionHistoryResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14319,6 +14353,8 @@
                 "name": "GetWorkflowExecutionHistory",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14459,6 +14495,7 @@
                 "name": "ListActivityTypesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14594,6 +14631,8 @@
                 "name": "ListActivityTypes",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14762,6 +14801,7 @@
                 "name": "ListClosedWorkflowExecutionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -14882,6 +14922,8 @@
                 "name": "ListClosedWorkflowExecutions",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15176,6 +15218,7 @@
                 "name": "ListDomainsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15297,6 +15340,8 @@
                 "name": "ListDomains",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15423,6 +15468,7 @@
                 "name": "ListOpenWorkflowExecutionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15557,6 +15603,8 @@
                 "name": "ListOpenWorkflowExecutions",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15781,6 +15829,7 @@
                 "name": "ListWorkflowTypesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -15916,6 +15965,8 @@
                 "name": "ListWorkflowTypes",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16155,6 +16206,7 @@
                 "name": "PollForActivityTaskResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16323,6 +16375,8 @@
                 "name": "PollForActivityTask",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16464,6 +16518,7 @@
                 "name": "PollForDecisionTaskResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16682,6 +16737,8 @@
                 "name": "PollForDecisionTask",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -16882,6 +16939,7 @@
                 "name": "RecordActivityTaskHeartbeatResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -16952,6 +17010,8 @@
                 "name": "RecordActivityTaskHeartbeat",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17022,6 +17082,7 @@
                 "name": "RegisterActivityTypeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17104,6 +17165,8 @@
                 "name": "RegisterActivityType",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17342,6 +17405,7 @@
                 "name": "RegisterDomainResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17411,6 +17475,8 @@
                 "name": "RegisterDomain",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17495,6 +17561,7 @@
                 "name": "RegisterWorkflowTypeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17577,6 +17644,8 @@
                 "name": "RegisterWorkflowType",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17787,6 +17856,7 @@
                 "name": "RequestCancelWorkflowExecutionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17856,6 +17926,8 @@
                 "name": "RequestCancelWorkflowExecution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -17940,6 +18012,7 @@
                 "name": "RespondActivityTaskCanceledResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -17995,6 +18068,8 @@
                 "name": "RespondActivityTaskCanceled",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18065,6 +18140,7 @@
                 "name": "RespondActivityTaskCompletedResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18120,6 +18196,8 @@
                 "name": "RespondActivityTaskCompleted",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18190,6 +18268,7 @@
                 "name": "RespondActivityTaskFailedResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18245,6 +18324,8 @@
                 "name": "RespondActivityTaskFailed",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18343,6 +18424,7 @@
                 "name": "RespondDecisionTaskCompletedResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18397,6 +18479,8 @@
                 "name": "RespondDecisionTaskCompleted",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18495,6 +18579,7 @@
                 "name": "SignalWorkflowExecutionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -18578,6 +18663,8 @@
                 "name": "SignalWorkflowExecution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18721,6 +18808,7 @@
                 "name": "StartWorkflowExecutionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -18833,6 +18921,8 @@
                 "name": "StartWorkflowExecution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -19071,6 +19161,7 @@
                 "name": "TerminateWorkflowExecutionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -19140,6 +19231,8 @@
                 "name": "TerminateWorkflowExecution",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

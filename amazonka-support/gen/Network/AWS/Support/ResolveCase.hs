@@ -95,6 +95,16 @@ rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrInitialCaseStatus =
     lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })
 
+instance ToPath ResolveCase where
+    toPath = const "/"
+
+instance ToQuery ResolveCase where
+    toQuery = const mempty
+
+instance ToHeaders ResolveCase
+instance ToJSON ResolveCase where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ResolveCase where
     type Sv ResolveCase = Support
     type Rs ResolveCase = ResolveCaseResponse
@@ -104,14 +114,3 @@ instance AWSRequest ResolveCase where
 
 instance FromJSON ResolveCaseResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ResolveCase where
-    toPath = const "/"
-
-instance ToHeaders ResolveCase
-
-instance ToQuery ResolveCase where
-    toQuery = const mempty
-
-instance ToJSON ResolveCase where
-    toJSON = genericToJSON jsonOptions

@@ -106,6 +106,13 @@ mdbsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdbsgrDBSubnetGroup =
     lens _mdbsgrDBSubnetGroup (\s a -> s { _mdbsgrDBSubnetGroup = a })
 
+instance ToPath ModifyDBSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyDBSubnetGroup
+
+instance ToHeaders ModifyDBSubnetGroup
+
 instance AWSRequest ModifyDBSubnetGroup where
     type Sv ModifyDBSubnetGroup = RDS
     type Rs ModifyDBSubnetGroup = ModifyDBSubnetGroupResponse
@@ -116,10 +123,3 @@ instance AWSRequest ModifyDBSubnetGroup where
 instance FromXML ModifyDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResponse"
-
-instance ToPath ModifyDBSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyDBSubnetGroup
-
-instance ToQuery ModifyDBSubnetGroup

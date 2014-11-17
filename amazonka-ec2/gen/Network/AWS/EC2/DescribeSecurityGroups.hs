@@ -135,6 +135,13 @@ dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
 
+instance ToPath DescribeSecurityGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeSecurityGroups
+
+instance ToHeaders DescribeSecurityGroups
+
 instance AWSRequest DescribeSecurityGroups where
     type Sv DescribeSecurityGroups = EC2
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
@@ -145,20 +152,3 @@ instance AWSRequest DescribeSecurityGroups where
 instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSecurityGroupsResponse"
-
-instance ToPath DescribeSecurityGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeSecurityGroups
-
-instance ToQuery DescribeSecurityGroups where
-    toQuery DescribeSecurityGroups{..} = mconcat
-        [ "dryRun"    =? _dsg1DryRun
-        , "GroupName" =? _dsg1GroupNames
-        , "GroupId"   =? _dsg1GroupIds
-        , "Filter"    =? _dsg1Filters
-        ]
-
-instance ToXML DescribeSecurityGroups where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSecurityGroups"

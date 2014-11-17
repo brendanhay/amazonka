@@ -146,6 +146,16 @@ createJobResponse = CreateJobResponse
 cjrJob :: Lens' CreateJobResponse (Maybe Job')
 cjrJob = lens _cjrJob (\s a -> s { _cjrJob = a })
 
+instance ToPath CreateJob where
+    toPath = const "/2012-09-25/jobs"
+
+instance ToQuery CreateJob where
+    toQuery = const mempty
+
+instance ToHeaders CreateJob
+instance ToJSON CreateJob where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateJob where
     type Sv CreateJob = ElasticTranscoder
     type Rs CreateJob = CreateJobResponse
@@ -155,14 +165,3 @@ instance AWSRequest CreateJob where
 
 instance FromJSON CreateJobResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateJob where
-    toPath = const "/2012-09-25/jobs"
-
-instance ToHeaders CreateJob
-
-instance ToQuery CreateJob where
-    toQuery = const mempty
-
-instance ToJSON CreateJob where
-    toJSON = genericToJSON jsonOptions

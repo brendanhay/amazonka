@@ -108,20 +108,19 @@ data UnlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse
 unlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse
 unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse
 
+instance ToPath UnlinkDeveloperIdentity where
+    toPath = const "/"
+
+instance ToQuery UnlinkDeveloperIdentity where
+    toQuery = const mempty
+
+instance ToHeaders UnlinkDeveloperIdentity
+instance ToJSON UnlinkDeveloperIdentity where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UnlinkDeveloperIdentity where
     type Sv UnlinkDeveloperIdentity = CognitoIdentity
     type Rs UnlinkDeveloperIdentity = UnlinkDeveloperIdentityResponse
 
     request  = post
     response = nullResponse UnlinkDeveloperIdentityResponse
-
-instance ToPath UnlinkDeveloperIdentity where
-    toPath = const "/"
-
-instance ToHeaders UnlinkDeveloperIdentity
-
-instance ToQuery UnlinkDeveloperIdentity where
-    toQuery = const mempty
-
-instance ToJSON UnlinkDeveloperIdentity where
-    toJSON = genericToJSON jsonOptions

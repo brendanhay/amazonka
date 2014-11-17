@@ -88,25 +88,16 @@ data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResp
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 
+instance ToPath ResetNetworkInterfaceAttribute where
+    toPath = const "/"
+
+instance ToQuery ResetNetworkInterfaceAttribute
+
+instance ToHeaders ResetNetworkInterfaceAttribute
+
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
 
     request  = post "ResetNetworkInterfaceAttribute"
     response = nullResponse ResetNetworkInterfaceAttributeResponse
-
-instance ToPath ResetNetworkInterfaceAttribute where
-    toPath = const "/"
-
-instance ToHeaders ResetNetworkInterfaceAttribute
-
-instance ToQuery ResetNetworkInterfaceAttribute where
-    toQuery ResetNetworkInterfaceAttribute{..} = mconcat
-        [ "dryRun"             =? _rniaDryRun
-        , "networkInterfaceId" =? _rniaNetworkInterfaceId
-        , "sourceDestCheck"    =? _rniaSourceDestCheck
-        ]
-
-instance ToXML ResetNetworkInterfaceAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResetNetworkInterfaceAttribute"

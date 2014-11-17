@@ -180,6 +180,13 @@ dvrState = lens _dvrState (\s a -> s { _dvrState = a })
 dvrVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
 
+instance ToPath DetachVolume where
+    toPath = const "/"
+
+instance ToQuery DetachVolume
+
+instance ToHeaders DetachVolume
+
 instance AWSRequest DetachVolume where
     type Sv DetachVolume = EC2
     type Rs DetachVolume = DetachVolumeResponse
@@ -190,21 +197,3 @@ instance AWSRequest DetachVolume where
 instance FromXML DetachVolumeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachVolumeResponse"
-
-instance ToPath DetachVolume where
-    toPath = const "/"
-
-instance ToHeaders DetachVolume
-
-instance ToQuery DetachVolume where
-    toQuery DetachVolume{..} = mconcat
-        [ "dryRun"     =? _dvDryRun
-        , "VolumeId"   =? _dvVolumeId
-        , "InstanceId" =? _dvInstanceId
-        , "Device"     =? _dvDevice
-        , "Force"      =? _dvForce
-        ]
-
-instance ToXML DetachVolume where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DetachVolume"

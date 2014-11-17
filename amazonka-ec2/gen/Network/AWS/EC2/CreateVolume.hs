@@ -256,6 +256,13 @@ cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 cvrVolumeType :: Lens' CreateVolumeResponse (Maybe Text)
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
 
+instance ToPath CreateVolume where
+    toPath = const "/"
+
+instance ToQuery CreateVolume
+
+instance ToHeaders CreateVolume
+
 instance AWSRequest CreateVolume where
     type Sv CreateVolume = EC2
     type Rs CreateVolume = CreateVolumeResponse
@@ -266,23 +273,3 @@ instance AWSRequest CreateVolume where
 instance FromXML CreateVolumeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVolumeResponse"
-
-instance ToPath CreateVolume where
-    toPath = const "/"
-
-instance ToHeaders CreateVolume
-
-instance ToQuery CreateVolume where
-    toQuery CreateVolume{..} = mconcat
-        [ "dryRun"           =? _cv1DryRun
-        , "Size"             =? _cv1Size
-        , "SnapshotId"       =? _cv1SnapshotId
-        , "AvailabilityZone" =? _cv1AvailabilityZone
-        , "VolumeType"       =? _cv1VolumeType
-        , "Iops"             =? _cv1Iops
-        , "encrypted"        =? _cv1Encrypted
-        ]
-
-instance ToXML CreateVolume where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVolume"

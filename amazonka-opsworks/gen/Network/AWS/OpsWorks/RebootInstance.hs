@@ -72,20 +72,19 @@ data RebootInstanceResponse = RebootInstanceResponse
 rebootInstanceResponse :: RebootInstanceResponse
 rebootInstanceResponse = RebootInstanceResponse
 
+instance ToPath RebootInstance where
+    toPath = const "/"
+
+instance ToQuery RebootInstance where
+    toQuery = const mempty
+
+instance ToHeaders RebootInstance
+instance ToJSON RebootInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks
     type Rs RebootInstance = RebootInstanceResponse
 
     request  = post
     response = nullResponse RebootInstanceResponse
-
-instance ToPath RebootInstance where
-    toPath = const "/"
-
-instance ToHeaders RebootInstance
-
-instance ToQuery RebootInstance where
-    toQuery = const mempty
-
-instance ToJSON RebootInstance where
-    toJSON = genericToJSON jsonOptions

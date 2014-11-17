@@ -7,6 +7,7 @@ import qualified GHC.Exts
 {% include "_include/datatype.ede" with type = request %}
 
 {% include "_include/datatype.ede" with type = response %}
+{% include "_include/request.ede" %}
 
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
@@ -14,5 +15,3 @@ instance AWSRequest {{ request.name }} where
 
     request  = {{ method }}
 {% include "_include/response.ede" %}
-
-{% include "_include/request.ede" %}

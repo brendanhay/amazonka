@@ -132,6 +132,13 @@ dsar1Activities = lens _dsar1Activities (\s a -> s { _dsar1Activities = a })
 dsar1NextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsar1NextToken = lens _dsar1NextToken (\s a -> s { _dsar1NextToken = a })
 
+instance ToPath DescribeScalingActivities where
+    toPath = const "/"
+
+instance ToQuery DescribeScalingActivities
+
+instance ToHeaders DescribeScalingActivities
+
 instance AWSRequest DescribeScalingActivities where
     type Sv DescribeScalingActivities = AutoScaling
     type Rs DescribeScalingActivities = DescribeScalingActivitiesResponse
@@ -142,10 +149,3 @@ instance AWSRequest DescribeScalingActivities where
 instance FromXML DescribeScalingActivitiesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeScalingActivitiesResponse"
-
-instance ToPath DescribeScalingActivities where
-    toPath = const "/"
-
-instance ToHeaders DescribeScalingActivities
-
-instance ToQuery DescribeScalingActivities

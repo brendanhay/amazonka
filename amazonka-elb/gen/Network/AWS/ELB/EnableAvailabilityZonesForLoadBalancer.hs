@@ -108,6 +108,13 @@ eazflbrAvailabilityZones =
     lens _eazflbrAvailabilityZones
         (\s a -> s { _eazflbrAvailabilityZones = a })
 
+instance ToPath EnableAvailabilityZonesForLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery EnableAvailabilityZonesForLoadBalancer
+
+instance ToHeaders EnableAvailabilityZonesForLoadBalancer
+
 instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
     type Sv EnableAvailabilityZonesForLoadBalancer = ELB
     type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
@@ -118,10 +125,3 @@ instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableAvailabilityZonesForLoadBalancerResponse"
-
-instance ToPath EnableAvailabilityZonesForLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders EnableAvailabilityZonesForLoadBalancer
-
-instance ToQuery EnableAvailabilityZonesForLoadBalancer

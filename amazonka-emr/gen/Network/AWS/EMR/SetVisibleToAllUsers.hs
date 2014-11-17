@@ -87,20 +87,19 @@ data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 
+instance ToPath SetVisibleToAllUsers where
+    toPath = const "/"
+
+instance ToQuery SetVisibleToAllUsers where
+    toQuery = const mempty
+
+instance ToHeaders SetVisibleToAllUsers
+instance ToJSON SetVisibleToAllUsers where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR
     type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
 
     request  = post
     response = nullResponse SetVisibleToAllUsersResponse
-
-instance ToPath SetVisibleToAllUsers where
-    toPath = const "/"
-
-instance ToHeaders SetVisibleToAllUsers
-
-instance ToQuery SetVisibleToAllUsers where
-    toQuery = const mempty
-
-instance ToJSON SetVisibleToAllUsers where
-    toJSON = genericToJSON jsonOptions

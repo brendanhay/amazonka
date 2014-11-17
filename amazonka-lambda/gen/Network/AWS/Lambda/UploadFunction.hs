@@ -295,6 +295,27 @@ ufrTimeout :: Lens' UploadFunctionResponse (Maybe Natural)
 ufrTimeout = lens _ufrTimeout (\s a -> s { _ufrTimeout = a })
     . mapping _Nat
 
+instance ToPath UploadFunction where
+    toPath UploadFunction{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _ufFunctionName
+        ]
+
+instance ToQuery UploadFunction where
+    toQuery UploadFunction{..} = mconcat
+          [   "Runtime"     =? _ufRuntime
+          ,   "Role"        =? _ufRole
+          ,   "Handler"     =? _ufHandler
+          ,   "Mode"        =? _ufMode
+          ,   "Description" =? _ufDescription
+          ,   "Timeout"     =? _ufTimeout
+          ,   "MemorySize"  =? _ufMemorySize
+        ]
+
+instance ToHeaders UploadFunction
+instance ToJSON UploadFunction where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UploadFunction where
     type Sv UploadFunction = Lambda
     type Rs UploadFunction = UploadFunctionResponse
@@ -304,25 +325,3 @@ instance AWSRequest UploadFunction where
 
 instance FromJSON UploadFunctionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UploadFunction where
-    toPath UploadFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _ufFunctionName
-        ]
-
-instance ToHeaders UploadFunction
-
-instance ToQuery UploadFunction where
-    toQuery UploadFunction{..} = mconcat
-        [ "Runtime"     =? _ufRuntime
-        , "Role"        =? _ufRole
-        , "Handler"     =? _ufHandler
-        , "Mode"        =? _ufMode
-        , "Description" =? _ufDescription
-        , "Timeout"     =? _ufTimeout
-        , "MemorySize"  =? _ufMemorySize
-        ]
-
-instance ToJSON UploadFunction where
-    toJSON = genericToJSON jsonOptions

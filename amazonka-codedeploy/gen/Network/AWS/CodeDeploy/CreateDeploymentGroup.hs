@@ -165,6 +165,16 @@ cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrDeploymentGroupId =
     lens _cdgrDeploymentGroupId (\s a -> s { _cdgrDeploymentGroupId = a })
 
+instance ToPath CreateDeploymentGroup where
+    toPath = const "/"
+
+instance ToQuery CreateDeploymentGroup where
+    toQuery = const mempty
+
+instance ToHeaders CreateDeploymentGroup
+instance ToJSON CreateDeploymentGroup where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateDeploymentGroup where
     type Sv CreateDeploymentGroup = CodeDeploy
     type Rs CreateDeploymentGroup = CreateDeploymentGroupResponse
@@ -174,14 +184,3 @@ instance AWSRequest CreateDeploymentGroup where
 
 instance FromJSON CreateDeploymentGroupResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateDeploymentGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateDeploymentGroup
-
-instance ToQuery CreateDeploymentGroup where
-    toQuery = const mempty
-
-instance ToJSON CreateDeploymentGroup where
-    toJSON = genericToJSON jsonOptions

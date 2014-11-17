@@ -105,6 +105,13 @@ lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions =
     lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
 
+instance ToPath ListSubscriptionsByTopic where
+    toPath = const "/"
+
+instance ToQuery ListSubscriptionsByTopic
+
+instance ToHeaders ListSubscriptionsByTopic
+
 instance AWSRequest ListSubscriptionsByTopic where
     type Sv ListSubscriptionsByTopic = SNS
     type Rs ListSubscriptionsByTopic = ListSubscriptionsByTopicResponse
@@ -115,10 +122,3 @@ instance AWSRequest ListSubscriptionsByTopic where
 instance FromXML ListSubscriptionsByTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSubscriptionsByTopicResponse"
-
-instance ToPath ListSubscriptionsByTopic where
-    toPath = const "/"
-
-instance ToHeaders ListSubscriptionsByTopic
-
-instance ToQuery ListSubscriptionsByTopic

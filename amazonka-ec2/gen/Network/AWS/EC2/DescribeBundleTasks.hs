@@ -113,6 +113,13 @@ describeBundleTasksResponse = DescribeBundleTasksResponse
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
 
+instance ToPath DescribeBundleTasks where
+    toPath = const "/"
+
+instance ToQuery DescribeBundleTasks
+
+instance ToHeaders DescribeBundleTasks
+
 instance AWSRequest DescribeBundleTasks where
     type Sv DescribeBundleTasks = EC2
     type Rs DescribeBundleTasks = DescribeBundleTasksResponse
@@ -123,19 +130,3 @@ instance AWSRequest DescribeBundleTasks where
 instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeBundleTasksResponse"
-
-instance ToPath DescribeBundleTasks where
-    toPath = const "/"
-
-instance ToHeaders DescribeBundleTasks
-
-instance ToQuery DescribeBundleTasks where
-    toQuery DescribeBundleTasks{..} = mconcat
-        [ "dryRun"   =? _dbtDryRun
-        , "BundleId" =? _dbtBundleIds
-        , "Filter"   =? _dbtFilters
-        ]
-
-instance ToXML DescribeBundleTasks where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeBundleTasks"

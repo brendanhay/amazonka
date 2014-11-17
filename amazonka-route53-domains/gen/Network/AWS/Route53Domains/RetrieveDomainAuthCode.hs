@@ -88,6 +88,16 @@ rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a })
     . _Sensitive
 
+instance ToPath RetrieveDomainAuthCode where
+    toPath = const "/"
+
+instance ToQuery RetrieveDomainAuthCode where
+    toQuery = const mempty
+
+instance ToHeaders RetrieveDomainAuthCode
+instance ToJSON RetrieveDomainAuthCode where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RetrieveDomainAuthCode where
     type Sv RetrieveDomainAuthCode = Route53Domains
     type Rs RetrieveDomainAuthCode = RetrieveDomainAuthCodeResponse
@@ -97,14 +107,3 @@ instance AWSRequest RetrieveDomainAuthCode where
 
 instance FromJSON RetrieveDomainAuthCodeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RetrieveDomainAuthCode where
-    toPath = const "/"
-
-instance ToHeaders RetrieveDomainAuthCode
-
-instance ToQuery RetrieveDomainAuthCode where
-    toQuery = const mempty
-
-instance ToJSON RetrieveDomainAuthCode where
-    toJSON = genericToJSON jsonOptions

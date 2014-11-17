@@ -197,6 +197,13 @@ drdbirReservedDBInstances =
     lens _drdbirReservedDBInstances
         (\s a -> s { _drdbirReservedDBInstances = a })
 
+instance ToPath DescribeReservedDBInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedDBInstances
+
+instance ToHeaders DescribeReservedDBInstances
+
 instance AWSRequest DescribeReservedDBInstances where
     type Sv DescribeReservedDBInstances = RDS
     type Rs DescribeReservedDBInstances = DescribeReservedDBInstancesResponse
@@ -207,10 +214,3 @@ instance AWSRequest DescribeReservedDBInstances where
 instance FromXML DescribeReservedDBInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedDBInstancesResponse"
-
-instance ToPath DescribeReservedDBInstances where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedDBInstances
-
-instance ToQuery DescribeReservedDBInstances

@@ -359,6 +359,13 @@ crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationG
 crgrReplicationGroup =
     lens _crgrReplicationGroup (\s a -> s { _crgrReplicationGroup = a })
 
+instance ToPath CreateReplicationGroup where
+    toPath = const "/"
+
+instance ToQuery CreateReplicationGroup
+
+instance ToHeaders CreateReplicationGroup
+
 instance AWSRequest CreateReplicationGroup where
     type Sv CreateReplicationGroup = ElastiCache
     type Rs CreateReplicationGroup = CreateReplicationGroupResponse
@@ -369,10 +376,3 @@ instance AWSRequest CreateReplicationGroup where
 instance FromXML CreateReplicationGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateReplicationGroupResponse"
-
-instance ToPath CreateReplicationGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateReplicationGroup
-
-instance ToQuery CreateReplicationGroup

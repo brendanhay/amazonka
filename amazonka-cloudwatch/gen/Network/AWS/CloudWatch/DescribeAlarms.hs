@@ -141,6 +141,13 @@ darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a })
 darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darNextToken = lens _darNextToken (\s a -> s { _darNextToken = a })
 
+instance ToPath DescribeAlarms where
+    toPath = const "/"
+
+instance ToQuery DescribeAlarms
+
+instance ToHeaders DescribeAlarms
+
 instance AWSRequest DescribeAlarms where
     type Sv DescribeAlarms = CloudWatch
     type Rs DescribeAlarms = DescribeAlarmsResponse
@@ -151,10 +158,3 @@ instance AWSRequest DescribeAlarms where
 instance FromXML DescribeAlarmsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAlarmsResponse"
-
-instance ToPath DescribeAlarms where
-    toPath = const "/"
-
-instance ToHeaders DescribeAlarms
-
-instance ToQuery DescribeAlarms

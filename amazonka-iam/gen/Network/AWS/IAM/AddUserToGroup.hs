@@ -78,16 +78,16 @@ data AddUserToGroupResponse = AddUserToGroupResponse
 addUserToGroupResponse :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse
 
+instance ToPath AddUserToGroup where
+    toPath = const "/"
+
+instance ToQuery AddUserToGroup
+
+instance ToHeaders AddUserToGroup
+
 instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM
     type Rs AddUserToGroup = AddUserToGroupResponse
 
     request  = post "AddUserToGroup"
     response = nullResponse AddUserToGroupResponse
-
-instance ToPath AddUserToGroup where
-    toPath = const "/"
-
-instance ToHeaders AddUserToGroup
-
-instance ToQuery AddUserToGroup

@@ -130,6 +130,16 @@ updateDomainContactResponse p1 = UpdateDomainContactResponse
 udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\s a -> s { _udcrOperationId = a })
 
+instance ToPath UpdateDomainContact where
+    toPath = const "/"
+
+instance ToQuery UpdateDomainContact where
+    toQuery = const mempty
+
+instance ToHeaders UpdateDomainContact
+instance ToJSON UpdateDomainContact where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateDomainContact where
     type Sv UpdateDomainContact = Route53Domains
     type Rs UpdateDomainContact = UpdateDomainContactResponse
@@ -139,14 +149,3 @@ instance AWSRequest UpdateDomainContact where
 
 instance FromJSON UpdateDomainContactResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateDomainContact where
-    toPath = const "/"
-
-instance ToHeaders UpdateDomainContact
-
-instance ToQuery UpdateDomainContact where
-    toQuery = const mempty
-
-instance ToJSON UpdateDomainContact where
-    toJSON = genericToJSON jsonOptions

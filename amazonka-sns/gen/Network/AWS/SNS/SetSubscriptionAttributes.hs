@@ -92,16 +92,16 @@ data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 
+instance ToPath SetSubscriptionAttributes where
+    toPath = const "/"
+
+instance ToQuery SetSubscriptionAttributes
+
+instance ToHeaders SetSubscriptionAttributes
+
 instance AWSRequest SetSubscriptionAttributes where
     type Sv SetSubscriptionAttributes = SNS
     type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse
 
     request  = post "SetSubscriptionAttributes"
     response = nullResponse SetSubscriptionAttributesResponse
-
-instance ToPath SetSubscriptionAttributes where
-    toPath = const "/"
-
-instance ToHeaders SetSubscriptionAttributes
-
-instance ToQuery SetSubscriptionAttributes

@@ -67,21 +67,16 @@ data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResp
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
 
+instance ToPath DeleteSpotDatafeedSubscription where
+    toPath = const "/"
+
+instance ToQuery DeleteSpotDatafeedSubscription
+
+instance ToHeaders DeleteSpotDatafeedSubscription
+
 instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2
     type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse
 
     request  = post "DeleteSpotDatafeedSubscription"
     response = nullResponse DeleteSpotDatafeedSubscriptionResponse
-
-instance ToPath DeleteSpotDatafeedSubscription where
-    toPath = const "/"
-
-instance ToHeaders DeleteSpotDatafeedSubscription
-
-instance ToQuery DeleteSpotDatafeedSubscription where
-    toQuery rq = "dryRun" =? _dsds1DryRun rq
-
-instance ToXML DeleteSpotDatafeedSubscription where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteSpotDatafeedSubscription"

@@ -101,6 +101,16 @@ lbarBootstrapActions =
 lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarMarker = lens _lbarMarker (\s a -> s { _lbarMarker = a })
 
+instance ToPath ListBootstrapActions where
+    toPath = const "/"
+
+instance ToQuery ListBootstrapActions where
+    toQuery = const mempty
+
+instance ToHeaders ListBootstrapActions
+instance ToJSON ListBootstrapActions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListBootstrapActions where
     type Sv ListBootstrapActions = EMR
     type Rs ListBootstrapActions = ListBootstrapActionsResponse
@@ -110,14 +120,3 @@ instance AWSRequest ListBootstrapActions where
 
 instance FromJSON ListBootstrapActionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListBootstrapActions where
-    toPath = const "/"
-
-instance ToHeaders ListBootstrapActions
-
-instance ToQuery ListBootstrapActions where
-    toQuery = const mempty
-
-instance ToJSON ListBootstrapActions where
-    toJSON = genericToJSON jsonOptions

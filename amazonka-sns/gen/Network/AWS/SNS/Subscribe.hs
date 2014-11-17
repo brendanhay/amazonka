@@ -120,6 +120,13 @@ srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionArn =
     lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })
 
+instance ToPath Subscribe where
+    toPath = const "/"
+
+instance ToQuery Subscribe
+
+instance ToHeaders Subscribe
+
 instance AWSRequest Subscribe where
     type Sv Subscribe = SNS
     type Rs Subscribe = SubscribeResponse
@@ -130,10 +137,3 @@ instance AWSRequest Subscribe where
 instance FromXML SubscribeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SubscribeResponse"
-
-instance ToPath Subscribe where
-    toPath = const "/"
-
-instance ToHeaders Subscribe
-
-instance ToQuery Subscribe

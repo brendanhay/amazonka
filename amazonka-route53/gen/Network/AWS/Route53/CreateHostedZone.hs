@@ -197,6 +197,17 @@ chzrLocation = lens _chzrLocation (\s a -> s { _chzrLocation = a })
 chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrVPC = lens _chzrVPC (\s a -> s { _chzrVPC = a })
 
+instance ToPath CreateHostedZone where
+    toPath = const "/2013-04-01/hostedzone"
+
+instance ToQuery CreateHostedZone where
+    toQuery = const mempty
+
+instance ToHeaders CreateHostedZone
+instance ToXML CreateHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateHostedZone"
+
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53
     type Rs CreateHostedZone = CreateHostedZoneResponse
@@ -208,15 +219,3 @@ instance AWSRequest CreateHostedZone where
         <*> x %| "HostedZone"
         <*> h ~: "Location"
         <*> x %| "VPC"
-
-instance ToPath CreateHostedZone where
-    toPath = const "/2013-04-01/hostedzone"
-
-instance ToHeaders CreateHostedZone
-
-instance ToQuery CreateHostedZone where
-    toQuery = const mempty
-
-instance ToXML CreateHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateHostedZone"

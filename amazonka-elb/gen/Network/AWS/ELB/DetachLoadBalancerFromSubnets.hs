@@ -104,6 +104,13 @@ detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a })
 
+instance ToPath DetachLoadBalancerFromSubnets where
+    toPath = const "/"
+
+instance ToQuery DetachLoadBalancerFromSubnets
+
+instance ToHeaders DetachLoadBalancerFromSubnets
+
 instance AWSRequest DetachLoadBalancerFromSubnets where
     type Sv DetachLoadBalancerFromSubnets = ELB
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
@@ -114,10 +121,3 @@ instance AWSRequest DetachLoadBalancerFromSubnets where
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachLoadBalancerFromSubnetsResponse"
-
-instance ToPath DetachLoadBalancerFromSubnets where
-    toPath = const "/"
-
-instance ToHeaders DetachLoadBalancerFromSubnets
-
-instance ToQuery DetachLoadBalancerFromSubnets

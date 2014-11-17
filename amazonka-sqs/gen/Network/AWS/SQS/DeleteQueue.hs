@@ -79,16 +79,16 @@ data DeleteQueueResponse = DeleteQueueResponse
 deleteQueueResponse :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse
 
+instance ToPath DeleteQueue where
+    toPath = const "/"
+
+instance ToQuery DeleteQueue
+
+instance ToHeaders DeleteQueue
+
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS
     type Rs DeleteQueue = DeleteQueueResponse
 
     request  = post "DeleteQueue"
     response = nullResponse DeleteQueueResponse
-
-instance ToPath DeleteQueue where
-    toPath = const "/"
-
-instance ToHeaders DeleteQueue
-
-instance ToQuery DeleteQueue

@@ -102,13 +102,6 @@ data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse :: UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse
 
-instance AWSRequest UnsubscribeFromDataset where
-    type Sv UnsubscribeFromDataset = CognitoSync
-    type Rs UnsubscribeFromDataset = UnsubscribeFromDatasetResponse
-
-    request  = delete
-    response = nullResponse UnsubscribeFromDatasetResponse
-
 instance ToPath UnsubscribeFromDataset where
     toPath UnsubscribeFromDataset{..} = mconcat
         [ "/identitypools/"
@@ -121,10 +114,16 @@ instance ToPath UnsubscribeFromDataset where
         , toText _ufdDeviceId
         ]
 
-instance ToHeaders UnsubscribeFromDataset
-
 instance ToQuery UnsubscribeFromDataset where
     toQuery = const mempty
 
+instance ToHeaders UnsubscribeFromDataset
 instance ToJSON UnsubscribeFromDataset where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest UnsubscribeFromDataset where
+    type Sv UnsubscribeFromDataset = CognitoSync
+    type Rs UnsubscribeFromDataset = UnsubscribeFromDatasetResponse
+
+    request  = delete
+    response = nullResponse UnsubscribeFromDatasetResponse

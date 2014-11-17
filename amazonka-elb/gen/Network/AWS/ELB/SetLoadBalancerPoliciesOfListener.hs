@@ -92,16 +92,16 @@ data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListen
 setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
 
+instance ToPath SetLoadBalancerPoliciesOfListener where
+    toPath = const "/"
+
+instance ToQuery SetLoadBalancerPoliciesOfListener
+
+instance ToHeaders SetLoadBalancerPoliciesOfListener
+
 instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Sv SetLoadBalancerPoliciesOfListener = ELB
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
 
     request  = post "SetLoadBalancerPoliciesOfListener"
     response = nullResponse SetLoadBalancerPoliciesOfListenerResponse
-
-instance ToPath SetLoadBalancerPoliciesOfListener where
-    toPath = const "/"
-
-instance ToHeaders SetLoadBalancerPoliciesOfListener
-
-instance ToQuery SetLoadBalancerPoliciesOfListener

@@ -100,6 +100,16 @@ drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirRdsDbInstances =
     lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })
 
+instance ToPath DescribeRdsDbInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeRdsDbInstances where
+    toQuery = const mempty
+
+instance ToHeaders DescribeRdsDbInstances
+instance ToJSON DescribeRdsDbInstances where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeRdsDbInstances where
     type Sv DescribeRdsDbInstances = OpsWorks
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse
@@ -109,14 +119,3 @@ instance AWSRequest DescribeRdsDbInstances where
 
 instance FromJSON DescribeRdsDbInstancesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeRdsDbInstances where
-    toPath = const "/"
-
-instance ToHeaders DescribeRdsDbInstances
-
-instance ToQuery DescribeRdsDbInstances where
-    toQuery = const mempty
-
-instance ToJSON DescribeRdsDbInstances where
-    toJSON = genericToJSON jsonOptions

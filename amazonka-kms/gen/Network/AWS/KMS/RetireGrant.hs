@@ -70,20 +70,19 @@ data RetireGrantResponse = RetireGrantResponse
 retireGrantResponse :: RetireGrantResponse
 retireGrantResponse = RetireGrantResponse
 
+instance ToPath RetireGrant where
+    toPath = const "/"
+
+instance ToQuery RetireGrant where
+    toQuery = const mempty
+
+instance ToHeaders RetireGrant
+instance ToJSON RetireGrant where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RetireGrant where
     type Sv RetireGrant = KMS
     type Rs RetireGrant = RetireGrantResponse
 
     request  = post
     response = nullResponse RetireGrantResponse
-
-instance ToPath RetireGrant where
-    toPath = const "/"
-
-instance ToHeaders RetireGrant
-
-instance ToQuery RetireGrant where
-    toQuery = const mempty
-
-instance ToJSON RetireGrant where
-    toJSON = genericToJSON jsonOptions

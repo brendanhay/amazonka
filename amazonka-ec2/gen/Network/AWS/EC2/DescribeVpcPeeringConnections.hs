@@ -129,6 +129,13 @@ dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections
         (\s a -> s { _dvpcrVpcPeeringConnections = a })
 
+instance ToPath DescribeVpcPeeringConnections where
+    toPath = const "/"
+
+instance ToQuery DescribeVpcPeeringConnections
+
+instance ToHeaders DescribeVpcPeeringConnections
+
 instance AWSRequest DescribeVpcPeeringConnections where
     type Sv DescribeVpcPeeringConnections = EC2
     type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResponse
@@ -139,19 +146,3 @@ instance AWSRequest DescribeVpcPeeringConnections where
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResponse"
-
-instance ToPath DescribeVpcPeeringConnections where
-    toPath = const "/"
-
-instance ToHeaders DescribeVpcPeeringConnections
-
-instance ToQuery DescribeVpcPeeringConnections where
-    toQuery DescribeVpcPeeringConnections{..} = mconcat
-        [ "dryRun"                 =? _dvpc1DryRun
-        , "VpcPeeringConnectionId" =? _dvpc1VpcPeeringConnectionIds
-        , "Filter"                 =? _dvpc1Filters
-        ]
-
-instance ToXML DescribeVpcPeeringConnections where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeVpcPeeringConnections"

@@ -99,6 +99,21 @@ diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diurIdentityUsage =
     lens _diurIdentityUsage (\s a -> s { _diurIdentityUsage = a })
 
+instance ToPath DescribeIdentityUsage where
+    toPath DescribeIdentityUsage{..} = mconcat
+        [ "/identitypools/"
+        , toText _diuIdentityPoolId
+        , "/identities/"
+        , toText _diuIdentityId
+        ]
+
+instance ToQuery DescribeIdentityUsage where
+    toQuery = const mempty
+
+instance ToHeaders DescribeIdentityUsage
+instance ToJSON DescribeIdentityUsage where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeIdentityUsage where
     type Sv DescribeIdentityUsage = CognitoSync
     type Rs DescribeIdentityUsage = DescribeIdentityUsageResponse
@@ -108,19 +123,3 @@ instance AWSRequest DescribeIdentityUsage where
 
 instance FromJSON DescribeIdentityUsageResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeIdentityUsage where
-    toPath DescribeIdentityUsage{..} = mconcat
-        [ "/identitypools/"
-        , toText _diuIdentityPoolId
-        , "/identities/"
-        , toText _diuIdentityId
-        ]
-
-instance ToHeaders DescribeIdentityUsage
-
-instance ToQuery DescribeIdentityUsage where
-    toQuery = const mempty
-
-instance ToJSON DescribeIdentityUsage where
-    toJSON = genericToJSON jsonOptions

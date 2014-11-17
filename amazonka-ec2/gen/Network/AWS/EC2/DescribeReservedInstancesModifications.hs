@@ -136,6 +136,13 @@ drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications
         (\s a -> s { _drimrReservedInstancesModifications = a })
 
+instance ToPath DescribeReservedInstancesModifications where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedInstancesModifications
+
+instance ToHeaders DescribeReservedInstancesModifications
+
 instance AWSRequest DescribeReservedInstancesModifications where
     type Sv DescribeReservedInstancesModifications = EC2
     type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResponse
@@ -146,19 +153,3 @@ instance AWSRequest DescribeReservedInstancesModifications where
 instance FromXML DescribeReservedInstancesModificationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResponse"
-
-instance ToPath DescribeReservedInstancesModifications where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedInstancesModifications
-
-instance ToQuery DescribeReservedInstancesModifications where
-    toQuery DescribeReservedInstancesModifications{..} = mconcat
-        [ "ReservedInstancesModificationId" =? _drimReservedInstancesModificationIds
-        , "nextToken"                       =? _drimNextToken
-        , "Filter"                          =? _drimFilters
-        ]
-
-instance ToXML DescribeReservedInstancesModifications where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeReservedInstancesModifications"

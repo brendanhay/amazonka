@@ -83,16 +83,16 @@ data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 
+instance ToPath CreateLoadBalancerListeners where
+    toPath = const "/"
+
+instance ToQuery CreateLoadBalancerListeners
+
+instance ToHeaders CreateLoadBalancerListeners
+
 instance AWSRequest CreateLoadBalancerListeners where
     type Sv CreateLoadBalancerListeners = ELB
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
 
     request  = post "CreateLoadBalancerListeners"
     response = nullResponse CreateLoadBalancerListenersResponse
-
-instance ToPath CreateLoadBalancerListeners where
-    toPath = const "/"
-
-instance ToHeaders CreateLoadBalancerListeners
-
-instance ToQuery CreateLoadBalancerListeners

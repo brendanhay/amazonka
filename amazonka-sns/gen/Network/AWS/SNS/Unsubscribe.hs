@@ -74,16 +74,16 @@ data UnsubscribeResponse = UnsubscribeResponse
 unsubscribeResponse :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse
 
+instance ToPath Unsubscribe where
+    toPath = const "/"
+
+instance ToQuery Unsubscribe
+
+instance ToHeaders Unsubscribe
+
 instance AWSRequest Unsubscribe where
     type Sv Unsubscribe = SNS
     type Rs Unsubscribe = UnsubscribeResponse
 
     request  = post "Unsubscribe"
     response = nullResponse UnsubscribeResponse
-
-instance ToPath Unsubscribe where
-    toPath = const "/"
-
-instance ToHeaders Unsubscribe
-
-instance ToQuery Unsubscribe

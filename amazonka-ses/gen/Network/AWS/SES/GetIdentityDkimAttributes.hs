@@ -102,6 +102,13 @@ gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
         . _Map
 
+instance ToPath GetIdentityDkimAttributes where
+    toPath = const "/"
+
+instance ToQuery GetIdentityDkimAttributes
+
+instance ToHeaders GetIdentityDkimAttributes
+
 instance AWSRequest GetIdentityDkimAttributes where
     type Sv GetIdentityDkimAttributes = SES
     type Rs GetIdentityDkimAttributes = GetIdentityDkimAttributesResponse
@@ -112,10 +119,3 @@ instance AWSRequest GetIdentityDkimAttributes where
 instance FromXML GetIdentityDkimAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetIdentityDkimAttributesResponse"
-
-instance ToPath GetIdentityDkimAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetIdentityDkimAttributes
-
-instance ToQuery GetIdentityDkimAttributes

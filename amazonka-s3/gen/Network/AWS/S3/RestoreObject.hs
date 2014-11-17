@@ -92,13 +92,6 @@ data RestoreObjectResponse = RestoreObjectResponse
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
 
-instance AWSRequest RestoreObject where
-    type Sv RestoreObject = S3
-    type Rs RestoreObject = RestoreObjectResponse
-
-    request  = post
-    response = nullResponse RestoreObjectResponse
-
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
         [ "/"
@@ -107,14 +100,20 @@ instance ToPath RestoreObject where
         , toText _roKey
         ]
 
-instance ToHeaders RestoreObject
-
 instance ToQuery RestoreObject where
     toQuery RestoreObject{..} = mconcat
-        [ "restore"
-        , "versionId" =? _roVersionId
+          [   "restore"
+          ,   "versionId" =? _roVersionId
         ]
 
+instance ToHeaders RestoreObject
 instance ToXML RestoreObject where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "RestoreObject"
+
+instance AWSRequest RestoreObject where
+    type Sv RestoreObject = S3
+    type Rs RestoreObject = RestoreObjectResponse
+
+    request  = post
+    response = nullResponse RestoreObjectResponse

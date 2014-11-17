@@ -121,6 +121,13 @@ rdbpgrDBParameterGroupName =
     lens _rdbpgrDBParameterGroupName
         (\s a -> s { _rdbpgrDBParameterGroupName = a })
 
+instance ToPath ResetDBParameterGroup where
+    toPath = const "/"
+
+instance ToQuery ResetDBParameterGroup
+
+instance ToHeaders ResetDBParameterGroup
+
 instance AWSRequest ResetDBParameterGroup where
     type Sv ResetDBParameterGroup = RDS
     type Rs ResetDBParameterGroup = ResetDBParameterGroupResponse
@@ -131,10 +138,3 @@ instance AWSRequest ResetDBParameterGroup where
 instance FromXML ResetDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetDBParameterGroupResponse"
-
-instance ToPath ResetDBParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders ResetDBParameterGroup
-
-instance ToQuery ResetDBParameterGroup

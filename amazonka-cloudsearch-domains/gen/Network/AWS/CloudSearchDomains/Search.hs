@@ -415,6 +415,15 @@ sr1Hits = lens _sr1Hits (\s a -> s { _sr1Hits = a })
 sr1Status :: Lens' SearchResponse (Maybe SearchStatus)
 sr1Status = lens _sr1Status (\s a -> s { _sr1Status = a })
 
+instance ToPath Search where
+    toPath = const "/2013-01-01/search"
+
+instance ToQuery Search
+
+instance ToHeaders Search
+instance ToJSON Search where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest Search where
     type Sv Search = CloudSearchDomains
     type Rs Search = SearchResponse
@@ -424,29 +433,3 @@ instance AWSRequest Search where
 
 instance FromJSON SearchResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath Search where
-    toPath = const "/2013-01-01/search"
-
-instance ToHeaders Search
-
-instance ToQuery Search where
-    toQuery Search{..} = mconcat
-        [ "format=sdk&pretty=true"
-        , "cursor"    =? _s1Cursor
-        , "expr"      =? _s1Expr
-        , "facet"     =? _s1Facet
-        , "fq"        =? _s1FilterQuery
-        , "highlight" =? _s1Highlight
-        , "partial"   =? _s1Partial
-        , "q"         =? _s1Query
-        , "q.options" =? _s1QueryOptions
-        , "q.parser"  =? _s1QueryParser
-        , "return"    =? _s1Return
-        , "size"      =? _s1Size
-        , "sort"      =? _s1Sort
-        , "start"     =? _s1Start
-        ]
-
-instance ToJSON Search where
-    toJSON = genericToJSON jsonOptions

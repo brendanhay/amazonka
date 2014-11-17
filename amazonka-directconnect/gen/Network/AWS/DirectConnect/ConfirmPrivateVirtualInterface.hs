@@ -100,6 +100,16 @@ cpvir1VirtualInterfaceState =
     lens _cpvir1VirtualInterfaceState
         (\s a -> s { _cpvir1VirtualInterfaceState = a })
 
+instance ToPath ConfirmPrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToQuery ConfirmPrivateVirtualInterface where
+    toQuery = const mempty
+
+instance ToHeaders ConfirmPrivateVirtualInterface
+instance ToJSON ConfirmPrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ConfirmPrivateVirtualInterface where
     type Sv ConfirmPrivateVirtualInterface = DirectConnect
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
@@ -109,14 +119,3 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ConfirmPrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToHeaders ConfirmPrivateVirtualInterface
-
-instance ToQuery ConfirmPrivateVirtualInterface where
-    toQuery = const mempty
-
-instance ToJSON ConfirmPrivateVirtualInterface where
-    toJSON = genericToJSON jsonOptions

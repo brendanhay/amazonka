@@ -119,6 +119,13 @@ modifyOptionGroupResponse = ModifyOptionGroupResponse
 mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
 
+instance ToPath ModifyOptionGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyOptionGroup
+
+instance ToHeaders ModifyOptionGroup
+
 instance AWSRequest ModifyOptionGroup where
     type Sv ModifyOptionGroup = RDS
     type Rs ModifyOptionGroup = ModifyOptionGroupResponse
@@ -129,10 +136,3 @@ instance AWSRequest ModifyOptionGroup where
 instance FromXML ModifyOptionGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyOptionGroupResponse"
-
-instance ToPath ModifyOptionGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyOptionGroup
-
-instance ToQuery ModifyOptionGroup

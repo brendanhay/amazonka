@@ -102,16 +102,16 @@ data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesFo
 setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
 
+instance ToPath SetLoadBalancerPoliciesForBackendServer where
+    toPath = const "/"
+
+instance ToQuery SetLoadBalancerPoliciesForBackendServer
+
+instance ToHeaders SetLoadBalancerPoliciesForBackendServer
+
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Sv SetLoadBalancerPoliciesForBackendServer = ELB
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
 
     request  = post "SetLoadBalancerPoliciesForBackendServer"
     response = nullResponse SetLoadBalancerPoliciesForBackendServerResponse
-
-instance ToPath SetLoadBalancerPoliciesForBackendServer where
-    toPath = const "/"
-
-instance ToHeaders SetLoadBalancerPoliciesForBackendServer
-
-instance ToQuery SetLoadBalancerPoliciesForBackendServer

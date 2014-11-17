@@ -80,20 +80,19 @@ data TerminateJobFlowsResponse = TerminateJobFlowsResponse
 terminateJobFlowsResponse :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse
 
+instance ToPath TerminateJobFlows where
+    toPath = const "/"
+
+instance ToQuery TerminateJobFlows where
+    toQuery = const mempty
+
+instance ToHeaders TerminateJobFlows
+instance ToJSON TerminateJobFlows where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR
     type Rs TerminateJobFlows = TerminateJobFlowsResponse
 
     request  = post
     response = nullResponse TerminateJobFlowsResponse
-
-instance ToPath TerminateJobFlows where
-    toPath = const "/"
-
-instance ToHeaders TerminateJobFlows
-
-instance ToQuery TerminateJobFlows where
-    toQuery = const mempty
-
-instance ToJSON TerminateJobFlows where
-    toJSON = genericToJSON jsonOptions

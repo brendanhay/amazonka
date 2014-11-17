@@ -87,6 +87,20 @@ grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet =
     lens _grdsrDelegationSet (\s a -> s { _grdsrDelegationSet = a })
 
+instance ToPath GetReusableDelegationSet where
+    toPath GetReusableDelegationSet{..} = mconcat
+        [ "/2013-04-01/delegationset/"
+        , toText _grdsId
+        ]
+
+instance ToQuery GetReusableDelegationSet where
+    toQuery = const mempty
+
+instance ToHeaders GetReusableDelegationSet
+instance ToXML GetReusableDelegationSet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetReusableDelegationSet"
+
 instance AWSRequest GetReusableDelegationSet where
     type Sv GetReusableDelegationSet = Route53
     type Rs GetReusableDelegationSet = GetReusableDelegationSetResponse
@@ -97,18 +111,3 @@ instance AWSRequest GetReusableDelegationSet where
 instance FromXML GetReusableDelegationSetResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetReusableDelegationSetResponse"
-
-instance ToPath GetReusableDelegationSet where
-    toPath GetReusableDelegationSet{..} = mconcat
-        [ "/2013-04-01/delegationset/"
-        , toText _grdsId
-        ]
-
-instance ToHeaders GetReusableDelegationSet
-
-instance ToQuery GetReusableDelegationSet where
-    toQuery = const mempty
-
-instance ToXML GetReusableDelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetReusableDelegationSet"

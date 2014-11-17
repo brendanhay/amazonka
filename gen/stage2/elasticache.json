@@ -5243,6 +5243,7 @@
                 "name": "AuthorizeCacheSecurityGroupIngressResponse",
                 "resultWrapper": "AuthorizeCacheSecurityGroupIngressResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5372,6 +5373,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5456,6 +5459,7 @@
                 "name": "CopySnapshotResponse",
                 "resultWrapper": "CopySnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5566,6 +5570,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5636,6 +5642,7 @@
                 "name": "CreateCacheClusterResponse",
                 "resultWrapper": "CreateCacheClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5827,6 +5834,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6444,6 +6453,7 @@
                 "name": "CreateCacheParameterGroupResponse",
                 "resultWrapper": "CreateCacheParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6573,6 +6583,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6657,6 +6669,7 @@
                 "name": "CreateCacheSecurityGroupResponse",
                 "resultWrapper": "CreateCacheSecurityGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6767,6 +6780,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6837,6 +6852,7 @@
                 "name": "CreateCacheSubnetGroupResponse",
                 "resultWrapper": "CreateCacheSubnetGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6952,6 +6968,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7051,6 +7069,7 @@
                 "name": "CreateReplicationGroupResponse",
                 "resultWrapper": "CreateReplicationGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7256,6 +7275,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7859,6 +7880,7 @@
                 "name": "CreateSnapshotResponse",
                 "resultWrapper": "CreateSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7969,6 +7991,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8039,6 +8063,7 @@
                 "name": "DeleteCacheClusterResponse",
                 "resultWrapper": "DeleteCacheClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8135,6 +8160,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8205,6 +8232,7 @@
                 "name": "DeleteCacheParameterGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8283,6 +8311,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8324,6 +8354,7 @@
                 "name": "DeleteCacheSecurityGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8402,6 +8433,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8443,6 +8476,7 @@
                 "name": "DeleteCacheSubnetGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8521,6 +8555,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8577,6 +8613,7 @@
                 "name": "DeleteReplicationGroupResponse",
                 "resultWrapper": "DeleteReplicationGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8678,6 +8715,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8791,6 +8830,7 @@
                 "name": "DeleteSnapshotResponse",
                 "resultWrapper": "DeleteSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8899,6 +8939,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8940,6 +8982,7 @@
                 "name": "DescribeCacheClustersResponse",
                 "resultWrapper": "DescribeCacheClustersResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9067,6 +9110,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9207,6 +9252,7 @@
                 "name": "DescribeCacheEngineVersionsResponse",
                 "resultWrapper": "DescribeCacheEngineVersionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9344,6 +9390,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9540,6 +9588,7 @@
                 "name": "DescribeCacheParameterGroupsResponse",
                 "resultWrapper": "DescribeCacheParameterGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9662,6 +9711,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9774,6 +9825,7 @@
                 "name": "DescribeCacheParametersResponse",
                 "resultWrapper": "DescribeCacheParametersResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9944,6 +9996,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10070,6 +10124,7 @@
                 "name": "DescribeCacheSecurityGroupsResponse",
                 "resultWrapper": "DescribeCacheSecurityGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10192,6 +10247,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10304,6 +10361,7 @@
                 "name": "DescribeCacheSubnetGroupsResponse",
                 "resultWrapper": "DescribeCacheSubnetGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10426,6 +10484,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10568,6 +10628,7 @@
                 "name": "DescribeEngineDefaultParametersResponse",
                 "resultWrapper": "DescribeEngineDefaultParametersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -10662,6 +10723,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10760,6 +10823,7 @@
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10902,6 +10966,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11126,6 +11192,7 @@
                 "name": "DescribeReplicationGroupsResponse",
                 "resultWrapper": "DescribeReplicationGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11248,6 +11315,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11360,6 +11429,7 @@
                 "name": "DescribeReservedCacheNodesResponse",
                 "resultWrapper": "DescribeReservedCacheNodesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11507,6 +11577,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11759,6 +11831,7 @@
                 "name": "DescribeReservedCacheNodesOfferingsResponse",
                 "resultWrapper": "DescribeReservedCacheNodesOfferingsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11901,6 +11974,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12125,6 +12200,7 @@
                 "name": "DescribeSnapshotsResponse",
                 "resultWrapper": "DescribeSnapshotsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12257,6 +12333,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12440,6 +12518,7 @@
                 "name": "ModifyCacheClusterResponse",
                 "resultWrapper": "ModifyCacheClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12606,6 +12685,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13085,6 +13166,7 @@
                 "name": "ModifyCacheParameterGroupResponse",
                 "resultWrapper": "ModifyCacheParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13180,6 +13262,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13265,6 +13349,7 @@
                 "name": "ModifyCacheSubnetGroupResponse",
                 "resultWrapper": "ModifyCacheSubnetGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13366,6 +13451,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13479,6 +13566,7 @@
                 "name": "ModifyReplicationGroupResponse",
                 "resultWrapper": "ModifyReplicationGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13645,6 +13733,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14122,6 +14212,7 @@
                 "name": "PurchaseReservedCacheNodesOfferingResponse",
                 "resultWrapper": "PurchaseReservedCacheNodesOfferingResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14223,6 +14314,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14336,6 +14429,7 @@
                 "name": "RebootCacheClusterResponse",
                 "resultWrapper": "RebootCacheClusterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14432,6 +14526,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14519,6 +14615,7 @@
                 "name": "ResetCacheParameterGroupResponse",
                 "resultWrapper": "ResetCacheParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14619,6 +14716,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14732,6 +14831,7 @@
                 "name": "RevokeCacheSecurityGroupIngressResponse",
                 "resultWrapper": "RevokeCacheSecurityGroupIngressResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14861,6 +14961,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

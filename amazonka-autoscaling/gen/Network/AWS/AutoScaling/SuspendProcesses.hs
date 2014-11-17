@@ -89,16 +89,16 @@ data SuspendProcessesResponse = SuspendProcessesResponse
 suspendProcessesResponse :: SuspendProcessesResponse
 suspendProcessesResponse = SuspendProcessesResponse
 
+instance ToPath SuspendProcesses where
+    toPath = const "/"
+
+instance ToQuery SuspendProcesses
+
+instance ToHeaders SuspendProcesses
+
 instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling
     type Rs SuspendProcesses = SuspendProcessesResponse
 
     request  = post "SuspendProcesses"
     response = nullResponse SuspendProcessesResponse
-
-instance ToPath SuspendProcesses where
-    toPath = const "/"
-
-instance ToHeaders SuspendProcesses
-
-instance ToQuery SuspendProcesses

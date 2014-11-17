@@ -103,6 +103,13 @@ dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates =
     lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
 
+instance ToPath DescribeInstanceHealth where
+    toPath = const "/"
+
+instance ToQuery DescribeInstanceHealth
+
+instance ToHeaders DescribeInstanceHealth
+
 instance AWSRequest DescribeInstanceHealth where
     type Sv DescribeInstanceHealth = ELB
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
@@ -113,10 +120,3 @@ instance AWSRequest DescribeInstanceHealth where
 instance FromXML DescribeInstanceHealthResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInstanceHealthResponse"
-
-instance ToPath DescribeInstanceHealth where
-    toPath = const "/"
-
-instance ToHeaders DescribeInstanceHealth
-
-instance ToQuery DescribeInstanceHealth

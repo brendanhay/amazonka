@@ -92,16 +92,16 @@ data ExecutePolicyResponse = ExecutePolicyResponse
 executePolicyResponse :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse
 
+instance ToPath ExecutePolicy where
+    toPath = const "/"
+
+instance ToQuery ExecutePolicy
+
+instance ToHeaders ExecutePolicy
+
 instance AWSRequest ExecutePolicy where
     type Sv ExecutePolicy = AutoScaling
     type Rs ExecutePolicy = ExecutePolicyResponse
 
     request  = post "ExecutePolicy"
     response = nullResponse ExecutePolicyResponse
-
-instance ToPath ExecutePolicy where
-    toPath = const "/"
-
-instance ToHeaders ExecutePolicy
-
-instance ToQuery ExecutePolicy

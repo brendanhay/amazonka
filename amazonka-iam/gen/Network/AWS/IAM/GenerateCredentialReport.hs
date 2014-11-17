@@ -78,6 +78,14 @@ gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 
+instance ToPath GenerateCredentialReport where
+    toPath = const "/"
+
+instance ToQuery GenerateCredentialReport where
+    toQuery = const mempty
+
+instance ToHeaders GenerateCredentialReport
+
 instance AWSRequest GenerateCredentialReport where
     type Sv GenerateCredentialReport = IAM
     type Rs GenerateCredentialReport = GenerateCredentialReportResponse
@@ -88,10 +96,3 @@ instance AWSRequest GenerateCredentialReport where
 instance FromXML GenerateCredentialReportResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GenerateCredentialReportResponse"
-
-instance ToPath GenerateCredentialReport where
-    toPath = const "/"
-
-instance ToHeaders GenerateCredentialReport
-
-instance ToQuery GenerateCredentialReport

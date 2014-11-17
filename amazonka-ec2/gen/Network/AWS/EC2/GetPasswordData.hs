@@ -118,6 +118,13 @@ gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
     . mapping _Time
 
+instance ToPath GetPasswordData where
+    toPath = const "/"
+
+instance ToQuery GetPasswordData
+
+instance ToHeaders GetPasswordData
+
 instance AWSRequest GetPasswordData where
     type Sv GetPasswordData = EC2
     type Rs GetPasswordData = GetPasswordDataResponse
@@ -128,18 +135,3 @@ instance AWSRequest GetPasswordData where
 instance FromXML GetPasswordDataResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetPasswordDataResponse"
-
-instance ToPath GetPasswordData where
-    toPath = const "/"
-
-instance ToHeaders GetPasswordData
-
-instance ToQuery GetPasswordData where
-    toQuery GetPasswordData{..} = mconcat
-        [ "dryRun"     =? _gpdDryRun
-        , "InstanceId" =? _gpdInstanceId
-        ]
-
-instance ToXML GetPasswordData where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetPasswordData"

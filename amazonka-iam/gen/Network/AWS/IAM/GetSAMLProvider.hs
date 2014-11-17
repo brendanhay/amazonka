@@ -110,6 +110,13 @@ gsamlprValidUntil =
     lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })
         . mapping _Time
 
+instance ToPath GetSAMLProvider where
+    toPath = const "/"
+
+instance ToQuery GetSAMLProvider
+
+instance ToHeaders GetSAMLProvider
+
 instance AWSRequest GetSAMLProvider where
     type Sv GetSAMLProvider = IAM
     type Rs GetSAMLProvider = GetSAMLProviderResponse
@@ -120,10 +127,3 @@ instance AWSRequest GetSAMLProvider where
 instance FromXML GetSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSAMLProviderResponse"
-
-instance ToPath GetSAMLProvider where
-    toPath = const "/"
-
-instance ToHeaders GetSAMLProvider
-
-instance ToQuery GetSAMLProvider

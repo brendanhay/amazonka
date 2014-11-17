@@ -100,6 +100,20 @@ updatePipelineStatusResponse = UpdatePipelineStatusResponse
 upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrPipeline = lens _upsrPipeline (\s a -> s { _upsrPipeline = a })
 
+instance ToPath UpdatePipelineStatus where
+    toPath UpdatePipelineStatus{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _upsId
+        , "/status"
+        ]
+
+instance ToQuery UpdatePipelineStatus where
+    toQuery = const mempty
+
+instance ToHeaders UpdatePipelineStatus
+instance ToJSON UpdatePipelineStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdatePipelineStatus where
     type Sv UpdatePipelineStatus = ElasticTranscoder
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
@@ -109,18 +123,3 @@ instance AWSRequest UpdatePipelineStatus where
 
 instance FromJSON UpdatePipelineStatusResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdatePipelineStatus where
-    toPath UpdatePipelineStatus{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _upsId
-        , "/status"
-        ]
-
-instance ToHeaders UpdatePipelineStatus
-
-instance ToQuery UpdatePipelineStatus where
-    toQuery = const mempty
-
-instance ToJSON UpdatePipelineStatus where
-    toJSON = genericToJSON jsonOptions

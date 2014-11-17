@@ -131,6 +131,13 @@ sendRawEmailResponse p1 = SendRawEmailResponse
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
 
+instance ToPath SendRawEmail where
+    toPath = const "/"
+
+instance ToQuery SendRawEmail
+
+instance ToHeaders SendRawEmail
+
 instance AWSRequest SendRawEmail where
     type Sv SendRawEmail = SES
     type Rs SendRawEmail = SendRawEmailResponse
@@ -141,10 +148,3 @@ instance AWSRequest SendRawEmail where
 instance FromXML SendRawEmailResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendRawEmailResponse"
-
-instance ToPath SendRawEmail where
-    toPath = const "/"
-
-instance ToHeaders SendRawEmail
-
-instance ToQuery SendRawEmail

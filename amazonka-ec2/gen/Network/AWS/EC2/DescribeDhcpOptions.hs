@@ -119,6 +119,13 @@ describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
 
+instance ToPath DescribeDhcpOptions where
+    toPath = const "/"
+
+instance ToQuery DescribeDhcpOptions
+
+instance ToHeaders DescribeDhcpOptions
+
 instance AWSRequest DescribeDhcpOptions where
     type Sv DescribeDhcpOptions = EC2
     type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse
@@ -129,19 +136,3 @@ instance AWSRequest DescribeDhcpOptions where
 instance FromXML DescribeDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDhcpOptionsResponse"
-
-instance ToPath DescribeDhcpOptions where
-    toPath = const "/"
-
-instance ToHeaders DescribeDhcpOptions
-
-instance ToQuery DescribeDhcpOptions where
-    toQuery DescribeDhcpOptions{..} = mconcat
-        [ "dryRun"        =? _ddoDryRun
-        , "DhcpOptionsId" =? _ddoDhcpOptionsIds
-        , "Filter"        =? _ddoFilters
-        ]
-
-instance ToXML DescribeDhcpOptions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeDhcpOptions"

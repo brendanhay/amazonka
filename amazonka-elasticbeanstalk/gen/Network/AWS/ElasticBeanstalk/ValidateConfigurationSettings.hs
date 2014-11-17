@@ -124,6 +124,13 @@ validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a })
 
+instance ToPath ValidateConfigurationSettings where
+    toPath = const "/"
+
+instance ToQuery ValidateConfigurationSettings
+
+instance ToHeaders ValidateConfigurationSettings
+
 instance AWSRequest ValidateConfigurationSettings where
     type Sv ValidateConfigurationSettings = ElasticBeanstalk
     type Rs ValidateConfigurationSettings = ValidateConfigurationSettingsResponse
@@ -134,10 +141,3 @@ instance AWSRequest ValidateConfigurationSettings where
 instance FromXML ValidateConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ValidateConfigurationSettingsResponse"
-
-instance ToPath ValidateConfigurationSettings where
-    toPath = const "/"
-
-instance ToHeaders ValidateConfigurationSettings
-
-instance ToQuery ValidateConfigurationSettings

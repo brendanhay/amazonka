@@ -110,6 +110,13 @@ enableSnapshotCopyResponse = EnableSnapshotCopyResponse
 escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
 
+instance ToPath EnableSnapshotCopy where
+    toPath = const "/"
+
+instance ToQuery EnableSnapshotCopy
+
+instance ToHeaders EnableSnapshotCopy
+
 instance AWSRequest EnableSnapshotCopy where
     type Sv EnableSnapshotCopy = Redshift
     type Rs EnableSnapshotCopy = EnableSnapshotCopyResponse
@@ -120,10 +127,3 @@ instance AWSRequest EnableSnapshotCopy where
 instance FromXML EnableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableSnapshotCopyResponse"
-
-instance ToPath EnableSnapshotCopy where
-    toPath = const "/"
-
-instance ToHeaders EnableSnapshotCopy
-
-instance ToQuery EnableSnapshotCopy

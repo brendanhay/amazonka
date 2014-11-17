@@ -143,6 +143,13 @@ crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings
         (\s a -> s { _crilr1ReservedInstancesListings = a })
 
+instance ToPath CreateReservedInstancesListing where
+    toPath = const "/"
+
+instance ToQuery CreateReservedInstancesListing
+
+instance ToHeaders CreateReservedInstancesListing
+
 instance AWSRequest CreateReservedInstancesListing where
     type Sv CreateReservedInstancesListing = EC2
     type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResponse
@@ -153,20 +160,3 @@ instance AWSRequest CreateReservedInstancesListing where
 instance FromXML CreateReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateReservedInstancesListingResponse"
-
-instance ToPath CreateReservedInstancesListing where
-    toPath = const "/"
-
-instance ToHeaders CreateReservedInstancesListing
-
-instance ToQuery CreateReservedInstancesListing where
-    toQuery CreateReservedInstancesListing{..} = mconcat
-        [ "reservedInstancesId" =? _crilReservedInstancesId
-        , "instanceCount"       =? _crilInstanceCount
-        , "priceSchedules"      =? _crilPriceSchedules
-        , "clientToken"         =? _crilClientToken
-        ]
-
-instance ToXML CreateReservedInstancesListing where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateReservedInstancesListing"

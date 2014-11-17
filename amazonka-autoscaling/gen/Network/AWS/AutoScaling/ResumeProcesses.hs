@@ -84,16 +84,16 @@ data ResumeProcessesResponse = ResumeProcessesResponse
 resumeProcessesResponse :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse
 
+instance ToPath ResumeProcesses where
+    toPath = const "/"
+
+instance ToQuery ResumeProcesses
+
+instance ToHeaders ResumeProcesses
+
 instance AWSRequest ResumeProcesses where
     type Sv ResumeProcesses = AutoScaling
     type Rs ResumeProcesses = ResumeProcessesResponse
 
     request  = post "ResumeProcesses"
     response = nullResponse ResumeProcessesResponse
-
-instance ToPath ResumeProcesses where
-    toPath = const "/"
-
-instance ToHeaders ResumeProcesses
-
-instance ToQuery ResumeProcesses

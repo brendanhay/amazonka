@@ -140,6 +140,13 @@ getSessionTokenResponse = GetSessionTokenResponse
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
 
+instance ToPath GetSessionToken where
+    toPath = const "/"
+
+instance ToQuery GetSessionToken
+
+instance ToHeaders GetSessionToken
+
 instance AWSRequest GetSessionToken where
     type Sv GetSessionToken = STS
     type Rs GetSessionToken = GetSessionTokenResponse
@@ -150,10 +157,3 @@ instance AWSRequest GetSessionToken where
 instance FromXML GetSessionTokenResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSessionTokenResponse"
-
-instance ToPath GetSessionToken where
-    toPath = const "/"
-
-instance ToHeaders GetSessionToken
-
-instance ToQuery GetSessionToken

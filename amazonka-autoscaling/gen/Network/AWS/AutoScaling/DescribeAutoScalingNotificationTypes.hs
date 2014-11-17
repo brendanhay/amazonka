@@ -79,6 +79,14 @@ dasntrAutoScalingNotificationTypes =
     lens _dasntrAutoScalingNotificationTypes
         (\s a -> s { _dasntrAutoScalingNotificationTypes = a })
 
+instance ToPath DescribeAutoScalingNotificationTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeAutoScalingNotificationTypes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeAutoScalingNotificationTypes
+
 instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Sv DescribeAutoScalingNotificationTypes = AutoScaling
     type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse
@@ -89,10 +97,3 @@ instance AWSRequest DescribeAutoScalingNotificationTypes where
 instance FromXML DescribeAutoScalingNotificationTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesResponse"
-
-instance ToPath DescribeAutoScalingNotificationTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeAutoScalingNotificationTypes
-
-instance ToQuery DescribeAutoScalingNotificationTypes

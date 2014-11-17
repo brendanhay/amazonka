@@ -80,16 +80,16 @@ data RemoveTagsResponse = RemoveTagsResponse
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
 
+instance ToPath RemoveTags where
+    toPath = const "/"
+
+instance ToQuery RemoveTags
+
+instance ToHeaders RemoveTags
+
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB
     type Rs RemoveTags = RemoveTagsResponse
 
     request  = post "RemoveTags"
     response = nullResponse RemoveTagsResponse
-
-instance ToPath RemoveTags where
-    toPath = const "/"
-
-instance ToHeaders RemoveTags
-
-instance ToQuery RemoveTags

@@ -171,16 +171,16 @@ data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 
+instance ToPath UpdateAccountPasswordPolicy where
+    toPath = const "/"
+
+instance ToQuery UpdateAccountPasswordPolicy
+
+instance ToHeaders UpdateAccountPasswordPolicy
+
 instance AWSRequest UpdateAccountPasswordPolicy where
     type Sv UpdateAccountPasswordPolicy = IAM
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
 
     request  = post "UpdateAccountPasswordPolicy"
     response = nullResponse UpdateAccountPasswordPolicyResponse
-
-instance ToPath UpdateAccountPasswordPolicy where
-    toPath = const "/"
-
-instance ToHeaders UpdateAccountPasswordPolicy
-
-instance ToQuery UpdateAccountPasswordPolicy

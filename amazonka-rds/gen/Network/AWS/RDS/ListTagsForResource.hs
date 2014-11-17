@@ -100,6 +100,13 @@ listTagsForResourceResponse = ListTagsForResourceResponse
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
 
+instance ToPath ListTagsForResource where
+    toPath = const "/"
+
+instance ToQuery ListTagsForResource
+
+instance ToHeaders ListTagsForResource
+
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = RDS
     type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -110,10 +117,3 @@ instance AWSRequest ListTagsForResource where
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListTagsForResourceResponse"
-
-instance ToPath ListTagsForResource where
-    toPath = const "/"
-
-instance ToHeaders ListTagsForResource
-
-instance ToQuery ListTagsForResource

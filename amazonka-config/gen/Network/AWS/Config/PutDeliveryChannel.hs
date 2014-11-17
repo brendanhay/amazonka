@@ -77,20 +77,19 @@ data PutDeliveryChannelResponse = PutDeliveryChannelResponse
 putDeliveryChannelResponse :: PutDeliveryChannelResponse
 putDeliveryChannelResponse = PutDeliveryChannelResponse
 
+instance ToPath PutDeliveryChannel where
+    toPath = const "/"
+
+instance ToQuery PutDeliveryChannel where
+    toQuery = const mempty
+
+instance ToHeaders PutDeliveryChannel
+instance ToJSON PutDeliveryChannel where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutDeliveryChannel where
     type Sv PutDeliveryChannel = Config
     type Rs PutDeliveryChannel = PutDeliveryChannelResponse
 
     request  = post
     response = nullResponse PutDeliveryChannelResponse
-
-instance ToPath PutDeliveryChannel where
-    toPath = const "/"
-
-instance ToHeaders PutDeliveryChannel
-
-instance ToQuery PutDeliveryChannel where
-    toQuery = const mempty
-
-instance ToJSON PutDeliveryChannel where
-    toJSON = genericToJSON jsonOptions

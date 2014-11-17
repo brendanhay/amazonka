@@ -114,16 +114,16 @@ data AddPermissionResponse = AddPermissionResponse
 addPermissionResponse :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse
 
+instance ToPath AddPermission where
+    toPath = const "/"
+
+instance ToQuery AddPermission
+
+instance ToHeaders AddPermission
+
 instance AWSRequest AddPermission where
     type Sv AddPermission = SQS
     type Rs AddPermission = AddPermissionResponse
 
     request  = post "AddPermission"
     response = nullResponse AddPermissionResponse
-
-instance ToPath AddPermission where
-    toPath = const "/"
-
-instance ToHeaders AddPermission
-
-instance ToQuery AddPermission

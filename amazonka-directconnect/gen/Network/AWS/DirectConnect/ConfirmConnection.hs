@@ -84,6 +84,16 @@ ccr1ConnectionState :: Lens' ConfirmConnectionResponse (Maybe Text)
 ccr1ConnectionState =
     lens _ccr1ConnectionState (\s a -> s { _ccr1ConnectionState = a })
 
+instance ToPath ConfirmConnection where
+    toPath = const "/"
+
+instance ToQuery ConfirmConnection where
+    toQuery = const mempty
+
+instance ToHeaders ConfirmConnection
+instance ToJSON ConfirmConnection where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ConfirmConnection where
     type Sv ConfirmConnection = DirectConnect
     type Rs ConfirmConnection = ConfirmConnectionResponse
@@ -93,14 +103,3 @@ instance AWSRequest ConfirmConnection where
 
 instance FromJSON ConfirmConnectionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ConfirmConnection where
-    toPath = const "/"
-
-instance ToHeaders ConfirmConnection
-
-instance ToQuery ConfirmConnection where
-    toQuery = const mempty
-
-instance ToJSON ConfirmConnection where
-    toJSON = genericToJSON jsonOptions

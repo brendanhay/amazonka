@@ -78,6 +78,16 @@ dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways =
     lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })
 
+instance ToPath DescribeVirtualGateways where
+    toPath = const "/"
+
+instance ToQuery DescribeVirtualGateways where
+    toQuery = const mempty
+
+instance ToHeaders DescribeVirtualGateways
+instance ToJSON DescribeVirtualGateways where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeVirtualGateways where
     type Sv DescribeVirtualGateways = DirectConnect
     type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
@@ -87,14 +97,3 @@ instance AWSRequest DescribeVirtualGateways where
 
 instance FromJSON DescribeVirtualGatewaysResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeVirtualGateways where
-    toPath = const "/"
-
-instance ToHeaders DescribeVirtualGateways
-
-instance ToQuery DescribeVirtualGateways where
-    toQuery = const mempty
-
-instance ToJSON DescribeVirtualGateways where
-    toJSON = genericToJSON jsonOptions

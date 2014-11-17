@@ -115,6 +115,13 @@ dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStat
 dasrAnalysisSchemes =
     lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })
 
+instance ToPath DescribeAnalysisSchemes where
+    toPath = const "/"
+
+instance ToQuery DescribeAnalysisSchemes
+
+instance ToHeaders DescribeAnalysisSchemes
+
 instance AWSRequest DescribeAnalysisSchemes where
     type Sv DescribeAnalysisSchemes = CloudSearch
     type Rs DescribeAnalysisSchemes = DescribeAnalysisSchemesResponse
@@ -125,10 +132,3 @@ instance AWSRequest DescribeAnalysisSchemes where
 instance FromXML DescribeAnalysisSchemesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAnalysisSchemesResponse"
-
-instance ToPath DescribeAnalysisSchemes where
-    toPath = const "/"
-
-instance ToHeaders DescribeAnalysisSchemes
-
-instance ToQuery DescribeAnalysisSchemes

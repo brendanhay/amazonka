@@ -107,6 +107,24 @@ lirInvalidationList :: Lens' ListInvalidationsResponse (Maybe InvalidationList)
 lirInvalidationList =
     lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
 
+instance ToPath ListInvalidations where
+    toPath ListInvalidations{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _liDistributionId
+        , "/invalidation"
+        ]
+
+instance ToQuery ListInvalidations where
+    toQuery ListInvalidations{..} = mconcat
+          [   "Marker"   =? _liMarker
+          ,   "MaxItems" =? _liMaxItems
+        ]
+
+instance ToHeaders ListInvalidations
+instance ToXML ListInvalidations where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListInvalidations"
+
 instance AWSRequest ListInvalidations where
     type Sv ListInvalidations = CloudFront
     type Rs ListInvalidations = ListInvalidationsResponse
@@ -117,22 +135,3 @@ instance AWSRequest ListInvalidations where
 instance FromXML ListInvalidationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListInvalidationsResponse"
-
-instance ToPath ListInvalidations where
-    toPath ListInvalidations{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _liDistributionId
-        , "/invalidation"
-        ]
-
-instance ToHeaders ListInvalidations
-
-instance ToQuery ListInvalidations where
-    toQuery ListInvalidations{..} = mconcat
-        [ "Marker"   =? _liMarker
-        , "MaxItems" =? _liMaxItems
-        ]
-
-instance ToXML ListInvalidations where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListInvalidations"

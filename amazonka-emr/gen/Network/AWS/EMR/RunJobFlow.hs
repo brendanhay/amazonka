@@ -246,6 +246,16 @@ runJobFlowResponse = RunJobFlowResponse
 rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrJobFlowId = lens _rjfrJobFlowId (\s a -> s { _rjfrJobFlowId = a })
 
+instance ToPath RunJobFlow where
+    toPath = const "/"
+
+instance ToQuery RunJobFlow where
+    toQuery = const mempty
+
+instance ToHeaders RunJobFlow
+instance ToJSON RunJobFlow where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RunJobFlow where
     type Sv RunJobFlow = EMR
     type Rs RunJobFlow = RunJobFlowResponse
@@ -255,14 +265,3 @@ instance AWSRequest RunJobFlow where
 
 instance FromJSON RunJobFlowResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RunJobFlow where
-    toPath = const "/"
-
-instance ToHeaders RunJobFlow
-
-instance ToQuery RunJobFlow where
-    toQuery = const mempty
-
-instance ToJSON RunJobFlow where
-    toJSON = genericToJSON jsonOptions

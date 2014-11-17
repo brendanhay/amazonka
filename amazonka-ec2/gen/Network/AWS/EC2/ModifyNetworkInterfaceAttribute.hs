@@ -124,28 +124,16 @@ data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeRe
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
 
+instance ToPath ModifyNetworkInterfaceAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifyNetworkInterfaceAttribute
+
+instance ToHeaders ModifyNetworkInterfaceAttribute
+
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse
 
     request  = post "ModifyNetworkInterfaceAttribute"
     response = nullResponse ModifyNetworkInterfaceAttributeResponse
-
-instance ToPath ModifyNetworkInterfaceAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifyNetworkInterfaceAttribute
-
-instance ToQuery ModifyNetworkInterfaceAttribute where
-    toQuery ModifyNetworkInterfaceAttribute{..} = mconcat
-        [ "dryRun"             =? _mniaDryRun
-        , "networkInterfaceId" =? _mniaNetworkInterfaceId
-        , "description"        =? _mniaDescription
-        , "sourceDestCheck"    =? _mniaSourceDestCheck
-        , "SecurityGroupId"    =? _mniaGroups
-        , "attachment"         =? _mniaAttachment
-        ]
-
-instance ToXML ModifyNetworkInterfaceAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifyNetworkInterfaceAttribute"

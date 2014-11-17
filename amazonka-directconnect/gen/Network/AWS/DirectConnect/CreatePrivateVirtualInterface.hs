@@ -226,6 +226,16 @@ cpvir2VirtualInterfaceType =
 cpvir2Vlan :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Int)
 cpvir2Vlan = lens _cpvir2Vlan (\s a -> s { _cpvir2Vlan = a })
 
+instance ToPath CreatePrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToQuery CreatePrivateVirtualInterface where
+    toQuery = const mempty
+
+instance ToHeaders CreatePrivateVirtualInterface
+instance ToJSON CreatePrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreatePrivateVirtualInterface where
     type Sv CreatePrivateVirtualInterface = DirectConnect
     type Rs CreatePrivateVirtualInterface = CreatePrivateVirtualInterfaceResponse
@@ -235,14 +245,3 @@ instance AWSRequest CreatePrivateVirtualInterface where
 
 instance FromJSON CreatePrivateVirtualInterfaceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreatePrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToHeaders CreatePrivateVirtualInterface
-
-instance ToQuery CreatePrivateVirtualInterface where
-    toQuery = const mempty
-
-instance ToJSON CreatePrivateVirtualInterface where
-    toJSON = genericToJSON jsonOptions

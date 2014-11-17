@@ -97,6 +97,16 @@ registerVolumeResponse = RegisterVolumeResponse
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
 
+instance ToPath RegisterVolume where
+    toPath = const "/"
+
+instance ToQuery RegisterVolume where
+    toQuery = const mempty
+
+instance ToHeaders RegisterVolume
+instance ToJSON RegisterVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterVolume where
     type Sv RegisterVolume = OpsWorks
     type Rs RegisterVolume = RegisterVolumeResponse
@@ -106,14 +116,3 @@ instance AWSRequest RegisterVolume where
 
 instance FromJSON RegisterVolumeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RegisterVolume where
-    toPath = const "/"
-
-instance ToHeaders RegisterVolume
-
-instance ToQuery RegisterVolume where
-    toQuery = const mempty
-
-instance ToJSON RegisterVolume where
-    toJSON = genericToJSON jsonOptions

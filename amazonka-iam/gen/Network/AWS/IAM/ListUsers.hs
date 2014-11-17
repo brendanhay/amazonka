@@ -135,6 +135,13 @@ lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a })
 
+instance ToPath ListUsers where
+    toPath = const "/"
+
+instance ToQuery ListUsers
+
+instance ToHeaders ListUsers
+
 instance AWSRequest ListUsers where
     type Sv ListUsers = IAM
     type Rs ListUsers = ListUsersResponse
@@ -145,10 +152,3 @@ instance AWSRequest ListUsers where
 instance FromXML ListUsersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListUsersResponse"
-
-instance ToPath ListUsers where
-    toPath = const "/"
-
-instance ToHeaders ListUsers
-
-instance ToQuery ListUsers

@@ -107,6 +107,17 @@ ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
 ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
 
+instance ToPath CreateCloudFrontOriginAccessIdentity where
+    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+
+instance ToQuery CreateCloudFrontOriginAccessIdentity where
+    toQuery = const mempty
+
+instance ToHeaders CreateCloudFrontOriginAccessIdentity
+instance ToXML CreateCloudFrontOriginAccessIdentity where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentity"
+
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
     type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
@@ -116,15 +127,3 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
         <$> x %| "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"
-
-instance ToPath CreateCloudFrontOriginAccessIdentity where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
-
-instance ToHeaders CreateCloudFrontOriginAccessIdentity
-
-instance ToQuery CreateCloudFrontOriginAccessIdentity where
-    toQuery = const mempty
-
-instance ToXML CreateCloudFrontOriginAccessIdentity where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentity"

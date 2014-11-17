@@ -145,6 +145,13 @@ dccrCacheClusters =
 dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 dccrMarker = lens _dccrMarker (\s a -> s { _dccrMarker = a })
 
+instance ToPath DescribeCacheClusters where
+    toPath = const "/"
+
+instance ToQuery DescribeCacheClusters
+
+instance ToHeaders DescribeCacheClusters
+
 instance AWSRequest DescribeCacheClusters where
     type Sv DescribeCacheClusters = ElastiCache
     type Rs DescribeCacheClusters = DescribeCacheClustersResponse
@@ -155,10 +162,3 @@ instance AWSRequest DescribeCacheClusters where
 instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCacheClustersResponse"
-
-instance ToPath DescribeCacheClusters where
-    toPath = const "/"
-
-instance ToHeaders DescribeCacheClusters
-
-instance ToQuery DescribeCacheClusters

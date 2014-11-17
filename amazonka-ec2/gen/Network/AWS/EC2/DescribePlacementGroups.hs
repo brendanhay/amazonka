@@ -110,6 +110,13 @@ dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
 
+instance ToPath DescribePlacementGroups where
+    toPath = const "/"
+
+instance ToQuery DescribePlacementGroups
+
+instance ToHeaders DescribePlacementGroups
+
 instance AWSRequest DescribePlacementGroups where
     type Sv DescribePlacementGroups = EC2
     type Rs DescribePlacementGroups = DescribePlacementGroupsResponse
@@ -120,19 +127,3 @@ instance AWSRequest DescribePlacementGroups where
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribePlacementGroupsResponse"
-
-instance ToPath DescribePlacementGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribePlacementGroups
-
-instance ToQuery DescribePlacementGroups where
-    toQuery DescribePlacementGroups{..} = mconcat
-        [ "dryRun"    =? _dpg1DryRun
-        , "groupName" =? _dpg1GroupNames
-        , "Filter"    =? _dpg1Filters
-        ]
-
-instance ToXML DescribePlacementGroups where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribePlacementGroups"

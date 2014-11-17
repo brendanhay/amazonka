@@ -95,6 +95,13 @@ createUserResponse = CreateUserResponse
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\s a -> s { _curUser = a })
 
+instance ToPath CreateUser where
+    toPath = const "/"
+
+instance ToQuery CreateUser
+
+instance ToHeaders CreateUser
+
 instance AWSRequest CreateUser where
     type Sv CreateUser = IAM
     type Rs CreateUser = CreateUserResponse
@@ -105,10 +112,3 @@ instance AWSRequest CreateUser where
 instance FromXML CreateUserResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateUserResponse"
-
-instance ToPath CreateUser where
-    toPath = const "/"
-
-instance ToHeaders CreateUser
-
-instance ToQuery CreateUser

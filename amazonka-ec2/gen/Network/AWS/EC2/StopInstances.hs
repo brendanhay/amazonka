@@ -129,6 +129,13 @@ sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })
 
+instance ToPath StopInstances where
+    toPath = const "/"
+
+instance ToQuery StopInstances
+
+instance ToHeaders StopInstances
+
 instance AWSRequest StopInstances where
     type Sv StopInstances = EC2
     type Rs StopInstances = StopInstancesResponse
@@ -139,19 +146,3 @@ instance AWSRequest StopInstances where
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "StopInstancesResponse"
-
-instance ToPath StopInstances where
-    toPath = const "/"
-
-instance ToHeaders StopInstances
-
-instance ToQuery StopInstances where
-    toQuery StopInstances{..} = mconcat
-        [ "dryRun"     =? _siDryRun
-        , "InstanceId" =? _siInstanceIds
-        , "force"      =? _siForce
-        ]
-
-instance ToXML StopInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "StopInstances"

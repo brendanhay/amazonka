@@ -105,6 +105,13 @@ csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription
         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
 
+instance ToPath CreateSpotDatafeedSubscription where
+    toPath = const "/"
+
+instance ToQuery CreateSpotDatafeedSubscription
+
+instance ToHeaders CreateSpotDatafeedSubscription
+
 instance AWSRequest CreateSpotDatafeedSubscription where
     type Sv CreateSpotDatafeedSubscription = EC2
     type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse
@@ -115,19 +122,3 @@ instance AWSRequest CreateSpotDatafeedSubscription where
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResponse"
-
-instance ToPath CreateSpotDatafeedSubscription where
-    toPath = const "/"
-
-instance ToHeaders CreateSpotDatafeedSubscription
-
-instance ToQuery CreateSpotDatafeedSubscription where
-    toQuery CreateSpotDatafeedSubscription{..} = mconcat
-        [ "dryRun" =? _csdsDryRun
-        , "bucket" =? _csdsBucket
-        , "prefix" =? _csdsPrefix
-        ]
-
-instance ToXML CreateSpotDatafeedSubscription where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateSpotDatafeedSubscription"

@@ -122,6 +122,16 @@ csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 csrVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
 csrVolumeARN = lens _csrVolumeARN (\s a -> s { _csrVolumeARN = a })
 
+instance ToPath CreateSnapshot where
+    toPath = const "/"
+
+instance ToQuery CreateSnapshot where
+    toQuery = const mempty
+
+instance ToHeaders CreateSnapshot
+instance ToJSON CreateSnapshot where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = StorageGateway
     type Rs CreateSnapshot = CreateSnapshotResponse
@@ -131,14 +141,3 @@ instance AWSRequest CreateSnapshot where
 
 instance FromJSON CreateSnapshotResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CreateSnapshot
-
-instance ToQuery CreateSnapshot where
-    toQuery = const mempty
-
-instance ToJSON CreateSnapshot where
-    toJSON = genericToJSON jsonOptions

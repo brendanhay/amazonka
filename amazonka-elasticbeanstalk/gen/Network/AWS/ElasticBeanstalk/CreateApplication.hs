@@ -95,6 +95,13 @@ createApplicationResponse = CreateApplicationResponse
 carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 carApplication = lens _carApplication (\s a -> s { _carApplication = a })
 
+instance ToPath CreateApplication where
+    toPath = const "/"
+
+instance ToQuery CreateApplication
+
+instance ToHeaders CreateApplication
+
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = ElasticBeanstalk
     type Rs CreateApplication = CreateApplicationResponse
@@ -105,10 +112,3 @@ instance AWSRequest CreateApplication where
 instance FromXML CreateApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateApplicationResponse"
-
-instance ToPath CreateApplication where
-    toPath = const "/"
-
-instance ToHeaders CreateApplication
-
-instance ToQuery CreateApplication

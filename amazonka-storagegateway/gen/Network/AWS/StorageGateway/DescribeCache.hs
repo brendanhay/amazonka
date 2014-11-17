@@ -137,6 +137,16 @@ dcrDiskIds = lens _dcrDiskIds (\s a -> s { _dcrDiskIds = a })
 dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcrGatewayARN = lens _dcrGatewayARN (\s a -> s { _dcrGatewayARN = a })
 
+instance ToPath DescribeCache where
+    toPath = const "/"
+
+instance ToQuery DescribeCache where
+    toQuery = const mempty
+
+instance ToHeaders DescribeCache
+instance ToJSON DescribeCache where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeCache where
     type Sv DescribeCache = StorageGateway
     type Rs DescribeCache = DescribeCacheResponse
@@ -146,14 +156,3 @@ instance AWSRequest DescribeCache where
 
 instance FromJSON DescribeCacheResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeCache where
-    toPath = const "/"
-
-instance ToHeaders DescribeCache
-
-instance ToQuery DescribeCache where
-    toQuery = const mempty
-
-instance ToJSON DescribeCache where
-    toJSON = genericToJSON jsonOptions

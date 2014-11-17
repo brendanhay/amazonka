@@ -179,6 +179,16 @@ dcr1Cases = lens _dcr1Cases (\s a -> s { _dcr1Cases = a })
 dcr1NextToken :: Lens' DescribeCasesResponse (Maybe Text)
 dcr1NextToken = lens _dcr1NextToken (\s a -> s { _dcr1NextToken = a })
 
+instance ToPath DescribeCases where
+    toPath = const "/"
+
+instance ToQuery DescribeCases where
+    toQuery = const mempty
+
+instance ToHeaders DescribeCases
+instance ToJSON DescribeCases where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeCases where
     type Sv DescribeCases = Support
     type Rs DescribeCases = DescribeCasesResponse
@@ -188,14 +198,3 @@ instance AWSRequest DescribeCases where
 
 instance FromJSON DescribeCasesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeCases where
-    toPath = const "/"
-
-instance ToHeaders DescribeCases
-
-instance ToQuery DescribeCases where
-    toQuery = const mempty
-
-instance ToJSON DescribeCases where
-    toJSON = genericToJSON jsonOptions

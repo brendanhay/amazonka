@@ -110,6 +110,13 @@ estimateTemplateCostResponse = EstimateTemplateCostResponse
 etcrUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrUrl = lens _etcrUrl (\s a -> s { _etcrUrl = a })
 
+instance ToPath EstimateTemplateCost where
+    toPath = const "/"
+
+instance ToQuery EstimateTemplateCost
+
+instance ToHeaders EstimateTemplateCost
+
 instance AWSRequest EstimateTemplateCost where
     type Sv EstimateTemplateCost = CloudFormation
     type Rs EstimateTemplateCost = EstimateTemplateCostResponse
@@ -120,10 +127,3 @@ instance AWSRequest EstimateTemplateCost where
 instance FromXML EstimateTemplateCostResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EstimateTemplateCostResponse"
-
-instance ToPath EstimateTemplateCost where
-    toPath = const "/"
-
-instance ToHeaders EstimateTemplateCost
-
-instance ToQuery EstimateTemplateCost

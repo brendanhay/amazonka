@@ -114,6 +114,13 @@ mdbpgrDBParameterGroupName =
     lens _mdbpgrDBParameterGroupName
         (\s a -> s { _mdbpgrDBParameterGroupName = a })
 
+instance ToPath ModifyDBParameterGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyDBParameterGroup
+
+instance ToHeaders ModifyDBParameterGroup
+
 instance AWSRequest ModifyDBParameterGroup where
     type Sv ModifyDBParameterGroup = RDS
     type Rs ModifyDBParameterGroup = ModifyDBParameterGroupResponse
@@ -124,10 +131,3 @@ instance AWSRequest ModifyDBParameterGroup where
 instance FromXML ModifyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyDBParameterGroupResponse"
-
-instance ToPath ModifyDBParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyDBParameterGroup
-
-instance ToQuery ModifyDBParameterGroup

@@ -137,20 +137,19 @@ data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 
+instance ToPath TerminateWorkflowExecution where
+    toPath = const "/"
+
+instance ToQuery TerminateWorkflowExecution where
+    toQuery = const mempty
+
+instance ToHeaders TerminateWorkflowExecution
+instance ToJSON TerminateWorkflowExecution where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF
     type Rs TerminateWorkflowExecution = TerminateWorkflowExecutionResponse
 
     request  = post
     response = nullResponse TerminateWorkflowExecutionResponse
-
-instance ToPath TerminateWorkflowExecution where
-    toPath = const "/"
-
-instance ToHeaders TerminateWorkflowExecution
-
-instance ToQuery TerminateWorkflowExecution where
-    toQuery = const mempty
-
-instance ToJSON TerminateWorkflowExecution where
-    toJSON = genericToJSON jsonOptions

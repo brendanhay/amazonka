@@ -175,6 +175,22 @@ cmur1ServerSideEncryption =
 cmur1VersionId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1VersionId = lens _cmur1VersionId (\s a -> s { _cmur1VersionId = a })
 
+instance ToPath CompleteMultipartUpload where
+    toPath CompleteMultipartUpload{..} = mconcat
+        [ "/"
+        , toText _cmu1Bucket
+        , "/"
+        , toText _cmu1Key
+        ]
+
+instance ToQuery CompleteMultipartUpload where
+    toQuery rq = "uploadId" =? _cmu1UploadId rq
+
+instance ToHeaders CompleteMultipartUpload
+instance ToXML CompleteMultipartUpload where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CompleteMultipartUpload"
+
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
     type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
@@ -189,20 +205,3 @@ instance AWSRequest CompleteMultipartUpload where
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
-
-instance ToPath CompleteMultipartUpload where
-    toPath CompleteMultipartUpload{..} = mconcat
-        [ "/"
-        , toText _cmu1Bucket
-        , "/"
-        , toText _cmu1Key
-        ]
-
-instance ToHeaders CompleteMultipartUpload
-
-instance ToQuery CompleteMultipartUpload where
-    toQuery rq = "uploadId" =? _cmu1UploadId rq
-
-instance ToXML CompleteMultipartUpload where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CompleteMultipartUpload"

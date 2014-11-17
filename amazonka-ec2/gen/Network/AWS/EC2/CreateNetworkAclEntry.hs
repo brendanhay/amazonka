@@ -161,31 +161,16 @@ data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 createNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
 createNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 
+instance ToPath CreateNetworkAclEntry where
+    toPath = const "/"
+
+instance ToQuery CreateNetworkAclEntry
+
+instance ToHeaders CreateNetworkAclEntry
+
 instance AWSRequest CreateNetworkAclEntry where
     type Sv CreateNetworkAclEntry = EC2
     type Rs CreateNetworkAclEntry = CreateNetworkAclEntryResponse
 
     request  = post "CreateNetworkAclEntry"
     response = nullResponse CreateNetworkAclEntryResponse
-
-instance ToPath CreateNetworkAclEntry where
-    toPath = const "/"
-
-instance ToHeaders CreateNetworkAclEntry
-
-instance ToQuery CreateNetworkAclEntry where
-    toQuery CreateNetworkAclEntry{..} = mconcat
-        [ "dryRun"       =? _cnaeDryRun
-        , "networkAclId" =? _cnaeNetworkAclId
-        , "ruleNumber"   =? _cnaeRuleNumber
-        , "protocol"     =? _cnaeProtocol
-        , "ruleAction"   =? _cnaeRuleAction
-        , "egress"       =? _cnaeEgress
-        , "cidrBlock"    =? _cnaeCidrBlock
-        , "Icmp"         =? _cnaeIcmpTypeCode
-        , "portRange"    =? _cnaePortRange
-        ]
-
-instance ToXML CreateNetworkAclEntry where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateNetworkAclEntry"

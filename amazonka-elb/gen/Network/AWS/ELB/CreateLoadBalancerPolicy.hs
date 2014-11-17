@@ -106,16 +106,16 @@ data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 
+instance ToPath CreateLoadBalancerPolicy where
+    toPath = const "/"
+
+instance ToQuery CreateLoadBalancerPolicy
+
+instance ToHeaders CreateLoadBalancerPolicy
+
 instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
 
     request  = post "CreateLoadBalancerPolicy"
     response = nullResponse CreateLoadBalancerPolicyResponse
-
-instance ToPath CreateLoadBalancerPolicy where
-    toPath = const "/"
-
-instance ToHeaders CreateLoadBalancerPolicy
-
-instance ToQuery CreateLoadBalancerPolicy

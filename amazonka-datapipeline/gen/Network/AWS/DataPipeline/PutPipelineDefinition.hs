@@ -126,6 +126,16 @@ ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning
 ppdrValidationWarnings =
     lens _ppdrValidationWarnings (\s a -> s { _ppdrValidationWarnings = a })
 
+instance ToPath PutPipelineDefinition where
+    toPath = const "/"
+
+instance ToQuery PutPipelineDefinition where
+    toQuery = const mempty
+
+instance ToHeaders PutPipelineDefinition
+instance ToJSON PutPipelineDefinition where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutPipelineDefinition where
     type Sv PutPipelineDefinition = DataPipeline
     type Rs PutPipelineDefinition = PutPipelineDefinitionResponse
@@ -135,14 +145,3 @@ instance AWSRequest PutPipelineDefinition where
 
 instance FromJSON PutPipelineDefinitionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath PutPipelineDefinition where
-    toPath = const "/"
-
-instance ToHeaders PutPipelineDefinition
-
-instance ToQuery PutPipelineDefinition where
-    toQuery = const mempty
-
-instance ToJSON PutPipelineDefinition where
-    toJSON = genericToJSON jsonOptions

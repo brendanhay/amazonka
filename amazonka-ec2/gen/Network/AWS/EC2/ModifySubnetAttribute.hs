@@ -77,24 +77,16 @@ data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
 modifySubnetAttributeResponse = ModifySubnetAttributeResponse
 
+instance ToPath ModifySubnetAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifySubnetAttribute
+
+instance ToHeaders ModifySubnetAttribute
+
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2
     type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
 
     request  = post "ModifySubnetAttribute"
     response = nullResponse ModifySubnetAttributeResponse
-
-instance ToPath ModifySubnetAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifySubnetAttribute
-
-instance ToQuery ModifySubnetAttribute where
-    toQuery ModifySubnetAttribute{..} = mconcat
-        [ "subnetId"            =? _msaSubnetId
-        , "MapPublicIpOnLaunch" =? _msaMapPublicIpOnLaunch
-        ]
-
-instance ToXML ModifySubnetAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifySubnetAttribute"

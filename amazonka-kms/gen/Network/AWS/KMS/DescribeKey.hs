@@ -83,6 +83,16 @@ describeKeyResponse = DescribeKeyResponse
 dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrKeyMetadata = lens _dkrKeyMetadata (\s a -> s { _dkrKeyMetadata = a })
 
+instance ToPath DescribeKey where
+    toPath = const "/"
+
+instance ToQuery DescribeKey where
+    toQuery = const mempty
+
+instance ToHeaders DescribeKey
+instance ToJSON DescribeKey where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeKey where
     type Sv DescribeKey = KMS
     type Rs DescribeKey = DescribeKeyResponse
@@ -92,14 +102,3 @@ instance AWSRequest DescribeKey where
 
 instance FromJSON DescribeKeyResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeKey where
-    toPath = const "/"
-
-instance ToHeaders DescribeKey
-
-instance ToQuery DescribeKey where
-    toQuery = const mempty
-
-instance ToJSON DescribeKey where
-    toJSON = genericToJSON jsonOptions

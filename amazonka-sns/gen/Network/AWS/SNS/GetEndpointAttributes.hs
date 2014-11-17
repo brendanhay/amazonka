@@ -94,6 +94,13 @@ gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
     . _Map
 
+instance ToPath GetEndpointAttributes where
+    toPath = const "/"
+
+instance ToQuery GetEndpointAttributes
+
+instance ToHeaders GetEndpointAttributes
+
 instance AWSRequest GetEndpointAttributes where
     type Sv GetEndpointAttributes = SNS
     type Rs GetEndpointAttributes = GetEndpointAttributesResponse
@@ -104,10 +111,3 @@ instance AWSRequest GetEndpointAttributes where
 instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetEndpointAttributesResponse"
-
-instance ToPath GetEndpointAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetEndpointAttributes
-
-instance ToQuery GetEndpointAttributes

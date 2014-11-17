@@ -133,6 +133,13 @@ createPlatformEndpointResponse = CreatePlatformEndpointResponse
 cperEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cperEndpointArn = lens _cperEndpointArn (\s a -> s { _cperEndpointArn = a })
 
+instance ToPath CreatePlatformEndpoint where
+    toPath = const "/"
+
+instance ToQuery CreatePlatformEndpoint
+
+instance ToHeaders CreatePlatformEndpoint
+
 instance AWSRequest CreatePlatformEndpoint where
     type Sv CreatePlatformEndpoint = SNS
     type Rs CreatePlatformEndpoint = CreatePlatformEndpointResponse
@@ -143,10 +150,3 @@ instance AWSRequest CreatePlatformEndpoint where
 instance FromXML CreatePlatformEndpointResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreatePlatformEndpointResponse"
-
-instance ToPath CreatePlatformEndpoint where
-    toPath = const "/"
-
-instance ToHeaders CreatePlatformEndpoint
-
-instance ToQuery CreatePlatformEndpoint

@@ -220,6 +220,16 @@ startWorkflowExecutionResponse = StartWorkflowExecutionResponse
 swerRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
 swerRunId = lens _swerRunId (\s a -> s { _swerRunId = a })
 
+instance ToPath StartWorkflowExecution where
+    toPath = const "/"
+
+instance ToQuery StartWorkflowExecution where
+    toQuery = const mempty
+
+instance ToHeaders StartWorkflowExecution
+instance ToJSON StartWorkflowExecution where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StartWorkflowExecution where
     type Sv StartWorkflowExecution = SWF
     type Rs StartWorkflowExecution = StartWorkflowExecutionResponse
@@ -229,14 +239,3 @@ instance AWSRequest StartWorkflowExecution where
 
 instance FromJSON StartWorkflowExecutionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath StartWorkflowExecution where
-    toPath = const "/"
-
-instance ToHeaders StartWorkflowExecution
-
-instance ToQuery StartWorkflowExecution where
-    toQuery = const mempty
-
-instance ToJSON StartWorkflowExecution where
-    toJSON = genericToJSON jsonOptions

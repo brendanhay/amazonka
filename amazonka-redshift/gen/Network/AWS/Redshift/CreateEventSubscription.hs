@@ -178,6 +178,13 @@ cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubsc
 cesrEventSubscription =
     lens _cesrEventSubscription (\s a -> s { _cesrEventSubscription = a })
 
+instance ToPath CreateEventSubscription where
+    toPath = const "/"
+
+instance ToQuery CreateEventSubscription
+
+instance ToHeaders CreateEventSubscription
+
 instance AWSRequest CreateEventSubscription where
     type Sv CreateEventSubscription = Redshift
     type Rs CreateEventSubscription = CreateEventSubscriptionResponse
@@ -188,10 +195,3 @@ instance AWSRequest CreateEventSubscription where
 instance FromXML CreateEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateEventSubscriptionResponse"
-
-instance ToPath CreateEventSubscription where
-    toPath = const "/"
-
-instance ToHeaders CreateEventSubscription
-
-instance ToQuery CreateEventSubscription

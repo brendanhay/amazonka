@@ -101,6 +101,13 @@ rebootCacheClusterResponse = RebootCacheClusterResponse
 rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
 
+instance ToPath RebootCacheCluster where
+    toPath = const "/"
+
+instance ToQuery RebootCacheCluster
+
+instance ToHeaders RebootCacheCluster
+
 instance AWSRequest RebootCacheCluster where
     type Sv RebootCacheCluster = ElastiCache
     type Rs RebootCacheCluster = RebootCacheClusterResponse
@@ -111,10 +118,3 @@ instance AWSRequest RebootCacheCluster where
 instance FromXML RebootCacheClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebootCacheClusterResponse"
-
-instance ToPath RebootCacheCluster where
-    toPath = const "/"
-
-instance ToHeaders RebootCacheCluster
-
-instance ToQuery RebootCacheCluster

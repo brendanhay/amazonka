@@ -83,6 +83,13 @@ deleteSnapshotResponse = DeleteSnapshotResponse
 dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
 
+instance ToPath DeleteSnapshot where
+    toPath = const "/"
+
+instance ToQuery DeleteSnapshot
+
+instance ToHeaders DeleteSnapshot
+
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = ElastiCache
     type Rs DeleteSnapshot = DeleteSnapshotResponse
@@ -93,10 +100,3 @@ instance AWSRequest DeleteSnapshot where
 instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSnapshotResponse"
-
-instance ToPath DeleteSnapshot where
-    toPath = const "/"
-
-instance ToHeaders DeleteSnapshot
-
-instance ToQuery DeleteSnapshot

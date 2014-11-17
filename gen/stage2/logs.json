@@ -1025,6 +1025,7 @@
                 "name": "CreateLogGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1097,6 +1098,8 @@
                 "name": "CreateLogGroup",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1138,6 +1141,7 @@
                 "name": "CreateLogStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1207,6 +1211,8 @@
                 "name": "CreateLogStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1262,6 +1268,7 @@
                 "name": "DeleteLogGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1334,6 +1341,8 @@
                 "name": "DeleteLogGroup",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1375,6 +1384,7 @@
                 "name": "DeleteLogStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1444,6 +1454,8 @@
                 "name": "DeleteLogStream",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1499,6 +1511,7 @@
                 "name": "DeleteMetricFilterResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1568,6 +1581,8 @@
                 "name": "DeleteMetricFilter",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1623,6 +1638,7 @@
                 "name": "DeleteRetentionPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1695,6 +1711,8 @@
                 "name": "DeleteRetentionPolicy",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1736,6 +1754,7 @@
                 "name": "DescribeLogGroupsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1834,6 +1853,8 @@
                 "name": "DescribeLogGroups",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1946,6 +1967,7 @@
                 "name": "DescribeLogStreamsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2059,6 +2081,8 @@
                 "name": "DescribeLogStreams",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2185,6 +2209,7 @@
                 "name": "DescribeMetricFiltersResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2298,6 +2323,8 @@
                 "name": "DescribeMetricFilters",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2424,6 +2451,7 @@
                 "name": "GetLogEventsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2579,6 +2607,8 @@
                 "name": "GetLogEvents",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2792,6 +2822,7 @@
                 "name": "PutLogEventsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2904,6 +2935,8 @@
                 "name": "PutLogEvents",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3002,6 +3035,7 @@
                 "name": "PutMetricFilterResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3098,6 +3132,8 @@
                 "name": "PutMetricFilter",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3181,6 +3217,7 @@
                 "name": "PutRetentionPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3250,6 +3287,8 @@
                 "name": "PutRetentionPolicy",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3322,6 +3361,7 @@
                 "name": "TestMetricFilterResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3421,6 +3461,8 @@
                 "name": "TestMetricFilter",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

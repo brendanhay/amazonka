@@ -128,6 +128,13 @@ lgfurIsTruncated = lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
 lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
 
+instance ToPath ListGroupsForUser where
+    toPath = const "/"
+
+instance ToQuery ListGroupsForUser
+
+instance ToHeaders ListGroupsForUser
+
 instance AWSRequest ListGroupsForUser where
     type Sv ListGroupsForUser = IAM
     type Rs ListGroupsForUser = ListGroupsForUserResponse
@@ -138,10 +145,3 @@ instance AWSRequest ListGroupsForUser where
 instance FromXML ListGroupsForUserResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGroupsForUserResponse"
-
-instance ToPath ListGroupsForUser where
-    toPath = const "/"
-
-instance ToHeaders ListGroupsForUser
-
-instance ToQuery ListGroupsForUser

@@ -105,6 +105,13 @@ mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe Cluster
 mcsgrClusterSubnetGroup =
     lens _mcsgrClusterSubnetGroup (\s a -> s { _mcsgrClusterSubnetGroup = a })
 
+instance ToPath ModifyClusterSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyClusterSubnetGroup
+
+instance ToHeaders ModifyClusterSubnetGroup
+
 instance AWSRequest ModifyClusterSubnetGroup where
     type Sv ModifyClusterSubnetGroup = Redshift
     type Rs ModifyClusterSubnetGroup = ModifyClusterSubnetGroupResponse
@@ -115,10 +122,3 @@ instance AWSRequest ModifyClusterSubnetGroup where
 instance FromXML ModifyClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyClusterSubnetGroupResponse"
-
-instance ToPath ModifyClusterSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyClusterSubnetGroup
-
-instance ToQuery ModifyClusterSubnetGroup

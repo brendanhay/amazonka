@@ -80,24 +80,16 @@ data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
 deleteVpnGatewayResponse :: DeleteVpnGatewayResponse
 deleteVpnGatewayResponse = DeleteVpnGatewayResponse
 
+instance ToPath DeleteVpnGateway where
+    toPath = const "/"
+
+instance ToQuery DeleteVpnGateway
+
+instance ToHeaders DeleteVpnGateway
+
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
 
     request  = post "DeleteVpnGateway"
     response = nullResponse DeleteVpnGatewayResponse
-
-instance ToPath DeleteVpnGateway where
-    toPath = const "/"
-
-instance ToHeaders DeleteVpnGateway
-
-instance ToQuery DeleteVpnGateway where
-    toQuery DeleteVpnGateway{..} = mconcat
-        [ "dryRun"       =? _dvgDryRun
-        , "VpnGatewayId" =? _dvgVpnGatewayId
-        ]
-
-instance ToXML DeleteVpnGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteVpnGateway"

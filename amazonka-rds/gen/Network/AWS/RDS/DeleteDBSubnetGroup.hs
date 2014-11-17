@@ -71,16 +71,16 @@ data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 
+instance ToPath DeleteDBSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteDBSubnetGroup
+
+instance ToHeaders DeleteDBSubnetGroup
+
 instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS
     type Rs DeleteDBSubnetGroup = DeleteDBSubnetGroupResponse
 
     request  = post "DeleteDBSubnetGroup"
     response = nullResponse DeleteDBSubnetGroupResponse
-
-instance ToPath DeleteDBSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteDBSubnetGroup
-
-instance ToQuery DeleteDBSubnetGroup

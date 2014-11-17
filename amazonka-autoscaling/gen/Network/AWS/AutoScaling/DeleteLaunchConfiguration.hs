@@ -72,16 +72,16 @@ data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 
+instance ToPath DeleteLaunchConfiguration where
+    toPath = const "/"
+
+instance ToQuery DeleteLaunchConfiguration
+
+instance ToHeaders DeleteLaunchConfiguration
+
 instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
 
     request  = post "DeleteLaunchConfiguration"
     response = nullResponse DeleteLaunchConfigurationResponse
-
-instance ToPath DeleteLaunchConfiguration where
-    toPath = const "/"
-
-instance ToHeaders DeleteLaunchConfiguration
-
-instance ToQuery DeleteLaunchConfiguration

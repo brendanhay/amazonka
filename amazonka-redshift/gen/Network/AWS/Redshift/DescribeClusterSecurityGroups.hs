@@ -135,6 +135,13 @@ dcsgr1ClusterSecurityGroups =
 dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 
+instance ToPath DescribeClusterSecurityGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeClusterSecurityGroups
+
+instance ToHeaders DescribeClusterSecurityGroups
+
 instance AWSRequest DescribeClusterSecurityGroups where
     type Sv DescribeClusterSecurityGroups = Redshift
     type Rs DescribeClusterSecurityGroups = DescribeClusterSecurityGroupsResponse
@@ -145,10 +152,3 @@ instance AWSRequest DescribeClusterSecurityGroups where
 instance FromXML DescribeClusterSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClusterSecurityGroupsResponse"
-
-instance ToPath DescribeClusterSecurityGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusterSecurityGroups
-
-instance ToQuery DescribeClusterSecurityGroups

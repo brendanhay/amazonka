@@ -112,6 +112,13 @@ createRoleResponse p1 = CreateRoleResponse
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\s a -> s { _crrRole = a })
 
+instance ToPath CreateRole where
+    toPath = const "/"
+
+instance ToQuery CreateRole
+
+instance ToHeaders CreateRole
+
 instance AWSRequest CreateRole where
     type Sv CreateRole = IAM
     type Rs CreateRole = CreateRoleResponse
@@ -122,10 +129,3 @@ instance AWSRequest CreateRole where
 instance FromXML CreateRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateRoleResponse"
-
-instance ToPath CreateRole where
-    toPath = const "/"
-
-instance ToHeaders CreateRole
-
-instance ToQuery CreateRole

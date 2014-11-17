@@ -95,6 +95,13 @@ gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
     . _Map
 
+instance ToPath GetTopicAttributes where
+    toPath = const "/"
+
+instance ToQuery GetTopicAttributes
+
+instance ToHeaders GetTopicAttributes
+
 instance AWSRequest GetTopicAttributes where
     type Sv GetTopicAttributes = SNS
     type Rs GetTopicAttributes = GetTopicAttributesResponse
@@ -105,10 +112,3 @@ instance AWSRequest GetTopicAttributes where
 instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetTopicAttributesResponse"
-
-instance ToPath GetTopicAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetTopicAttributes
-
-instance ToQuery GetTopicAttributes

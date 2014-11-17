@@ -71,16 +71,16 @@ data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 
+instance ToPath DeleteCacheSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteCacheSubnetGroup
+
+instance ToHeaders DeleteCacheSubnetGroup
+
 instance AWSRequest DeleteCacheSubnetGroup where
     type Sv DeleteCacheSubnetGroup = ElastiCache
     type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse
 
     request  = post "DeleteCacheSubnetGroup"
     response = nullResponse DeleteCacheSubnetGroupResponse
-
-instance ToPath DeleteCacheSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteCacheSubnetGroup
-
-instance ToQuery DeleteCacheSubnetGroup

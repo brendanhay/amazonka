@@ -115,16 +115,6 @@ describeDatasetResponse = DescribeDatasetResponse
 ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrDataset = lens _ddrDataset (\s a -> s { _ddrDataset = a })
 
-instance AWSRequest DescribeDataset where
-    type Sv DescribeDataset = CognitoSync
-    type Rs DescribeDataset = DescribeDatasetResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON DescribeDatasetResponse where
-    parseJSON = genericParseJSON jsonOptions
-
 instance ToPath DescribeDataset where
     toPath DescribeDataset{..} = mconcat
         [ "/identitypools/"
@@ -135,10 +125,19 @@ instance ToPath DescribeDataset where
         , toText _ddDatasetName
         ]
 
-instance ToHeaders DescribeDataset
-
 instance ToQuery DescribeDataset where
     toQuery = const mempty
 
+instance ToHeaders DescribeDataset
 instance ToJSON DescribeDataset where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest DescribeDataset where
+    type Sv DescribeDataset = CognitoSync
+    type Rs DescribeDataset = DescribeDatasetResponse
+
+    request  = get
+    response = jsonResponse
+
+instance FromJSON DescribeDatasetResponse where
+    parseJSON = genericParseJSON jsonOptions

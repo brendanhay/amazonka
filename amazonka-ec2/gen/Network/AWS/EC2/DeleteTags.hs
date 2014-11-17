@@ -91,25 +91,16 @@ data DeleteTagsResponse = DeleteTagsResponse
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
 
+instance ToPath DeleteTags where
+    toPath = const "/"
+
+instance ToQuery DeleteTags
+
+instance ToHeaders DeleteTags
+
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2
     type Rs DeleteTags = DeleteTagsResponse
 
     request  = post "DeleteTags"
     response = nullResponse DeleteTagsResponse
-
-instance ToPath DeleteTags where
-    toPath = const "/"
-
-instance ToHeaders DeleteTags
-
-instance ToQuery DeleteTags where
-    toQuery DeleteTags{..} = mconcat
-        [ "dryRun"     =? _dt1DryRun
-        , "resourceId" =? _dt1Resources
-        , "tag"        =? _dt1Tags
-        ]
-
-instance ToXML DeleteTags where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteTags"

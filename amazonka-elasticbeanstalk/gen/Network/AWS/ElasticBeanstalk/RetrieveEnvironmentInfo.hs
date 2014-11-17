@@ -116,6 +116,13 @@ reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDes
 reirEnvironmentInfo =
     lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })
 
+instance ToPath RetrieveEnvironmentInfo where
+    toPath = const "/"
+
+instance ToQuery RetrieveEnvironmentInfo
+
+instance ToHeaders RetrieveEnvironmentInfo
+
 instance AWSRequest RetrieveEnvironmentInfo where
     type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
     type Rs RetrieveEnvironmentInfo = RetrieveEnvironmentInfoResponse
@@ -126,10 +133,3 @@ instance AWSRequest RetrieveEnvironmentInfo where
 instance FromXML RetrieveEnvironmentInfoResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResponse"
-
-instance ToPath RetrieveEnvironmentInfo where
-    toPath = const "/"
-
-instance ToHeaders RetrieveEnvironmentInfo
-
-instance ToQuery RetrieveEnvironmentInfo

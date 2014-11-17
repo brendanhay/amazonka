@@ -122,6 +122,16 @@ datrConfiguration =
 datrTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrTypeInfo = lens _datrTypeInfo (\s a -> s { _datrTypeInfo = a })
 
+instance ToPath DescribeActivityType where
+    toPath = const "/"
+
+instance ToQuery DescribeActivityType where
+    toQuery = const mempty
+
+instance ToHeaders DescribeActivityType
+instance ToJSON DescribeActivityType where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeActivityType where
     type Sv DescribeActivityType = SWF
     type Rs DescribeActivityType = DescribeActivityTypeResponse
@@ -131,14 +141,3 @@ instance AWSRequest DescribeActivityType where
 
 instance FromJSON DescribeActivityTypeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeActivityType where
-    toPath = const "/"
-
-instance ToHeaders DescribeActivityType
-
-instance ToQuery DescribeActivityType where
-    toQuery = const mempty
-
-instance ToJSON DescribeActivityType where
-    toJSON = genericToJSON jsonOptions

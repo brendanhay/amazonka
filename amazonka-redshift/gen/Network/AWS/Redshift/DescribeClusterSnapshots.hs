@@ -188,6 +188,13 @@ dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })
 dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a })
 
+instance ToPath DescribeClusterSnapshots where
+    toPath = const "/"
+
+instance ToQuery DescribeClusterSnapshots
+
+instance ToHeaders DescribeClusterSnapshots
+
 instance AWSRequest DescribeClusterSnapshots where
     type Sv DescribeClusterSnapshots = Redshift
     type Rs DescribeClusterSnapshots = DescribeClusterSnapshotsResponse
@@ -198,10 +205,3 @@ instance AWSRequest DescribeClusterSnapshots where
 instance FromXML DescribeClusterSnapshotsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeClusterSnapshotsResponse"
-
-instance ToPath DescribeClusterSnapshots where
-    toPath = const "/"
-
-instance ToHeaders DescribeClusterSnapshots
-
-instance ToQuery DescribeClusterSnapshots

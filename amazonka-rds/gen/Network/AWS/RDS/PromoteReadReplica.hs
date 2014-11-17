@@ -117,6 +117,13 @@ promoteReadReplicaResponse = PromoteReadReplicaResponse
 prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
 
+instance ToPath PromoteReadReplica where
+    toPath = const "/"
+
+instance ToQuery PromoteReadReplica
+
+instance ToHeaders PromoteReadReplica
+
 instance AWSRequest PromoteReadReplica where
     type Sv PromoteReadReplica = RDS
     type Rs PromoteReadReplica = PromoteReadReplicaResponse
@@ -127,10 +134,3 @@ instance AWSRequest PromoteReadReplica where
 instance FromXML PromoteReadReplicaResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PromoteReadReplicaResponse"
-
-instance ToPath PromoteReadReplica where
-    toPath = const "/"
-
-instance ToHeaders PromoteReadReplica
-
-instance ToQuery PromoteReadReplica

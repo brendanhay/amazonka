@@ -95,6 +95,16 @@ bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo =
     lens _bgdrDeploymentsInfo (\s a -> s { _bgdrDeploymentsInfo = a })
 
+instance ToPath BatchGetDeployments where
+    toPath = const "/"
+
+instance ToQuery BatchGetDeployments where
+    toQuery = const mempty
+
+instance ToHeaders BatchGetDeployments
+instance ToJSON BatchGetDeployments where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest BatchGetDeployments where
     type Sv BatchGetDeployments = CodeDeploy
     type Rs BatchGetDeployments = BatchGetDeploymentsResponse
@@ -104,14 +114,3 @@ instance AWSRequest BatchGetDeployments where
 
 instance FromJSON BatchGetDeploymentsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath BatchGetDeployments where
-    toPath = const "/"
-
-instance ToHeaders BatchGetDeployments
-
-instance ToQuery BatchGetDeployments where
-    toQuery = const mempty
-
-instance ToJSON BatchGetDeployments where
-    toJSON = genericToJSON jsonOptions

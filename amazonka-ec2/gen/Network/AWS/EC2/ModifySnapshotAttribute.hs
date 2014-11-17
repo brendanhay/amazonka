@@ -128,29 +128,16 @@ data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 
+instance ToPath ModifySnapshotAttribute where
+    toPath = const "/"
+
+instance ToQuery ModifySnapshotAttribute
+
+instance ToHeaders ModifySnapshotAttribute
+
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2
     type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
 
     request  = post "ModifySnapshotAttribute"
     response = nullResponse ModifySnapshotAttributeResponse
-
-instance ToPath ModifySnapshotAttribute where
-    toPath = const "/"
-
-instance ToHeaders ModifySnapshotAttribute
-
-instance ToQuery ModifySnapshotAttribute where
-    toQuery ModifySnapshotAttribute{..} = mconcat
-        [ "dryRun"                 =? _msaDryRun
-        , "SnapshotId"             =? _msaSnapshotId
-        , "Attribute"              =? _msaAttribute
-        , "OperationType"          =? _msaOperationType
-        , "UserId"                 =? _msaUserIds
-        , "UserGroup"              =? _msaGroupNames
-        , "CreateVolumePermission" =? _msaCreateVolumePermission
-        ]
-
-instance ToXML ModifySnapshotAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifySnapshotAttribute"

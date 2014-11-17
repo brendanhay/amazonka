@@ -173,6 +173,13 @@ publishResponse = PublishResponse
 prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
 
+instance ToPath Publish where
+    toPath = const "/"
+
+instance ToQuery Publish
+
+instance ToHeaders Publish
+
 instance AWSRequest Publish where
     type Sv Publish = SNS
     type Rs Publish = PublishResponse
@@ -183,10 +190,3 @@ instance AWSRequest Publish where
 instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PublishResponse"
-
-instance ToPath Publish where
-    toPath = const "/"
-
-instance ToHeaders Publish
-
-instance ToQuery Publish

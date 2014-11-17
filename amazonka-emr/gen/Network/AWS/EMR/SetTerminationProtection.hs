@@ -94,20 +94,19 @@ data SetTerminationProtectionResponse = SetTerminationProtectionResponse
 setTerminationProtectionResponse :: SetTerminationProtectionResponse
 setTerminationProtectionResponse = SetTerminationProtectionResponse
 
+instance ToPath SetTerminationProtection where
+    toPath = const "/"
+
+instance ToQuery SetTerminationProtection where
+    toQuery = const mempty
+
+instance ToHeaders SetTerminationProtection
+instance ToJSON SetTerminationProtection where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR
     type Rs SetTerminationProtection = SetTerminationProtectionResponse
 
     request  = post
     response = nullResponse SetTerminationProtectionResponse
-
-instance ToPath SetTerminationProtection where
-    toPath = const "/"
-
-instance ToHeaders SetTerminationProtection
-
-instance ToQuery SetTerminationProtection where
-    toQuery = const mempty
-
-instance ToJSON SetTerminationProtection where
-    toJSON = genericToJSON jsonOptions

@@ -99,20 +99,19 @@ data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 registerRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse
 registerRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 
+instance ToPath RegisterRdsDbInstance where
+    toPath = const "/"
+
+instance ToQuery RegisterRdsDbInstance where
+    toQuery = const mempty
+
+instance ToHeaders RegisterRdsDbInstance
+instance ToJSON RegisterRdsDbInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse
 
     request  = post
     response = nullResponse RegisterRdsDbInstanceResponse
-
-instance ToPath RegisterRdsDbInstance where
-    toPath = const "/"
-
-instance ToHeaders RegisterRdsDbInstance
-
-instance ToQuery RegisterRdsDbInstance where
-    toQuery = const mempty
-
-instance ToJSON RegisterRdsDbInstance where
-    toJSON = genericToJSON jsonOptions

@@ -83,20 +83,19 @@ data AssignVolumeResponse = AssignVolumeResponse
 assignVolumeResponse :: AssignVolumeResponse
 assignVolumeResponse = AssignVolumeResponse
 
+instance ToPath AssignVolume where
+    toPath = const "/"
+
+instance ToQuery AssignVolume where
+    toQuery = const mempty
+
+instance ToHeaders AssignVolume
+instance ToJSON AssignVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks
     type Rs AssignVolume = AssignVolumeResponse
 
     request  = post
     response = nullResponse AssignVolumeResponse
-
-instance ToPath AssignVolume where
-    toPath = const "/"
-
-instance ToHeaders AssignVolume
-
-instance ToQuery AssignVolume where
-    toQuery = const mempty
-
-instance ToJSON AssignVolume where
-    toJSON = genericToJSON jsonOptions

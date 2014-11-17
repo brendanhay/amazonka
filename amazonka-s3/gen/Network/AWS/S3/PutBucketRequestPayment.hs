@@ -89,27 +89,26 @@ data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
-instance AWSRequest PutBucketRequestPayment where
-    type Sv PutBucketRequestPayment = S3
-    type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
-
-    request  = put
-    response = nullResponse PutBucketRequestPaymentResponse
-
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat
         [ "/"
         , toText _pbrpBucket
         ]
 
+instance ToQuery PutBucketRequestPayment where
+    toQuery = const "requestPayment"
+
 instance ToHeaders PutBucketRequestPayment where
     toHeaders PutBucketRequestPayment{..} = mconcat
         [ "Content-MD5" =: _pbrpContentMD5
         ]
-
-instance ToQuery PutBucketRequestPayment where
-    toQuery = const "requestPayment"
-
 instance ToXML PutBucketRequestPayment where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketRequestPayment"
+
+instance AWSRequest PutBucketRequestPayment where
+    type Sv PutBucketRequestPayment = S3
+    type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
+
+    request  = put
+    response = nullResponse PutBucketRequestPaymentResponse

@@ -78,24 +78,16 @@ data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 
+instance ToPath DeleteNetworkInterface where
+    toPath = const "/"
+
+instance ToQuery DeleteNetworkInterface
+
+instance ToHeaders DeleteNetworkInterface
+
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
 
     request  = post "DeleteNetworkInterface"
     response = nullResponse DeleteNetworkInterfaceResponse
-
-instance ToPath DeleteNetworkInterface where
-    toPath = const "/"
-
-instance ToHeaders DeleteNetworkInterface
-
-instance ToQuery DeleteNetworkInterface where
-    toQuery DeleteNetworkInterface{..} = mconcat
-        [ "dryRun"             =? _dni2DryRun
-        , "networkInterfaceId" =? _dni2NetworkInterfaceId
-        ]
-
-instance ToXML DeleteNetworkInterface where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteNetworkInterface"

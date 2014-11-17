@@ -123,6 +123,16 @@ lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a })
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
 lcrMarker = lens _lcrMarker (\s a -> s { _lcrMarker = a })
 
+instance ToPath ListClusters where
+    toPath = const "/"
+
+instance ToQuery ListClusters where
+    toQuery = const mempty
+
+instance ToHeaders ListClusters
+instance ToJSON ListClusters where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListClusters where
     type Sv ListClusters = EMR
     type Rs ListClusters = ListClustersResponse
@@ -132,14 +142,3 @@ instance AWSRequest ListClusters where
 
 instance FromJSON ListClustersResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListClusters where
-    toPath = const "/"
-
-instance ToHeaders ListClusters
-
-instance ToQuery ListClusters where
-    toQuery = const mempty
-
-instance ToJSON ListClusters where
-    toJSON = genericToJSON jsonOptions

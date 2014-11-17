@@ -108,6 +108,13 @@ mrirReservedInstancesModificationId =
     lens _mrirReservedInstancesModificationId
         (\s a -> s { _mrirReservedInstancesModificationId = a })
 
+instance ToPath ModifyReservedInstances where
+    toPath = const "/"
+
+instance ToQuery ModifyReservedInstances
+
+instance ToHeaders ModifyReservedInstances
+
 instance AWSRequest ModifyReservedInstances where
     type Sv ModifyReservedInstances = EC2
     type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
@@ -118,19 +125,3 @@ instance AWSRequest ModifyReservedInstances where
 instance FromXML ModifyReservedInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyReservedInstancesResponse"
-
-instance ToPath ModifyReservedInstances where
-    toPath = const "/"
-
-instance ToHeaders ModifyReservedInstances
-
-instance ToQuery ModifyReservedInstances where
-    toQuery ModifyReservedInstances{..} = mconcat
-        [ "clientToken"                               =? _mriClientToken
-        , "ReservedInstancesId"                       =? _mriReservedInstancesIds
-        , "ReservedInstancesConfigurationSetItemType" =? _mriTargetConfigurations
-        ]
-
-instance ToXML ModifyReservedInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ModifyReservedInstances"

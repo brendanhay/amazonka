@@ -70,16 +70,16 @@ data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 
+instance ToPath DeleteCacheSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteCacheSecurityGroup
+
+instance ToHeaders DeleteCacheSecurityGroup
+
 instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache
     type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse
 
     request  = post "DeleteCacheSecurityGroup"
     response = nullResponse DeleteCacheSecurityGroupResponse
-
-instance ToPath DeleteCacheSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteCacheSecurityGroup
-
-instance ToQuery DeleteCacheSecurityGroup

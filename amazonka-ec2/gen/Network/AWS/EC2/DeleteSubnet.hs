@@ -77,24 +77,16 @@ data DeleteSubnetResponse = DeleteSubnetResponse
 deleteSubnetResponse :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse
 
+instance ToPath DeleteSubnet where
+    toPath = const "/"
+
+instance ToQuery DeleteSubnet
+
+instance ToHeaders DeleteSubnet
+
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2
     type Rs DeleteSubnet = DeleteSubnetResponse
 
     request  = post "DeleteSubnet"
     response = nullResponse DeleteSubnetResponse
-
-instance ToPath DeleteSubnet where
-    toPath = const "/"
-
-instance ToHeaders DeleteSubnet
-
-instance ToQuery DeleteSubnet where
-    toQuery DeleteSubnet{..} = mconcat
-        [ "dryRun"   =? _ds2DryRun
-        , "SubnetId" =? _ds2SubnetId
-        ]
-
-instance ToXML DeleteSubnet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteSubnet"

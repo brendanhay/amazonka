@@ -122,6 +122,16 @@ csfvrprVolumeRecoveryPointTime =
     lens _csfvrprVolumeRecoveryPointTime
         (\s a -> s { _csfvrprVolumeRecoveryPointTime = a })
 
+instance ToPath CreateSnapshotFromVolumeRecoveryPoint where
+    toPath = const "/"
+
+instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
+    toQuery = const mempty
+
+instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
+instance ToJSON CreateSnapshotFromVolumeRecoveryPoint where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
@@ -131,14 +141,3 @@ instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateSnapshotFromVolumeRecoveryPoint where
-    toPath = const "/"
-
-instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
-
-instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
-    toQuery = const mempty
-
-instance ToJSON CreateSnapshotFromVolumeRecoveryPoint where
-    toJSON = genericToJSON jsonOptions

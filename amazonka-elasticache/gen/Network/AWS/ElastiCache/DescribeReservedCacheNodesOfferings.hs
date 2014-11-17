@@ -167,6 +167,13 @@ drcnorReservedCacheNodesOfferings =
     lens _drcnorReservedCacheNodesOfferings
         (\s a -> s { _drcnorReservedCacheNodesOfferings = a })
 
+instance ToPath DescribeReservedCacheNodesOfferings where
+    toPath = const "/"
+
+instance ToQuery DescribeReservedCacheNodesOfferings
+
+instance ToHeaders DescribeReservedCacheNodesOfferings
+
 instance AWSRequest DescribeReservedCacheNodesOfferings where
     type Sv DescribeReservedCacheNodesOfferings = ElastiCache
     type Rs DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferingsResponse
@@ -177,10 +184,3 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedCacheNodesOfferingsResponse"
-
-instance ToPath DescribeReservedCacheNodesOfferings where
-    toPath = const "/"
-
-instance ToHeaders DescribeReservedCacheNodesOfferings
-
-instance ToQuery DescribeReservedCacheNodesOfferings

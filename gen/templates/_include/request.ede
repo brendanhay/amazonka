@@ -1,23 +1,7 @@
 {% include "path.ede" %}
+{% include "query.ede" %}
 {% include "headers.ede" %}
 {% case request.style %}
-{% when "query" %}
-instance ToQuery {{ request.name }}
-{% else %}
-  {% include "query.ede" %}
-{% endcase %}
-{% case request.style %}
-{% when "nullary" %}
-  {% case request.protocol %}
-  {% when "json" %}
-    {% include "json-to.ede" with type = request %}
-  {% when "rest-json" %}
-    {% include "json-to.ede" with type = request %}
-  {% when "xml" %}
-    {% include "xml-to.ede"  with type = request %}
-  {% when "rest-xml" %}
-    {% include "xml-to.ede"  with type = request %}
-  {% endcase %}
 {% when "body" %}
   {% include "body.ede" %}
 {% when "body-headers" %}

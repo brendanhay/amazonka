@@ -89,6 +89,20 @@ gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
 gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
+instance ToPath GetBucketAcl where
+    toPath GetBucketAcl{..} = mconcat
+        [ "/"
+        , toText _gbaBucket
+        ]
+
+instance ToQuery GetBucketAcl where
+    toQuery = const "acl"
+
+instance ToHeaders GetBucketAcl
+instance ToXML GetBucketAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketAcl"
+
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclResponse
@@ -99,18 +113,3 @@ instance AWSRequest GetBucketAcl where
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketAclResponse"
-
-instance ToPath GetBucketAcl where
-    toPath GetBucketAcl{..} = mconcat
-        [ "/"
-        , toText _gbaBucket
-        ]
-
-instance ToHeaders GetBucketAcl
-
-instance ToQuery GetBucketAcl where
-    toQuery = const "acl"
-
-instance ToXML GetBucketAcl where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketAcl"

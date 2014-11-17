@@ -114,6 +114,13 @@ describeExpressionsResponse = DescribeExpressionsResponse
 derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a })
 
+instance ToPath DescribeExpressions where
+    toPath = const "/"
+
+instance ToQuery DescribeExpressions
+
+instance ToHeaders DescribeExpressions
+
 instance AWSRequest DescribeExpressions where
     type Sv DescribeExpressions = CloudSearch
     type Rs DescribeExpressions = DescribeExpressionsResponse
@@ -124,10 +131,3 @@ instance AWSRequest DescribeExpressions where
 instance FromXML DescribeExpressionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeExpressionsResponse"
-
-instance ToPath DescribeExpressions where
-    toPath = const "/"
-
-instance ToHeaders DescribeExpressions
-
-instance ToQuery DescribeExpressions

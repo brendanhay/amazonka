@@ -81,20 +81,19 @@ data DeprecateDomainResponse = DeprecateDomainResponse
 deprecateDomainResponse :: DeprecateDomainResponse
 deprecateDomainResponse = DeprecateDomainResponse
 
+instance ToPath DeprecateDomain where
+    toPath = const "/"
+
+instance ToQuery DeprecateDomain where
+    toQuery = const mempty
+
+instance ToHeaders DeprecateDomain
+instance ToJSON DeprecateDomain where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF
     type Rs DeprecateDomain = DeprecateDomainResponse
 
     request  = post
     response = nullResponse DeprecateDomainResponse
-
-instance ToPath DeprecateDomain where
-    toPath = const "/"
-
-instance ToHeaders DeprecateDomain
-
-instance ToQuery DeprecateDomain where
-    toQuery = const mempty
-
-instance ToJSON DeprecateDomain where
-    toJSON = genericToJSON jsonOptions

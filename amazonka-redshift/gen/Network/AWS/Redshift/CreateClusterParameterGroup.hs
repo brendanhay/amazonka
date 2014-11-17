@@ -124,6 +124,13 @@ ccpgrClusterParameterGroup =
     lens _ccpgrClusterParameterGroup
         (\s a -> s { _ccpgrClusterParameterGroup = a })
 
+instance ToPath CreateClusterParameterGroup where
+    toPath = const "/"
+
+instance ToQuery CreateClusterParameterGroup
+
+instance ToHeaders CreateClusterParameterGroup
+
 instance AWSRequest CreateClusterParameterGroup where
     type Sv CreateClusterParameterGroup = Redshift
     type Rs CreateClusterParameterGroup = CreateClusterParameterGroupResponse
@@ -134,10 +141,3 @@ instance AWSRequest CreateClusterParameterGroup where
 instance FromXML CreateClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterParameterGroupResponse"
-
-instance ToPath CreateClusterParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateClusterParameterGroup
-
-instance ToQuery CreateClusterParameterGroup

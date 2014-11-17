@@ -82,6 +82,19 @@ readJobResponse = ReadJobResponse
 rjrJob :: Lens' ReadJobResponse (Maybe Job')
 rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
 
+instance ToPath ReadJob where
+    toPath ReadJob{..} = mconcat
+        [ "/2012-09-25/jobs/"
+        , toText _rjId
+        ]
+
+instance ToQuery ReadJob where
+    toQuery = const mempty
+
+instance ToHeaders ReadJob
+instance ToJSON ReadJob where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ReadJob where
     type Sv ReadJob = ElasticTranscoder
     type Rs ReadJob = ReadJobResponse
@@ -91,17 +104,3 @@ instance AWSRequest ReadJob where
 
 instance FromJSON ReadJobResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ReadJob where
-    toPath ReadJob{..} = mconcat
-        [ "/2012-09-25/jobs/"
-        , toText _rjId
-        ]
-
-instance ToHeaders ReadJob
-
-instance ToQuery ReadJob where
-    toQuery = const mempty
-
-instance ToJSON ReadJob where
-    toJSON = genericToJSON jsonOptions

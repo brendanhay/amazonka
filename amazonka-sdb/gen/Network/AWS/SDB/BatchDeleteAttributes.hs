@@ -81,16 +81,16 @@ data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse
 
+instance ToPath BatchDeleteAttributes where
+    toPath = const "/"
+
+instance ToQuery BatchDeleteAttributes
+
+instance ToHeaders BatchDeleteAttributes
+
 instance AWSRequest BatchDeleteAttributes where
     type Sv BatchDeleteAttributes = SDB
     type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse
 
     request  = post "BatchDeleteAttributes"
     response = nullResponse BatchDeleteAttributesResponse
-
-instance ToPath BatchDeleteAttributes where
-    toPath = const "/"
-
-instance ToHeaders BatchDeleteAttributes
-
-instance ToQuery BatchDeleteAttributes

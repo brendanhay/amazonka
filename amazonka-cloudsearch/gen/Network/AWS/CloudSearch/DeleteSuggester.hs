@@ -93,6 +93,13 @@ deleteSuggesterResponse p1 = DeleteSuggesterResponse
 dsr1Suggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 dsr1Suggester = lens _dsr1Suggester (\s a -> s { _dsr1Suggester = a })
 
+instance ToPath DeleteSuggester where
+    toPath = const "/"
+
+instance ToQuery DeleteSuggester
+
+instance ToHeaders DeleteSuggester
+
 instance AWSRequest DeleteSuggester where
     type Sv DeleteSuggester = CloudSearch
     type Rs DeleteSuggester = DeleteSuggesterResponse
@@ -103,10 +110,3 @@ instance AWSRequest DeleteSuggester where
 instance FromXML DeleteSuggesterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSuggesterResponse"
-
-instance ToPath DeleteSuggester where
-    toPath = const "/"
-
-instance ToHeaders DeleteSuggester
-
-instance ToQuery DeleteSuggester

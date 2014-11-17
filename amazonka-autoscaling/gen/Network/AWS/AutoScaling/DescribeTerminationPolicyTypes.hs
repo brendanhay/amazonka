@@ -77,6 +77,14 @@ dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes
         (\s a -> s { _dtptrTerminationPolicyTypes = a })
 
+instance ToPath DescribeTerminationPolicyTypes where
+    toPath = const "/"
+
+instance ToQuery DescribeTerminationPolicyTypes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTerminationPolicyTypes
+
 instance AWSRequest DescribeTerminationPolicyTypes where
     type Sv DescribeTerminationPolicyTypes = AutoScaling
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
@@ -87,10 +95,3 @@ instance AWSRequest DescribeTerminationPolicyTypes where
 instance FromXML DescribeTerminationPolicyTypesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesResponse"
-
-instance ToPath DescribeTerminationPolicyTypes where
-    toPath = const "/"
-
-instance ToHeaders DescribeTerminationPolicyTypes
-
-instance ToQuery DescribeTerminationPolicyTypes

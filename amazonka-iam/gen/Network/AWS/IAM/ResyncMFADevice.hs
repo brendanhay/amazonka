@@ -105,16 +105,16 @@ data ResyncMFADeviceResponse = ResyncMFADeviceResponse
 resyncMFADeviceResponse :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse
 
+instance ToPath ResyncMFADevice where
+    toPath = const "/"
+
+instance ToQuery ResyncMFADevice
+
+instance ToHeaders ResyncMFADevice
+
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
 
     request  = post "ResyncMFADevice"
     response = nullResponse ResyncMFADeviceResponse
-
-instance ToPath ResyncMFADevice where
-    toPath = const "/"
-
-instance ToHeaders ResyncMFADevice
-
-instance ToQuery ResyncMFADevice

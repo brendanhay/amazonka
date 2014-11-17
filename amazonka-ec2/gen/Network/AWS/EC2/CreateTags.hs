@@ -90,25 +90,16 @@ data CreateTagsResponse = CreateTagsResponse
 createTagsResponse :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse
 
+instance ToPath CreateTags where
+    toPath = const "/"
+
+instance ToQuery CreateTags
+
+instance ToHeaders CreateTags
+
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2
     type Rs CreateTags = CreateTagsResponse
 
     request  = post "CreateTags"
     response = nullResponse CreateTagsResponse
-
-instance ToPath CreateTags where
-    toPath = const "/"
-
-instance ToHeaders CreateTags
-
-instance ToQuery CreateTags where
-    toQuery CreateTags{..} = mconcat
-        [ "dryRun"     =? _ct1DryRun
-        , "ResourceId" =? _ct1Resources
-        , "Tag"        =? _ct1Tags
-        ]
-
-instance ToXML CreateTags where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateTags"

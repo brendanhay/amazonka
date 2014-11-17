@@ -142,6 +142,16 @@ diprSupportedLoginProviders =
         (\s a -> s { _diprSupportedLoginProviders = a })
             . _Map
 
+instance ToPath DescribeIdentityPool where
+    toPath = const "/"
+
+instance ToQuery DescribeIdentityPool where
+    toQuery = const mempty
+
+instance ToHeaders DescribeIdentityPool
+instance ToJSON DescribeIdentityPool where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeIdentityPool where
     type Sv DescribeIdentityPool = CognitoIdentity
     type Rs DescribeIdentityPool = DescribeIdentityPoolResponse
@@ -151,14 +161,3 @@ instance AWSRequest DescribeIdentityPool where
 
 instance FromJSON DescribeIdentityPoolResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeIdentityPool where
-    toPath = const "/"
-
-instance ToHeaders DescribeIdentityPool
-
-instance ToQuery DescribeIdentityPool where
-    toQuery = const mempty
-
-instance ToJSON DescribeIdentityPool where
-    toJSON = genericToJSON jsonOptions

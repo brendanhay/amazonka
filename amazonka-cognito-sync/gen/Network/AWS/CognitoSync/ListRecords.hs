@@ -227,16 +227,6 @@ lrrSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
 lrrSyncSessionToken =
     lens _lrrSyncSessionToken (\s a -> s { _lrrSyncSessionToken = a })
 
-instance AWSRequest ListRecords where
-    type Sv ListRecords = CognitoSync
-    type Rs ListRecords = ListRecordsResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ListRecordsResponse where
-    parseJSON = genericParseJSON jsonOptions
-
 instance ToPath ListRecords where
     toPath ListRecords{..} = mconcat
         [ "/identitypools/"
@@ -248,15 +238,24 @@ instance ToPath ListRecords where
         , "/records"
         ]
 
-instance ToHeaders ListRecords
-
 instance ToQuery ListRecords where
     toQuery ListRecords{..} = mconcat
-        [ "lastSyncCount"    =? _lrLastSyncCount
-        , "nextToken"        =? _lrNextToken
-        , "maxResults"       =? _lrMaxResults
-        , "syncSessionToken" =? _lrSyncSessionToken
+          [   "lastSyncCount"    =? _lrLastSyncCount
+          ,   "nextToken"        =? _lrNextToken
+          ,   "maxResults"       =? _lrMaxResults
+          ,   "syncSessionToken" =? _lrSyncSessionToken
         ]
 
+instance ToHeaders ListRecords
 instance ToJSON ListRecords where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest ListRecords where
+    type Sv ListRecords = CognitoSync
+    type Rs ListRecords = ListRecordsResponse
+
+    request  = get
+    response = jsonResponse
+
+instance FromJSON ListRecordsResponse where
+    parseJSON = genericParseJSON jsonOptions

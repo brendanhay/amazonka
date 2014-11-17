@@ -93,6 +93,13 @@ createSnapshotResponse = CreateSnapshotResponse
 csr1Snapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 csr1Snapshot = lens _csr1Snapshot (\s a -> s { _csr1Snapshot = a })
 
+instance ToPath CreateSnapshot where
+    toPath = const "/"
+
+instance ToQuery CreateSnapshot
+
+instance ToHeaders CreateSnapshot
+
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = ElastiCache
     type Rs CreateSnapshot = CreateSnapshotResponse
@@ -103,10 +110,3 @@ instance AWSRequest CreateSnapshot where
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSnapshotResponse"
-
-instance ToPath CreateSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CreateSnapshot
-
-instance ToQuery CreateSnapshot

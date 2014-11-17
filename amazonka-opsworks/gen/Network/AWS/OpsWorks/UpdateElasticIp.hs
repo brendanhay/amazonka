@@ -81,20 +81,19 @@ data UpdateElasticIpResponse = UpdateElasticIpResponse
 updateElasticIpResponse :: UpdateElasticIpResponse
 updateElasticIpResponse = UpdateElasticIpResponse
 
+instance ToPath UpdateElasticIp where
+    toPath = const "/"
+
+instance ToQuery UpdateElasticIp where
+    toQuery = const mempty
+
+instance ToHeaders UpdateElasticIp
+instance ToJSON UpdateElasticIp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks
     type Rs UpdateElasticIp = UpdateElasticIpResponse
 
     request  = post
     response = nullResponse UpdateElasticIpResponse
-
-instance ToPath UpdateElasticIp where
-    toPath = const "/"
-
-instance ToHeaders UpdateElasticIp
-
-instance ToQuery UpdateElasticIp where
-    toQuery = const mempty
-
-instance ToJSON UpdateElasticIp where
-    toJSON = genericToJSON jsonOptions

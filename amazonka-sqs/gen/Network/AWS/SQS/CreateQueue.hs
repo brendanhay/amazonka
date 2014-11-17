@@ -122,6 +122,13 @@ createQueueResponse = CreateQueueResponse
 cqrQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
 
+instance ToPath CreateQueue where
+    toPath = const "/"
+
+instance ToQuery CreateQueue
+
+instance ToHeaders CreateQueue
+
 instance AWSRequest CreateQueue where
     type Sv CreateQueue = SQS
     type Rs CreateQueue = CreateQueueResponse
@@ -132,10 +139,3 @@ instance AWSRequest CreateQueue where
 instance FromXML CreateQueueResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateQueueResponse"
-
-instance ToPath CreateQueue where
-    toPath = const "/"
-
-instance ToHeaders CreateQueue
-
-instance ToQuery CreateQueue

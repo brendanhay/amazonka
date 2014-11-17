@@ -114,6 +114,21 @@ dvpcfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvpcfhzrChangeInfo =
     lens _dvpcfhzrChangeInfo (\s a -> s { _dvpcfhzrChangeInfo = a })
 
+instance ToPath DisassociateVPCFromHostedZone where
+    toPath DisassociateVPCFromHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _dvpcfhzHostedZoneId
+        , "/disassociatevpc"
+        ]
+
+instance ToQuery DisassociateVPCFromHostedZone where
+    toQuery = const mempty
+
+instance ToHeaders DisassociateVPCFromHostedZone
+instance ToXML DisassociateVPCFromHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DisassociateVPCFromHostedZone"
+
 instance AWSRequest DisassociateVPCFromHostedZone where
     type Sv DisassociateVPCFromHostedZone = Route53
     type Rs DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZoneResponse
@@ -124,19 +139,3 @@ instance AWSRequest DisassociateVPCFromHostedZone where
 instance FromXML DisassociateVPCFromHostedZoneResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisassociateVPCFromHostedZoneResponse"
-
-instance ToPath DisassociateVPCFromHostedZone where
-    toPath DisassociateVPCFromHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _dvpcfhzHostedZoneId
-        , "/disassociatevpc"
-        ]
-
-instance ToHeaders DisassociateVPCFromHostedZone
-
-instance ToQuery DisassociateVPCFromHostedZone where
-    toQuery = const mempty
-
-instance ToXML DisassociateVPCFromHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DisassociateVPCFromHostedZone"

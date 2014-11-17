@@ -164,6 +164,16 @@ ldirIdentityId = lens _ldirIdentityId (\s a -> s { _ldirIdentityId = a })
 ldirNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 
+instance ToPath LookupDeveloperIdentity where
+    toPath = const "/"
+
+instance ToQuery LookupDeveloperIdentity where
+    toQuery = const mempty
+
+instance ToHeaders LookupDeveloperIdentity
+instance ToJSON LookupDeveloperIdentity where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest LookupDeveloperIdentity where
     type Sv LookupDeveloperIdentity = CognitoIdentity
     type Rs LookupDeveloperIdentity = LookupDeveloperIdentityResponse
@@ -173,14 +183,3 @@ instance AWSRequest LookupDeveloperIdentity where
 
 instance FromJSON LookupDeveloperIdentityResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath LookupDeveloperIdentity where
-    toPath = const "/"
-
-instance ToHeaders LookupDeveloperIdentity
-
-instance ToQuery LookupDeveloperIdentity where
-    toQuery = const mempty
-
-instance ToJSON LookupDeveloperIdentity where
-    toJSON = genericToJSON jsonOptions

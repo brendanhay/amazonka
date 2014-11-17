@@ -158,6 +158,13 @@ associateAddressResponse = AssociateAddressResponse
 aarAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 aarAssociationId = lens _aarAssociationId (\s a -> s { _aarAssociationId = a })
 
+instance ToPath AssociateAddress where
+    toPath = const "/"
+
+instance ToQuery AssociateAddress
+
+instance ToHeaders AssociateAddress
+
 instance AWSRequest AssociateAddress where
     type Sv AssociateAddress = EC2
     type Rs AssociateAddress = AssociateAddressResponse
@@ -168,23 +175,3 @@ instance AWSRequest AssociateAddress where
 instance FromXML AssociateAddressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssociateAddressResponse"
-
-instance ToPath AssociateAddress where
-    toPath = const "/"
-
-instance ToHeaders AssociateAddress
-
-instance ToQuery AssociateAddress where
-    toQuery AssociateAddress{..} = mconcat
-        [ "dryRun"             =? _aa1DryRun
-        , "InstanceId"         =? _aa1InstanceId
-        , "PublicIp"           =? _aa1PublicIp
-        , "AllocationId"       =? _aa1AllocationId
-        , "networkInterfaceId" =? _aa1NetworkInterfaceId
-        , "privateIpAddress"   =? _aa1PrivateIpAddress
-        , "allowReassociation" =? _aa1AllowReassociation
-        ]
-
-instance ToXML AssociateAddress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AssociateAddress"

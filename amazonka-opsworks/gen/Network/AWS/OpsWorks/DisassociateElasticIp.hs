@@ -73,20 +73,19 @@ data DisassociateElasticIpResponse = DisassociateElasticIpResponse
 disassociateElasticIpResponse :: DisassociateElasticIpResponse
 disassociateElasticIpResponse = DisassociateElasticIpResponse
 
+instance ToPath DisassociateElasticIp where
+    toPath = const "/"
+
+instance ToQuery DisassociateElasticIp where
+    toQuery = const mempty
+
+instance ToHeaders DisassociateElasticIp
+instance ToJSON DisassociateElasticIp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks
     type Rs DisassociateElasticIp = DisassociateElasticIpResponse
 
     request  = post
     response = nullResponse DisassociateElasticIpResponse
-
-instance ToPath DisassociateElasticIp where
-    toPath = const "/"
-
-instance ToHeaders DisassociateElasticIp
-
-instance ToQuery DisassociateElasticIp where
-    toQuery = const mempty
-
-instance ToJSON DisassociateElasticIp where
-    toJSON = genericToJSON jsonOptions

@@ -88,16 +88,16 @@ data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDC
 removeClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse
 removeClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse
 
+instance ToPath RemoveClientIDFromOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToQuery RemoveClientIDFromOpenIDConnectProvider
+
+instance ToHeaders RemoveClientIDFromOpenIDConnectProvider
+
 instance AWSRequest RemoveClientIDFromOpenIDConnectProvider where
     type Sv RemoveClientIDFromOpenIDConnectProvider = IAM
     type Rs RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProviderResponse
 
     request  = post "RemoveClientIDFromOpenIDConnectProvider"
     response = nullResponse RemoveClientIDFromOpenIDConnectProviderResponse
-
-instance ToPath RemoveClientIDFromOpenIDConnectProvider where
-    toPath = const "/"
-
-instance ToHeaders RemoveClientIDFromOpenIDConnectProvider
-
-instance ToQuery RemoveClientIDFromOpenIDConnectProvider

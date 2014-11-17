@@ -173,6 +173,13 @@ dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests
         (\s a -> s { _dsirrSpotInstanceRequests = a })
 
+instance ToPath DescribeSpotInstanceRequests where
+    toPath = const "/"
+
+instance ToQuery DescribeSpotInstanceRequests
+
+instance ToHeaders DescribeSpotInstanceRequests
+
 instance AWSRequest DescribeSpotInstanceRequests where
     type Sv DescribeSpotInstanceRequests = EC2
     type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResponse
@@ -183,19 +190,3 @@ instance AWSRequest DescribeSpotInstanceRequests where
 instance FromXML DescribeSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResponse"
-
-instance ToPath DescribeSpotInstanceRequests where
-    toPath = const "/"
-
-instance ToHeaders DescribeSpotInstanceRequests
-
-instance ToQuery DescribeSpotInstanceRequests where
-    toQuery DescribeSpotInstanceRequests{..} = mconcat
-        [ "dryRun"                =? _dsirDryRun
-        , "SpotInstanceRequestId" =? _dsirSpotInstanceRequestIds
-        , "Filter"                =? _dsirFilters
-        ]
-
-instance ToXML DescribeSpotInstanceRequests where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSpotInstanceRequests"

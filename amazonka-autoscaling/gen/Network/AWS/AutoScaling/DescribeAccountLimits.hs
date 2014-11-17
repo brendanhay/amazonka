@@ -85,6 +85,14 @@ dalrMaxNumberOfLaunchConfigurations =
     lens _dalrMaxNumberOfLaunchConfigurations
         (\s a -> s { _dalrMaxNumberOfLaunchConfigurations = a })
 
+instance ToPath DescribeAccountLimits where
+    toPath = const "/"
+
+instance ToQuery DescribeAccountLimits where
+    toQuery = const mempty
+
+instance ToHeaders DescribeAccountLimits
+
 instance AWSRequest DescribeAccountLimits where
     type Sv DescribeAccountLimits = AutoScaling
     type Rs DescribeAccountLimits = DescribeAccountLimitsResponse
@@ -95,10 +103,3 @@ instance AWSRequest DescribeAccountLimits where
 instance FromXML DescribeAccountLimitsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAccountLimitsResponse"
-
-instance ToPath DescribeAccountLimits where
-    toPath = const "/"
-
-instance ToHeaders DescribeAccountLimits
-
-instance ToQuery DescribeAccountLimits

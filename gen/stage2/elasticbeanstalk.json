@@ -3750,6 +3750,7 @@
                 "name": "CheckDNSAvailabilityResponse",
                 "resultWrapper": "CheckDNSAvailabilityResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3886,6 +3887,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3942,6 +3945,7 @@
                 "name": "CreateApplicationResponse",
                 "resultWrapper": "CreateApplicationResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4038,6 +4042,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4123,6 +4129,7 @@
                 "name": "CreateApplicationVersionResponse",
                 "resultWrapper": "CreateApplicationVersionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4247,6 +4254,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4387,6 +4396,7 @@
                 "name": "CreateConfigurationTemplateResponse",
                 "resultWrapper": "CreateConfigurationTemplateResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4745,6 +4755,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4941,6 +4953,7 @@
                 "name": "CreateEnvironmentResponse",
                 "resultWrapper": "CreateEnvironmentResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5487,6 +5500,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5812,6 +5827,7 @@
                 "name": "CreateStorageLocationResponse",
                 "resultWrapper": "CreateStorageLocationResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5881,6 +5897,8 @@
                 "name": "CreateStorageLocation",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -5907,6 +5925,7 @@
                 "name": "DeleteApplicationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -5973,6 +5992,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6043,6 +6064,7 @@
                 "name": "DeleteApplicationVersionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6128,6 +6150,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6212,6 +6236,7 @@
                 "name": "DeleteConfigurationTemplateResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6292,6 +6317,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6347,6 +6374,7 @@
                 "name": "DeleteEnvironmentConfigurationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6427,6 +6455,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6499,6 +6529,7 @@
                 "name": "DescribeApplicationVersionsResponse",
                 "resultWrapper": "DescribeApplicationVersionsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6580,6 +6611,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6681,6 +6714,7 @@
                 "name": "DescribeApplicationsResponse",
                 "resultWrapper": "DescribeApplicationsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6774,6 +6808,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6830,6 +6866,7 @@
                 "name": "DescribeConfigurationOptionsResponse",
                 "resultWrapper": "DescribeConfigurationOptionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6953,6 +6990,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7138,6 +7177,7 @@
                 "name": "DescribeConfigurationSettingsResponse",
                 "resultWrapper": "DescribeConfigurationSettingsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7239,6 +7279,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7352,6 +7394,7 @@
                 "name": "DescribeEnvironmentResourcesResponse",
                 "resultWrapper": "DescribeEnvironmentResourcesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7433,6 +7476,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7534,6 +7579,7 @@
                 "name": "DescribeEnvironmentsResponse",
                 "resultWrapper": "DescribeEnvironmentsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7635,6 +7681,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7831,6 +7879,7 @@
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7993,6 +8042,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8329,6 +8380,7 @@
                 "name": "ListAvailableSolutionStacksResponse",
                 "resultWrapper": "ListAvailableSolutionStacksResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8426,6 +8478,8 @@
                 "name": "ListAvailableSolutionStacks",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -8452,6 +8506,7 @@
                 "name": "RebuildEnvironmentResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8503,6 +8558,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8587,6 +8644,7 @@
                 "name": "RequestEnvironmentInfoResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8658,6 +8716,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8756,6 +8816,7 @@
                 "name": "RestartAppServerResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -8807,6 +8868,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8908,6 +8971,7 @@
                 "name": "RetrieveEnvironmentInfoResponse",
                 "resultWrapper": "RetrieveEnvironmentInfoResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9009,6 +9073,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9107,6 +9173,7 @@
                 "name": "SwapEnvironmentCNAMEsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -9168,6 +9235,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9308,6 +9377,7 @@
                 "name": "TerminateEnvironmentResponse",
                 "resultWrapper": "TerminateEnvironmentResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9786,6 +9856,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9913,6 +9985,7 @@
                 "name": "UpdateApplicationResponse",
                 "resultWrapper": "UpdateApplicationResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10009,6 +10082,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10094,6 +10169,7 @@
                 "name": "UpdateApplicationVersionResponse",
                 "resultWrapper": "UpdateApplicationVersionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10209,6 +10285,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10293,6 +10371,7 @@
                 "name": "UpdateConfigurationTemplateResponse",
                 "resultWrapper": "UpdateConfigurationTemplateResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10641,6 +10720,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10781,6 +10862,7 @@
                 "name": "UpdateEnvironmentResponse",
                 "resultWrapper": "UpdateEnvironmentResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11283,6 +11365,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11552,6 +11636,7 @@
                 "name": "ValidateConfigurationSettingsResponse",
                 "resultWrapper": "ValidateConfigurationSettingsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11657,6 +11742,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

@@ -80,20 +80,19 @@ data DeleteStreamResponse = DeleteStreamResponse
 deleteStreamResponse :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse
 
+instance ToPath DeleteStream where
+    toPath = const "/"
+
+instance ToQuery DeleteStream where
+    toQuery = const mempty
+
+instance ToHeaders DeleteStream
+instance ToJSON DeleteStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis
     type Rs DeleteStream = DeleteStreamResponse
 
     request  = post
     response = nullResponse DeleteStreamResponse
-
-instance ToPath DeleteStream where
-    toPath = const "/"
-
-instance ToHeaders DeleteStream
-
-instance ToQuery DeleteStream where
-    toQuery = const mempty
-
-instance ToJSON DeleteStream where
-    toJSON = genericToJSON jsonOptions

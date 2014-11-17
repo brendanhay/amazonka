@@ -111,6 +111,16 @@ updateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
 ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrGatewayARN = lens _ubrlrGatewayARN (\s a -> s { _ubrlrGatewayARN = a })
 
+instance ToPath UpdateBandwidthRateLimit where
+    toPath = const "/"
+
+instance ToQuery UpdateBandwidthRateLimit where
+    toQuery = const mempty
+
+instance ToHeaders UpdateBandwidthRateLimit
+instance ToJSON UpdateBandwidthRateLimit where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateBandwidthRateLimit where
     type Sv UpdateBandwidthRateLimit = StorageGateway
     type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse
@@ -120,14 +130,3 @@ instance AWSRequest UpdateBandwidthRateLimit where
 
 instance FromJSON UpdateBandwidthRateLimitResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToHeaders UpdateBandwidthRateLimit
-
-instance ToQuery UpdateBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToJSON UpdateBandwidthRateLimit where
-    toJSON = genericToJSON jsonOptions

@@ -113,6 +113,13 @@ revokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
 rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
 
+instance ToPath RevokeSnapshotAccess where
+    toPath = const "/"
+
+instance ToQuery RevokeSnapshotAccess
+
+instance ToHeaders RevokeSnapshotAccess
+
 instance AWSRequest RevokeSnapshotAccess where
     type Sv RevokeSnapshotAccess = Redshift
     type Rs RevokeSnapshotAccess = RevokeSnapshotAccessResponse
@@ -123,10 +130,3 @@ instance AWSRequest RevokeSnapshotAccess where
 instance FromXML RevokeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeSnapshotAccessResponse"
-
-instance ToPath RevokeSnapshotAccess where
-    toPath = const "/"
-
-instance ToHeaders RevokeSnapshotAccess
-
-instance ToQuery RevokeSnapshotAccess

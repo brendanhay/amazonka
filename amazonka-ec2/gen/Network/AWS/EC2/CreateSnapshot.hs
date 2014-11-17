@@ -211,6 +211,13 @@ csr1VolumeId = lens _csr1VolumeId (\s a -> s { _csr1VolumeId = a })
 csr1VolumeSize :: Lens' CreateSnapshotResponse (Maybe Int)
 csr1VolumeSize = lens _csr1VolumeSize (\s a -> s { _csr1VolumeSize = a })
 
+instance ToPath CreateSnapshot where
+    toPath = const "/"
+
+instance ToQuery CreateSnapshot
+
+instance ToHeaders CreateSnapshot
+
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = EC2
     type Rs CreateSnapshot = CreateSnapshotResponse
@@ -221,19 +228,3 @@ instance AWSRequest CreateSnapshot where
 instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSnapshotResponse"
-
-instance ToPath CreateSnapshot where
-    toPath = const "/"
-
-instance ToHeaders CreateSnapshot
-
-instance ToQuery CreateSnapshot where
-    toQuery CreateSnapshot{..} = mconcat
-        [ "dryRun"      =? _cs2DryRun
-        , "VolumeId"    =? _cs2VolumeId
-        , "Description" =? _cs2Description
-        ]
-
-instance ToXML CreateSnapshot where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateSnapshot"

@@ -87,20 +87,19 @@ data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 updateRdsDbInstanceResponse :: UpdateRdsDbInstanceResponse
 updateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 
+instance ToPath UpdateRdsDbInstance where
+    toPath = const "/"
+
+instance ToQuery UpdateRdsDbInstance where
+    toQuery = const mempty
+
+instance ToHeaders UpdateRdsDbInstance
+instance ToJSON UpdateRdsDbInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks
     type Rs UpdateRdsDbInstance = UpdateRdsDbInstanceResponse
 
     request  = post
     response = nullResponse UpdateRdsDbInstanceResponse
-
-instance ToPath UpdateRdsDbInstance where
-    toPath = const "/"
-
-instance ToHeaders UpdateRdsDbInstance
-
-instance ToQuery UpdateRdsDbInstance where
-    toQuery = const mempty
-
-instance ToJSON UpdateRdsDbInstance where
-    toJSON = genericToJSON jsonOptions

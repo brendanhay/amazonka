@@ -85,6 +85,16 @@ disableGatewayResponse = DisableGatewayResponse
 dgr1GatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dgr1GatewayARN = lens _dgr1GatewayARN (\s a -> s { _dgr1GatewayARN = a })
 
+instance ToPath DisableGateway where
+    toPath = const "/"
+
+instance ToQuery DisableGateway where
+    toQuery = const mempty
+
+instance ToHeaders DisableGateway
+instance ToJSON DisableGateway where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DisableGateway where
     type Sv DisableGateway = StorageGateway
     type Rs DisableGateway = DisableGatewayResponse
@@ -94,14 +104,3 @@ instance AWSRequest DisableGateway where
 
 instance FromJSON DisableGatewayResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DisableGateway where
-    toPath = const "/"
-
-instance ToHeaders DisableGateway
-
-instance ToQuery DisableGateway where
-    toQuery = const mempty
-
-instance ToJSON DisableGateway where
-    toJSON = genericToJSON jsonOptions

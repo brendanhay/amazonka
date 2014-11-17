@@ -105,6 +105,13 @@ dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
 
+instance ToPath DeleteMessageBatch where
+    toPath = const "/"
+
+instance ToQuery DeleteMessageBatch
+
+instance ToHeaders DeleteMessageBatch
+
 instance AWSRequest DeleteMessageBatch where
     type Sv DeleteMessageBatch = SQS
     type Rs DeleteMessageBatch = DeleteMessageBatchResponse
@@ -115,10 +122,3 @@ instance AWSRequest DeleteMessageBatch where
 instance FromXML DeleteMessageBatchResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteMessageBatchResponse"
-
-instance ToPath DeleteMessageBatch where
-    toPath = const "/"
-
-instance ToHeaders DeleteMessageBatch
-
-instance ToQuery DeleteMessageBatch

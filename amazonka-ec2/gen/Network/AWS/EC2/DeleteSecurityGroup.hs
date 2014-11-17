@@ -88,25 +88,16 @@ data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse
 
+instance ToPath DeleteSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteSecurityGroup
+
+instance ToHeaders DeleteSecurityGroup
+
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
     request  = post "DeleteSecurityGroup"
     response = nullResponse DeleteSecurityGroupResponse
-
-instance ToPath DeleteSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteSecurityGroup
-
-instance ToQuery DeleteSecurityGroup where
-    toQuery DeleteSecurityGroup{..} = mconcat
-        [ "dryRun"    =? _dsgDryRun
-        , "GroupName" =? _dsgGroupName
-        , "GroupId"   =? _dsgGroupId
-        ]
-
-instance ToXML DeleteSecurityGroup where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteSecurityGroup"

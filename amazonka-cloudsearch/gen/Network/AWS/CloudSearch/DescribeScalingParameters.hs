@@ -85,6 +85,13 @@ dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParamete
 dsprScalingParameters =
     lens _dsprScalingParameters (\s a -> s { _dsprScalingParameters = a })
 
+instance ToPath DescribeScalingParameters where
+    toPath = const "/"
+
+instance ToQuery DescribeScalingParameters
+
+instance ToHeaders DescribeScalingParameters
+
 instance AWSRequest DescribeScalingParameters where
     type Sv DescribeScalingParameters = CloudSearch
     type Rs DescribeScalingParameters = DescribeScalingParametersResponse
@@ -95,10 +102,3 @@ instance AWSRequest DescribeScalingParameters where
 instance FromXML DescribeScalingParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeScalingParametersResponse"
-
-instance ToPath DescribeScalingParameters where
-    toPath = const "/"
-
-instance ToHeaders DescribeScalingParameters
-
-instance ToQuery DescribeScalingParameters

@@ -88,6 +88,16 @@ describeInterconnectsResponse = DescribeInterconnectsResponse
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a })
 
+instance ToPath DescribeInterconnects where
+    toPath = const "/"
+
+instance ToQuery DescribeInterconnects where
+    toQuery = const mempty
+
+instance ToHeaders DescribeInterconnects
+instance ToJSON DescribeInterconnects where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeInterconnects where
     type Sv DescribeInterconnects = DirectConnect
     type Rs DescribeInterconnects = DescribeInterconnectsResponse
@@ -97,14 +107,3 @@ instance AWSRequest DescribeInterconnects where
 
 instance FromJSON DescribeInterconnectsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeInterconnects where
-    toPath = const "/"
-
-instance ToHeaders DescribeInterconnects
-
-instance ToQuery DescribeInterconnects where
-    toQuery = const mempty
-
-instance ToJSON DescribeInterconnects where
-    toJSON = genericToJSON jsonOptions

@@ -107,20 +107,19 @@ data RegisterDomainResponse = RegisterDomainResponse
 registerDomainResponse :: RegisterDomainResponse
 registerDomainResponse = RegisterDomainResponse
 
+instance ToPath RegisterDomain where
+    toPath = const "/"
+
+instance ToQuery RegisterDomain where
+    toQuery = const mempty
+
+instance ToHeaders RegisterDomain
+instance ToJSON RegisterDomain where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF
     type Rs RegisterDomain = RegisterDomainResponse
 
     request  = post
     response = nullResponse RegisterDomainResponse
-
-instance ToPath RegisterDomain where
-    toPath = const "/"
-
-instance ToHeaders RegisterDomain
-
-instance ToQuery RegisterDomain where
-    toQuery = const mempty
-
-instance ToJSON RegisterDomain where
-    toJSON = genericToJSON jsonOptions

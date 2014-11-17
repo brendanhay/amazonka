@@ -113,6 +113,13 @@ dazflbrAvailabilityZones =
     lens _dazflbrAvailabilityZones
         (\s a -> s { _dazflbrAvailabilityZones = a })
 
+instance ToPath DisableAvailabilityZonesForLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery DisableAvailabilityZonesForLoadBalancer
+
+instance ToHeaders DisableAvailabilityZonesForLoadBalancer
+
 instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
     type Sv DisableAvailabilityZonesForLoadBalancer = ELB
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
@@ -123,10 +130,3 @@ instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableAvailabilityZonesForLoadBalancerResponse"
-
-instance ToPath DisableAvailabilityZonesForLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders DisableAvailabilityZonesForLoadBalancer
-
-instance ToQuery DisableAvailabilityZonesForLoadBalancer

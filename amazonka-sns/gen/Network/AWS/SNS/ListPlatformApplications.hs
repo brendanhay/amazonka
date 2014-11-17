@@ -103,6 +103,13 @@ lparPlatformApplications =
     lens _lparPlatformApplications
         (\s a -> s { _lparPlatformApplications = a })
 
+instance ToPath ListPlatformApplications where
+    toPath = const "/"
+
+instance ToQuery ListPlatformApplications
+
+instance ToHeaders ListPlatformApplications
+
 instance AWSRequest ListPlatformApplications where
     type Sv ListPlatformApplications = SNS
     type Rs ListPlatformApplications = ListPlatformApplicationsResponse
@@ -113,10 +120,3 @@ instance AWSRequest ListPlatformApplications where
 instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListPlatformApplicationsResponse"
-
-instance ToPath ListPlatformApplications where
-    toPath = const "/"
-
-instance ToHeaders ListPlatformApplications
-
-instance ToQuery ListPlatformApplications

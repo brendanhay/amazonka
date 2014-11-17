@@ -70,20 +70,19 @@ data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
 updateMyUserProfileResponse :: UpdateMyUserProfileResponse
 updateMyUserProfileResponse = UpdateMyUserProfileResponse
 
+instance ToPath UpdateMyUserProfile where
+    toPath = const "/"
+
+instance ToQuery UpdateMyUserProfile where
+    toQuery = const mempty
+
+instance ToHeaders UpdateMyUserProfile
+instance ToJSON UpdateMyUserProfile where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
 
     request  = post
     response = nullResponse UpdateMyUserProfileResponse
-
-instance ToPath UpdateMyUserProfile where
-    toPath = const "/"
-
-instance ToHeaders UpdateMyUserProfile
-
-instance ToQuery UpdateMyUserProfile where
-    toQuery = const mempty
-
-instance ToJSON UpdateMyUserProfile where
-    toJSON = genericToJSON jsonOptions

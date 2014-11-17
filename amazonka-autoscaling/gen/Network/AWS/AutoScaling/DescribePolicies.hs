@@ -127,6 +127,13 @@ dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies =
     lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })
 
+instance ToPath DescribePolicies where
+    toPath = const "/"
+
+instance ToQuery DescribePolicies
+
+instance ToHeaders DescribePolicies
+
 instance AWSRequest DescribePolicies where
     type Sv DescribePolicies = AutoScaling
     type Rs DescribePolicies = DescribePoliciesResponse
@@ -137,10 +144,3 @@ instance AWSRequest DescribePolicies where
 instance FromXML DescribePoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribePoliciesResponse"
-
-instance ToPath DescribePolicies where
-    toPath = const "/"
-
-instance ToHeaders DescribePolicies
-
-instance ToQuery DescribePolicies

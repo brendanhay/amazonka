@@ -112,6 +112,24 @@ udrDistribution = lens _udrDistribution (\s a -> s { _udrDistribution = a })
 udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
 udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
+instance ToPath UpdateDistribution where
+    toPath UpdateDistribution{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _udId
+        , "/config"
+        ]
+
+instance ToQuery UpdateDistribution where
+    toQuery = const mempty
+
+instance ToHeaders UpdateDistribution where
+    toHeaders UpdateDistribution{..} = mconcat
+        [ "If-Match" =: _udIfMatch
+        ]
+instance ToXML UpdateDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateDistribution"
+
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront
     type Rs UpdateDistribution = UpdateDistributionResponse
@@ -120,22 +138,3 @@ instance AWSRequest UpdateDistribution where
     response = xmlHeaderResponse $ \h x -> UpdateDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
-
-instance ToPath UpdateDistribution where
-    toPath UpdateDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _udId
-        , "/config"
-        ]
-
-instance ToHeaders UpdateDistribution where
-    toHeaders UpdateDistribution{..} = mconcat
-        [ "If-Match" =: _udIfMatch
-        ]
-
-instance ToQuery UpdateDistribution where
-    toQuery = const mempty
-
-instance ToXML UpdateDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateDistribution"

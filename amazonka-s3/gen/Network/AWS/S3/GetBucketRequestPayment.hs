@@ -81,6 +81,20 @@ getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
 gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Text)
 gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
 
+instance ToPath GetBucketRequestPayment where
+    toPath GetBucketRequestPayment{..} = mconcat
+        [ "/"
+        , toText _gbrpBucket
+        ]
+
+instance ToQuery GetBucketRequestPayment where
+    toQuery = const "requestPayment"
+
+instance ToHeaders GetBucketRequestPayment
+instance ToXML GetBucketRequestPayment where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketRequestPayment"
+
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
@@ -91,18 +105,3 @@ instance AWSRequest GetBucketRequestPayment where
 instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetBucketRequestPaymentResponse"
-
-instance ToPath GetBucketRequestPayment where
-    toPath GetBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toText _gbrpBucket
-        ]
-
-instance ToHeaders GetBucketRequestPayment
-
-instance ToQuery GetBucketRequestPayment where
-    toQuery = const "requestPayment"
-
-instance ToXML GetBucketRequestPayment where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetBucketRequestPayment"

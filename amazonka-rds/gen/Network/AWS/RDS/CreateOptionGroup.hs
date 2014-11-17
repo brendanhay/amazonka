@@ -128,6 +128,13 @@ createOptionGroupResponse = CreateOptionGroupResponse
 cogr1OptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 cogr1OptionGroup = lens _cogr1OptionGroup (\s a -> s { _cogr1OptionGroup = a })
 
+instance ToPath CreateOptionGroup where
+    toPath = const "/"
+
+instance ToQuery CreateOptionGroup
+
+instance ToHeaders CreateOptionGroup
+
 instance AWSRequest CreateOptionGroup where
     type Sv CreateOptionGroup = RDS
     type Rs CreateOptionGroup = CreateOptionGroupResponse
@@ -138,10 +145,3 @@ instance AWSRequest CreateOptionGroup where
 instance FromXML CreateOptionGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateOptionGroupResponse"
-
-instance ToPath CreateOptionGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateOptionGroup
-
-instance ToQuery CreateOptionGroup

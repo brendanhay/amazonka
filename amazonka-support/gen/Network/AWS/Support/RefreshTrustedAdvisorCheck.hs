@@ -91,6 +91,16 @@ refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
 rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
 
+instance ToPath RefreshTrustedAdvisorCheck where
+    toPath = const "/"
+
+instance ToQuery RefreshTrustedAdvisorCheck where
+    toQuery = const mempty
+
+instance ToHeaders RefreshTrustedAdvisorCheck
+instance ToJSON RefreshTrustedAdvisorCheck where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RefreshTrustedAdvisorCheck where
     type Sv RefreshTrustedAdvisorCheck = Support
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
@@ -100,14 +110,3 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RefreshTrustedAdvisorCheck where
-    toPath = const "/"
-
-instance ToHeaders RefreshTrustedAdvisorCheck
-
-instance ToQuery RefreshTrustedAdvisorCheck where
-    toQuery = const mempty
-
-instance ToJSON RefreshTrustedAdvisorCheck where
-    toJSON = genericToJSON jsonOptions

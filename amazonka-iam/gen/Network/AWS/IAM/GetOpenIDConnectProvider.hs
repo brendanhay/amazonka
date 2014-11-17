@@ -123,6 +123,13 @@ goidcprThumbprintList =
 goidcprUrl :: Lens' GetOpenIDConnectProviderResponse (Maybe Text)
 goidcprUrl = lens _goidcprUrl (\s a -> s { _goidcprUrl = a })
 
+instance ToPath GetOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToQuery GetOpenIDConnectProvider
+
+instance ToHeaders GetOpenIDConnectProvider
+
 instance AWSRequest GetOpenIDConnectProvider where
     type Sv GetOpenIDConnectProvider = IAM
     type Rs GetOpenIDConnectProvider = GetOpenIDConnectProviderResponse
@@ -133,10 +140,3 @@ instance AWSRequest GetOpenIDConnectProvider where
 instance FromXML GetOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetOpenIDConnectProviderResponse"
-
-instance ToPath GetOpenIDConnectProvider where
-    toPath = const "/"
-
-instance ToHeaders GetOpenIDConnectProvider
-
-instance ToQuery GetOpenIDConnectProvider

@@ -93,6 +93,13 @@ createAccessKeyResponse p1 = CreateAccessKeyResponse
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
 
+instance ToPath CreateAccessKey where
+    toPath = const "/"
+
+instance ToQuery CreateAccessKey
+
+instance ToHeaders CreateAccessKey
+
 instance AWSRequest CreateAccessKey where
     type Sv CreateAccessKey = IAM
     type Rs CreateAccessKey = CreateAccessKeyResponse
@@ -103,10 +110,3 @@ instance AWSRequest CreateAccessKey where
 instance FromXML CreateAccessKeyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAccessKeyResponse"
-
-instance ToPath CreateAccessKey where
-    toPath = const "/"
-
-instance ToHeaders CreateAccessKey
-
-instance ToQuery CreateAccessKey

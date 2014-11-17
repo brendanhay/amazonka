@@ -358,20 +358,6 @@ cmurServerSideEncryption =
 cmurUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurUploadId = lens _cmurUploadId (\s a -> s { _cmurUploadId = a })
 
-instance AWSRequest CreateMultipartUpload where
-    type Sv CreateMultipartUpload = S3
-    type Rs CreateMultipartUpload = CreateMultipartUploadResponse
-
-    request  = post
-    response = xmlHeaderResponse $ \h x -> CreateMultipartUploadResponse
-        <$> x %| "Bucket"
-        <*> x %| "Key"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> x %| "UploadId"
-
 instance ToPath CreateMultipartUpload where
     toPath CreateMultipartUpload{..} = mconcat
         [ "/"
@@ -379,6 +365,9 @@ instance ToPath CreateMultipartUpload where
         , "/"
         , toText _cmuKey
         ]
+
+instance ToQuery CreateMultipartUpload where
+    toQuery = const "uploads"
 
 instance ToHeaders CreateMultipartUpload where
     toHeaders CreateMultipartUpload{..} = mconcat
@@ -402,10 +391,20 @@ instance ToHeaders CreateMultipartUpload where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmuSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
         ]
-
-instance ToQuery CreateMultipartUpload where
-    toQuery = const "uploads"
-
 instance ToXML CreateMultipartUpload where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CreateMultipartUpload"
+
+instance AWSRequest CreateMultipartUpload where
+    type Sv CreateMultipartUpload = S3
+    type Rs CreateMultipartUpload = CreateMultipartUploadResponse
+
+    request  = post
+    response = xmlHeaderResponse $ \h x -> CreateMultipartUploadResponse
+        <$> x %| "Bucket"
+        <*> x %| "Key"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> x %| "UploadId"

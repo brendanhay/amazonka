@@ -154,6 +154,16 @@ qorIds = lens _qorIds (\s a -> s { _qorIds = a })
 qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\s a -> s { _qorMarker = a })
 
+instance ToPath QueryObjects where
+    toPath = const "/"
+
+instance ToQuery QueryObjects where
+    toQuery = const mempty
+
+instance ToHeaders QueryObjects
+instance ToJSON QueryObjects where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest QueryObjects where
     type Sv QueryObjects = DataPipeline
     type Rs QueryObjects = QueryObjectsResponse
@@ -163,14 +173,3 @@ instance AWSRequest QueryObjects where
 
 instance FromJSON QueryObjectsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath QueryObjects where
-    toPath = const "/"
-
-instance ToHeaders QueryObjects
-
-instance ToQuery QueryObjects where
-    toQuery = const mempty
-
-instance ToJSON QueryObjects where
-    toJSON = genericToJSON jsonOptions

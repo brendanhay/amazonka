@@ -194,6 +194,13 @@ dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory =
     lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
 
+instance ToPath DescribeSpotPriceHistory where
+    toPath = const "/"
+
+instance ToQuery DescribeSpotPriceHistory
+
+instance ToHeaders DescribeSpotPriceHistory
+
 instance AWSRequest DescribeSpotPriceHistory where
     type Sv DescribeSpotPriceHistory = EC2
     type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResponse
@@ -204,25 +211,3 @@ instance AWSRequest DescribeSpotPriceHistory where
 instance FromXML DescribeSpotPriceHistoryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResponse"
-
-instance ToPath DescribeSpotPriceHistory where
-    toPath = const "/"
-
-instance ToHeaders DescribeSpotPriceHistory
-
-instance ToQuery DescribeSpotPriceHistory where
-    toQuery DescribeSpotPriceHistory{..} = mconcat
-        [ "dryRun"             =? _dsphDryRun
-        , "startTime"          =? _dsphStartTime
-        , "endTime"            =? _dsphEndTime
-        , "InstanceType"       =? _dsphInstanceTypes
-        , "ProductDescription" =? _dsphProductDescriptions
-        , "Filter"             =? _dsphFilters
-        , "availabilityZone"   =? _dsphAvailabilityZone
-        , "maxResults"         =? _dsphMaxResults
-        , "nextToken"          =? _dsphNextToken
-        ]
-
-instance ToXML DescribeSpotPriceHistory where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeSpotPriceHistory"

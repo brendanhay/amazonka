@@ -107,6 +107,25 @@ goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
+instance ToPath GetObjectAcl where
+    toPath GetObjectAcl{..} = mconcat
+        [ "/"
+        , toText _goaBucket
+        , "/"
+        , toText _goaKey
+        ]
+
+instance ToQuery GetObjectAcl where
+    toQuery GetObjectAcl{..} = mconcat
+          [   "acl"
+          ,   "versionId" =? _goaVersionId
+        ]
+
+instance ToHeaders GetObjectAcl
+instance ToXML GetObjectAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetObjectAcl"
+
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
     type Rs GetObjectAcl = GetObjectAclResponse
@@ -117,23 +136,3 @@ instance AWSRequest GetObjectAcl where
 instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetObjectAclResponse"
-
-instance ToPath GetObjectAcl where
-    toPath GetObjectAcl{..} = mconcat
-        [ "/"
-        , toText _goaBucket
-        , "/"
-        , toText _goaKey
-        ]
-
-instance ToHeaders GetObjectAcl
-
-instance ToQuery GetObjectAcl where
-    toQuery GetObjectAcl{..} = mconcat
-        [ "acl"
-        , "versionId" =? _goaVersionId
-        ]
-
-instance ToXML GetObjectAcl where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetObjectAcl"

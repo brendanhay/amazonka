@@ -93,16 +93,16 @@ data PutGroupPolicyResponse = PutGroupPolicyResponse
 putGroupPolicyResponse :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse
 
+instance ToPath PutGroupPolicy where
+    toPath = const "/"
+
+instance ToQuery PutGroupPolicy
+
+instance ToHeaders PutGroupPolicy
+
 instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM
     type Rs PutGroupPolicy = PutGroupPolicyResponse
 
     request  = post "PutGroupPolicy"
     response = nullResponse PutGroupPolicyResponse
-
-instance ToPath PutGroupPolicy where
-    toPath = const "/"
-
-instance ToHeaders PutGroupPolicy
-
-instance ToQuery PutGroupPolicy

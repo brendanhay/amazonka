@@ -85,6 +85,13 @@ vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
 
+instance ToPath VerifyDomainIdentity where
+    toPath = const "/"
+
+instance ToQuery VerifyDomainIdentity
+
+instance ToHeaders VerifyDomainIdentity
+
 instance AWSRequest VerifyDomainIdentity where
     type Sv VerifyDomainIdentity = SES
     type Rs VerifyDomainIdentity = VerifyDomainIdentityResponse
@@ -95,10 +102,3 @@ instance AWSRequest VerifyDomainIdentity where
 instance FromXML VerifyDomainIdentityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VerifyDomainIdentityResponse"
-
-instance ToPath VerifyDomainIdentity where
-    toPath = const "/"
-
-instance ToHeaders VerifyDomainIdentity
-
-instance ToQuery VerifyDomainIdentity

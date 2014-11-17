@@ -119,6 +119,13 @@ sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
 
+instance ToPath StartInstances where
+    toPath = const "/"
+
+instance ToQuery StartInstances
+
+instance ToHeaders StartInstances
+
 instance AWSRequest StartInstances where
     type Sv StartInstances = EC2
     type Rs StartInstances = StartInstancesResponse
@@ -129,19 +136,3 @@ instance AWSRequest StartInstances where
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "StartInstancesResponse"
-
-instance ToPath StartInstances where
-    toPath = const "/"
-
-instance ToHeaders StartInstances
-
-instance ToQuery StartInstances where
-    toQuery StartInstances{..} = mconcat
-        [ "InstanceId"     =? _si1InstanceIds
-        , "additionalInfo" =? _si1AdditionalInfo
-        , "dryRun"         =? _si1DryRun
-        ]
-
-instance ToXML StartInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "StartInstances"

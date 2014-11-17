@@ -93,6 +93,13 @@ copySnapshotResponse = CopySnapshotResponse
 csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\s a -> s { _csrSnapshot = a })
 
+instance ToPath CopySnapshot where
+    toPath = const "/"
+
+instance ToQuery CopySnapshot
+
+instance ToHeaders CopySnapshot
+
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = ElastiCache
     type Rs CopySnapshot = CopySnapshotResponse
@@ -103,10 +110,3 @@ instance AWSRequest CopySnapshot where
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopySnapshotResponse"
-
-instance ToPath CopySnapshot where
-    toPath = const "/"
-
-instance ToHeaders CopySnapshot
-
-instance ToQuery CopySnapshot

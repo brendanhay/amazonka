@@ -89,25 +89,16 @@ data DisassociateAddressResponse = DisassociateAddressResponse
 disassociateAddressResponse :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse
 
+instance ToPath DisassociateAddress where
+    toPath = const "/"
+
+instance ToQuery DisassociateAddress
+
+instance ToHeaders DisassociateAddress
+
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2
     type Rs DisassociateAddress = DisassociateAddressResponse
 
     request  = post "DisassociateAddress"
     response = nullResponse DisassociateAddressResponse
-
-instance ToPath DisassociateAddress where
-    toPath = const "/"
-
-instance ToHeaders DisassociateAddress
-
-instance ToQuery DisassociateAddress where
-    toQuery DisassociateAddress{..} = mconcat
-        [ "dryRun"        =? _da1DryRun
-        , "PublicIp"      =? _da1PublicIp
-        , "AssociationId" =? _da1AssociationId
-        ]
-
-instance ToXML DisassociateAddress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DisassociateAddress"

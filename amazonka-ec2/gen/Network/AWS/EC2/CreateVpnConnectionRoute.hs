@@ -86,24 +86,16 @@ data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 createVpnConnectionRouteResponse :: CreateVpnConnectionRouteResponse
 createVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 
+instance ToPath CreateVpnConnectionRoute where
+    toPath = const "/"
+
+instance ToQuery CreateVpnConnectionRoute
+
+instance ToHeaders CreateVpnConnectionRoute
+
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse
 
     request  = post "CreateVpnConnectionRoute"
     response = nullResponse CreateVpnConnectionRouteResponse
-
-instance ToPath CreateVpnConnectionRoute where
-    toPath = const "/"
-
-instance ToHeaders CreateVpnConnectionRoute
-
-instance ToQuery CreateVpnConnectionRoute where
-    toQuery CreateVpnConnectionRoute{..} = mconcat
-        [ "VpnConnectionId"      =? _cvcrVpnConnectionId
-        , "DestinationCidrBlock" =? _cvcrDestinationCidrBlock
-        ]
-
-instance ToXML CreateVpnConnectionRoute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVpnConnectionRoute"

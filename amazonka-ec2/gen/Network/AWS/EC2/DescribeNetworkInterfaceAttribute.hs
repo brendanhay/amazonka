@@ -139,6 +139,13 @@ dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe A
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
 
+instance ToPath DescribeNetworkInterfaceAttribute where
+    toPath = const "/"
+
+instance ToQuery DescribeNetworkInterfaceAttribute
+
+instance ToHeaders DescribeNetworkInterfaceAttribute
+
 instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Sv DescribeNetworkInterfaceAttribute = EC2
     type Rs DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeResponse
@@ -149,19 +156,3 @@ instance AWSRequest DescribeNetworkInterfaceAttribute where
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResponse"
-
-instance ToPath DescribeNetworkInterfaceAttribute where
-    toPath = const "/"
-
-instance ToHeaders DescribeNetworkInterfaceAttribute
-
-instance ToQuery DescribeNetworkInterfaceAttribute where
-    toQuery DescribeNetworkInterfaceAttribute{..} = mconcat
-        [ "dryRun"             =? _dniaDryRun
-        , "networkInterfaceId" =? _dniaNetworkInterfaceId
-        , "attribute"          =? _dniaAttribute
-        ]
-
-instance ToXML DescribeNetworkInterfaceAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeNetworkInterfaceAttribute"

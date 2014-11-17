@@ -202,20 +202,19 @@ data RegisterActivityTypeResponse = RegisterActivityTypeResponse
 registerActivityTypeResponse :: RegisterActivityTypeResponse
 registerActivityTypeResponse = RegisterActivityTypeResponse
 
+instance ToPath RegisterActivityType where
+    toPath = const "/"
+
+instance ToQuery RegisterActivityType where
+    toQuery = const mempty
+
+instance ToHeaders RegisterActivityType
+instance ToJSON RegisterActivityType where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF
     type Rs RegisterActivityType = RegisterActivityTypeResponse
 
     request  = post
     response = nullResponse RegisterActivityTypeResponse
-
-instance ToPath RegisterActivityType where
-    toPath = const "/"
-
-instance ToHeaders RegisterActivityType
-
-instance ToQuery RegisterActivityType where
-    toQuery = const mempty
-
-instance ToJSON RegisterActivityType where
-    toJSON = genericToJSON jsonOptions

@@ -114,6 +114,13 @@ describeSuggestersResponse = DescribeSuggestersResponse
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a })
 
+instance ToPath DescribeSuggesters where
+    toPath = const "/"
+
+instance ToQuery DescribeSuggesters
+
+instance ToHeaders DescribeSuggesters
+
 instance AWSRequest DescribeSuggesters where
     type Sv DescribeSuggesters = CloudSearch
     type Rs DescribeSuggesters = DescribeSuggestersResponse
@@ -124,10 +131,3 @@ instance AWSRequest DescribeSuggesters where
 instance FromXML DescribeSuggestersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSuggestersResponse"
-
-instance ToPath DescribeSuggesters where
-    toPath = const "/"
-
-instance ToHeaders DescribeSuggesters
-
-instance ToQuery DescribeSuggesters

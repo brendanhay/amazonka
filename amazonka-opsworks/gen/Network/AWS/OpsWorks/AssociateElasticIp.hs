@@ -83,20 +83,19 @@ data AssociateElasticIpResponse = AssociateElasticIpResponse
 associateElasticIpResponse :: AssociateElasticIpResponse
 associateElasticIpResponse = AssociateElasticIpResponse
 
+instance ToPath AssociateElasticIp where
+    toPath = const "/"
+
+instance ToQuery AssociateElasticIp where
+    toQuery = const mempty
+
+instance ToHeaders AssociateElasticIp
+instance ToJSON AssociateElasticIp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks
     type Rs AssociateElasticIp = AssociateElasticIpResponse
 
     request  = post
     response = nullResponse AssociateElasticIpResponse
-
-instance ToPath AssociateElasticIp where
-    toPath = const "/"
-
-instance ToHeaders AssociateElasticIp
-
-instance ToQuery AssociateElasticIp where
-    toQuery = const mempty
-
-instance ToJSON AssociateElasticIp where
-    toJSON = genericToJSON jsonOptions

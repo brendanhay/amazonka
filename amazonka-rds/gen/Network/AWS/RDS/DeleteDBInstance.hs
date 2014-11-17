@@ -121,6 +121,13 @@ deleteDBInstanceResponse = DeleteDBInstanceResponse
 ddbirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
 
+instance ToPath DeleteDBInstance where
+    toPath = const "/"
+
+instance ToQuery DeleteDBInstance
+
+instance ToHeaders DeleteDBInstance
+
 instance AWSRequest DeleteDBInstance where
     type Sv DeleteDBInstance = RDS
     type Rs DeleteDBInstance = DeleteDBInstanceResponse
@@ -131,10 +138,3 @@ instance AWSRequest DeleteDBInstance where
 instance FromXML DeleteDBInstanceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBInstanceResponse"
-
-instance ToPath DeleteDBInstance where
-    toPath = const "/"
-
-instance ToHeaders DeleteDBInstance
-
-instance ToQuery DeleteDBInstance

@@ -121,6 +121,16 @@ dwsrWorkingStorageUsedInBytes =
     lens _dwsrWorkingStorageUsedInBytes
         (\s a -> s { _dwsrWorkingStorageUsedInBytes = a })
 
+instance ToPath DescribeWorkingStorage where
+    toPath = const "/"
+
+instance ToQuery DescribeWorkingStorage where
+    toQuery = const mempty
+
+instance ToHeaders DescribeWorkingStorage
+instance ToJSON DescribeWorkingStorage where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeWorkingStorage where
     type Sv DescribeWorkingStorage = StorageGateway
     type Rs DescribeWorkingStorage = DescribeWorkingStorageResponse
@@ -130,14 +140,3 @@ instance AWSRequest DescribeWorkingStorage where
 
 instance FromJSON DescribeWorkingStorageResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeWorkingStorage where
-    toPath = const "/"
-
-instance ToHeaders DescribeWorkingStorage
-
-instance ToQuery DescribeWorkingStorage where
-    toQuery = const mempty
-
-instance ToJSON DescribeWorkingStorage where
-    toJSON = genericToJSON jsonOptions

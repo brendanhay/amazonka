@@ -111,6 +111,13 @@ lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsr1StackSummaries =
     lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
 
+instance ToPath ListStacks where
+    toPath = const "/"
+
+instance ToQuery ListStacks
+
+instance ToHeaders ListStacks
+
 instance AWSRequest ListStacks where
     type Sv ListStacks = CloudFormation
     type Rs ListStacks = ListStacksResponse
@@ -121,10 +128,3 @@ instance AWSRequest ListStacks where
 instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListStacksResponse"
-
-instance ToPath ListStacks where
-    toPath = const "/"
-
-instance ToHeaders ListStacks
-
-instance ToQuery ListStacks

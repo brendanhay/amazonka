@@ -225,6 +225,16 @@ aesrStatus = lens _aesrStatus (\s a -> s { _aesrStatus = a })
 aesrUUID :: Lens' AddEventSourceResponse (Maybe Text)
 aesrUUID = lens _aesrUUID (\s a -> s { _aesrUUID = a })
 
+instance ToPath AddEventSource where
+    toPath = const "/2014-11-13/event-source-mappings/"
+
+instance ToQuery AddEventSource where
+    toQuery = const mempty
+
+instance ToHeaders AddEventSource
+instance ToJSON AddEventSource where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddEventSource where
     type Sv AddEventSource = Lambda
     type Rs AddEventSource = AddEventSourceResponse
@@ -234,14 +244,3 @@ instance AWSRequest AddEventSource where
 
 instance FromJSON AddEventSourceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddEventSource where
-    toPath = const "/2014-11-13/event-source-mappings/"
-
-instance ToHeaders AddEventSource
-
-instance ToQuery AddEventSource where
-    toQuery = const mempty
-
-instance ToJSON AddEventSource where
-    toJSON = genericToJSON jsonOptions

@@ -141,6 +141,16 @@ dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects =
     lens _dorPipelineObjects (\s a -> s { _dorPipelineObjects = a })
 
+instance ToPath DescribeObjects where
+    toPath = const "/"
+
+instance ToQuery DescribeObjects where
+    toQuery = const mempty
+
+instance ToHeaders DescribeObjects
+instance ToJSON DescribeObjects where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeObjects where
     type Sv DescribeObjects = DataPipeline
     type Rs DescribeObjects = DescribeObjectsResponse
@@ -150,14 +160,3 @@ instance AWSRequest DescribeObjects where
 
 instance FromJSON DescribeObjectsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeObjects where
-    toPath = const "/"
-
-instance ToHeaders DescribeObjects
-
-instance ToQuery DescribeObjects where
-    toQuery = const mempty
-
-instance ToJSON DescribeObjects where
-    toJSON = genericToJSON jsonOptions

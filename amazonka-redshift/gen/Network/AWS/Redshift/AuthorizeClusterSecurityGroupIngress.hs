@@ -128,6 +128,13 @@ acsgirClusterSecurityGroup =
     lens _acsgirClusterSecurityGroup
         (\s a -> s { _acsgirClusterSecurityGroup = a })
 
+instance ToPath AuthorizeClusterSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery AuthorizeClusterSecurityGroupIngress
+
+instance ToHeaders AuthorizeClusterSecurityGroupIngress
+
 instance AWSRequest AuthorizeClusterSecurityGroupIngress where
     type Sv AuthorizeClusterSecurityGroupIngress = Redshift
     type Rs AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngressResponse
@@ -138,10 +145,3 @@ instance AWSRequest AuthorizeClusterSecurityGroupIngress where
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeClusterSecurityGroupIngressResponse"
-
-instance ToPath AuthorizeClusterSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders AuthorizeClusterSecurityGroupIngress
-
-instance ToQuery AuthorizeClusterSecurityGroupIngress

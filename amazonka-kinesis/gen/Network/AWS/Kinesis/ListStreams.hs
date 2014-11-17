@@ -116,6 +116,16 @@ lsrHasMoreStreams =
 lsrStreamNames :: Lens' ListStreamsResponse [Text]
 lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a })
 
+instance ToPath ListStreams where
+    toPath = const "/"
+
+instance ToQuery ListStreams where
+    toQuery = const mempty
+
+instance ToHeaders ListStreams
+instance ToJSON ListStreams where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListStreams where
     type Sv ListStreams = Kinesis
     type Rs ListStreams = ListStreamsResponse
@@ -125,14 +135,3 @@ instance AWSRequest ListStreams where
 
 instance FromJSON ListStreamsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListStreams where
-    toPath = const "/"
-
-instance ToHeaders ListStreams
-
-instance ToQuery ListStreams where
-    toQuery = const mempty
-
-instance ToJSON ListStreams where
-    toJSON = genericToJSON jsonOptions

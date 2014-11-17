@@ -91,16 +91,16 @@ data UpdateLoginProfileResponse = UpdateLoginProfileResponse
 updateLoginProfileResponse :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse
 
+instance ToPath UpdateLoginProfile where
+    toPath = const "/"
+
+instance ToQuery UpdateLoginProfile
+
+instance ToHeaders UpdateLoginProfile
+
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse
 
     request  = post "UpdateLoginProfile"
     response = nullResponse UpdateLoginProfileResponse
-
-instance ToPath UpdateLoginProfile where
-    toPath = const "/"
-
-instance ToHeaders UpdateLoginProfile
-
-instance ToQuery UpdateLoginProfile

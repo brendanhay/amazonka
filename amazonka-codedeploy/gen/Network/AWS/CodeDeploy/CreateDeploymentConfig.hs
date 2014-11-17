@@ -105,6 +105,16 @@ cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId =
     lens _cdcrDeploymentConfigId (\s a -> s { _cdcrDeploymentConfigId = a })
 
+instance ToPath CreateDeploymentConfig where
+    toPath = const "/"
+
+instance ToQuery CreateDeploymentConfig where
+    toQuery = const mempty
+
+instance ToHeaders CreateDeploymentConfig
+instance ToJSON CreateDeploymentConfig where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateDeploymentConfig where
     type Sv CreateDeploymentConfig = CodeDeploy
     type Rs CreateDeploymentConfig = CreateDeploymentConfigResponse
@@ -114,14 +124,3 @@ instance AWSRequest CreateDeploymentConfig where
 
 instance FromJSON CreateDeploymentConfigResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateDeploymentConfig where
-    toPath = const "/"
-
-instance ToHeaders CreateDeploymentConfig
-
-instance ToQuery CreateDeploymentConfig where
-    toQuery = const mempty
-
-instance ToJSON CreateDeploymentConfig where
-    toJSON = genericToJSON jsonOptions

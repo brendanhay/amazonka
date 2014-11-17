@@ -140,18 +140,14 @@ data PutBucketAclResponse = PutBucketAclResponse
 putBucketAclResponse :: PutBucketAclResponse
 putBucketAclResponse = PutBucketAclResponse
 
-instance AWSRequest PutBucketAcl where
-    type Sv PutBucketAcl = S3
-    type Rs PutBucketAcl = PutBucketAclResponse
-
-    request  = put
-    response = nullResponse PutBucketAclResponse
-
 instance ToPath PutBucketAcl where
     toPath PutBucketAcl{..} = mconcat
         [ "/"
         , toText _pbaBucket
         ]
+
+instance ToQuery PutBucketAcl where
+    toQuery = const "acl"
 
 instance ToHeaders PutBucketAcl where
     toHeaders PutBucketAcl{..} = mconcat
@@ -163,10 +159,13 @@ instance ToHeaders PutBucketAcl where
         , "x-amz-grant-write"        =: _pbaGrantWrite
         , "x-amz-grant-write-acp"    =: _pbaGrantWriteACP
         ]
-
-instance ToQuery PutBucketAcl where
-    toQuery = const "acl"
-
 instance ToXML PutBucketAcl where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketAcl"
+
+instance AWSRequest PutBucketAcl where
+    type Sv PutBucketAcl = S3
+    type Rs PutBucketAcl = PutBucketAclResponse
+
+    request  = put
+    response = nullResponse PutBucketAclResponse

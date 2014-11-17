@@ -145,6 +145,13 @@ sendEmailResponse p1 = SendEmailResponse
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
 
+instance ToPath SendEmail where
+    toPath = const "/"
+
+instance ToQuery SendEmail
+
+instance ToHeaders SendEmail
+
 instance AWSRequest SendEmail where
     type Sv SendEmail = SES
     type Rs SendEmail = SendEmailResponse
@@ -155,10 +162,3 @@ instance AWSRequest SendEmail where
 instance FromXML SendEmailResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendEmailResponse"
-
-instance ToPath SendEmail where
-    toPath = const "/"
-
-instance ToHeaders SendEmail
-
-instance ToQuery SendEmail

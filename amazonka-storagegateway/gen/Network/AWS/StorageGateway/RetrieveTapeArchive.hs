@@ -102,6 +102,16 @@ retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
 rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\s a -> s { _rtarTapeARN = a })
 
+instance ToPath RetrieveTapeArchive where
+    toPath = const "/"
+
+instance ToQuery RetrieveTapeArchive where
+    toQuery = const mempty
+
+instance ToHeaders RetrieveTapeArchive
+instance ToJSON RetrieveTapeArchive where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RetrieveTapeArchive where
     type Sv RetrieveTapeArchive = StorageGateway
     type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse
@@ -111,14 +121,3 @@ instance AWSRequest RetrieveTapeArchive where
 
 instance FromJSON RetrieveTapeArchiveResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RetrieveTapeArchive where
-    toPath = const "/"
-
-instance ToHeaders RetrieveTapeArchive
-
-instance ToQuery RetrieveTapeArchive where
-    toQuery = const mempty
-
-instance ToJSON RetrieveTapeArchive where
-    toJSON = genericToJSON jsonOptions

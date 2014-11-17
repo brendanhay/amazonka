@@ -75,16 +75,16 @@ data DisableAlarmActionsResponse = DisableAlarmActionsResponse
 disableAlarmActionsResponse :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse
 
+instance ToPath DisableAlarmActions where
+    toPath = const "/"
+
+instance ToQuery DisableAlarmActions
+
+instance ToHeaders DisableAlarmActions
+
 instance AWSRequest DisableAlarmActions where
     type Sv DisableAlarmActions = CloudWatch
     type Rs DisableAlarmActions = DisableAlarmActionsResponse
 
     request  = post "DisableAlarmActions"
     response = nullResponse DisableAlarmActionsResponse
-
-instance ToPath DisableAlarmActions where
-    toPath = const "/"
-
-instance ToHeaders DisableAlarmActions
-
-instance ToQuery DisableAlarmActions

@@ -136,16 +136,6 @@ ldrDatasets = lens _ldrDatasets (\s a -> s { _ldrDatasets = a })
 ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
-instance AWSRequest ListDatasets where
-    type Sv ListDatasets = CognitoSync
-    type Rs ListDatasets = ListDatasetsResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ListDatasetsResponse where
-    parseJSON = genericParseJSON jsonOptions
-
 instance ToPath ListDatasets where
     toPath ListDatasets{..} = mconcat
         [ "/identitypools/"
@@ -155,13 +145,22 @@ instance ToPath ListDatasets where
         , "/datasets"
         ]
 
-instance ToHeaders ListDatasets
-
 instance ToQuery ListDatasets where
     toQuery ListDatasets{..} = mconcat
-        [ "nextToken"  =? _ldNextToken
-        , "maxResults" =? _ldMaxResults
+          [   "nextToken"  =? _ldNextToken
+          ,   "maxResults" =? _ldMaxResults
         ]
 
+instance ToHeaders ListDatasets
 instance ToJSON ListDatasets where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest ListDatasets where
+    type Sv ListDatasets = CognitoSync
+    type Rs ListDatasets = ListDatasetsResponse
+
+    request  = get
+    response = jsonResponse
+
+instance FromJSON ListDatasetsResponse where
+    parseJSON = genericParseJSON jsonOptions

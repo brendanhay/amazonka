@@ -98,6 +98,13 @@ uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
 
+instance ToPath UnmonitorInstances where
+    toPath = const "/"
+
+instance ToQuery UnmonitorInstances
+
+instance ToHeaders UnmonitorInstances
+
 instance AWSRequest UnmonitorInstances where
     type Sv UnmonitorInstances = EC2
     type Rs UnmonitorInstances = UnmonitorInstancesResponse
@@ -108,18 +115,3 @@ instance AWSRequest UnmonitorInstances where
 instance FromXML UnmonitorInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UnmonitorInstancesResponse"
-
-instance ToPath UnmonitorInstances where
-    toPath = const "/"
-
-instance ToHeaders UnmonitorInstances
-
-instance ToQuery UnmonitorInstances where
-    toQuery UnmonitorInstances{..} = mconcat
-        [ "dryRun"     =? _uiDryRun
-        , "InstanceId" =? _uiInstanceIds
-        ]
-
-instance ToXML UnmonitorInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UnmonitorInstances"

@@ -320,6 +320,16 @@ createStackResponse = CreateStackResponse
 csr1StackId :: Lens' CreateStackResponse (Maybe Text)
 csr1StackId = lens _csr1StackId (\s a -> s { _csr1StackId = a })
 
+instance ToPath CreateStack where
+    toPath = const "/"
+
+instance ToQuery CreateStack where
+    toQuery = const mempty
+
+instance ToHeaders CreateStack
+instance ToJSON CreateStack where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateStack where
     type Sv CreateStack = OpsWorks
     type Rs CreateStack = CreateStackResponse
@@ -329,14 +339,3 @@ instance AWSRequest CreateStack where
 
 instance FromJSON CreateStackResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateStack where
-    toPath = const "/"
-
-instance ToHeaders CreateStack
-
-instance ToQuery CreateStack where
-    toQuery = const mempty
-
-instance ToJSON CreateStack where
-    toJSON = genericToJSON jsonOptions

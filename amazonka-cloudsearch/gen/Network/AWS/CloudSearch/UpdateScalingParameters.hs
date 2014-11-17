@@ -98,6 +98,13 @@ usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParameters
 usprScalingParameters =
     lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
 
+instance ToPath UpdateScalingParameters where
+    toPath = const "/"
+
+instance ToQuery UpdateScalingParameters
+
+instance ToHeaders UpdateScalingParameters
+
 instance AWSRequest UpdateScalingParameters where
     type Sv UpdateScalingParameters = CloudSearch
     type Rs UpdateScalingParameters = UpdateScalingParametersResponse
@@ -108,10 +115,3 @@ instance AWSRequest UpdateScalingParameters where
 instance FromXML UpdateScalingParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateScalingParametersResponse"
-
-instance ToPath UpdateScalingParameters where
-    toPath = const "/"
-
-instance ToHeaders UpdateScalingParameters
-
-instance ToQuery UpdateScalingParameters

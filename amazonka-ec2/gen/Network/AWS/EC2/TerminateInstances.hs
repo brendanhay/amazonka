@@ -110,6 +110,13 @@ tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
 
+instance ToPath TerminateInstances where
+    toPath = const "/"
+
+instance ToQuery TerminateInstances
+
+instance ToHeaders TerminateInstances
+
 instance AWSRequest TerminateInstances where
     type Sv TerminateInstances = EC2
     type Rs TerminateInstances = TerminateInstancesResponse
@@ -120,18 +127,3 @@ instance AWSRequest TerminateInstances where
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TerminateInstancesResponse"
-
-instance ToPath TerminateInstances where
-    toPath = const "/"
-
-instance ToHeaders TerminateInstances
-
-instance ToQuery TerminateInstances where
-    toQuery TerminateInstances{..} = mconcat
-        [ "dryRun"     =? _tiDryRun
-        , "InstanceId" =? _tiInstanceIds
-        ]
-
-instance ToXML TerminateInstances where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TerminateInstances"

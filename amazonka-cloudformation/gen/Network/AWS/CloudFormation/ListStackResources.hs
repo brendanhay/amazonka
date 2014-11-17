@@ -109,6 +109,13 @@ lsrrStackResourceSummaries =
     lens _lsrrStackResourceSummaries
         (\s a -> s { _lsrrStackResourceSummaries = a })
 
+instance ToPath ListStackResources where
+    toPath = const "/"
+
+instance ToQuery ListStackResources
+
+instance ToHeaders ListStackResources
+
 instance AWSRequest ListStackResources where
     type Sv ListStackResources = CloudFormation
     type Rs ListStackResources = ListStackResourcesResponse
@@ -119,10 +126,3 @@ instance AWSRequest ListStackResources where
 instance FromXML ListStackResourcesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListStackResourcesResponse"
-
-instance ToPath ListStackResources where
-    toPath = const "/"
-
-instance ToHeaders ListStackResources
-
-instance ToQuery ListStackResources

@@ -70,6 +70,17 @@ ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount =
     lens _ghccrHealthCheckCount (\s a -> s { _ghccrHealthCheckCount = a })
 
+instance ToPath GetHealthCheckCount where
+    toPath = const "/2013-04-01/healthcheckcount"
+
+instance ToQuery GetHealthCheckCount where
+    toQuery = const mempty
+
+instance ToHeaders GetHealthCheckCount
+instance ToXML GetHealthCheckCount where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHealthCheckCount"
+
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse
@@ -80,15 +91,3 @@ instance AWSRequest GetHealthCheckCount where
 instance FromXML GetHealthCheckCountResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetHealthCheckCountResponse"
-
-instance ToPath GetHealthCheckCount where
-    toPath = const "/2013-04-01/healthcheckcount"
-
-instance ToHeaders GetHealthCheckCount
-
-instance ToQuery GetHealthCheckCount where
-    toQuery = const mempty
-
-instance ToXML GetHealthCheckCount where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckCount"

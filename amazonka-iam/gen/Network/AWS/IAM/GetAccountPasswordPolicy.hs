@@ -69,6 +69,14 @@ gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprPasswordPolicy =
     lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
 
+instance ToPath GetAccountPasswordPolicy where
+    toPath = const "/"
+
+instance ToQuery GetAccountPasswordPolicy where
+    toQuery = const mempty
+
+instance ToHeaders GetAccountPasswordPolicy
+
 instance AWSRequest GetAccountPasswordPolicy where
     type Sv GetAccountPasswordPolicy = IAM
     type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
@@ -79,10 +87,3 @@ instance AWSRequest GetAccountPasswordPolicy where
 instance FromXML GetAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetAccountPasswordPolicyResponse"
-
-instance ToPath GetAccountPasswordPolicy where
-    toPath = const "/"
-
-instance ToHeaders GetAccountPasswordPolicy
-
-instance ToQuery GetAccountPasswordPolicy

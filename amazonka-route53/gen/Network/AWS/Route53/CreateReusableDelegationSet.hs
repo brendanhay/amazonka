@@ -119,6 +119,17 @@ crdsrDelegationSet =
 crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrLocation = lens _crdsrLocation (\s a -> s { _crdsrLocation = a })
 
+instance ToPath CreateReusableDelegationSet where
+    toPath = const "/2013-04-01/delegationset"
+
+instance ToQuery CreateReusableDelegationSet where
+    toQuery = const mempty
+
+instance ToHeaders CreateReusableDelegationSet
+instance ToXML CreateReusableDelegationSet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateReusableDelegationSet"
+
 instance AWSRequest CreateReusableDelegationSet where
     type Sv CreateReusableDelegationSet = Route53
     type Rs CreateReusableDelegationSet = CreateReusableDelegationSetResponse
@@ -127,15 +138,3 @@ instance AWSRequest CreateReusableDelegationSet where
     response = xmlHeaderResponse $ \h x -> CreateReusableDelegationSetResponse
         <$> x %| "DelegationSet"
         <*> h ~: "Location"
-
-instance ToPath CreateReusableDelegationSet where
-    toPath = const "/2013-04-01/delegationset"
-
-instance ToHeaders CreateReusableDelegationSet
-
-instance ToQuery CreateReusableDelegationSet where
-    toQuery = const mempty
-
-instance ToXML CreateReusableDelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateReusableDelegationSet"

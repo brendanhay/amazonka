@@ -133,6 +133,13 @@ ddbpgrDBParameterGroups =
 ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 
+instance ToPath DescribeDBParameterGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeDBParameterGroups
+
+instance ToHeaders DescribeDBParameterGroups
+
 instance AWSRequest DescribeDBParameterGroups where
     type Sv DescribeDBParameterGroups = RDS
     type Rs DescribeDBParameterGroups = DescribeDBParameterGroupsResponse
@@ -143,10 +150,3 @@ instance AWSRequest DescribeDBParameterGroups where
 instance FromXML DescribeDBParameterGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBParameterGroupsResponse"
-
-instance ToPath DescribeDBParameterGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBParameterGroups
-
-instance ToQuery DescribeDBParameterGroups

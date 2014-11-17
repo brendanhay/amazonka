@@ -114,16 +114,6 @@ registerDeviceResponse = RegisterDeviceResponse
 rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\s a -> s { _rdrDeviceId = a })
 
-instance AWSRequest RegisterDevice where
-    type Sv RegisterDevice = CognitoSync
-    type Rs RegisterDevice = RegisterDeviceResponse
-
-    request  = post
-    response = jsonResponse
-
-instance FromJSON RegisterDeviceResponse where
-    parseJSON = genericParseJSON jsonOptions
-
 instance ToPath RegisterDevice where
     toPath RegisterDevice{..} = mconcat
         [ "/identitypools/"
@@ -133,10 +123,19 @@ instance ToPath RegisterDevice where
         , "/device"
         ]
 
-instance ToHeaders RegisterDevice
-
 instance ToQuery RegisterDevice where
     toQuery = const mempty
 
+instance ToHeaders RegisterDevice
 instance ToJSON RegisterDevice where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest RegisterDevice where
+    type Sv RegisterDevice = CognitoSync
+    type Rs RegisterDevice = RegisterDeviceResponse
+
+    request  = post
+    response = jsonResponse
+
+instance FromJSON RegisterDeviceResponse where
+    parseJSON = genericParseJSON jsonOptions

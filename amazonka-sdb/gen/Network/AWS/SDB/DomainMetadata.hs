@@ -145,6 +145,13 @@ dmrItemNamesSizeBytes =
 dmrTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
 dmrTimestamp = lens _dmrTimestamp (\s a -> s { _dmrTimestamp = a })
 
+instance ToPath DomainMetadata where
+    toPath = const "/"
+
+instance ToQuery DomainMetadata
+
+instance ToHeaders DomainMetadata
+
 instance AWSRequest DomainMetadata where
     type Sv DomainMetadata = SDB
     type Rs DomainMetadata = DomainMetadataResponse
@@ -155,10 +162,3 @@ instance AWSRequest DomainMetadata where
 instance FromXML DomainMetadataResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DomainMetadataResponse"
-
-instance ToPath DomainMetadata where
-    toPath = const "/"
-
-instance ToHeaders DomainMetadata
-
-instance ToQuery DomainMetadata

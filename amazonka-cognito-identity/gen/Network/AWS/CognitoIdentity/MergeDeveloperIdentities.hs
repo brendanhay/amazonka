@@ -132,6 +132,16 @@ mergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse
 mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\s a -> s { _mdirIdentityId = a })
 
+instance ToPath MergeDeveloperIdentities where
+    toPath = const "/"
+
+instance ToQuery MergeDeveloperIdentities where
+    toQuery = const mempty
+
+instance ToHeaders MergeDeveloperIdentities
+instance ToJSON MergeDeveloperIdentities where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest MergeDeveloperIdentities where
     type Sv MergeDeveloperIdentities = CognitoIdentity
     type Rs MergeDeveloperIdentities = MergeDeveloperIdentitiesResponse
@@ -141,14 +151,3 @@ instance AWSRequest MergeDeveloperIdentities where
 
 instance FromJSON MergeDeveloperIdentitiesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath MergeDeveloperIdentities where
-    toPath = const "/"
-
-instance ToHeaders MergeDeveloperIdentities
-
-instance ToQuery MergeDeveloperIdentities where
-    toQuery = const mempty
-
-instance ToJSON MergeDeveloperIdentities where
-    toJSON = genericToJSON jsonOptions

@@ -105,6 +105,16 @@ eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eerEvaluatedExpression =
     lens _eerEvaluatedExpression (\s a -> s { _eerEvaluatedExpression = a })
 
+instance ToPath EvaluateExpression where
+    toPath = const "/"
+
+instance ToQuery EvaluateExpression where
+    toQuery = const mempty
+
+instance ToHeaders EvaluateExpression
+instance ToJSON EvaluateExpression where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest EvaluateExpression where
     type Sv EvaluateExpression = DataPipeline
     type Rs EvaluateExpression = EvaluateExpressionResponse
@@ -114,14 +124,3 @@ instance AWSRequest EvaluateExpression where
 
 instance FromJSON EvaluateExpressionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath EvaluateExpression where
-    toPath = const "/"
-
-instance ToHeaders EvaluateExpression
-
-instance ToQuery EvaluateExpression where
-    toQuery = const mempty
-
-instance ToJSON EvaluateExpression where
-    toJSON = genericToJSON jsonOptions

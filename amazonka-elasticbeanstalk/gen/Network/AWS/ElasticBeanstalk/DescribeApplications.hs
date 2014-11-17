@@ -95,6 +95,13 @@ describeApplicationsResponse = DescribeApplicationsResponse
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\s a -> s { _darApplications = a })
 
+instance ToPath DescribeApplications where
+    toPath = const "/"
+
+instance ToQuery DescribeApplications
+
+instance ToHeaders DescribeApplications
+
 instance AWSRequest DescribeApplications where
     type Sv DescribeApplications = ElasticBeanstalk
     type Rs DescribeApplications = DescribeApplicationsResponse
@@ -105,10 +112,3 @@ instance AWSRequest DescribeApplications where
 instance FromXML DescribeApplicationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeApplicationsResponse"
-
-instance ToPath DescribeApplications where
-    toPath = const "/"
-
-instance ToHeaders DescribeApplications
-
-instance ToQuery DescribeApplications

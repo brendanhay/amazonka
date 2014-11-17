@@ -93,16 +93,16 @@ data SetDesiredCapacityResponse = SetDesiredCapacityResponse
 setDesiredCapacityResponse :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse
 
+instance ToPath SetDesiredCapacity where
+    toPath = const "/"
+
+instance ToQuery SetDesiredCapacity
+
+instance ToHeaders SetDesiredCapacity
+
 instance AWSRequest SetDesiredCapacity where
     type Sv SetDesiredCapacity = AutoScaling
     type Rs SetDesiredCapacity = SetDesiredCapacityResponse
 
     request  = post "SetDesiredCapacity"
     response = nullResponse SetDesiredCapacityResponse
-
-instance ToPath SetDesiredCapacity where
-    toPath = const "/"
-
-instance ToHeaders SetDesiredCapacity
-
-instance ToQuery SetDesiredCapacity

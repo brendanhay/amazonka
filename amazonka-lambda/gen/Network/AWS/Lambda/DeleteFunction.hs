@@ -69,23 +69,22 @@ data DeleteFunctionResponse = DeleteFunctionResponse
 deleteFunctionResponse :: DeleteFunctionResponse
 deleteFunctionResponse = DeleteFunctionResponse
 
-instance AWSRequest DeleteFunction where
-    type Sv DeleteFunction = Lambda
-    type Rs DeleteFunction = DeleteFunctionResponse
-
-    request  = delete
-    response = nullResponse DeleteFunctionResponse
-
 instance ToPath DeleteFunction where
     toPath DeleteFunction{..} = mconcat
         [ "/2014-11-13/functions/"
         , toText _dfFunctionName
         ]
 
-instance ToHeaders DeleteFunction
-
 instance ToQuery DeleteFunction where
     toQuery = const mempty
 
+instance ToHeaders DeleteFunction
 instance ToJSON DeleteFunction where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest DeleteFunction where
+    type Sv DeleteFunction = Lambda
+    type Rs DeleteFunction = DeleteFunctionResponse
+
+    request  = delete
+    response = nullResponse DeleteFunctionResponse

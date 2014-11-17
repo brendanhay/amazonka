@@ -137,6 +137,13 @@ liprIsTruncated = lens _liprIsTruncated (\s a -> s { _liprIsTruncated = a })
 liprMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
 liprMarker = lens _liprMarker (\s a -> s { _liprMarker = a })
 
+instance ToPath ListInstanceProfiles where
+    toPath = const "/"
+
+instance ToQuery ListInstanceProfiles
+
+instance ToHeaders ListInstanceProfiles
+
 instance AWSRequest ListInstanceProfiles where
     type Sv ListInstanceProfiles = IAM
     type Rs ListInstanceProfiles = ListInstanceProfilesResponse
@@ -147,10 +154,3 @@ instance AWSRequest ListInstanceProfiles where
 instance FromXML ListInstanceProfilesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListInstanceProfilesResponse"
-
-instance ToPath ListInstanceProfiles where
-    toPath = const "/"
-
-instance ToHeaders ListInstanceProfiles
-
-instance ToQuery ListInstanceProfiles

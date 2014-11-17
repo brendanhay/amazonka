@@ -105,6 +105,16 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse Text
 cdarAvailability = lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 
+instance ToPath CheckDomainAvailability where
+    toPath = const "/"
+
+instance ToQuery CheckDomainAvailability where
+    toQuery = const mempty
+
+instance ToHeaders CheckDomainAvailability
+instance ToJSON CheckDomainAvailability where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CheckDomainAvailability where
     type Sv CheckDomainAvailability = Route53Domains
     type Rs CheckDomainAvailability = CheckDomainAvailabilityResponse
@@ -114,14 +124,3 @@ instance AWSRequest CheckDomainAvailability where
 
 instance FromJSON CheckDomainAvailabilityResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CheckDomainAvailability where
-    toPath = const "/"
-
-instance ToHeaders CheckDomainAvailability
-
-instance ToQuery CheckDomainAvailability where
-    toQuery = const mempty
-
-instance ToJSON CheckDomainAvailability where
-    toJSON = genericToJSON jsonOptions

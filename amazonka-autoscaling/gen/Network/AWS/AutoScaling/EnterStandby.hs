@@ -118,6 +118,13 @@ enterStandbyResponse = EnterStandbyResponse
 esr1Activities :: Lens' EnterStandbyResponse [Activity]
 esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a })
 
+instance ToPath EnterStandby where
+    toPath = const "/"
+
+instance ToQuery EnterStandby
+
+instance ToHeaders EnterStandby
+
 instance AWSRequest EnterStandby where
     type Sv EnterStandby = AutoScaling
     type Rs EnterStandby = EnterStandbyResponse
@@ -128,10 +135,3 @@ instance AWSRequest EnterStandby where
 instance FromXML EnterStandbyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnterStandbyResponse"
-
-instance ToPath EnterStandby where
-    toPath = const "/"
-
-instance ToHeaders EnterStandby
-
-instance ToQuery EnterStandby

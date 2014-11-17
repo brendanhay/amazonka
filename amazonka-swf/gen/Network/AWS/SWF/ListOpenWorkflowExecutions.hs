@@ -191,6 +191,16 @@ lowerNextPageToken :: Lens' ListOpenWorkflowExecutionsResponse (Maybe Text)
 lowerNextPageToken =
     lens _lowerNextPageToken (\s a -> s { _lowerNextPageToken = a })
 
+instance ToPath ListOpenWorkflowExecutions where
+    toPath = const "/"
+
+instance ToQuery ListOpenWorkflowExecutions where
+    toQuery = const mempty
+
+instance ToHeaders ListOpenWorkflowExecutions
+instance ToJSON ListOpenWorkflowExecutions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListOpenWorkflowExecutions where
     type Sv ListOpenWorkflowExecutions = SWF
     type Rs ListOpenWorkflowExecutions = ListOpenWorkflowExecutionsResponse
@@ -200,14 +210,3 @@ instance AWSRequest ListOpenWorkflowExecutions where
 
 instance FromJSON ListOpenWorkflowExecutionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListOpenWorkflowExecutions where
-    toPath = const "/"
-
-instance ToHeaders ListOpenWorkflowExecutions
-
-instance ToQuery ListOpenWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToJSON ListOpenWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions

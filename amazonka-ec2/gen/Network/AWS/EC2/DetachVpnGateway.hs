@@ -92,25 +92,16 @@ data DetachVpnGatewayResponse = DetachVpnGatewayResponse
 detachVpnGatewayResponse :: DetachVpnGatewayResponse
 detachVpnGatewayResponse = DetachVpnGatewayResponse
 
+instance ToPath DetachVpnGateway where
+    toPath = const "/"
+
+instance ToQuery DetachVpnGateway
+
+instance ToHeaders DetachVpnGateway
+
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2
     type Rs DetachVpnGateway = DetachVpnGatewayResponse
 
     request  = post "DetachVpnGateway"
     response = nullResponse DetachVpnGatewayResponse
-
-instance ToPath DetachVpnGateway where
-    toPath = const "/"
-
-instance ToHeaders DetachVpnGateway
-
-instance ToQuery DetachVpnGateway where
-    toQuery DetachVpnGateway{..} = mconcat
-        [ "dryRun"       =? _dvg1DryRun
-        , "VpnGatewayId" =? _dvg1VpnGatewayId
-        , "VpcId"        =? _dvg1VpcId
-        ]
-
-instance ToXML DetachVpnGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DetachVpnGateway"

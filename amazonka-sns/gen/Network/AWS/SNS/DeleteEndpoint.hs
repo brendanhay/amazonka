@@ -69,16 +69,16 @@ data DeleteEndpointResponse = DeleteEndpointResponse
 deleteEndpointResponse :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse
 
+instance ToPath DeleteEndpoint where
+    toPath = const "/"
+
+instance ToQuery DeleteEndpoint
+
+instance ToHeaders DeleteEndpoint
+
 instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS
     type Rs DeleteEndpoint = DeleteEndpointResponse
 
     request  = post "DeleteEndpoint"
     response = nullResponse DeleteEndpointResponse
-
-instance ToPath DeleteEndpoint where
-    toPath = const "/"
-
-instance ToHeaders DeleteEndpoint
-
-instance ToQuery DeleteEndpoint

@@ -76,20 +76,19 @@ data DeleteMetricFilterResponse = DeleteMetricFilterResponse
 deleteMetricFilterResponse :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse
 
+instance ToPath DeleteMetricFilter where
+    toPath = const "/"
+
+instance ToQuery DeleteMetricFilter where
+    toQuery = const mempty
+
+instance ToHeaders DeleteMetricFilter
+instance ToJSON DeleteMetricFilter where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs
     type Rs DeleteMetricFilter = DeleteMetricFilterResponse
 
     request  = post
     response = nullResponse DeleteMetricFilterResponse
-
-instance ToPath DeleteMetricFilter where
-    toPath = const "/"
-
-instance ToHeaders DeleteMetricFilter
-
-instance ToQuery DeleteMetricFilter where
-    toQuery = const mempty
-
-instance ToJSON DeleteMetricFilter where
-    toJSON = genericToJSON jsonOptions

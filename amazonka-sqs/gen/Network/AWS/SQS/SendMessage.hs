@@ -155,6 +155,13 @@ smrMD5OfMessageBody =
 smrMessageId :: Lens' SendMessageResponse (Maybe Text)
 smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
 
+instance ToPath SendMessage where
+    toPath = const "/"
+
+instance ToQuery SendMessage
+
+instance ToHeaders SendMessage
+
 instance AWSRequest SendMessage where
     type Sv SendMessage = SQS
     type Rs SendMessage = SendMessageResponse
@@ -165,10 +172,3 @@ instance AWSRequest SendMessage where
 instance FromXML SendMessageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendMessageResponse"
-
-instance ToPath SendMessage where
-    toPath = const "/"
-
-instance ToHeaders SendMessage
-
-instance ToQuery SendMessage

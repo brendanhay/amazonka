@@ -2794,6 +2794,7 @@
                 "name": "BatchGetApplicationsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2881,6 +2882,8 @@
                 "name": "BatchGetApplications",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2954,6 +2957,7 @@
                 "name": "BatchGetDeploymentsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3041,6 +3045,8 @@
                 "name": "BatchGetDeployments",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3114,6 +3120,7 @@
                 "name": "CreateApplicationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3216,6 +3223,8 @@
                 "name": "CreateApplication",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3274,6 +3283,7 @@
                 "name": "CreateDeploymentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3358,6 +3368,8 @@
                 "name": "CreateDeployment",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3557,6 +3569,7 @@
                 "name": "CreateDeploymentConfigResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3641,6 +3654,8 @@
                 "name": "CreateDeploymentConfig",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3728,6 +3743,7 @@
                 "name": "CreateDeploymentGroupResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3826,6 +3842,8 @@
                 "name": "CreateDeploymentGroup",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3994,6 +4012,7 @@
                 "name": "DeleteApplicationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4066,6 +4085,8 @@
                 "name": "DeleteApplication",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4107,6 +4128,7 @@
                 "name": "DeleteDeploymentConfigResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -4179,6 +4201,8 @@
                 "name": "DeleteDeploymentConfig",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4237,6 +4261,7 @@
                 "name": "DeleteDeploymentGroupResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4336,6 +4361,8 @@
                 "name": "DeleteDeploymentGroup",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4406,6 +4433,7 @@
                 "name": "GetApplicationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4508,6 +4536,8 @@
                 "name": "GetApplication",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4549,6 +4579,7 @@
                 "name": "GetApplicationRevisionResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4703,6 +4734,8 @@
                 "name": "GetApplicationRevision",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4773,6 +4806,7 @@
                 "name": "GetDeploymentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4875,6 +4909,8 @@
                 "name": "GetDeployment",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4931,6 +4967,7 @@
                 "name": "GetDeploymentConfigResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5033,6 +5070,8 @@
                 "name": "GetDeploymentConfig",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5089,6 +5128,7 @@
                 "name": "GetDeploymentGroupResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5188,6 +5228,8 @@
                 "name": "GetDeploymentGroup",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5258,6 +5300,7 @@
                 "name": "GetDeploymentInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5357,6 +5400,8 @@
                 "name": "GetDeploymentInstance",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5412,6 +5457,7 @@
                 "name": "ListApplicationRevisionsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5525,6 +5571,8 @@
                 "name": "ListApplicationRevisions",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5736,6 +5784,7 @@
                 "name": "ListApplicationsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5850,6 +5899,8 @@
                 "name": "ListApplications",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -5907,6 +5958,7 @@
                 "name": "ListDeploymentConfigsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6021,6 +6073,8 @@
                 "name": "ListDeploymentConfigs",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6078,6 +6132,7 @@
                 "name": "ListDeploymentGroupsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6219,6 +6274,8 @@
                 "name": "ListDeploymentGroups",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6290,6 +6347,7 @@
                 "name": "ListDeploymentInstancesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6403,6 +6461,8 @@
                 "name": "ListDeploymentInstances",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6502,6 +6562,7 @@
                 "name": "ListDeploymentsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6599,6 +6660,8 @@
                 "name": "ListDeployments",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6767,6 +6830,7 @@
                 "name": "RegisterApplicationRevisionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -6835,6 +6899,8 @@
                 "name": "RegisterApplicationRevision",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -6920,6 +6986,7 @@
                 "name": "StopDeploymentResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7050,6 +7117,8 @@
                 "name": "StopDeployment",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7091,6 +7160,7 @@
                 "name": "UpdateApplicationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -7131,6 +7201,8 @@
                 "name": "UpdateApplication",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7232,6 +7304,7 @@
                 "name": "UpdateDeploymentGroupResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -7330,6 +7403,8 @@
                 "name": "UpdateDeploymentGroup",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

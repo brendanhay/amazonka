@@ -106,6 +106,15 @@ lprNextPageToken = lens _lprNextPageToken (\s a -> s { _lprNextPageToken = a })
 lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprPipelines = lens _lprPipelines (\s a -> s { _lprPipelines = a })
 
+instance ToPath ListPipelines where
+    toPath = const "/2012-09-25/pipelines"
+
+instance ToQuery ListPipelines
+
+instance ToHeaders ListPipelines
+instance ToJSON ListPipelines where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = ElasticTranscoder
     type Rs ListPipelines = ListPipelinesResponse
@@ -115,17 +124,3 @@ instance AWSRequest ListPipelines where
 
 instance FromJSON ListPipelinesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListPipelines where
-    toPath = const "/2012-09-25/pipelines"
-
-instance ToHeaders ListPipelines
-
-instance ToQuery ListPipelines where
-    toQuery ListPipelines{..} = mconcat
-        [ "Ascending" =? _lpAscending
-        , "PageToken" =? _lpPageToken
-        ]
-
-instance ToJSON ListPipelines where
-    toJSON = genericToJSON jsonOptions

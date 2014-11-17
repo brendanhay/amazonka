@@ -21827,6 +21827,7 @@
                 "name": "AcceptVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21878,7 +21879,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 27,
                 "ctor": "acceptVpcPeeringConnection",
                 "headerPad": 0,
@@ -21908,6 +21909,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21993,6 +21996,7 @@
                 "name": "AllocateAddressResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22100,7 +22104,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 9,
                 "ctor": "allocateAddress",
                 "headerPad": 0,
@@ -22130,6 +22134,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22214,6 +22220,7 @@
                 "name": "AssignPrivateIpAddressesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -22235,7 +22242,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 35,
                 "ctor": "assignPrivateIpAddresses",
                 "headerPad": 0,
@@ -22290,6 +22297,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22433,6 +22442,7 @@
                 "name": "AssociateAddressResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22484,7 +22494,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "associateAddress",
                 "headerPad": 0,
@@ -22539,6 +22549,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22763,6 +22775,7 @@
                 "name": "AssociateDhcpOptionsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -22784,7 +22797,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "associateDhcpOptions",
                 "headerPad": 0,
@@ -22848,6 +22861,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22949,6 +22964,7 @@
                 "name": "AssociateRouteTableResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23000,7 +23016,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "associateRouteTable",
                 "headerPad": 0,
@@ -23064,6 +23080,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23148,6 +23166,7 @@
                 "name": "AttachInternetGatewayResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -23169,7 +23188,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 21,
                 "ctor": "attachInternetGateway",
                 "headerPad": 0,
@@ -23233,6 +23252,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23334,6 +23355,7 @@
                 "name": "AttachNetworkInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23385,7 +23407,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "attachNetworkInterface",
                 "headerPad": 0,
@@ -23468,6 +23490,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23567,6 +23591,7 @@
                 "name": "AttachVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23758,7 +23783,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "attachVolume",
                 "headerPad": 0,
@@ -23841,6 +23866,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23954,6 +23981,7 @@
                 "name": "AttachVpnGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -24005,7 +24033,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "attachVpnGateway",
                 "headerPad": 0,
@@ -24069,6 +24097,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -24153,6 +24183,7 @@
                 "name": "AuthorizeSecurityGroupEgressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -24173,7 +24204,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 31,
                 "ctor": "authorizeSecurityGroupEgress",
                 "headerPad": 0,
@@ -24253,6 +24284,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -24519,6 +24552,7 @@
                 "name": "AuthorizeSecurityGroupIngressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -24539,7 +24573,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 31,
                 "ctor": "authorizeSecurityGroupIngress",
                 "headerPad": 0,
@@ -24609,6 +24643,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -24932,6 +24968,7 @@
                 "name": "BundleInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -24982,7 +25019,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "bundleInstance",
                 "headerPad": 0,
@@ -25046,6 +25083,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25145,6 +25184,7 @@
                 "name": "CancelBundleTaskResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25196,7 +25236,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "cancelBundleTask",
                 "headerPad": 0,
@@ -25241,6 +25281,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25311,6 +25353,7 @@
                 "name": "CancelConversionTaskResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -25332,7 +25375,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 20,
                 "ctor": "cancelConversionTask",
                 "headerPad": 0,
@@ -25382,6 +25425,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25480,6 +25525,7 @@
                 "name": "CancelExportTaskResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -25504,7 +25550,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "cancelExportTask",
                 "headerPad": 0,
@@ -25558,6 +25604,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -25616,6 +25664,7 @@
                 "name": "CancelReservedInstancesListingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25670,7 +25719,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "cancelReservedInstancesListing",
                 "headerPad": 0,
@@ -25724,6 +25773,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -25782,6 +25833,7 @@
                 "name": "CancelSpotInstanceRequestsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25833,7 +25885,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 27,
                 "ctor": "cancelSpotInstanceRequests",
                 "headerPad": 0,
@@ -25863,6 +25915,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -25964,6 +26018,7 @@
                 "name": "ConfirmProductInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26015,7 +26070,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "confirmProductInstance",
                 "headerPad": 0,
@@ -26079,6 +26134,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26180,6 +26237,7 @@
                 "name": "CopyImageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26231,7 +26289,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "copyImage",
                 "headerPad": 0,
@@ -26324,6 +26382,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26495,6 +26555,7 @@
                 "name": "CopySnapshotResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26546,7 +26607,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 20,
                 "ctor": "copySnapshot",
                 "headerPad": 0,
@@ -26625,6 +26686,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26808,6 +26871,7 @@
                 "name": "CreateCustomerGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -26859,7 +26923,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "createCustomerGateway",
                 "headerPad": 0,
@@ -26942,6 +27006,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27055,6 +27121,7 @@
                 "name": "CreateDhcpOptionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27105,7 +27172,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "createDhcpOptions",
                 "headerPad": 0,
@@ -27135,6 +27202,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27236,6 +27305,7 @@
                 "name": "CreateImageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27286,7 +27356,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "createImage",
                 "headerPad": 0,
@@ -27365,6 +27435,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27548,6 +27620,7 @@
                 "name": "CreateInstanceExportTaskResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27598,7 +27671,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "createInstanceExportTask",
                 "headerPad": 0,
@@ -27653,6 +27726,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27794,6 +27869,7 @@
                 "name": "CreateInternetGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27846,7 +27922,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "createInternetGateway",
                 "headerPad": 0,
@@ -27885,6 +27961,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -27942,6 +28020,7 @@
                 "name": "CreateKeyPairResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -28049,7 +28128,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "createKeyPair",
                 "headerPad": 0,
@@ -28094,6 +28173,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -28179,6 +28260,7 @@
                 "name": "CreateNetworkAclResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -28230,7 +28312,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 10,
                 "ctor": "createNetworkAcl",
                 "headerPad": 0,
@@ -28275,6 +28357,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -28345,6 +28429,7 @@
                 "name": "CreateNetworkAclEntryResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -28365,7 +28450,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "createNetworkAclEntry",
                 "headerPad": 0,
@@ -28515,6 +28600,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -28726,6 +28813,7 @@
                 "name": "CreateNetworkInterfaceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -28776,7 +28864,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 34,
                 "ctor": "createNetworkInterface",
                 "headerPad": 0,
@@ -28846,6 +28934,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29056,6 +29146,7 @@
                 "name": "CreatePlacementGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -29077,7 +29168,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "createPlacementGroup",
                 "headerPad": 0,
@@ -29141,6 +29232,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29242,6 +29335,7 @@
                 "name": "CreateReservedInstancesListingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29292,7 +29386,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 24,
                 "ctor": "createReservedInstancesListing",
                 "headerPad": 0,
@@ -29375,6 +29469,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29473,6 +29569,7 @@
                 "name": "CreateRouteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -29494,7 +29591,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 25,
                 "ctor": "createRoute",
                 "headerPad": 0,
@@ -29578,6 +29675,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29789,6 +29888,7 @@
                 "name": "CreateRouteTableResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29840,7 +29940,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 10,
                 "ctor": "createRouteTable",
                 "headerPad": 0,
@@ -29885,6 +29985,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -29972,6 +30074,7 @@
                 "name": "CreateSecurityGroupResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30023,7 +30126,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "createSecurityGroup",
                 "headerPad": 0,
@@ -30092,6 +30195,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30204,6 +30309,7 @@
                 "name": "CreateSnapshotResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30535,7 +30641,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "createSnapshot",
                 "headerPad": 0,
@@ -30585,6 +30691,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30698,6 +30806,7 @@
                 "name": "CreateSpotDatafeedSubscriptionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30749,7 +30858,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "createSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -30799,6 +30908,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30912,6 +31023,7 @@
                 "name": "CreateSubnetResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -30963,7 +31075,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 20,
                 "ctor": "createSubnet",
                 "headerPad": 0,
@@ -31032,6 +31144,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -31144,6 +31258,7 @@
                 "name": "CreateTagsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -31164,7 +31279,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "createTags",
                 "headerPad": 0,
@@ -31199,6 +31314,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -31311,6 +31428,7 @@
                 "name": "CreateVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -31642,7 +31760,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 20,
                 "ctor": "createVolume",
                 "headerPad": 0,
@@ -31712,6 +31830,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -31937,6 +32057,7 @@
                 "name": "CreateVpcResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -31988,7 +32109,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "createVpc",
                 "headerPad": 0,
@@ -32038,6 +32159,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -32151,6 +32274,7 @@
                 "name": "CreateVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -32202,7 +32326,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "createVpcPeeringConnection",
                 "headerPad": 0,
@@ -32242,6 +32366,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -32397,6 +32523,7 @@
                 "name": "CreateVpnConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -32447,7 +32574,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 21,
                 "ctor": "createVpnConnection",
                 "headerPad": 0,
@@ -32535,6 +32662,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -32661,6 +32790,7 @@
                 "name": "CreateVpnConnectionRouteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -32682,7 +32812,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 25,
                 "ctor": "createVpnConnectionRoute",
                 "headerPad": 0,
@@ -32741,6 +32871,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -32811,6 +32943,7 @@
                 "name": "CreateVpnGatewayResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -32862,7 +32995,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 20,
                 "ctor": "createVpnGateway",
                 "headerPad": 0,
@@ -32912,6 +33045,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33010,6 +33145,7 @@
                 "name": "DeleteCustomerGatewayResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33031,7 +33167,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "deleteCustomerGateway",
                 "headerPad": 0,
@@ -33076,6 +33212,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33146,6 +33284,7 @@
                 "name": "DeleteDhcpOptionsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33167,7 +33306,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "deleteDhcpOptions",
                 "headerPad": 0,
@@ -33212,6 +33351,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33282,6 +33423,7 @@
                 "name": "DeleteInternetGatewayResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33303,7 +33445,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "deleteInternetGateway",
                 "headerPad": 0,
@@ -33348,6 +33490,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33418,6 +33562,7 @@
                 "name": "DeleteKeyPairResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33439,7 +33584,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "deleteKeyPair",
                 "headerPad": 0,
@@ -33484,6 +33629,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33554,6 +33701,7 @@
                 "name": "DeleteNetworkAclResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33575,7 +33723,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "deleteNetworkAcl",
                 "headerPad": 0,
@@ -33620,6 +33768,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33690,6 +33840,7 @@
                 "name": "DeleteNetworkAclEntryResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33711,7 +33862,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "deleteNetworkAclEntry",
                 "headerPad": 0,
@@ -33794,6 +33945,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -33892,6 +34045,7 @@
                 "name": "DeleteNetworkInterfaceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -33913,7 +34067,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "deleteNetworkInterface",
                 "headerPad": 0,
@@ -33958,6 +34112,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34028,6 +34184,7 @@
                 "name": "DeletePlacementGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34049,7 +34206,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "deletePlacementGroup",
                 "headerPad": 0,
@@ -34094,6 +34251,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34164,6 +34323,7 @@
                 "name": "DeleteRouteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34185,7 +34345,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "deleteRoute",
                 "headerPad": 0,
@@ -34249,6 +34409,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34333,6 +34495,7 @@
                 "name": "DeleteRouteTableResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34354,7 +34517,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "deleteRouteTable",
                 "headerPad": 0,
@@ -34399,6 +34562,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34469,6 +34634,7 @@
                 "name": "DeleteSecurityGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34490,7 +34656,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "deleteSecurityGroup",
                 "headerPad": 0,
@@ -34525,6 +34691,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34637,6 +34805,7 @@
                 "name": "DeleteSnapshotResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34658,7 +34827,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "deleteSnapshot",
                 "headerPad": 0,
@@ -34703,6 +34872,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34773,6 +34944,7 @@
                 "name": "DeleteSpotDatafeedSubscriptionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34795,7 +34967,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "deleteSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -34834,6 +35006,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -34890,6 +35064,7 @@
                 "name": "DeleteSubnetResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -34911,7 +35086,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "deleteSubnet",
                 "headerPad": 0,
@@ -34956,6 +35131,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35026,6 +35203,7 @@
                 "name": "DeleteTagsResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -35046,7 +35224,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "deleteTags",
                 "headerPad": 0,
@@ -35081,6 +35259,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35193,6 +35373,7 @@
                 "name": "DeleteVolumeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -35214,7 +35395,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "deleteVolume",
                 "headerPad": 0,
@@ -35259,6 +35440,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35329,6 +35512,7 @@
                 "name": "DeleteVpcResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -35350,7 +35534,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 10,
                 "ctor": "deleteVpc",
                 "headerPad": 0,
@@ -35395,6 +35579,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35481,6 +35667,7 @@
                 "name": "DeleteVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35532,7 +35719,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 27,
                 "ctor": "deleteVpcPeeringConnection",
                 "headerPad": 0,
@@ -35577,6 +35764,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35647,6 +35836,7 @@
                 "name": "DeleteVpnConnectionResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -35668,7 +35858,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 19,
                 "ctor": "deleteVpnConnection",
                 "headerPad": 0,
@@ -35713,6 +35903,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -35783,6 +35975,7 @@
                 "name": "DeleteVpnConnectionRouteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -35804,7 +35997,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 25,
                 "ctor": "deleteVpnConnectionRoute",
                 "headerPad": 0,
@@ -35863,6 +36056,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -35918,6 +36113,7 @@
                 "name": "DeleteVpnGatewayResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -35939,7 +36135,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "deleteVpnGateway",
                 "headerPad": 0,
@@ -35984,6 +36180,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36054,6 +36252,7 @@
                 "name": "DeregisterImageResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -36075,7 +36274,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 10,
                 "ctor": "deregisterImage",
                 "headerPad": 0,
@@ -36120,6 +36319,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36207,6 +36408,7 @@
                 "name": "DescribeAccountAttributesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36258,7 +36460,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "describeAccountAttributes",
                 "headerPad": 0,
@@ -36288,6 +36490,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36389,6 +36593,7 @@
                 "name": "DescribeAddressesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36439,7 +36644,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "describeAddresses",
                 "headerPad": 0,
@@ -36479,6 +36684,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36636,6 +36843,7 @@
                 "name": "DescribeAvailabilityZonesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36686,7 +36894,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "describeAvailabilityZones",
                 "headerPad": 0,
@@ -36721,6 +36929,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36850,6 +37060,7 @@
                 "name": "DescribeBundleTasksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -36900,7 +37111,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "describeBundleTasks",
                 "headerPad": 0,
@@ -36935,6 +37146,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37064,6 +37277,7 @@
                 "name": "DescribeConversionTasksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37114,7 +37328,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 21,
                 "ctor": "describeConversionTasks",
                 "headerPad": 0,
@@ -37149,6 +37363,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37278,6 +37494,7 @@
                 "name": "DescribeCustomerGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37328,7 +37545,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "describeCustomerGateways",
                 "headerPad": 0,
@@ -37363,6 +37580,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37492,6 +37711,7 @@
                 "name": "DescribeDhcpOptionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37542,7 +37762,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "describeDhcpOptions",
                 "headerPad": 0,
@@ -37577,6 +37797,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37706,6 +37928,7 @@
                 "name": "DescribeExportTasksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37760,7 +37983,7 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "describeExportTasks",
                 "headerPad": 0,
@@ -37799,6 +38022,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -37855,6 +38080,7 @@
                 "name": "DescribeImageAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -38102,7 +38328,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "describeImageAttribute",
                 "headerPad": 0,
@@ -38166,6 +38392,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -38267,6 +38495,7 @@
                 "name": "DescribeImagesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -38317,7 +38546,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 19,
                 "ctor": "describeImages",
                 "headerPad": 0,
@@ -38362,6 +38591,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -38530,6 +38761,7 @@
                 "name": "DescribeInstanceAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -38945,7 +39177,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "describeInstanceAttribute",
                 "headerPad": 0,
@@ -39009,6 +39241,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39093,6 +39327,7 @@
                 "name": "DescribeInstanceStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39179,7 +39414,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "describeInstanceStatus",
                 "headerPad": 0,
@@ -39229,6 +39464,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39425,6 +39662,7 @@
                 "name": "DescribeInstancesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39511,7 +39749,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "describeInstances",
                 "headerPad": 0,
@@ -39556,6 +39794,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39741,6 +39981,7 @@
                 "name": "DescribeInternetGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39791,7 +40032,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "describeInternetGateways",
                 "headerPad": 0,
@@ -39826,6 +40067,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -39955,6 +40198,7 @@
                 "name": "DescribeKeyPairsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40005,7 +40249,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "describeKeyPairs",
                 "headerPad": 0,
@@ -40040,6 +40284,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40169,6 +40415,7 @@
                 "name": "DescribeNetworkAclsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40219,7 +40466,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "describeNetworkAcls",
                 "headerPad": 0,
@@ -40254,6 +40501,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40366,6 +40615,7 @@
                 "name": "DescribeNetworkInterfaceAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40529,7 +40779,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "describeNetworkInterfaceAttribute",
                 "headerPad": 0,
@@ -40579,6 +40829,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40694,6 +40946,7 @@
                 "name": "DescribeNetworkInterfacesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40744,7 +40997,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 24,
                 "ctor": "describeNetworkInterfaces",
                 "headerPad": 0,
@@ -40779,6 +41032,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40908,6 +41163,7 @@
                 "name": "DescribePlacementGroupsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -40958,7 +41214,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "describePlacementGroups",
                 "headerPad": 0,
@@ -40993,6 +41249,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41122,6 +41380,7 @@
                 "name": "DescribeRegionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41172,7 +41431,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "describeRegions",
                 "headerPad": 0,
@@ -41207,6 +41466,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41336,6 +41597,7 @@
                 "name": "DescribeReservedInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41386,7 +41648,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 24,
                 "ctor": "describeReservedInstances",
                 "headerPad": 0,
@@ -41426,6 +41688,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41583,6 +41847,7 @@
                 "name": "DescribeReservedInstancesListingsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41633,7 +41898,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 31,
                 "ctor": "describeReservedInstancesListings",
                 "headerPad": 0,
@@ -41668,6 +41933,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41780,6 +42047,7 @@
                 "name": "DescribeReservedInstancesModificationsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -41866,7 +42134,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 37,
                 "ctor": "describeReservedInstancesModifications",
                 "headerPad": 0,
@@ -41901,6 +42169,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -42013,6 +42283,7 @@
                 "name": "DescribeReservedInstancesOfferingsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -42099,7 +42370,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 33,
                 "ctor": "describeReservedInstancesOfferings",
                 "headerPad": 0,
@@ -42189,6 +42460,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -42626,6 +42899,7 @@
                 "name": "DescribeRouteTablesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -42676,7 +42950,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "describeRouteTables",
                 "headerPad": 0,
@@ -42711,6 +42985,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -42840,6 +43116,7 @@
                 "name": "DescribeSecurityGroupsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -42890,7 +43167,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "describeSecurityGroups",
                 "headerPad": 0,
@@ -42930,6 +43207,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43070,6 +43349,7 @@
                 "name": "DescribeSnapshotAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43177,7 +43457,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "describeSnapshotAttribute",
                 "headerPad": 0,
@@ -43241,6 +43521,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43342,6 +43624,7 @@
                 "name": "DescribeSnapshotsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43392,7 +43675,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "describeSnapshots",
                 "headerPad": 0,
@@ -43437,6 +43720,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43620,6 +43905,7 @@
                 "name": "DescribeSpotDatafeedSubscriptionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43672,7 +43958,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "describeSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -43711,6 +43997,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43784,6 +44072,7 @@
                 "name": "DescribeSpotInstanceRequestsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43834,7 +44123,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 27,
                 "ctor": "describeSpotInstanceRequests",
                 "headerPad": 0,
@@ -43869,6 +44158,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -43981,6 +44272,7 @@
                 "name": "DescribeSpotPriceHistoryResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44067,7 +44359,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 24,
                 "ctor": "describeSpotPriceHistory",
                 "headerPad": 0,
@@ -44132,6 +44424,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44429,6 +44723,7 @@
                 "name": "DescribeSubnetsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44479,7 +44774,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "describeSubnets",
                 "headerPad": 0,
@@ -44514,6 +44809,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44626,6 +44923,7 @@
                 "name": "DescribeTagsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44712,7 +45010,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "describeTags",
                 "headerPad": 0,
@@ -44752,6 +45050,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44892,6 +45192,7 @@
                 "name": "DescribeVolumeAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -44999,7 +45300,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "describeVolumeAttribute",
                 "headerPad": 0,
@@ -45049,6 +45350,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -45147,6 +45450,7 @@
                 "name": "DescribeVolumeStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -45233,7 +45537,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "describeVolumeStatus",
                 "headerPad": 0,
@@ -45278,6 +45582,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -45446,6 +45752,7 @@
                 "name": "DescribeVolumesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -45524,7 +45831,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "describeVolumes",
                 "headerPad": 0,
@@ -45569,6 +45876,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -45737,6 +46046,7 @@
                 "name": "DescribeVpcAttributeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -45844,7 +46154,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "describeVpcAttribute",
                 "headerPad": 0,
@@ -45894,6 +46204,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46009,6 +46321,7 @@
                 "name": "DescribeVpcPeeringConnectionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46059,7 +46372,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 29,
                 "ctor": "describeVpcPeeringConnections",
                 "headerPad": 0,
@@ -46094,6 +46407,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46223,6 +46538,7 @@
                 "name": "DescribeVpcsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46273,7 +46589,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "describeVpcs",
                 "headerPad": 0,
@@ -46308,6 +46624,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46437,6 +46755,7 @@
                 "name": "DescribeVpnConnectionsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46487,7 +46806,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 21,
                 "ctor": "describeVpnConnections",
                 "headerPad": 0,
@@ -46522,6 +46841,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46651,6 +46972,7 @@
                 "name": "DescribeVpnGatewaysResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46701,7 +47023,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "describeVpnGateways",
                 "headerPad": 0,
@@ -46736,6 +47058,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -46848,6 +47172,7 @@
                 "name": "DetachInternetGatewayResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -46869,7 +47194,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 21,
                 "ctor": "detachInternetGateway",
                 "headerPad": 0,
@@ -46933,6 +47258,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -47017,6 +47344,7 @@
                 "name": "DetachNetworkInterfaceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -47038,7 +47366,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "detachNetworkInterface",
                 "headerPad": 0,
@@ -47088,6 +47416,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -47187,6 +47517,7 @@
                 "name": "DetachVolumeResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -47378,7 +47709,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "detachVolume",
                 "headerPad": 0,
@@ -47438,6 +47769,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -47592,6 +47925,7 @@
                 "name": "DetachVpnGatewayResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -47613,7 +47947,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "detachVpnGateway",
                 "headerPad": 0,
@@ -47677,6 +48011,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -47761,6 +48097,7 @@
                 "name": "DisableVgwRoutePropagationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -47782,7 +48119,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "disableVgwRoutePropagation",
                 "headerPad": 0,
@@ -47841,6 +48178,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -47896,6 +48235,7 @@
                 "name": "DisassociateAddressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -47917,7 +48257,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "disassociateAddress",
                 "headerPad": 0,
@@ -47952,6 +48292,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48064,6 +48406,7 @@
                 "name": "DisassociateRouteTableResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -48085,7 +48428,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "disassociateRouteTable",
                 "headerPad": 0,
@@ -48130,6 +48473,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48200,6 +48545,7 @@
                 "name": "EnableVgwRoutePropagationResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -48221,7 +48567,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "enableVgwRoutePropagation",
                 "headerPad": 0,
@@ -48280,6 +48626,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -48335,6 +48683,7 @@
                 "name": "EnableVolumeIOResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -48356,7 +48705,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "enableVolumeIO",
                 "headerPad": 0,
@@ -48401,6 +48750,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48472,6 +48823,7 @@
                 "name": "GetConsoleOutputResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48579,7 +48931,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "getConsoleOutput",
                 "headerPad": 0,
@@ -48624,6 +48976,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48695,6 +49049,7 @@
                 "name": "GetPasswordDataResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48802,7 +49157,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "getPasswordData",
                 "headerPad": 0,
@@ -48847,6 +49202,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48932,6 +49289,7 @@
                 "name": "ImportInstanceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -48982,7 +49340,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "importInstance",
                 "headerPad": 0,
@@ -49042,6 +49400,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -49197,6 +49557,7 @@
                 "name": "ImportKeyPairResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -49275,7 +49636,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 21,
                 "ctor": "importKeyPair",
                 "headerPad": 0,
@@ -49339,6 +49700,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -49438,6 +49801,7 @@
                 "name": "ImportVolumeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -49488,7 +49852,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 19,
                 "ctor": "importVolume",
                 "headerPad": 0,
@@ -49576,6 +49940,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -49702,6 +50068,7 @@
                 "name": "ModifyImageAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -49722,7 +50089,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 20,
                 "ctor": "modifyImageAttribute",
                 "headerPad": 0,
@@ -49807,6 +50174,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -50101,6 +50470,7 @@
                 "name": "ModifyInstanceAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -50121,7 +50491,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 38,
                 "ctor": "modifyInstanceAttribute",
                 "headerPad": 0,
@@ -50231,6 +50601,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -50665,6 +51037,7 @@
                 "name": "ModifyNetworkInterfaceAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -50685,7 +51058,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "modifyNetworkInterfaceAttribute",
                 "headerPad": 0,
@@ -50750,6 +51123,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -50949,6 +51324,7 @@
                 "name": "ModifyReservedInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -50999,7 +51375,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 24,
                 "ctor": "modifyReservedInstances",
                 "headerPad": 0,
@@ -51034,6 +51410,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -51146,6 +51524,7 @@
                 "name": "ModifySnapshotAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -51166,7 +51545,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 26,
                 "ctor": "modifySnapshotAttribute",
                 "headerPad": 0,
@@ -51236,6 +51615,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -51446,6 +51827,7 @@
                 "name": "ModifySubnetAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -51466,7 +51848,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "modifySubnetAttribute",
                 "headerPad": 0,
@@ -51511,6 +51893,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -51581,6 +51965,7 @@
                 "name": "ModifyVolumeAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -51601,7 +51986,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 16,
                 "ctor": "modifyVolumeAttribute",
                 "headerPad": 0,
@@ -51651,6 +52036,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -51749,6 +52136,7 @@
                 "name": "ModifyVpcAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -51769,7 +52157,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 22,
                 "ctor": "modifyVpcAttribute",
                 "headerPad": 0,
@@ -51819,6 +52207,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -51934,6 +52324,7 @@
                 "name": "MonitorInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -51985,7 +52376,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "monitorInstances",
                 "headerPad": 0,
@@ -52015,6 +52406,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -52116,6 +52509,7 @@
                 "name": "PurchaseReservedInstancesOfferingResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -52166,7 +52560,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 32,
                 "ctor": "purchaseReservedInstancesOffering",
                 "headerPad": 0,
@@ -52235,6 +52629,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -52347,6 +52743,7 @@
                 "name": "RebootInstancesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -52368,7 +52765,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "rebootInstances",
                 "headerPad": 0,
@@ -52398,6 +52795,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -52499,6 +52898,7 @@
                 "name": "RegisterImageResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -52549,7 +52949,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "registerImage",
                 "headerPad": 0,
@@ -52639,6 +53039,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -52977,6 +53379,7 @@
                 "name": "RejectVpcPeeringConnectionResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -53028,7 +53431,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 27,
                 "ctor": "rejectVpcPeeringConnection",
                 "headerPad": 0,
@@ -53073,6 +53476,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -53143,6 +53548,7 @@
                 "name": "ReleaseAddressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -53164,7 +53570,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "releaseAddress",
                 "headerPad": 0,
@@ -53199,6 +53605,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -53328,6 +53736,7 @@
                 "name": "ReplaceNetworkAclAssociationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -53379,7 +53788,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "replaceNetworkAclAssociation",
                 "headerPad": 0,
@@ -53443,6 +53852,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -53527,6 +53938,7 @@
                 "name": "ReplaceNetworkAclEntryResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -53547,7 +53959,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 17,
                 "ctor": "replaceNetworkAclEntry",
                 "headerPad": 0,
@@ -53697,6 +54109,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -53893,6 +54307,7 @@
                 "name": "ReplaceRouteResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -53914,7 +54329,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 25,
                 "ctor": "replaceRoute",
                 "headerPad": 0,
@@ -53998,6 +54413,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -54211,6 +54628,7 @@
                 "name": "ReplaceRouteTableAssociationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -54262,7 +54680,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "replaceRouteTableAssociation",
                 "headerPad": 0,
@@ -54326,6 +54744,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -54410,6 +54830,7 @@
                 "name": "ReportInstanceStatusResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -54431,7 +54852,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "reportInstanceStatus",
                 "headerPad": 0,
@@ -54501,6 +54922,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -54728,6 +55151,7 @@
                 "name": "RequestSpotInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -54778,7 +55202,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 25,
                 "ctor": "requestSpotInstances",
                 "headerPad": 0,
@@ -54858,6 +55282,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -55124,6 +55550,7 @@
                 "name": "ResetImageAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -55145,7 +55572,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "resetImageAttribute",
                 "headerPad": 0,
@@ -55209,6 +55636,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -55293,6 +55722,7 @@
                 "name": "ResetInstanceAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -55314,7 +55744,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "resetInstanceAttribute",
                 "headerPad": 0,
@@ -55378,6 +55808,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -55462,6 +55894,7 @@
                 "name": "ResetNetworkInterfaceAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -55483,7 +55916,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "resetNetworkInterfaceAttribute",
                 "headerPad": 0,
@@ -55533,6 +55966,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -55631,6 +56066,7 @@
                 "name": "ResetSnapshotAttributeResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -55652,7 +56088,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "resetSnapshotAttribute",
                 "headerPad": 0,
@@ -55716,6 +56152,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -55800,6 +56238,7 @@
                 "name": "RevokeSecurityGroupEgressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -55820,7 +56259,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 31,
                 "ctor": "revokeSecurityGroupEgress",
                 "headerPad": 0,
@@ -55900,6 +56339,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -56166,6 +56607,7 @@
                 "name": "RevokeSecurityGroupIngressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -56186,7 +56628,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 31,
                 "ctor": "revokeSecurityGroupIngress",
                 "headerPad": 0,
@@ -56256,6 +56698,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -56564,6 +57008,7 @@
                 "name": "RunInstancesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -56726,7 +57171,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 36,
                 "ctor": "runInstances",
                 "headerPad": 0,
@@ -56904,6 +57349,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -57551,6 +57998,7 @@
                 "name": "StartInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -57602,7 +58050,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "startInstances",
                 "headerPad": 0,
@@ -57637,6 +58085,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -57766,6 +58216,7 @@
                 "name": "StopInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -57817,7 +58268,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "stopInstances",
                 "headerPad": 0,
@@ -57852,6 +58303,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -57981,6 +58434,7 @@
                 "name": "TerminateInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -58032,7 +58486,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "terminateInstances",
                 "headerPad": 0,
@@ -58062,6 +58516,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -58146,6 +58602,7 @@
                 "name": "UnassignPrivateIpAddressesResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -58167,7 +58624,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 23,
                 "ctor": "unassignPrivateIpAddresses",
                 "headerPad": 0,
@@ -58212,6 +58669,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -58299,6 +58758,7 @@
                 "name": "UnmonitorInstancesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -58350,7 +58810,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 14,
                 "ctor": "unmonitorInstances",
                 "headerPad": 0,
@@ -58380,6 +58840,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

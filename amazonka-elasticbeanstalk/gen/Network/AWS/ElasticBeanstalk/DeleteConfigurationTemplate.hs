@@ -79,16 +79,16 @@ data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 
+instance ToPath DeleteConfigurationTemplate where
+    toPath = const "/"
+
+instance ToQuery DeleteConfigurationTemplate
+
+instance ToHeaders DeleteConfigurationTemplate
+
 instance AWSRequest DeleteConfigurationTemplate where
     type Sv DeleteConfigurationTemplate = ElasticBeanstalk
     type Rs DeleteConfigurationTemplate = DeleteConfigurationTemplateResponse
 
     request  = post "DeleteConfigurationTemplate"
     response = nullResponse DeleteConfigurationTemplateResponse
-
-instance ToPath DeleteConfigurationTemplate where
-    toPath = const "/"
-
-instance ToHeaders DeleteConfigurationTemplate
-
-instance ToQuery DeleteConfigurationTemplate

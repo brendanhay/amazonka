@@ -121,20 +121,19 @@ data SetTaskStatusResponse = SetTaskStatusResponse
 setTaskStatusResponse :: SetTaskStatusResponse
 setTaskStatusResponse = SetTaskStatusResponse
 
+instance ToPath SetTaskStatus where
+    toPath = const "/"
+
+instance ToQuery SetTaskStatus where
+    toQuery = const mempty
+
+instance ToHeaders SetTaskStatus
+instance ToJSON SetTaskStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline
     type Rs SetTaskStatus = SetTaskStatusResponse
 
     request  = post
     response = nullResponse SetTaskStatusResponse
-
-instance ToPath SetTaskStatus where
-    toPath = const "/"
-
-instance ToHeaders SetTaskStatus
-
-instance ToQuery SetTaskStatus where
-    toQuery = const mempty
-
-instance ToJSON SetTaskStatus where
-    toJSON = genericToJSON jsonOptions

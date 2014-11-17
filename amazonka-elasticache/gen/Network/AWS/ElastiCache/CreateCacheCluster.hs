@@ -364,6 +364,13 @@ createCacheClusterResponse = CreateCacheClusterResponse
 cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
 
+instance ToPath CreateCacheCluster where
+    toPath = const "/"
+
+instance ToQuery CreateCacheCluster
+
+instance ToHeaders CreateCacheCluster
+
 instance AWSRequest CreateCacheCluster where
     type Sv CreateCacheCluster = ElastiCache
     type Rs CreateCacheCluster = CreateCacheClusterResponse
@@ -374,10 +381,3 @@ instance AWSRequest CreateCacheCluster where
 instance FromXML CreateCacheClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheClusterResponse"
-
-instance ToPath CreateCacheCluster where
-    toPath = const "/"
-
-instance ToHeaders CreateCacheCluster
-
-instance ToQuery CreateCacheCluster

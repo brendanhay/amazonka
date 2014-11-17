@@ -84,6 +84,19 @@ readPresetResponse = ReadPresetResponse
 rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprPreset = lens _rprPreset (\s a -> s { _rprPreset = a })
 
+instance ToPath ReadPreset where
+    toPath ReadPreset{..} = mconcat
+        [ "/2012-09-25/presets/"
+        , toText _rpId
+        ]
+
+instance ToQuery ReadPreset where
+    toQuery = const mempty
+
+instance ToHeaders ReadPreset
+instance ToJSON ReadPreset where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ReadPreset where
     type Sv ReadPreset = ElasticTranscoder
     type Rs ReadPreset = ReadPresetResponse
@@ -93,17 +106,3 @@ instance AWSRequest ReadPreset where
 
 instance FromJSON ReadPresetResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ReadPreset where
-    toPath ReadPreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toText _rpId
-        ]
-
-instance ToHeaders ReadPreset
-
-instance ToQuery ReadPreset where
-    toQuery = const mempty
-
-instance ToJSON ReadPreset where
-    toJSON = genericToJSON jsonOptions

@@ -162,6 +162,13 @@ ddblfrDescribeDBLogFiles =
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
 
+instance ToPath DescribeDBLogFiles where
+    toPath = const "/"
+
+instance ToQuery DescribeDBLogFiles
+
+instance ToHeaders DescribeDBLogFiles
+
 instance AWSRequest DescribeDBLogFiles where
     type Sv DescribeDBLogFiles = RDS
     type Rs DescribeDBLogFiles = DescribeDBLogFilesResponse
@@ -172,10 +179,3 @@ instance AWSRequest DescribeDBLogFiles where
 instance FromXML DescribeDBLogFilesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBLogFilesResponse"
-
-instance ToPath DescribeDBLogFiles where
-    toPath = const "/"
-
-instance ToHeaders DescribeDBLogFiles
-
-instance ToQuery DescribeDBLogFiles

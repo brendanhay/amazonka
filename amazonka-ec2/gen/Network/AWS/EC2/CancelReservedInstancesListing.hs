@@ -94,6 +94,13 @@ crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
         (\s a -> s { _crilrReservedInstancesListings = a })
 
+instance ToPath CancelReservedInstancesListing where
+    toPath = const "/"
+
+instance ToQuery CancelReservedInstancesListing
+
+instance ToHeaders CancelReservedInstancesListing
+
 instance AWSRequest CancelReservedInstancesListing where
     type Sv CancelReservedInstancesListing = EC2
     type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
@@ -104,15 +111,3 @@ instance AWSRequest CancelReservedInstancesListing where
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelReservedInstancesListingResponse"
-
-instance ToPath CancelReservedInstancesListing where
-    toPath = const "/"
-
-instance ToHeaders CancelReservedInstancesListing
-
-instance ToQuery CancelReservedInstancesListing where
-    toQuery rq = "reservedInstancesListingId" =? _crilReservedInstancesListingId rq
-
-instance ToXML CancelReservedInstancesListing where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CancelReservedInstancesListing"

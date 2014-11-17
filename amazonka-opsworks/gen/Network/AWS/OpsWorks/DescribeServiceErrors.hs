@@ -115,6 +115,16 @@ dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors =
     lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })
 
+instance ToPath DescribeServiceErrors where
+    toPath = const "/"
+
+instance ToQuery DescribeServiceErrors where
+    toQuery = const mempty
+
+instance ToHeaders DescribeServiceErrors
+instance ToJSON DescribeServiceErrors where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeServiceErrors where
     type Sv DescribeServiceErrors = OpsWorks
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse
@@ -124,14 +134,3 @@ instance AWSRequest DescribeServiceErrors where
 
 instance FromJSON DescribeServiceErrorsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeServiceErrors where
-    toPath = const "/"
-
-instance ToHeaders DescribeServiceErrors
-
-instance ToQuery DescribeServiceErrors where
-    toQuery = const mempty
-
-instance ToJSON DescribeServiceErrors where
-    toJSON = genericToJSON jsonOptions

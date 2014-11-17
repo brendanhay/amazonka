@@ -105,6 +105,13 @@ dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
+instance ToPath DescribeStacks where
+    toPath = const "/"
+
+instance ToQuery DescribeStacks
+
+instance ToHeaders DescribeStacks
+
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = CloudFormation
     type Rs DescribeStacks = DescribeStacksResponse
@@ -115,10 +122,3 @@ instance AWSRequest DescribeStacks where
 instance FromXML DescribeStacksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeStacksResponse"
-
-instance ToPath DescribeStacks where
-    toPath = const "/"
-
-instance ToHeaders DescribeStacks
-
-instance ToQuery DescribeStacks

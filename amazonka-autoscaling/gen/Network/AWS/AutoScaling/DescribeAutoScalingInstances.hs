@@ -120,6 +120,13 @@ dasirAutoScalingInstances =
 dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
 
+instance ToPath DescribeAutoScalingInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeAutoScalingInstances
+
+instance ToHeaders DescribeAutoScalingInstances
+
 instance AWSRequest DescribeAutoScalingInstances where
     type Sv DescribeAutoScalingInstances = AutoScaling
     type Rs DescribeAutoScalingInstances = DescribeAutoScalingInstancesResponse
@@ -130,10 +137,3 @@ instance AWSRequest DescribeAutoScalingInstances where
 instance FromXML DescribeAutoScalingInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAutoScalingInstancesResponse"
-
-instance ToPath DescribeAutoScalingInstances where
-    toPath = const "/"
-
-instance ToHeaders DescribeAutoScalingInstances
-
-instance ToQuery DescribeAutoScalingInstances

@@ -97,6 +97,16 @@ reportTaskProgressResponse p1 = ReportTaskProgressResponse
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\s a -> s { _rtprCanceled = a })
 
+instance ToPath ReportTaskProgress where
+    toPath = const "/"
+
+instance ToQuery ReportTaskProgress where
+    toQuery = const mempty
+
+instance ToHeaders ReportTaskProgress
+instance ToJSON ReportTaskProgress where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ReportTaskProgress where
     type Sv ReportTaskProgress = DataPipeline
     type Rs ReportTaskProgress = ReportTaskProgressResponse
@@ -106,14 +116,3 @@ instance AWSRequest ReportTaskProgress where
 
 instance FromJSON ReportTaskProgressResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ReportTaskProgress where
-    toPath = const "/"
-
-instance ToHeaders ReportTaskProgress
-
-instance ToQuery ReportTaskProgress where
-    toQuery = const mempty
-
-instance ToJSON ReportTaskProgress where
-    toJSON = genericToJSON jsonOptions

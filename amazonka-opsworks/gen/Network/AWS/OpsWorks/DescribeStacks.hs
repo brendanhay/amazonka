@@ -98,6 +98,16 @@ describeStacksResponse = DescribeStacksResponse
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
+instance ToPath DescribeStacks where
+    toPath = const "/"
+
+instance ToQuery DescribeStacks where
+    toQuery = const mempty
+
+instance ToHeaders DescribeStacks
+instance ToJSON DescribeStacks where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = OpsWorks
     type Rs DescribeStacks = DescribeStacksResponse
@@ -107,14 +117,3 @@ instance AWSRequest DescribeStacks where
 
 instance FromJSON DescribeStacksResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeStacks where
-    toPath = const "/"
-
-instance ToHeaders DescribeStacks
-
-instance ToQuery DescribeStacks where
-    toQuery = const mempty
-
-instance ToJSON DescribeStacks where
-    toJSON = genericToJSON jsonOptions

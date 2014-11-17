@@ -121,6 +121,13 @@ gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
     . mapping _Time
 
+instance ToPath GetConsoleOutput where
+    toPath = const "/"
+
+instance ToQuery GetConsoleOutput
+
+instance ToHeaders GetConsoleOutput
+
 instance AWSRequest GetConsoleOutput where
     type Sv GetConsoleOutput = EC2
     type Rs GetConsoleOutput = GetConsoleOutputResponse
@@ -131,18 +138,3 @@ instance AWSRequest GetConsoleOutput where
 instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetConsoleOutputResponse"
-
-instance ToPath GetConsoleOutput where
-    toPath = const "/"
-
-instance ToHeaders GetConsoleOutput
-
-instance ToQuery GetConsoleOutput where
-    toQuery GetConsoleOutput{..} = mconcat
-        [ "dryRun"     =? _gcoDryRun
-        , "InstanceId" =? _gcoInstanceId
-        ]
-
-instance ToXML GetConsoleOutput where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetConsoleOutput"

@@ -120,20 +120,19 @@ data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 
+instance ToPath SignalWorkflowExecution where
+    toPath = const "/"
+
+instance ToQuery SignalWorkflowExecution where
+    toQuery = const mempty
+
+instance ToHeaders SignalWorkflowExecution
+instance ToJSON SignalWorkflowExecution where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF
     type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse
 
     request  = post
     response = nullResponse SignalWorkflowExecutionResponse
-
-instance ToPath SignalWorkflowExecution where
-    toPath = const "/"
-
-instance ToHeaders SignalWorkflowExecution
-
-instance ToQuery SignalWorkflowExecution where
-    toQuery = const mempty
-
-instance ToJSON SignalWorkflowExecution where
-    toJSON = genericToJSON jsonOptions

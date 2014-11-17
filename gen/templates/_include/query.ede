@@ -1,36 +1,41 @@
-{% case request.query | length %}
-{% when 0 %}
+{% if request.queryAll %}
+
+instance ToQuery {{ request.name }}
+{% else %}
+  {% case request.query | length %}
+  {% when 0 %}
+
 instance ToQuery {{ request.name }} where
     toQuery = const mempty
+  {% when 1 %}
 
-{% when 1 %}
 instance ToQuery {{ request.name }} where
-  {% for qry in request.query %}
-    {% case qry.value.type %}
-    {% when "var" %}
+    {% for qry in request.query %}
+      {% case qry.value.type %}
+      {% when "var" %}
     toQuery {{ request.name }}{..} = toText {{ qry.value.value }}
-    {% when "const" %}
+      {% when "const" %}
     toQuery = const "{{ qry.value.value }}"
-    {% when "field" %}
+      {% when "field" %}
     toQuery rq = "{{ qry.value.locationName }}" =? {{ qry.value.field }} rq
-    {% endcase %}
-  {% endfor %}
+      {% endcase %}
+    {% endfor %}
+  {% else %}
 
-{% else %}
 instance ToQuery {{ request.name }} where
     toQuery {{ request.name }}{..} = mconcat
-  {% for qry in request.query %}
-    {% case qry.value.type %}
-    {% when "var" %}
-        {% if qry.first %}[{% else %},{% endif %} toText {{ qry.value.value }}
-    {% when "const" %}
-        {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.value }}"
-    {% when "field" %}
-        {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.locationName  | concat("\"") | justifyLeft(request.queryPad) }} =? {{ qry.value.field }}
-    {% endcase %}
-  {% endfor %}
-  {% if (request.query | length) > 0 %}
+    {% for qry in request.query %}
+      {% case qry.value.type %}
+      {% when "var" %}
+          {% if qry.first %}[  {% else %},  {% endif %} toText {{ qry.value.value }}
+      {% when "const" %}
+          {% if qry.first %}[  {% else %},  {% endif %} "{{ qry.value.value }}"
+      {% when "field" %}
+          {% if qry.first %}[  {% else %},  {% endif %} "{{ qry.value.locationName  | concat("\"") | justifyLeft(request.queryPad) }} =? {{ qry.value.field }}
+      {% endcase %}
+    {% endfor %}
+    {% if (request.query | length) > 0 %}
         ]
-  {% endif %}
-
-{% endcase %}
+    {% endif %}
+  {% endcase %}
+{% endif %}

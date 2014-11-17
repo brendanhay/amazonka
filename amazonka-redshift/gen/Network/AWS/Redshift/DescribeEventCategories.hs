@@ -93,6 +93,13 @@ decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList
         (\s a -> s { _decrEventCategoriesMapList = a })
 
+instance ToPath DescribeEventCategories where
+    toPath = const "/"
+
+instance ToQuery DescribeEventCategories
+
+instance ToHeaders DescribeEventCategories
+
 instance AWSRequest DescribeEventCategories where
     type Sv DescribeEventCategories = Redshift
     type Rs DescribeEventCategories = DescribeEventCategoriesResponse
@@ -103,10 +110,3 @@ instance AWSRequest DescribeEventCategories where
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEventCategoriesResponse"
-
-instance ToPath DescribeEventCategories where
-    toPath = const "/"
-
-instance ToHeaders DescribeEventCategories
-
-instance ToQuery DescribeEventCategories

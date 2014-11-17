@@ -99,16 +99,16 @@ data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 
+instance ToPath RequestEnvironmentInfo where
+    toPath = const "/"
+
+instance ToQuery RequestEnvironmentInfo
+
+instance ToHeaders RequestEnvironmentInfo
+
 instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk
     type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
 
     request  = post "RequestEnvironmentInfo"
     response = nullResponse RequestEnvironmentInfoResponse
-
-instance ToPath RequestEnvironmentInfo where
-    toPath = const "/"
-
-instance ToHeaders RequestEnvironmentInfo
-
-instance ToQuery RequestEnvironmentInfo

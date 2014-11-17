@@ -122,6 +122,13 @@ ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask =
     lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
 
+instance ToPath ImportVolume where
+    toPath = const "/"
+
+instance ToQuery ImportVolume
+
+instance ToHeaders ImportVolume
+
 instance AWSRequest ImportVolume where
     type Sv ImportVolume = EC2
     type Rs ImportVolume = ImportVolumeResponse
@@ -132,21 +139,3 @@ instance AWSRequest ImportVolume where
 instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImportVolumeResponse"
-
-instance ToPath ImportVolume where
-    toPath = const "/"
-
-instance ToHeaders ImportVolume
-
-instance ToQuery ImportVolume where
-    toQuery ImportVolume{..} = mconcat
-        [ "dryRun"           =? _ivDryRun
-        , "availabilityZone" =? _ivAvailabilityZone
-        , "image"            =? _ivImage
-        , "description"      =? _ivDescription
-        , "volume"           =? _ivVolume
-        ]
-
-instance ToXML ImportVolume where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ImportVolume"

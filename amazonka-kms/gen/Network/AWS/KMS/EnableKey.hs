@@ -70,20 +70,19 @@ data EnableKeyResponse = EnableKeyResponse
 enableKeyResponse :: EnableKeyResponse
 enableKeyResponse = EnableKeyResponse
 
+instance ToPath EnableKey where
+    toPath = const "/"
+
+instance ToQuery EnableKey where
+    toQuery = const mempty
+
+instance ToHeaders EnableKey
+instance ToJSON EnableKey where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest EnableKey where
     type Sv EnableKey = KMS
     type Rs EnableKey = EnableKeyResponse
 
     request  = post
     response = nullResponse EnableKeyResponse
-
-instance ToPath EnableKey where
-    toPath = const "/"
-
-instance ToHeaders EnableKey
-
-instance ToQuery EnableKey where
-    toQuery = const mempty
-
-instance ToJSON EnableKey where
-    toJSON = genericToJSON jsonOptions

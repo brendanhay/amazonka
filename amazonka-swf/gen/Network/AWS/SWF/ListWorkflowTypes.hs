@@ -163,6 +163,16 @@ lwtrNextPageToken =
 lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrTypeInfos = lens _lwtrTypeInfos (\s a -> s { _lwtrTypeInfos = a })
 
+instance ToPath ListWorkflowTypes where
+    toPath = const "/"
+
+instance ToQuery ListWorkflowTypes where
+    toQuery = const mempty
+
+instance ToHeaders ListWorkflowTypes
+instance ToJSON ListWorkflowTypes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListWorkflowTypes where
     type Sv ListWorkflowTypes = SWF
     type Rs ListWorkflowTypes = ListWorkflowTypesResponse
@@ -172,14 +182,3 @@ instance AWSRequest ListWorkflowTypes where
 
 instance FromJSON ListWorkflowTypesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListWorkflowTypes where
-    toPath = const "/"
-
-instance ToHeaders ListWorkflowTypes
-
-instance ToQuery ListWorkflowTypes where
-    toQuery = const mempty
-
-instance ToJSON ListWorkflowTypes where
-    toJSON = genericToJSON jsonOptions

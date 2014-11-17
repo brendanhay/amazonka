@@ -104,6 +104,16 @@ updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
 udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\s a -> s { _udnrOperationId = a })
 
+instance ToPath UpdateDomainNameservers where
+    toPath = const "/"
+
+instance ToQuery UpdateDomainNameservers where
+    toQuery = const mempty
+
+instance ToHeaders UpdateDomainNameservers
+instance ToJSON UpdateDomainNameservers where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateDomainNameservers where
     type Sv UpdateDomainNameservers = Route53Domains
     type Rs UpdateDomainNameservers = UpdateDomainNameserversResponse
@@ -113,14 +123,3 @@ instance AWSRequest UpdateDomainNameservers where
 
 instance FromJSON UpdateDomainNameserversResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateDomainNameservers where
-    toPath = const "/"
-
-instance ToHeaders UpdateDomainNameservers
-
-instance ToQuery UpdateDomainNameservers where
-    toQuery = const mempty
-
-instance ToJSON UpdateDomainNameservers where
-    toJSON = genericToJSON jsonOptions

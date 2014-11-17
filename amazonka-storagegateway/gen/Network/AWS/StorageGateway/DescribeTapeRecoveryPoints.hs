@@ -130,6 +130,16 @@ dtrprTapeRecoveryPointInfos =
     lens _dtrprTapeRecoveryPointInfos
         (\s a -> s { _dtrprTapeRecoveryPointInfos = a })
 
+instance ToPath DescribeTapeRecoveryPoints where
+    toPath = const "/"
+
+instance ToQuery DescribeTapeRecoveryPoints where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTapeRecoveryPoints
+instance ToJSON DescribeTapeRecoveryPoints where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTapeRecoveryPoints where
     type Sv DescribeTapeRecoveryPoints = StorageGateway
     type Rs DescribeTapeRecoveryPoints = DescribeTapeRecoveryPointsResponse
@@ -139,14 +149,3 @@ instance AWSRequest DescribeTapeRecoveryPoints where
 
 instance FromJSON DescribeTapeRecoveryPointsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTapeRecoveryPoints where
-    toPath = const "/"
-
-instance ToHeaders DescribeTapeRecoveryPoints
-
-instance ToQuery DescribeTapeRecoveryPoints where
-    toQuery = const mempty
-
-instance ToJSON DescribeTapeRecoveryPoints where
-    toJSON = genericToJSON jsonOptions

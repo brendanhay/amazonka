@@ -83,16 +83,16 @@ data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 
+instance ToPath DeleteAutoScalingGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteAutoScalingGroup
+
+instance ToHeaders DeleteAutoScalingGroup
+
 instance AWSRequest DeleteAutoScalingGroup where
     type Sv DeleteAutoScalingGroup = AutoScaling
     type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
 
     request  = post "DeleteAutoScalingGroup"
     response = nullResponse DeleteAutoScalingGroupResponse
-
-instance ToPath DeleteAutoScalingGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteAutoScalingGroup
-
-instance ToQuery DeleteAutoScalingGroup

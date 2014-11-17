@@ -137,6 +137,13 @@ cdbpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParamete
 cdbpgrDBParameterGroup =
     lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
 
+instance ToPath CreateDBParameterGroup where
+    toPath = const "/"
+
+instance ToQuery CreateDBParameterGroup
+
+instance ToHeaders CreateDBParameterGroup
+
 instance AWSRequest CreateDBParameterGroup where
     type Sv CreateDBParameterGroup = RDS
     type Rs CreateDBParameterGroup = CreateDBParameterGroupResponse
@@ -147,10 +154,3 @@ instance AWSRequest CreateDBParameterGroup where
 instance FromXML CreateDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBParameterGroupResponse"
-
-instance ToPath CreateDBParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateDBParameterGroup
-
-instance ToQuery CreateDBParameterGroup

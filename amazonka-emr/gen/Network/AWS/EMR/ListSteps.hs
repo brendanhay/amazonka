@@ -109,6 +109,16 @@ lsrMarker = lens _lsrMarker (\s a -> s { _lsrMarker = a })
 lsrSteps :: Lens' ListStepsResponse [StepSummary]
 lsrSteps = lens _lsrSteps (\s a -> s { _lsrSteps = a })
 
+instance ToPath ListSteps where
+    toPath = const "/"
+
+instance ToQuery ListSteps where
+    toQuery = const mempty
+
+instance ToHeaders ListSteps
+instance ToJSON ListSteps where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListSteps where
     type Sv ListSteps = EMR
     type Rs ListSteps = ListStepsResponse
@@ -118,14 +128,3 @@ instance AWSRequest ListSteps where
 
 instance FromJSON ListStepsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListSteps where
-    toPath = const "/"
-
-instance ToHeaders ListSteps
-
-instance ToQuery ListSteps where
-    toQuery = const mempty
-
-instance ToJSON ListSteps where
-    toJSON = genericToJSON jsonOptions

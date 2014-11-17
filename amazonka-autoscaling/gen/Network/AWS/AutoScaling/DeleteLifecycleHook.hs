@@ -83,16 +83,16 @@ data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
 deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
 deleteLifecycleHookResponse = DeleteLifecycleHookResponse
 
+instance ToPath DeleteLifecycleHook where
+    toPath = const "/"
+
+instance ToQuery DeleteLifecycleHook
+
+instance ToHeaders DeleteLifecycleHook
+
 instance AWSRequest DeleteLifecycleHook where
     type Sv DeleteLifecycleHook = AutoScaling
     type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
 
     request  = post "DeleteLifecycleHook"
     response = nullResponse DeleteLifecycleHookResponse
-
-instance ToPath DeleteLifecycleHook where
-    toPath = const "/"
-
-instance ToHeaders DeleteLifecycleHook
-
-instance ToQuery DeleteLifecycleHook

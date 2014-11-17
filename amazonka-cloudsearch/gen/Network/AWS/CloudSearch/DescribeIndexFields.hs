@@ -113,6 +113,13 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a })
 
+instance ToPath DescribeIndexFields where
+    toPath = const "/"
+
+instance ToQuery DescribeIndexFields
+
+instance ToHeaders DescribeIndexFields
+
 instance AWSRequest DescribeIndexFields where
     type Sv DescribeIndexFields = CloudSearch
     type Rs DescribeIndexFields = DescribeIndexFieldsResponse
@@ -123,10 +130,3 @@ instance AWSRequest DescribeIndexFields where
 instance FromXML DescribeIndexFieldsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeIndexFieldsResponse"
-
-instance ToPath DescribeIndexFields where
-    toPath = const "/"
-
-instance ToHeaders DescribeIndexFields
-
-instance ToQuery DescribeIndexFields

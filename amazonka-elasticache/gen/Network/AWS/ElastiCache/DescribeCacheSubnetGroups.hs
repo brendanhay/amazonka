@@ -120,6 +120,13 @@ dcsgrCacheSubnetGroups =
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
+instance ToPath DescribeCacheSubnetGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeCacheSubnetGroups
+
+instance ToHeaders DescribeCacheSubnetGroups
+
 instance AWSRequest DescribeCacheSubnetGroups where
     type Sv DescribeCacheSubnetGroups = ElastiCache
     type Rs DescribeCacheSubnetGroups = DescribeCacheSubnetGroupsResponse
@@ -130,10 +137,3 @@ instance AWSRequest DescribeCacheSubnetGroups where
 instance FromXML DescribeCacheSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCacheSubnetGroupsResponse"
-
-instance ToPath DescribeCacheSubnetGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeCacheSubnetGroups
-
-instance ToQuery DescribeCacheSubnetGroups

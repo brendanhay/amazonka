@@ -149,6 +149,13 @@ copySnapshotResponse = CopySnapshotResponse
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
+instance ToPath CopySnapshot where
+    toPath = const "/"
+
+instance ToQuery CopySnapshot
+
+instance ToHeaders CopySnapshot
+
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = EC2
     type Rs CopySnapshot = CopySnapshotResponse
@@ -159,22 +166,3 @@ instance AWSRequest CopySnapshot where
 instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopySnapshotResponse"
-
-instance ToPath CopySnapshot where
-    toPath = const "/"
-
-instance ToHeaders CopySnapshot
-
-instance ToQuery CopySnapshot where
-    toQuery CopySnapshot{..} = mconcat
-        [ "dryRun"            =? _csDryRun
-        , "SourceRegion"      =? _csSourceRegion
-        , "SourceSnapshotId"  =? _csSourceSnapshotId
-        , "Description"       =? _csDescription
-        , "destinationRegion" =? _csDestinationRegion
-        , "presignedUrl"      =? _csPresignedUrl
-        ]
-
-instance ToXML CopySnapshot where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CopySnapshot"

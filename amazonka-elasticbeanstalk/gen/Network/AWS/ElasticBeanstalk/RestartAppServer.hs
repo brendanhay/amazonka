@@ -83,16 +83,16 @@ data RestartAppServerResponse = RestartAppServerResponse
 restartAppServerResponse :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse
 
+instance ToPath RestartAppServer where
+    toPath = const "/"
+
+instance ToQuery RestartAppServer
+
+instance ToHeaders RestartAppServer
+
 instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk
     type Rs RestartAppServer = RestartAppServerResponse
 
     request  = post "RestartAppServer"
     response = nullResponse RestartAppServerResponse
-
-instance ToPath RestartAppServer where
-    toPath = const "/"
-
-instance ToHeaders RestartAppServer
-
-instance ToQuery RestartAppServer

@@ -216,6 +216,16 @@ ctrS3KeyPrefix = lens _ctrS3KeyPrefix (\s a -> s { _ctrS3KeyPrefix = a })
 ctrSnsTopicName :: Lens' CreateTrailResponse (Maybe Text)
 ctrSnsTopicName = lens _ctrSnsTopicName (\s a -> s { _ctrSnsTopicName = a })
 
+instance ToPath CreateTrail where
+    toPath = const "/"
+
+instance ToQuery CreateTrail where
+    toQuery = const mempty
+
+instance ToHeaders CreateTrail
+instance ToJSON CreateTrail where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateTrail where
     type Sv CreateTrail = CloudTrail
     type Rs CreateTrail = CreateTrailResponse
@@ -225,14 +235,3 @@ instance AWSRequest CreateTrail where
 
 instance FromJSON CreateTrailResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateTrail where
-    toPath = const "/"
-
-instance ToHeaders CreateTrail
-
-instance ToQuery CreateTrail where
-    toQuery = const mempty
-
-instance ToJSON CreateTrail where
-    toJSON = genericToJSON jsonOptions

@@ -162,6 +162,16 @@ lhzrMaxItems = lens _lhzrMaxItems (\s a -> s { _lhzrMaxItems = a })
 lhzrNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrNextMarker = lens _lhzrNextMarker (\s a -> s { _lhzrNextMarker = a })
 
+instance ToPath ListHostedZones where
+    toPath = const "/2013-04-01/hostedzone"
+
+instance ToQuery ListHostedZones
+
+instance ToHeaders ListHostedZones
+instance ToXML ListHostedZones where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListHostedZones"
+
 instance AWSRequest ListHostedZones where
     type Sv ListHostedZones = Route53
     type Rs ListHostedZones = ListHostedZonesResponse
@@ -172,19 +182,3 @@ instance AWSRequest ListHostedZones where
 instance FromXML ListHostedZonesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListHostedZonesResponse"
-
-instance ToPath ListHostedZones where
-    toPath = const "/2013-04-01/hostedzone"
-
-instance ToHeaders ListHostedZones
-
-instance ToQuery ListHostedZones where
-    toQuery ListHostedZones{..} = mconcat
-        [ "marker"          =? _lhzMarker
-        , "maxitems"        =? _lhzMaxItems
-        , "delegationsetid" =? _lhzDelegationSetId
-        ]
-
-instance ToXML ListHostedZones where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListHostedZones"

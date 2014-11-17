@@ -161,6 +161,13 @@ elrLoggingEnabled =
 elrS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
 elrS3KeyPrefix = lens _elrS3KeyPrefix (\s a -> s { _elrS3KeyPrefix = a })
 
+instance ToPath EnableLogging where
+    toPath = const "/"
+
+instance ToQuery EnableLogging
+
+instance ToHeaders EnableLogging
+
 instance AWSRequest EnableLogging where
     type Sv EnableLogging = Redshift
     type Rs EnableLogging = EnableLoggingResponse
@@ -171,10 +178,3 @@ instance AWSRequest EnableLogging where
 instance FromXML EnableLoggingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableLoggingResponse"
-
-instance ToPath EnableLogging where
-    toPath = const "/"
-
-instance ToHeaders EnableLogging
-
-instance ToQuery EnableLogging

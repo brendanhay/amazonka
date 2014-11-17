@@ -73,20 +73,19 @@ data UnassignVolumeResponse = UnassignVolumeResponse
 unassignVolumeResponse :: UnassignVolumeResponse
 unassignVolumeResponse = UnassignVolumeResponse
 
+instance ToPath UnassignVolume where
+    toPath = const "/"
+
+instance ToQuery UnassignVolume where
+    toQuery = const mempty
+
+instance ToHeaders UnassignVolume
+instance ToJSON UnassignVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks
     type Rs UnassignVolume = UnassignVolumeResponse
 
     request  = post
     response = nullResponse UnassignVolumeResponse
-
-instance ToPath UnassignVolume where
-    toPath = const "/"
-
-instance ToHeaders UnassignVolume
-
-instance ToQuery UnassignVolume where
-    toQuery = const mempty
-
-instance ToJSON UnassignVolume where
-    toJSON = genericToJSON jsonOptions

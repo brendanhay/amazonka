@@ -124,6 +124,16 @@ lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a })
 lirMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
 
+instance ToPath ListInstances where
+    toPath = const "/"
+
+instance ToQuery ListInstances where
+    toQuery = const mempty
+
+instance ToHeaders ListInstances
+instance ToJSON ListInstances where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListInstances where
     type Sv ListInstances = EMR
     type Rs ListInstances = ListInstancesResponse
@@ -133,14 +143,3 @@ instance AWSRequest ListInstances where
 
 instance FromJSON ListInstancesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListInstances where
-    toPath = const "/"
-
-instance ToHeaders ListInstances
-
-instance ToQuery ListInstances where
-    toQuery = const mempty
-
-instance ToJSON ListInstances where
-    toJSON = genericToJSON jsonOptions

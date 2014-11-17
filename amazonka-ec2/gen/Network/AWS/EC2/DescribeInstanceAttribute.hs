@@ -237,6 +237,13 @@ diar1SriovNetSupport =
 diar1UserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1UserData = lens _diar1UserData (\s a -> s { _diar1UserData = a })
 
+instance ToPath DescribeInstanceAttribute where
+    toPath = const "/"
+
+instance ToQuery DescribeInstanceAttribute
+
+instance ToHeaders DescribeInstanceAttribute
+
 instance AWSRequest DescribeInstanceAttribute where
     type Sv DescribeInstanceAttribute = EC2
     type Rs DescribeInstanceAttribute = DescribeInstanceAttributeResponse
@@ -247,19 +254,3 @@ instance AWSRequest DescribeInstanceAttribute where
 instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInstanceAttributeResponse"
-
-instance ToPath DescribeInstanceAttribute where
-    toPath = const "/"
-
-instance ToHeaders DescribeInstanceAttribute
-
-instance ToQuery DescribeInstanceAttribute where
-    toQuery DescribeInstanceAttribute{..} = mconcat
-        [ "dryRun"     =? _diaDryRun
-        , "instanceId" =? _diaInstanceId
-        , "attribute"  =? _diaAttribute
-        ]
-
-instance ToXML DescribeInstanceAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeInstanceAttribute"

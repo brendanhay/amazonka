@@ -112,20 +112,19 @@ data SetPermissionResponse = SetPermissionResponse
 setPermissionResponse :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse
 
+instance ToPath SetPermission where
+    toPath = const "/"
+
+instance ToQuery SetPermission where
+    toQuery = const mempty
+
+instance ToHeaders SetPermission
+instance ToJSON SetPermission where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks
     type Rs SetPermission = SetPermissionResponse
 
     request  = post
     response = nullResponse SetPermissionResponse
-
-instance ToPath SetPermission where
-    toPath = const "/"
-
-instance ToHeaders SetPermission
-
-instance ToQuery SetPermission where
-    toQuery = const mempty
-
-instance ToJSON SetPermission where
-    toJSON = genericToJSON jsonOptions

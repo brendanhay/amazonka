@@ -92,16 +92,16 @@ data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse
 
+instance ToPath DeleteApplicationVersion where
+    toPath = const "/"
+
+instance ToQuery DeleteApplicationVersion
+
+instance ToHeaders DeleteApplicationVersion
+
 instance AWSRequest DeleteApplicationVersion where
     type Sv DeleteApplicationVersion = ElasticBeanstalk
     type Rs DeleteApplicationVersion = DeleteApplicationVersionResponse
 
     request  = post "DeleteApplicationVersion"
     response = nullResponse DeleteApplicationVersionResponse
-
-instance ToPath DeleteApplicationVersion where
-    toPath = const "/"
-
-instance ToHeaders DeleteApplicationVersion
-
-instance ToQuery DeleteApplicationVersion

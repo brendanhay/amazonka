@@ -126,6 +126,13 @@ deleteClusterResponse = DeleteClusterResponse
 dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 
+instance ToPath DeleteCluster where
+    toPath = const "/"
+
+instance ToQuery DeleteCluster
+
+instance ToHeaders DeleteCluster
+
 instance AWSRequest DeleteCluster where
     type Sv DeleteCluster = Redshift
     type Rs DeleteCluster = DeleteClusterResponse
@@ -136,10 +143,3 @@ instance AWSRequest DeleteCluster where
 instance FromXML DeleteClusterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterResponse"
-
-instance ToPath DeleteCluster where
-    toPath = const "/"
-
-instance ToHeaders DeleteCluster
-
-instance ToQuery DeleteCluster

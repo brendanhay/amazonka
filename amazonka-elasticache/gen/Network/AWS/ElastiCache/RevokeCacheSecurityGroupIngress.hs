@@ -113,6 +113,13 @@ rcsgirCacheSecurityGroup =
     lens _rcsgirCacheSecurityGroup
         (\s a -> s { _rcsgirCacheSecurityGroup = a })
 
+instance ToPath RevokeCacheSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToQuery RevokeCacheSecurityGroupIngress
+
+instance ToHeaders RevokeCacheSecurityGroupIngress
+
 instance AWSRequest RevokeCacheSecurityGroupIngress where
     type Sv RevokeCacheSecurityGroupIngress = ElastiCache
     type Rs RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngressResponse
@@ -123,10 +130,3 @@ instance AWSRequest RevokeCacheSecurityGroupIngress where
 instance FromXML RevokeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResponse"
-
-instance ToPath RevokeCacheSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToHeaders RevokeCacheSecurityGroupIngress
-
-instance ToQuery RevokeCacheSecurityGroupIngress

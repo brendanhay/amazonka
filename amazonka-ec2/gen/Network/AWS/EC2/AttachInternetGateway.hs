@@ -89,25 +89,16 @@ data AttachInternetGatewayResponse = AttachInternetGatewayResponse
 attachInternetGatewayResponse :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse
 
+instance ToPath AttachInternetGateway where
+    toPath = const "/"
+
+instance ToQuery AttachInternetGateway
+
+instance ToHeaders AttachInternetGateway
+
 instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
 
     request  = post "AttachInternetGateway"
     response = nullResponse AttachInternetGatewayResponse
-
-instance ToPath AttachInternetGateway where
-    toPath = const "/"
-
-instance ToHeaders AttachInternetGateway
-
-instance ToQuery AttachInternetGateway where
-    toQuery AttachInternetGateway{..} = mconcat
-        [ "dryRun"            =? _aigDryRun
-        , "internetGatewayId" =? _aigInternetGatewayId
-        , "vpcId"             =? _aigVpcId
-        ]
-
-instance ToXML AttachInternetGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AttachInternetGateway"

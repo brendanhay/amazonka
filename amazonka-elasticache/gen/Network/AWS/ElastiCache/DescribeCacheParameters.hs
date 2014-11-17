@@ -140,6 +140,13 @@ dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
 
+instance ToPath DescribeCacheParameters where
+    toPath = const "/"
+
+instance ToQuery DescribeCacheParameters
+
+instance ToHeaders DescribeCacheParameters
+
 instance AWSRequest DescribeCacheParameters where
     type Sv DescribeCacheParameters = ElastiCache
     type Rs DescribeCacheParameters = DescribeCacheParametersResponse
@@ -150,10 +157,3 @@ instance AWSRequest DescribeCacheParameters where
 instance FromXML DescribeCacheParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCacheParametersResponse"
-
-instance ToPath DescribeCacheParameters where
-    toPath = const "/"
-
-instance ToHeaders DescribeCacheParameters
-
-instance ToQuery DescribeCacheParameters

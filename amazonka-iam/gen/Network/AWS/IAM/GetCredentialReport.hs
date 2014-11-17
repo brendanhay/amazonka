@@ -90,6 +90,14 @@ gcrrGeneratedTime =
 gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe Text)
 gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
 
+instance ToPath GetCredentialReport where
+    toPath = const "/"
+
+instance ToQuery GetCredentialReport where
+    toQuery = const mempty
+
+instance ToHeaders GetCredentialReport
+
 instance AWSRequest GetCredentialReport where
     type Sv GetCredentialReport = IAM
     type Rs GetCredentialReport = GetCredentialReportResponse
@@ -100,10 +108,3 @@ instance AWSRequest GetCredentialReport where
 instance FromXML GetCredentialReportResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetCredentialReportResponse"
-
-instance ToPath GetCredentialReport where
-    toPath = const "/"
-
-instance ToHeaders GetCredentialReport
-
-instance ToQuery GetCredentialReport

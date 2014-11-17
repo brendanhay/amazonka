@@ -155,6 +155,13 @@ cjrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjrWarningMessage =
     lens _cjrWarningMessage (\s a -> s { _cjrWarningMessage = a })
 
+instance ToPath CreateJob where
+    toPath = const "/"
+
+instance ToQuery CreateJob
+
+instance ToHeaders CreateJob
+
 instance AWSRequest CreateJob where
     type Sv CreateJob = ImportExport
     type Rs CreateJob = CreateJobResponse
@@ -165,10 +172,3 @@ instance AWSRequest CreateJob where
 instance FromXML CreateJobResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateJobResponse"
-
-instance ToPath CreateJob where
-    toPath = const "/"
-
-instance ToHeaders CreateJob
-
-instance ToQuery CreateJob

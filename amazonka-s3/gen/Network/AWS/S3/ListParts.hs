@@ -212,6 +212,26 @@ lprStorageClass = lens _lprStorageClass (\s a -> s { _lprStorageClass = a })
 lprUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprUploadId = lens _lprUploadId (\s a -> s { _lprUploadId = a })
 
+instance ToPath ListParts where
+    toPath ListParts{..} = mconcat
+        [ "/"
+        , toText _lpBucket
+        , "/"
+        , toText _lpKey
+        ]
+
+instance ToQuery ListParts where
+    toQuery ListParts{..} = mconcat
+          [   "max-parts"          =? _lpMaxParts
+          ,   "part-number-marker" =? _lpPartNumberMarker
+          ,   "uploadId"           =? _lpUploadId
+        ]
+
+instance ToHeaders ListParts
+instance ToXML ListParts where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListParts"
+
 instance AWSRequest ListParts where
     type Sv ListParts = S3
     type Rs ListParts = ListPartsResponse
@@ -222,24 +242,3 @@ instance AWSRequest ListParts where
 instance FromXML ListPartsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListPartsResponse"
-
-instance ToPath ListParts where
-    toPath ListParts{..} = mconcat
-        [ "/"
-        , toText _lpBucket
-        , "/"
-        , toText _lpKey
-        ]
-
-instance ToHeaders ListParts
-
-instance ToQuery ListParts where
-    toQuery ListParts{..} = mconcat
-        [ "max-parts"          =? _lpMaxParts
-        , "part-number-marker" =? _lpPartNumberMarker
-        , "uploadId"           =? _lpUploadId
-        ]
-
-instance ToXML ListParts where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListParts"

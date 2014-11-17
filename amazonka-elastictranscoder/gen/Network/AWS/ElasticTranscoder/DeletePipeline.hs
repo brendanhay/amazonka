@@ -71,23 +71,22 @@ data DeletePipelineResponse = DeletePipelineResponse
 deletePipelineResponse :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse
 
-instance AWSRequest DeletePipeline where
-    type Sv DeletePipeline = ElasticTranscoder
-    type Rs DeletePipeline = DeletePipelineResponse
-
-    request  = delete
-    response = nullResponse DeletePipelineResponse
-
 instance ToPath DeletePipeline where
     toPath DeletePipeline{..} = mconcat
         [ "/2012-09-25/pipelines/"
         , toText _dp1Id
         ]
 
-instance ToHeaders DeletePipeline
-
 instance ToQuery DeletePipeline where
     toQuery = const mempty
 
+instance ToHeaders DeletePipeline
 instance ToJSON DeletePipeline where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest DeletePipeline where
+    type Sv DeletePipeline = ElasticTranscoder
+    type Rs DeletePipeline = DeletePipelineResponse
+
+    request  = delete
+    response = nullResponse DeletePipelineResponse

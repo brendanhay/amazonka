@@ -107,6 +107,16 @@ ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp =
     lens _ddgrHooksNotCleanedUp (\s a -> s { _ddgrHooksNotCleanedUp = a })
 
+instance ToPath DeleteDeploymentGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteDeploymentGroup where
+    toQuery = const mempty
+
+instance ToHeaders DeleteDeploymentGroup
+instance ToJSON DeleteDeploymentGroup where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteDeploymentGroup where
     type Sv DeleteDeploymentGroup = CodeDeploy
     type Rs DeleteDeploymentGroup = DeleteDeploymentGroupResponse
@@ -116,14 +126,3 @@ instance AWSRequest DeleteDeploymentGroup where
 
 instance FromJSON DeleteDeploymentGroupResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteDeploymentGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteDeploymentGroup
-
-instance ToQuery DeleteDeploymentGroup where
-    toQuery = const mempty
-
-instance ToJSON DeleteDeploymentGroup where
-    toJSON = genericToJSON jsonOptions

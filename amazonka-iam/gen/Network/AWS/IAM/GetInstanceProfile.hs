@@ -88,6 +88,13 @@ giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile =
     lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })
 
+instance ToPath GetInstanceProfile where
+    toPath = const "/"
+
+instance ToQuery GetInstanceProfile
+
+instance ToHeaders GetInstanceProfile
+
 instance AWSRequest GetInstanceProfile where
     type Sv GetInstanceProfile = IAM
     type Rs GetInstanceProfile = GetInstanceProfileResponse
@@ -98,10 +105,3 @@ instance AWSRequest GetInstanceProfile where
 instance FromXML GetInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetInstanceProfileResponse"
-
-instance ToPath GetInstanceProfile where
-    toPath = const "/"
-
-instance ToHeaders GetInstanceProfile
-
-instance ToQuery GetInstanceProfile

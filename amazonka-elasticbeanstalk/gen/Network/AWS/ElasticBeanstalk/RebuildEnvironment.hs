@@ -83,16 +83,16 @@ data RebuildEnvironmentResponse = RebuildEnvironmentResponse
 rebuildEnvironmentResponse :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse
 
+instance ToPath RebuildEnvironment where
+    toPath = const "/"
+
+instance ToQuery RebuildEnvironment
+
+instance ToHeaders RebuildEnvironment
+
 instance AWSRequest RebuildEnvironment where
     type Sv RebuildEnvironment = ElasticBeanstalk
     type Rs RebuildEnvironment = RebuildEnvironmentResponse
 
     request  = post "RebuildEnvironment"
     response = nullResponse RebuildEnvironmentResponse
-
-instance ToPath RebuildEnvironment where
-    toPath = const "/"
-
-instance ToHeaders RebuildEnvironment
-
-instance ToQuery RebuildEnvironment

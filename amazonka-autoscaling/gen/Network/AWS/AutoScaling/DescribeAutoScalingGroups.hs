@@ -116,6 +116,13 @@ dasgrAutoScalingGroups =
 dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
 
+instance ToPath DescribeAutoScalingGroups where
+    toPath = const "/"
+
+instance ToQuery DescribeAutoScalingGroups
+
+instance ToHeaders DescribeAutoScalingGroups
+
 instance AWSRequest DescribeAutoScalingGroups where
     type Sv DescribeAutoScalingGroups = AutoScaling
     type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
@@ -126,10 +133,3 @@ instance AWSRequest DescribeAutoScalingGroups where
 instance FromXML DescribeAutoScalingGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAutoScalingGroupsResponse"
-
-instance ToPath DescribeAutoScalingGroups where
-    toPath = const "/"
-
-instance ToHeaders DescribeAutoScalingGroups
-
-instance ToQuery DescribeAutoScalingGroups

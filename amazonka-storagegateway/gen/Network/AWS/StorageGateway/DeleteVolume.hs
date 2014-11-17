@@ -94,6 +94,16 @@ deleteVolumeResponse = DeleteVolumeResponse
 dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\s a -> s { _dvrVolumeARN = a })
 
+instance ToPath DeleteVolume where
+    toPath = const "/"
+
+instance ToQuery DeleteVolume where
+    toQuery = const mempty
+
+instance ToHeaders DeleteVolume
+instance ToJSON DeleteVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = StorageGateway
     type Rs DeleteVolume = DeleteVolumeResponse
@@ -103,14 +113,3 @@ instance AWSRequest DeleteVolume where
 
 instance FromJSON DeleteVolumeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteVolume where
-    toPath = const "/"
-
-instance ToHeaders DeleteVolume
-
-instance ToQuery DeleteVolume where
-    toQuery = const mempty
-
-instance ToJSON DeleteVolume where
-    toJSON = genericToJSON jsonOptions

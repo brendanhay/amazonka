@@ -180,6 +180,16 @@ bgirUnprocessedKeys =
     lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
         . _Map
 
+instance ToPath BatchGetItem where
+    toPath = const "/"
+
+instance ToQuery BatchGetItem where
+    toQuery = const mempty
+
+instance ToHeaders BatchGetItem
+instance ToJSON BatchGetItem where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest BatchGetItem where
     type Sv BatchGetItem = DynamoDB
     type Rs BatchGetItem = BatchGetItemResponse
@@ -189,14 +199,3 @@ instance AWSRequest BatchGetItem where
 
 instance FromJSON BatchGetItemResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath BatchGetItem where
-    toPath = const "/"
-
-instance ToHeaders BatchGetItem
-
-instance ToQuery BatchGetItem where
-    toQuery = const mempty
-
-instance ToJSON BatchGetItem where
-    toJSON = genericToJSON jsonOptions

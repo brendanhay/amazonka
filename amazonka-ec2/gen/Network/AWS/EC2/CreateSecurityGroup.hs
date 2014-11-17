@@ -131,6 +131,13 @@ createSecurityGroupResponse = CreateSecurityGroupResponse
 csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 
+instance ToPath CreateSecurityGroup where
+    toPath = const "/"
+
+instance ToQuery CreateSecurityGroup
+
+instance ToHeaders CreateSecurityGroup
+
 instance AWSRequest CreateSecurityGroup where
     type Sv CreateSecurityGroup = EC2
     type Rs CreateSecurityGroup = CreateSecurityGroupResponse
@@ -141,20 +148,3 @@ instance AWSRequest CreateSecurityGroup where
 instance FromXML CreateSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSecurityGroupResponse"
-
-instance ToPath CreateSecurityGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateSecurityGroup
-
-instance ToQuery CreateSecurityGroup where
-    toQuery CreateSecurityGroup{..} = mconcat
-        [ "dryRun"           =? _csgDryRun
-        , "GroupName"        =? _csgGroupName
-        , "GroupDescription" =? _csgDescription
-        , "VpcId"            =? _csgVpcId
-        ]
-
-instance ToXML CreateSecurityGroup where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateSecurityGroup"

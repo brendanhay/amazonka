@@ -122,15 +122,6 @@ dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
 dorVersionId :: Lens' DeleteObjectResponse (Maybe Text)
 dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 
-instance AWSRequest DeleteObject where
-    type Sv DeleteObject = S3
-    type Rs DeleteObject = DeleteObjectResponse
-
-    request  = delete
-    response = xmlHeaderResponse $ \h x -> DeleteObjectResponse
-        <$> h ~:? "x-amz-delete-marker"
-        <*> h ~:? "x-amz-version-id"
-
 instance ToPath DeleteObject where
     toPath DeleteObject{..} = mconcat
         [ "/"
@@ -139,14 +130,22 @@ instance ToPath DeleteObject where
         , toText _doKey
         ]
 
+instance ToQuery DeleteObject where
+    toQuery rq = "versionId" =? _doVersionId rq
+
 instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = mconcat
         [ "x-amz-mfa" =: _doMFA
         ]
-
-instance ToQuery DeleteObject where
-    toQuery rq = "versionId" =? _doVersionId rq
-
 instance ToXML DeleteObject where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteObject"
+
+instance AWSRequest DeleteObject where
+    type Sv DeleteObject = S3
+    type Rs DeleteObject = DeleteObjectResponse
+
+    request  = delete
+    response = xmlHeaderResponse $ \h x -> DeleteObjectResponse
+        <$> h ~:? "x-amz-delete-marker"
+        <*> h ~:? "x-amz-version-id"

@@ -99,6 +99,16 @@ ddcsrDeliveryChannelsStatus =
     lens _ddcsrDeliveryChannelsStatus
         (\s a -> s { _ddcsrDeliveryChannelsStatus = a })
 
+instance ToPath DescribeDeliveryChannelStatus where
+    toPath = const "/"
+
+instance ToQuery DescribeDeliveryChannelStatus where
+    toQuery = const mempty
+
+instance ToHeaders DescribeDeliveryChannelStatus
+instance ToJSON DescribeDeliveryChannelStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeDeliveryChannelStatus where
     type Sv DescribeDeliveryChannelStatus = Config
     type Rs DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatusResponse
@@ -108,14 +118,3 @@ instance AWSRequest DescribeDeliveryChannelStatus where
 
 instance FromJSON DescribeDeliveryChannelStatusResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeDeliveryChannelStatus where
-    toPath = const "/"
-
-instance ToHeaders DescribeDeliveryChannelStatus
-
-instance ToQuery DescribeDeliveryChannelStatus where
-    toQuery = const mempty
-
-instance ToJSON DescribeDeliveryChannelStatus where
-    toJSON = genericToJSON jsonOptions

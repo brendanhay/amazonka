@@ -92,20 +92,19 @@ data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
 deprecateActivityTypeResponse :: DeprecateActivityTypeResponse
 deprecateActivityTypeResponse = DeprecateActivityTypeResponse
 
+instance ToPath DeprecateActivityType where
+    toPath = const "/"
+
+instance ToQuery DeprecateActivityType where
+    toQuery = const mempty
+
+instance ToHeaders DeprecateActivityType
+instance ToJSON DeprecateActivityType where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF
     type Rs DeprecateActivityType = DeprecateActivityTypeResponse
 
     request  = post
     response = nullResponse DeprecateActivityTypeResponse
-
-instance ToPath DeprecateActivityType where
-    toPath = const "/"
-
-instance ToHeaders DeprecateActivityType
-
-instance ToQuery DeprecateActivityType where
-    toQuery = const mempty
-
-instance ToJSON DeprecateActivityType where
-    toJSON = genericToJSON jsonOptions

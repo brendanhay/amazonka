@@ -149,6 +149,16 @@ cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a })
 cowerTruncated :: Lens' CountOpenWorkflowExecutionsResponse (Maybe Bool)
 cowerTruncated = lens _cowerTruncated (\s a -> s { _cowerTruncated = a })
 
+instance ToPath CountOpenWorkflowExecutions where
+    toPath = const "/"
+
+instance ToQuery CountOpenWorkflowExecutions where
+    toQuery = const mempty
+
+instance ToHeaders CountOpenWorkflowExecutions
+instance ToJSON CountOpenWorkflowExecutions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CountOpenWorkflowExecutions where
     type Sv CountOpenWorkflowExecutions = SWF
     type Rs CountOpenWorkflowExecutions = CountOpenWorkflowExecutionsResponse
@@ -158,14 +168,3 @@ instance AWSRequest CountOpenWorkflowExecutions where
 
 instance FromJSON CountOpenWorkflowExecutionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CountOpenWorkflowExecutions where
-    toPath = const "/"
-
-instance ToHeaders CountOpenWorkflowExecutions
-
-instance ToQuery CountOpenWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToJSON CountOpenWorkflowExecutions where
-    toJSON = genericToJSON jsonOptions

@@ -85,6 +85,16 @@ gkrsrKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrKeyRotationEnabled =
     lens _gkrsrKeyRotationEnabled (\s a -> s { _gkrsrKeyRotationEnabled = a })
 
+instance ToPath GetKeyRotationStatus where
+    toPath = const "/"
+
+instance ToQuery GetKeyRotationStatus where
+    toQuery = const mempty
+
+instance ToHeaders GetKeyRotationStatus
+instance ToJSON GetKeyRotationStatus where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetKeyRotationStatus where
     type Sv GetKeyRotationStatus = KMS
     type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
@@ -94,14 +104,3 @@ instance AWSRequest GetKeyRotationStatus where
 
 instance FromJSON GetKeyRotationStatusResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetKeyRotationStatus where
-    toPath = const "/"
-
-instance ToHeaders GetKeyRotationStatus
-
-instance ToQuery GetKeyRotationStatus where
-    toQuery = const mempty
-
-instance ToJSON GetKeyRotationStatus where
-    toJSON = genericToJSON jsonOptions

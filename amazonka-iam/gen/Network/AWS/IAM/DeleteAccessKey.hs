@@ -82,16 +82,16 @@ data DeleteAccessKeyResponse = DeleteAccessKeyResponse
 deleteAccessKeyResponse :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse
 
+instance ToPath DeleteAccessKey where
+    toPath = const "/"
+
+instance ToQuery DeleteAccessKey
+
+instance ToHeaders DeleteAccessKey
+
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
 
     request  = post "DeleteAccessKey"
     response = nullResponse DeleteAccessKeyResponse
-
-instance ToPath DeleteAccessKey where
-    toPath = const "/"
-
-instance ToHeaders DeleteAccessKey
-
-instance ToQuery DeleteAccessKey

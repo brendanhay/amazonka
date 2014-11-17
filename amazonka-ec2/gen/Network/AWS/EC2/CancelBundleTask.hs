@@ -90,6 +90,13 @@ cancelBundleTaskResponse = CancelBundleTaskResponse
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
 
+instance ToPath CancelBundleTask where
+    toPath = const "/"
+
+instance ToQuery CancelBundleTask
+
+instance ToHeaders CancelBundleTask
+
 instance AWSRequest CancelBundleTask where
     type Sv CancelBundleTask = EC2
     type Rs CancelBundleTask = CancelBundleTaskResponse
@@ -100,18 +107,3 @@ instance AWSRequest CancelBundleTask where
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelBundleTaskResponse"
-
-instance ToPath CancelBundleTask where
-    toPath = const "/"
-
-instance ToHeaders CancelBundleTask
-
-instance ToQuery CancelBundleTask where
-    toQuery CancelBundleTask{..} = mconcat
-        [ "dryRun"   =? _cbtDryRun
-        , "BundleId" =? _cbtBundleId
-        ]
-
-instance ToXML CancelBundleTask where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CancelBundleTask"

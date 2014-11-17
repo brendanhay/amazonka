@@ -139,6 +139,19 @@ udrStatus = lens _udrStatus (\s a -> s { _udrStatus = a })
 udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
 udrWarnings = lens _udrWarnings (\s a -> s { _udrWarnings = a })
 
+instance ToPath UploadDocuments where
+    toPath = const "/2013-01-01/documents/batch"
+
+instance ToQuery UploadDocuments where
+    toQuery = const "format=sdk"
+
+instance ToHeaders UploadDocuments where
+    toHeaders UploadDocuments{..} = mconcat
+        [ "Content-Type" =: _udContentType
+        ]
+instance ToJSON UploadDocuments where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UploadDocuments where
     type Sv UploadDocuments = CloudSearchDomains
     type Rs UploadDocuments = UploadDocumentsResponse
@@ -148,17 +161,3 @@ instance AWSRequest UploadDocuments where
 
 instance FromJSON UploadDocumentsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UploadDocuments where
-    toPath = const "/2013-01-01/documents/batch"
-
-instance ToHeaders UploadDocuments where
-    toHeaders UploadDocuments{..} = mconcat
-        [ "Content-Type" =: _udContentType
-        ]
-
-instance ToQuery UploadDocuments where
-    toQuery = const "format=sdk"
-
-instance ToJSON UploadDocuments where
-    toJSON = genericToJSON jsonOptions

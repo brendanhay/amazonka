@@ -102,6 +102,13 @@ modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodRes
 mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\s a -> s { _mscrprCluster = a })
 
+instance ToPath ModifySnapshotCopyRetentionPeriod where
+    toPath = const "/"
+
+instance ToQuery ModifySnapshotCopyRetentionPeriod
+
+instance ToHeaders ModifySnapshotCopyRetentionPeriod
+
 instance AWSRequest ModifySnapshotCopyRetentionPeriod where
     type Sv ModifySnapshotCopyRetentionPeriod = Redshift
     type Rs ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriodResponse
@@ -112,10 +119,3 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod where
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifySnapshotCopyRetentionPeriodResponse"
-
-instance ToPath ModifySnapshotCopyRetentionPeriod where
-    toPath = const "/"
-
-instance ToHeaders ModifySnapshotCopyRetentionPeriod
-
-instance ToQuery ModifySnapshotCopyRetentionPeriod

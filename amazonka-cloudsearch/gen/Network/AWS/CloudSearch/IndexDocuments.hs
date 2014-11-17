@@ -89,6 +89,13 @@ indexDocumentsResponse = IndexDocumentsResponse
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
 
+instance ToPath IndexDocuments where
+    toPath = const "/"
+
+instance ToQuery IndexDocuments
+
+instance ToHeaders IndexDocuments
+
 instance AWSRequest IndexDocuments where
     type Sv IndexDocuments = CloudSearch
     type Rs IndexDocuments = IndexDocumentsResponse
@@ -99,10 +106,3 @@ instance AWSRequest IndexDocuments where
 instance FromXML IndexDocumentsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "IndexDocumentsResponse"
-
-instance ToPath IndexDocuments where
-    toPath = const "/"
-
-instance ToHeaders IndexDocuments
-
-instance ToQuery IndexDocuments

@@ -106,6 +106,15 @@ lfrFunctions = lens _lfrFunctions (\s a -> s { _lfrFunctions = a })
 lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
 lfrNextMarker = lens _lfrNextMarker (\s a -> s { _lfrNextMarker = a })
 
+instance ToPath ListFunctions where
+    toPath = const "/2014-11-13/functions/"
+
+instance ToQuery ListFunctions
+
+instance ToHeaders ListFunctions
+instance ToJSON ListFunctions where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListFunctions where
     type Sv ListFunctions = Lambda
     type Rs ListFunctions = ListFunctionsResponse
@@ -115,17 +124,3 @@ instance AWSRequest ListFunctions where
 
 instance FromJSON ListFunctionsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListFunctions where
-    toPath = const "/2014-11-13/functions/"
-
-instance ToHeaders ListFunctions
-
-instance ToQuery ListFunctions where
-    toQuery ListFunctions{..} = mconcat
-        [ "Marker"   =? _lfMarker
-        , "MaxItems" =? _lfMaxItems
-        ]
-
-instance ToJSON ListFunctions where
-    toJSON = genericToJSON jsonOptions

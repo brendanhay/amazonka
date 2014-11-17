@@ -95,6 +95,13 @@ dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 dasr1AnalysisScheme =
     lens _dasr1AnalysisScheme (\s a -> s { _dasr1AnalysisScheme = a })
 
+instance ToPath DefineAnalysisScheme where
+    toPath = const "/"
+
+instance ToQuery DefineAnalysisScheme
+
+instance ToHeaders DefineAnalysisScheme
+
 instance AWSRequest DefineAnalysisScheme where
     type Sv DefineAnalysisScheme = CloudSearch
     type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse
@@ -105,10 +112,3 @@ instance AWSRequest DefineAnalysisScheme where
 instance FromXML DefineAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineAnalysisSchemeResponse"
-
-instance ToPath DefineAnalysisScheme where
-    toPath = const "/"
-
-instance ToHeaders DefineAnalysisScheme
-
-instance ToQuery DefineAnalysisScheme

@@ -167,31 +167,16 @@ data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
 
+instance ToPath AuthorizeSecurityGroupEgress where
+    toPath = const "/"
+
+instance ToQuery AuthorizeSecurityGroupEgress
+
+instance ToHeaders AuthorizeSecurityGroupEgress
+
 instance AWSRequest AuthorizeSecurityGroupEgress where
     type Sv AuthorizeSecurityGroupEgress = EC2
     type Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse
 
     request  = post "AuthorizeSecurityGroupEgress"
     response = nullResponse AuthorizeSecurityGroupEgressResponse
-
-instance ToPath AuthorizeSecurityGroupEgress where
-    toPath = const "/"
-
-instance ToHeaders AuthorizeSecurityGroupEgress
-
-instance ToQuery AuthorizeSecurityGroupEgress where
-    toQuery AuthorizeSecurityGroupEgress{..} = mconcat
-        [ "dryRun"                     =? _asgeDryRun
-        , "groupId"                    =? _asgeGroupId
-        , "sourceSecurityGroupName"    =? _asgeSourceSecurityGroupName
-        , "sourceSecurityGroupOwnerId" =? _asgeSourceSecurityGroupOwnerId
-        , "ipProtocol"                 =? _asgeIpProtocol
-        , "fromPort"                   =? _asgeFromPort
-        , "toPort"                     =? _asgeToPort
-        , "cidrIp"                     =? _asgeCidrIp
-        , "ipPermissions"              =? _asgeIpPermissions
-        ]
-
-instance ToXML AuthorizeSecurityGroupEgress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AuthorizeSecurityGroupEgress"

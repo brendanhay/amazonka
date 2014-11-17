@@ -2124,6 +2124,7 @@
                 "name": "AddAttachmentsToSetResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2221,6 +2222,8 @@
                 "name": "AddAttachmentsToSet",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2321,6 +2324,7 @@
                 "name": "AddCommunicationToCaseResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2406,6 +2410,8 @@
                 "name": "AddCommunicationToCase",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2549,6 +2555,7 @@
                 "name": "CreateCaseResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2648,6 +2655,8 @@
                 "name": "CreateCase",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2915,6 +2924,7 @@
                 "name": "DescribeAttachmentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3017,6 +3027,8 @@
                 "name": "DescribeAttachment",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3058,6 +3070,7 @@
                 "name": "DescribeCasesResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3164,6 +3177,8 @@
                 "name": "DescribeCases",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3444,6 +3459,7 @@
                 "name": "DescribeCommunicationsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3565,6 +3581,8 @@
                 "name": "DescribeCommunications",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3736,6 +3754,7 @@
                 "name": "DescribeServicesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3806,6 +3825,8 @@
                 "name": "DescribeServices",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3907,6 +3928,7 @@
                 "name": "DescribeSeverityLevelsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3993,6 +4015,8 @@
                 "name": "DescribeSeverityLevels",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4066,6 +4090,7 @@
                 "name": "DescribeTrustedAdvisorCheckRefreshStatusesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4153,6 +4178,8 @@
                 "name": "DescribeTrustedAdvisorCheckRefreshStatuses",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4224,6 +4251,7 @@
                 "name": "DescribeTrustedAdvisorCheckResultResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4309,6 +4337,8 @@
                 "name": "DescribeTrustedAdvisorCheckResult",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4396,6 +4426,7 @@
                 "name": "DescribeTrustedAdvisorCheckSummariesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4483,6 +4514,8 @@
                 "name": "DescribeTrustedAdvisorCheckSummaries",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4556,6 +4589,7 @@
                 "name": "DescribeTrustedAdvisorChecksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4658,6 +4692,8 @@
                 "name": "DescribeTrustedAdvisorChecks",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4729,6 +4765,7 @@
                 "name": "RefreshTrustedAdvisorCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4816,6 +4853,8 @@
                 "name": "RefreshTrustedAdvisorCheck",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4858,6 +4897,7 @@
                 "name": "ResolveCaseResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4972,6 +5012,8 @@
                 "name": "ResolveCase",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

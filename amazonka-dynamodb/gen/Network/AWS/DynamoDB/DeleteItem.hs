@@ -384,6 +384,16 @@ dirItemCollectionMetrics =
     lens _dirItemCollectionMetrics
         (\s a -> s { _dirItemCollectionMetrics = a })
 
+instance ToPath DeleteItem where
+    toPath = const "/"
+
+instance ToQuery DeleteItem where
+    toQuery = const mempty
+
+instance ToHeaders DeleteItem
+instance ToJSON DeleteItem where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteItem where
     type Sv DeleteItem = DynamoDB
     type Rs DeleteItem = DeleteItemResponse
@@ -393,14 +403,3 @@ instance AWSRequest DeleteItem where
 
 instance FromJSON DeleteItemResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteItem where
-    toPath = const "/"
-
-instance ToHeaders DeleteItem
-
-instance ToQuery DeleteItem where
-    toQuery = const mempty
-
-instance ToJSON DeleteItem where
-    toJSON = genericToJSON jsonOptions

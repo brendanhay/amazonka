@@ -100,6 +100,13 @@ mcpgrCacheParameterGroupName =
     lens _mcpgrCacheParameterGroupName
         (\s a -> s { _mcpgrCacheParameterGroupName = a })
 
+instance ToPath ModifyCacheParameterGroup where
+    toPath = const "/"
+
+instance ToQuery ModifyCacheParameterGroup
+
+instance ToHeaders ModifyCacheParameterGroup
+
 instance AWSRequest ModifyCacheParameterGroup where
     type Sv ModifyCacheParameterGroup = ElastiCache
     type Rs ModifyCacheParameterGroup = ModifyCacheParameterGroupResponse
@@ -110,10 +117,3 @@ instance AWSRequest ModifyCacheParameterGroup where
 instance FromXML ModifyCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyCacheParameterGroupResponse"
-
-instance ToPath ModifyCacheParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders ModifyCacheParameterGroup
-
-instance ToQuery ModifyCacheParameterGroup

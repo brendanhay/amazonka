@@ -85,24 +85,16 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse
 deleteSnapshotResponse :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse
 
+instance ToPath DeleteSnapshot where
+    toPath = const "/"
+
+instance ToQuery DeleteSnapshot
+
+instance ToHeaders DeleteSnapshot
+
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request  = post "DeleteSnapshot"
     response = nullResponse DeleteSnapshotResponse
-
-instance ToPath DeleteSnapshot where
-    toPath = const "/"
-
-instance ToHeaders DeleteSnapshot
-
-instance ToQuery DeleteSnapshot where
-    toQuery DeleteSnapshot{..} = mconcat
-        [ "dryRun"     =? _ds3DryRun
-        , "SnapshotId" =? _ds3SnapshotId
-        ]
-
-instance ToXML DeleteSnapshot where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteSnapshot"

@@ -90,20 +90,19 @@ data PutKeyPolicyResponse = PutKeyPolicyResponse
 putKeyPolicyResponse :: PutKeyPolicyResponse
 putKeyPolicyResponse = PutKeyPolicyResponse
 
+instance ToPath PutKeyPolicy where
+    toPath = const "/"
+
+instance ToQuery PutKeyPolicy where
+    toQuery = const mempty
+
+instance ToHeaders PutKeyPolicy
+instance ToJSON PutKeyPolicy where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest PutKeyPolicy where
     type Sv PutKeyPolicy = KMS
     type Rs PutKeyPolicy = PutKeyPolicyResponse
 
     request  = post
     response = nullResponse PutKeyPolicyResponse
-
-instance ToPath PutKeyPolicy where
-    toPath = const "/"
-
-instance ToHeaders PutKeyPolicy
-
-instance ToQuery PutKeyPolicy where
-    toQuery = const mempty
-
-instance ToJSON PutKeyPolicy where
-    toJSON = genericToJSON jsonOptions

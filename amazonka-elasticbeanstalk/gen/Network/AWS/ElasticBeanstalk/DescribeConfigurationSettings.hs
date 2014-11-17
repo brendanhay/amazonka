@@ -125,6 +125,13 @@ dcsrConfigurationSettings =
     lens _dcsrConfigurationSettings
         (\s a -> s { _dcsrConfigurationSettings = a })
 
+instance ToPath DescribeConfigurationSettings where
+    toPath = const "/"
+
+instance ToQuery DescribeConfigurationSettings
+
+instance ToHeaders DescribeConfigurationSettings
+
 instance AWSRequest DescribeConfigurationSettings where
     type Sv DescribeConfigurationSettings = ElasticBeanstalk
     type Rs DescribeConfigurationSettings = DescribeConfigurationSettingsResponse
@@ -135,10 +142,3 @@ instance AWSRequest DescribeConfigurationSettings where
 instance FromXML DescribeConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeConfigurationSettingsResponse"
-
-instance ToPath DescribeConfigurationSettings where
-    toPath = const "/"
-
-instance ToHeaders DescribeConfigurationSettings
-
-instance ToQuery DescribeConfigurationSettings

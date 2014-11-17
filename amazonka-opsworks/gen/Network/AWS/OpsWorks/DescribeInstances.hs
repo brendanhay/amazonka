@@ -113,6 +113,16 @@ describeInstancesResponse = DescribeInstancesResponse
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a })
 
+instance ToPath DescribeInstances where
+    toPath = const "/"
+
+instance ToQuery DescribeInstances where
+    toQuery = const mempty
+
+instance ToHeaders DescribeInstances
+instance ToJSON DescribeInstances where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = OpsWorks
     type Rs DescribeInstances = DescribeInstancesResponse
@@ -122,14 +132,3 @@ instance AWSRequest DescribeInstances where
 
 instance FromJSON DescribeInstancesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeInstances where
-    toPath = const "/"
-
-instance ToHeaders DescribeInstances
-
-instance ToQuery DescribeInstances where
-    toQuery = const mempty
-
-instance ToJSON DescribeInstances where
-    toJSON = genericToJSON jsonOptions

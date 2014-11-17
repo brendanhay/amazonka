@@ -125,6 +125,13 @@ cdbpgr1DBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameter
 cdbpgr1DBParameterGroup =
     lens _cdbpgr1DBParameterGroup (\s a -> s { _cdbpgr1DBParameterGroup = a })
 
+instance ToPath CopyDBParameterGroup where
+    toPath = const "/"
+
+instance ToQuery CopyDBParameterGroup
+
+instance ToHeaders CopyDBParameterGroup
+
 instance AWSRequest CopyDBParameterGroup where
     type Sv CopyDBParameterGroup = RDS
     type Rs CopyDBParameterGroup = CopyDBParameterGroupResponse
@@ -135,10 +142,3 @@ instance AWSRequest CopyDBParameterGroup where
 instance FromXML CopyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyDBParameterGroupResponse"
-
-instance ToPath CopyDBParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders CopyDBParameterGroup
-
-instance ToQuery CopyDBParameterGroup

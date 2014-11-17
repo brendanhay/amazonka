@@ -95,6 +95,16 @@ cancelRetrievalResponse = CancelRetrievalResponse
 crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\s a -> s { _crrTapeARN = a })
 
+instance ToPath CancelRetrieval where
+    toPath = const "/"
+
+instance ToQuery CancelRetrieval where
+    toQuery = const mempty
+
+instance ToHeaders CancelRetrieval
+instance ToJSON CancelRetrieval where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CancelRetrieval where
     type Sv CancelRetrieval = StorageGateway
     type Rs CancelRetrieval = CancelRetrievalResponse
@@ -104,14 +114,3 @@ instance AWSRequest CancelRetrieval where
 
 instance FromJSON CancelRetrievalResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CancelRetrieval where
-    toPath = const "/"
-
-instance ToHeaders CancelRetrieval
-
-instance ToQuery CancelRetrieval where
-    toQuery = const mempty
-
-instance ToJSON CancelRetrieval where
-    toJSON = genericToJSON jsonOptions

@@ -86,16 +86,16 @@ data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileRespon
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
 
+instance ToPath RemoveRoleFromInstanceProfile where
+    toPath = const "/"
+
+instance ToQuery RemoveRoleFromInstanceProfile
+
+instance ToHeaders RemoveRoleFromInstanceProfile
+
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
 
     request  = post "RemoveRoleFromInstanceProfile"
     response = nullResponse RemoveRoleFromInstanceProfileResponse
-
-instance ToPath RemoveRoleFromInstanceProfile where
-    toPath = const "/"
-
-instance ToHeaders RemoveRoleFromInstanceProfile
-
-instance ToQuery RemoveRoleFromInstanceProfile

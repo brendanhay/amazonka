@@ -124,6 +124,13 @@ ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGatewa
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })
 
+instance ToPath CreateCustomerGateway where
+    toPath = const "/"
+
+instance ToQuery CreateCustomerGateway
+
+instance ToHeaders CreateCustomerGateway
+
 instance AWSRequest CreateCustomerGateway where
     type Sv CreateCustomerGateway = EC2
     type Rs CreateCustomerGateway = CreateCustomerGatewayResponse
@@ -134,20 +141,3 @@ instance AWSRequest CreateCustomerGateway where
 instance FromXML CreateCustomerGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCustomerGatewayResponse"
-
-instance ToPath CreateCustomerGateway where
-    toPath = const "/"
-
-instance ToHeaders CreateCustomerGateway
-
-instance ToQuery CreateCustomerGateway where
-    toQuery CreateCustomerGateway{..} = mconcat
-        [ "dryRun"    =? _ccgDryRun
-        , "Type"      =? _ccgType
-        , "IpAddress" =? _ccgPublicIp
-        , "BgpAsn"    =? _ccgBgpAsn
-        ]
-
-instance ToXML CreateCustomerGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateCustomerGateway"

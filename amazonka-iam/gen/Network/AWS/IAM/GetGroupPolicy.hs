@@ -116,6 +116,13 @@ ggprPolicyDocument =
 ggprPolicyName :: Lens' GetGroupPolicyResponse Text
 ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
 
+instance ToPath GetGroupPolicy where
+    toPath = const "/"
+
+instance ToQuery GetGroupPolicy
+
+instance ToHeaders GetGroupPolicy
+
 instance AWSRequest GetGroupPolicy where
     type Sv GetGroupPolicy = IAM
     type Rs GetGroupPolicy = GetGroupPolicyResponse
@@ -126,10 +133,3 @@ instance AWSRequest GetGroupPolicy where
 instance FromXML GetGroupPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetGroupPolicyResponse"
-
-instance ToPath GetGroupPolicy where
-    toPath = const "/"
-
-instance ToHeaders GetGroupPolicy
-
-instance ToQuery GetGroupPolicy

@@ -111,6 +111,13 @@ dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefau
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 
+instance ToPath DescribeEngineDefaultParameters where
+    toPath = const "/"
+
+instance ToQuery DescribeEngineDefaultParameters
+
+instance ToHeaders DescribeEngineDefaultParameters
+
 instance AWSRequest DescribeEngineDefaultParameters where
     type Sv DescribeEngineDefaultParameters = ElastiCache
     type Rs DescribeEngineDefaultParameters = DescribeEngineDefaultParametersResponse
@@ -121,10 +128,3 @@ instance AWSRequest DescribeEngineDefaultParameters where
 instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResponse"
-
-instance ToPath DescribeEngineDefaultParameters where
-    toPath = const "/"
-
-instance ToHeaders DescribeEngineDefaultParameters
-
-instance ToQuery DescribeEngineDefaultParameters

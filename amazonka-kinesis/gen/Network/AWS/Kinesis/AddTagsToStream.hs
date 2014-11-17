@@ -81,20 +81,19 @@ data AddTagsToStreamResponse = AddTagsToStreamResponse
 addTagsToStreamResponse :: AddTagsToStreamResponse
 addTagsToStreamResponse = AddTagsToStreamResponse
 
+instance ToPath AddTagsToStream where
+    toPath = const "/"
+
+instance ToQuery AddTagsToStream where
+    toQuery = const mempty
+
+instance ToHeaders AddTagsToStream
+instance ToJSON AddTagsToStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddTagsToStream where
     type Sv AddTagsToStream = Kinesis
     type Rs AddTagsToStream = AddTagsToStreamResponse
 
     request  = post
     response = nullResponse AddTagsToStreamResponse
-
-instance ToPath AddTagsToStream where
-    toPath = const "/"
-
-instance ToHeaders AddTagsToStream
-
-instance ToQuery AddTagsToStream where
-    toQuery = const mempty
-
-instance ToJSON AddTagsToStream where
-    toJSON = genericToJSON jsonOptions

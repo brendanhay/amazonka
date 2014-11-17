@@ -192,6 +192,13 @@ registerImageResponse = RegisterImageResponse
 rirImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
 
+instance ToPath RegisterImage where
+    toPath = const "/"
+
+instance ToQuery RegisterImage
+
+instance ToHeaders RegisterImage
+
 instance AWSRequest RegisterImage where
     type Sv RegisterImage = EC2
     type Rs RegisterImage = RegisterImageResponse
@@ -202,27 +209,3 @@ instance AWSRequest RegisterImage where
 instance FromXML RegisterImageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RegisterImageResponse"
-
-instance ToPath RegisterImage where
-    toPath = const "/"
-
-instance ToHeaders RegisterImage
-
-instance ToQuery RegisterImage where
-    toQuery RegisterImage{..} = mconcat
-        [ "dryRun"             =? _ri1DryRun
-        , "ImageLocation"      =? _ri1ImageLocation
-        , "name"               =? _ri1Name
-        , "description"        =? _ri1Description
-        , "architecture"       =? _ri1Architecture
-        , "kernelId"           =? _ri1KernelId
-        , "ramdiskId"          =? _ri1RamdiskId
-        , "rootDeviceName"     =? _ri1RootDeviceName
-        , "BlockDeviceMapping" =? _ri1BlockDeviceMappings
-        , "virtualizationType" =? _ri1VirtualizationType
-        , "sriovNetSupport"    =? _ri1SriovNetSupport
-        ]
-
-instance ToXML RegisterImage where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RegisterImage"

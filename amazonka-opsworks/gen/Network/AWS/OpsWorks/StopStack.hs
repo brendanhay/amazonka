@@ -71,20 +71,19 @@ data StopStackResponse = StopStackResponse
 stopStackResponse :: StopStackResponse
 stopStackResponse = StopStackResponse
 
+instance ToPath StopStack where
+    toPath = const "/"
+
+instance ToQuery StopStack where
+    toQuery = const mempty
+
+instance ToHeaders StopStack
+instance ToJSON StopStack where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks
     type Rs StopStack = StopStackResponse
 
     request  = post
     response = nullResponse StopStackResponse
-
-instance ToPath StopStack where
-    toPath = const "/"
-
-instance ToHeaders StopStack
-
-instance ToQuery StopStack where
-    toQuery = const mempty
-
-instance ToJSON StopStack where
-    toJSON = genericToJSON jsonOptions

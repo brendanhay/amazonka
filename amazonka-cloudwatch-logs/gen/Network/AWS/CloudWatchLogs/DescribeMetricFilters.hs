@@ -125,6 +125,16 @@ dmfrMetricFilters =
 dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrNextToken = lens _dmfrNextToken (\s a -> s { _dmfrNextToken = a })
 
+instance ToPath DescribeMetricFilters where
+    toPath = const "/"
+
+instance ToQuery DescribeMetricFilters where
+    toQuery = const mempty
+
+instance ToHeaders DescribeMetricFilters
+instance ToJSON DescribeMetricFilters where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeMetricFilters where
     type Sv DescribeMetricFilters = CloudWatchLogs
     type Rs DescribeMetricFilters = DescribeMetricFiltersResponse
@@ -134,14 +144,3 @@ instance AWSRequest DescribeMetricFilters where
 
 instance FromJSON DescribeMetricFiltersResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeMetricFilters where
-    toPath = const "/"
-
-instance ToHeaders DescribeMetricFilters
-
-instance ToQuery DescribeMetricFilters where
-    toQuery = const mempty
-
-instance ToJSON DescribeMetricFilters where
-    toJSON = genericToJSON jsonOptions

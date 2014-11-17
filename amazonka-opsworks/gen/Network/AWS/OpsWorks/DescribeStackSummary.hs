@@ -87,6 +87,16 @@ describeStackSummaryResponse = DescribeStackSummaryResponse
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
 
+instance ToPath DescribeStackSummary where
+    toPath = const "/"
+
+instance ToQuery DescribeStackSummary where
+    toQuery = const mempty
+
+instance ToHeaders DescribeStackSummary
+instance ToJSON DescribeStackSummary where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeStackSummary where
     type Sv DescribeStackSummary = OpsWorks
     type Rs DescribeStackSummary = DescribeStackSummaryResponse
@@ -96,14 +106,3 @@ instance AWSRequest DescribeStackSummary where
 
 instance FromJSON DescribeStackSummaryResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeStackSummary where
-    toPath = const "/"
-
-instance ToHeaders DescribeStackSummary
-
-instance ToQuery DescribeStackSummary where
-    toQuery = const mempty
-
-instance ToJSON DescribeStackSummary where
-    toJSON = genericToJSON jsonOptions

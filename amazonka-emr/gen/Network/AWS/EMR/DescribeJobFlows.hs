@@ -127,6 +127,16 @@ describeJobFlowsResponse = DescribeJobFlowsResponse
 djfrJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
 djfrJobFlows = lens _djfrJobFlows (\s a -> s { _djfrJobFlows = a })
 
+instance ToPath DescribeJobFlows where
+    toPath = const "/"
+
+instance ToQuery DescribeJobFlows where
+    toQuery = const mempty
+
+instance ToHeaders DescribeJobFlows
+instance ToJSON DescribeJobFlows where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeJobFlows where
     type Sv DescribeJobFlows = EMR
     type Rs DescribeJobFlows = DescribeJobFlowsResponse
@@ -136,14 +146,3 @@ instance AWSRequest DescribeJobFlows where
 
 instance FromJSON DescribeJobFlowsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeJobFlows where
-    toPath = const "/"
-
-instance ToHeaders DescribeJobFlows
-
-instance ToQuery DescribeJobFlows where
-    toQuery = const mempty
-
-instance ToJSON DescribeJobFlows where
-    toJSON = genericToJSON jsonOptions

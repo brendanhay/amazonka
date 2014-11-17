@@ -122,6 +122,16 @@ dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription =
     lens _dsrStreamDescription (\s a -> s { _dsrStreamDescription = a })
 
+instance ToPath DescribeStream where
+    toPath = const "/"
+
+instance ToQuery DescribeStream where
+    toQuery = const mempty
+
+instance ToHeaders DescribeStream
+instance ToJSON DescribeStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeStream where
     type Sv DescribeStream = Kinesis
     type Rs DescribeStream = DescribeStreamResponse
@@ -131,14 +141,3 @@ instance AWSRequest DescribeStream where
 
 instance FromJSON DescribeStreamResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeStream where
-    toPath = const "/"
-
-instance ToHeaders DescribeStream
-
-instance ToQuery DescribeStream where
-    toQuery = const mempty
-
-instance ToJSON DescribeStream where
-    toJSON = genericToJSON jsonOptions

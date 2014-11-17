@@ -98,6 +98,16 @@ registerElasticIpResponse = RegisterElasticIpResponse
 reirElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
 reirElasticIp = lens _reirElasticIp (\s a -> s { _reirElasticIp = a })
 
+instance ToPath RegisterElasticIp where
+    toPath = const "/"
+
+instance ToQuery RegisterElasticIp where
+    toQuery = const mempty
+
+instance ToHeaders RegisterElasticIp
+instance ToJSON RegisterElasticIp where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterElasticIp where
     type Sv RegisterElasticIp = OpsWorks
     type Rs RegisterElasticIp = RegisterElasticIpResponse
@@ -107,14 +117,3 @@ instance AWSRequest RegisterElasticIp where
 
 instance FromJSON RegisterElasticIpResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath RegisterElasticIp where
-    toPath = const "/"
-
-instance ToHeaders RegisterElasticIp
-
-instance ToQuery RegisterElasticIp where
-    toQuery = const mempty
-
-instance ToJSON RegisterElasticIp where
-    toJSON = genericToJSON jsonOptions

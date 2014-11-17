@@ -139,6 +139,16 @@ gdkwprCiphertextBlob =
 gdkwprKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Text)
 gdkwprKeyId = lens _gdkwprKeyId (\s a -> s { _gdkwprKeyId = a })
 
+instance ToPath GenerateDataKeyWithoutPlaintext where
+    toPath = const "/"
+
+instance ToQuery GenerateDataKeyWithoutPlaintext where
+    toQuery = const mempty
+
+instance ToHeaders GenerateDataKeyWithoutPlaintext
+instance ToJSON GenerateDataKeyWithoutPlaintext where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GenerateDataKeyWithoutPlaintext where
     type Sv GenerateDataKeyWithoutPlaintext = KMS
     type Rs GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintextResponse
@@ -148,14 +158,3 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext where
 
 instance FromJSON GenerateDataKeyWithoutPlaintextResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GenerateDataKeyWithoutPlaintext where
-    toPath = const "/"
-
-instance ToHeaders GenerateDataKeyWithoutPlaintext
-
-instance ToQuery GenerateDataKeyWithoutPlaintext where
-    toQuery = const mempty
-
-instance ToJSON GenerateDataKeyWithoutPlaintext where
-    toJSON = genericToJSON jsonOptions

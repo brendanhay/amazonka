@@ -102,6 +102,16 @@ aigrInstanceGroupIds =
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigrJobFlowId = lens _aigrJobFlowId (\s a -> s { _aigrJobFlowId = a })
 
+instance ToPath AddInstanceGroups where
+    toPath = const "/"
+
+instance ToQuery AddInstanceGroups where
+    toQuery = const mempty
+
+instance ToHeaders AddInstanceGroups
+instance ToJSON AddInstanceGroups where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddInstanceGroups where
     type Sv AddInstanceGroups = EMR
     type Rs AddInstanceGroups = AddInstanceGroupsResponse
@@ -111,14 +121,3 @@ instance AWSRequest AddInstanceGroups where
 
 instance FromJSON AddInstanceGroupsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddInstanceGroups where
-    toPath = const "/"
-
-instance ToHeaders AddInstanceGroups
-
-instance ToQuery AddInstanceGroups where
-    toQuery = const mempty
-
-instance ToJSON AddInstanceGroups where
-    toJSON = genericToJSON jsonOptions

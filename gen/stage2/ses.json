@@ -999,6 +999,7 @@
                 "name": "DeleteIdentityResponse",
                 "resultWrapper": "DeleteIdentityResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1077,6 +1078,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1118,6 +1121,7 @@
                 "name": "DeleteVerifiedEmailAddressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1196,6 +1200,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1254,6 +1260,7 @@
                 "name": "GetIdentityDkimAttributesResponse",
                 "resultWrapper": "GetIdentityDkimAttributesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1347,6 +1354,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1420,6 +1429,7 @@
                 "name": "GetIdentityNotificationAttributesResponse",
                 "resultWrapper": "GetIdentityNotificationAttributesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1513,6 +1523,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1586,6 +1598,7 @@
                 "name": "GetIdentityVerificationAttributesResponse",
                 "resultWrapper": "GetIdentityVerificationAttributesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1679,6 +1692,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1736,6 +1751,7 @@
                 "name": "GetSendQuotaResponse",
                 "resultWrapper": "GetSendQuotaResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1861,6 +1877,8 @@
                 "name": "GetSendQuota",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -1904,6 +1922,7 @@
                 "name": "GetSendStatisticsResponse",
                 "resultWrapper": "GetSendStatisticsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1973,6 +1992,8 @@
                 "name": "GetSendStatistics",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -2000,6 +2021,7 @@
                 "name": "ListIdentitiesResponse",
                 "resultWrapper": "ListIdentitiesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2122,6 +2144,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2252,6 +2276,7 @@
                 "name": "ListVerifiedEmailAddressesResponse",
                 "resultWrapper": "ListVerifiedEmailAddressesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2321,6 +2346,8 @@
                 "name": "ListVerifiedEmailAddresses",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -2380,6 +2407,7 @@
                 "name": "SendEmailResponse",
                 "resultWrapper": "SendEmailResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2503,6 +2531,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2662,6 +2692,7 @@
                 "name": "SendRawEmailResponse",
                 "resultWrapper": "SendRawEmailResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2747,6 +2778,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2845,6 +2878,7 @@
                 "name": "SetIdentityDkimEnabledResponse",
                 "resultWrapper": "SetIdentityDkimEnabledResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -2925,6 +2959,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2980,6 +3016,7 @@
                 "name": "SetIdentityFeedbackForwardingEnabledResponse",
                 "resultWrapper": "SetIdentityFeedbackForwardingEnabledResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3060,6 +3097,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3115,6 +3154,7 @@
                 "name": "SetIdentityNotificationTopicResponse",
                 "resultWrapper": "SetIdentityNotificationTopicResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3200,6 +3240,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3302,6 +3344,7 @@
                 "name": "VerifyDomainDkimResponse",
                 "resultWrapper": "VerifyDomainDkimResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -3410,6 +3453,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3484,6 +3529,7 @@
                 "name": "VerifyDomainIdentityResponse",
                 "resultWrapper": "VerifyDomainIdentityResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3577,6 +3623,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3618,6 +3666,7 @@
                 "name": "VerifyEmailAddressResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3696,6 +3745,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3737,6 +3788,7 @@
                 "name": "VerifyEmailIdentityResponse",
                 "resultWrapper": "VerifyEmailIdentityResult",
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -3815,6 +3867,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

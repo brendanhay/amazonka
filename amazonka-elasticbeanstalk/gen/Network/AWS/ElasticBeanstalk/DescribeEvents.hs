@@ -199,6 +199,13 @@ derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 derNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 derNextToken = lens _derNextToken (\s a -> s { _derNextToken = a })
 
+instance ToPath DescribeEvents where
+    toPath = const "/"
+
+instance ToQuery DescribeEvents
+
+instance ToHeaders DescribeEvents
+
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = ElasticBeanstalk
     type Rs DescribeEvents = DescribeEventsResponse
@@ -209,10 +216,3 @@ instance AWSRequest DescribeEvents where
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEventsResponse"
-
-instance ToPath DescribeEvents where
-    toPath = const "/"
-
-instance ToHeaders DescribeEvents
-
-instance ToQuery DescribeEvents

@@ -224,6 +224,13 @@ uctrSolutionStackName =
 uctrTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrTemplateName = lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })
 
+instance ToPath UpdateConfigurationTemplate where
+    toPath = const "/"
+
+instance ToQuery UpdateConfigurationTemplate
+
+instance ToHeaders UpdateConfigurationTemplate
+
 instance AWSRequest UpdateConfigurationTemplate where
     type Sv UpdateConfigurationTemplate = ElasticBeanstalk
     type Rs UpdateConfigurationTemplate = UpdateConfigurationTemplateResponse
@@ -234,10 +241,3 @@ instance AWSRequest UpdateConfigurationTemplate where
 instance FromXML UpdateConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateConfigurationTemplateResponse"
-
-instance ToPath UpdateConfigurationTemplate where
-    toPath = const "/"
-
-instance ToHeaders UpdateConfigurationTemplate
-
-instance ToQuery UpdateConfigurationTemplate

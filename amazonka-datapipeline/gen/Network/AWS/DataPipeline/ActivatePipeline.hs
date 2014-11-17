@@ -72,20 +72,19 @@ data ActivatePipelineResponse = ActivatePipelineResponse
 activatePipelineResponse :: ActivatePipelineResponse
 activatePipelineResponse = ActivatePipelineResponse
 
+instance ToPath ActivatePipeline where
+    toPath = const "/"
+
+instance ToQuery ActivatePipeline where
+    toQuery = const mempty
+
+instance ToHeaders ActivatePipeline
+instance ToJSON ActivatePipeline where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline
     type Rs ActivatePipeline = ActivatePipelineResponse
 
     request  = post
     response = nullResponse ActivatePipelineResponse
-
-instance ToPath ActivatePipeline where
-    toPath = const "/"
-
-instance ToHeaders ActivatePipeline
-
-instance ToQuery ActivatePipeline where
-    toQuery = const mempty
-
-instance ToJSON ActivatePipeline where
-    toJSON = genericToJSON jsonOptions

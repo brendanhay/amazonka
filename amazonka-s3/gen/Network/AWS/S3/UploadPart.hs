@@ -235,24 +235,18 @@ uprServerSideEncryption :: Lens' UploadPartResponse (Maybe Text)
 uprServerSideEncryption =
     lens _uprServerSideEncryption (\s a -> s { _uprServerSideEncryption = a })
 
-instance AWSRequest UploadPart where
-    type Sv UploadPart = S3
-    type Rs UploadPart = UploadPartResponse
-
-    request  = put
-    response = xmlHeaderResponse $ \h x -> UploadPartResponse
-        <$> h ~:? "ETag"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
-        <*> h ~:? "x-amz-server-side-encryption"
-
 instance ToPath UploadPart where
     toPath UploadPart{..} = mconcat
         [ "/"
         , toText _upBucket
         , "/"
         , toText _upKey
+        ]
+
+instance ToQuery UploadPart where
+    toQuery UploadPart{..} = mconcat
+          [   "partNumber" =? _upPartNumber
+          ,   "uploadId"   =? _upUploadId
         ]
 
 instance ToHeaders UploadPart where
@@ -265,11 +259,16 @@ instance ToHeaders UploadPart where
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _upSSEKMSKeyId
         ]
 
-instance ToQuery UploadPart where
-    toQuery UploadPart{..} = mconcat
-        [ "partNumber" =? _upPartNumber
-        , "uploadId"   =? _upUploadId
-        ]
-
 instance ToBody UploadPart where
 
+instance AWSRequest UploadPart where
+    type Sv UploadPart = S3
+    type Rs UploadPart = UploadPartResponse
+
+    request  = put
+    response = xmlHeaderResponse $ \h x -> UploadPartResponse
+        <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
+        <*> h ~:? "x-amz-server-side-encryption"

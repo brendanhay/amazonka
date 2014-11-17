@@ -115,6 +115,21 @@ changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
 
+instance ToPath ChangeResourceRecordSets where
+    toPath ChangeResourceRecordSets{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _crrsHostedZoneId
+        , "/rrset/"
+        ]
+
+instance ToQuery ChangeResourceRecordSets where
+    toQuery = const mempty
+
+instance ToHeaders ChangeResourceRecordSets
+instance ToXML ChangeResourceRecordSets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeResourceRecordSets"
+
 instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
@@ -125,19 +140,3 @@ instance AWSRequest ChangeResourceRecordSets where
 instance FromXML ChangeResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ChangeResourceRecordSetsResponse"
-
-instance ToPath ChangeResourceRecordSets where
-    toPath ChangeResourceRecordSets{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _crrsHostedZoneId
-        , "/rrset/"
-        ]
-
-instance ToHeaders ChangeResourceRecordSets
-
-instance ToQuery ChangeResourceRecordSets where
-    toQuery = const mempty
-
-instance ToXML ChangeResourceRecordSets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeResourceRecordSets"

@@ -119,6 +119,16 @@ dssrTimezone = lens _dssrTimezone (\s a -> s { _dssrTimezone = a })
 dssrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })
 
+instance ToPath DescribeSnapshotSchedule where
+    toPath = const "/"
+
+instance ToQuery DescribeSnapshotSchedule where
+    toQuery = const mempty
+
+instance ToHeaders DescribeSnapshotSchedule
+instance ToJSON DescribeSnapshotSchedule where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeSnapshotSchedule where
     type Sv DescribeSnapshotSchedule = StorageGateway
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
@@ -128,14 +138,3 @@ instance AWSRequest DescribeSnapshotSchedule where
 
 instance FromJSON DescribeSnapshotScheduleResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeSnapshotSchedule where
-    toPath = const "/"
-
-instance ToHeaders DescribeSnapshotSchedule
-
-instance ToQuery DescribeSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToJSON DescribeSnapshotSchedule where
-    toJSON = genericToJSON jsonOptions

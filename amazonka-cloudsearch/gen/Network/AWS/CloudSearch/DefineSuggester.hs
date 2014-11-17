@@ -95,6 +95,13 @@ defineSuggesterResponse p1 = DefineSuggesterResponse
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
 
+instance ToPath DefineSuggester where
+    toPath = const "/"
+
+instance ToQuery DefineSuggester
+
+instance ToHeaders DefineSuggester
+
 instance AWSRequest DefineSuggester where
     type Sv DefineSuggester = CloudSearch
     type Rs DefineSuggester = DefineSuggesterResponse
@@ -105,10 +112,3 @@ instance AWSRequest DefineSuggester where
 instance FromXML DefineSuggesterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineSuggesterResponse"
-
-instance ToPath DefineSuggester where
-    toPath = const "/"
-
-instance ToHeaders DefineSuggester
-
-instance ToQuery DefineSuggester

@@ -101,20 +101,19 @@ data RespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
 respondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse
 respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
 
+instance ToPath RespondActivityTaskCompleted where
+    toPath = const "/"
+
+instance ToQuery RespondActivityTaskCompleted where
+    toQuery = const mempty
+
+instance ToHeaders RespondActivityTaskCompleted
+instance ToJSON RespondActivityTaskCompleted where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RespondActivityTaskCompleted where
     type Sv RespondActivityTaskCompleted = SWF
     type Rs RespondActivityTaskCompleted = RespondActivityTaskCompletedResponse
 
     request  = post
     response = nullResponse RespondActivityTaskCompletedResponse
-
-instance ToPath RespondActivityTaskCompleted where
-    toPath = const "/"
-
-instance ToHeaders RespondActivityTaskCompleted
-
-instance ToQuery RespondActivityTaskCompleted where
-    toQuery = const mempty
-
-instance ToJSON RespondActivityTaskCompleted where
-    toJSON = genericToJSON jsonOptions

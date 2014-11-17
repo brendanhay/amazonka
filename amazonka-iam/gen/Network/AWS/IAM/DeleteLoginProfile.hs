@@ -74,16 +74,16 @@ data DeleteLoginProfileResponse = DeleteLoginProfileResponse
 deleteLoginProfileResponse :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse
 
+instance ToPath DeleteLoginProfile where
+    toPath = const "/"
+
+instance ToQuery DeleteLoginProfile
+
+instance ToHeaders DeleteLoginProfile
+
 instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
 
     request  = post "DeleteLoginProfile"
     response = nullResponse DeleteLoginProfileResponse
-
-instance ToPath DeleteLoginProfile where
-    toPath = const "/"
-
-instance ToHeaders DeleteLoginProfile
-
-instance ToQuery DeleteLoginProfile

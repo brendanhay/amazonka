@@ -85,6 +85,13 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
 
+instance ToPath GetLoginProfile where
+    toPath = const "/"
+
+instance ToQuery GetLoginProfile
+
+instance ToHeaders GetLoginProfile
+
 instance AWSRequest GetLoginProfile where
     type Sv GetLoginProfile = IAM
     type Rs GetLoginProfile = GetLoginProfileResponse
@@ -95,10 +102,3 @@ instance AWSRequest GetLoginProfile where
 instance FromXML GetLoginProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetLoginProfileResponse"
-
-instance ToPath GetLoginProfile where
-    toPath = const "/"
-
-instance ToHeaders GetLoginProfile
-
-instance ToQuery GetLoginProfile

@@ -115,6 +115,16 @@ utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrTableDescription =
     lens _utrTableDescription (\s a -> s { _utrTableDescription = a })
 
+instance ToPath UpdateTable where
+    toPath = const "/"
+
+instance ToQuery UpdateTable where
+    toQuery = const mempty
+
+instance ToHeaders UpdateTable
+instance ToJSON UpdateTable where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateTable where
     type Sv UpdateTable = DynamoDB
     type Rs UpdateTable = UpdateTableResponse
@@ -124,14 +134,3 @@ instance AWSRequest UpdateTable where
 
 instance FromJSON UpdateTableResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath UpdateTable where
-    toPath = const "/"
-
-instance ToHeaders UpdateTable
-
-instance ToQuery UpdateTable where
-    toQuery = const mempty
-
-instance ToJSON UpdateTable where
-    toJSON = genericToJSON jsonOptions

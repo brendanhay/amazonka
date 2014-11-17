@@ -77,24 +77,16 @@ data DeregisterImageResponse = DeregisterImageResponse
 deregisterImageResponse :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse
 
+instance ToPath DeregisterImage where
+    toPath = const "/"
+
+instance ToQuery DeregisterImage
+
+instance ToHeaders DeregisterImage
+
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2
     type Rs DeregisterImage = DeregisterImageResponse
 
     request  = post "DeregisterImage"
     response = nullResponse DeregisterImageResponse
-
-instance ToPath DeregisterImage where
-    toPath = const "/"
-
-instance ToHeaders DeregisterImage
-
-instance ToQuery DeregisterImage where
-    toQuery DeregisterImage{..} = mconcat
-        [ "dryRun"  =? _diDryRun
-        , "ImageId" =? _diImageId
-        ]
-
-instance ToXML DeregisterImage where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeregisterImage"

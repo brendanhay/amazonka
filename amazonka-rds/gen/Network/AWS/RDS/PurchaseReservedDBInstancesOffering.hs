@@ -116,6 +116,13 @@ prdbiorReservedDBInstance =
     lens _prdbiorReservedDBInstance
         (\s a -> s { _prdbiorReservedDBInstance = a })
 
+instance ToPath PurchaseReservedDBInstancesOffering where
+    toPath = const "/"
+
+instance ToQuery PurchaseReservedDBInstancesOffering
+
+instance ToHeaders PurchaseReservedDBInstancesOffering
+
 instance AWSRequest PurchaseReservedDBInstancesOffering where
     type Sv PurchaseReservedDBInstancesOffering = RDS
     type Rs PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOfferingResponse
@@ -126,10 +133,3 @@ instance AWSRequest PurchaseReservedDBInstancesOffering where
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResponse"
-
-instance ToPath PurchaseReservedDBInstancesOffering where
-    toPath = const "/"
-
-instance ToHeaders PurchaseReservedDBInstancesOffering
-
-instance ToQuery PurchaseReservedDBInstancesOffering

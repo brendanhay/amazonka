@@ -87,16 +87,16 @@ data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProv
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse
 addClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
 
+instance ToPath AddClientIDToOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToQuery AddClientIDToOpenIDConnectProvider
+
+instance ToHeaders AddClientIDToOpenIDConnectProvider
+
 instance AWSRequest AddClientIDToOpenIDConnectProvider where
     type Sv AddClientIDToOpenIDConnectProvider = IAM
     type Rs AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProviderResponse
 
     request  = post "AddClientIDToOpenIDConnectProvider"
     response = nullResponse AddClientIDToOpenIDConnectProviderResponse
-
-instance ToPath AddClientIDToOpenIDConnectProvider where
-    toPath = const "/"
-
-instance ToHeaders AddClientIDToOpenIDConnectProvider
-
-instance ToQuery AddClientIDToOpenIDConnectProvider

@@ -109,16 +109,16 @@ data BatchPutAttributesResponse = BatchPutAttributesResponse
 batchPutAttributesResponse :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse
 
+instance ToPath BatchPutAttributes where
+    toPath = const "/"
+
+instance ToQuery BatchPutAttributes
+
+instance ToHeaders BatchPutAttributes
+
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SDB
     type Rs BatchPutAttributes = BatchPutAttributesResponse
 
     request  = post "BatchPutAttributes"
     response = nullResponse BatchPutAttributesResponse
-
-instance ToPath BatchPutAttributes where
-    toPath = const "/"
-
-instance ToHeaders BatchPutAttributes
-
-instance ToQuery BatchPutAttributes

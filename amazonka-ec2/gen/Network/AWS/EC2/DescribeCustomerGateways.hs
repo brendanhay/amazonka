@@ -123,6 +123,13 @@ dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
 
+instance ToPath DescribeCustomerGateways where
+    toPath = const "/"
+
+instance ToQuery DescribeCustomerGateways
+
+instance ToHeaders DescribeCustomerGateways
+
 instance AWSRequest DescribeCustomerGateways where
     type Sv DescribeCustomerGateways = EC2
     type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse
@@ -133,19 +140,3 @@ instance AWSRequest DescribeCustomerGateways where
 instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResponse"
-
-instance ToPath DescribeCustomerGateways where
-    toPath = const "/"
-
-instance ToHeaders DescribeCustomerGateways
-
-instance ToQuery DescribeCustomerGateways where
-    toQuery DescribeCustomerGateways{..} = mconcat
-        [ "dryRun"            =? _dcgDryRun
-        , "CustomerGatewayId" =? _dcgCustomerGatewayIds
-        , "Filter"            =? _dcgFilters
-        ]
-
-instance ToXML DescribeCustomerGateways where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeCustomerGateways"

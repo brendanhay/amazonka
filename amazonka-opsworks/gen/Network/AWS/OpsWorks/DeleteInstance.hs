@@ -92,20 +92,19 @@ data DeleteInstanceResponse = DeleteInstanceResponse
 deleteInstanceResponse :: DeleteInstanceResponse
 deleteInstanceResponse = DeleteInstanceResponse
 
+instance ToPath DeleteInstance where
+    toPath = const "/"
+
+instance ToQuery DeleteInstance where
+    toQuery = const mempty
+
+instance ToHeaders DeleteInstance
+instance ToJSON DeleteInstance where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks
     type Rs DeleteInstance = DeleteInstanceResponse
 
     request  = post
     response = nullResponse DeleteInstanceResponse
-
-instance ToPath DeleteInstance where
-    toPath = const "/"
-
-instance ToHeaders DeleteInstance
-
-instance ToQuery DeleteInstance where
-    toQuery = const mempty
-
-instance ToJSON DeleteInstance where
-    toJSON = genericToJSON jsonOptions

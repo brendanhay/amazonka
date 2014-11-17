@@ -146,6 +146,13 @@ describeEnvironmentsResponse = DescribeEnvironmentsResponse
 derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a })
 
+instance ToPath DescribeEnvironments where
+    toPath = const "/"
+
+instance ToQuery DescribeEnvironments
+
+instance ToHeaders DescribeEnvironments
+
 instance AWSRequest DescribeEnvironments where
     type Sv DescribeEnvironments = ElasticBeanstalk
     type Rs DescribeEnvironments = DescribeEnvironmentsResponse
@@ -156,10 +163,3 @@ instance AWSRequest DescribeEnvironments where
 instance FromXML DescribeEnvironmentsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEnvironmentsResponse"
-
-instance ToPath DescribeEnvironments where
-    toPath = const "/"
-
-instance ToHeaders DescribeEnvironments
-
-instance ToQuery DescribeEnvironments

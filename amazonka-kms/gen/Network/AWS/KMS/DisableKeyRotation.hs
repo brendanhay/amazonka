@@ -69,20 +69,19 @@ data DisableKeyRotationResponse = DisableKeyRotationResponse
 disableKeyRotationResponse :: DisableKeyRotationResponse
 disableKeyRotationResponse = DisableKeyRotationResponse
 
+instance ToPath DisableKeyRotation where
+    toPath = const "/"
+
+instance ToQuery DisableKeyRotation where
+    toQuery = const mempty
+
+instance ToHeaders DisableKeyRotation
+instance ToJSON DisableKeyRotation where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DisableKeyRotation where
     type Sv DisableKeyRotation = KMS
     type Rs DisableKeyRotation = DisableKeyRotationResponse
 
     request  = post
     response = nullResponse DisableKeyRotationResponse
-
-instance ToPath DisableKeyRotation where
-    toPath = const "/"
-
-instance ToHeaders DisableKeyRotation
-
-instance ToQuery DisableKeyRotation where
-    toQuery = const mempty
-
-instance ToJSON DisableKeyRotation where
-    toJSON = genericToJSON jsonOptions

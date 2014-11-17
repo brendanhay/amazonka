@@ -72,20 +72,19 @@ data DeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse
 
+instance ToPath DeleteDeliveryChannel where
+    toPath = const "/"
+
+instance ToQuery DeleteDeliveryChannel where
+    toQuery = const mempty
+
+instance ToHeaders DeleteDeliveryChannel
+instance ToJSON DeleteDeliveryChannel where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteDeliveryChannel where
     type Sv DeleteDeliveryChannel = Config
     type Rs DeleteDeliveryChannel = DeleteDeliveryChannelResponse
 
     request  = post
     response = nullResponse DeleteDeliveryChannelResponse
-
-instance ToPath DeleteDeliveryChannel where
-    toPath = const "/"
-
-instance ToHeaders DeleteDeliveryChannel
-
-instance ToQuery DeleteDeliveryChannel where
-    toQuery = const mempty
-
-instance ToJSON DeleteDeliveryChannel where
-    toJSON = genericToJSON jsonOptions

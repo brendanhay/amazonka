@@ -4364,6 +4364,7 @@
                 "name": "BuildSuggestersResponse",
                 "resultWrapper": "BuildSuggestersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4472,6 +4473,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4528,6 +4531,7 @@
                 "name": "CreateDomainResponse",
                 "resultWrapper": "CreateDomainResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -4636,6 +4640,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4707,6 +4713,7 @@
                 "name": "DefineAnalysisSchemeResponse",
                 "resultWrapper": "DefineAnalysisSchemeResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4801,6 +4808,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4886,6 +4895,7 @@
                 "name": "DefineExpressionResponse",
                 "resultWrapper": "DefineExpressionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4980,6 +4990,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5065,6 +5077,7 @@
                 "name": "DefineIndexFieldResponse",
                 "resultWrapper": "DefineIndexFieldResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5159,6 +5172,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5244,6 +5259,7 @@
                 "name": "DefineSuggesterResponse",
                 "resultWrapper": "DefineSuggesterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5338,6 +5354,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5423,6 +5441,7 @@
                 "name": "DeleteAnalysisSchemeResponse",
                 "resultWrapper": "DeleteAnalysisSchemeResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5518,6 +5537,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5588,6 +5609,7 @@
                 "name": "DeleteDomainResponse",
                 "resultWrapper": "DeleteDomainResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -5696,6 +5718,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5767,6 +5791,7 @@
                 "name": "DeleteExpressionResponse",
                 "resultWrapper": "DeleteExpressionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5862,6 +5887,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -5947,6 +5974,7 @@
                 "name": "DeleteIndexFieldResponse",
                 "resultWrapper": "DeleteIndexFieldResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6042,6 +6070,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6127,6 +6157,7 @@
                 "name": "DeleteSuggesterResponse",
                 "resultWrapper": "DeleteSuggesterResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6222,6 +6253,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -6294,6 +6327,7 @@
                 "name": "DescribeAnalysisSchemesResponse",
                 "resultWrapper": "DescribeAnalysisSchemesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6395,6 +6429,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6508,6 +6544,7 @@
                 "name": "DescribeAvailabilityOptionsResponse",
                 "resultWrapper": "DescribeAvailabilityOptionsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6604,6 +6641,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6691,6 +6730,7 @@
                 "name": "DescribeDomainsResponse",
                 "resultWrapper": "DescribeDomainsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6784,6 +6824,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6857,6 +6899,7 @@
                 "name": "DescribeExpressionsResponse",
                 "resultWrapper": "DescribeExpressionsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -6958,6 +7001,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7073,6 +7118,7 @@
                 "name": "DescribeIndexFieldsResponse",
                 "resultWrapper": "DescribeIndexFieldsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7174,6 +7220,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7302,6 +7350,7 @@
                 "name": "DescribeScalingParametersResponse",
                 "resultWrapper": "DescribeScalingParametersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7395,6 +7444,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7466,6 +7517,7 @@
                 "name": "DescribeServiceAccessPoliciesResponse",
                 "resultWrapper": "DescribeServiceAccessPoliciesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7547,6 +7599,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7634,6 +7688,7 @@
                 "name": "DescribeSuggestersResponse",
                 "resultWrapper": "DescribeSuggestersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7735,6 +7790,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7851,6 +7908,7 @@
                 "name": "IndexDocumentsResponse",
                 "resultWrapper": "IndexDocumentsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7959,6 +8017,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8017,6 +8077,7 @@
                 "name": "ListDomainNamesResponse",
                 "resultWrapper": "ListDomainNamesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8086,6 +8147,8 @@
                 "name": "ListDomainNames",
                 "query": [],
                 "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             }
@@ -8127,6 +8190,7 @@
                 "name": "UpdateAvailabilityOptionsResponse",
                 "resultWrapper": "UpdateAvailabilityOptionsResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8237,6 +8301,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8322,6 +8388,7 @@
                 "name": "UpdateScalingParametersResponse",
                 "resultWrapper": "UpdateScalingParametersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8416,6 +8483,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8501,6 +8570,7 @@
                 "name": "UpdateServiceAccessPoliciesResponse",
                 "resultWrapper": "UpdateServiceAccessPoliciesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -8596,6 +8666,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {

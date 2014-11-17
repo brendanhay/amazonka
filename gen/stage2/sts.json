@@ -349,6 +349,7 @@
                 "name": "AssumeRoleResponse",
                 "resultWrapper": "AssumeRoleResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -540,6 +541,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -736,6 +739,7 @@
                 "name": "AssumeRoleWithSAMLResponse",
                 "resultWrapper": "AssumeRoleWithSAMLResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1071,6 +1075,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1197,6 +1203,7 @@
                 "name": "AssumeRoleWithWebIdentityResponse",
                 "resultWrapper": "AssumeRoleWithWebIdentityResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1481,6 +1488,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1652,6 +1661,7 @@
                 "name": "DecodeAuthorizationMessageResponse",
                 "resultWrapper": "DecodeAuthorizationMessageResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1760,6 +1770,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1801,6 +1813,7 @@
                 "name": "GetFederationTokenResponse",
                 "resultWrapper": "GetFederationTokenResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -1958,6 +1971,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2071,6 +2086,7 @@
                 "name": "GetSessionTokenResponse",
                 "resultWrapper": "GetSessionTokenResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -2157,6 +2173,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

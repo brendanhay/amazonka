@@ -72,21 +72,16 @@ data CancelExportTaskResponse = CancelExportTaskResponse
 cancelExportTaskResponse :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse
 
+instance ToPath CancelExportTask where
+    toPath = const "/"
+
+instance ToQuery CancelExportTask
+
+instance ToHeaders CancelExportTask
+
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2
     type Rs CancelExportTask = CancelExportTaskResponse
 
     request  = post "CancelExportTask"
     response = nullResponse CancelExportTaskResponse
-
-instance ToPath CancelExportTask where
-    toPath = const "/"
-
-instance ToHeaders CancelExportTask
-
-instance ToQuery CancelExportTask where
-    toQuery rq = "exportTaskId" =? _cetExportTaskId rq
-
-instance ToXML CancelExportTask where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CancelExportTask"

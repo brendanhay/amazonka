@@ -83,6 +83,16 @@ generateRandomResponse = GenerateRandomResponse
 grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
 grrPlaintext = lens _grrPlaintext (\s a -> s { _grrPlaintext = a })
 
+instance ToPath GenerateRandom where
+    toPath = const "/"
+
+instance ToQuery GenerateRandom where
+    toQuery = const mempty
+
+instance ToHeaders GenerateRandom
+instance ToJSON GenerateRandom where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GenerateRandom where
     type Sv GenerateRandom = KMS
     type Rs GenerateRandom = GenerateRandomResponse
@@ -92,14 +102,3 @@ instance AWSRequest GenerateRandom where
 
 instance FromJSON GenerateRandomResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GenerateRandom where
-    toPath = const "/"
-
-instance ToHeaders GenerateRandom
-
-instance ToQuery GenerateRandom where
-    toQuery = const mempty
-
-instance ToJSON GenerateRandom where
-    toJSON = genericToJSON jsonOptions

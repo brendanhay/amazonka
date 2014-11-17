@@ -124,6 +124,16 @@ ldirInstancesList =
 ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 
+instance ToPath ListDeploymentInstances where
+    toPath = const "/"
+
+instance ToQuery ListDeploymentInstances where
+    toQuery = const mempty
+
+instance ToHeaders ListDeploymentInstances
+instance ToJSON ListDeploymentInstances where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListDeploymentInstances where
     type Sv ListDeploymentInstances = CodeDeploy
     type Rs ListDeploymentInstances = ListDeploymentInstancesResponse
@@ -133,14 +143,3 @@ instance AWSRequest ListDeploymentInstances where
 
 instance FromJSON ListDeploymentInstancesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListDeploymentInstances where
-    toPath = const "/"
-
-instance ToHeaders ListDeploymentInstances
-
-instance ToQuery ListDeploymentInstances where
-    toQuery = const mempty
-
-instance ToJSON ListDeploymentInstances where
-    toJSON = genericToJSON jsonOptions

@@ -80,16 +80,16 @@ data RemovePermissionResponse = RemovePermissionResponse
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
 
+instance ToPath RemovePermission where
+    toPath = const "/"
+
+instance ToQuery RemovePermission
+
+instance ToHeaders RemovePermission
+
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SQS
     type Rs RemovePermission = RemovePermissionResponse
 
     request  = post "RemovePermission"
     response = nullResponse RemovePermissionResponse
-
-instance ToPath RemovePermission where
-    toPath = const "/"
-
-instance ToHeaders RemovePermission
-
-instance ToQuery RemovePermission

@@ -107,6 +107,16 @@ createKeyResponse = CreateKeyResponse
 ckrKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrKeyMetadata = lens _ckrKeyMetadata (\s a -> s { _ckrKeyMetadata = a })
 
+instance ToPath CreateKey where
+    toPath = const "/"
+
+instance ToQuery CreateKey where
+    toQuery = const mempty
+
+instance ToHeaders CreateKey
+instance ToJSON CreateKey where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateKey where
     type Sv CreateKey = KMS
     type Rs CreateKey = CreateKeyResponse
@@ -116,14 +126,3 @@ instance AWSRequest CreateKey where
 
 instance FromJSON CreateKeyResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateKey where
-    toPath = const "/"
-
-instance ToHeaders CreateKey
-
-instance ToQuery CreateKey where
-    toQuery = const mempty
-
-instance ToJSON CreateKey where
-    toJSON = genericToJSON jsonOptions

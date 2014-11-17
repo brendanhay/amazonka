@@ -86,27 +86,26 @@ data PutBucketLifecycleResponse = PutBucketLifecycleResponse
 putBucketLifecycleResponse :: PutBucketLifecycleResponse
 putBucketLifecycleResponse = PutBucketLifecycleResponse
 
-instance AWSRequest PutBucketLifecycle where
-    type Sv PutBucketLifecycle = S3
-    type Rs PutBucketLifecycle = PutBucketLifecycleResponse
-
-    request  = put
-    response = nullResponse PutBucketLifecycleResponse
-
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat
         [ "/"
         , toText _pbl1Bucket
         ]
 
+instance ToQuery PutBucketLifecycle where
+    toQuery = const "lifecycle"
+
 instance ToHeaders PutBucketLifecycle where
     toHeaders PutBucketLifecycle{..} = mconcat
         [ "Content-MD5" =: _pbl1ContentMD5
         ]
-
-instance ToQuery PutBucketLifecycle where
-    toQuery = const "lifecycle"
-
 instance ToXML PutBucketLifecycle where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PutBucketLifecycle"
+
+instance AWSRequest PutBucketLifecycle where
+    type Sv PutBucketLifecycle = S3
+    type Rs PutBucketLifecycle = PutBucketLifecycleResponse
+
+    request  = put
+    response = nullResponse PutBucketLifecycleResponse

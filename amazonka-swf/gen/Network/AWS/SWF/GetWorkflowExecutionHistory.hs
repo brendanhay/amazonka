@@ -155,6 +155,16 @@ gwehrNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrNextPageToken =
     lens _gwehrNextPageToken (\s a -> s { _gwehrNextPageToken = a })
 
+instance ToPath GetWorkflowExecutionHistory where
+    toPath = const "/"
+
+instance ToQuery GetWorkflowExecutionHistory where
+    toQuery = const mempty
+
+instance ToHeaders GetWorkflowExecutionHistory
+instance ToJSON GetWorkflowExecutionHistory where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetWorkflowExecutionHistory where
     type Sv GetWorkflowExecutionHistory = SWF
     type Rs GetWorkflowExecutionHistory = GetWorkflowExecutionHistoryResponse
@@ -164,14 +174,3 @@ instance AWSRequest GetWorkflowExecutionHistory where
 
 instance FromJSON GetWorkflowExecutionHistoryResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetWorkflowExecutionHistory where
-    toPath = const "/"
-
-instance ToHeaders GetWorkflowExecutionHistory
-
-instance ToQuery GetWorkflowExecutionHistory where
-    toQuery = const mempty
-
-instance ToJSON GetWorkflowExecutionHistory where
-    toJSON = genericToJSON jsonOptions

@@ -154,6 +154,16 @@ cgrGrantId = lens _cgrGrantId (\s a -> s { _cgrGrantId = a })
 cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\s a -> s { _cgrGrantToken = a })
 
+instance ToPath CreateGrant where
+    toPath = const "/"
+
+instance ToQuery CreateGrant where
+    toQuery = const mempty
+
+instance ToHeaders CreateGrant
+instance ToJSON CreateGrant where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateGrant where
     type Sv CreateGrant = KMS
     type Rs CreateGrant = CreateGrantResponse
@@ -163,14 +173,3 @@ instance AWSRequest CreateGrant where
 
 instance FromJSON CreateGrantResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateGrant where
-    toPath = const "/"
-
-instance ToHeaders CreateGrant
-
-instance ToQuery CreateGrant where
-    toQuery = const mempty
-
-instance ToJSON CreateGrant where
-    toJSON = genericToJSON jsonOptions

@@ -115,6 +115,13 @@ lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
 
+instance ToPath ListEndpointsByPlatformApplication where
+    toPath = const "/"
+
+instance ToQuery ListEndpointsByPlatformApplication
+
+instance ToHeaders ListEndpointsByPlatformApplication
+
 instance AWSRequest ListEndpointsByPlatformApplication where
     type Sv ListEndpointsByPlatformApplication = SNS
     type Rs ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplicationResponse
@@ -125,10 +132,3 @@ instance AWSRequest ListEndpointsByPlatformApplication where
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListEndpointsByPlatformApplicationResponse"
-
-instance ToPath ListEndpointsByPlatformApplication where
-    toPath = const "/"
-
-instance ToHeaders ListEndpointsByPlatformApplication
-
-instance ToQuery ListEndpointsByPlatformApplication

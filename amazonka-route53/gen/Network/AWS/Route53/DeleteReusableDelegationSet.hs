@@ -75,24 +75,23 @@ data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
 
-instance AWSRequest DeleteReusableDelegationSet where
-    type Sv DeleteReusableDelegationSet = Route53
-    type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse
-
-    request  = delete
-    response = nullResponse DeleteReusableDelegationSetResponse
-
 instance ToPath DeleteReusableDelegationSet where
     toPath DeleteReusableDelegationSet{..} = mconcat
         [ "/2013-04-01/delegationset/"
         , toText _drdsId
         ]
 
-instance ToHeaders DeleteReusableDelegationSet
-
 instance ToQuery DeleteReusableDelegationSet where
     toQuery = const mempty
 
+instance ToHeaders DeleteReusableDelegationSet
 instance ToXML DeleteReusableDelegationSet where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteReusableDelegationSet"
+
+instance AWSRequest DeleteReusableDelegationSet where
+    type Sv DeleteReusableDelegationSet = Route53
+    type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse
+
+    request  = delete
+    response = nullResponse DeleteReusableDelegationSetResponse

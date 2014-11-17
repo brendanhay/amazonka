@@ -97,16 +97,16 @@ data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse
 
+instance ToPath PutNotificationConfiguration where
+    toPath = const "/"
+
+instance ToQuery PutNotificationConfiguration
+
+instance ToHeaders PutNotificationConfiguration
+
 instance AWSRequest PutNotificationConfiguration where
     type Sv PutNotificationConfiguration = AutoScaling
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
 
     request  = post "PutNotificationConfiguration"
     response = nullResponse PutNotificationConfigurationResponse
-
-instance ToPath PutNotificationConfiguration where
-    toPath = const "/"
-
-instance ToHeaders PutNotificationConfiguration
-
-instance ToQuery PutNotificationConfiguration

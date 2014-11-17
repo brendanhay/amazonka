@@ -77,20 +77,19 @@ data DeleteLogStreamResponse = DeleteLogStreamResponse
 deleteLogStreamResponse :: DeleteLogStreamResponse
 deleteLogStreamResponse = DeleteLogStreamResponse
 
+instance ToPath DeleteLogStream where
+    toPath = const "/"
+
+instance ToQuery DeleteLogStream where
+    toQuery = const mempty
+
+instance ToHeaders DeleteLogStream
+instance ToJSON DeleteLogStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs
     type Rs DeleteLogStream = DeleteLogStreamResponse
 
     request  = post
     response = nullResponse DeleteLogStreamResponse
-
-instance ToPath DeleteLogStream where
-    toPath = const "/"
-
-instance ToHeaders DeleteLogStream
-
-instance ToQuery DeleteLogStream where
-    toQuery = const mempty
-
-instance ToJSON DeleteLogStream where
-    toJSON = genericToJSON jsonOptions

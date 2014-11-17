@@ -92,6 +92,13 @@ gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
     . _Map
 
+instance ToPath GetSubscriptionAttributes where
+    toPath = const "/"
+
+instance ToQuery GetSubscriptionAttributes
+
+instance ToHeaders GetSubscriptionAttributes
+
 instance AWSRequest GetSubscriptionAttributes where
     type Sv GetSubscriptionAttributes = SNS
     type Rs GetSubscriptionAttributes = GetSubscriptionAttributesResponse
@@ -102,10 +109,3 @@ instance AWSRequest GetSubscriptionAttributes where
 instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"
-
-instance ToPath GetSubscriptionAttributes where
-    toPath = const "/"
-
-instance ToHeaders GetSubscriptionAttributes
-
-instance ToQuery GetSubscriptionAttributes

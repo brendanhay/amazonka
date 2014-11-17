@@ -95,6 +95,16 @@ ghsrHostname = lens _ghsrHostname (\s a -> s { _ghsrHostname = a })
 ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
 
+instance ToPath GetHostnameSuggestion where
+    toPath = const "/"
+
+instance ToQuery GetHostnameSuggestion where
+    toQuery = const mempty
+
+instance ToHeaders GetHostnameSuggestion
+instance ToJSON GetHostnameSuggestion where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetHostnameSuggestion where
     type Sv GetHostnameSuggestion = OpsWorks
     type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse
@@ -104,14 +114,3 @@ instance AWSRequest GetHostnameSuggestion where
 
 instance FromJSON GetHostnameSuggestionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetHostnameSuggestion where
-    toPath = const "/"
-
-instance ToHeaders GetHostnameSuggestion
-
-instance ToQuery GetHostnameSuggestion where
-    toQuery = const mempty
-
-instance ToJSON GetHostnameSuggestion where
-    toJSON = genericToJSON jsonOptions

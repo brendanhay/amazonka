@@ -1302,6 +1302,7 @@
                 "name": "CheckDomainAvailabilityResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1372,6 +1373,8 @@
                 "name": "CheckDomainAvailability",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -1442,6 +1445,7 @@
                 "name": "DisableDomainAutoRenewResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1514,6 +1518,8 @@
                 "name": "DisableDomainAutoRenew",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1588,6 +1594,7 @@
                 "name": "DisableDomainTransferLockResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1675,6 +1682,8 @@
                 "name": "DisableDomainTransferLock",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1716,6 +1725,7 @@
                 "name": "EnableDomainAutoRenewResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -1788,6 +1798,8 @@
                 "name": "EnableDomainAutoRenew",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1862,6 +1874,7 @@
                 "name": "EnableDomainTransferLockResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -1949,6 +1962,8 @@
                 "name": "EnableDomainTransferLock",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2047,6 +2062,7 @@
                 "name": "GetDomainDetailResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2653,6 +2669,8 @@
                 "name": "GetDomainDetail",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2695,6 +2713,7 @@
                 "name": "GetOperationDetailResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -2937,6 +2956,8 @@
                 "name": "GetOperationDetail",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -2978,6 +2999,7 @@
                 "name": "ListDomainsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3076,6 +3098,8 @@
                 "name": "ListDomains",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3160,6 +3184,7 @@
                 "name": "ListOperationsResponse",
                 "resultWrapper": null,
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3258,6 +3283,8 @@
                 "name": "ListOperations",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3375,6 +3402,7 @@
                 "name": "RegisterDomainResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3500,6 +3528,8 @@
                 "name": "RegisterDomain",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -3771,6 +3801,7 @@
                 "name": "RetrieveDomainAuthCodeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3858,6 +3889,8 @@
                 "name": "RetrieveDomainAuthCode",
                 "query": [],
                 "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -3932,6 +3965,7 @@
                 "name": "TransferDomainResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4057,6 +4091,8 @@
                 "name": "TransferDomain",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4384,6 +4420,7 @@
                 "name": "UpdateDomainContactResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4453,6 +4490,8 @@
                 "name": "UpdateDomainContact",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4612,6 +4651,7 @@
                 "name": "UpdateDomainContactPrivacyResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4682,6 +4722,8 @@
                 "name": "UpdateDomainContactPrivacy",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,
@@ -4841,6 +4883,7 @@
                 "name": "UpdateDomainNameserversResponse",
                 "resultWrapper": null,
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -4910,6 +4953,8 @@
                 "name": "UpdateDomainNameservers",
                 "query": [],
                 "type": "record",
+                "queryAll": false,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": null,

@@ -80,20 +80,19 @@ data CreateLogStreamResponse = CreateLogStreamResponse
 createLogStreamResponse :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse
 
+instance ToPath CreateLogStream where
+    toPath = const "/"
+
+instance ToQuery CreateLogStream where
+    toQuery = const mempty
+
+instance ToHeaders CreateLogStream
+instance ToJSON CreateLogStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs
     type Rs CreateLogStream = CreateLogStreamResponse
 
     request  = post
     response = nullResponse CreateLogStreamResponse
-
-instance ToPath CreateLogStream where
-    toPath = const "/"
-
-instance ToHeaders CreateLogStream
-
-instance ToQuery CreateLogStream where
-    toQuery = const mempty
-
-instance ToJSON CreateLogStream where
-    toJSON = genericToJSON jsonOptions

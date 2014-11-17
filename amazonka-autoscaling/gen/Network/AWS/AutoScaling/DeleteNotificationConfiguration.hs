@@ -80,16 +80,16 @@ data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationRe
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
 
+instance ToPath DeleteNotificationConfiguration where
+    toPath = const "/"
+
+instance ToQuery DeleteNotificationConfiguration
+
+instance ToHeaders DeleteNotificationConfiguration
+
 instance AWSRequest DeleteNotificationConfiguration where
     type Sv DeleteNotificationConfiguration = AutoScaling
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
 
     request  = post "DeleteNotificationConfiguration"
     response = nullResponse DeleteNotificationConfigurationResponse
-
-instance ToPath DeleteNotificationConfiguration where
-    toPath = const "/"
-
-instance ToHeaders DeleteNotificationConfiguration
-
-instance ToQuery DeleteNotificationConfiguration

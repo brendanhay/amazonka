@@ -68,20 +68,19 @@ data DeleteTrailResponse = DeleteTrailResponse
 deleteTrailResponse :: DeleteTrailResponse
 deleteTrailResponse = DeleteTrailResponse
 
+instance ToPath DeleteTrail where
+    toPath = const "/"
+
+instance ToQuery DeleteTrail where
+    toQuery = const mempty
+
+instance ToHeaders DeleteTrail
+instance ToJSON DeleteTrail where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail
     type Rs DeleteTrail = DeleteTrailResponse
 
     request  = post
     response = nullResponse DeleteTrailResponse
-
-instance ToPath DeleteTrail where
-    toPath = const "/"
-
-instance ToHeaders DeleteTrail
-
-instance ToQuery DeleteTrail where
-    toQuery = const mempty
-
-instance ToJSON DeleteTrail where
-    toJSON = genericToJSON jsonOptions

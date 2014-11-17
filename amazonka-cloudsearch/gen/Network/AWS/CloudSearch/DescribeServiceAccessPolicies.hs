@@ -99,6 +99,13 @@ dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPolicie
 dsaprAccessPolicies =
     lens _dsaprAccessPolicies (\s a -> s { _dsaprAccessPolicies = a })
 
+instance ToPath DescribeServiceAccessPolicies where
+    toPath = const "/"
+
+instance ToQuery DescribeServiceAccessPolicies
+
+instance ToHeaders DescribeServiceAccessPolicies
+
 instance AWSRequest DescribeServiceAccessPolicies where
     type Sv DescribeServiceAccessPolicies = CloudSearch
     type Rs DescribeServiceAccessPolicies = DescribeServiceAccessPoliciesResponse
@@ -109,10 +116,3 @@ instance AWSRequest DescribeServiceAccessPolicies where
 instance FromXML DescribeServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeServiceAccessPoliciesResponse"
-
-instance ToPath DescribeServiceAccessPolicies where
-    toPath = const "/"
-
-instance ToHeaders DescribeServiceAccessPolicies
-
-instance ToQuery DescribeServiceAccessPolicies

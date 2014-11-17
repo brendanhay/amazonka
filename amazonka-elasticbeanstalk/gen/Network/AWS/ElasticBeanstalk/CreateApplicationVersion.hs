@@ -142,6 +142,13 @@ cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe Applicat
 cavrApplicationVersion =
     lens _cavrApplicationVersion (\s a -> s { _cavrApplicationVersion = a })
 
+instance ToPath CreateApplicationVersion where
+    toPath = const "/"
+
+instance ToQuery CreateApplicationVersion
+
+instance ToHeaders CreateApplicationVersion
+
 instance AWSRequest CreateApplicationVersion where
     type Sv CreateApplicationVersion = ElasticBeanstalk
     type Rs CreateApplicationVersion = CreateApplicationVersionResponse
@@ -152,10 +159,3 @@ instance AWSRequest CreateApplicationVersion where
 instance FromXML CreateApplicationVersionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateApplicationVersionResponse"
-
-instance ToPath CreateApplicationVersion where
-    toPath = const "/"
-
-instance ToHeaders CreateApplicationVersion
-
-instance ToQuery CreateApplicationVersion

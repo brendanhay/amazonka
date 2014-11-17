@@ -70,20 +70,19 @@ data DeleteApplicationResponse = DeleteApplicationResponse
 deleteApplicationResponse :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse
 
+instance ToPath DeleteApplication where
+    toPath = const "/"
+
+instance ToQuery DeleteApplication where
+    toQuery = const mempty
+
+instance ToHeaders DeleteApplication
+instance ToJSON DeleteApplication where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = CodeDeploy
     type Rs DeleteApplication = DeleteApplicationResponse
 
     request  = post
     response = nullResponse DeleteApplicationResponse
-
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
-instance ToHeaders DeleteApplication
-
-instance ToQuery DeleteApplication where
-    toQuery = const mempty
-
-instance ToJSON DeleteApplication where
-    toJSON = genericToJSON jsonOptions

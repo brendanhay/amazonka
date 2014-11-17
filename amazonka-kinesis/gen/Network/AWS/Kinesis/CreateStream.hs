@@ -114,20 +114,19 @@ data CreateStreamResponse = CreateStreamResponse
 createStreamResponse :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse
 
+instance ToPath CreateStream where
+    toPath = const "/"
+
+instance ToQuery CreateStream where
+    toQuery = const mempty
+
+instance ToHeaders CreateStream
+instance ToJSON CreateStream where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis
     type Rs CreateStream = CreateStreamResponse
 
     request  = post
     response = nullResponse CreateStreamResponse
-
-instance ToPath CreateStream where
-    toPath = const "/"
-
-instance ToHeaders CreateStream
-
-instance ToQuery CreateStream where
-    toQuery = const mempty
-
-instance ToJSON CreateStream where
-    toJSON = genericToJSON jsonOptions

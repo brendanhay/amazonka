@@ -118,6 +118,16 @@ dmstrMinuteOfHour =
 dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrTimezone = lens _dmstrTimezone (\s a -> s { _dmstrTimezone = a })
 
+instance ToPath DescribeMaintenanceStartTime where
+    toPath = const "/"
+
+instance ToQuery DescribeMaintenanceStartTime where
+    toQuery = const mempty
+
+instance ToHeaders DescribeMaintenanceStartTime
+instance ToJSON DescribeMaintenanceStartTime where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeMaintenanceStartTime where
     type Sv DescribeMaintenanceStartTime = StorageGateway
     type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse
@@ -127,14 +137,3 @@ instance AWSRequest DescribeMaintenanceStartTime where
 
 instance FromJSON DescribeMaintenanceStartTimeResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeMaintenanceStartTime where
-    toPath = const "/"
-
-instance ToHeaders DescribeMaintenanceStartTime
-
-instance ToQuery DescribeMaintenanceStartTime where
-    toQuery = const mempty
-
-instance ToJSON DescribeMaintenanceStartTime where
-    toJSON = genericToJSON jsonOptions

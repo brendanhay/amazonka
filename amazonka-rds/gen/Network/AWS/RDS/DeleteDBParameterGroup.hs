@@ -73,16 +73,16 @@ data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 
+instance ToPath DeleteDBParameterGroup where
+    toPath = const "/"
+
+instance ToQuery DeleteDBParameterGroup
+
+instance ToHeaders DeleteDBParameterGroup
+
 instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS
     type Rs DeleteDBParameterGroup = DeleteDBParameterGroupResponse
 
     request  = post "DeleteDBParameterGroup"
     response = nullResponse DeleteDBParameterGroupResponse
-
-instance ToPath DeleteDBParameterGroup where
-    toPath = const "/"
-
-instance ToHeaders DeleteDBParameterGroup
-
-instance ToQuery DeleteDBParameterGroup

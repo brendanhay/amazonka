@@ -94,6 +94,19 @@ gfrCode = lens _gfrCode (\s a -> s { _gfrCode = a })
 gfrConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrConfiguration = lens _gfrConfiguration (\s a -> s { _gfrConfiguration = a })
 
+instance ToPath GetFunction where
+    toPath GetFunction{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _gfFunctionName
+        ]
+
+instance ToQuery GetFunction where
+    toQuery = const mempty
+
+instance ToHeaders GetFunction
+instance ToJSON GetFunction where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetFunction where
     type Sv GetFunction = Lambda
     type Rs GetFunction = GetFunctionResponse
@@ -103,17 +116,3 @@ instance AWSRequest GetFunction where
 
 instance FromJSON GetFunctionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetFunction where
-    toPath GetFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _gfFunctionName
-        ]
-
-instance ToHeaders GetFunction
-
-instance ToQuery GetFunction where
-    toQuery = const mempty
-
-instance ToJSON GetFunction where
-    toJSON = genericToJSON jsonOptions

@@ -106,6 +106,20 @@ sipcrIdentityPoolId =
 sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrPushSync = lens _sipcrPushSync (\s a -> s { _sipcrPushSync = a })
 
+instance ToPath SetIdentityPoolConfiguration where
+    toPath SetIdentityPoolConfiguration{..} = mconcat
+        [ "/identitypools/"
+        , toText _sipcIdentityPoolId
+        , "/configuration"
+        ]
+
+instance ToQuery SetIdentityPoolConfiguration where
+    toQuery = const mempty
+
+instance ToHeaders SetIdentityPoolConfiguration
+instance ToJSON SetIdentityPoolConfiguration where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest SetIdentityPoolConfiguration where
     type Sv SetIdentityPoolConfiguration = CognitoSync
     type Rs SetIdentityPoolConfiguration = SetIdentityPoolConfigurationResponse
@@ -115,18 +129,3 @@ instance AWSRequest SetIdentityPoolConfiguration where
 
 instance FromJSON SetIdentityPoolConfigurationResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath SetIdentityPoolConfiguration where
-    toPath SetIdentityPoolConfiguration{..} = mconcat
-        [ "/identitypools/"
-        , toText _sipcIdentityPoolId
-        , "/configuration"
-        ]
-
-instance ToHeaders SetIdentityPoolConfiguration
-
-instance ToQuery SetIdentityPoolConfiguration where
-    toQuery = const mempty
-
-instance ToJSON SetIdentityPoolConfiguration where
-    toJSON = genericToJSON jsonOptions

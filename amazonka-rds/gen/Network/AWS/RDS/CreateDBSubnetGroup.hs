@@ -115,6 +115,13 @@ cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdbsgrDBSubnetGroup =
     lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
 
+instance ToPath CreateDBSubnetGroup where
+    toPath = const "/"
+
+instance ToQuery CreateDBSubnetGroup
+
+instance ToHeaders CreateDBSubnetGroup
+
 instance AWSRequest CreateDBSubnetGroup where
     type Sv CreateDBSubnetGroup = RDS
     type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse
@@ -125,10 +132,3 @@ instance AWSRequest CreateDBSubnetGroup where
 instance FromXML CreateDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBSubnetGroupResponse"
-
-instance ToPath CreateDBSubnetGroup where
-    toPath = const "/"
-
-instance ToHeaders CreateDBSubnetGroup
-
-instance ToQuery CreateDBSubnetGroup

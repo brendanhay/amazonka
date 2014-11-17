@@ -105,6 +105,16 @@ delbrElasticLoadBalancers =
     lens _delbrElasticLoadBalancers
         (\s a -> s { _delbrElasticLoadBalancers = a })
 
+instance ToPath DescribeElasticLoadBalancers where
+    toPath = const "/"
+
+instance ToQuery DescribeElasticLoadBalancers where
+    toQuery = const mempty
+
+instance ToHeaders DescribeElasticLoadBalancers
+instance ToJSON DescribeElasticLoadBalancers where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeElasticLoadBalancers where
     type Sv DescribeElasticLoadBalancers = OpsWorks
     type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse
@@ -114,14 +124,3 @@ instance AWSRequest DescribeElasticLoadBalancers where
 
 instance FromJSON DescribeElasticLoadBalancersResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeElasticLoadBalancers where
-    toPath = const "/"
-
-instance ToHeaders DescribeElasticLoadBalancers
-
-instance ToQuery DescribeElasticLoadBalancers where
-    toQuery = const mempty
-
-instance ToJSON DescribeElasticLoadBalancers where
-    toJSON = genericToJSON jsonOptions

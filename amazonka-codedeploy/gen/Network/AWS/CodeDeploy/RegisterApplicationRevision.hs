@@ -90,20 +90,19 @@ data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse = RegisterApplicationRevisionResponse
 
+instance ToPath RegisterApplicationRevision where
+    toPath = const "/"
+
+instance ToQuery RegisterApplicationRevision where
+    toQuery = const mempty
+
+instance ToHeaders RegisterApplicationRevision
+instance ToJSON RegisterApplicationRevision where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest RegisterApplicationRevision where
     type Sv RegisterApplicationRevision = CodeDeploy
     type Rs RegisterApplicationRevision = RegisterApplicationRevisionResponse
 
     request  = post
     response = nullResponse RegisterApplicationRevisionResponse
-
-instance ToPath RegisterApplicationRevision where
-    toPath = const "/"
-
-instance ToHeaders RegisterApplicationRevision
-
-instance ToQuery RegisterApplicationRevision where
-    toQuery = const mempty
-
-instance ToJSON RegisterApplicationRevision where
-    toJSON = genericToJSON jsonOptions

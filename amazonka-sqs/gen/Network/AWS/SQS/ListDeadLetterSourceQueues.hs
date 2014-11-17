@@ -91,6 +91,13 @@ listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
 
+instance ToPath ListDeadLetterSourceQueues where
+    toPath = const "/"
+
+instance ToQuery ListDeadLetterSourceQueues
+
+instance ToHeaders ListDeadLetterSourceQueues
+
 instance AWSRequest ListDeadLetterSourceQueues where
     type Sv ListDeadLetterSourceQueues = SQS
     type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResponse
@@ -101,10 +108,3 @@ instance AWSRequest ListDeadLetterSourceQueues where
 instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResponse"
-
-instance ToPath ListDeadLetterSourceQueues where
-    toPath = const "/"
-
-instance ToHeaders ListDeadLetterSourceQueues
-
-instance ToQuery ListDeadLetterSourceQueues

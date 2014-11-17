@@ -115,6 +115,16 @@ addJobFlowStepsResponse = AddJobFlowStepsResponse
 ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrStepIds = lens _ajfsrStepIds (\s a -> s { _ajfsrStepIds = a })
 
+instance ToPath AddJobFlowSteps where
+    toPath = const "/"
+
+instance ToQuery AddJobFlowSteps where
+    toQuery = const mempty
+
+instance ToHeaders AddJobFlowSteps
+instance ToJSON AddJobFlowSteps where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest AddJobFlowSteps where
     type Sv AddJobFlowSteps = EMR
     type Rs AddJobFlowSteps = AddJobFlowStepsResponse
@@ -124,14 +134,3 @@ instance AWSRequest AddJobFlowSteps where
 
 instance FromJSON AddJobFlowStepsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath AddJobFlowSteps where
-    toPath = const "/"
-
-instance ToHeaders AddJobFlowSteps
-
-instance ToQuery AddJobFlowSteps where
-    toQuery = const mempty
-
-instance ToJSON AddJobFlowSteps where
-    toJSON = genericToJSON jsonOptions

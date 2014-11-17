@@ -119,6 +119,13 @@ registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerRes
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a })
 
+instance ToPath RegisterInstancesWithLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery RegisterInstancesWithLoadBalancer
+
+instance ToHeaders RegisterInstancesWithLoadBalancer
+
 instance AWSRequest RegisterInstancesWithLoadBalancer where
     type Sv RegisterInstancesWithLoadBalancer = ELB
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
@@ -129,10 +136,3 @@ instance AWSRequest RegisterInstancesWithLoadBalancer where
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RegisterInstancesWithLoadBalancerResponse"
-
-instance ToPath RegisterInstancesWithLoadBalancer where
-    toPath = const "/"
-
-instance ToHeaders RegisterInstancesWithLoadBalancer
-
-instance ToQuery RegisterInstancesWithLoadBalancer

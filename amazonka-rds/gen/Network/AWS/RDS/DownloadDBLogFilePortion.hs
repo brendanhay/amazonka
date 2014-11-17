@@ -154,6 +154,13 @@ ddblfprLogFileData =
 ddblfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddblfprMarker = lens _ddblfprMarker (\s a -> s { _ddblfprMarker = a })
 
+instance ToPath DownloadDBLogFilePortion where
+    toPath = const "/"
+
+instance ToQuery DownloadDBLogFilePortion
+
+instance ToHeaders DownloadDBLogFilePortion
+
 instance AWSRequest DownloadDBLogFilePortion where
     type Sv DownloadDBLogFilePortion = RDS
     type Rs DownloadDBLogFilePortion = DownloadDBLogFilePortionResponse
@@ -164,10 +171,3 @@ instance AWSRequest DownloadDBLogFilePortion where
 instance FromXML DownloadDBLogFilePortionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DownloadDBLogFilePortionResponse"
-
-instance ToPath DownloadDBLogFilePortion where
-    toPath = const "/"
-
-instance ToHeaders DownloadDBLogFilePortion
-
-instance ToQuery DownloadDBLogFilePortion

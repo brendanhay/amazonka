@@ -135,6 +135,13 @@ lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
 
+instance ToPath ListRoles where
+    toPath = const "/"
+
+instance ToQuery ListRoles
+
+instance ToHeaders ListRoles
+
 instance AWSRequest ListRoles where
     type Sv ListRoles = IAM
     type Rs ListRoles = ListRolesResponse
@@ -145,10 +152,3 @@ instance AWSRequest ListRoles where
 instance FromXML ListRolesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListRolesResponse"
-
-instance ToPath ListRoles where
-    toPath = const "/"
-
-instance ToHeaders ListRoles
-
-instance ToQuery ListRoles

@@ -128,6 +128,16 @@ lgrNextMarker = lens _lgrNextMarker (\s a -> s { _lgrNextMarker = a })
 lgrTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgrTruncated = lens _lgrTruncated (\s a -> s { _lgrTruncated = a })
 
+instance ToPath ListGrants where
+    toPath = const "/"
+
+instance ToQuery ListGrants where
+    toQuery = const mempty
+
+instance ToHeaders ListGrants
+instance ToJSON ListGrants where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ListGrants where
     type Sv ListGrants = KMS
     type Rs ListGrants = ListGrantsResponse
@@ -137,14 +147,3 @@ instance AWSRequest ListGrants where
 
 instance FromJSON ListGrantsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ListGrants where
-    toPath = const "/"
-
-instance ToHeaders ListGrants
-
-instance ToQuery ListGrants where
-    toQuery = const mempty
-
-instance ToJSON ListGrants where
-    toJSON = genericToJSON jsonOptions

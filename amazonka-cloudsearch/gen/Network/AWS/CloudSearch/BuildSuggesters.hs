@@ -87,6 +87,13 @@ buildSuggestersResponse = BuildSuggestersResponse
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a })
 
+instance ToPath BuildSuggesters where
+    toPath = const "/"
+
+instance ToQuery BuildSuggesters
+
+instance ToHeaders BuildSuggesters
+
 instance AWSRequest BuildSuggesters where
     type Sv BuildSuggesters = CloudSearch
     type Rs BuildSuggesters = BuildSuggestersResponse
@@ -97,10 +104,3 @@ instance AWSRequest BuildSuggesters where
 instance FromXML BuildSuggestersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "BuildSuggestersResponse"
-
-instance ToPath BuildSuggesters where
-    toPath = const "/"
-
-instance ToHeaders BuildSuggesters
-
-instance ToQuery BuildSuggesters

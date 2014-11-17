@@ -94,6 +94,16 @@ disableDomainTransferLockResponse p1 = DisableDomainTransferLockResponse
 ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrOperationId = lens _ddtlrOperationId (\s a -> s { _ddtlrOperationId = a })
 
+instance ToPath DisableDomainTransferLock where
+    toPath = const "/"
+
+instance ToQuery DisableDomainTransferLock where
+    toQuery = const mempty
+
+instance ToHeaders DisableDomainTransferLock
+instance ToJSON DisableDomainTransferLock where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DisableDomainTransferLock where
     type Sv DisableDomainTransferLock = Route53Domains
     type Rs DisableDomainTransferLock = DisableDomainTransferLockResponse
@@ -103,14 +113,3 @@ instance AWSRequest DisableDomainTransferLock where
 
 instance FromJSON DisableDomainTransferLockResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DisableDomainTransferLock where
-    toPath = const "/"
-
-instance ToHeaders DisableDomainTransferLock
-
-instance ToQuery DisableDomainTransferLock where
-    toQuery = const mempty
-
-instance ToJSON DisableDomainTransferLock where
-    toJSON = genericToJSON jsonOptions

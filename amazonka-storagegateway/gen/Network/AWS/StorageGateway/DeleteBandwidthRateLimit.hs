@@ -94,6 +94,16 @@ deleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
 dbrlr1GatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 dbrlr1GatewayARN = lens _dbrlr1GatewayARN (\s a -> s { _dbrlr1GatewayARN = a })
 
+instance ToPath DeleteBandwidthRateLimit where
+    toPath = const "/"
+
+instance ToQuery DeleteBandwidthRateLimit where
+    toQuery = const mempty
+
+instance ToHeaders DeleteBandwidthRateLimit
+instance ToJSON DeleteBandwidthRateLimit where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DeleteBandwidthRateLimit where
     type Sv DeleteBandwidthRateLimit = StorageGateway
     type Rs DeleteBandwidthRateLimit = DeleteBandwidthRateLimitResponse
@@ -103,14 +113,3 @@ instance AWSRequest DeleteBandwidthRateLimit where
 
 instance FromJSON DeleteBandwidthRateLimitResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DeleteBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToHeaders DeleteBandwidthRateLimit
-
-instance ToQuery DeleteBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToJSON DeleteBandwidthRateLimit where
-    toJSON = genericToJSON jsonOptions

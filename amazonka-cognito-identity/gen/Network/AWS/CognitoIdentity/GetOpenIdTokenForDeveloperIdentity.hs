@@ -152,6 +152,16 @@ goitfdirIdentityId =
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirToken = lens _goitfdirToken (\s a -> s { _goitfdirToken = a })
 
+instance ToPath GetOpenIdTokenForDeveloperIdentity where
+    toPath = const "/"
+
+instance ToQuery GetOpenIdTokenForDeveloperIdentity where
+    toQuery = const mempty
+
+instance ToHeaders GetOpenIdTokenForDeveloperIdentity
+instance ToJSON GetOpenIdTokenForDeveloperIdentity where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     type Sv GetOpenIdTokenForDeveloperIdentity = CognitoIdentity
     type Rs GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentityResponse
@@ -161,14 +171,3 @@ instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
 
 instance FromJSON GetOpenIdTokenForDeveloperIdentityResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetOpenIdTokenForDeveloperIdentity where
-    toPath = const "/"
-
-instance ToHeaders GetOpenIdTokenForDeveloperIdentity
-
-instance ToQuery GetOpenIdTokenForDeveloperIdentity where
-    toQuery = const mempty
-
-instance ToJSON GetOpenIdTokenForDeveloperIdentity where
-    toJSON = genericToJSON jsonOptions

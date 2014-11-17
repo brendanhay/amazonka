@@ -70,23 +70,22 @@ data RemoveEventSourceResponse = RemoveEventSourceResponse
 removeEventSourceResponse :: RemoveEventSourceResponse
 removeEventSourceResponse = RemoveEventSourceResponse
 
-instance AWSRequest RemoveEventSource where
-    type Sv RemoveEventSource = Lambda
-    type Rs RemoveEventSource = RemoveEventSourceResponse
-
-    request  = delete
-    response = nullResponse RemoveEventSourceResponse
-
 instance ToPath RemoveEventSource where
     toPath RemoveEventSource{..} = mconcat
         [ "/2014-11-13/event-source-mappings/"
         , toText _resUUID
         ]
 
-instance ToHeaders RemoveEventSource
-
 instance ToQuery RemoveEventSource where
     toQuery = const mempty
 
+instance ToHeaders RemoveEventSource
 instance ToJSON RemoveEventSource where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest RemoveEventSource where
+    type Sv RemoveEventSource = Lambda
+    type Rs RemoveEventSource = RemoveEventSourceResponse
+
+    request  = delete
+    response = nullResponse RemoveEventSourceResponse

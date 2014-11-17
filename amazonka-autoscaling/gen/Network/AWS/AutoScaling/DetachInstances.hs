@@ -118,6 +118,13 @@ detachInstancesResponse = DetachInstancesResponse
 dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a })
 
+instance ToPath DetachInstances where
+    toPath = const "/"
+
+instance ToQuery DetachInstances
+
+instance ToHeaders DetachInstances
+
 instance AWSRequest DetachInstances where
     type Sv DetachInstances = AutoScaling
     type Rs DetachInstances = DetachInstancesResponse
@@ -128,10 +135,3 @@ instance AWSRequest DetachInstances where
 instance FromXML DetachInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachInstancesResponse"
-
-instance ToPath DetachInstances where
-    toPath = const "/"
-
-instance ToHeaders DetachInstances
-
-instance ToQuery DetachInstances

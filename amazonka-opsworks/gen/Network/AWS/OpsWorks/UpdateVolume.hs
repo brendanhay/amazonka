@@ -90,20 +90,19 @@ data UpdateVolumeResponse = UpdateVolumeResponse
 updateVolumeResponse :: UpdateVolumeResponse
 updateVolumeResponse = UpdateVolumeResponse
 
+instance ToPath UpdateVolume where
+    toPath = const "/"
+
+instance ToQuery UpdateVolume where
+    toQuery = const mempty
+
+instance ToHeaders UpdateVolume
+instance ToJSON UpdateVolume where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks
     type Rs UpdateVolume = UpdateVolumeResponse
 
     request  = post
     response = nullResponse UpdateVolumeResponse
-
-instance ToPath UpdateVolume where
-    toPath = const "/"
-
-instance ToHeaders UpdateVolume
-
-instance ToQuery UpdateVolume where
-    toQuery = const mempty
-
-instance ToJSON UpdateVolume where
-    toJSON = genericToJSON jsonOptions

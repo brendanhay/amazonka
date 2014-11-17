@@ -83,6 +83,13 @@ desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubsc
 desrEventSubscription =
     lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
 
+instance ToPath DeleteEventSubscription where
+    toPath = const "/"
+
+instance ToQuery DeleteEventSubscription
+
+instance ToHeaders DeleteEventSubscription
+
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = RDS
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
@@ -93,10 +100,3 @@ instance AWSRequest DeleteEventSubscription where
 instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
-
-instance ToPath DeleteEventSubscription where
-    toPath = const "/"
-
-instance ToHeaders DeleteEventSubscription
-
-instance ToQuery DeleteEventSubscription

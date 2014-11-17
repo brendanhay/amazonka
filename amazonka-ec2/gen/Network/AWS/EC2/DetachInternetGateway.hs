@@ -89,25 +89,16 @@ data DetachInternetGatewayResponse = DetachInternetGatewayResponse
 detachInternetGatewayResponse :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse
 
+instance ToPath DetachInternetGateway where
+    toPath = const "/"
+
+instance ToQuery DetachInternetGateway
+
+instance ToHeaders DetachInternetGateway
+
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2
     type Rs DetachInternetGateway = DetachInternetGatewayResponse
 
     request  = post "DetachInternetGateway"
     response = nullResponse DetachInternetGatewayResponse
-
-instance ToPath DetachInternetGateway where
-    toPath = const "/"
-
-instance ToHeaders DetachInternetGateway
-
-instance ToQuery DetachInternetGateway where
-    toQuery DetachInternetGateway{..} = mconcat
-        [ "dryRun"            =? _digDryRun
-        , "internetGatewayId" =? _digInternetGatewayId
-        , "vpcId"             =? _digVpcId
-        ]
-
-instance ToXML DetachInternetGateway where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DetachInternetGateway"

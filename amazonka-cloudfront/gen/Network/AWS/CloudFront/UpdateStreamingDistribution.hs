@@ -115,6 +115,24 @@ usdrStreamingDistribution =
     lens _usdrStreamingDistribution
         (\s a -> s { _usdrStreamingDistribution = a })
 
+instance ToPath UpdateStreamingDistribution where
+    toPath UpdateStreamingDistribution{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _usdId
+        , "/config"
+        ]
+
+instance ToQuery UpdateStreamingDistribution where
+    toQuery = const mempty
+
+instance ToHeaders UpdateStreamingDistribution where
+    toHeaders UpdateStreamingDistribution{..} = mconcat
+        [ "If-Match" =: _usdIfMatch
+        ]
+instance ToXML UpdateStreamingDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateStreamingDistribution"
+
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResponse
@@ -123,22 +141,3 @@ instance AWSRequest UpdateStreamingDistribution where
     response = xmlHeaderResponse $ \h x -> UpdateStreamingDistributionResponse
         <$> h ~:? "ETag"
         <*> x %| "StreamingDistribution"
-
-instance ToPath UpdateStreamingDistribution where
-    toPath UpdateStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toText _usdId
-        , "/config"
-        ]
-
-instance ToHeaders UpdateStreamingDistribution where
-    toHeaders UpdateStreamingDistribution{..} = mconcat
-        [ "If-Match" =: _usdIfMatch
-        ]
-
-instance ToQuery UpdateStreamingDistribution where
-    toQuery = const mempty
-
-instance ToXML UpdateStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateStreamingDistribution"

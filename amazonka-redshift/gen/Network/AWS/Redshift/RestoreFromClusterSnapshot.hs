@@ -294,6 +294,13 @@ restoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
 rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrCluster = lens _rfcsrCluster (\s a -> s { _rfcsrCluster = a })
 
+instance ToPath RestoreFromClusterSnapshot where
+    toPath = const "/"
+
+instance ToQuery RestoreFromClusterSnapshot
+
+instance ToHeaders RestoreFromClusterSnapshot
+
 instance AWSRequest RestoreFromClusterSnapshot where
     type Sv RestoreFromClusterSnapshot = Redshift
     type Rs RestoreFromClusterSnapshot = RestoreFromClusterSnapshotResponse
@@ -304,10 +311,3 @@ instance AWSRequest RestoreFromClusterSnapshot where
 instance FromXML RestoreFromClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestoreFromClusterSnapshotResponse"
-
-instance ToPath RestoreFromClusterSnapshot where
-    toPath = const "/"
-
-instance ToHeaders RestoreFromClusterSnapshot
-
-instance ToQuery RestoreFromClusterSnapshot

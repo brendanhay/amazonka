@@ -114,6 +114,16 @@ garrRevision = lens _garrRevision (\s a -> s { _garrRevision = a })
 garrRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
 garrRevisionInfo = lens _garrRevisionInfo (\s a -> s { _garrRevisionInfo = a })
 
+instance ToPath GetApplicationRevision where
+    toPath = const "/"
+
+instance ToQuery GetApplicationRevision where
+    toQuery = const mempty
+
+instance ToHeaders GetApplicationRevision
+instance ToJSON GetApplicationRevision where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetApplicationRevision where
     type Sv GetApplicationRevision = CodeDeploy
     type Rs GetApplicationRevision = GetApplicationRevisionResponse
@@ -123,14 +133,3 @@ instance AWSRequest GetApplicationRevision where
 
 instance FromJSON GetApplicationRevisionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetApplicationRevision where
-    toPath = const "/"
-
-instance ToHeaders GetApplicationRevision
-
-instance ToQuery GetApplicationRevision where
-    toQuery = const mempty
-
-instance ToJSON GetApplicationRevision where
-    toJSON = genericToJSON jsonOptions

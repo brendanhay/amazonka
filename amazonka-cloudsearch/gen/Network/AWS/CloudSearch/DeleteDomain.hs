@@ -83,6 +83,13 @@ deleteDomainResponse = DeleteDomainResponse
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
 
+instance ToPath DeleteDomain where
+    toPath = const "/"
+
+instance ToQuery DeleteDomain
+
+instance ToHeaders DeleteDomain
+
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = CloudSearch
     type Rs DeleteDomain = DeleteDomainResponse
@@ -93,10 +100,3 @@ instance AWSRequest DeleteDomain where
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDomainResponse"
-
-instance ToPath DeleteDomain where
-    toPath = const "/"
-
-instance ToHeaders DeleteDomain
-
-instance ToQuery DeleteDomain

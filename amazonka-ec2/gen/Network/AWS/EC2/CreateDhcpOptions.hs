@@ -113,6 +113,13 @@ createDhcpOptionsResponse = CreateDhcpOptionsResponse
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
 
+instance ToPath CreateDhcpOptions where
+    toPath = const "/"
+
+instance ToQuery CreateDhcpOptions
+
+instance ToHeaders CreateDhcpOptions
+
 instance AWSRequest CreateDhcpOptions where
     type Sv CreateDhcpOptions = EC2
     type Rs CreateDhcpOptions = CreateDhcpOptionsResponse
@@ -123,18 +130,3 @@ instance AWSRequest CreateDhcpOptions where
 instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDhcpOptionsResponse"
-
-instance ToPath CreateDhcpOptions where
-    toPath = const "/"
-
-instance ToHeaders CreateDhcpOptions
-
-instance ToQuery CreateDhcpOptions where
-    toQuery CreateDhcpOptions{..} = mconcat
-        [ "dryRun"            =? _cdoDryRun
-        , "dhcpConfiguration" =? _cdoDhcpConfigurations
-        ]
-
-instance ToXML CreateDhcpOptions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateDhcpOptions"

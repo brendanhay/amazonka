@@ -78,27 +78,26 @@ data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
 deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 
-instance AWSRequest DeleteStreamingDistribution where
-    type Sv DeleteStreamingDistribution = CloudFront
-    type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
-
-    request  = delete
-    response = nullResponse DeleteStreamingDistributionResponse
-
 instance ToPath DeleteStreamingDistribution where
     toPath DeleteStreamingDistribution{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
         , toText _dsdId
         ]
 
+instance ToQuery DeleteStreamingDistribution where
+    toQuery = const mempty
+
 instance ToHeaders DeleteStreamingDistribution where
     toHeaders DeleteStreamingDistribution{..} = mconcat
         [ "If-Match" =: _dsdIfMatch
         ]
-
-instance ToQuery DeleteStreamingDistribution where
-    toQuery = const mempty
-
 instance ToXML DeleteStreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DeleteStreamingDistribution"
+
+instance AWSRequest DeleteStreamingDistribution where
+    type Sv DeleteStreamingDistribution = CloudFront
+    type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
+
+    request  = delete
+    response = nullResponse DeleteStreamingDistributionResponse

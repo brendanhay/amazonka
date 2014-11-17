@@ -228,6 +228,26 @@ lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordS
 lrrsrResourceRecordSets =
     lens _lrrsrResourceRecordSets (\s a -> s { _lrrsrResourceRecordSets = a })
 
+instance ToPath ListResourceRecordSets where
+    toPath ListResourceRecordSets{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _lrrsHostedZoneId
+        , "/rrset"
+        ]
+
+instance ToQuery ListResourceRecordSets where
+    toQuery ListResourceRecordSets{..} = mconcat
+          [   "name"       =? _lrrsStartRecordName
+          ,   "type"       =? _lrrsStartRecordType
+          ,   "identifier" =? _lrrsStartRecordIdentifier
+          ,   "maxitems"   =? _lrrsMaxItems
+        ]
+
+instance ToHeaders ListResourceRecordSets
+instance ToXML ListResourceRecordSets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListResourceRecordSets"
+
 instance AWSRequest ListResourceRecordSets where
     type Sv ListResourceRecordSets = Route53
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
@@ -238,24 +258,3 @@ instance AWSRequest ListResourceRecordSets where
 instance FromXML ListResourceRecordSetsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListResourceRecordSetsResponse"
-
-instance ToPath ListResourceRecordSets where
-    toPath ListResourceRecordSets{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _lrrsHostedZoneId
-        , "/rrset"
-        ]
-
-instance ToHeaders ListResourceRecordSets
-
-instance ToQuery ListResourceRecordSets where
-    toQuery ListResourceRecordSets{..} = mconcat
-        [ "name"       =? _lrrsStartRecordName
-        , "type"       =? _lrrsStartRecordType
-        , "identifier" =? _lrrsStartRecordIdentifier
-        , "maxitems"   =? _lrrsMaxItems
-        ]
-
-instance ToXML ListResourceRecordSets where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListResourceRecordSets"

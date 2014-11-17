@@ -116,20 +116,19 @@ data MergeShardsResponse = MergeShardsResponse
 mergeShardsResponse :: MergeShardsResponse
 mergeShardsResponse = MergeShardsResponse
 
+instance ToPath MergeShards where
+    toPath = const "/"
+
+instance ToQuery MergeShards where
+    toQuery = const mempty
+
+instance ToHeaders MergeShards
+instance ToJSON MergeShards where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis
     type Rs MergeShards = MergeShardsResponse
 
     request  = post
     response = nullResponse MergeShardsResponse
-
-instance ToPath MergeShards where
-    toPath = const "/"
-
-instance ToHeaders MergeShards
-
-instance ToQuery MergeShards where
-    toQuery = const mempty
-
-instance ToJSON MergeShards where
-    toJSON = genericToJSON jsonOptions

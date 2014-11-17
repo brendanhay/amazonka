@@ -113,6 +113,13 @@ createVpcResponse = CreateVpcResponse
 cvrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
 
+instance ToPath CreateVpc where
+    toPath = const "/"
+
+instance ToQuery CreateVpc
+
+instance ToHeaders CreateVpc
+
 instance AWSRequest CreateVpc where
     type Sv CreateVpc = EC2
     type Rs CreateVpc = CreateVpcResponse
@@ -123,19 +130,3 @@ instance AWSRequest CreateVpc where
 instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpcResponse"
-
-instance ToPath CreateVpc where
-    toPath = const "/"
-
-instance ToHeaders CreateVpc
-
-instance ToQuery CreateVpc where
-    toQuery CreateVpc{..} = mconcat
-        [ "dryRun"          =? _cvDryRun
-        , "CidrBlock"       =? _cvCidrBlock
-        , "instanceTenancy" =? _cvInstanceTenancy
-        ]
-
-instance ToXML CreateVpc where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateVpc"

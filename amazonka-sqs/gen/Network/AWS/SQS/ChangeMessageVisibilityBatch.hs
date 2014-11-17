@@ -108,6 +108,13 @@ cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
 
+instance ToPath ChangeMessageVisibilityBatch where
+    toPath = const "/"
+
+instance ToQuery ChangeMessageVisibilityBatch
+
+instance ToHeaders ChangeMessageVisibilityBatch
+
 instance AWSRequest ChangeMessageVisibilityBatch where
     type Sv ChangeMessageVisibilityBatch = SQS
     type Rs ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatchResponse
@@ -118,10 +125,3 @@ instance AWSRequest ChangeMessageVisibilityBatch where
 instance FromXML ChangeMessageVisibilityBatchResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResponse"
-
-instance ToPath ChangeMessageVisibilityBatch where
-    toPath = const "/"
-
-instance ToHeaders ChangeMessageVisibilityBatch
-
-instance ToQuery ChangeMessageVisibilityBatch

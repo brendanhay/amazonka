@@ -106,6 +106,16 @@ goitrIdentityId = lens _goitrIdentityId (\s a -> s { _goitrIdentityId = a })
 goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrToken = lens _goitrToken (\s a -> s { _goitrToken = a })
 
+instance ToPath GetOpenIdToken where
+    toPath = const "/"
+
+instance ToQuery GetOpenIdToken where
+    toQuery = const mempty
+
+instance ToHeaders GetOpenIdToken
+instance ToJSON GetOpenIdToken where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetOpenIdToken where
     type Sv GetOpenIdToken = CognitoIdentity
     type Rs GetOpenIdToken = GetOpenIdTokenResponse
@@ -115,14 +125,3 @@ instance AWSRequest GetOpenIdToken where
 
 instance FromJSON GetOpenIdTokenResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetOpenIdToken where
-    toPath = const "/"
-
-instance ToHeaders GetOpenIdToken
-
-instance ToQuery GetOpenIdToken where
-    toQuery = const mempty
-
-instance ToJSON GetOpenIdToken where
-    toJSON = genericToJSON jsonOptions

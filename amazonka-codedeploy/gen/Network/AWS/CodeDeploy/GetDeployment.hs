@@ -83,6 +83,16 @@ gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrDeploymentInfo =
     lens _gdrDeploymentInfo (\s a -> s { _gdrDeploymentInfo = a })
 
+instance ToPath GetDeployment where
+    toPath = const "/"
+
+instance ToQuery GetDeployment where
+    toQuery = const mempty
+
+instance ToHeaders GetDeployment
+instance ToJSON GetDeployment where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetDeployment where
     type Sv GetDeployment = CodeDeploy
     type Rs GetDeployment = GetDeploymentResponse
@@ -92,14 +102,3 @@ instance AWSRequest GetDeployment where
 
 instance FromJSON GetDeploymentResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetDeployment where
-    toPath = const "/"
-
-instance ToHeaders GetDeployment
-
-instance ToQuery GetDeployment where
-    toQuery = const mempty
-
-instance ToJSON GetDeployment where
-    toJSON = genericToJSON jsonOptions

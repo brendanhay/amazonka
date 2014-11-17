@@ -225,6 +225,16 @@ cpvirVirtualInterfaceType =
 cpvirVlan :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Int)
 cpvirVlan = lens _cpvirVlan (\s a -> s { _cpvirVlan = a })
 
+instance ToPath CreatePublicVirtualInterface where
+    toPath = const "/"
+
+instance ToQuery CreatePublicVirtualInterface where
+    toQuery = const mempty
+
+instance ToHeaders CreatePublicVirtualInterface
+instance ToJSON CreatePublicVirtualInterface where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreatePublicVirtualInterface where
     type Sv CreatePublicVirtualInterface = DirectConnect
     type Rs CreatePublicVirtualInterface = CreatePublicVirtualInterfaceResponse
@@ -234,14 +244,3 @@ instance AWSRequest CreatePublicVirtualInterface where
 
 instance FromJSON CreatePublicVirtualInterfaceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreatePublicVirtualInterface where
-    toPath = const "/"
-
-instance ToHeaders CreatePublicVirtualInterface
-
-instance ToQuery CreatePublicVirtualInterface where
-    toQuery = const mempty
-
-instance ToJSON CreatePublicVirtualInterface where
-    toJSON = genericToJSON jsonOptions

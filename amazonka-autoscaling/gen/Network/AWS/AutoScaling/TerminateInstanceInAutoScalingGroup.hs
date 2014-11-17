@@ -96,6 +96,13 @@ terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGrou
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
 
+instance ToPath TerminateInstanceInAutoScalingGroup where
+    toPath = const "/"
+
+instance ToQuery TerminateInstanceInAutoScalingGroup
+
+instance ToHeaders TerminateInstanceInAutoScalingGroup
+
 instance AWSRequest TerminateInstanceInAutoScalingGroup where
     type Sv TerminateInstanceInAutoScalingGroup = AutoScaling
     type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
@@ -106,10 +113,3 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TerminateInstanceInAutoScalingGroupResponse"
-
-instance ToPath TerminateInstanceInAutoScalingGroup where
-    toPath = const "/"
-
-instance ToHeaders TerminateInstanceInAutoScalingGroup
-
-instance ToQuery TerminateInstanceInAutoScalingGroup

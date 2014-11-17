@@ -93,6 +93,13 @@ defineExpressionResponse p1 = DefineExpressionResponse
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus
 derExpression = lens _derExpression (\s a -> s { _derExpression = a })
 
+instance ToPath DefineExpression where
+    toPath = const "/"
+
+instance ToQuery DefineExpression
+
+instance ToHeaders DefineExpression
+
 instance AWSRequest DefineExpression where
     type Sv DefineExpression = CloudSearch
     type Rs DefineExpression = DefineExpressionResponse
@@ -103,10 +110,3 @@ instance AWSRequest DefineExpression where
 instance FromXML DefineExpressionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineExpressionResponse"
-
-instance ToPath DefineExpression where
-    toPath = const "/"
-
-instance ToHeaders DefineExpression
-
-instance ToQuery DefineExpression

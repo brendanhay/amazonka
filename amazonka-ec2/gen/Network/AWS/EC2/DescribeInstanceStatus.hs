@@ -209,6 +209,13 @@ disrInstanceStatuses =
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
 
+instance ToPath DescribeInstanceStatus where
+    toPath = const "/"
+
+instance ToQuery DescribeInstanceStatus
+
+instance ToHeaders DescribeInstanceStatus
+
 instance AWSRequest DescribeInstanceStatus where
     type Sv DescribeInstanceStatus = EC2
     type Rs DescribeInstanceStatus = DescribeInstanceStatusResponse
@@ -219,22 +226,3 @@ instance AWSRequest DescribeInstanceStatus where
 instance FromXML DescribeInstanceStatusResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInstanceStatusResponse"
-
-instance ToPath DescribeInstanceStatus where
-    toPath = const "/"
-
-instance ToHeaders DescribeInstanceStatus
-
-instance ToQuery DescribeInstanceStatus where
-    toQuery DescribeInstanceStatus{..} = mconcat
-        [ "dryRun"              =? _disDryRun
-        , "InstanceId"          =? _disInstanceIds
-        , "Filter"              =? _disFilters
-        , "NextToken"           =? _disNextToken
-        , "MaxResults"          =? _disMaxResults
-        , "includeAllInstances" =? _disIncludeAllInstances
-        ]
-
-instance ToXML DescribeInstanceStatus where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeInstanceStatus"

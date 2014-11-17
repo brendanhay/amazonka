@@ -119,6 +119,13 @@ dlbrLoadBalancerDescriptions =
 dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextMarker = lens _dlbrNextMarker (\s a -> s { _dlbrNextMarker = a })
 
+instance ToPath DescribeLoadBalancers where
+    toPath = const "/"
+
+instance ToQuery DescribeLoadBalancers
+
+instance ToHeaders DescribeLoadBalancers
+
 instance AWSRequest DescribeLoadBalancers where
     type Sv DescribeLoadBalancers = ELB
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
@@ -129,10 +136,3 @@ instance AWSRequest DescribeLoadBalancers where
 instance FromXML DescribeLoadBalancersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoadBalancersResponse"
-
-instance ToPath DescribeLoadBalancers where
-    toPath = const "/"
-
-instance ToHeaders DescribeLoadBalancers
-
-instance ToQuery DescribeLoadBalancers

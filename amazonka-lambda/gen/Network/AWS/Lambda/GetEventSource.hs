@@ -168,6 +168,19 @@ gesrStatus = lens _gesrStatus (\s a -> s { _gesrStatus = a })
 gesrUUID :: Lens' GetEventSourceResponse (Maybe Text)
 gesrUUID = lens _gesrUUID (\s a -> s { _gesrUUID = a })
 
+instance ToPath GetEventSource where
+    toPath GetEventSource{..} = mconcat
+        [ "/2014-11-13/event-source-mappings/"
+        , toText _gesUUID
+        ]
+
+instance ToQuery GetEventSource where
+    toQuery = const mempty
+
+instance ToHeaders GetEventSource
+instance ToJSON GetEventSource where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest GetEventSource where
     type Sv GetEventSource = Lambda
     type Rs GetEventSource = GetEventSourceResponse
@@ -177,17 +190,3 @@ instance AWSRequest GetEventSource where
 
 instance FromJSON GetEventSourceResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath GetEventSource where
-    toPath GetEventSource{..} = mconcat
-        [ "/2014-11-13/event-source-mappings/"
-        , toText _gesUUID
-        ]
-
-instance ToHeaders GetEventSource
-
-instance ToQuery GetEventSource where
-    toQuery = const mempty
-
-instance ToJSON GetEventSource where
-    toJSON = genericToJSON jsonOptions

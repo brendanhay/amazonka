@@ -78,16 +78,16 @@ data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse
 
+instance ToPath RemoveUserFromGroup where
+    toPath = const "/"
+
+instance ToQuery RemoveUserFromGroup
+
+instance ToHeaders RemoveUserFromGroup
+
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
 
     request  = post "RemoveUserFromGroup"
     response = nullResponse RemoveUserFromGroupResponse
-
-instance ToPath RemoveUserFromGroup where
-    toPath = const "/"
-
-instance ToHeaders RemoveUserFromGroup
-
-instance ToQuery RemoveUserFromGroup

@@ -103,6 +103,16 @@ describeAppsResponse = DescribeAppsResponse
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\s a -> s { _darApps = a })
 
+instance ToPath DescribeApps where
+    toPath = const "/"
+
+instance ToQuery DescribeApps where
+    toQuery = const mempty
+
+instance ToHeaders DescribeApps
+instance ToJSON DescribeApps where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeApps where
     type Sv DescribeApps = OpsWorks
     type Rs DescribeApps = DescribeAppsResponse
@@ -112,14 +122,3 @@ instance AWSRequest DescribeApps where
 
 instance FromJSON DescribeAppsResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeApps where
-    toPath = const "/"
-
-instance ToHeaders DescribeApps
-
-instance ToQuery DescribeApps where
-    toQuery = const mempty
-
-instance ToJSON DescribeApps where
-    toJSON = genericToJSON jsonOptions

@@ -108,6 +108,16 @@ describeServicesResponse = DescribeServicesResponse
 dsrServices :: Lens' DescribeServicesResponse [Service]
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
 
+instance ToPath DescribeServices where
+    toPath = const "/"
+
+instance ToQuery DescribeServices where
+    toQuery = const mempty
+
+instance ToHeaders DescribeServices
+instance ToJSON DescribeServices where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeServices where
     type Sv DescribeServices = Support
     type Rs DescribeServices = DescribeServicesResponse
@@ -117,14 +127,3 @@ instance AWSRequest DescribeServices where
 
 instance FromJSON DescribeServicesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeServices where
-    toPath = const "/"
-
-instance ToHeaders DescribeServices
-
-instance ToQuery DescribeServices where
-    toQuery = const mempty
-
-instance ToJSON DescribeServices where
-    toJSON = genericToJSON jsonOptions

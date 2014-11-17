@@ -68,6 +68,14 @@ createStorageLocationResponse = CreateStorageLocationResponse
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
 
+instance ToPath CreateStorageLocation where
+    toPath = const "/"
+
+instance ToQuery CreateStorageLocation where
+    toQuery = const mempty
+
+instance ToHeaders CreateStorageLocation
+
 instance AWSRequest CreateStorageLocation where
     type Sv CreateStorageLocation = ElasticBeanstalk
     type Rs CreateStorageLocation = CreateStorageLocationResponse
@@ -78,10 +86,3 @@ instance AWSRequest CreateStorageLocation where
 instance FromXML CreateStorageLocationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateStorageLocationResponse"
-
-instance ToPath CreateStorageLocation where
-    toPath = const "/"
-
-instance ToHeaders CreateStorageLocation
-
-instance ToQuery CreateStorageLocation

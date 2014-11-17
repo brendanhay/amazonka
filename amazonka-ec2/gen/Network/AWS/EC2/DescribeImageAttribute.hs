@@ -166,6 +166,13 @@ diarSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValu
 diarSriovNetSupport =
     lens _diarSriovNetSupport (\s a -> s { _diarSriovNetSupport = a })
 
+instance ToPath DescribeImageAttribute where
+    toPath = const "/"
+
+instance ToQuery DescribeImageAttribute
+
+instance ToHeaders DescribeImageAttribute
+
 instance AWSRequest DescribeImageAttribute where
     type Sv DescribeImageAttribute = EC2
     type Rs DescribeImageAttribute = DescribeImageAttributeResponse
@@ -176,19 +183,3 @@ instance AWSRequest DescribeImageAttribute where
 instance FromXML DescribeImageAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeImageAttributeResponse"
-
-instance ToPath DescribeImageAttribute where
-    toPath = const "/"
-
-instance ToHeaders DescribeImageAttribute
-
-instance ToQuery DescribeImageAttribute where
-    toQuery DescribeImageAttribute{..} = mconcat
-        [ "dryRun"    =? _dia1DryRun
-        , "ImageId"   =? _dia1ImageId
-        , "Attribute" =? _dia1Attribute
-        ]
-
-instance ToXML DescribeImageAttribute where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DescribeImageAttribute"

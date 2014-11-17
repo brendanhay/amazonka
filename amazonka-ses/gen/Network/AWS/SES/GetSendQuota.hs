@@ -89,6 +89,14 @@ gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrSentLast24Hours =
     lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })
 
+instance ToPath GetSendQuota where
+    toPath = const "/"
+
+instance ToQuery GetSendQuota where
+    toQuery = const mempty
+
+instance ToHeaders GetSendQuota
+
 instance AWSRequest GetSendQuota where
     type Sv GetSendQuota = SES
     type Rs GetSendQuota = GetSendQuotaResponse
@@ -99,10 +107,3 @@ instance AWSRequest GetSendQuota where
 instance FromXML GetSendQuotaResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSendQuotaResponse"
-
-instance ToPath GetSendQuota where
-    toPath = const "/"
-
-instance ToHeaders GetSendQuota
-
-instance ToQuery GetSendQuota

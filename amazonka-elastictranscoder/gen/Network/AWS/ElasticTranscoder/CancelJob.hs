@@ -70,23 +70,22 @@ data CancelJobResponse = CancelJobResponse
 cancelJobResponse :: CancelJobResponse
 cancelJobResponse = CancelJobResponse
 
-instance AWSRequest CancelJob where
-    type Sv CancelJob = ElasticTranscoder
-    type Rs CancelJob = CancelJobResponse
-
-    request  = delete
-    response = nullResponse CancelJobResponse
-
 instance ToPath CancelJob where
     toPath CancelJob{..} = mconcat
         [ "/2012-09-25/jobs/"
         , toText _cjId
         ]
 
-instance ToHeaders CancelJob
-
 instance ToQuery CancelJob where
     toQuery = const mempty
 
+instance ToHeaders CancelJob
 instance ToJSON CancelJob where
     toJSON = genericToJSON jsonOptions
+
+instance AWSRequest CancelJob where
+    type Sv CancelJob = ElasticTranscoder
+    type Rs CancelJob = CancelJobResponse
+
+    request  = delete
+    response = nullResponse CancelJobResponse

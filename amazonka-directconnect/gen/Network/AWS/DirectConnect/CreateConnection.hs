@@ -174,6 +174,16 @@ ccrRegion = lens _ccrRegion (\s a -> s { _ccrRegion = a })
 ccrVlan :: Lens' CreateConnectionResponse (Maybe Int)
 ccrVlan = lens _ccrVlan (\s a -> s { _ccrVlan = a })
 
+instance ToPath CreateConnection where
+    toPath = const "/"
+
+instance ToQuery CreateConnection where
+    toQuery = const mempty
+
+instance ToHeaders CreateConnection
+instance ToJSON CreateConnection where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest CreateConnection where
     type Sv CreateConnection = DirectConnect
     type Rs CreateConnection = CreateConnectionResponse
@@ -183,14 +193,3 @@ instance AWSRequest CreateConnection where
 
 instance FromJSON CreateConnectionResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath CreateConnection where
-    toPath = const "/"
-
-instance ToHeaders CreateConnection
-
-instance ToQuery CreateConnection where
-    toQuery = const mempty
-
-instance ToJSON CreateConnection where
-    toJSON = genericToJSON jsonOptions

@@ -115,6 +115,13 @@ dncrNotificationConfigurations =
     lens _dncrNotificationConfigurations
         (\s a -> s { _dncrNotificationConfigurations = a })
 
+instance ToPath DescribeNotificationConfigurations where
+    toPath = const "/"
+
+instance ToQuery DescribeNotificationConfigurations
+
+instance ToHeaders DescribeNotificationConfigurations
+
 instance AWSRequest DescribeNotificationConfigurations where
     type Sv DescribeNotificationConfigurations = AutoScaling
     type Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse
@@ -125,10 +132,3 @@ instance AWSRequest DescribeNotificationConfigurations where
 instance FromXML DescribeNotificationConfigurationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsResponse"
-
-instance ToPath DescribeNotificationConfigurations where
-    toPath = const "/"
-
-instance ToHeaders DescribeNotificationConfigurations
-
-instance ToQuery DescribeNotificationConfigurations

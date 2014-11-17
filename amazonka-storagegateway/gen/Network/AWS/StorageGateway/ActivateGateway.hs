@@ -164,6 +164,16 @@ activateGatewayResponse = ActivateGatewayResponse
 agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrGatewayARN = lens _agrGatewayARN (\s a -> s { _agrGatewayARN = a })
 
+instance ToPath ActivateGateway where
+    toPath = const "/"
+
+instance ToQuery ActivateGateway where
+    toQuery = const mempty
+
+instance ToHeaders ActivateGateway
+instance ToJSON ActivateGateway where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest ActivateGateway where
     type Sv ActivateGateway = StorageGateway
     type Rs ActivateGateway = ActivateGatewayResponse
@@ -173,14 +183,3 @@ instance AWSRequest ActivateGateway where
 
 instance FromJSON ActivateGatewayResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath ActivateGateway where
-    toPath = const "/"
-
-instance ToHeaders ActivateGateway
-
-instance ToQuery ActivateGateway where
-    toQuery = const mempty
-
-instance ToJSON ActivateGateway where
-    toJSON = genericToJSON jsonOptions

@@ -128,6 +128,16 @@ dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
 dtrTapes :: Lens' DescribeTapesResponse [Tape]
 dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a })
 
+instance ToPath DescribeTapes where
+    toPath = const "/"
+
+instance ToQuery DescribeTapes where
+    toQuery = const mempty
+
+instance ToHeaders DescribeTapes
+instance ToJSON DescribeTapes where
+    toJSON = genericToJSON jsonOptions
+
 instance AWSRequest DescribeTapes where
     type Sv DescribeTapes = StorageGateway
     type Rs DescribeTapes = DescribeTapesResponse
@@ -137,14 +147,3 @@ instance AWSRequest DescribeTapes where
 
 instance FromJSON DescribeTapesResponse where
     parseJSON = genericParseJSON jsonOptions
-
-instance ToPath DescribeTapes where
-    toPath = const "/"
-
-instance ToHeaders DescribeTapes
-
-instance ToQuery DescribeTapes where
-    toQuery = const mempty
-
-instance ToJSON DescribeTapes where
-    toJSON = genericToJSON jsonOptions

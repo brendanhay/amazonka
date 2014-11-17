@@ -79,6 +79,14 @@ lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrSolutionStacks =
     lens _lassrSolutionStacks (\s a -> s { _lassrSolutionStacks = a })
 
+instance ToPath ListAvailableSolutionStacks where
+    toPath = const "/"
+
+instance ToQuery ListAvailableSolutionStacks where
+    toQuery = const mempty
+
+instance ToHeaders ListAvailableSolutionStacks
+
 instance AWSRequest ListAvailableSolutionStacks where
     type Sv ListAvailableSolutionStacks = ElasticBeanstalk
     type Rs ListAvailableSolutionStacks = ListAvailableSolutionStacksResponse
@@ -89,10 +97,3 @@ instance AWSRequest ListAvailableSolutionStacks where
 instance FromXML ListAvailableSolutionStacksResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResponse"
-
-instance ToPath ListAvailableSolutionStacks where
-    toPath = const "/"
-
-instance ToHeaders ListAvailableSolutionStacks
-
-instance ToQuery ListAvailableSolutionStacks

@@ -7317,6 +7317,7 @@
                 "name": "AddSourceIdentifierToSubscriptionResponse",
                 "resultWrapper": "AddSourceIdentifierToSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7427,6 +7428,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -7482,6 +7485,7 @@
                 "name": "AddTagsToResourceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -7547,6 +7551,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7632,6 +7638,7 @@
                 "name": "AuthorizeDBSecurityGroupIngressResponse",
                 "resultWrapper": "AuthorizeDBSecurityGroupIngressResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7743,6 +7750,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -7912,6 +7921,7 @@
                 "name": "CopyDBParameterGroupResponse",
                 "resultWrapper": "CopyDBParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8045,6 +8055,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8158,6 +8170,7 @@
                 "name": "CopyDBSnapshotResponse",
                 "resultWrapper": "CopyDBSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8272,6 +8285,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8371,6 +8386,7 @@
                 "name": "CopyOptionGroupResponse",
                 "resultWrapper": "CopyOptionGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8504,6 +8520,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8617,6 +8635,7 @@
                 "name": "CreateDBInstanceResponse",
                 "resultWrapper": "CreateDBInstanceResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -8912,6 +8931,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9655,6 +9676,7 @@
                 "name": "CreateDBInstanceReadReplicaResponse",
                 "resultWrapper": "CreateDBInstanceReadReplicaResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -9814,6 +9836,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10165,6 +10189,7 @@
                 "name": "CreateDBParameterGroupResponse",
                 "resultWrapper": "CreateDBParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10298,6 +10323,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10411,6 +10438,7 @@
                 "name": "CreateDBSecurityGroupResponse",
                 "resultWrapper": "CreateDBSecurityGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10525,6 +10553,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10624,6 +10654,7 @@
                 "name": "CreateDBSnapshotResponse",
                 "resultWrapper": "CreateDBSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10738,6 +10769,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10837,6 +10870,7 @@
                 "name": "CreateDBSubnetGroupResponse",
                 "resultWrapper": "CreateDBSubnetGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -10956,6 +10990,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11083,6 +11119,7 @@
                 "name": "CreateEventSubscriptionResponse",
                 "resultWrapper": "CreateEventSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11217,6 +11254,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11428,6 +11467,7 @@
                 "name": "CreateOptionGroupResponse",
                 "resultWrapper": "CreateOptionGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11580,6 +11620,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11707,6 +11749,7 @@
                 "name": "DeleteDBInstanceResponse",
                 "resultWrapper": "DeleteDBInstanceResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11808,6 +11851,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -11906,6 +11951,7 @@
                 "name": "DeleteDBParameterGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -11984,6 +12030,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12025,6 +12073,7 @@
                 "name": "DeleteDBSecurityGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12103,6 +12152,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12159,6 +12210,7 @@
                 "name": "DeleteDBSnapshotResponse",
                 "resultWrapper": "DeleteDBSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12267,6 +12319,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12308,6 +12362,7 @@
                 "name": "DeleteDBSubnetGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12386,6 +12441,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12442,6 +12499,7 @@
                 "name": "DeleteEventSubscriptionResponse",
                 "resultWrapper": "DeleteEventSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12550,6 +12608,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12591,6 +12651,7 @@
                 "name": "DeleteOptionGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -12669,6 +12730,8 @@
                     }
                 ],
                 "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -12710,6 +12773,7 @@
                 "name": "DescribeDBEngineVersionsResponse",
                 "resultWrapper": "DescribeDBEngineVersionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -12856,6 +12920,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13108,6 +13174,7 @@
                 "name": "DescribeDBInstancesResponse",
                 "resultWrapper": "DescribeDBInstancesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13234,6 +13301,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13374,6 +13443,7 @@
                 "name": "DescribeDBLogFilesResponse",
                 "resultWrapper": "DescribeDBLogFilesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13530,6 +13600,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13740,6 +13812,7 @@
                 "name": "DescribeDBParameterGroupsResponse",
                 "resultWrapper": "DescribeDBParameterGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -13866,6 +13939,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14006,6 +14081,7 @@
                 "name": "DescribeDBParametersResponse",
                 "resultWrapper": "DescribeDBParametersResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14152,6 +14228,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14306,6 +14384,7 @@
                 "name": "DescribeDBSecurityGroupsResponse",
                 "resultWrapper": "DescribeDBSecurityGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14432,6 +14511,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14572,6 +14653,7 @@
                 "name": "DescribeDBSnapshotsResponse",
                 "resultWrapper": "DescribeDBSnapshotsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14708,6 +14790,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -14904,6 +14988,7 @@
                 "name": "DescribeDBSubnetGroupsResponse",
                 "resultWrapper": "DescribeDBSubnetGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15030,6 +15115,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15185,6 +15272,7 @@
                 "name": "DescribeEngineDefaultParametersResponse",
                 "resultWrapper": "DescribeEngineDefaultParametersResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15298,6 +15386,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15441,6 +15531,7 @@
                 "name": "DescribeEventCategoriesResponse",
                 "resultWrapper": "DescribeEventCategoriesResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15521,6 +15612,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15605,6 +15698,7 @@
                 "name": "DescribeEventSubscriptionsResponse",
                 "resultWrapper": "DescribeEventSubscriptionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15731,6 +15825,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -15871,6 +15967,7 @@
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16022,6 +16119,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16302,6 +16401,7 @@
                 "name": "DescribeOptionGroupOptionsResponse",
                 "resultWrapper": "DescribeOptionGroupOptionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16448,6 +16548,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16602,6 +16704,7 @@
                 "name": "DescribeOptionGroupsResponse",
                 "resultWrapper": "DescribeOptionGroupsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16738,6 +16841,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -16934,6 +17039,7 @@
                 "name": "DescribeOrderableDBInstanceOptionsResponse",
                 "resultWrapper": "DescribeOrderableDBInstanceOptionsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17095,6 +17201,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17333,6 +17441,7 @@
                 "name": "DescribeReservedDBInstancesResponse",
                 "resultWrapper": "DescribeReservedDBInstancesResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17489,6 +17598,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17797,6 +17908,7 @@
                 "name": "DescribeReservedDBInstancesOfferingsResponse",
                 "resultWrapper": "DescribeReservedDBInstancesOfferingsResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -17948,6 +18060,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18229,6 +18343,7 @@
                 "name": "DownloadDBLogFilePortionResponse",
                 "resultWrapper": "DownloadDBLogFilePortionResult",
                 "type": "record",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18413,6 +18528,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18542,6 +18659,7 @@
                 "name": "ListTagsForResourceResponse",
                 "resultWrapper": "ListTagsForResourceResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18637,6 +18755,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18722,6 +18842,7 @@
                 "name": "ModifyDBInstanceResponse",
                 "resultWrapper": "ModifyDBInstanceResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -18913,6 +19034,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19532,6 +19655,7 @@
                 "name": "ModifyDBParameterGroupResponse",
                 "resultWrapper": "ModifyDBParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19627,6 +19751,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19712,6 +19838,7 @@
                 "name": "ModifyDBSubnetGroupResponse",
                 "resultWrapper": "ModifyDBSubnetGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19813,6 +19940,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -19926,6 +20055,7 @@
                 "name": "ModifyEventSubscriptionResponse",
                 "resultWrapper": "ModifyEventSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20037,6 +20167,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20206,6 +20338,7 @@
                 "name": "ModifyOptionGroupResponse",
                 "resultWrapper": "ModifyOptionGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20311,6 +20444,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20452,6 +20587,7 @@
                 "name": "PromoteReadReplicaResponse",
                 "resultWrapper": "PromoteReadReplicaResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20553,6 +20689,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20666,6 +20804,7 @@
                 "name": "PurchaseReservedDBInstancesOfferingResponse",
                 "resultWrapper": "PurchaseReservedDBInstancesOfferingResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20771,6 +20910,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -20912,6 +21053,7 @@
                 "name": "RebootDBInstanceResponse",
                 "resultWrapper": "RebootDBInstanceResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21008,6 +21150,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21093,6 +21237,7 @@
                 "name": "RemoveSourceIdentifierFromSubscriptionResponse",
                 "resultWrapper": "RemoveSourceIdentifierFromSubscriptionResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21203,6 +21348,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
@@ -21258,6 +21405,7 @@
                 "name": "RemoveTagsFromResourceResponse",
                 "resultWrapper": null,
                 "type": "empty",
+                "headerAll": false,
                 "optional": [],
                 "fields": []
             },
@@ -21324,6 +21472,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21411,6 +21561,7 @@
                 "name": "ResetDBParameterGroupResponse",
                 "resultWrapper": "ResetDBParameterGroupResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21511,6 +21662,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21624,6 +21777,7 @@
                 "name": "RestoreDBInstanceFromDBSnapshotResponse",
                 "resultWrapper": "RestoreDBInstanceFromDBSnapshotResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -21813,6 +21967,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22332,6 +22488,7 @@
                 "name": "RestoreDBInstanceToPointInTimeResponse",
                 "resultWrapper": "RestoreDBInstanceToPointInTimeResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -22531,6 +22688,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23106,6 +23265,7 @@
                 "name": "RevokeDBSecurityGroupIngressResponse",
                 "resultWrapper": "RevokeDBSecurityGroupIngressResult",
                 "type": "newtype",
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
@@ -23217,6 +23377,8 @@
                     }
                 ],
                 "type": "record",
+                "queryAll": true,
+                "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",

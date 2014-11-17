@@ -106,16 +106,16 @@ data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResp
 createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
 
+instance ToPath CreateLBCookieStickinessPolicy where
+    toPath = const "/"
+
+instance ToQuery CreateLBCookieStickinessPolicy
+
+instance ToHeaders CreateLBCookieStickinessPolicy
+
 instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB
     type Rs CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicyResponse
 
     request  = post "CreateLBCookieStickinessPolicy"
     response = nullResponse CreateLBCookieStickinessPolicyResponse
-
-instance ToPath CreateLBCookieStickinessPolicy where
-    toPath = const "/"
-
-instance ToHeaders CreateLBCookieStickinessPolicy
-
-instance ToQuery CreateLBCookieStickinessPolicy

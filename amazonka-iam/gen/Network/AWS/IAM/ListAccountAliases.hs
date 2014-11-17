@@ -124,6 +124,13 @@ laarIsTruncated = lens _laarIsTruncated (\s a -> s { _laarIsTruncated = a })
 laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
 
+instance ToPath ListAccountAliases where
+    toPath = const "/"
+
+instance ToQuery ListAccountAliases
+
+instance ToHeaders ListAccountAliases
+
 instance AWSRequest ListAccountAliases where
     type Sv ListAccountAliases = IAM
     type Rs ListAccountAliases = ListAccountAliasesResponse
@@ -134,10 +141,3 @@ instance AWSRequest ListAccountAliases where
 instance FromXML ListAccountAliasesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListAccountAliasesResponse"
-
-instance ToPath ListAccountAliases where
-    toPath = const "/"
-
-instance ToHeaders ListAccountAliases
-
-instance ToQuery ListAccountAliases

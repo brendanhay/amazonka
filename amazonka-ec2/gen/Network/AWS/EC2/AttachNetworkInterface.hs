@@ -111,6 +111,13 @@ attachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
 anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
 
+instance ToPath AttachNetworkInterface where
+    toPath = const "/"
+
+instance ToQuery AttachNetworkInterface
+
+instance ToHeaders AttachNetworkInterface
+
 instance AWSRequest AttachNetworkInterface where
     type Sv AttachNetworkInterface = EC2
     type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
@@ -121,20 +128,3 @@ instance AWSRequest AttachNetworkInterface where
 instance FromXML AttachNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachNetworkInterfaceResponse"
-
-instance ToPath AttachNetworkInterface where
-    toPath = const "/"
-
-instance ToHeaders AttachNetworkInterface
-
-instance ToQuery AttachNetworkInterface where
-    toQuery AttachNetworkInterface{..} = mconcat
-        [ "dryRun"             =? _aniDryRun
-        , "networkInterfaceId" =? _aniNetworkInterfaceId
-        , "instanceId"         =? _aniInstanceId
-        , "deviceIndex"        =? _aniDeviceIndex
-        ]
-
-instance ToXML AttachNetworkInterface where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AttachNetworkInterface"

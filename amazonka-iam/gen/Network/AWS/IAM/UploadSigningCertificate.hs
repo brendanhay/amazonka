@@ -100,6 +100,13 @@ uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
 
+instance ToPath UploadSigningCertificate where
+    toPath = const "/"
+
+instance ToQuery UploadSigningCertificate
+
+instance ToHeaders UploadSigningCertificate
+
 instance AWSRequest UploadSigningCertificate where
     type Sv UploadSigningCertificate = IAM
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse
@@ -110,10 +117,3 @@ instance AWSRequest UploadSigningCertificate where
 instance FromXML UploadSigningCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UploadSigningCertificateResponse"
-
-instance ToPath UploadSigningCertificate where
-    toPath = const "/"
-
-instance ToHeaders UploadSigningCertificate
-
-instance ToQuery UploadSigningCertificate

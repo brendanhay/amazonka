@@ -74,16 +74,16 @@ data DeleteAlarmsResponse = DeleteAlarmsResponse
 deleteAlarmsResponse :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse
 
+instance ToPath DeleteAlarms where
+    toPath = const "/"
+
+instance ToQuery DeleteAlarms
+
+instance ToHeaders DeleteAlarms
+
 instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch
     type Rs DeleteAlarms = DeleteAlarmsResponse
 
     request  = post "DeleteAlarms"
     response = nullResponse DeleteAlarmsResponse
-
-instance ToPath DeleteAlarms where
-    toPath = const "/"
-
-instance ToHeaders DeleteAlarms
-
-instance ToQuery DeleteAlarms

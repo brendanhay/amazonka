@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.HeadObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,7 +70,7 @@ module Network.AWS.S3.HeadObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -201,30 +201,6 @@ hoSSEKMSKeyId = lens _hoSSEKMSKeyId (\s a -> s { _hoSSEKMSKeyId = a })
 -- | VersionId used to reference a specific version of the object.
 hoVersionId :: Lens' HeadObject (Maybe Text)
 hoVersionId = lens _hoVersionId (\s a -> s { _hoVersionId = a })
-
-instance ToPath HeadObject where
-    toPath HeadObject{..} = mconcat
-        [ "/"
-        , toText _hoBucket
-        , "/"
-        , toText _hoKey
-        ]
-
-instance ToQuery HeadObject where
-    toQuery rq = "versionId" =? _hoVersionId rq
-
-instance ToHeaders HeadObject where
-    toHeaders HeadObject{..} = mconcat
-        [ "If-Match"                                        =: _hoIfMatch
-        , "If-Modified-Since"                               =: _hoIfModifiedSince
-        , "If-None-Match"                                   =: _hoIfNoneMatch
-        , "If-Unmodified-Since"                             =: _hoIfUnmodifiedSince
-        , "Range"                                           =: _hoRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _hoSSEKMSKeyId
-        ]
 
 data HeadObjectResponse = HeadObjectResponse
     { _horAcceptRanges            :: Maybe Text
@@ -442,8 +418,8 @@ instance AWSRequest HeadObject where
     type Rs HeadObject = HeadObjectResponse
 
     request  = head
-    response = xmlResponse $ \h x -> HeadObjectResponse
-        <$> h ~:? "accept-ranges"
+    response = xmlHeaderResponse $ \h x -> HeadObjectResponse
+        <*> h ~:? "accept-ranges"
         <*> h ~:? "Cache-Control"
         <*> h ~:? "Content-Disposition"
         <*> h ~:? "Content-Encoding"
@@ -464,3 +440,31 @@ instance AWSRequest HeadObject where
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
         <*> h ~:? "x-amz-website-redirect-location"
+
+instance ToPath HeadObject where
+    toPath HeadObject{..} = mconcat
+        [ "/"
+        , toText _hoBucket
+        , "/"
+        , toText _hoKey
+        ]
+
+instance ToHeaders HeadObject where
+    toHeaders HeadObject{..} = mconcat
+        [ "If-Match"                                        =: _hoIfMatch
+        , "If-Modified-Since"                               =: _hoIfModifiedSince
+        , "If-None-Match"                                   =: _hoIfNoneMatch
+        , "If-Unmodified-Since"                             =: _hoIfUnmodifiedSince
+        , "Range"                                           =: _hoRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _hoSSEKMSKeyId
+        ]
+
+instance ToQuery HeadObject where
+    toQuery rq = "versionId" =? _hoVersionId rq
+
+instance ToXML HeadObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HeadObject"

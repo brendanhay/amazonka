@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.SetTaskStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -112,17 +112,6 @@ stsTaskId = lens _stsTaskId (\s a -> s { _stsTaskId = a })
 stsTaskStatus :: Lens' SetTaskStatus Text
 stsTaskStatus = lens _stsTaskStatus (\s a -> s { _stsTaskStatus = a })
 
-instance ToPath SetTaskStatus where
-    toPath = const "/"
-
-instance ToQuery SetTaskStatus where
-    toQuery = const mempty
-
-instance ToHeaders SetTaskStatus
-
-instance ToBody SetTaskStatus where
-    toBody = toBody . encode . _stsTaskId
-
 data SetTaskStatusResponse = SetTaskStatusResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -135,4 +124,15 @@ instance AWSRequest SetTaskStatus where
     type Rs SetTaskStatus = SetTaskStatusResponse
 
     request  = post
-    response = nullaryResponse SetTaskStatusResponse
+    response = nullResponse SetTaskStatusResponse
+
+instance ToPath SetTaskStatus where
+    toPath = const "/"
+
+instance ToHeaders SetTaskStatus
+
+instance ToQuery SetTaskStatus where
+    toQuery = const mempty
+
+instance ToJSON SetTaskStatus where
+    toJSON = genericToJSON jsonOptions

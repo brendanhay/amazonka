@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContact
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -106,17 +106,6 @@ udcRegistrantContact =
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
 
-instance ToPath UpdateDomainContact where
-    toPath = const "/"
-
-instance ToQuery UpdateDomainContact where
-    toQuery = const mempty
-
-instance ToHeaders UpdateDomainContact
-
-instance ToBody UpdateDomainContact where
-    toBody = toBody . encode . _udcDomainName
-
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcrOperationId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -144,5 +133,18 @@ instance AWSRequest UpdateDomainContact where
     type Rs UpdateDomainContact = UpdateDomainContactResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateDomainContactResponse
-        <$> o .: "OperationId"
+    response = jsonResponse
+
+instance FromJSON UpdateDomainContactResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateDomainContact where
+    toPath = const "/"
+
+instance ToHeaders UpdateDomainContact
+
+instance ToQuery UpdateDomainContact where
+    toQuery = const mempty
+
+instance ToJSON UpdateDomainContact where
+    toJSON = genericToJSON jsonOptions

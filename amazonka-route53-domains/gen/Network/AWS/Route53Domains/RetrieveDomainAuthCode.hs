@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
 -- Required: Yes.
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
-
-instance ToPath RetrieveDomainAuthCode where
-    toPath = const "/"
-
-instance ToQuery RetrieveDomainAuthCode where
-    toQuery = const mempty
-
-instance ToHeaders RetrieveDomainAuthCode
-
-instance ToBody RetrieveDomainAuthCode where
-    toBody = toBody . encode . _rdacDomainName
 
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode :: Sensitive Text
@@ -102,5 +91,18 @@ instance AWSRequest RetrieveDomainAuthCode where
     type Rs RetrieveDomainAuthCode = RetrieveDomainAuthCodeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RetrieveDomainAuthCodeResponse
-        <$> o .: "AuthCode"
+    response = jsonResponse
+
+instance FromJSON RetrieveDomainAuthCodeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RetrieveDomainAuthCode where
+    toPath = const "/"
+
+instance ToHeaders RetrieveDomainAuthCode
+
+instance ToQuery RetrieveDomainAuthCode where
+    toQuery = const mempty
+
+instance ToJSON RetrieveDomainAuthCode where
+    toJSON = genericToJSON jsonOptions

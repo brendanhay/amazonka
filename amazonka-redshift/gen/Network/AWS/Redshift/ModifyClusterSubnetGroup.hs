@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
 
-instance ToQuery ModifyClusterSubnetGroup
-
-instance ToPath ModifyClusterSubnetGroup where
-    toPath = const "/"
-
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
     } deriving (Eq, Show, Generic)
@@ -113,5 +108,15 @@ instance AWSRequest ModifyClusterSubnetGroup where
     type Rs ModifyClusterSubnetGroup = ModifyClusterSubnetGroupResponse
 
     request  = post "ModifyClusterSubnetGroup"
-    response = xmlResponse $ \h x -> ModifyClusterSubnetGroupResponse
-        <$> x %| "ClusterSubnetGroup"
+    response = xmlResponse
+
+instance FromXML ModifyClusterSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyClusterSubnetGroupResponse"
+
+instance ToPath ModifyClusterSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyClusterSubnetGroup
+
+instance ToQuery ModifyClusterSubnetGroup

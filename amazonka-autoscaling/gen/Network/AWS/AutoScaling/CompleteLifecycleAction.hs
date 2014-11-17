@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -108,11 +108,6 @@ claLifecycleHookName :: Lens' CompleteLifecycleAction Text
 claLifecycleHookName =
     lens _claLifecycleHookName (\s a -> s { _claLifecycleHookName = a })
 
-instance ToQuery CompleteLifecycleAction
-
-instance ToPath CompleteLifecycleAction where
-    toPath = const "/"
-
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -125,4 +120,11 @@ instance AWSRequest CompleteLifecycleAction where
     type Rs CompleteLifecycleAction = CompleteLifecycleActionResponse
 
     request  = post "CompleteLifecycleAction"
-    response = nullaryResponse CompleteLifecycleActionResponse
+    response = nullResponse CompleteLifecycleActionResponse
+
+instance ToPath CompleteLifecycleAction where
+    toPath = const "/"
+
+instance ToHeaders CompleteLifecycleAction
+
+instance ToQuery CompleteLifecycleAction

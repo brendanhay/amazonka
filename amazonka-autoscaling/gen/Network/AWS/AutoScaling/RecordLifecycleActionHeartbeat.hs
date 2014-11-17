@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
 rlahLifecycleHookName =
     lens _rlahLifecycleHookName (\s a -> s { _rlahLifecycleHookName = a })
 
-instance ToQuery RecordLifecycleActionHeartbeat
-
-instance ToPath RecordLifecycleActionHeartbeat where
-    toPath = const "/"
-
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -114,4 +109,11 @@ instance AWSRequest RecordLifecycleActionHeartbeat where
     type Rs RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeatResponse
 
     request  = post "RecordLifecycleActionHeartbeat"
-    response = nullaryResponse RecordLifecycleActionHeartbeatResponse
+    response = nullResponse RecordLifecycleActionHeartbeatResponse
+
+instance ToPath RecordLifecycleActionHeartbeat where
+    toPath = const "/"
+
+instance ToHeaders RecordLifecycleActionHeartbeat
+
+instance ToQuery RecordLifecycleActionHeartbeat

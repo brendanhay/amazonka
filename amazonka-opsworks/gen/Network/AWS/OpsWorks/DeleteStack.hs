@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.OpsWorks.DeleteStack
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ deleteStack p1 = DeleteStack
 dsStackId :: Lens' DeleteStack Text
 dsStackId = lens _dsStackId (\s a -> s { _dsStackId = a })
 
-instance ToPath DeleteStack where
-    toPath = const "/"
-
-instance ToQuery DeleteStack where
-    toQuery = const mempty
-
-instance ToHeaders DeleteStack
-
-instance ToBody DeleteStack where
-    toBody = toBody . encode . _dsStackId
-
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest DeleteStack where
     type Rs DeleteStack = DeleteStackResponse
 
     request  = post
-    response = nullaryResponse DeleteStackResponse
+    response = nullResponse DeleteStackResponse
+
+instance ToPath DeleteStack where
+    toPath = const "/"
+
+instance ToHeaders DeleteStack
+
+instance ToQuery DeleteStack where
+    toQuery = const mempty
+
+instance ToJSON DeleteStack where
+    toJSON = genericToJSON jsonOptions

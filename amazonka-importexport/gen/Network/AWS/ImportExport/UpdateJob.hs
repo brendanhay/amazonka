@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.UpdateJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ ujManifest = lens _ujManifest (\s a -> s { _ujManifest = a })
 ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
 
-instance ToQuery UpdateJob
-
-instance ToPath UpdateJob where
-    toPath = const "/"
-
 data UpdateJobResponse = UpdateJobResponse
     { _ujrSuccess        :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
@@ -128,6 +123,15 @@ instance AWSRequest UpdateJob where
     type Rs UpdateJob = UpdateJobResponse
 
     request  = post "UpdateJob"
-    response = xmlResponse $ \h x -> UpdateJobResponse
-        <$> x %| "Success"
-        <*> x %| "WarningMessage"
+    response = xmlResponse
+
+instance FromXML UpdateJobResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateJobResponse"
+
+instance ToPath UpdateJob where
+    toPath = const "/"
+
+instance ToHeaders UpdateJob
+
+instance ToQuery UpdateJob

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CancelBundleTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
 
-instance ToQuery CancelBundleTask
-
-instance ToPath CancelBundleTask where
-    toPath = const "/"
-
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask :: Maybe BundleTask
     } deriving (Eq, Show, Generic)
@@ -98,5 +93,15 @@ instance AWSRequest CancelBundleTask where
     type Rs CancelBundleTask = CancelBundleTaskResponse
 
     request  = post "CancelBundleTask"
-    response = xmlResponse $ \h x -> CancelBundleTaskResponse
-        <$> x %| "bundleInstanceTask"
+    response = xmlResponse
+
+instance FromXML CancelBundleTaskResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelBundleTaskResponse"
+
+instance ToPath CancelBundleTask where
+    toPath = const "/"
+
+instance ToHeaders CancelBundleTask
+
+instance ToQuery CancelBundleTask

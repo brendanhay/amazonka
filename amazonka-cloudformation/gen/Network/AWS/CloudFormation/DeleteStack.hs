@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.DeleteStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ deleteStack p1 = DeleteStack
 dsStackName :: Lens' DeleteStack Text
 dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
 
-instance ToQuery DeleteStack
-
-instance ToPath DeleteStack where
-    toPath = const "/"
-
 data DeleteStackResponse = DeleteStackResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteStack where
     type Rs DeleteStack = DeleteStackResponse
 
     request  = post "DeleteStack"
-    response = nullaryResponse DeleteStackResponse
+    response = nullResponse DeleteStackResponse
+
+instance ToPath DeleteStack where
+    toPath = const "/"
+
+instance ToHeaders DeleteStack
+
+instance ToQuery DeleteStack

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ ldgApplicationName =
 -- the list.
 ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
 ldgNextToken = lens _ldgNextToken (\s a -> s { _ldgNextToken = a })
-
-instance ToPath ListDeploymentGroups where
-    toPath = const "/"
-
-instance ToQuery ListDeploymentGroups where
-    toQuery = const mempty
-
-instance ToHeaders ListDeploymentGroups
-
-instance ToBody ListDeploymentGroups where
-    toBody = toBody . encode . _ldgApplicationName
 
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse
     { _ldgrApplicationName  :: Maybe Text
@@ -133,7 +122,18 @@ instance AWSRequest ListDeploymentGroups where
     type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListDeploymentGroupsResponse
-        <$> o .: "applicationName"
-        <*> o .: "deploymentGroups"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON ListDeploymentGroupsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListDeploymentGroups where
+    toPath = const "/"
+
+instance ToHeaders ListDeploymentGroups
+
+instance ToQuery ListDeploymentGroups where
+    toQuery = const mempty
+
+instance ToJSON ListDeploymentGroups where
+    toJSON = genericToJSON jsonOptions

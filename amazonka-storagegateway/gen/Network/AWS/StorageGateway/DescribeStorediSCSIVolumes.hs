@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ describeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs =
     lens _dsscsivVolumeARNs (\s a -> s { _dsscsivVolumeARNs = a })
-
-instance ToPath DescribeStorediSCSIVolumes where
-    toPath = const "/"
-
-instance ToQuery DescribeStorediSCSIVolumes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStorediSCSIVolumes
-
-instance ToBody DescribeStorediSCSIVolumes where
-    toBody = toBody . encode . _dsscsivVolumeARNs
 
 newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivrStorediSCSIVolumes :: [StorediSCSIVolume]
@@ -114,5 +103,18 @@ instance AWSRequest DescribeStorediSCSIVolumes where
     type Rs DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeStorediSCSIVolumesResponse
-        <$> o .: "StorediSCSIVolumes"
+    response = jsonResponse
+
+instance FromJSON DescribeStorediSCSIVolumesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeStorediSCSIVolumes where
+    toPath = const "/"
+
+instance ToHeaders DescribeStorediSCSIVolumes
+
+instance ToQuery DescribeStorediSCSIVolumes where
+    toQuery = const mempty
+
+instance ToJSON DescribeStorediSCSIVolumes where
+    toJSON = genericToJSON jsonOptions

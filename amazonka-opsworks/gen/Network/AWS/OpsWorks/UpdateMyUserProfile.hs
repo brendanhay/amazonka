@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ updateMyUserProfile = UpdateMyUserProfile
 umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSshPublicKey = lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
 
-instance ToPath UpdateMyUserProfile where
-    toPath = const "/"
-
-instance ToQuery UpdateMyUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders UpdateMyUserProfile
-
-instance ToBody UpdateMyUserProfile where
-    toBody = toBody . encode . _umupSshPublicKey
-
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,15 @@ instance AWSRequest UpdateMyUserProfile where
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
 
     request  = post
-    response = nullaryResponse UpdateMyUserProfileResponse
+    response = nullResponse UpdateMyUserProfileResponse
+
+instance ToPath UpdateMyUserProfile where
+    toPath = const "/"
+
+instance ToHeaders UpdateMyUserProfile
+
+instance ToQuery UpdateMyUserProfile where
+    toQuery = const mempty
+
+instance ToJSON UpdateMyUserProfile where
+    toJSON = genericToJSON jsonOptions

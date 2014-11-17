@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteRoute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ drDryRun = lens _drDryRun (\s a -> s { _drDryRun = a })
 drRouteTableId :: Lens' DeleteRoute Text
 drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
 
-instance ToQuery DeleteRoute
-
-instance ToPath DeleteRoute where
-    toPath = const "/"
-
 data DeleteRouteResponse = DeleteRouteResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -96,4 +91,11 @@ instance AWSRequest DeleteRoute where
     type Rs DeleteRoute = DeleteRouteResponse
 
     request  = post "DeleteRoute"
-    response = nullaryResponse DeleteRouteResponse
+    response = nullResponse DeleteRouteResponse
+
+instance ToPath DeleteRoute where
+    toPath = const "/"
+
+instance ToHeaders DeleteRoute
+
+instance ToQuery DeleteRoute

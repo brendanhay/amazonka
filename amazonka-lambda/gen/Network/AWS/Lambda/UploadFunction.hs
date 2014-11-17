@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.UploadFunction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,7 +61,7 @@ module Network.AWS.Lambda.UploadFunction
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -174,28 +174,6 @@ ufRuntime = lens _ufRuntime (\s a -> s { _ufRuntime = a })
 ufTimeout :: Lens' UploadFunction (Maybe Natural)
 ufTimeout = lens _ufTimeout (\s a -> s { _ufTimeout = a })
     . mapping _Nat
-
-instance ToPath UploadFunction where
-    toPath UploadFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _ufFunctionName
-        ]
-
-instance ToQuery UploadFunction where
-    toQuery UploadFunction{..} = mconcat
-        [ "Runtime"     =? _ufRuntime
-        , "Role"        =? _ufRole
-        , "Handler"     =? _ufHandler
-        , "Mode"        =? _ufMode
-        , "Description" =? _ufDescription
-        , "Timeout"     =? _ufTimeout
-        , "MemorySize"  =? _ufMemorySize
-        ]
-
-instance ToHeaders UploadFunction
-
-instance ToBody UploadFunction where
-    toBody = toBody . encode . _ufFunctionZip
 
 data UploadFunctionResponse = UploadFunctionResponse
     { _ufrCodeSize        :: Maybe Integer
@@ -320,16 +298,29 @@ instance AWSRequest UploadFunction where
     type Rs UploadFunction = UploadFunctionResponse
 
     request  = put
-    response = jsonResponse $ \h o -> UploadFunctionResponse
-        <$> o .: "CodeSize"
-        <*> o .: "ConfigurationId"
-        <*> o .: "Description"
-        <*> o .: "FunctionARN"
-        <*> o .: "FunctionName"
-        <*> o .: "Handler"
-        <*> o .: "LastModified"
-        <*> o .: "MemorySize"
-        <*> o .: "Mode"
-        <*> o .: "Role"
-        <*> o .: "Runtime"
-        <*> o .: "Timeout"
+    response = jsonResponse
+
+instance FromJSON UploadFunctionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UploadFunction where
+    toPath UploadFunction{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _ufFunctionName
+        ]
+
+instance ToHeaders UploadFunction
+
+instance ToQuery UploadFunction where
+    toQuery UploadFunction{..} = mconcat
+        [ "Runtime"     =? _ufRuntime
+        , "Role"        =? _ufRole
+        , "Handler"     =? _ufHandler
+        , "Mode"        =? _ufMode
+        , "Description" =? _ufDescription
+        , "Timeout"     =? _ufTimeout
+        , "MemorySize"  =? _ufMemorySize
+        ]
+
+instance ToJSON UploadFunction where
+    toJSON = genericToJSON jsonOptions

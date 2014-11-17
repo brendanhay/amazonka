@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateLayer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +55,7 @@ module Network.AWS.OpsWorks.CreateLayer
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -226,17 +226,6 @@ clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
 clVolumeConfigurations =
     lens _clVolumeConfigurations (\s a -> s { _clVolumeConfigurations = a })
 
-instance ToPath CreateLayer where
-    toPath = const "/"
-
-instance ToQuery CreateLayer where
-    toQuery = const mempty
-
-instance ToHeaders CreateLayer
-
-instance ToBody CreateLayer where
-    toBody = toBody . encode . _clStackId
-
 newtype CreateLayerResponse = CreateLayerResponse
     { _clrLayerId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -261,5 +250,18 @@ instance AWSRequest CreateLayer where
     type Rs CreateLayer = CreateLayerResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateLayerResponse
-        <$> o .: "LayerId"
+    response = jsonResponse
+
+instance FromJSON CreateLayerResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateLayer where
+    toPath = const "/"
+
+instance ToHeaders CreateLayer
+
+instance ToQuery CreateLayer where
+    toQuery = const mempty
+
+instance ToJSON CreateLayer where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.PutBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -76,23 +76,6 @@ pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
 pbwWebsiteConfiguration =
     lens _pbwWebsiteConfiguration (\s a -> s { _pbwWebsiteConfiguration = a })
 
-instance ToPath PutBucketWebsite where
-    toPath PutBucketWebsite{..} = mconcat
-        [ "/"
-        , toText _pbwBucket
-        ]
-
-instance ToQuery PutBucketWebsite where
-    toQuery = const "website"
-
-instance ToHeaders PutBucketWebsite where
-    toHeaders PutBucketWebsite{..} = mconcat
-        [ "Content-MD5" =: _pbwContentMD5
-        ]
-
-instance ToBody PutBucketWebsite where
-    toBody = toBody . encodeXML . _pbwWebsiteConfiguration
-
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -105,4 +88,22 @@ instance AWSRequest PutBucketWebsite where
     type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
     request  = put
-    response = nullaryResponse PutBucketWebsiteResponse
+    response = nullResponse PutBucketWebsiteResponse
+
+instance ToPath PutBucketWebsite where
+    toPath PutBucketWebsite{..} = mconcat
+        [ "/"
+        , toText _pbwBucket
+        ]
+
+instance ToHeaders PutBucketWebsite where
+    toHeaders PutBucketWebsite{..} = mconcat
+        [ "Content-MD5" =: _pbwContentMD5
+        ]
+
+instance ToQuery PutBucketWebsite where
+    toQuery = const "website"
+
+instance ToXML PutBucketWebsite where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketWebsite"

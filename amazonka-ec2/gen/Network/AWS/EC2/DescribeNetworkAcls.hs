@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkAcls
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -103,11 +103,6 @@ dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
 dna1NetworkAclIds =
     lens _dna1NetworkAclIds (\s a -> s { _dna1NetworkAclIds = a })
 
-instance ToQuery DescribeNetworkAcls
-
-instance ToPath DescribeNetworkAcls where
-    toPath = const "/"
-
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -138,5 +133,15 @@ instance AWSRequest DescribeNetworkAcls where
     type Rs DescribeNetworkAcls = DescribeNetworkAclsResponse
 
     request  = post "DescribeNetworkAcls"
-    response = xmlResponse $ \h x -> DescribeNetworkAclsResponse
-        <$> x %| "networkAclSet"
+    response = xmlResponse
+
+instance FromXML DescribeNetworkAclsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNetworkAclsResponse"
+
+instance ToPath DescribeNetworkAcls where
+    toPath = const "/"
+
+instance ToHeaders DescribeNetworkAcls
+
+instance ToQuery DescribeNetworkAcls

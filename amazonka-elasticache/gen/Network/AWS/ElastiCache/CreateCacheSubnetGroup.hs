@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ ccsgCacheSubnetGroupName =
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a })
 
-instance ToQuery CreateCacheSubnetGroup
-
-instance ToPath CreateCacheSubnetGroup where
-    toPath = const "/"
-
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
     } deriving (Eq, Show, Generic)
@@ -117,5 +112,15 @@ instance AWSRequest CreateCacheSubnetGroup where
     type Rs CreateCacheSubnetGroup = CreateCacheSubnetGroupResponse
 
     request  = post "CreateCacheSubnetGroup"
-    response = xmlResponse $ \h x -> CreateCacheSubnetGroupResponse
-        <$> x %| "CacheSubnetGroup"
+    response = xmlResponse
+
+instance FromXML CreateCacheSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheSubnetGroupResponse"
+
+instance ToPath CreateCacheSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateCacheSubnetGroup
+
+instance ToQuery CreateCacheSubnetGroup

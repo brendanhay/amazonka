@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -84,24 +84,6 @@ ucfoaiId = lens _ucfoaiId (\s a -> s { _ucfoaiId = a })
 ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
 ucfoaiIfMatch = lens _ucfoaiIfMatch (\s a -> s { _ucfoaiIfMatch = a })
 
-instance ToPath UpdateCloudFrontOriginAccessIdentity where
-    toPath UpdateCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toText _ucfoaiId
-        , "/config"
-        ]
-
-instance ToQuery UpdateCloudFrontOriginAccessIdentity where
-    toQuery = const mempty
-
-instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
-    toHeaders UpdateCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "If-Match" =: _ucfoaiIfMatch
-        ]
-
-instance ToBody UpdateCloudFrontOriginAccessIdentity where
-    toBody = toBody . encodeXML . _ucfoaiCloudFrontOriginAccessIdentityConfig
-
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
     { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ucfoairETag                           :: Maybe Text
@@ -136,6 +118,25 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Rs UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentityResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResponse
+    response = xmlHeaderResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResponse
         <$> x %| "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
+
+instance ToPath UpdateCloudFrontOriginAccessIdentity where
+    toPath UpdateCloudFrontOriginAccessIdentity{..} = mconcat
+        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        , toText _ucfoaiId
+        , "/config"
+        ]
+
+instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
+    toHeaders UpdateCloudFrontOriginAccessIdentity{..} = mconcat
+        [ "If-Match" =: _ucfoaiIfMatch
+        ]
+
+instance ToQuery UpdateCloudFrontOriginAccessIdentity where
+    toQuery = const mempty
+
+instance ToXML UpdateCloudFrontOriginAccessIdentity where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateCloudFrontOriginAccessIdentity"

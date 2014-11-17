@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.SetInstanceHealth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ sihShouldRespectGracePeriod =
     lens _sihShouldRespectGracePeriod
         (\s a -> s { _sihShouldRespectGracePeriod = a })
 
-instance ToQuery SetInstanceHealth
-
-instance ToPath SetInstanceHealth where
-    toPath = const "/"
-
 data SetInstanceHealthResponse = SetInstanceHealthResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -107,4 +102,11 @@ instance AWSRequest SetInstanceHealth where
     type Rs SetInstanceHealth = SetInstanceHealthResponse
 
     request  = post "SetInstanceHealth"
-    response = nullaryResponse SetInstanceHealthResponse
+    response = nullResponse SetInstanceHealthResponse
+
+instance ToPath SetInstanceHealth where
+    toPath = const "/"
+
+instance ToHeaders SetInstanceHealth
+
+instance ToQuery SetInstanceHealth

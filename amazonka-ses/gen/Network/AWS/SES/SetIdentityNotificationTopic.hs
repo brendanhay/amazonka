@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ sintNotificationType =
 sintSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSnsTopic = lens _sintSnsTopic (\s a -> s { _sintSnsTopic = a })
 
-instance ToQuery SetIdentityNotificationTopic
-
-instance ToPath SetIdentityNotificationTopic where
-    toPath = const "/"
-
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -105,4 +100,11 @@ instance AWSRequest SetIdentityNotificationTopic where
     type Rs SetIdentityNotificationTopic = SetIdentityNotificationTopicResponse
 
     request  = post "SetIdentityNotificationTopic"
-    response = nullaryResponse SetIdentityNotificationTopicResponse
+    response = nullResponse SetIdentityNotificationTopicResponse
+
+instance ToPath SetIdentityNotificationTopic where
+    toPath = const "/"
+
+instance ToHeaders SetIdentityNotificationTopic
+
+instance ToQuery SetIdentityNotificationTopic

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.GetIdentityVerificationAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ getIdentityVerificationAttributes = GetIdentityVerificationAttributes
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a })
 
-instance ToQuery GetIdentityVerificationAttributes
-
-instance ToPath GetIdentityVerificationAttributes where
-    toPath = const "/"
-
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -100,5 +95,15 @@ instance AWSRequest GetIdentityVerificationAttributes where
     type Rs GetIdentityVerificationAttributes = GetIdentityVerificationAttributesResponse
 
     request  = post "GetIdentityVerificationAttributes"
-    response = xmlResponse $ \h x -> GetIdentityVerificationAttributesResponse
-        <$> x %| "VerificationAttributes"
+    response = xmlResponse
+
+instance FromXML GetIdentityVerificationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetIdentityVerificationAttributesResponse"
+
+instance ToPath GetIdentityVerificationAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetIdentityVerificationAttributes
+
+instance ToQuery GetIdentityVerificationAttributes

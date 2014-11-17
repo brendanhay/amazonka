@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,7 +75,7 @@ module Network.AWS.S3.GetObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -265,41 +265,9 @@ goSSEKMSKeyId = lens _goSSEKMSKeyId (\s a -> s { _goSSEKMSKeyId = a })
 goVersionId :: Lens' GetObject (Maybe Text)
 goVersionId = lens _goVersionId (\s a -> s { _goVersionId = a })
 
-instance ToPath GetObject where
-    toPath GetObject{..} = mconcat
-        [ "/"
-        , toText _goBucket
-        , "/"
-        , toText _goKey
-        ]
-
-instance ToQuery GetObject where
-    toQuery GetObject{..} = mconcat
-        [ "response-cache-control"       =? _goResponseCacheControl
-        , "response-content-disposition" =? _goResponseContentDisposition
-        , "response-content-encoding"    =? _goResponseContentEncoding
-        , "response-content-language"    =? _goResponseContentLanguage
-        , "response-content-type"        =? _goResponseContentType
-        , "response-expires"             =? _goResponseExpires
-        , "versionId"                    =? _goVersionId
-        ]
-
-instance ToHeaders GetObject where
-    toHeaders GetObject{..} = mconcat
-        [ "If-Match"                                        =: _goIfMatch
-        , "If-Modified-Since"                               =: _goIfModifiedSince
-        , "If-None-Match"                                   =: _goIfNoneMatch
-        , "If-Unmodified-Since"                             =: _goIfUnmodifiedSince
-        , "Range"                                           =: _goRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
-        ]
-
 data GetObjectResponse = GetObjectResponse
     { _gorAcceptRanges            :: Maybe Text
-    , _gorBody                    :: RsBody
+    , _gorBody                    :: Maybe Base64
     , _gorCacheControl            :: Maybe Text
     , _gorContentDisposition      :: Maybe Text
     , _gorContentEncoding         :: Maybe Text
@@ -320,7 +288,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorServerSideEncryption    :: Maybe Text
     , _gorVersionId               :: Maybe Text
     , _gorWebsiteRedirectLocation :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetObjectResponse' constructor.
 --
@@ -328,7 +296,7 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorAcceptRanges' @::@ 'Maybe' 'Text'
 --
--- * 'gorBody' @::@ 'RsBody'
+-- * 'gorBody' @::@ 'Maybe' 'Base64'
 --
 -- * 'gorCacheControl' @::@ 'Maybe' 'Text'
 --
@@ -370,10 +338,9 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-getObjectResponse :: RsBody -- ^ 'gorBody'
-                  -> GetObjectResponse
-getObjectResponse p1 = GetObjectResponse
-    { _gorBody                    = p1
+getObjectResponse :: GetObjectResponse
+getObjectResponse = GetObjectResponse
+    { _gorBody                    = Nothing
     , _gorDeleteMarker            = Nothing
     , _gorAcceptRanges            = Nothing
     , _gorExpiration              = Nothing
@@ -401,7 +368,7 @@ gorAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
 gorAcceptRanges = lens _gorAcceptRanges (\s a -> s { _gorAcceptRanges = a })
 
 -- | Object data.
-gorBody :: Lens' GetObjectResponse RsBody
+gorBody :: Lens' GetObjectResponse (Maybe Base64)
 gorBody = lens _gorBody (\s a -> s { _gorBody = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -523,8 +490,7 @@ instance AWSRequest GetObject where
 
     request  = get
     response = bodyResponse $ \h b -> GetObjectResponse
-        <$> h ~:? "accept-ranges"
-        <*> pure (RsBody b)
+        <*> h ~:? "accept-ranges"
         <*> h ~:? "Cache-Control"
         <*> h ~:? "Content-Disposition"
         <*> h ~:? "Content-Encoding"
@@ -545,3 +511,39 @@ instance AWSRequest GetObject where
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
         <*> h ~:? "x-amz-website-redirect-location"
+
+instance ToPath GetObject where
+    toPath GetObject{..} = mconcat
+        [ "/"
+        , toText _goBucket
+        , "/"
+        , toText _goKey
+        ]
+
+instance ToHeaders GetObject where
+    toHeaders GetObject{..} = mconcat
+        [ "If-Match"                                        =: _goIfMatch
+        , "If-Modified-Since"                               =: _goIfModifiedSince
+        , "If-None-Match"                                   =: _goIfNoneMatch
+        , "If-Unmodified-Since"                             =: _goIfUnmodifiedSince
+        , "Range"                                           =: _goRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
+        ]
+
+instance ToQuery GetObject where
+    toQuery GetObject{..} = mconcat
+        [ "response-cache-control"       =? _goResponseCacheControl
+        , "response-content-disposition" =? _goResponseContentDisposition
+        , "response-content-encoding"    =? _goResponseContentEncoding
+        , "response-content-language"    =? _goResponseContentLanguage
+        , "response-content-type"        =? _goResponseContentType
+        , "response-expires"             =? _goResponseExpires
+        , "versionId"                    =? _goVersionId
+        ]
+
+instance ToXML GetObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetObject"

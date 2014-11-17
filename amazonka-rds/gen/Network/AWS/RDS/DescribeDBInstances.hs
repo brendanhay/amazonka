@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -100,11 +100,6 @@ ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
-instance ToQuery DescribeDBInstances
-
-instance ToPath DescribeDBInstances where
-    toPath = const "/"
-
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirDBInstances :: [DBInstance]
     , _ddbirMarker      :: Maybe Text
@@ -139,10 +134,15 @@ instance AWSRequest DescribeDBInstances where
     type Rs DescribeDBInstances = DescribeDBInstancesResponse
 
     request  = post "DescribeDBInstances"
-    response = xmlResponse $ \h x -> DescribeDBInstancesResponse
-        <$> x %| "DBInstances"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBInstances where
-    next rq rs = (\x -> rq & ddbi1Marker ?~ x)
-        <$> (rs ^. ddbirMarker)
+instance FromXML DescribeDBInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBInstancesResponse"
+
+instance ToPath DescribeDBInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBInstances
+
+instance ToQuery DescribeDBInstances

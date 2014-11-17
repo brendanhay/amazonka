@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateStorediSCSIVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,7 +54,7 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -142,17 +142,6 @@ csscsivTargetName :: Lens' CreateStorediSCSIVolume Text
 csscsivTargetName =
     lens _csscsivTargetName (\s a -> s { _csscsivTargetName = a })
 
-instance ToPath CreateStorediSCSIVolume where
-    toPath = const "/"
-
-instance ToQuery CreateStorediSCSIVolume where
-    toQuery = const mempty
-
-instance ToHeaders CreateStorediSCSIVolume
-
-instance ToBody CreateStorediSCSIVolume where
-    toBody = toBody . encode . _csscsivGatewayARN
-
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     { _csscsivrTargetARN         :: Maybe Text
     , _csscsivrVolumeARN         :: Maybe Text
@@ -198,7 +187,18 @@ instance AWSRequest CreateStorediSCSIVolume where
     type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateStorediSCSIVolumeResponse
-        <$> o .: "TargetARN"
-        <*> o .: "VolumeARN"
-        <*> o .: "VolumeSizeInBytes"
+    response = jsonResponse
+
+instance FromJSON CreateStorediSCSIVolumeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateStorediSCSIVolume where
+    toPath = const "/"
+
+instance ToHeaders CreateStorediSCSIVolume
+
+instance ToQuery CreateStorediSCSIVolume where
+    toQuery = const mempty
+
+instance ToJSON CreateStorediSCSIVolume where
+    toJSON = genericToJSON jsonOptions

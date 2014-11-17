@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.GetRecords
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,7 +76,7 @@ module Network.AWS.Kinesis.GetRecords
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -113,17 +113,6 @@ grLimit = lens _grLimit (\s a -> s { _grLimit = a })
 grShardIterator :: Lens' GetRecords Text
 grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
 
-instance ToPath GetRecords where
-    toPath = const "/"
-
-instance ToQuery GetRecords where
-    toQuery = const mempty
-
-instance ToHeaders GetRecords
-
-instance ToBody GetRecords where
-    toBody = toBody . encode . _grShardIterator
-
 data GetRecordsResponse = GetRecordsResponse
     { _grrNextShardIterator :: Maybe Text
     , _grrRecords           :: [Record]
@@ -159,6 +148,18 @@ instance AWSRequest GetRecords where
     type Rs GetRecords = GetRecordsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetRecordsResponse
-        <$> o .: "NextShardIterator"
-        <*> o .: "Records"
+    response = jsonResponse
+
+instance FromJSON GetRecordsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetRecords where
+    toPath = const "/"
+
+instance ToHeaders GetRecords
+
+instance ToQuery GetRecords where
+    toQuery = const mempty
+
+instance ToJSON GetRecords where
+    toJSON = genericToJSON jsonOptions

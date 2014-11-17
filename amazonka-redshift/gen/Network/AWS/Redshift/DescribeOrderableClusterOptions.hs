@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeOrderableClusterOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -110,11 +110,6 @@ docoMaxRecords = lens _docoMaxRecords (\s a -> s { _docoMaxRecords = a })
 docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 
-instance ToQuery DescribeOrderableClusterOptions
-
-instance ToPath DescribeOrderableClusterOptions where
-    toPath = const "/"
-
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorMarker                  :: Maybe Text
     , _docorOrderableClusterOptions :: [OrderableClusterOption]
@@ -155,10 +150,15 @@ instance AWSRequest DescribeOrderableClusterOptions where
     type Rs DescribeOrderableClusterOptions = DescribeOrderableClusterOptionsResponse
 
     request  = post "DescribeOrderableClusterOptions"
-    response = xmlResponse $ \h x -> DescribeOrderableClusterOptionsResponse
-        <$> x %| "Marker"
-        <*> x %| "OrderableClusterOptions"
+    response = xmlResponse
 
-instance AWSPager DescribeOrderableClusterOptions where
-    next rq rs = (\x -> rq & docoMarker ?~ x)
-        <$> (rs ^. docorMarker)
+instance FromXML DescribeOrderableClusterOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeOrderableClusterOptionsResponse"
+
+instance ToPath DescribeOrderableClusterOptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeOrderableClusterOptions
+
+instance ToQuery DescribeOrderableClusterOptions

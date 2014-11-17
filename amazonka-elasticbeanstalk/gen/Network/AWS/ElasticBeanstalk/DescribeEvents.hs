@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEvents
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -168,11 +168,6 @@ deTemplateName = lens _deTemplateName (\s a -> s { _deTemplateName = a })
 deVersionLabel :: Lens' DescribeEvents (Maybe Text)
 deVersionLabel = lens _deVersionLabel (\s a -> s { _deVersionLabel = a })
 
-instance ToQuery DescribeEvents
-
-instance ToPath DescribeEvents where
-    toPath = const "/"
-
 data DescribeEventsResponse = DescribeEventsResponse
     { _derEvents    :: [EventDescription]
     , _derNextToken :: Maybe Text
@@ -207,10 +202,15 @@ instance AWSRequest DescribeEvents where
     type Rs DescribeEvents = DescribeEventsResponse
 
     request  = post "DescribeEvents"
-    response = xmlResponse $ \h x -> DescribeEventsResponse
-        <$> x %| "Events"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq & deNextToken ?~ x)
-        <$> (rs ^. derNextToken)
+instance FromXML DescribeEventsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEventsResponse"
+
+instance ToPath DescribeEvents where
+    toPath = const "/"
+
+instance ToHeaders DescribeEvents
+
+instance ToQuery DescribeEvents

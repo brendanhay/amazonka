@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.DescribeKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.KMS.DescribeKey
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ describeKey p1 = DescribeKey
 -- an ARN, an alias, or a globally unique identifier.
 dk1KeyId :: Lens' DescribeKey Text
 dk1KeyId = lens _dk1KeyId (\s a -> s { _dk1KeyId = a })
-
-instance ToPath DescribeKey where
-    toPath = const "/"
-
-instance ToQuery DescribeKey where
-    toQuery = const mempty
-
-instance ToHeaders DescribeKey
-
-instance ToBody DescribeKey where
-    toBody = toBody . encode . _dk1KeyId
 
 newtype DescribeKeyResponse = DescribeKeyResponse
     { _dkrKeyMetadata :: Maybe KeyMetadata
@@ -97,5 +86,18 @@ instance AWSRequest DescribeKey where
     type Rs DescribeKey = DescribeKeyResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeKeyResponse
-        <$> o .: "KeyMetadata"
+    response = jsonResponse
+
+instance FromJSON DescribeKeyResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeKey where
+    toPath = const "/"
+
+instance ToHeaders DescribeKey
+
+instance ToQuery DescribeKey where
+    toQuery = const mempty
+
+instance ToJSON DescribeKey where
+    toJSON = genericToJSON jsonOptions

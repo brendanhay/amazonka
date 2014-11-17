@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.StopConfigurationRecorder
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.Config.StopConfigurationRecorder
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ scrConfigurationRecorderName =
     lens _scrConfigurationRecorderName
         (\s a -> s { _scrConfigurationRecorderName = a })
 
-instance ToPath StopConfigurationRecorder where
-    toPath = const "/"
-
-instance ToQuery StopConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToHeaders StopConfigurationRecorder
-
-instance ToBody StopConfigurationRecorder where
-    toBody = toBody . encode . _scrConfigurationRecorderName
-
 data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest StopConfigurationRecorder where
     type Rs StopConfigurationRecorder = StopConfigurationRecorderResponse
 
     request  = post
-    response = nullaryResponse StopConfigurationRecorderResponse
+    response = nullResponse StopConfigurationRecorderResponse
+
+instance ToPath StopConfigurationRecorder where
+    toPath = const "/"
+
+instance ToHeaders StopConfigurationRecorder
+
+instance ToQuery StopConfigurationRecorder where
+    toQuery = const mempty
+
+instance ToJSON StopConfigurationRecorder where
+    toJSON = genericToJSON jsonOptions

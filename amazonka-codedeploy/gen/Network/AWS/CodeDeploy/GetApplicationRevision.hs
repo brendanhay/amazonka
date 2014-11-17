@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetApplicationRevision
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ garApplicationName =
 -- revision's type and its location.
 garRevision :: Lens' GetApplicationRevision RevisionLocation
 garRevision = lens _garRevision (\s a -> s { _garRevision = a })
-
-instance ToPath GetApplicationRevision where
-    toPath = const "/"
-
-instance ToQuery GetApplicationRevision where
-    toQuery = const mempty
-
-instance ToHeaders GetApplicationRevision
-
-instance ToBody GetApplicationRevision where
-    toBody = toBody . encode . _garApplicationName
 
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse
     { _garrApplicationName :: Maybe Text
@@ -128,7 +117,18 @@ instance AWSRequest GetApplicationRevision where
     type Rs GetApplicationRevision = GetApplicationRevisionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetApplicationRevisionResponse
-        <$> o .: "applicationName"
-        <*> o .: "revision"
-        <*> o .: "revisionInfo"
+    response = jsonResponse
+
+instance FromJSON GetApplicationRevisionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetApplicationRevision where
+    toPath = const "/"
+
+instance ToHeaders GetApplicationRevision
+
+instance ToQuery GetApplicationRevision where
+    toQuery = const mempty
+
+instance ToJSON GetApplicationRevision where
+    toJSON = genericToJSON jsonOptions

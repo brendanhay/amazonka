@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetSAMLProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,11 +66,6 @@ gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderArn =
     lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
 
-instance ToQuery GetSAMLProvider
-
-instance ToPath GetSAMLProvider where
-    toPath = const "/"
-
 data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprCreateDate           :: Maybe RFC822
     , _gsamlprSAMLMetadataDocument :: Maybe Text
@@ -118,7 +113,15 @@ instance AWSRequest GetSAMLProvider where
     type Rs GetSAMLProvider = GetSAMLProviderResponse
 
     request  = post "GetSAMLProvider"
-    response = xmlResponse $ \h x -> GetSAMLProviderResponse
-        <$> x %| "CreateDate"
-        <*> x %| "SAMLMetadataDocument"
-        <*> x %| "ValidUntil"
+    response = xmlResponse
+
+instance FromXML GetSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSAMLProviderResponse"
+
+instance ToPath GetSAMLProvider where
+    toPath = const "/"
+
+instance ToHeaders GetSAMLProvider
+
+instance ToQuery GetSAMLProvider

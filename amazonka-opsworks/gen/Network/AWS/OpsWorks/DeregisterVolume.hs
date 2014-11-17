@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.OpsWorks.DeregisterVolume
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ deregisterVolume p1 = DeregisterVolume
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
-instance ToPath DeregisterVolume where
-    toPath = const "/"
-
-instance ToQuery DeregisterVolume where
-    toQuery = const mempty
-
-instance ToHeaders DeregisterVolume
-
-instance ToBody DeregisterVolume where
-    toBody = toBody . encode . _dvVolumeId
-
 data DeregisterVolumeResponse = DeregisterVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +76,15 @@ instance AWSRequest DeregisterVolume where
     type Rs DeregisterVolume = DeregisterVolumeResponse
 
     request  = post
-    response = nullaryResponse DeregisterVolumeResponse
+    response = nullResponse DeregisterVolumeResponse
+
+instance ToPath DeregisterVolume where
+    toPath = const "/"
+
+instance ToHeaders DeregisterVolume
+
+instance ToQuery DeregisterVolume where
+    toQuery = const mempty
+
+instance ToJSON DeregisterVolume where
+    toJSON = genericToJSON jsonOptions

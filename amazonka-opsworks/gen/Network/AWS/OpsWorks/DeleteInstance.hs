@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DeleteInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ diDeleteVolumes = lens _diDeleteVolumes (\s a -> s { _diDeleteVolumes = a })
 diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
 
-instance ToPath DeleteInstance where
-    toPath = const "/"
-
-instance ToQuery DeleteInstance where
-    toQuery = const mempty
-
-instance ToHeaders DeleteInstance
-
-instance ToBody DeleteInstance where
-    toBody = toBody . encode . _diInstanceId
-
 data DeleteInstanceResponse = DeleteInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -106,4 +95,15 @@ instance AWSRequest DeleteInstance where
     type Rs DeleteInstance = DeleteInstanceResponse
 
     request  = post
-    response = nullaryResponse DeleteInstanceResponse
+    response = nullResponse DeleteInstanceResponse
+
+instance ToPath DeleteInstance where
+    toPath = const "/"
+
+instance ToHeaders DeleteInstance
+
+instance ToQuery DeleteInstance where
+    toQuery = const mempty
+
+instance ToJSON DeleteInstance where
+    toJSON = genericToJSON jsonOptions

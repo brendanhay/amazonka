@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.ReceiveMessage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -152,11 +152,6 @@ rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
 rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
 
-instance ToQuery ReceiveMessage
-
-instance ToPath ReceiveMessage where
-    toPath = const "/"
-
 newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: [Message]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -187,5 +182,15 @@ instance AWSRequest ReceiveMessage where
     type Rs ReceiveMessage = ReceiveMessageResponse
 
     request  = post "ReceiveMessage"
-    response = xmlResponse $ \h x -> ReceiveMessageResponse
-        <$> x %| "Messages"
+    response = xmlResponse
+
+instance FromXML ReceiveMessageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReceiveMessageResponse"
+
+instance ToPath ReceiveMessage where
+    toPath = const "/"
+
+instance ToHeaders ReceiveMessage
+
+instance ToQuery ReceiveMessage

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribePolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
 dp1PolicyNames :: Lens' DescribePolicies [Text]
 dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a })
 
-instance ToQuery DescribePolicies
-
-instance ToPath DescribePolicies where
-    toPath = const "/"
-
 data DescribePoliciesResponse = DescribePoliciesResponse
     { _dprNextToken       :: Maybe Text
     , _dprScalingPolicies :: [ScalingPolicy]
@@ -135,10 +130,15 @@ instance AWSRequest DescribePolicies where
     type Rs DescribePolicies = DescribePoliciesResponse
 
     request  = post "DescribePolicies"
-    response = xmlResponse $ \h x -> DescribePoliciesResponse
-        <$> x %| "NextToken"
-        <*> x %| "ScalingPolicies"
+    response = xmlResponse
 
-instance AWSPager DescribePolicies where
-    next rq rs = (\x -> rq & dp1NextToken ?~ x)
-        <$> (rs ^. dprNextToken)
+instance FromXML DescribePoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribePoliciesResponse"
+
+instance ToPath DescribePolicies where
+    toPath = const "/"
+
+instance ToHeaders DescribePolicies
+
+instance ToQuery DescribePolicies

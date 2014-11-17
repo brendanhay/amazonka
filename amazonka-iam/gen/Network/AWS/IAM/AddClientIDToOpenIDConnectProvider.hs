@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ acidtoidcpOpenIDConnectProviderArn =
     lens _acidtoidcpOpenIDConnectProviderArn
         (\s a -> s { _acidtoidcpOpenIDConnectProviderArn = a })
 
-instance ToQuery AddClientIDToOpenIDConnectProvider
-
-instance ToPath AddClientIDToOpenIDConnectProvider where
-    toPath = const "/"
-
 data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +90,11 @@ instance AWSRequest AddClientIDToOpenIDConnectProvider where
     type Rs AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProviderResponse
 
     request  = post "AddClientIDToOpenIDConnectProvider"
-    response = nullaryResponse AddClientIDToOpenIDConnectProviderResponse
+    response = nullResponse AddClientIDToOpenIDConnectProviderResponse
+
+instance ToPath AddClientIDToOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToHeaders AddClientIDToOpenIDConnectProvider
+
+instance ToQuery AddClientIDToOpenIDConnectProvider

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteCustomerGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dcg1CustomerGatewayId =
 dcg1DryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcg1DryRun = lens _dcg1DryRun (\s a -> s { _dcg1DryRun = a })
 
-instance ToQuery DeleteCustomerGateway
-
-instance ToPath DeleteCustomerGateway where
-    toPath = const "/"
-
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteCustomerGateway where
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
     request  = post "DeleteCustomerGateway"
-    response = nullaryResponse DeleteCustomerGatewayResponse
+    response = nullResponse DeleteCustomerGatewayResponse
+
+instance ToPath DeleteCustomerGateway where
+    toPath = const "/"
+
+instance ToHeaders DeleteCustomerGateway
+
+instance ToQuery DeleteCustomerGateway

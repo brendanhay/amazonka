@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketLifecycle
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ getBucketLifecycle p1 = GetBucketLifecycle
 
 gbl1Bucket :: Lens' GetBucketLifecycle Text
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
-
-instance ToPath GetBucketLifecycle where
-    toPath GetBucketLifecycle{..} = mconcat
-        [ "/"
-        , toText _gbl1Bucket
-        ]
-
-instance ToQuery GetBucketLifecycle where
-    toQuery = const "lifecycle"
-
-instance ToHeaders GetBucketLifecycle
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules :: [Rule]
@@ -100,5 +89,23 @@ instance AWSRequest GetBucketLifecycle where
     type Rs GetBucketLifecycle = GetBucketLifecycleResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketLifecycleResponse
-        <$> x %| "Rule"
+    response = xmlResponse
+
+instance FromXML GetBucketLifecycleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketLifecycleResponse"
+
+instance ToPath GetBucketLifecycle where
+    toPath GetBucketLifecycle{..} = mconcat
+        [ "/"
+        , toText _gbl1Bucket
+        ]
+
+instance ToHeaders GetBucketLifecycle
+
+instance ToQuery GetBucketLifecycle where
+    toQuery = const "lifecycle"
+
+instance ToXML GetBucketLifecycle where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketLifecycle"

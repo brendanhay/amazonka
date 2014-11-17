@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstanceStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -179,11 +179,6 @@ disMaxResults = lens _disMaxResults (\s a -> s { _disMaxResults = a })
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
 
-instance ToQuery DescribeInstanceStatus
-
-instance ToPath DescribeInstanceStatus where
-    toPath = const "/"
-
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken        :: Maybe Text
@@ -217,10 +212,15 @@ instance AWSRequest DescribeInstanceStatus where
     type Rs DescribeInstanceStatus = DescribeInstanceStatusResponse
 
     request  = post "DescribeInstanceStatus"
-    response = xmlResponse $ \h x -> DescribeInstanceStatusResponse
-        <$> x %| "instanceStatusSet"
-        <*> x %| "nextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeInstanceStatus where
-    next rq rs = (\x -> rq & disNextToken ?~ x)
-        <$> (rs ^. disrNextToken)
+instance FromXML DescribeInstanceStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInstanceStatusResponse"
+
+instance ToPath DescribeInstanceStatus where
+    toPath = const "/"
+
+instance ToHeaders DescribeInstanceStatus
+
+instance ToQuery DescribeInstanceStatus

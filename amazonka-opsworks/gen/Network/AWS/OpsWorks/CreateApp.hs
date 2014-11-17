@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateApp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.OpsWorks.CreateApp
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -164,17 +164,6 @@ caStackId = lens _caStackId (\s a -> s { _caStackId = a })
 caType :: Lens' CreateApp Text
 caType = lens _caType (\s a -> s { _caType = a })
 
-instance ToPath CreateApp where
-    toPath = const "/"
-
-instance ToQuery CreateApp where
-    toQuery = const mempty
-
-instance ToHeaders CreateApp
-
-instance ToBody CreateApp where
-    toBody = toBody . encode . _caStackId
-
 newtype CreateAppResponse = CreateAppResponse
     { _carAppId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -199,5 +188,18 @@ instance AWSRequest CreateApp where
     type Rs CreateApp = CreateAppResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateAppResponse
-        <$> o .: "AppId"
+    response = jsonResponse
+
+instance FromJSON CreateAppResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateApp where
+    toPath = const "/"
+
+instance ToHeaders CreateApp
+
+instance ToQuery CreateApp where
+    toQuery = const mempty
+
+instance ToJSON CreateApp where
+    toJSON = genericToJSON jsonOptions

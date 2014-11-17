@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ cvpcPeerVpcId = lens _cvpcPeerVpcId (\s a -> s { _cvpcPeerVpcId = a })
 cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
 
-instance ToQuery CreateVpcPeeringConnection
-
-instance ToPath CreateVpcPeeringConnection where
-    toPath = const "/"
-
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Eq, Show, Generic)
@@ -126,5 +121,15 @@ instance AWSRequest CreateVpcPeeringConnection where
     type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResponse
 
     request  = post "CreateVpcPeeringConnection"
-    response = xmlResponse $ \h x -> CreateVpcPeeringConnectionResponse
-        <$> x %| "vpcPeeringConnection"
+    response = xmlResponse
+
+instance FromXML CreateVpcPeeringConnectionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResponse"
+
+instance ToPath CreateVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToHeaders CreateVpcPeeringConnection
+
+instance ToQuery CreateVpcPeeringConnection

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.BuildSuggesters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ buildSuggesters p1 = BuildSuggesters
 bsDomainName :: Lens' BuildSuggesters Text
 bsDomainName = lens _bsDomainName (\s a -> s { _bsDomainName = a })
 
-instance ToQuery BuildSuggesters
-
-instance ToPath BuildSuggesters where
-    toPath = const "/"
-
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -95,5 +90,15 @@ instance AWSRequest BuildSuggesters where
     type Rs BuildSuggesters = BuildSuggestersResponse
 
     request  = post "BuildSuggesters"
-    response = xmlResponse $ \h x -> BuildSuggestersResponse
-        <$> x %| "FieldNames"
+    response = xmlResponse
+
+instance FromXML BuildSuggestersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "BuildSuggestersResponse"
+
+instance ToPath BuildSuggesters where
+    toPath = const "/"
+
+instance ToHeaders BuildSuggesters
+
+instance ToQuery BuildSuggesters

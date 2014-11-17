@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -99,11 +99,6 @@ dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
-instance ToQuery DescribeClusterSecurityGroups
-
-instance ToPath DescribeClusterSecurityGroups where
-    toPath = const "/"
-
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgr1ClusterSecurityGroups :: [ClusterSecurityGroup]
     , _dcsgr1Marker                :: Maybe Text
@@ -143,10 +138,15 @@ instance AWSRequest DescribeClusterSecurityGroups where
     type Rs DescribeClusterSecurityGroups = DescribeClusterSecurityGroupsResponse
 
     request  = post "DescribeClusterSecurityGroups"
-    response = xmlResponse $ \h x -> DescribeClusterSecurityGroupsResponse
-        <$> x %| "ClusterSecurityGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeClusterSecurityGroups where
-    next rq rs = (\x -> rq & dcsgMarker ?~ x)
-        <$> (rs ^. dcsgr1Marker)
+instance FromXML DescribeClusterSecurityGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClusterSecurityGroupsResponse"
+
+instance ToPath DescribeClusterSecurityGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusterSecurityGroups
+
+instance ToQuery DescribeClusterSecurityGroups

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.ListRecords
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,7 +56,7 @@ module Network.AWS.CognitoSync.ListRecords
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -135,27 +135,6 @@ lrNextToken = lens _lrNextToken (\s a -> s { _lrNextToken = a })
 lrSyncSessionToken :: Lens' ListRecords (Maybe Text)
 lrSyncSessionToken =
     lens _lrSyncSessionToken (\s a -> s { _lrSyncSessionToken = a })
-
-instance ToPath ListRecords where
-    toPath ListRecords{..} = mconcat
-        [ "/identitypools/"
-        , toText _lrIdentityPoolId
-        , "/identities/"
-        , toText _lrIdentityId
-        , "/datasets/"
-        , toText _lrDatasetName
-        , "/records"
-        ]
-
-instance ToQuery ListRecords where
-    toQuery ListRecords{..} = mconcat
-        [ "lastSyncCount"    =? _lrLastSyncCount
-        , "nextToken"        =? _lrNextToken
-        , "maxResults"       =? _lrMaxResults
-        , "syncSessionToken" =? _lrSyncSessionToken
-        ]
-
-instance ToHeaders ListRecords
 
 data ListRecordsResponse = ListRecordsResponse
     { _lrrCount                                 :: Maybe Int
@@ -251,13 +230,31 @@ instance AWSRequest ListRecords where
     type Rs ListRecords = ListRecordsResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListRecordsResponse
-        <$> o .: "Count"
-        <*> o .: "DatasetDeletedAfterRequestedSyncCount"
-        <*> o .: "DatasetExists"
-        <*> o .: "DatasetSyncCount"
-        <*> o .: "LastModifiedBy"
-        <*> o .: "MergedDatasetNames"
-        <*> o .: "NextToken"
-        <*> o .: "Records"
-        <*> o .: "SyncSessionToken"
+    response = jsonResponse
+
+instance FromJSON ListRecordsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListRecords where
+    toPath ListRecords{..} = mconcat
+        [ "/identitypools/"
+        , toText _lrIdentityPoolId
+        , "/identities/"
+        , toText _lrIdentityId
+        , "/datasets/"
+        , toText _lrDatasetName
+        , "/records"
+        ]
+
+instance ToHeaders ListRecords
+
+instance ToQuery ListRecords where
+    toQuery ListRecords{..} = mconcat
+        [ "lastSyncCount"    =? _lrLastSyncCount
+        , "nextToken"        =? _lrNextToken
+        , "maxResults"       =? _lrMaxResults
+        , "syncSessionToken" =? _lrSyncSessionToken
+        ]
+
+instance ToJSON ListRecords where
+    toJSON = genericToJSON jsonOptions

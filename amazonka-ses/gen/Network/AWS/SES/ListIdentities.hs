@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.ListIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 
-instance ToQuery ListIdentities
-
-instance ToPath ListIdentities where
-    toPath = const "/"
-
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: [Text]
     , _lirNextToken  :: Maybe Text
@@ -121,10 +116,15 @@ instance AWSRequest ListIdentities where
     type Rs ListIdentities = ListIdentitiesResponse
 
     request  = post "ListIdentities"
-    response = xmlResponse $ \h x -> ListIdentitiesResponse
-        <$> x %| "Identities"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager ListIdentities where
-    next rq rs = (\x -> rq & liNextToken ?~ x)
-        <$> (rs ^. lirNextToken)
+instance FromXML ListIdentitiesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListIdentitiesResponse"
+
+instance ToPath ListIdentities where
+    toPath = const "/"
+
+instance ToHeaders ListIdentities
+
+instance ToQuery ListIdentities

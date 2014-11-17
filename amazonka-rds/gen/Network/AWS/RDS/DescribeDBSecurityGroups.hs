@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSecurityGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ ddbsg1Marker = lens _ddbsg1Marker (\s a -> s { _ddbsg1Marker = a })
 ddbsg1MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
 ddbsg1MaxRecords = lens _ddbsg1MaxRecords (\s a -> s { _ddbsg1MaxRecords = a })
 
-instance ToQuery DescribeDBSecurityGroups
-
-instance ToPath DescribeDBSecurityGroups where
-    toPath = const "/"
-
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgr1DBSecurityGroups :: [DBSecurityGroup]
     , _ddbsgr1Marker           :: Maybe Text
@@ -138,10 +133,15 @@ instance AWSRequest DescribeDBSecurityGroups where
     type Rs DescribeDBSecurityGroups = DescribeDBSecurityGroupsResponse
 
     request  = post "DescribeDBSecurityGroups"
-    response = xmlResponse $ \h x -> DescribeDBSecurityGroupsResponse
-        <$> x %| "DBSecurityGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBSecurityGroups where
-    next rq rs = (\x -> rq & ddbsg1Marker ?~ x)
-        <$> (rs ^. ddbsgr1Marker)
+instance FromXML DescribeDBSecurityGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBSecurityGroupsResponse"
+
+instance ToPath DescribeDBSecurityGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBSecurityGroups
+
+instance ToQuery DescribeDBSecurityGroups

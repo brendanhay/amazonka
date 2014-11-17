@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.InvokeAsync
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.Lambda.InvokeAsync
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -75,21 +75,6 @@ iaFunctionName = lens _iaFunctionName (\s a -> s { _iaFunctionName = a })
 iaInvokeArgs :: Lens' InvokeAsync Base64
 iaInvokeArgs = lens _iaInvokeArgs (\s a -> s { _iaInvokeArgs = a })
 
-instance ToPath InvokeAsync where
-    toPath InvokeAsync{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _iaFunctionName
-        , "/invoke-async/"
-        ]
-
-instance ToQuery InvokeAsync where
-    toQuery = const mempty
-
-instance ToHeaders InvokeAsync
-
-instance ToBody InvokeAsync where
-    toBody = toBody . encode . _iaInvokeArgs
-
 newtype InvokeAsyncResponse = InvokeAsyncResponse
     { _iarStatus :: Int
     } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
@@ -115,5 +100,22 @@ instance AWSRequest InvokeAsync where
     type Rs InvokeAsync = InvokeAsyncResponse
 
     request  = post
-    response = jsonResponse $ \h o -> InvokeAsyncResponse
-        <$> o .: "Status"
+    response = jsonResponse
+
+instance FromJSON InvokeAsyncResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath InvokeAsync where
+    toPath InvokeAsync{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _iaFunctionName
+        , "/invoke-async/"
+        ]
+
+instance ToHeaders InvokeAsync
+
+instance ToQuery InvokeAsync where
+    toQuery = const mempty
+
+instance ToJSON InvokeAsync where
+    toJSON = genericToJSON jsonOptions

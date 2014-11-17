@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListInstanceProfilesForRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
 
-instance ToQuery ListInstanceProfilesForRole
-
-instance ToPath ListInstanceProfilesForRole where
-    toPath = const "/"
-
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
     , _lipfrrIsTruncated      :: Maybe Bool
@@ -143,13 +138,15 @@ instance AWSRequest ListInstanceProfilesForRole where
     type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse
 
     request  = post "ListInstanceProfilesForRole"
-    response = xmlResponse $ \h x -> ListInstanceProfilesForRoleResponse
-        <$> x %| "InstanceProfiles"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListInstanceProfilesForRole where
-    next rq rs
-        | not (more (rs ^. lipfrrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lipfrMarker .~ rs ^. lipfrrMarker
+instance FromXML ListInstanceProfilesForRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListInstanceProfilesForRoleResponse"
+
+instance ToPath ListInstanceProfilesForRole where
+    toPath = const "/"
+
+instance ToHeaders ListInstanceProfilesForRole
+
+instance ToQuery ListInstanceProfilesForRole

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ vcsOptionSettings =
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
-instance ToQuery ValidateConfigurationSettings
-
-instance ToPath ValidateConfigurationSettings where
-    toPath = const "/"
-
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages :: [ValidationMessage]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -132,5 +127,15 @@ instance AWSRequest ValidateConfigurationSettings where
     type Rs ValidateConfigurationSettings = ValidateConfigurationSettingsResponse
 
     request  = post "ValidateConfigurationSettings"
-    response = xmlResponse $ \h x -> ValidateConfigurationSettingsResponse
-        <$> x %| "Messages"
+    response = xmlResponse
+
+instance FromXML ValidateConfigurationSettingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ValidateConfigurationSettingsResponse"
+
+instance ToPath ValidateConfigurationSettings where
+    toPath = const "/"
+
+instance ToHeaders ValidateConfigurationSettings
+
+instance ToQuery ValidateConfigurationSettings

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -86,17 +86,6 @@ dtrpLimit = lens _dtrpLimit (\s a -> s { _dtrpLimit = a })
 -- the virtual tape recovery points.
 dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
 dtrpMarker = lens _dtrpMarker (\s a -> s { _dtrpMarker = a })
-
-instance ToPath DescribeTapeRecoveryPoints where
-    toPath = const "/"
-
-instance ToQuery DescribeTapeRecoveryPoints where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTapeRecoveryPoints
-
-instance ToBody DescribeTapeRecoveryPoints where
-    toBody = toBody . encode . _dtrpGatewayARN
 
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     { _dtrprGatewayARN             :: Maybe Text
@@ -144,7 +133,18 @@ instance AWSRequest DescribeTapeRecoveryPoints where
     type Rs DescribeTapeRecoveryPoints = DescribeTapeRecoveryPointsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTapeRecoveryPointsResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "Marker"
-        <*> o .: "TapeRecoveryPointInfos"
+    response = jsonResponse
+
+instance FromJSON DescribeTapeRecoveryPointsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTapeRecoveryPoints where
+    toPath = const "/"
+
+instance ToHeaders DescribeTapeRecoveryPoints
+
+instance ToQuery DescribeTapeRecoveryPoints where
+    toQuery = const mempty
+
+instance ToJSON DescribeTapeRecoveryPoints where
+    toJSON = genericToJSON jsonOptions

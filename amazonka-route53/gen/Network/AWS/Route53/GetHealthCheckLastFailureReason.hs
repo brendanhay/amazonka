@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckLastFailureReason
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -65,18 +65,6 @@ getHealthCheckLastFailureReason p1 = GetHealthCheckLastFailureReason
 ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
 ghclfrHealthCheckId =
     lens _ghclfrHealthCheckId (\s a -> s { _ghclfrHealthCheckId = a })
-
-instance ToPath GetHealthCheckLastFailureReason where
-    toPath GetHealthCheckLastFailureReason{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _ghclfrHealthCheckId
-        , "/lastfailurereason"
-        ]
-
-instance ToQuery GetHealthCheckLastFailureReason where
-    toQuery = const mempty
-
-instance ToHeaders GetHealthCheckLastFailureReason
 
 newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse
     { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
@@ -111,5 +99,24 @@ instance AWSRequest GetHealthCheckLastFailureReason where
     type Rs GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReasonResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetHealthCheckLastFailureReasonResponse
-        <$> x %| "HealthCheckObservations"
+    response = xmlResponse
+
+instance FromXML GetHealthCheckLastFailureReasonResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetHealthCheckLastFailureReasonResponse"
+
+instance ToPath GetHealthCheckLastFailureReason where
+    toPath GetHealthCheckLastFailureReason{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _ghclfrHealthCheckId
+        , "/lastfailurereason"
+        ]
+
+instance ToHeaders GetHealthCheckLastFailureReason
+
+instance ToQuery GetHealthCheckLastFailureReason where
+    toQuery = const mempty
+
+instance ToXML GetHealthCheckLastFailureReason where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHealthCheckLastFailureReason"

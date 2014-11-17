@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribeObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.DataPipeline.DescribeObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -100,17 +100,6 @@ doObjectIds = lens _doObjectIds (\s a -> s { _doObjectIds = a })
 doPipelineId :: Lens' DescribeObjects Text
 doPipelineId = lens _doPipelineId (\s a -> s { _doPipelineId = a })
 
-instance ToPath DescribeObjects where
-    toPath = const "/"
-
-instance ToQuery DescribeObjects where
-    toQuery = const mempty
-
-instance ToHeaders DescribeObjects
-
-instance ToBody DescribeObjects where
-    toBody = toBody . encode . _doPipelineId
-
 data DescribeObjectsResponse = DescribeObjectsResponse
     { _dorHasMoreResults  :: Maybe Bool
     , _dorMarker          :: Maybe Text
@@ -155,7 +144,18 @@ instance AWSRequest DescribeObjects where
     type Rs DescribeObjects = DescribeObjectsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeObjectsResponse
-        <$> o .: "hasMoreResults"
-        <*> o .: "marker"
-        <*> o .: "pipelineObjects"
+    response = jsonResponse
+
+instance FromJSON DescribeObjectsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeObjects where
+    toPath = const "/"
+
+instance ToHeaders DescribeObjects
+
+instance ToQuery DescribeObjects where
+    toQuery = const mempty
+
+instance ToJSON DescribeObjects where
+    toJSON = genericToJSON jsonOptions

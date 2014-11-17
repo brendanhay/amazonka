@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.GetApplication
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ gaApplicationName :: Lens' GetApplication Text
 gaApplicationName =
     lens _gaApplicationName (\s a -> s { _gaApplicationName = a })
 
-instance ToPath GetApplication where
-    toPath = const "/"
-
-instance ToQuery GetApplication where
-    toQuery = const mempty
-
-instance ToHeaders GetApplication
-
-instance ToBody GetApplication where
-    toBody = toBody . encode . _gaApplicationName
-
 newtype GetApplicationResponse = GetApplicationResponse
     { _garApplication :: Maybe ApplicationInfo
     } deriving (Eq, Show, Generic)
@@ -98,5 +87,18 @@ instance AWSRequest GetApplication where
     type Rs GetApplication = GetApplicationResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetApplicationResponse
-        <$> o .: "application"
+    response = jsonResponse
+
+instance FromJSON GetApplicationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetApplication where
+    toPath = const "/"
+
+instance ToHeaders GetApplication
+
+instance ToQuery GetApplication where
+    toQuery = const mempty
+
+instance ToJSON GetApplication where
+    toJSON = genericToJSON jsonOptions

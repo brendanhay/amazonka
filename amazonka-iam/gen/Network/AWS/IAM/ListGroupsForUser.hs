@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListGroupsForUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
 
-instance ToQuery ListGroupsForUser
-
-instance ToPath ListGroupsForUser where
-    toPath = const "/"
-
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups      :: [Group]
     , _lgfurIsTruncated :: Maybe Bool
@@ -136,13 +131,15 @@ instance AWSRequest ListGroupsForUser where
     type Rs ListGroupsForUser = ListGroupsForUserResponse
 
     request  = post "ListGroupsForUser"
-    response = xmlResponse $ \h x -> ListGroupsForUserResponse
-        <$> x %| "Groups"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListGroupsForUser where
-    next rq rs
-        | not (more (rs ^. lgfurIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lgfuMarker .~ rs ^. lgfurMarker
+instance FromXML ListGroupsForUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGroupsForUserResponse"
+
+instance ToPath ListGroupsForUser where
+    toPath = const "/"
+
+instance ToHeaders ListGroupsForUser
+
+instance ToQuery ListGroupsForUser

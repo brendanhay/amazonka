@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteSuggester
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
 ds3SuggesterName :: Lens' DeleteSuggester Text
 ds3SuggesterName = lens _ds3SuggesterName (\s a -> s { _ds3SuggesterName = a })
 
-instance ToQuery DeleteSuggester
-
-instance ToPath DeleteSuggester where
-    toPath = const "/"
-
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsr1Suggester :: SuggesterStatus
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest DeleteSuggester where
     type Rs DeleteSuggester = DeleteSuggesterResponse
 
     request  = post "DeleteSuggester"
-    response = xmlResponse $ \h x -> DeleteSuggesterResponse
-        <$> x %| "Suggester"
+    response = xmlResponse
+
+instance FromXML DeleteSuggesterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSuggesterResponse"
+
+instance ToPath DeleteSuggester where
+    toPath = const "/"
+
+instance ToHeaders DeleteSuggester
+
+instance ToQuery DeleteSuggester

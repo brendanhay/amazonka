@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteSnapshotSchedule
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
 
 dss1VolumeARN :: Lens' DeleteSnapshotSchedule Text
 dss1VolumeARN = lens _dss1VolumeARN (\s a -> s { _dss1VolumeARN = a })
-
-instance ToPath DeleteSnapshotSchedule where
-    toPath = const "/"
-
-instance ToQuery DeleteSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToHeaders DeleteSnapshotSchedule
-
-instance ToBody DeleteSnapshotSchedule where
-    toBody = toBody . encode . _dss1VolumeARN
 
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssr1VolumeARN :: Maybe Text
@@ -98,5 +87,18 @@ instance AWSRequest DeleteSnapshotSchedule where
     type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteSnapshotScheduleResponse
-        <$> o .: "VolumeARN"
+    response = jsonResponse
+
+instance FromJSON DeleteSnapshotScheduleResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteSnapshotSchedule where
+    toPath = const "/"
+
+instance ToHeaders DeleteSnapshotSchedule
+
+instance ToQuery DeleteSnapshotSchedule where
+    toQuery = const mempty
+
+instance ToJSON DeleteSnapshotSchedule where
+    toJSON = genericToJSON jsonOptions

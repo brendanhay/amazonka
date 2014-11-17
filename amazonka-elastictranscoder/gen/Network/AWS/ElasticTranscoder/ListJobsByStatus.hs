@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -88,20 +88,6 @@ ljbsPageToken = lens _ljbsPageToken (\s a -> s { _ljbsPageToken = a })
 ljbsStatus :: Lens' ListJobsByStatus Text
 ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
 
-instance ToPath ListJobsByStatus where
-    toPath ListJobsByStatus{..} = mconcat
-        [ "/2012-09-25/jobsByStatus/"
-        , toText _ljbsStatus
-        ]
-
-instance ToQuery ListJobsByStatus where
-    toQuery ListJobsByStatus{..} = mconcat
-        [ "Ascending" =? _ljbsAscending
-        , "PageToken" =? _ljbsPageToken
-        ]
-
-instance ToHeaders ListJobsByStatus
-
 data ListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs          :: [Job']
     , _ljbsrNextPageToken :: Maybe Job'
@@ -138,6 +124,24 @@ instance AWSRequest ListJobsByStatus where
     type Rs ListJobsByStatus = ListJobsByStatusResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListJobsByStatusResponse
-        <$> o .: "Jobs"
-        <*> o .: "NextPageToken"
+    response = jsonResponse
+
+instance FromJSON ListJobsByStatusResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListJobsByStatus where
+    toPath ListJobsByStatus{..} = mconcat
+        [ "/2012-09-25/jobsByStatus/"
+        , toText _ljbsStatus
+        ]
+
+instance ToHeaders ListJobsByStatus
+
+instance ToQuery ListJobsByStatus where
+    toQuery ListJobsByStatus{..} = mconcat
+        [ "Ascending" =? _ljbsAscending
+        , "PageToken" =? _ljbsPageToken
+        ]
+
+instance ToJSON ListJobsByStatus where
+    toJSON = genericToJSON jsonOptions

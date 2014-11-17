@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterRdsDbInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.RegisterRdsDbInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -90,17 +90,6 @@ rrdiRdsDbInstanceArn =
 rrdiStackId :: Lens' RegisterRdsDbInstance Text
 rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
 
-instance ToPath RegisterRdsDbInstance where
-    toPath = const "/"
-
-instance ToQuery RegisterRdsDbInstance where
-    toQuery = const mempty
-
-instance ToHeaders RegisterRdsDbInstance
-
-instance ToBody RegisterRdsDbInstance where
-    toBody = toBody . encode . _rrdiStackId
-
 data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -113,4 +102,15 @@ instance AWSRequest RegisterRdsDbInstance where
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse
 
     request  = post
-    response = nullaryResponse RegisterRdsDbInstanceResponse
+    response = nullResponse RegisterRdsDbInstanceResponse
+
+instance ToPath RegisterRdsDbInstance where
+    toPath = const "/"
+
+instance ToHeaders RegisterRdsDbInstance
+
+instance ToQuery RegisterRdsDbInstance where
+    toQuery = const mempty
+
+instance ToJSON RegisterRdsDbInstance where
+    toJSON = genericToJSON jsonOptions

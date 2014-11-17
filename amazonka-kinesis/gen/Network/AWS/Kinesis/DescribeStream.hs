@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.DescribeStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,7 +54,7 @@ module Network.AWS.Kinesis.DescribeStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -97,17 +97,6 @@ ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a })
 ds1StreamName :: Lens' DescribeStream Text
 ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
 
-instance ToPath DescribeStream where
-    toPath = const "/"
-
-instance ToQuery DescribeStream where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStream
-
-instance ToBody DescribeStream where
-    toBody = toBody . encode . _ds1StreamName
-
 newtype DescribeStreamResponse = DescribeStreamResponse
     { _dsrStreamDescription :: StreamDescription
     } deriving (Eq, Show, Generic)
@@ -136,5 +125,18 @@ instance AWSRequest DescribeStream where
     type Rs DescribeStream = DescribeStreamResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeStreamResponse
-        <$> o .: "StreamDescription"
+    response = jsonResponse
+
+instance FromJSON DescribeStreamResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeStream where
+    toPath = const "/"
+
+instance ToHeaders DescribeStream
+
+instance ToQuery DescribeStream where
+    toQuery = const mempty
+
+instance ToJSON DescribeStream where
+    toJSON = genericToJSON jsonOptions

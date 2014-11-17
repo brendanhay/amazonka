@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotPriceHistory
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -163,11 +163,6 @@ dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeSpotPriceHistory
-
-instance ToPath DescribeSpotPriceHistory where
-    toPath = const "/"
-
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrNextToken        :: Maybe Text
     , _dsphrSpotPriceHistory :: [SpotPrice]
@@ -202,10 +197,15 @@ instance AWSRequest DescribeSpotPriceHistory where
     type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResponse
 
     request  = post "DescribeSpotPriceHistory"
-    response = xmlResponse $ \h x -> DescribeSpotPriceHistoryResponse
-        <$> x %| "nextToken"
-        <*> x %| "spotPriceHistorySet"
+    response = xmlResponse
 
-instance AWSPager DescribeSpotPriceHistory where
-    next rq rs = (\x -> rq & dsphNextToken ?~ x)
-        <$> (rs ^. dsphrNextToken)
+instance FromXML DescribeSpotPriceHistoryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResponse"
+
+instance ToPath DescribeSpotPriceHistory where
+    toPath = const "/"
+
+instance ToHeaders DescribeSpotPriceHistory
+
+instance ToQuery DescribeSpotPriceHistory

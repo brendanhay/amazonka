@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.UpdateKeyDescription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.KMS.UpdateKeyDescription
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ ukdDescription = lens _ukdDescription (\s a -> s { _ukdDescription = a })
 ukdKeyId :: Lens' UpdateKeyDescription Text
 ukdKeyId = lens _ukdKeyId (\s a -> s { _ukdKeyId = a })
 
-instance ToPath UpdateKeyDescription where
-    toPath = const "/"
-
-instance ToQuery UpdateKeyDescription where
-    toQuery = const mempty
-
-instance ToHeaders UpdateKeyDescription
-
-instance ToBody UpdateKeyDescription where
-    toBody = toBody . encode . _ukdKeyId
-
 data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +79,15 @@ instance AWSRequest UpdateKeyDescription where
     type Rs UpdateKeyDescription = UpdateKeyDescriptionResponse
 
     request  = post
-    response = nullaryResponse UpdateKeyDescriptionResponse
+    response = nullResponse UpdateKeyDescriptionResponse
+
+instance ToPath UpdateKeyDescription where
+    toPath = const "/"
+
+instance ToHeaders UpdateKeyDescription
+
+instance ToQuery UpdateKeyDescription where
+    toQuery = const mempty
+
+instance ToJSON UpdateKeyDescription where
+    toJSON = genericToJSON jsonOptions

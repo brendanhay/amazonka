@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.GetStreamingDistributionConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -61,18 +61,6 @@ getStreamingDistributionConfig p1 = GetStreamingDistributionConfig
 -- | The streaming distribution's id.
 gsdcId :: Lens' GetStreamingDistributionConfig Text
 gsdcId = lens _gsdcId (\s a -> s { _gsdcId = a })
-
-instance ToPath GetStreamingDistributionConfig where
-    toPath GetStreamingDistributionConfig{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toText _gsdcId
-        , "/config"
-        ]
-
-instance ToQuery GetStreamingDistributionConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetStreamingDistributionConfig
 
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrETag                        :: Maybe Text
@@ -108,6 +96,22 @@ instance AWSRequest GetStreamingDistributionConfig where
     type Rs GetStreamingDistributionConfig = GetStreamingDistributionConfigResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetStreamingDistributionConfigResponse
-        <$> h ~:? "ETag"
+    response = xmlHeaderResponse $ \h x -> GetStreamingDistributionConfigResponse
+        <*> h ~:? "ETag"
         <*> x %| "StreamingDistributionConfig"
+
+instance ToPath GetStreamingDistributionConfig where
+    toPath GetStreamingDistributionConfig{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _gsdcId
+        , "/config"
+        ]
+
+instance ToHeaders GetStreamingDistributionConfig
+
+instance ToQuery GetStreamingDistributionConfig where
+    toQuery = const mempty
+
+instance ToXML GetStreamingDistributionConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetStreamingDistributionConfig"

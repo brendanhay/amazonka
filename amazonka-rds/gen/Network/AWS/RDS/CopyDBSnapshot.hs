@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CopyDBSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ cdbsTargetDBSnapshotIdentifier =
     lens _cdbsTargetDBSnapshotIdentifier
         (\s a -> s { _cdbsTargetDBSnapshotIdentifier = a })
 
-instance ToQuery CopyDBSnapshot
-
-instance ToPath CopyDBSnapshot where
-    toPath = const "/"
-
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
     } deriving (Eq, Show, Generic)
@@ -122,5 +117,15 @@ instance AWSRequest CopyDBSnapshot where
     type Rs CopyDBSnapshot = CopyDBSnapshotResponse
 
     request  = post "CopyDBSnapshot"
-    response = xmlResponse $ \h x -> CopyDBSnapshotResponse
-        <$> x %| "DBSnapshot"
+    response = xmlResponse
+
+instance FromXML CopyDBSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyDBSnapshotResponse"
+
+instance ToPath CopyDBSnapshot where
+    toPath = const "/"
+
+instance ToHeaders CopyDBSnapshot
+
+instance ToQuery CopyDBSnapshot

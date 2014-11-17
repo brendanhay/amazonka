@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ mdbpgDBParameterGroupName =
 mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
 
-instance ToQuery ModifyDBParameterGroup
-
-instance ToPath ModifyDBParameterGroup where
-    toPath = const "/"
-
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -122,5 +117,15 @@ instance AWSRequest ModifyDBParameterGroup where
     type Rs ModifyDBParameterGroup = ModifyDBParameterGroupResponse
 
     request  = post "ModifyDBParameterGroup"
-    response = xmlResponse $ \h x -> ModifyDBParameterGroupResponse
-        <$> x %| "DBParameterGroupName"
+    response = xmlResponse
+
+instance FromXML ModifyDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyDBParameterGroupResponse"
+
+instance ToPath ModifyDBParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyDBParameterGroup
+
+instance ToQuery ModifyDBParameterGroup

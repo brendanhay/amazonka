@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.GetTrailStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.CloudTrail.GetTrailStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ getTrailStatus p1 = GetTrailStatus
 -- | The name of the trail for which you are requesting the current status.
 gtsName :: Lens' GetTrailStatus Text
 gtsName = lens _gtsName (\s a -> s { _gtsName = a })
-
-instance ToPath GetTrailStatus where
-    toPath = const "/"
-
-instance ToQuery GetTrailStatus where
-    toQuery = const mempty
-
-instance ToHeaders GetTrailStatus
-
-instance ToBody GetTrailStatus where
-    toBody = toBody . encode . _gtsName
 
 data GetTrailStatusResponse = GetTrailStatusResponse
     { _gtsrIsLogging                         :: Maybe Bool
@@ -198,13 +187,18 @@ instance AWSRequest GetTrailStatus where
     type Rs GetTrailStatus = GetTrailStatusResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetTrailStatusResponse
-        <$> o .: "IsLogging"
-        <*> o .: "LatestCloudWatchLogsDeliveryError"
-        <*> o .: "LatestCloudWatchLogsDeliveryTime"
-        <*> o .: "LatestDeliveryError"
-        <*> o .: "LatestDeliveryTime"
-        <*> o .: "LatestNotificationError"
-        <*> o .: "LatestNotificationTime"
-        <*> o .: "StartLoggingTime"
-        <*> o .: "StopLoggingTime"
+    response = jsonResponse
+
+instance FromJSON GetTrailStatusResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetTrailStatus where
+    toPath = const "/"
+
+instance ToHeaders GetTrailStatus
+
+instance ToQuery GetTrailStatus where
+    toQuery = const mempty
+
+instance ToJSON GetTrailStatus where
+    toJSON = genericToJSON jsonOptions

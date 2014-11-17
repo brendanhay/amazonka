@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.Decrypt
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.KMS.Decrypt
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -86,17 +86,6 @@ dEncryptionContext =
 dGrantTokens :: Lens' Decrypt [Text]
 dGrantTokens = lens _dGrantTokens (\s a -> s { _dGrantTokens = a })
 
-instance ToPath Decrypt where
-    toPath = const "/"
-
-instance ToQuery Decrypt where
-    toQuery = const mempty
-
-instance ToHeaders Decrypt
-
-instance ToBody Decrypt where
-    toBody = toBody . encode . _dCiphertextBlob
-
 data DecryptResponse = DecryptResponse
     { _drKeyId     :: Maybe Text
     , _drPlaintext :: Maybe Base64
@@ -131,6 +120,18 @@ instance AWSRequest Decrypt where
     type Rs Decrypt = DecryptResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DecryptResponse
-        <$> o .: "KeyId"
-        <*> o .: "Plaintext"
+    response = jsonResponse
+
+instance FromJSON DecryptResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath Decrypt where
+    toPath = const "/"
+
+instance ToHeaders Decrypt
+
+instance ToQuery Decrypt where
+    toQuery = const mempty
+
+instance ToJSON Decrypt where
+    toJSON = genericToJSON jsonOptions

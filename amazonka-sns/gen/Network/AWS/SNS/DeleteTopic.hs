@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.DeleteTopic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ deleteTopic p1 = DeleteTopic
 dtTopicArn :: Lens' DeleteTopic Text
 dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
 
-instance ToQuery DeleteTopic
-
-instance ToPath DeleteTopic where
-    toPath = const "/"
-
 data DeleteTopicResponse = DeleteTopicResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -79,4 +74,11 @@ instance AWSRequest DeleteTopic where
     type Rs DeleteTopic = DeleteTopicResponse
 
     request  = post "DeleteTopic"
-    response = nullaryResponse DeleteTopicResponse
+    response = nullResponse DeleteTopicResponse
+
+instance ToPath DeleteTopic where
+    toPath = const "/"
+
+instance ToHeaders DeleteTopic
+
+instance ToQuery DeleteTopic

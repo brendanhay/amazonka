@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.ListKeys
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.KMS.ListKeys
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ lkLimit = lens _lkLimit (\s a -> s { _lkLimit = a })
 -- Set it to the value of the NextMarker in the response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\s a -> s { _lkMarker = a })
-
-instance ToPath ListKeys where
-    toPath = const "/"
-
-instance ToQuery ListKeys where
-    toQuery = const mempty
-
-instance ToHeaders ListKeys
-
-instance ToBody ListKeys where
-    toBody = toBody . encode . _lkLimit
 
 data ListKeysResponse = ListKeysResponse
     { _lkrKeys       :: [KeyListEntry]
@@ -131,7 +120,18 @@ instance AWSRequest ListKeys where
     type Rs ListKeys = ListKeysResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListKeysResponse
-        <$> o .: "Keys"
-        <*> o .: "NextMarker"
-        <*> o .: "Truncated"
+    response = jsonResponse
+
+instance FromJSON ListKeysResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListKeys where
+    toPath = const "/"
+
+instance ToHeaders ListKeys
+
+instance ToQuery ListKeys where
+    toQuery = const mempty
+
+instance ToJSON ListKeys where
+    toJSON = genericToJSON jsonOptions

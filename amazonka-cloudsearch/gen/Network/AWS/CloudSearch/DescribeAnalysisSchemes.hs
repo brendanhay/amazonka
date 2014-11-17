@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAnalysisSchemes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ das1Deployed = lens _das1Deployed (\s a -> s { _das1Deployed = a })
 das1DomainName :: Lens' DescribeAnalysisSchemes Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
 
-instance ToQuery DescribeAnalysisSchemes
-
-instance ToPath DescribeAnalysisSchemes where
-    toPath = const "/"
-
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -123,5 +118,15 @@ instance AWSRequest DescribeAnalysisSchemes where
     type Rs DescribeAnalysisSchemes = DescribeAnalysisSchemesResponse
 
     request  = post "DescribeAnalysisSchemes"
-    response = xmlResponse $ \h x -> DescribeAnalysisSchemesResponse
-        <$> x %| "AnalysisSchemes"
+    response = xmlResponse
+
+instance FromXML DescribeAnalysisSchemesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAnalysisSchemesResponse"
+
+instance ToPath DescribeAnalysisSchemes where
+    toPath = const "/"
+
+instance ToHeaders DescribeAnalysisSchemes
+
+instance ToQuery DescribeAnalysisSchemes

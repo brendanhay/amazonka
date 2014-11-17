@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -58,17 +58,6 @@ deleteBucketCors p1 = DeleteBucketCors
 dbcBucket :: Lens' DeleteBucketCors Text
 dbcBucket = lens _dbcBucket (\s a -> s { _dbcBucket = a })
 
-instance ToPath DeleteBucketCors where
-    toPath DeleteBucketCors{..} = mconcat
-        [ "/"
-        , toText _dbcBucket
-        ]
-
-instance ToQuery DeleteBucketCors where
-    toQuery = const "cors"
-
-instance ToHeaders DeleteBucketCors
-
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -81,4 +70,19 @@ instance AWSRequest DeleteBucketCors where
     type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
     request  = delete
-    response = nullaryResponse DeleteBucketCorsResponse
+    response = nullResponse DeleteBucketCorsResponse
+
+instance ToPath DeleteBucketCors where
+    toPath DeleteBucketCors{..} = mconcat
+        [ "/"
+        , toText _dbcBucket
+        ]
+
+instance ToHeaders DeleteBucketCors
+
+instance ToQuery DeleteBucketCors where
+    toQuery = const "cors"
+
+instance ToXML DeleteBucketCors where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteBucketCors"

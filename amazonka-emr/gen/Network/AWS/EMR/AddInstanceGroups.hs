@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.AddInstanceGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.EMR.AddInstanceGroups
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ aigInstanceGroups =
 -- | Job flow in which to add the instance groups.
 aigJobFlowId :: Lens' AddInstanceGroups Text
 aigJobFlowId = lens _aigJobFlowId (\s a -> s { _aigJobFlowId = a })
-
-instance ToPath AddInstanceGroups where
-    toPath = const "/"
-
-instance ToQuery AddInstanceGroups where
-    toQuery = const mempty
-
-instance ToHeaders AddInstanceGroups
-
-instance ToBody AddInstanceGroups where
-    toBody = toBody . encode . _aigInstanceGroups
 
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
     { _aigrInstanceGroupIds :: [Text]
@@ -116,6 +105,18 @@ instance AWSRequest AddInstanceGroups where
     type Rs AddInstanceGroups = AddInstanceGroupsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddInstanceGroupsResponse
-        <$> o .: "InstanceGroupIds"
-        <*> o .: "JobFlowId"
+    response = jsonResponse
+
+instance FromJSON AddInstanceGroupsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddInstanceGroups where
+    toPath = const "/"
+
+instance ToHeaders AddInstanceGroups
+
+instance ToQuery AddInstanceGroups where
+    toQuery = const mempty
+
+instance ToJSON AddInstanceGroups where
+    toJSON = genericToJSON jsonOptions

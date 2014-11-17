@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.GetFunction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.Lambda.GetFunction
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ getFunction p1 = GetFunction
 -- | The Lambda function name.
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\s a -> s { _gfFunctionName = a })
-
-instance ToPath GetFunction where
-    toPath GetFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _gfFunctionName
-        ]
-
-instance ToQuery GetFunction where
-    toQuery = const mempty
-
-instance ToHeaders GetFunction
 
 data GetFunctionResponse = GetFunctionResponse
     { _gfrCode          :: Maybe FunctionCodeLocation
@@ -108,6 +97,21 @@ instance AWSRequest GetFunction where
     type Rs GetFunction = GetFunctionResponse
 
     request  = get
-    response = jsonResponse $ \h o -> GetFunctionResponse
-        <$> o .: "Code"
-        <*> o .: "Configuration"
+    response = jsonResponse
+
+instance FromJSON GetFunctionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetFunction where
+    toPath GetFunction{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _gfFunctionName
+        ]
+
+instance ToHeaders GetFunction
+
+instance ToQuery GetFunction where
+    toQuery = const mempty
+
+instance ToJSON GetFunction where
+    toJSON = genericToJSON jsonOptions

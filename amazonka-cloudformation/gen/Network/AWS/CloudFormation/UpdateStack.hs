@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.UpdateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -212,11 +212,6 @@ usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
 usUsePreviousTemplate =
     lens _usUsePreviousTemplate (\s a -> s { _usUsePreviousTemplate = a })
 
-instance ToQuery UpdateStack
-
-instance ToPath UpdateStack where
-    toPath = const "/"
-
 newtype UpdateStackResponse = UpdateStackResponse
     { _usrStackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -241,5 +236,15 @@ instance AWSRequest UpdateStack where
     type Rs UpdateStack = UpdateStackResponse
 
     request  = post "UpdateStack"
-    response = xmlResponse $ \h x -> UpdateStackResponse
-        <$> x %| "StackId"
+    response = xmlResponse
+
+instance FromXML UpdateStackResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateStackResponse"
+
+instance ToPath UpdateStack where
+    toPath = const "/"
+
+instance ToHeaders UpdateStack
+
+instance ToQuery UpdateStack

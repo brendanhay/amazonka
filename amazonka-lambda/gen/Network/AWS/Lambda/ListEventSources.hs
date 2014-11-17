@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.ListEventSources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.Lambda.ListEventSources
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -96,19 +96,6 @@ lesMaxItems :: Lens' ListEventSources (Maybe Natural)
 lesMaxItems = lens _lesMaxItems (\s a -> s { _lesMaxItems = a })
     . mapping _Nat
 
-instance ToPath ListEventSources where
-    toPath = const "/2014-11-13/event-source-mappings/"
-
-instance ToQuery ListEventSources where
-    toQuery ListEventSources{..} = mconcat
-        [ "EventSource"  =? _lesEventSourceArn
-        , "FunctionName" =? _lesFunctionName
-        , "Marker"       =? _lesMarker
-        , "MaxItems"     =? _lesMaxItems
-        ]
-
-instance ToHeaders ListEventSources
-
 data ListEventSourcesResponse = ListEventSourcesResponse
     { _lesrEventSources :: [EventSourceConfiguration]
     , _lesrNextMarker   :: Maybe Text
@@ -141,6 +128,14 @@ instance AWSRequest ListEventSources where
     type Rs ListEventSources = ListEventSourcesResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListEventSourcesResponse
-        <$> o .: "EventSources"
-        <*> o .: "NextMarker"
+    response = jsonResponse
+
+instance FromJSON ListEventSourcesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListEventSources where
+    toPath = const "/2014-11-13/event-source-mappings/"
+
+instance ToHeaders ListEventSources
+
+instance ToQuery ListEventSources

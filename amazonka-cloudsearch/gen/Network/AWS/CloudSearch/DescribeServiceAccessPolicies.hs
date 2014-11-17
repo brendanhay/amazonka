@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
 dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
 
-instance ToQuery DescribeServiceAccessPolicies
-
-instance ToPath DescribeServiceAccessPolicies where
-    toPath = const "/"
-
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
     } deriving (Eq, Show, Generic)
@@ -107,5 +102,15 @@ instance AWSRequest DescribeServiceAccessPolicies where
     type Rs DescribeServiceAccessPolicies = DescribeServiceAccessPoliciesResponse
 
     request  = post "DescribeServiceAccessPolicies"
-    response = xmlResponse $ \h x -> DescribeServiceAccessPoliciesResponse
-        <$> x %| "AccessPolicies"
+    response = xmlResponse
+
+instance FromXML DescribeServiceAccessPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeServiceAccessPoliciesResponse"
+
+instance ToPath DescribeServiceAccessPolicies where
+    toPath = const "/"
+
+instance ToHeaders DescribeServiceAccessPolicies
+
+instance ToQuery DescribeServiceAccessPolicies

@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.CloudTrail.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.CloudTrail.Types
       CloudTrail
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * Trail
     , Trail
@@ -36,6 +40,7 @@ module Network.AWS.CloudTrail.Types
     , tSnsTopicName
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -57,6 +62,11 @@ instance AWSService CloudTrail where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text
@@ -135,6 +145,8 @@ tS3KeyPrefix = lens _tS3KeyPrefix (\s a -> s { _tS3KeyPrefix = a })
 tSnsTopicName :: Lens' Trail (Maybe Text)
 tSnsTopicName = lens _tSnsTopicName (\s a -> s { _tSnsTopicName = a })
 
-instance FromJSON Trail
+instance FromJSON Trail where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Trail
+instance ToJSON Trail where
+    toJSON = genericToJSON jsonOptions

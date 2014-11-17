@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.GetItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,7 +49,7 @@ module Network.AWS.DynamoDB.GetItem
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -161,17 +161,6 @@ giReturnConsumedCapacity =
 giTableName :: Lens' GetItem Text
 giTableName = lens _giTableName (\s a -> s { _giTableName = a })
 
-instance ToPath GetItem where
-    toPath = const "/"
-
-instance ToQuery GetItem where
-    toQuery = const mempty
-
-instance ToHeaders GetItem
-
-instance ToBody GetItem where
-    toBody = toBody . encode . _giTableName
-
 data GetItemResponse = GetItemResponse
     { _girConsumedCapacity :: Maybe ConsumedCapacity
     , _girItem             :: Map Text AttributeValue
@@ -206,6 +195,18 @@ instance AWSRequest GetItem where
     type Rs GetItem = GetItemResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetItemResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Item"
+    response = jsonResponse
+
+instance FromJSON GetItemResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetItem where
+    toPath = const "/"
+
+instance ToHeaders GetItem
+
+instance ToQuery GetItem where
+    toQuery = const mempty
+
+instance ToJSON GetItem where
+    toJSON = genericToJSON jsonOptions

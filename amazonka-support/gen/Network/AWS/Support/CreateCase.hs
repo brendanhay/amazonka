@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.CreateCase
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,7 +69,7 @@ module Network.AWS.Support.CreateCase
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -168,17 +168,6 @@ ccSeverityCode = lens _ccSeverityCode (\s a -> s { _ccSeverityCode = a })
 ccSubject :: Lens' CreateCase Text
 ccSubject = lens _ccSubject (\s a -> s { _ccSubject = a })
 
-instance ToPath CreateCase where
-    toPath = const "/"
-
-instance ToQuery CreateCase where
-    toQuery = const mempty
-
-instance ToHeaders CreateCase
-
-instance ToBody CreateCase where
-    toBody = toBody . encode . _ccSubject
-
 newtype CreateCaseResponse = CreateCaseResponse
     { _ccrCaseId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -205,5 +194,18 @@ instance AWSRequest CreateCase where
     type Rs CreateCase = CreateCaseResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateCaseResponse
-        <$> o .: "caseId"
+    response = jsonResponse
+
+instance FromJSON CreateCaseResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateCase where
+    toPath = const "/"
+
+instance ToHeaders CreateCase
+
+instance ToQuery CreateCase where
+    toQuery = const mempty
+
+instance ToJSON CreateCase where
+    toJSON = genericToJSON jsonOptions

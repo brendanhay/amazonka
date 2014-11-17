@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.DeleteReusableDelegationSet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ deleteReusableDelegationSet p1 = DeleteReusableDelegationSet
 drdsId :: Lens' DeleteReusableDelegationSet Text
 drdsId = lens _drdsId (\s a -> s { _drdsId = a })
 
-instance ToPath DeleteReusableDelegationSet where
-    toPath DeleteReusableDelegationSet{..} = mconcat
-        [ "/2013-04-01/delegationset/"
-        , toText _drdsId
-        ]
-
-instance ToQuery DeleteReusableDelegationSet where
-    toQuery = const mempty
-
-instance ToHeaders DeleteReusableDelegationSet
-
 data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +78,19 @@ instance AWSRequest DeleteReusableDelegationSet where
     type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse
 
     request  = delete
-    response = nullaryResponse DeleteReusableDelegationSetResponse
+    response = nullResponse DeleteReusableDelegationSetResponse
+
+instance ToPath DeleteReusableDelegationSet where
+    toPath DeleteReusableDelegationSet{..} = mconcat
+        [ "/2013-04-01/delegationset/"
+        , toText _drdsId
+        ]
+
+instance ToHeaders DeleteReusableDelegationSet
+
+instance ToQuery DeleteReusableDelegationSet where
+    toQuery = const mempty
+
+instance ToXML DeleteReusableDelegationSet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteReusableDelegationSet"

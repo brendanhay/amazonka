@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames =
     lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })
 
-instance ToQuery SetLoadBalancerPoliciesForBackendServer
-
-instance ToPath SetLoadBalancerPoliciesForBackendServer where
-    toPath = const "/"
-
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -110,4 +105,11 @@ instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
 
     request  = post "SetLoadBalancerPoliciesForBackendServer"
-    response = nullaryResponse SetLoadBalancerPoliciesForBackendServerResponse
+    response = nullResponse SetLoadBalancerPoliciesForBackendServerResponse
+
+instance ToPath SetLoadBalancerPoliciesForBackendServer where
+    toPath = const "/"
+
+instance ToHeaders SetLoadBalancerPoliciesForBackendServer
+
+instance ToQuery SetLoadBalancerPoliciesForBackendServer

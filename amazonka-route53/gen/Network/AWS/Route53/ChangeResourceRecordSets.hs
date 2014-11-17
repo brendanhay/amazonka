@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,7 +57,7 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -91,21 +91,6 @@ crrsChangeBatch = lens _crrsChangeBatch (\s a -> s { _crrsChangeBatch = a })
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
 crrsHostedZoneId = lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 
-instance ToPath ChangeResourceRecordSets where
-    toPath ChangeResourceRecordSets{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _crrsHostedZoneId
-        , "/rrset/"
-        ]
-
-instance ToQuery ChangeResourceRecordSets where
-    toQuery = const mempty
-
-instance ToHeaders ChangeResourceRecordSets
-
-instance ToBody ChangeResourceRecordSets where
-    toBody = toBody . encodeXML . _crrsChangeBatch
-
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
     } deriving (Eq, Show, Generic)
@@ -133,5 +118,24 @@ instance AWSRequest ChangeResourceRecordSets where
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
 
     request  = post
-    response = xmlResponse $ \h x -> ChangeResourceRecordSetsResponse
-        <$> x %| "ChangeInfo"
+    response = xmlResponse
+
+instance FromXML ChangeResourceRecordSetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeResourceRecordSetsResponse"
+
+instance ToPath ChangeResourceRecordSets where
+    toPath ChangeResourceRecordSets{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _crrsHostedZoneId
+        , "/rrset/"
+        ]
+
+instance ToHeaders ChangeResourceRecordSets
+
+instance ToQuery ChangeResourceRecordSets where
+    toQuery = const mempty
+
+instance ToXML ChangeResourceRecordSets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeResourceRecordSets"

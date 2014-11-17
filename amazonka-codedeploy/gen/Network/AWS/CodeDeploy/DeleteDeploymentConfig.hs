@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName =
     lens _ddcDeploymentConfigName (\s a -> s { _ddcDeploymentConfigName = a })
 
-instance ToPath DeleteDeploymentConfig where
-    toPath = const "/"
-
-instance ToQuery DeleteDeploymentConfig where
-    toQuery = const mempty
-
-instance ToHeaders DeleteDeploymentConfig
-
-instance ToBody DeleteDeploymentConfig where
-    toBody = toBody . encode . _ddcDeploymentConfigName
-
 data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest DeleteDeploymentConfig where
     type Rs DeleteDeploymentConfig = DeleteDeploymentConfigResponse
 
     request  = post
-    response = nullaryResponse DeleteDeploymentConfigResponse
+    response = nullResponse DeleteDeploymentConfigResponse
+
+instance ToPath DeleteDeploymentConfig where
+    toPath = const "/"
+
+instance ToHeaders DeleteDeploymentConfig
+
+instance ToQuery DeleteDeploymentConfig where
+    toQuery = const mempty
+
+instance ToJSON DeleteDeploymentConfig where
+    toJSON = genericToJSON jsonOptions

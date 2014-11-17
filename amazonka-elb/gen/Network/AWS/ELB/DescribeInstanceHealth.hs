@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DescribeInstanceHealth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
 dihLoadBalancerName =
     lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
 
-instance ToQuery DescribeInstanceHealth
-
-instance ToPath DescribeInstanceHealth where
-    toPath = const "/"
-
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates :: [InstanceState]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -111,5 +106,15 @@ instance AWSRequest DescribeInstanceHealth where
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
 
     request  = post "DescribeInstanceHealth"
-    response = xmlResponse $ \h x -> DescribeInstanceHealthResponse
-        <$> x %| "InstanceStates"
+    response = xmlResponse
+
+instance FromXML DescribeInstanceHealthResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInstanceHealthResponse"
+
+instance ToPath DescribeInstanceHealth where
+    toPath = const "/"
+
+instance ToHeaders DescribeInstanceHealth
+
+instance ToQuery DescribeInstanceHealth

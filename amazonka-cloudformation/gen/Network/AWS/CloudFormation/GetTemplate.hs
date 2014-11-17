@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.GetTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,11 +67,6 @@ getTemplate p1 = GetTemplate
 gtStackName :: Lens' GetTemplate Text
 gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
 
-instance ToQuery GetTemplate
-
-instance ToPath GetTemplate where
-    toPath = const "/"
-
 newtype GetTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -97,5 +92,15 @@ instance AWSRequest GetTemplate where
     type Rs GetTemplate = GetTemplateResponse
 
     request  = post "GetTemplate"
-    response = xmlResponse $ \h x -> GetTemplateResponse
-        <$> x %| "TemplateBody"
+    response = xmlResponse
+
+instance FromXML GetTemplateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetTemplateResponse"
+
+instance ToPath GetTemplate where
+    toPath = const "/"
+
+instance ToHeaders GetTemplate
+
+instance ToQuery GetTemplate

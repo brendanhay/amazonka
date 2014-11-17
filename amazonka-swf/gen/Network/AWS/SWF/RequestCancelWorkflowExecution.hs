@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -91,17 +91,6 @@ rcweRunId = lens _rcweRunId (\s a -> s { _rcweRunId = a })
 rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
 rcweWorkflowId = lens _rcweWorkflowId (\s a -> s { _rcweWorkflowId = a })
 
-instance ToPath RequestCancelWorkflowExecution where
-    toPath = const "/"
-
-instance ToQuery RequestCancelWorkflowExecution where
-    toQuery = const mempty
-
-instance ToHeaders RequestCancelWorkflowExecution
-
-instance ToBody RequestCancelWorkflowExecution where
-    toBody = toBody . encode . _rcweDomain
-
 data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -114,4 +103,15 @@ instance AWSRequest RequestCancelWorkflowExecution where
     type Rs RequestCancelWorkflowExecution = RequestCancelWorkflowExecutionResponse
 
     request  = post
-    response = nullaryResponse RequestCancelWorkflowExecutionResponse
+    response = nullResponse RequestCancelWorkflowExecutionResponse
+
+instance ToPath RequestCancelWorkflowExecution where
+    toPath = const "/"
+
+instance ToHeaders RequestCancelWorkflowExecution
+
+instance ToQuery RequestCancelWorkflowExecution where
+    toQuery = const mempty
+
+instance ToJSON RequestCancelWorkflowExecution where
+    toJSON = genericToJSON jsonOptions

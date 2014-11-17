@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.DeletePreset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ deletePreset p1 = DeletePreset
 dpId :: Lens' DeletePreset Text
 dpId = lens _dpId (\s a -> s { _dpId = a })
 
-instance ToPath DeletePreset where
-    toPath DeletePreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toText _dpId
-        ]
-
-instance ToQuery DeletePreset where
-    toQuery = const mempty
-
-instance ToHeaders DeletePreset
-
 data DeletePresetResponse = DeletePresetResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,18 @@ instance AWSRequest DeletePreset where
     type Rs DeletePreset = DeletePresetResponse
 
     request  = delete
-    response = nullaryResponse DeletePresetResponse
+    response = nullResponse DeletePresetResponse
+
+instance ToPath DeletePreset where
+    toPath DeletePreset{..} = mconcat
+        [ "/2012-09-25/presets/"
+        , toText _dpId
+        ]
+
+instance ToHeaders DeletePreset
+
+instance ToQuery DeletePreset where
+    toQuery = const mempty
+
+instance ToJSON DeletePreset where
+    toJSON = genericToJSON jsonOptions

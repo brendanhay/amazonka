@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.CreateJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -96,11 +96,6 @@ cjManifestAddendum =
 cjValidateOnly :: Lens' CreateJob Bool
 cjValidateOnly = lens _cjValidateOnly (\s a -> s { _cjValidateOnly = a })
 
-instance ToQuery CreateJob
-
-instance ToPath CreateJob where
-    toPath = const "/"
-
 data CreateJobResponse = CreateJobResponse
     { _cjrAwsShippingAddress    :: Maybe Text
     , _cjrJobId                 :: Maybe Text
@@ -163,10 +158,15 @@ instance AWSRequest CreateJob where
     type Rs CreateJob = CreateJobResponse
 
     request  = post "CreateJob"
-    response = xmlResponse $ \h x -> CreateJobResponse
-        <$> x %| "AwsShippingAddress"
-        <*> x %| "JobId"
-        <*> x %| "JobType"
-        <*> x %| "Signature"
-        <*> x %| "SignatureFileContents"
-        <*> x %| "WarningMessage"
+    response = xmlResponse
+
+instance FromXML CreateJobResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateJobResponse"
+
+instance ToPath CreateJob where
+    toPath = const "/"
+
+instance ToHeaders CreateJob
+
+instance ToQuery CreateJob

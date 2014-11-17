@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.SetQueueAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
 sqaQueueUrl :: Lens' SetQueueAttributes Text
 sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
 
-instance ToQuery SetQueueAttributes
-
-instance ToPath SetQueueAttributes where
-    toPath = const "/"
-
 data SetQueueAttributesResponse = SetQueueAttributesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -112,4 +107,11 @@ instance AWSRequest SetQueueAttributes where
     type Rs SetQueueAttributes = SetQueueAttributesResponse
 
     request  = post "SetQueueAttributes"
-    response = nullaryResponse SetQueueAttributesResponse
+    response = nullResponse SetQueueAttributesResponse
+
+instance ToPath SetQueueAttributes where
+    toPath = const "/"
+
+instance ToHeaders SetQueueAttributes
+
+instance ToQuery SetQueueAttributes

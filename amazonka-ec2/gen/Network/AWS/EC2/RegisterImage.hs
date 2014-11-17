@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.RegisterImage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -171,11 +171,6 @@ ri1VirtualizationType :: Lens' RegisterImage (Maybe Text)
 ri1VirtualizationType =
     lens _ri1VirtualizationType (\s a -> s { _ri1VirtualizationType = a })
 
-instance ToQuery RegisterImage
-
-instance ToPath RegisterImage where
-    toPath = const "/"
-
 newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -200,5 +195,15 @@ instance AWSRequest RegisterImage where
     type Rs RegisterImage = RegisterImageResponse
 
     request  = post "RegisterImage"
-    response = xmlResponse $ \h x -> RegisterImageResponse
-        <$> x %| "imageId"
+    response = xmlResponse
+
+instance FromXML RegisterImageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RegisterImageResponse"
+
+instance ToPath RegisterImage where
+    toPath = const "/"
+
+instance ToHeaders RegisterImage
+
+instance ToQuery RegisterImage

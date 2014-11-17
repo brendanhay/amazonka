@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DetachLoadBalancerFromSubnets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ dlbfsLoadBalancerName =
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a })
 
-instance ToQuery DetachLoadBalancerFromSubnets
-
-instance ToPath DetachLoadBalancerFromSubnets where
-    toPath = const "/"
-
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { _dlbfsrSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -112,5 +107,15 @@ instance AWSRequest DetachLoadBalancerFromSubnets where
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
 
     request  = post "DetachLoadBalancerFromSubnets"
-    response = xmlResponse $ \h x -> DetachLoadBalancerFromSubnetsResponse
-        <$> x %| "Subnets"
+    response = xmlResponse
+
+instance FromXML DetachLoadBalancerFromSubnetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachLoadBalancerFromSubnetsResponse"
+
+instance ToPath DetachLoadBalancerFromSubnets where
+    toPath = const "/"
+
+instance ToHeaders DetachLoadBalancerFromSubnets
+
+instance ToQuery DetachLoadBalancerFromSubnets

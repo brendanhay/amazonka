@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSubscriptionName =
     lens _rsifsSubscriptionName (\s a -> s { _rsifsSubscriptionName = a })
 
-instance ToQuery RemoveSourceIdentifierFromSubscription
-
-instance ToPath RemoveSourceIdentifierFromSubscription where
-    toPath = const "/"
-
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
@@ -105,5 +100,15 @@ instance AWSRequest RemoveSourceIdentifierFromSubscription where
     type Rs RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscriptionResponse
 
     request  = post "RemoveSourceIdentifierFromSubscription"
-    response = xmlResponse $ \h x -> RemoveSourceIdentifierFromSubscriptionResponse
-        <$> x %| "EventSubscription"
+    response = xmlResponse
+
+instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResponse"
+
+instance ToPath RemoveSourceIdentifierFromSubscription where
+    toPath = const "/"
+
+instance ToHeaders RemoveSourceIdentifierFromSubscription
+
+instance ToQuery RemoveSourceIdentifierFromSubscription

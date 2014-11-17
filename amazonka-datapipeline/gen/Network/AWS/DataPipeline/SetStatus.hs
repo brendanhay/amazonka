@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.SetStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.DataPipeline.SetStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -84,17 +84,6 @@ ssPipelineId = lens _ssPipelineId (\s a -> s { _ssPipelineId = a })
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
-instance ToPath SetStatus where
-    toPath = const "/"
-
-instance ToQuery SetStatus where
-    toQuery = const mempty
-
-instance ToHeaders SetStatus
-
-instance ToBody SetStatus where
-    toBody = toBody . encode . _ssPipelineId
-
 data SetStatusResponse = SetStatusResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -107,4 +96,15 @@ instance AWSRequest SetStatus where
     type Rs SetStatus = SetStatusResponse
 
     request  = post
-    response = nullaryResponse SetStatusResponse
+    response = nullResponse SetStatusResponse
+
+instance ToPath SetStatus where
+    toPath = const "/"
+
+instance ToHeaders SetStatus
+
+instance ToQuery SetStatus where
+    toQuery = const mempty
+
+instance ToJSON SetStatus where
+    toJSON = genericToJSON jsonOptions

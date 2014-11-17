@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
 decEnvironmentName =
     lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })
 
-instance ToQuery DeleteEnvironmentConfiguration
-
-instance ToPath DeleteEnvironmentConfiguration where
-    toPath = const "/"
-
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +89,11 @@ instance AWSRequest DeleteEnvironmentConfiguration where
     type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse
 
     request  = post "DeleteEnvironmentConfiguration"
-    response = nullaryResponse DeleteEnvironmentConfigurationResponse
+    response = nullResponse DeleteEnvironmentConfigurationResponse
+
+instance ToPath DeleteEnvironmentConfiguration where
+    toPath = const "/"
+
+instance ToHeaders DeleteEnvironmentConfiguration
+
+instance ToQuery DeleteEnvironmentConfiguration

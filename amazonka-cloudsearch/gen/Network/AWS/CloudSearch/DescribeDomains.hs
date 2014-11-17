@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ describeDomains = DescribeDomains
 ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a })
 
-instance ToQuery DescribeDomains
-
-instance ToPath DescribeDomains where
-    toPath = const "/"
-
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: [DomainStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -107,5 +102,15 @@ instance AWSRequest DescribeDomains where
     type Rs DescribeDomains = DescribeDomainsResponse
 
     request  = post "DescribeDomains"
-    response = xmlResponse $ \h x -> DescribeDomainsResponse
-        <$> x %| "DomainStatusList"
+    response = xmlResponse
+
+instance FromXML DescribeDomainsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDomainsResponse"
+
+instance ToPath DescribeDomains where
+    toPath = const "/"
+
+instance ToHeaders DescribeDomains
+
+instance ToQuery DescribeDomains

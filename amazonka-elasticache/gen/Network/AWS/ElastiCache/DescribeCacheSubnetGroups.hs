@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSubnetGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
-instance ToQuery DescribeCacheSubnetGroups
-
-instance ToPath DescribeCacheSubnetGroups where
-    toPath = const "/"
-
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrCacheSubnetGroups :: [CacheSubnetGroup]
     , _dcsgrMarker            :: Maybe Text
@@ -128,10 +123,15 @@ instance AWSRequest DescribeCacheSubnetGroups where
     type Rs DescribeCacheSubnetGroups = DescribeCacheSubnetGroupsResponse
 
     request  = post "DescribeCacheSubnetGroups"
-    response = xmlResponse $ \h x -> DescribeCacheSubnetGroupsResponse
-        <$> x %| "CacheSubnetGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeCacheSubnetGroups where
-    next rq rs = (\x -> rq & dcsgMarker ?~ x)
-        <$> (rs ^. dcsgrMarker)
+instance FromXML DescribeCacheSubnetGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCacheSubnetGroupsResponse"
+
+instance ToPath DescribeCacheSubnetGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeCacheSubnetGroups
+
+instance ToQuery DescribeCacheSubnetGroups

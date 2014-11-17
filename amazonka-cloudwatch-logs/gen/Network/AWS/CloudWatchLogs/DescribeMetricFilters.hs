@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -97,17 +97,6 @@ dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\s a -> s { _dmfNextToken = a })
 
-instance ToPath DescribeMetricFilters where
-    toPath = const "/"
-
-instance ToQuery DescribeMetricFilters where
-    toQuery = const mempty
-
-instance ToHeaders DescribeMetricFilters
-
-instance ToBody DescribeMetricFilters where
-    toBody = toBody . encode . _dmfLogGroupName
-
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters :: [MetricFilter]
     , _dmfrNextToken     :: Maybe Text
@@ -139,6 +128,18 @@ instance AWSRequest DescribeMetricFilters where
     type Rs DescribeMetricFilters = DescribeMetricFiltersResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeMetricFiltersResponse
-        <$> o .: "metricFilters"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON DescribeMetricFiltersResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeMetricFilters where
+    toPath = const "/"
+
+instance ToHeaders DescribeMetricFilters
+
+instance ToQuery DescribeMetricFilters where
+    toQuery = const mempty
+
+instance ToJSON DescribeMetricFilters where
+    toJSON = genericToJSON jsonOptions

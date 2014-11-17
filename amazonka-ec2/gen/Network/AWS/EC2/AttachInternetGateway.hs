@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AttachInternetGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ aigInternetGatewayId =
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
 
-instance ToQuery AttachInternetGateway
-
-instance ToPath AttachInternetGateway where
-    toPath = const "/"
-
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest AttachInternetGateway where
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
 
     request  = post "AttachInternetGateway"
-    response = nullaryResponse AttachInternetGatewayResponse
+    response = nullResponse AttachInternetGatewayResponse
+
+instance ToPath AttachInternetGateway where
+    toPath = const "/"
+
+instance ToHeaders AttachInternetGateway
+
+instance ToQuery AttachInternetGateway

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.ListFunctions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.Lambda.ListFunctions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ lfMaxItems :: Lens' ListFunctions (Maybe Natural)
 lfMaxItems = lens _lfMaxItems (\s a -> s { _lfMaxItems = a })
     . mapping _Nat
 
-instance ToPath ListFunctions where
-    toPath = const "/2014-11-13/functions/"
-
-instance ToQuery ListFunctions where
-    toQuery ListFunctions{..} = mconcat
-        [ "Marker"   =? _lfMarker
-        , "MaxItems" =? _lfMaxItems
-        ]
-
-instance ToHeaders ListFunctions
-
 data ListFunctionsResponse = ListFunctionsResponse
     { _lfrFunctions  :: [FunctionConfiguration]
     , _lfrNextMarker :: Maybe Text
@@ -120,6 +109,14 @@ instance AWSRequest ListFunctions where
     type Rs ListFunctions = ListFunctionsResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListFunctionsResponse
-        <$> o .: "Functions"
-        <*> o .: "NextMarker"
+    response = jsonResponse
+
+instance FromJSON ListFunctionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListFunctions where
+    toPath = const "/2014-11-13/functions/"
+
+instance ToHeaders ListFunctions
+
+instance ToQuery ListFunctions

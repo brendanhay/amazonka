@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DetachInternetGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ digInternetGatewayId =
 digVpcId :: Lens' DetachInternetGateway Text
 digVpcId = lens _digVpcId (\s a -> s { _digVpcId = a })
 
-instance ToQuery DetachInternetGateway
-
-instance ToPath DetachInternetGateway where
-    toPath = const "/"
-
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest DetachInternetGateway where
     type Rs DetachInternetGateway = DetachInternetGatewayResponse
 
     request  = post "DetachInternetGateway"
-    response = nullaryResponse DetachInternetGatewayResponse
+    response = nullResponse DetachInternetGatewayResponse
+
+instance ToPath DetachInternetGateway where
+    toPath = const "/"
+
+instance ToHeaders DetachInternetGateway
+
+instance ToQuery DetachInternetGateway

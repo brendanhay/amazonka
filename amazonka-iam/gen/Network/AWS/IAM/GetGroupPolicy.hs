@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetGroupPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
 
-instance ToQuery GetGroupPolicy
-
-instance ToPath GetGroupPolicy where
-    toPath = const "/"
-
 data GetGroupPolicyResponse = GetGroupPolicyResponse
     { _ggprGroupName      :: Text
     , _ggprPolicyDocument :: Text
@@ -124,7 +119,15 @@ instance AWSRequest GetGroupPolicy where
     type Rs GetGroupPolicy = GetGroupPolicyResponse
 
     request  = post "GetGroupPolicy"
-    response = xmlResponse $ \h x -> GetGroupPolicyResponse
-        <$> x %| "GroupName"
-        <*> x %| "PolicyDocument"
-        <*> x %| "PolicyName"
+    response = xmlResponse
+
+instance FromXML GetGroupPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetGroupPolicyResponse"
+
+instance ToPath GetGroupPolicy where
+    toPath = const "/"
+
+instance ToHeaders GetGroupPolicy
+
+instance ToQuery GetGroupPolicy

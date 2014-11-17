@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DisableLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ disableLogging p1 = DisableLogging
 dlClusterIdentifier :: Lens' DisableLogging Text
 dlClusterIdentifier =
     lens _dlClusterIdentifier (\s a -> s { _dlClusterIdentifier = a })
-
-instance ToQuery DisableLogging
-
-instance ToPath DisableLogging where
-    toPath = const "/"
 
 data DisableLoggingResponse = DisableLoggingResponse
     { _dlrBucketName                 :: Maybe Text
@@ -145,10 +140,15 @@ instance AWSRequest DisableLogging where
     type Rs DisableLogging = DisableLoggingResponse
 
     request  = post "DisableLogging"
-    response = xmlResponse $ \h x -> DisableLoggingResponse
-        <$> x %| "BucketName"
-        <*> x %| "LastFailureMessage"
-        <*> x %| "LastFailureTime"
-        <*> x %| "LastSuccessfulDeliveryTime"
-        <*> x %| "LoggingEnabled"
-        <*> x %| "S3KeyPrefix"
+    response = xmlResponse
+
+instance FromXML DisableLoggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableLoggingResponse"
+
+instance ToPath DisableLogging where
+    toPath = const "/"
+
+instance ToHeaders DisableLogging
+
+instance ToQuery DisableLogging

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListHealthChecks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.Route53.ListHealthChecks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ lhcMarker = lens _lhcMarker (\s a -> s { _lhcMarker = a })
 -- results.
 lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcMaxItems = lens _lhcMaxItems (\s a -> s { _lhcMaxItems = a })
-
-instance ToPath ListHealthChecks where
-    toPath = const "/2013-04-01/healthcheck"
-
-instance ToQuery ListHealthChecks where
-    toQuery ListHealthChecks{..} = mconcat
-        [ "marker"   =? _lhcMarker
-        , "maxitems" =? _lhcMaxItems
-        ]
-
-instance ToHeaders ListHealthChecks
 
 data ListHealthChecksResponse = ListHealthChecksResponse
     { _lhcrHealthChecks :: [HealthCheck]
@@ -168,9 +157,15 @@ instance AWSRequest ListHealthChecks where
     type Rs ListHealthChecks = ListHealthChecksResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListHealthChecksResponse
-        <$> x %| "HealthChecks"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "MaxItems"
-        <*> x %| "NextMarker"
+    response = xmlResponse
+
+instance FromXML ListHealthChecksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListHealthChecksResponse"
+
+instance ToPath ListHealthChecks where
+    toPath = const "/2013-04-01/healthcheck"
+
+instance ToHeaders ListHealthChecks
+
+instance ToQuery ListHealthChecks

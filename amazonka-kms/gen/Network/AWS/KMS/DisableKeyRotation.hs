@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.DisableKeyRotation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.KMS.DisableKeyRotation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ disableKeyRotation p1 = DisableKeyRotation
 dkrKeyId :: Lens' DisableKeyRotation Text
 dkrKeyId = lens _dkrKeyId (\s a -> s { _dkrKeyId = a })
 
-instance ToPath DisableKeyRotation where
-    toPath = const "/"
-
-instance ToQuery DisableKeyRotation where
-    toQuery = const mempty
-
-instance ToHeaders DisableKeyRotation
-
-instance ToBody DisableKeyRotation where
-    toBody = toBody . encode . _dkrKeyId
-
 data DisableKeyRotationResponse = DisableKeyRotationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +72,15 @@ instance AWSRequest DisableKeyRotation where
     type Rs DisableKeyRotation = DisableKeyRotationResponse
 
     request  = post
-    response = nullaryResponse DisableKeyRotationResponse
+    response = nullResponse DisableKeyRotationResponse
+
+instance ToPath DisableKeyRotation where
+    toPath = const "/"
+
+instance ToHeaders DisableKeyRotation
+
+instance ToQuery DisableKeyRotation where
+    toQuery = const mempty
+
+instance ToJSON DisableKeyRotation where
+    toJSON = genericToJSON jsonOptions

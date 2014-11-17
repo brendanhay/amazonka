@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ModifyInstanceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -225,11 +225,6 @@ mia1UserData = lens _mia1UserData (\s a -> s { _mia1UserData = a })
 mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
 
-instance ToQuery ModifyInstanceAttribute
-
-instance ToPath ModifyInstanceAttribute where
-    toPath = const "/"
-
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -242,4 +237,11 @@ instance AWSRequest ModifyInstanceAttribute where
     type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
 
     request  = post "ModifyInstanceAttribute"
-    response = nullaryResponse ModifyInstanceAttributeResponse
+    response = nullResponse ModifyInstanceAttributeResponse
+
+instance ToPath ModifyInstanceAttribute where
+    toPath = const "/"
+
+instance ToHeaders ModifyInstanceAttribute
+
+instance ToQuery ModifyInstanceAttribute

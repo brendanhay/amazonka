@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
 cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
 cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
 
-instance ToQuery CreateDBSubnetGroup
-
-instance ToPath CreateDBSubnetGroup where
-    toPath = const "/"
-
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Eq, Show, Generic)
@@ -123,5 +118,15 @@ instance AWSRequest CreateDBSubnetGroup where
     type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse
 
     request  = post "CreateDBSubnetGroup"
-    response = xmlResponse $ \h x -> CreateDBSubnetGroupResponse
-        <$> x %| "DBSubnetGroup"
+    response = xmlResponse
+
+instance FromXML CreateDBSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBSubnetGroupResponse"
+
+instance ToPath CreateDBSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateDBSubnetGroup
+
+instance ToQuery CreateDBSubnetGroup

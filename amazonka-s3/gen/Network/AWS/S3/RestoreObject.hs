@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.RestoreObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.RestoreObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -83,25 +83,6 @@ roRestoreRequest = lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
 roVersionId :: Lens' RestoreObject (Maybe Text)
 roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
 
-instance ToPath RestoreObject where
-    toPath RestoreObject{..} = mconcat
-        [ "/"
-        , toText _roBucket
-        , "/"
-        , toText _roKey
-        ]
-
-instance ToQuery RestoreObject where
-    toQuery RestoreObject{..} = mconcat
-        [ "restore"
-        , "versionId" =? _roVersionId
-        ]
-
-instance ToHeaders RestoreObject
-
-instance ToBody RestoreObject where
-    toBody = toBody . encodeXML . _roRestoreRequest
-
 data RestoreObjectResponse = RestoreObjectResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -114,4 +95,24 @@ instance AWSRequest RestoreObject where
     type Rs RestoreObject = RestoreObjectResponse
 
     request  = post
-    response = nullaryResponse RestoreObjectResponse
+    response = nullResponse RestoreObjectResponse
+
+instance ToPath RestoreObject where
+    toPath RestoreObject{..} = mconcat
+        [ "/"
+        , toText _roBucket
+        , "/"
+        , toText _roKey
+        ]
+
+instance ToHeaders RestoreObject
+
+instance ToQuery RestoreObject where
+    toQuery RestoreObject{..} = mconcat
+        [ "restore"
+        , "versionId" =? _roVersionId
+        ]
+
+instance ToXML RestoreObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RestoreObject"

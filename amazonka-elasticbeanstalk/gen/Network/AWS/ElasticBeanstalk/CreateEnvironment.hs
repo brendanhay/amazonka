@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateEnvironment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -202,11 +202,6 @@ ceTier = lens _ceTier (\s a -> s { _ceTier = a })
 ceVersionLabel :: Lens' CreateEnvironment (Maybe Text)
 ceVersionLabel = lens _ceVersionLabel (\s a -> s { _ceVersionLabel = a })
 
-instance ToQuery CreateEnvironment
-
-instance ToPath CreateEnvironment where
-    toPath = const "/"
-
 data CreateEnvironmentResponse = CreateEnvironmentResponse
     { _cerApplicationName   :: Maybe Text
     , _cerCNAME             :: Maybe Text
@@ -367,19 +362,15 @@ instance AWSRequest CreateEnvironment where
     type Rs CreateEnvironment = CreateEnvironmentResponse
 
     request  = post "CreateEnvironment"
-    response = xmlResponse $ \h x -> CreateEnvironmentResponse
-        <$> x %| "ApplicationName"
-        <*> x %| "CNAME"
-        <*> x %| "DateCreated"
-        <*> x %| "DateUpdated"
-        <*> x %| "Description"
-        <*> x %| "EndpointURL"
-        <*> x %| "EnvironmentId"
-        <*> x %| "EnvironmentName"
-        <*> x %| "Health"
-        <*> x %| "Resources"
-        <*> x %| "SolutionStackName"
-        <*> x %| "Status"
-        <*> x %| "TemplateName"
-        <*> x %| "Tier"
-        <*> x %| "VersionLabel"
+    response = xmlResponse
+
+instance FromXML CreateEnvironmentResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateEnvironmentResponse"
+
+instance ToPath CreateEnvironment where
+    toPath = const "/"
+
+instance ToHeaders CreateEnvironment
+
+instance ToQuery CreateEnvironment

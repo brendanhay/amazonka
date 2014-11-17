@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkAclEntry
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -140,11 +140,6 @@ rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
 rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Int
 rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
 
-instance ToQuery ReplaceNetworkAclEntry
-
-instance ToPath ReplaceNetworkAclEntry where
-    toPath = const "/"
-
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -157,4 +152,11 @@ instance AWSRequest ReplaceNetworkAclEntry where
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse
 
     request  = post "ReplaceNetworkAclEntry"
-    response = nullaryResponse ReplaceNetworkAclEntryResponse
+    response = nullResponse ReplaceNetworkAclEntryResponse
+
+instance ToPath ReplaceNetworkAclEntry where
+    toPath = const "/"
+
+instance ToHeaders ReplaceNetworkAclEntry
+
+instance ToQuery ReplaceNetworkAclEntry

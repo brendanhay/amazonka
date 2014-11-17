@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.ListStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ lsStackStatusFilter :: Lens' ListStacks [Text]
 lsStackStatusFilter =
     lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
 
-instance ToQuery ListStacks
-
-instance ToPath ListStacks where
-    toPath = const "/"
-
 data ListStacksResponse = ListStacksResponse
     { _lsr1NextToken      :: Maybe Text
     , _lsr1StackSummaries :: [StackSummary]
@@ -119,10 +114,15 @@ instance AWSRequest ListStacks where
     type Rs ListStacks = ListStacksResponse
 
     request  = post "ListStacks"
-    response = xmlResponse $ \h x -> ListStacksResponse
-        <$> x %| "NextToken"
-        <*> x %| "StackSummaries"
+    response = xmlResponse
 
-instance AWSPager ListStacks where
-    next rq rs = (\x -> rq & lsNextToken ?~ x)
-        <$> (rs ^. lsr1NextToken)
+instance FromXML ListStacksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListStacksResponse"
+
+instance ToPath ListStacks where
+    toPath = const "/"
+
+instance ToHeaders ListStacks
+
+instance ToQuery ListStacks

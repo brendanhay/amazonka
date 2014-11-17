@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.ListLocalDisks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.ListLocalDisks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ listLocalDisks p1 = ListLocalDisks
 
 lldGatewayARN :: Lens' ListLocalDisks Text
 lldGatewayARN = lens _lldGatewayARN (\s a -> s { _lldGatewayARN = a })
-
-instance ToPath ListLocalDisks where
-    toPath = const "/"
-
-instance ToQuery ListLocalDisks where
-    toQuery = const mempty
-
-instance ToHeaders ListLocalDisks
-
-instance ToBody ListLocalDisks where
-    toBody = toBody . encode . _lldGatewayARN
 
 data ListLocalDisksResponse = ListLocalDisksResponse
     { _lldrDisks      :: [Disk]
@@ -106,6 +95,18 @@ instance AWSRequest ListLocalDisks where
     type Rs ListLocalDisks = ListLocalDisksResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListLocalDisksResponse
-        <$> o .: "Disks"
-        <*> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON ListLocalDisksResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListLocalDisks where
+    toPath = const "/"
+
+instance ToHeaders ListLocalDisks
+
+instance ToQuery ListLocalDisks where
+    toQuery = const mempty
+
+instance ToJSON ListLocalDisks where
+    toJSON = genericToJSON jsonOptions

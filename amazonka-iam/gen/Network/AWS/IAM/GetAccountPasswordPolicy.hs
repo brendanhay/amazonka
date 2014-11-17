@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetAccountPasswordPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,11 +47,6 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy
 
-instance ToQuery GetAccountPasswordPolicy
-
-instance ToPath GetAccountPasswordPolicy where
-    toPath = const "/"
-
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
     } deriving (Eq, Show, Generic)
@@ -77,5 +72,15 @@ instance AWSRequest GetAccountPasswordPolicy where
     type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
 
     request  = post "GetAccountPasswordPolicy"
-    response = xmlResponse $ \h x -> GetAccountPasswordPolicyResponse
-        <$> x %| "PasswordPolicy"
+    response = xmlResponse
+
+instance FromXML GetAccountPasswordPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetAccountPasswordPolicyResponse"
+
+instance ToPath GetAccountPasswordPolicy where
+    toPath = const "/"
+
+instance ToHeaders GetAccountPasswordPolicy
+
+instance ToQuery GetAccountPasswordPolicy

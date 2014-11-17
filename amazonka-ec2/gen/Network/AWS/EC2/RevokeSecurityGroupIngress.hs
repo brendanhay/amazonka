@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -158,11 +158,6 @@ rsgiSourceSecurityGroupOwnerId =
 rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
 rsgiToPort = lens _rsgiToPort (\s a -> s { _rsgiToPort = a })
 
-instance ToQuery RevokeSecurityGroupIngress
-
-instance ToPath RevokeSecurityGroupIngress where
-    toPath = const "/"
-
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -175,4 +170,11 @@ instance AWSRequest RevokeSecurityGroupIngress where
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
 
     request  = post "RevokeSecurityGroupIngress"
-    response = nullaryResponse RevokeSecurityGroupIngressResponse
+    response = nullResponse RevokeSecurityGroupIngressResponse
+
+instance ToPath RevokeSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders RevokeSecurityGroupIngress
+
+instance ToQuery RevokeSecurityGroupIngress

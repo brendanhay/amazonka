@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.ReportTaskProgress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ reportTaskProgress p1 = ReportTaskProgress
 -- the PollForTask action.
 rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
-
-instance ToPath ReportTaskProgress where
-    toPath = const "/"
-
-instance ToQuery ReportTaskProgress where
-    toQuery = const mempty
-
-instance ToHeaders ReportTaskProgress
-
-instance ToBody ReportTaskProgress where
-    toBody = toBody . encode . _rtpTaskId
 
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
     { _rtprCanceled :: Bool
@@ -111,5 +100,18 @@ instance AWSRequest ReportTaskProgress where
     type Rs ReportTaskProgress = ReportTaskProgressResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ReportTaskProgressResponse
-        <$> o .: "canceled"
+    response = jsonResponse
+
+instance FromJSON ReportTaskProgressResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ReportTaskProgress where
+    toPath = const "/"
+
+instance ToHeaders ReportTaskProgress
+
+instance ToQuery ReportTaskProgress where
+    toQuery = const mempty
+
+instance ToJSON ReportTaskProgress where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ rei1EnvironmentName =
 rei1InfoType :: Lens' RetrieveEnvironmentInfo Text
 rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
-instance ToQuery RetrieveEnvironmentInfo
-
-instance ToPath RetrieveEnvironmentInfo where
-    toPath = const "/"
-
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -124,5 +119,15 @@ instance AWSRequest RetrieveEnvironmentInfo where
     type Rs RetrieveEnvironmentInfo = RetrieveEnvironmentInfoResponse
 
     request  = post "RetrieveEnvironmentInfo"
-    response = xmlResponse $ \h x -> RetrieveEnvironmentInfoResponse
-        <$> x %| "EnvironmentInfo"
+    response = xmlResponse
+
+instance FromXML RetrieveEnvironmentInfoResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResponse"
+
+instance ToPath RetrieveEnvironmentInfo where
+    toPath = const "/"
+
+instance ToHeaders RetrieveEnvironmentInfo
+
+instance ToQuery RetrieveEnvironmentInfo

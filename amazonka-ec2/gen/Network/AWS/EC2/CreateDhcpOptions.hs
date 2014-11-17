@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateDhcpOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ cdoDhcpConfigurations =
 cdoDryRun :: Lens' CreateDhcpOptions (Maybe Bool)
 cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
 
-instance ToQuery CreateDhcpOptions
-
-instance ToPath CreateDhcpOptions where
-    toPath = const "/"
-
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
     } deriving (Eq, Show, Generic)
@@ -121,5 +116,15 @@ instance AWSRequest CreateDhcpOptions where
     type Rs CreateDhcpOptions = CreateDhcpOptionsResponse
 
     request  = post "CreateDhcpOptions"
-    response = xmlResponse $ \h x -> CreateDhcpOptionsResponse
-        <$> x %| "dhcpOptions"
+    response = xmlResponse
+
+instance FromXML CreateDhcpOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDhcpOptionsResponse"
+
+instance ToPath CreateDhcpOptions where
+    toPath = const "/"
+
+instance ToHeaders CreateDhcpOptions
+
+instance ToQuery CreateDhcpOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteTape
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.StorageGateway.DeleteTape
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ dt1GatewayARN = lens _dt1GatewayARN (\s a -> s { _dt1GatewayARN = a })
 dt1TapeARN :: Lens' DeleteTape Text
 dt1TapeARN = lens _dt1TapeARN (\s a -> s { _dt1TapeARN = a })
 
-instance ToPath DeleteTape where
-    toPath = const "/"
-
-instance ToQuery DeleteTape where
-    toQuery = const mempty
-
-instance ToHeaders DeleteTape
-
-instance ToBody DeleteTape where
-    toBody = toBody . encode . _dt1GatewayARN
-
 newtype DeleteTapeResponse = DeleteTapeResponse
     { _dtrTapeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -108,5 +97,18 @@ instance AWSRequest DeleteTape where
     type Rs DeleteTape = DeleteTapeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteTapeResponse
-        <$> o .: "TapeARN"
+    response = jsonResponse
+
+instance FromJSON DeleteTapeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteTape where
+    toPath = const "/"
+
+instance ToHeaders DeleteTape
+
+instance ToQuery DeleteTape where
+    toQuery = const mempty
+
+instance ToJSON DeleteTape where
+    toJSON = genericToJSON jsonOptions

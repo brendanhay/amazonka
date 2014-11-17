@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CreateHsmClientCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ chccHsmClientCertificateIdentifier =
     lens _chccHsmClientCertificateIdentifier
         (\s a -> s { _chccHsmClientCertificateIdentifier = a })
 
-instance ToQuery CreateHsmClientCertificate
-
-instance ToPath CreateHsmClientCertificate where
-    toPath = const "/"
-
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
     } deriving (Eq, Show, Generic)
@@ -102,5 +97,15 @@ instance AWSRequest CreateHsmClientCertificate where
     type Rs CreateHsmClientCertificate = CreateHsmClientCertificateResponse
 
     request  = post "CreateHsmClientCertificate"
-    response = xmlResponse $ \h x -> CreateHsmClientCertificateResponse
-        <$> x %| "HsmClientCertificate"
+    response = xmlResponse
+
+instance FromXML CreateHsmClientCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateHsmClientCertificateResponse"
+
+instance ToPath CreateHsmClientCertificate where
+    toPath = const "/"
+
+instance ToHeaders CreateHsmClientCertificate
+
+instance ToQuery CreateHsmClientCertificate

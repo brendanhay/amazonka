@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
 dav1VersionLabels =
     lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
 
-instance ToQuery DescribeApplicationVersions
-
-instance ToPath DescribeApplicationVersions where
-    toPath = const "/"
-
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _davrApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -109,5 +104,15 @@ instance AWSRequest DescribeApplicationVersions where
     type Rs DescribeApplicationVersions = DescribeApplicationVersionsResponse
 
     request  = post "DescribeApplicationVersions"
-    response = xmlResponse $ \h x -> DescribeApplicationVersionsResponse
-        <$> x %| "ApplicationVersions"
+    response = xmlResponse
+
+instance FromXML DescribeApplicationVersionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeApplicationVersionsResponse"
+
+instance ToPath DescribeApplicationVersions where
+    toPath = const "/"
+
+instance ToHeaders DescribeApplicationVersions
+
+instance ToQuery DescribeApplicationVersions

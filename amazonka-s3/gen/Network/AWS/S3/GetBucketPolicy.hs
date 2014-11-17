@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ getBucketPolicy p1 = GetBucketPolicy
 
 gbpBucket :: Lens' GetBucketPolicy Text
 gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
-
-instance ToPath GetBucketPolicy where
-    toPath GetBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _gbpBucket
-        ]
-
-instance ToQuery GetBucketPolicy where
-    toQuery = const "policy"
-
-instance ToHeaders GetBucketPolicy
 
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy :: Maybe Text
@@ -95,5 +84,23 @@ instance AWSRequest GetBucketPolicy where
     type Rs GetBucketPolicy = GetBucketPolicyResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketPolicyResponse
-        <$> x %| "Policy"
+    response = xmlResponse
+
+instance FromXML GetBucketPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketPolicyResponse"
+
+instance ToPath GetBucketPolicy where
+    toPath GetBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _gbpBucket
+        ]
+
+instance ToHeaders GetBucketPolicy
+
+instance ToQuery GetBucketPolicy where
+    toQuery = const "policy"
+
+instance ToXML GetBucketPolicy where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketPolicy"

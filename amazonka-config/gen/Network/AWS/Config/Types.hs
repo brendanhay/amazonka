@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.Config.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.Config.Types
       Config
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -117,6 +121,7 @@ module Network.AWS.Config.Types
     , RecorderStatus (..)
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -138,6 +143,11 @@ instance AWSService Config where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe RFC822
@@ -196,9 +206,11 @@ cediLastSuccessfulTime =
     lens _cediLastSuccessfulTime (\s a -> s { _cediLastSuccessfulTime = a })
         . mapping _Time
 
-instance FromJSON ConfigExportDeliveryInfo
+instance FromJSON ConfigExportDeliveryInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConfigExportDeliveryInfo
+instance ToJSON ConfigExportDeliveryInfo where
+    toJSON = genericToJSON jsonOptions
 
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     { _csdiLastErrorCode        :: Maybe Text
@@ -248,9 +260,11 @@ csdiLastStatusChangeTime =
         (\s a -> s { _csdiLastStatusChangeTime = a })
             . mapping _Time
 
-instance FromJSON ConfigStreamDeliveryInfo
+instance FromJSON ConfigStreamDeliveryInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConfigStreamDeliveryInfo
+instance ToJSON ConfigStreamDeliveryInfo where
+    toJSON = genericToJSON jsonOptions
 
 data Relationship = Relationship
     { _rRelationshipName :: Maybe Text
@@ -288,9 +302,11 @@ rResourceId = lens _rResourceId (\s a -> s { _rResourceId = a })
 rResourceType :: Lens' Relationship (Maybe Text)
 rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
 
-instance FromJSON Relationship
+instance FromJSON Relationship where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Relationship
+instance ToJSON Relationship where
+    toJSON = genericToJSON jsonOptions
 
 data DeliveryChannel = DeliveryChannel
     { _dcName         :: Maybe Text
@@ -339,9 +355,11 @@ dcS3KeyPrefix = lens _dcS3KeyPrefix (\s a -> s { _dcS3KeyPrefix = a })
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\s a -> s { _dcSnsTopicARN = a })
 
-instance FromJSON DeliveryChannel
+instance FromJSON DeliveryChannel where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeliveryChannel
+instance ToJSON DeliveryChannel where
+    toJSON = genericToJSON jsonOptions
 
 data ChronologicalOrder
     = Forward -- ^ Forward
@@ -359,9 +377,11 @@ instance ToText ChronologicalOrder where
         Forward -> "Forward"
         Reverse -> "Reverse"
 
-instance FromJSON ChronologicalOrder
+instance FromJSON ChronologicalOrder where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChronologicalOrder
+instance ToJSON ChronologicalOrder where
+    toJSON = genericToJSON jsonOptions
 
 data ResourceType
     = AWSCloudTrailTrail     -- ^ AWS::CloudTrail::Trail
@@ -415,9 +435,11 @@ instance ToText ResourceType where
         AWSEC2VPNGateway       -> "AWS::EC2::VPNGateway"
         AWSEC2Volume           -> "AWS::EC2::Volume"
 
-instance FromJSON ResourceType
+instance FromJSON ResourceType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ResourceType
+instance ToJSON ResourceType where
+    toJSON = genericToJSON jsonOptions
 
 data ConfigurationItem = ConfigurationItem
     { _ciAccountId                    :: Maybe Text
@@ -569,9 +591,11 @@ ciTags = lens _ciTags (\s a -> s { _ciTags = a })
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
 ciVersion = lens _ciVersion (\s a -> s { _ciVersion = a })
 
-instance FromJSON ConfigurationItem
+instance FromJSON ConfigurationItem where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConfigurationItem
+instance ToJSON ConfigurationItem where
+    toJSON = genericToJSON jsonOptions
 
 data DeliveryStatus
     = Failure -- ^ Failure
@@ -589,9 +613,11 @@ instance ToText DeliveryStatus where
         Failure -> "Failure"
         Success -> "Success"
 
-instance FromJSON DeliveryStatus
+instance FromJSON DeliveryStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeliveryStatus
+instance ToJSON DeliveryStatus where
+    toJSON = genericToJSON jsonOptions
 
 data DeliveryChannelStatus = DeliveryChannelStatus
     { _dcsConfigHistoryDeliveryInfo  :: Maybe ConfigExportDeliveryInfo
@@ -645,9 +671,11 @@ dcsConfigStreamDeliveryInfo =
 dcsName :: Lens' DeliveryChannelStatus (Maybe Text)
 dcsName = lens _dcsName (\s a -> s { _dcsName = a })
 
-instance FromJSON DeliveryChannelStatus
+instance FromJSON DeliveryChannelStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeliveryChannelStatus
+instance ToJSON DeliveryChannelStatus where
+    toJSON = genericToJSON jsonOptions
 
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     { _crsLastErrorCode        :: Maybe Text
@@ -729,9 +757,11 @@ crsName = lens _crsName (\s a -> s { _crsName = a })
 crsRecording :: Lens' ConfigurationRecorderStatus (Maybe Bool)
 crsRecording = lens _crsRecording (\s a -> s { _crsRecording = a })
 
-instance FromJSON ConfigurationRecorderStatus
+instance FromJSON ConfigurationRecorderStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConfigurationRecorderStatus
+instance ToJSON ConfigurationRecorderStatus where
+    toJSON = genericToJSON jsonOptions
 
 data ConfigurationItemStatus
     = Deleted    -- ^ Deleted
@@ -755,9 +785,11 @@ instance ToText ConfigurationItemStatus where
         Failed     -> "Failed"
         Ok         -> "Ok"
 
-instance FromJSON ConfigurationItemStatus
+instance FromJSON ConfigurationItemStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConfigurationItemStatus
+instance ToJSON ConfigurationItemStatus where
+    toJSON = genericToJSON jsonOptions
 
 data ConfigurationRecorder = ConfigurationRecorder
     { _crName    :: Maybe Text
@@ -789,9 +821,11 @@ crName = lens _crName (\s a -> s { _crName = a })
 crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
 crRoleARN = lens _crRoleARN (\s a -> s { _crRoleARN = a })
 
-instance FromJSON ConfigurationRecorder
+instance FromJSON ConfigurationRecorder where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConfigurationRecorder
+instance ToJSON ConfigurationRecorder where
+    toJSON = genericToJSON jsonOptions
 
 data RecorderStatus
     = RSFailure -- ^ Failure
@@ -812,6 +846,8 @@ instance ToText RecorderStatus where
         RSPending -> "Pending"
         RSSuccess -> "Success"
 
-instance FromJSON RecorderStatus
+instance FromJSON RecorderStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RecorderStatus
+instance ToJSON RecorderStatus where
+    toJSON = genericToJSON jsonOptions

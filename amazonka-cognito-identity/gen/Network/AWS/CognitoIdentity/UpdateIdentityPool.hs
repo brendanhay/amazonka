@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UpdateIdentityPool
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -122,17 +122,6 @@ uipSupportedLoginProviders =
     lens _uipSupportedLoginProviders
         (\s a -> s { _uipSupportedLoginProviders = a })
             . _Map
-
-instance ToPath UpdateIdentityPool where
-    toPath = const "/"
-
-instance ToQuery UpdateIdentityPool where
-    toQuery = const mempty
-
-instance ToHeaders UpdateIdentityPool
-
-instance ToBody UpdateIdentityPool where
-    toBody = toBody . encode . _uipIdentityPoolId
 
 data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     { _uiprAllowUnauthenticatedIdentities :: Bool
@@ -211,10 +200,18 @@ instance AWSRequest UpdateIdentityPool where
     type Rs UpdateIdentityPool = UpdateIdentityPoolResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateIdentityPoolResponse
-        <$> o .: "AllowUnauthenticatedIdentities"
-        <*> o .: "DeveloperProviderName"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "IdentityPoolName"
-        <*> o .: "OpenIdConnectProviderARNs"
-        <*> o .: "SupportedLoginProviders"
+    response = jsonResponse
+
+instance FromJSON UpdateIdentityPoolResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateIdentityPool where
+    toPath = const "/"
+
+instance ToHeaders UpdateIdentityPool
+
+instance ToQuery UpdateIdentityPool where
+    toQuery = const mempty
+
+instance ToJSON UpdateIdentityPool where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteVirtualMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmfadSerialNumber =
     lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
 
-instance ToQuery DeleteVirtualMFADevice
-
-instance ToPath DeleteVirtualMFADevice where
-    toPath = const "/"
-
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteVirtualMFADevice where
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
 
     request  = post "DeleteVirtualMFADevice"
-    response = nullaryResponse DeleteVirtualMFADeviceResponse
+    response = nullResponse DeleteVirtualMFADeviceResponse
+
+instance ToPath DeleteVirtualMFADevice where
+    toPath = const "/"
+
+instance ToHeaders DeleteVirtualMFADevice
+
+instance ToQuery DeleteVirtualMFADevice

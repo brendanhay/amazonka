@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.CancelJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ cancelJob p1 = CancelJob
 cjJobId :: Lens' CancelJob Text
 cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
 
-instance ToQuery CancelJob
-
-instance ToPath CancelJob where
-    toPath = const "/"
-
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -89,5 +84,15 @@ instance AWSRequest CancelJob where
     type Rs CancelJob = CancelJobResponse
 
     request  = post "CancelJob"
-    response = xmlResponse $ \h x -> CancelJobResponse
-        <$> x %| "Success"
+    response = xmlResponse
+
+instance FromXML CancelJobResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelJobResponse"
+
+instance ToPath CancelJob where
+    toPath = const "/"
+
+instance ToHeaders CancelJob
+
+instance ToQuery CancelJob

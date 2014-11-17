@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
 
-instance ToQuery GetRolePolicy
-
-instance ToPath GetRolePolicy where
-    toPath = const "/"
-
 data GetRolePolicyResponse = GetRolePolicyResponse
     { _grprPolicyDocument :: Text
     , _grprPolicyName     :: Text
@@ -125,7 +120,15 @@ instance AWSRequest GetRolePolicy where
     type Rs GetRolePolicy = GetRolePolicyResponse
 
     request  = post "GetRolePolicy"
-    response = xmlResponse $ \h x -> GetRolePolicyResponse
-        <$> x %| "PolicyDocument"
-        <*> x %| "PolicyName"
-        <*> x %| "RoleName"
+    response = xmlResponse
+
+instance FromXML GetRolePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetRolePolicyResponse"
+
+instance ToPath GetRolePolicy where
+    toPath = const "/"
+
+instance ToHeaders GetRolePolicy
+
+instance ToQuery GetRolePolicy

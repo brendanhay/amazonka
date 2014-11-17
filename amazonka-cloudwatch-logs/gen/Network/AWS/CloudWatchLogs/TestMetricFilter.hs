@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.TestMetricFilter
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ tmfLogEventMessages =
     lens _tmfLogEventMessages (\s a -> s { _tmfLogEventMessages = a })
         . _List1
 
-instance ToPath TestMetricFilter where
-    toPath = const "/"
-
-instance ToQuery TestMetricFilter where
-    toQuery = const mempty
-
-instance ToHeaders TestMetricFilter
-
-instance ToBody TestMetricFilter where
-    toBody = toBody . encode . _tmfFilterPattern
-
 newtype TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches :: [MetricFilterMatchRecord]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -113,5 +102,18 @@ instance AWSRequest TestMetricFilter where
     type Rs TestMetricFilter = TestMetricFilterResponse
 
     request  = post
-    response = jsonResponse $ \h o -> TestMetricFilterResponse
-        <$> o .: "matches"
+    response = jsonResponse
+
+instance FromJSON TestMetricFilterResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath TestMetricFilter where
+    toPath = const "/"
+
+instance ToHeaders TestMetricFilter
+
+instance ToQuery TestMetricFilter where
+    toQuery = const mempty
+
+instance ToJSON TestMetricFilter where
+    toJSON = genericToJSON jsonOptions

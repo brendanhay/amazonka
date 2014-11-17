@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.DescribeDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.SWF.DescribeDomain
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ describeDomain p1 = DescribeDomain
 -- | The name of the domain to describe.
 ddName :: Lens' DescribeDomain Text
 ddName = lens _ddName (\s a -> s { _ddName = a })
-
-instance ToPath DescribeDomain where
-    toPath = const "/"
-
-instance ToQuery DescribeDomain where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDomain
-
-instance ToBody DescribeDomain where
-    toBody = toBody . encode . _ddName
 
 data DescribeDomainResponse = DescribeDomainResponse
     { _ddrConfiguration :: DomainConfiguration
@@ -114,6 +103,18 @@ instance AWSRequest DescribeDomain where
     type Rs DescribeDomain = DescribeDomainResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeDomainResponse
-        <$> o .: "configuration"
-        <*> o .: "domainInfo"
+    response = jsonResponse
+
+instance FromJSON DescribeDomainResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeDomain where
+    toPath = const "/"
+
+instance ToHeaders DescribeDomain
+
+instance ToQuery DescribeDomain where
+    toQuery = const mempty
+
+instance ToJSON DescribeDomain where
+    toJSON = genericToJSON jsonOptions

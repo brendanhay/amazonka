@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetLoginProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ getLoginProfile p1 = GetLoginProfile
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
 
-instance ToQuery GetLoginProfile
-
-instance ToPath GetLoginProfile where
-    toPath = const "/"
-
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
     } deriving (Eq, Show, Generic)
@@ -93,5 +88,15 @@ instance AWSRequest GetLoginProfile where
     type Rs GetLoginProfile = GetLoginProfileResponse
 
     request  = post "GetLoginProfile"
-    response = xmlResponse $ \h x -> GetLoginProfileResponse
-        <$> x %| "LoginProfile"
+    response = xmlResponse
+
+instance FromXML GetLoginProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetLoginProfileResponse"
+
+instance ToPath GetLoginProfile where
+    toPath = const "/"
+
+instance ToHeaders GetLoginProfile
+
+instance ToQuery GetLoginProfile

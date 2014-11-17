@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListInstanceProfiles
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a })
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\s a -> s { _lipPathPrefix = a })
 
-instance ToQuery ListInstanceProfiles
-
-instance ToPath ListInstanceProfiles where
-    toPath = const "/"
-
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: [InstanceProfile]
     , _liprIsTruncated      :: Maybe Bool
@@ -145,13 +140,15 @@ instance AWSRequest ListInstanceProfiles where
     type Rs ListInstanceProfiles = ListInstanceProfilesResponse
 
     request  = post "ListInstanceProfiles"
-    response = xmlResponse $ \h x -> ListInstanceProfilesResponse
-        <$> x %| "InstanceProfiles"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListInstanceProfiles where
-    next rq rs
-        | not (more (rs ^. liprIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lipMarker .~ rs ^. liprMarker
+instance FromXML ListInstanceProfilesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListInstanceProfilesResponse"
+
+instance ToPath ListInstanceProfiles where
+    toPath = const "/"
+
+instance ToHeaders ListInstanceProfiles
+
+instance ToQuery ListInstanceProfiles

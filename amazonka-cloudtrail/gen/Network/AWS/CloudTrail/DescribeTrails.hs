@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.DescribeTrails
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudTrail.DescribeTrails
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ describeTrails = DescribeTrails
 -- | The trail returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\s a -> s { _dtTrailNameList = a })
-
-instance ToPath DescribeTrails where
-    toPath = const "/"
-
-instance ToQuery DescribeTrails where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrails
-
-instance ToBody DescribeTrails where
-    toBody = toBody . encode . _dtTrailNameList
 
 newtype DescribeTrailsResponse = DescribeTrailsResponse
     { _dtrTrailList :: [Trail]
@@ -108,5 +97,18 @@ instance AWSRequest DescribeTrails where
     type Rs DescribeTrails = DescribeTrailsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTrailsResponse
-        <$> o .: "trailList"
+    response = jsonResponse
+
+instance FromJSON DescribeTrailsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTrails where
+    toPath = const "/"
+
+instance ToHeaders DescribeTrails
+
+instance ToQuery DescribeTrails where
+    toQuery = const mempty
+
+instance ToJSON DescribeTrails where
+    toJSON = genericToJSON jsonOptions

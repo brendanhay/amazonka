@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ lebpaPlatformApplicationArn =
     lens _lebpaPlatformApplicationArn
         (\s a -> s { _lebpaPlatformApplicationArn = a })
 
-instance ToQuery ListEndpointsByPlatformApplication
-
-instance ToPath ListEndpointsByPlatformApplication where
-    toPath = const "/"
-
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: [Endpoint]
     , _lebparNextToken :: Maybe Text
@@ -123,10 +118,15 @@ instance AWSRequest ListEndpointsByPlatformApplication where
     type Rs ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplicationResponse
 
     request  = post "ListEndpointsByPlatformApplication"
-    response = xmlResponse $ \h x -> ListEndpointsByPlatformApplicationResponse
-        <$> x %| "Endpoints"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager ListEndpointsByPlatformApplication where
-    next rq rs = (\x -> rq & lebpaNextToken ?~ x)
-        <$> (rs ^. lebparNextToken)
+instance FromXML ListEndpointsByPlatformApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListEndpointsByPlatformApplicationResponse"
+
+instance ToPath ListEndpointsByPlatformApplication where
+    toPath = const "/"
+
+instance ToHeaders ListEndpointsByPlatformApplication
+
+instance ToQuery ListEndpointsByPlatformApplication

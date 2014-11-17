@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
-instance ToQuery DescribeEngineDefaultParameters
-
-instance ToPath DescribeEngineDefaultParameters where
-    toPath = const "/"
-
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: Maybe EngineDefaults
     } deriving (Eq, Show, Generic)
@@ -126,9 +121,15 @@ instance AWSRequest DescribeEngineDefaultParameters where
     type Rs DescribeEngineDefaultParameters = DescribeEngineDefaultParametersResponse
 
     request  = post "DescribeEngineDefaultParameters"
-    response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResponse
-        <$> x %| "EngineDefaults"
+    response = xmlResponse
 
-instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq & dedpMarker ?~ x)
-        <$> (rs ^. dedprEngineDefaults . edMarker)
+instance FromXML DescribeEngineDefaultParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResponse"
+
+instance ToPath DescribeEngineDefaultParameters where
+    toPath = const "/"
+
+instance ToHeaders DescribeEngineDefaultParameters
+
+instance ToQuery DescribeEngineDefaultParameters

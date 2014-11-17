@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.StartLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.CloudTrail.StartLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ startLogging p1 = StartLogging
 sl1Name :: Lens' StartLogging Text
 sl1Name = lens _sl1Name (\s a -> s { _sl1Name = a })
 
-instance ToPath StartLogging where
-    toPath = const "/"
-
-instance ToQuery StartLogging where
-    toQuery = const mempty
-
-instance ToHeaders StartLogging
-
-instance ToBody StartLogging where
-    toBody = toBody . encode . _sl1Name
-
 data StartLoggingResponse = StartLoggingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,15 @@ instance AWSRequest StartLogging where
     type Rs StartLogging = StartLoggingResponse
 
     request  = post
-    response = nullaryResponse StartLoggingResponse
+    response = nullResponse StartLoggingResponse
+
+instance ToPath StartLogging where
+    toPath = const "/"
+
+instance ToHeaders StartLogging
+
+instance ToQuery StartLogging where
+    toQuery = const mempty
+
+instance ToJSON StartLogging where
+    toJSON = genericToJSON jsonOptions

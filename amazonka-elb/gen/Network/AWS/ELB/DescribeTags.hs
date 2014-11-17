@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DescribeTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
         . _List1
 
-instance ToQuery DescribeTags
-
-instance ToPath DescribeTags where
-    toPath = const "/"
-
 newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: [TagDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -99,5 +94,15 @@ instance AWSRequest DescribeTags where
     type Rs DescribeTags = DescribeTagsResponse
 
     request  = post "DescribeTags"
-    response = xmlResponse $ \h x -> DescribeTagsResponse
-        <$> x %| "TagDescriptions"
+    response = xmlResponse
+
+instance FromXML DescribeTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeTagsResponse"
+
+instance ToPath DescribeTags where
+    toPath = const "/"
+
+instance ToHeaders DescribeTags
+
+instance ToQuery DescribeTags

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ reiEnvironmentName =
 reiInfoType :: Lens' RequestEnvironmentInfo Text
 reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
 
-instance ToQuery RequestEnvironmentInfo
-
-instance ToPath RequestEnvironmentInfo where
-    toPath = const "/"
-
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -107,4 +102,11 @@ instance AWSRequest RequestEnvironmentInfo where
     type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
 
     request  = post "RequestEnvironmentInfo"
-    response = nullaryResponse RequestEnvironmentInfoResponse
+    response = nullResponse RequestEnvironmentInfoResponse
+
+instance ToPath RequestEnvironmentInfo where
+    toPath = const "/"
+
+instance ToHeaders RequestEnvironmentInfo
+
+instance ToQuery RequestEnvironmentInfo

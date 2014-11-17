@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateSAMLProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ csamlpSAMLMetadataDocument =
     lens _csamlpSAMLMetadataDocument
         (\s a -> s { _csamlpSAMLMetadataDocument = a })
 
-instance ToQuery CreateSAMLProvider
-
-instance ToPath CreateSAMLProvider where
-    toPath = const "/"
-
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -123,5 +118,15 @@ instance AWSRequest CreateSAMLProvider where
     type Rs CreateSAMLProvider = CreateSAMLProviderResponse
 
     request  = post "CreateSAMLProvider"
-    response = xmlResponse $ \h x -> CreateSAMLProviderResponse
-        <$> x %| "SAMLProviderArn"
+    response = xmlResponse
+
+instance FromXML CreateSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSAMLProviderResponse"
+
+instance ToPath CreateSAMLProvider where
+    toPath = const "/"
+
+instance ToHeaders CreateSAMLProvider
+
+instance ToQuery CreateSAMLProvider

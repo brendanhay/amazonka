@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeInstances
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -86,17 +86,6 @@ diLayerId = lens _diLayerId (\s a -> s { _diLayerId = a })
 diStackId :: Lens' DescribeInstances (Maybe Text)
 diStackId = lens _diStackId (\s a -> s { _diStackId = a })
 
-instance ToPath DescribeInstances where
-    toPath = const "/"
-
-instance ToQuery DescribeInstances where
-    toQuery = const mempty
-
-instance ToHeaders DescribeInstances
-
-instance ToBody DescribeInstances where
-    toBody = toBody . encode . _diStackId
-
 newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -127,5 +116,18 @@ instance AWSRequest DescribeInstances where
     type Rs DescribeInstances = DescribeInstancesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeInstancesResponse
-        <$> o .: "Instances"
+    response = jsonResponse
+
+instance FromJSON DescribeInstancesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeInstances
+
+instance ToQuery DescribeInstances where
+    toQuery = const mempty
+
+instance ToJSON DescribeInstances where
+    toJSON = genericToJSON jsonOptions

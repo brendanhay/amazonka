@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteBandwidthRateLimit
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ dbrl1BandwidthType =
 dbrl1GatewayARN :: Lens' DeleteBandwidthRateLimit Text
 dbrl1GatewayARN = lens _dbrl1GatewayARN (\s a -> s { _dbrl1GatewayARN = a })
 
-instance ToPath DeleteBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToQuery DeleteBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToHeaders DeleteBandwidthRateLimit
-
-instance ToBody DeleteBandwidthRateLimit where
-    toBody = toBody . encode . _dbrl1GatewayARN
-
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlr1GatewayARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -108,5 +97,18 @@ instance AWSRequest DeleteBandwidthRateLimit where
     type Rs DeleteBandwidthRateLimit = DeleteBandwidthRateLimitResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteBandwidthRateLimitResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON DeleteBandwidthRateLimitResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteBandwidthRateLimit where
+    toPath = const "/"
+
+instance ToHeaders DeleteBandwidthRateLimit
+
+instance ToQuery DeleteBandwidthRateLimit where
+    toQuery = const mempty
+
+instance ToJSON DeleteBandwidthRateLimit where
+    toJSON = genericToJSON jsonOptions

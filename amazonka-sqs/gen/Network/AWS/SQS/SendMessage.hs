@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.SendMessage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,11 +107,6 @@ smMessageBody = lens _smMessageBody (\s a -> s { _smMessageBody = a })
 smQueueUrl :: Lens' SendMessage Text
 smQueueUrl = lens _smQueueUrl (\s a -> s { _smQueueUrl = a })
 
-instance ToQuery SendMessage
-
-instance ToPath SendMessage where
-    toPath = const "/"
-
 data SendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMD5OfMessageBody       :: Maybe Text
@@ -163,7 +158,15 @@ instance AWSRequest SendMessage where
     type Rs SendMessage = SendMessageResponse
 
     request  = post "SendMessage"
-    response = xmlResponse $ \h x -> SendMessageResponse
-        <$> x %| "MD5OfMessageAttributes"
-        <*> x %| "MD5OfMessageBody"
-        <*> x %| "MessageId"
+    response = xmlResponse
+
+instance FromXML SendMessageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendMessageResponse"
+
+instance ToPath SendMessage where
+    toPath = const "/"
+
+instance ToHeaders SendMessage
+
+instance ToQuery SendMessage

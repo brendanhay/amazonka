@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.RemovePermission
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 rpQueueUrl :: Lens' RemovePermission Text
 rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
 
-instance ToQuery RemovePermission
-
-instance ToPath RemovePermission where
-    toPath = const "/"
-
 data RemovePermissionResponse = RemovePermissionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest RemovePermission where
     type Rs RemovePermission = RemovePermissionResponse
 
     request  = post "RemovePermission"
-    response = nullaryResponse RemovePermissionResponse
+    response = nullResponse RemovePermissionResponse
+
+instance ToPath RemovePermission where
+    toPath = const "/"
+
+instance ToHeaders RemovePermission
+
+instance ToQuery RemovePermission

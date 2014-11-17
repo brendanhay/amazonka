@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DisassociateAddress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
 da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
 
-instance ToQuery DisassociateAddress
-
-instance ToPath DisassociateAddress where
-    toPath = const "/"
-
 data DisassociateAddressResponse = DisassociateAddressResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest DisassociateAddress where
     type Rs DisassociateAddress = DisassociateAddressResponse
 
     request  = post "DisassociateAddress"
-    response = nullaryResponse DisassociateAddressResponse
+    response = nullResponse DisassociateAddressResponse
+
+instance ToPath DisassociateAddress where
+    toPath = const "/"
+
+instance ToHeaders DisassociateAddress
+
+instance ToQuery DisassociateAddress

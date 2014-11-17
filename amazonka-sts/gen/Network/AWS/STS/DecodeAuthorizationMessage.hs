@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.STS.DecodeAuthorizationMessage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
 damEncodedMessage =
     lens _damEncodedMessage (\s a -> s { _damEncodedMessage = a })
 
-instance ToQuery DecodeAuthorizationMessage
-
-instance ToPath DecodeAuthorizationMessage where
-    toPath = const "/"
-
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -109,5 +104,15 @@ instance AWSRequest DecodeAuthorizationMessage where
     type Rs DecodeAuthorizationMessage = DecodeAuthorizationMessageResponse
 
     request  = post "DecodeAuthorizationMessage"
-    response = xmlResponse $ \h x -> DecodeAuthorizationMessageResponse
-        <$> x %| "DecodedMessage"
+    response = xmlResponse
+
+instance FromXML DecodeAuthorizationMessageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DecodeAuthorizationMessageResponse"
+
+instance ToPath DecodeAuthorizationMessage where
+    toPath = const "/"
+
+instance ToHeaders DecodeAuthorizationMessage
+
+instance ToQuery DecodeAuthorizationMessage

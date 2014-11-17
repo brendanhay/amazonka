@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.SuspendProcesses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ spScalingProcesses :: Lens' SuspendProcesses [Text]
 spScalingProcesses =
     lens _spScalingProcesses (\s a -> s { _spScalingProcesses = a })
 
-instance ToQuery SuspendProcesses
-
-instance ToPath SuspendProcesses where
-    toPath = const "/"
-
 data SuspendProcessesResponse = SuspendProcessesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest SuspendProcesses where
     type Rs SuspendProcesses = SuspendProcessesResponse
 
     request  = post "SuspendProcesses"
-    response = nullaryResponse SuspendProcessesResponse
+    response = nullResponse SuspendProcessesResponse
+
+instance ToPath SuspendProcesses where
+    toPath = const "/"
+
+instance ToHeaders SuspendProcesses
+
+instance ToQuery SuspendProcesses

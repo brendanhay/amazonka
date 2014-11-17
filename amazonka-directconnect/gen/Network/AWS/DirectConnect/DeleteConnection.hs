@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.DirectConnect.DeleteConnection
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ deleteConnection p1 = DeleteConnection
 
 dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\s a -> s { _dcConnectionId = a })
-
-instance ToPath DeleteConnection where
-    toPath = const "/"
-
-instance ToQuery DeleteConnection where
-    toQuery = const mempty
-
-instance ToHeaders DeleteConnection
-
-instance ToBody DeleteConnection where
-    toBody = toBody . encode . _dcConnectionId
 
 data DeleteConnectionResponse = DeleteConnectionResponse
     { _dcrBandwidth       :: Maybe Text
@@ -165,13 +154,18 @@ instance AWSRequest DeleteConnection where
     type Rs DeleteConnection = DeleteConnectionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteConnectionResponse
-        <$> o .: "bandwidth"
-        <*> o .: "connectionId"
-        <*> o .: "connectionName"
-        <*> o .: "connectionState"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "partnerName"
-        <*> o .: "region"
-        <*> o .: "vlan"
+    response = jsonResponse
+
+instance FromJSON DeleteConnectionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteConnection where
+    toPath = const "/"
+
+instance ToHeaders DeleteConnection
+
+instance ToQuery DeleteConnection where
+    toQuery = const mempty
+
+instance ToJSON DeleteConnection where
+    toJSON = genericToJSON jsonOptions

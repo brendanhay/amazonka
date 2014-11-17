@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.DynamoDB.UpdateTable
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -94,17 +94,6 @@ utProvisionedThroughput =
 utTableName :: Lens' UpdateTable Text
 utTableName = lens _utTableName (\s a -> s { _utTableName = a })
 
-instance ToPath UpdateTable where
-    toPath = const "/"
-
-instance ToQuery UpdateTable where
-    toQuery = const mempty
-
-instance ToHeaders UpdateTable
-
-instance ToBody UpdateTable where
-    toBody = toBody . encode . _utTableName
-
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
     } deriving (Eq, Show, Generic)
@@ -129,5 +118,18 @@ instance AWSRequest UpdateTable where
     type Rs UpdateTable = UpdateTableResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateTableResponse
-        <$> o .: "TableDescription"
+    response = jsonResponse
+
+instance FromJSON UpdateTableResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateTable where
+    toPath = const "/"
+
+instance ToHeaders UpdateTable
+
+instance ToQuery UpdateTable where
+    toQuery = const mempty
+
+instance ToJSON UpdateTable where
+    toJSON = genericToJSON jsonOptions

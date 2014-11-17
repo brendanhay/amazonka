@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Kinesis.AddTagsToStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ attsTags :: Lens' AddTagsToStream (HashMap Text Text)
 attsTags = lens _attsTags (\s a -> s { _attsTags = a })
     . _Map
 
-instance ToPath AddTagsToStream where
-    toPath = const "/"
-
-instance ToQuery AddTagsToStream where
-    toQuery = const mempty
-
-instance ToHeaders AddTagsToStream
-
-instance ToBody AddTagsToStream where
-    toBody = toBody . encode . _attsStreamName
-
 data AddTagsToStreamResponse = AddTagsToStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +84,15 @@ instance AWSRequest AddTagsToStream where
     type Rs AddTagsToStream = AddTagsToStreamResponse
 
     request  = post
-    response = nullaryResponse AddTagsToStreamResponse
+    response = nullResponse AddTagsToStreamResponse
+
+instance ToPath AddTagsToStream where
+    toPath = const "/"
+
+instance ToHeaders AddTagsToStream
+
+instance ToQuery AddTagsToStream where
+    toQuery = const mempty
+
+instance ToJSON AddTagsToStream where
+    toJSON = genericToJSON jsonOptions

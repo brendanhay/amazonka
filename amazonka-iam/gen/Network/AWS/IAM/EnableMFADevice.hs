@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.EnableMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ emfadSerialNumber =
 emfadUserName :: Lens' EnableMFADevice Text
 emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
 
-instance ToQuery EnableMFADevice
-
-instance ToPath EnableMFADevice where
-    toPath = const "/"
-
 data EnableMFADeviceResponse = EnableMFADeviceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -114,4 +109,11 @@ instance AWSRequest EnableMFADevice where
     type Rs EnableMFADevice = EnableMFADeviceResponse
 
     request  = post "EnableMFADevice"
-    response = nullaryResponse EnableMFADeviceResponse
+    response = nullResponse EnableMFADeviceResponse
+
+instance ToPath EnableMFADevice where
+    toPath = const "/"
+
+instance ToHeaders EnableMFADevice
+
+instance ToQuery EnableMFADevice

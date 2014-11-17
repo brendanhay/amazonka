@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -232,11 +232,6 @@ di1MaxResults = lens _di1MaxResults (\s a -> s { _di1MaxResults = a })
 di1NextToken :: Lens' DescribeInstances (Maybe Text)
 di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
 
-instance ToQuery DescribeInstances
-
-instance ToPath DescribeInstances where
-    toPath = const "/"
-
 data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirNextToken    :: Maybe Text
     , _dirReservations :: [Reservation]
@@ -270,10 +265,15 @@ instance AWSRequest DescribeInstances where
     type Rs DescribeInstances = DescribeInstancesResponse
 
     request  = post "DescribeInstances"
-    response = xmlResponse $ \h x -> DescribeInstancesResponse
-        <$> x %| "nextToken"
-        <*> x %| "reservationSet"
+    response = xmlResponse
 
-instance AWSPager DescribeInstances where
-    next rq rs = (\x -> rq & di1NextToken ?~ x)
-        <$> (rs ^. dirNextToken)
+instance FromXML DescribeInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInstancesResponse"
+
+instance ToPath DescribeInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeInstances
+
+instance ToQuery DescribeInstances

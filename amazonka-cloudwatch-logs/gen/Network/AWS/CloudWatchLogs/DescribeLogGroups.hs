@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -88,17 +88,6 @@ dlgLogGroupNamePrefix =
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\s a -> s { _dlgNextToken = a })
 
-instance ToPath DescribeLogGroups where
-    toPath = const "/"
-
-instance ToQuery DescribeLogGroups where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLogGroups
-
-instance ToBody DescribeLogGroups where
-    toBody = toBody . encode . _dlgLogGroupNamePrefix
-
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups :: [LogGroup]
     , _dlgrNextToken :: Maybe Text
@@ -129,6 +118,18 @@ instance AWSRequest DescribeLogGroups where
     type Rs DescribeLogGroups = DescribeLogGroupsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeLogGroupsResponse
-        <$> o .: "logGroups"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON DescribeLogGroupsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeLogGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeLogGroups
+
+instance ToQuery DescribeLogGroups where
+    toQuery = const mempty
+
+instance ToJSON DescribeLogGroups where
+    toJSON = genericToJSON jsonOptions

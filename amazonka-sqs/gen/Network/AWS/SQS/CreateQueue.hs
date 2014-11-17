@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.CreateQueue
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
 
-instance ToQuery CreateQueue
-
-instance ToPath CreateQueue where
-    toPath = const "/"
-
 newtype CreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -130,5 +125,15 @@ instance AWSRequest CreateQueue where
     type Rs CreateQueue = CreateQueueResponse
 
     request  = post "CreateQueue"
-    response = xmlResponse $ \h x -> CreateQueueResponse
-        <$> x %| "QueueUrl"
+    response = xmlResponse
+
+instance FromXML CreateQueueResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateQueueResponse"
+
+instance ToPath CreateQueue where
+    toPath = const "/"
+
+instance ToHeaders CreateQueue
+
+instance ToQuery CreateQueue

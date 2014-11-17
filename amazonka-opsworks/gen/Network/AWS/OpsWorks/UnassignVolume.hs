@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UnassignVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.OpsWorks.UnassignVolume
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ unassignVolume p1 = UnassignVolume
 uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\s a -> s { _uvVolumeId = a })
 
-instance ToPath UnassignVolume where
-    toPath = const "/"
-
-instance ToQuery UnassignVolume where
-    toQuery = const mempty
-
-instance ToHeaders UnassignVolume
-
-instance ToBody UnassignVolume where
-    toBody = toBody . encode . _uvVolumeId
-
 data UnassignVolumeResponse = UnassignVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +76,15 @@ instance AWSRequest UnassignVolume where
     type Rs UnassignVolume = UnassignVolumeResponse
 
     request  = post
-    response = nullaryResponse UnassignVolumeResponse
+    response = nullResponse UnassignVolumeResponse
+
+instance ToPath UnassignVolume where
+    toPath = const "/"
+
+instance ToHeaders UnassignVolume
+
+instance ToQuery UnassignVolume where
+    toQuery = const mempty
+
+instance ToJSON UnassignVolume where
+    toJSON = genericToJSON jsonOptions

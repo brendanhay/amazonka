@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
 escRetentionPeriod =
     lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })
 
-instance ToQuery EnableSnapshotCopy
-
-instance ToPath EnableSnapshotCopy where
-    toPath = const "/"
-
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -118,5 +113,15 @@ instance AWSRequest EnableSnapshotCopy where
     type Rs EnableSnapshotCopy = EnableSnapshotCopyResponse
 
     request  = post "EnableSnapshotCopy"
-    response = xmlResponse $ \h x -> EnableSnapshotCopyResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML EnableSnapshotCopyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableSnapshotCopyResponse"
+
+instance ToPath EnableSnapshotCopy where
+    toPath = const "/"
+
+instance ToHeaders EnableSnapshotCopy
+
+instance ToQuery EnableSnapshotCopy

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetCheckerIpRanges
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Route53.GetCheckerIpRanges
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -49,14 +49,6 @@ data GetCheckerIpRanges = GetCheckerIpRanges
 -- | 'GetCheckerIpRanges' constructor.
 getCheckerIpRanges :: GetCheckerIpRanges
 getCheckerIpRanges = GetCheckerIpRanges
-
-instance ToPath GetCheckerIpRanges where
-    toPath = const "/2013-04-01/checkeripranges"
-
-instance ToQuery GetCheckerIpRanges where
-    toQuery = const mempty
-
-instance ToHeaders GetCheckerIpRanges
 
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
@@ -90,5 +82,15 @@ instance AWSRequest GetCheckerIpRanges where
     type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetCheckerIpRangesResponse
-        <$> x %| "CheckerIpRanges"
+    response = xmlResponse
+
+instance FromXML GetCheckerIpRangesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetCheckerIpRangesResponse"
+
+instance ToPath GetCheckerIpRanges where
+    toPath = const "/2013-04-01/checkeripranges"
+
+instance ToHeaders GetCheckerIpRanges
+
+instance ToQuery GetCheckerIpRanges

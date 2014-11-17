@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeResize
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ describeResize p1 = DescribeResize
 drClusterIdentifier :: Lens' DescribeResize Text
 drClusterIdentifier =
     lens _drClusterIdentifier (\s a -> s { _drClusterIdentifier = a })
-
-instance ToQuery DescribeResize
-
-instance ToPath DescribeResize where
-    toPath = const "/"
 
 data DescribeResizeResponse = DescribeResizeResponse
     { _drrAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
@@ -234,16 +229,15 @@ instance AWSRequest DescribeResize where
     type Rs DescribeResize = DescribeResizeResponse
 
     request  = post "DescribeResize"
-    response = xmlResponse $ \h x -> DescribeResizeResponse
-        <$> x %| "AvgResizeRateInMegaBytesPerSecond"
-        <*> x %| "ElapsedTimeInSeconds"
-        <*> x %| "EstimatedTimeToCompletionInSeconds"
-        <*> x %| "ImportTablesCompleted"
-        <*> x %| "ImportTablesInProgress"
-        <*> x %| "ImportTablesNotStarted"
-        <*> x %| "ProgressInMegaBytes"
-        <*> x %| "Status"
-        <*> x %| "TargetClusterType"
-        <*> x %| "TargetNodeType"
-        <*> x %| "TargetNumberOfNodes"
-        <*> x %| "TotalResizeDataInMegaBytes"
+    response = xmlResponse
+
+instance FromXML DescribeResizeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeResizeResponse"
+
+instance ToPath DescribeResize where
+    toPath = const "/"
+
+instance ToHeaders DescribeResize
+
+instance ToQuery DescribeResize

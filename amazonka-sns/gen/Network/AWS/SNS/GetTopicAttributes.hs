@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.GetTopicAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ getTopicAttributes p1 = GetTopicAttributes
 gtaTopicArn :: Lens' GetTopicAttributes Text
 gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
-instance ToQuery GetTopicAttributes
-
-instance ToPath GetTopicAttributes where
-    toPath = const "/"
-
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -103,5 +98,15 @@ instance AWSRequest GetTopicAttributes where
     type Rs GetTopicAttributes = GetTopicAttributesResponse
 
     request  = post "GetTopicAttributes"
-    response = xmlResponse $ \h x -> GetTopicAttributesResponse
-        <$> x %| "Attributes"
+    response = xmlResponse
+
+instance FromXML GetTopicAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetTopicAttributesResponse"
+
+instance ToPath GetTopicAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetTopicAttributes
+
+instance ToQuery GetTopicAttributes

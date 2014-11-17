@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.GetDomainDetail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,7 +58,7 @@ module Network.AWS.Route53Domains.GetDomainDetail
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -84,17 +84,6 @@ getDomainDetail p1 = GetDomainDetail
 -- Required: Yes.
 gddDomainName :: Lens' GetDomainDetail Text
 gddDomainName = lens _gddDomainName (\s a -> s { _gddDomainName = a })
-
-instance ToPath GetDomainDetail where
-    toPath = const "/"
-
-instance ToQuery GetDomainDetail where
-    toQuery = const mempty
-
-instance ToHeaders GetDomainDetail
-
-instance ToBody GetDomainDetail where
-    toBody = toBody . encode . _gddDomainName
 
 data GetDomainDetailResponse = GetDomainDetailResponse
     { _gddrAbuseContactEmail :: Maybe Text
@@ -333,25 +322,18 @@ instance AWSRequest GetDomainDetail where
     type Rs GetDomainDetail = GetDomainDetailResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetDomainDetailResponse
-        <$> o .: "AbuseContactEmail"
-        <*> o .: "AbuseContactPhone"
-        <*> o .: "AdminContact"
-        <*> o .: "AdminPrivacy"
-        <*> o .: "AutoRenew"
-        <*> o .: "CreationDate"
-        <*> o .: "DnsSec"
-        <*> o .: "DomainName"
-        <*> o .: "ExpirationDate"
-        <*> o .: "Nameservers"
-        <*> o .: "RegistrantContact"
-        <*> o .: "RegistrantPrivacy"
-        <*> o .: "RegistrarName"
-        <*> o .: "RegistrarUrl"
-        <*> o .: "RegistryDomainId"
-        <*> o .: "Reseller"
-        <*> o .: "StatusList"
-        <*> o .: "TechContact"
-        <*> o .: "TechPrivacy"
-        <*> o .: "UpdatedDate"
-        <*> o .: "WhoIsServer"
+    response = jsonResponse
+
+instance FromJSON GetDomainDetailResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetDomainDetail where
+    toPath = const "/"
+
+instance ToHeaders GetDomainDetail
+
+instance ToQuery GetDomainDetail where
+    toQuery = const mempty
+
+instance ToJSON GetDomainDetail where
+    toJSON = genericToJSON jsonOptions

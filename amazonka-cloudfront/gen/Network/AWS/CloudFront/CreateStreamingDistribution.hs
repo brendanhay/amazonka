@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDis
 csdStreamingDistributionConfig =
     lens _csdStreamingDistributionConfig
         (\s a -> s { _csdStreamingDistributionConfig = a })
-
-instance ToPath CreateStreamingDistribution where
-    toPath = const "/2014-05-31/streaming-distribution"
-
-instance ToQuery CreateStreamingDistribution where
-    toQuery = const mempty
-
-instance ToHeaders CreateStreamingDistribution
-
-instance ToBody CreateStreamingDistribution where
-    toBody = toBody . encodeXML . _csdStreamingDistributionConfig
 
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdrETag                  :: Maybe Text
@@ -121,7 +110,19 @@ instance AWSRequest CreateStreamingDistribution where
     type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateStreamingDistributionResponse
-        <$> h ~:? "ETag"
+    response = xmlHeaderResponse $ \h x -> CreateStreamingDistributionResponse
+        <*> h ~:? "ETag"
         <*> h ~:? "Location"
         <*> x %| "StreamingDistribution"
+
+instance ToPath CreateStreamingDistribution where
+    toPath = const "/2014-05-31/streaming-distribution"
+
+instance ToHeaders CreateStreamingDistribution
+
+instance ToQuery CreateStreamingDistribution where
+    toQuery = const mempty
+
+instance ToXML CreateStreamingDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateStreamingDistribution"

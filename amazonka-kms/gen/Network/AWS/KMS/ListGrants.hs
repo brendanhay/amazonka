@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.ListGrants
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.KMS.ListGrants
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -88,17 +88,6 @@ lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
 lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
-instance ToPath ListGrants where
-    toPath = const "/"
-
-instance ToQuery ListGrants where
-    toQuery = const mempty
-
-instance ToHeaders ListGrants
-
-instance ToBody ListGrants where
-    toBody = toBody . encode . _lgKeyId
-
 data ListGrantsResponse = ListGrantsResponse
     { _lgrGrants     :: [GrantListEntry]
     , _lgrNextMarker :: Maybe Text
@@ -142,7 +131,18 @@ instance AWSRequest ListGrants where
     type Rs ListGrants = ListGrantsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListGrantsResponse
-        <$> o .: "Grants"
-        <*> o .: "NextMarker"
-        <*> o .: "Truncated"
+    response = jsonResponse
+
+instance FromJSON ListGrantsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListGrants where
+    toPath = const "/"
+
+instance ToHeaders ListGrants
+
+instance ToQuery ListGrants where
+    toQuery = const mempty
+
+instance ToJSON ListGrants where
+    toJSON = genericToJSON jsonOptions

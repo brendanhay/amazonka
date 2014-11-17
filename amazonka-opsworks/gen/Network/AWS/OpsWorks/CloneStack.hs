@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.CloneStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,7 +60,7 @@ module Network.AWS.OpsWorks.CloneStack
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -329,17 +329,6 @@ cs1UseOpsworksSecurityGroups =
 cs1VpcId :: Lens' CloneStack (Maybe Text)
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
-instance ToPath CloneStack where
-    toPath = const "/"
-
-instance ToQuery CloneStack where
-    toQuery = const mempty
-
-instance ToHeaders CloneStack
-
-instance ToBody CloneStack where
-    toBody = toBody . encode . _cs1SourceStackId
-
 newtype CloneStackResponse = CloneStackResponse
     { _csrStackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -364,5 +353,18 @@ instance AWSRequest CloneStack where
     type Rs CloneStack = CloneStackResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CloneStackResponse
-        <$> o .: "StackId"
+    response = jsonResponse
+
+instance FromJSON CloneStackResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CloneStack where
+    toPath = const "/"
+
+instance ToHeaders CloneStack
+
+instance ToQuery CloneStack where
+    toQuery = const mempty
+
+instance ToJSON CloneStack where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.DomainMetadata
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ domainMetadata p1 = DomainMetadata
 -- | The name of the domain for which to display the metadata of.
 dmDomainName :: Lens' DomainMetadata Text
 dmDomainName = lens _dmDomainName (\s a -> s { _dmDomainName = a })
-
-instance ToQuery DomainMetadata
-
-instance ToPath DomainMetadata where
-    toPath = const "/"
 
 data DomainMetadataResponse = DomainMetadataResponse
     { _dmrAttributeNameCount       :: Maybe Int
@@ -153,11 +148,15 @@ instance AWSRequest DomainMetadata where
     type Rs DomainMetadata = DomainMetadataResponse
 
     request  = post "DomainMetadata"
-    response = xmlResponse $ \h x -> DomainMetadataResponse
-        <$> x %| "AttributeNameCount"
-        <*> x %| "AttributeNamesSizeBytes"
-        <*> x %| "AttributeValueCount"
-        <*> x %| "AttributeValuesSizeBytes"
-        <*> x %| "ItemCount"
-        <*> x %| "ItemNamesSizeBytes"
-        <*> x %| "Timestamp"
+    response = xmlResponse
+
+instance FromXML DomainMetadataResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DomainMetadataResponse"
+
+instance ToPath DomainMetadata where
+    toPath = const "/"
+
+instance ToHeaders DomainMetadata
+
+instance ToQuery DomainMetadata

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.RemoveTagsFromResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a })
 
-instance ToQuery RemoveTagsFromResource
-
-instance ToPath RemoveTagsFromResource where
-    toPath = const "/"
-
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest RemoveTagsFromResource where
     type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
 
     request  = post "RemoveTagsFromResource"
-    response = nullaryResponse RemoveTagsFromResourceResponse
+    response = nullResponse RemoveTagsFromResourceResponse
+
+instance ToPath RemoveTagsFromResource where
+    toPath = const "/"
+
+instance ToHeaders RemoveTagsFromResource
+
+instance ToQuery RemoveTagsFromResource

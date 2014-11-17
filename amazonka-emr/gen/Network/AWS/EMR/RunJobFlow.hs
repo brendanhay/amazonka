@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.RunJobFlow
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,7 +67,7 @@ module Network.AWS.EMR.RunJobFlow
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -225,17 +225,6 @@ rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers =
     lens _rjfVisibleToAllUsers (\s a -> s { _rjfVisibleToAllUsers = a })
 
-instance ToPath RunJobFlow where
-    toPath = const "/"
-
-instance ToQuery RunJobFlow where
-    toQuery = const mempty
-
-instance ToHeaders RunJobFlow
-
-instance ToBody RunJobFlow where
-    toBody = toBody . encode . _rjfName
-
 newtype RunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -260,5 +249,18 @@ instance AWSRequest RunJobFlow where
     type Rs RunJobFlow = RunJobFlowResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RunJobFlowResponse
-        <$> o .: "JobFlowId"
+    response = jsonResponse
+
+instance FromJSON RunJobFlowResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RunJobFlow where
+    toPath = const "/"
+
+instance ToHeaders RunJobFlow
+
+instance ToQuery RunJobFlow where
+    toQuery = const mempty
+
+instance ToJSON RunJobFlow where
+    toJSON = genericToJSON jsonOptions

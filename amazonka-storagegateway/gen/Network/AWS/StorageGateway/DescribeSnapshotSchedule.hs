@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ describeSnapshotSchedule p1 = DescribeSnapshotSchedule
 -- operation to return a list of gateway volumes.
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })
-
-instance ToPath DescribeSnapshotSchedule where
-    toPath = const "/"
-
-instance ToQuery DescribeSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToHeaders DescribeSnapshotSchedule
-
-instance ToBody DescribeSnapshotSchedule where
-    toBody = toBody . encode . _dssVolumeARN
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     { _dssrDescription       :: Maybe Text
@@ -133,9 +122,18 @@ instance AWSRequest DescribeSnapshotSchedule where
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeSnapshotScheduleResponse
-        <$> o .: "Description"
-        <*> o .: "RecurrenceInHours"
-        <*> o .: "StartAt"
-        <*> o .: "Timezone"
-        <*> o .: "VolumeARN"
+    response = jsonResponse
+
+instance FromJSON DescribeSnapshotScheduleResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeSnapshotSchedule where
+    toPath = const "/"
+
+instance ToHeaders DescribeSnapshotSchedule
+
+instance ToQuery DescribeSnapshotSchedule where
+    toQuery = const mempty
+
+instance ToJSON DescribeSnapshotSchedule where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.ListPlatformApplications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ listPlatformApplications = ListPlatformApplications
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 
-instance ToQuery ListPlatformApplications
-
-instance ToPath ListPlatformApplications where
-    toPath = const "/"
-
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
     , _lparPlatformApplications :: [PlatformApplication]
@@ -111,10 +106,15 @@ instance AWSRequest ListPlatformApplications where
     type Rs ListPlatformApplications = ListPlatformApplicationsResponse
 
     request  = post "ListPlatformApplications"
-    response = xmlResponse $ \h x -> ListPlatformApplicationsResponse
-        <$> x %| "NextToken"
-        <*> x %| "PlatformApplications"
+    response = xmlResponse
 
-instance AWSPager ListPlatformApplications where
-    next rq rs = (\x -> rq & lpaNextToken ?~ x)
-        <$> (rs ^. lparNextToken)
+instance FromXML ListPlatformApplicationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListPlatformApplicationsResponse"
+
+instance ToPath ListPlatformApplications where
+    toPath = const "/"
+
+instance ToHeaders ListPlatformApplications
+
+instance ToQuery ListPlatformApplications

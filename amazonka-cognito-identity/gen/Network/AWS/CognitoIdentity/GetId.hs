@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetId
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CognitoIdentity.GetId
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -84,17 +84,6 @@ giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\s a -> s { _giLogins = a })
     . _Map
 
-instance ToPath GetId where
-    toPath = const "/"
-
-instance ToQuery GetId where
-    toQuery = const mempty
-
-instance ToHeaders GetId
-
-instance ToBody GetId where
-    toBody = toBody . encode . _giAccountId
-
 newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -119,5 +108,18 @@ instance AWSRequest GetId where
     type Rs GetId = GetIdResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetIdResponse
-        <$> o .: "IdentityId"
+    response = jsonResponse
+
+instance FromJSON GetIdResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetId where
+    toPath = const "/"
+
+instance ToHeaders GetId
+
+instance ToQuery GetId where
+    toQuery = const mempty
+
+instance ToJSON GetId where
+    toJSON = genericToJSON jsonOptions

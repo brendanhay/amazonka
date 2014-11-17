@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ mcsgCacheSubnetGroupName =
 mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
 
-instance ToQuery ModifyCacheSubnetGroup
-
-instance ToPath ModifyCacheSubnetGroup where
-    toPath = const "/"
-
 newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
     } deriving (Eq, Show, Generic)
@@ -115,5 +110,15 @@ instance AWSRequest ModifyCacheSubnetGroup where
     type Rs ModifyCacheSubnetGroup = ModifyCacheSubnetGroupResponse
 
     request  = post "ModifyCacheSubnetGroup"
-    response = xmlResponse $ \h x -> ModifyCacheSubnetGroupResponse
-        <$> x %| "CacheSubnetGroup"
+    response = xmlResponse
+
+instance FromXML ModifyCacheSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyCacheSubnetGroupResponse"
+
+instance ToPath ModifyCacheSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyCacheSubnetGroup
+
+instance ToQuery ModifyCacheSubnetGroup

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckCount
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.Route53.GetHealthCheckCount
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -46,14 +46,6 @@ data GetHealthCheckCount = GetHealthCheckCount
 -- | 'GetHealthCheckCount' constructor.
 getHealthCheckCount :: GetHealthCheckCount
 getHealthCheckCount = GetHealthCheckCount
-
-instance ToPath GetHealthCheckCount where
-    toPath = const "/2013-04-01/healthcheckcount"
-
-instance ToQuery GetHealthCheckCount where
-    toQuery = const mempty
-
-instance ToHeaders GetHealthCheckCount
 
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
@@ -81,5 +73,15 @@ instance AWSRequest GetHealthCheckCount where
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetHealthCheckCountResponse
-        <$> x %| "HealthCheckCount"
+    response = xmlResponse
+
+instance FromXML GetHealthCheckCountResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetHealthCheckCountResponse"
+
+instance ToPath GetHealthCheckCount where
+    toPath = const "/2013-04-01/healthcheckcount"
+
+instance ToHeaders GetHealthCheckCount
+
+instance ToQuery GetHealthCheckCount

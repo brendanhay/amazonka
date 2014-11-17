@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,11 +107,6 @@ rcsgiEC2SecurityGroupOwnerId =
     lens _rcsgiEC2SecurityGroupOwnerId
         (\s a -> s { _rcsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery RevokeClusterSecurityGroupIngress
-
-instance ToPath RevokeClusterSecurityGroupIngress where
-    toPath = const "/"
-
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -137,5 +132,15 @@ instance AWSRequest RevokeClusterSecurityGroupIngress where
     type Rs RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngressResponse
 
     request  = post "RevokeClusterSecurityGroupIngress"
-    response = xmlResponse $ \h x -> RevokeClusterSecurityGroupIngressResponse
-        <$> x %| "ClusterSecurityGroup"
+    response = xmlResponse
+
+instance FromXML RevokeClusterSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeClusterSecurityGroupIngressResponse"
+
+instance ToPath RevokeClusterSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders RevokeClusterSecurityGroupIngress
+
+instance ToQuery RevokeClusterSecurityGroupIngress

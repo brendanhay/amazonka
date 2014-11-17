@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.PutBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -77,23 +77,6 @@ pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
 pbpPolicy :: Lens' PutBucketPolicy Text
 pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
 
-instance ToPath PutBucketPolicy where
-    toPath PutBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _pbpBucket
-        ]
-
-instance ToQuery PutBucketPolicy where
-    toQuery = const "policy"
-
-instance ToHeaders PutBucketPolicy where
-    toHeaders PutBucketPolicy{..} = mconcat
-        [ "Content-MD5" =: _pbpContentMD5
-        ]
-
-instance ToBody PutBucketPolicy where
-    toBody = toBody . encodeXML . _pbpPolicy
-
 data PutBucketPolicyResponse = PutBucketPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -106,4 +89,22 @@ instance AWSRequest PutBucketPolicy where
     type Rs PutBucketPolicy = PutBucketPolicyResponse
 
     request  = put
-    response = nullaryResponse PutBucketPolicyResponse
+    response = nullResponse PutBucketPolicyResponse
+
+instance ToPath PutBucketPolicy where
+    toPath PutBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _pbpBucket
+        ]
+
+instance ToHeaders PutBucketPolicy where
+    toHeaders PutBucketPolicy{..} = mconcat
+        [ "Content-MD5" =: _pbpContentMD5
+        ]
+
+instance ToQuery PutBucketPolicy where
+    toQuery = const "policy"
+
+instance ToXML PutBucketPolicy where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketPolicy"

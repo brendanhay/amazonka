@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
 -- | The ID of the AMI.
 dia1ImageId :: Lens' DescribeImageAttribute Text
 dia1ImageId = lens _dia1ImageId (\s a -> s { _dia1ImageId = a })
-
-instance ToQuery DescribeImageAttribute
-
-instance ToPath DescribeImageAttribute where
-    toPath = const "/"
 
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     { _diarBlockDeviceMappings :: [BlockDeviceMapping]
@@ -174,12 +169,15 @@ instance AWSRequest DescribeImageAttribute where
     type Rs DescribeImageAttribute = DescribeImageAttributeResponse
 
     request  = post "DescribeImageAttribute"
-    response = xmlResponse $ \h x -> DescribeImageAttributeResponse
-        <$> x %| "blockDeviceMapping"
-        <*> x %| "description"
-        <*> x %| "imageId"
-        <*> x %| "kernel"
-        <*> x %| "launchPermission"
-        <*> x %| "productCodes"
-        <*> x %| "ramdisk"
-        <*> x %| "sriovNetSupport"
+    response = xmlResponse
+
+instance FromXML DescribeImageAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeImageAttributeResponse"
+
+instance ToPath DescribeImageAttribute where
+    toPath = const "/"
+
+instance ToHeaders DescribeImageAttribute
+
+instance ToQuery DescribeImageAttribute

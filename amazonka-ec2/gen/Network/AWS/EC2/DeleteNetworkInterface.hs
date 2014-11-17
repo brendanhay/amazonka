@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dni2NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dni2NetworkInterfaceId =
     lens _dni2NetworkInterfaceId (\s a -> s { _dni2NetworkInterfaceId = a })
 
-instance ToQuery DeleteNetworkInterface
-
-instance ToPath DeleteNetworkInterface where
-    toPath = const "/"
-
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteNetworkInterface where
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
 
     request  = post "DeleteNetworkInterface"
-    response = nullaryResponse DeleteNetworkInterfaceResponse
+    response = nullResponse DeleteNetworkInterfaceResponse
+
+instance ToPath DeleteNetworkInterface where
+    toPath = const "/"
+
+instance ToHeaders DeleteNetworkInterface
+
+instance ToQuery DeleteNetworkInterface

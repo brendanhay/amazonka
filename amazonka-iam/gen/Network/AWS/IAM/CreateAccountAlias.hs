@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateAccountAlias
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ createAccountAlias p1 = CreateAccountAlias
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
 
-instance ToQuery CreateAccountAlias
-
-instance ToPath CreateAccountAlias where
-    toPath = const "/"
-
 data CreateAccountAliasResponse = CreateAccountAliasResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest CreateAccountAlias where
     type Rs CreateAccountAlias = CreateAccountAliasResponse
 
     request  = post "CreateAccountAlias"
-    response = nullaryResponse CreateAccountAliasResponse
+    response = nullResponse CreateAccountAliasResponse
+
+instance ToPath CreateAccountAlias where
+    toPath = const "/"
+
+instance ToHeaders CreateAccountAlias
+
+instance ToQuery CreateAccountAlias

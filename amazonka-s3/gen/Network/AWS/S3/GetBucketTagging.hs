@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ getBucketTagging p1 = GetBucketTagging
 
 gbtBucket :: Lens' GetBucketTagging Text
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
-
-instance ToPath GetBucketTagging where
-    toPath GetBucketTagging{..} = mconcat
-        [ "/"
-        , toText _gbtBucket
-        ]
-
-instance ToQuery GetBucketTagging where
-    toQuery = const "tagging"
-
-instance ToHeaders GetBucketTagging
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: [Tag]
@@ -100,5 +89,23 @@ instance AWSRequest GetBucketTagging where
     type Rs GetBucketTagging = GetBucketTaggingResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketTaggingResponse
-        <$> x %| "TagSet"
+    response = xmlResponse
+
+instance FromXML GetBucketTaggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketTaggingResponse"
+
+instance ToPath GetBucketTagging where
+    toPath GetBucketTagging{..} = mconcat
+        [ "/"
+        , toText _gbtBucket
+        ]
+
+instance ToHeaders GetBucketTagging
+
+instance ToQuery GetBucketTagging where
+    toQuery = const "tagging"
+
+instance ToXML GetBucketTagging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketTagging"

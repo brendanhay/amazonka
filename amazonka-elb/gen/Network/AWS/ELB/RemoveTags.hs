@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.RemoveTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\s a -> s { _rtTags = a })
     . _List1
 
-instance ToQuery RemoveTags
-
-instance ToPath RemoveTags where
-    toPath = const "/"
-
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest RemoveTags where
     type Rs RemoveTags = RemoveTagsResponse
 
     request  = post "RemoveTags"
-    response = nullaryResponse RemoveTagsResponse
+    response = nullResponse RemoveTagsResponse
+
+instance ToPath RemoveTags where
+    toPath = const "/"
+
+instance ToHeaders RemoveTags
+
+instance ToQuery RemoveTags

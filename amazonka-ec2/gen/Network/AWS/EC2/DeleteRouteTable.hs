@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteRouteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
 drt1RouteTableId :: Lens' DeleteRouteTable Text
 drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
 
-instance ToQuery DeleteRouteTable
-
-instance ToPath DeleteRouteTable where
-    toPath = const "/"
-
 data DeleteRouteTableResponse = DeleteRouteTableResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteRouteTable where
     type Rs DeleteRouteTable = DeleteRouteTableResponse
 
     request  = post "DeleteRouteTable"
-    response = nullaryResponse DeleteRouteTableResponse
+    response = nullResponse DeleteRouteTableResponse
+
+instance ToPath DeleteRouteTable where
+    toPath = const "/"
+
+instance ToHeaders DeleteRouteTable
+
+instance ToQuery DeleteRouteTable

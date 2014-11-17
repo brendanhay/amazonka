@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateSubnet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -108,11 +108,6 @@ cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
 cs1VpcId :: Lens' CreateSubnet Text
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
-instance ToQuery CreateSubnet
-
-instance ToPath CreateSubnet where
-    toPath = const "/"
-
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csrSubnet :: Maybe Subnet
     } deriving (Eq, Show, Generic)
@@ -137,5 +132,15 @@ instance AWSRequest CreateSubnet where
     type Rs CreateSubnet = CreateSubnetResponse
 
     request  = post "CreateSubnet"
-    response = xmlResponse $ \h x -> CreateSubnetResponse
-        <$> x %| "subnet"
+    response = xmlResponse
+
+instance FromXML CreateSubnetResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSubnetResponse"
+
+instance ToPath CreateSubnet where
+    toPath = const "/"
+
+instance ToHeaders CreateSubnet
+
+instance ToQuery CreateSubnet

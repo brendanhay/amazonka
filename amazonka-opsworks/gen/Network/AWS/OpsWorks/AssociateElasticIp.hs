@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.AssociateElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.AssociateElasticIp
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ aeiElasticIp = lens _aeiElasticIp (\s a -> s { _aeiElasticIp = a })
 aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
 
-instance ToPath AssociateElasticIp where
-    toPath = const "/"
-
-instance ToQuery AssociateElasticIp where
-    toQuery = const mempty
-
-instance ToHeaders AssociateElasticIp
-
-instance ToBody AssociateElasticIp where
-    toBody = toBody . encode . _aeiElasticIp
-
 data AssociateElasticIpResponse = AssociateElasticIpResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +86,15 @@ instance AWSRequest AssociateElasticIp where
     type Rs AssociateElasticIp = AssociateElasticIpResponse
 
     request  = post
-    response = nullaryResponse AssociateElasticIpResponse
+    response = nullResponse AssociateElasticIpResponse
+
+instance ToPath AssociateElasticIp where
+    toPath = const "/"
+
+instance ToHeaders AssociateElasticIp
+
+instance ToQuery AssociateElasticIp where
+    toQuery = const mempty
+
+instance ToJSON AssociateElasticIp where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateAccessKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ createAccessKey = CreateAccessKey
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
 
-instance ToQuery CreateAccessKey
-
-instance ToPath CreateAccessKey where
-    toPath = const "/"
-
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest CreateAccessKey where
     type Rs CreateAccessKey = CreateAccessKeyResponse
 
     request  = post "CreateAccessKey"
-    response = xmlResponse $ \h x -> CreateAccessKeyResponse
-        <$> x %| "AccessKey"
+    response = xmlResponse
+
+instance FromXML CreateAccessKeyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateAccessKeyResponse"
+
+instance ToPath CreateAccessKey where
+    toPath = const "/"
+
+instance ToHeaders CreateAccessKey
+
+instance ToQuery CreateAccessKey

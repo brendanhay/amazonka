@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ cnaDryRun = lens _cnaDryRun (\s a -> s { _cnaDryRun = a })
 cnaVpcId :: Lens' CreateNetworkAcl Text
 cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
 
-instance ToQuery CreateNetworkAcl
-
-instance ToPath CreateNetworkAcl where
-    toPath = const "/"
-
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest CreateNetworkAcl where
     type Rs CreateNetworkAcl = CreateNetworkAclResponse
 
     request  = post "CreateNetworkAcl"
-    response = xmlResponse $ \h x -> CreateNetworkAclResponse
-        <$> x %| "networkAcl"
+    response = xmlResponse
+
+instance FromXML CreateNetworkAclResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateNetworkAclResponse"
+
+instance ToPath CreateNetworkAcl where
+    toPath = const "/"
+
+instance ToHeaders CreateNetworkAcl
+
+instance ToQuery CreateNetworkAcl

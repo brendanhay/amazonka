@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeDhcpOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
 ddoFilters :: Lens' DescribeDhcpOptions [Filter]
 ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a })
 
-instance ToQuery DescribeDhcpOptions
-
-instance ToPath DescribeDhcpOptions where
-    toPath = const "/"
-
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -127,5 +122,15 @@ instance AWSRequest DescribeDhcpOptions where
     type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse
 
     request  = post "DescribeDhcpOptions"
-    response = xmlResponse $ \h x -> DescribeDhcpOptionsResponse
-        <$> x %| "dhcpOptionsSet"
+    response = xmlResponse
+
+instance FromXML DescribeDhcpOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDhcpOptionsResponse"
+
+instance ToPath DescribeDhcpOptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeDhcpOptions
+
+instance ToQuery DescribeDhcpOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,11 +81,6 @@ uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList =
     lens _uoidcptThumbprintList (\s a -> s { _uoidcptThumbprintList = a })
 
-instance ToQuery UpdateOpenIDConnectProviderThumbprint
-
-instance ToPath UpdateOpenIDConnectProviderThumbprint where
-    toPath = const "/"
-
 data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -98,4 +93,11 @@ instance AWSRequest UpdateOpenIDConnectProviderThumbprint where
     type Rs UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprintResponse
 
     request  = post "UpdateOpenIDConnectProviderThumbprint"
-    response = nullaryResponse UpdateOpenIDConnectProviderThumbprintResponse
+    response = nullResponse UpdateOpenIDConnectProviderThumbprintResponse
+
+instance ToPath UpdateOpenIDConnectProviderThumbprint where
+    toPath = const "/"
+
+instance ToHeaders UpdateOpenIDConnectProviderThumbprint
+
+instance ToQuery UpdateOpenIDConnectProviderThumbprint

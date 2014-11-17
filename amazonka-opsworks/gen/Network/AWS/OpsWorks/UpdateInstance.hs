@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.OpsWorks.UpdateInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -177,17 +177,6 @@ uiOs = lens _uiOs (\s a -> s { _uiOs = a })
 uiSshKeyName :: Lens' UpdateInstance (Maybe Text)
 uiSshKeyName = lens _uiSshKeyName (\s a -> s { _uiSshKeyName = a })
 
-instance ToPath UpdateInstance where
-    toPath = const "/"
-
-instance ToQuery UpdateInstance where
-    toQuery = const mempty
-
-instance ToHeaders UpdateInstance
-
-instance ToBody UpdateInstance where
-    toBody = toBody . encode . _uiInstanceId
-
 data UpdateInstanceResponse = UpdateInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -200,4 +189,15 @@ instance AWSRequest UpdateInstance where
     type Rs UpdateInstance = UpdateInstanceResponse
 
     request  = post
-    response = nullaryResponse UpdateInstanceResponse
+    response = nullResponse UpdateInstanceResponse
+
+instance ToPath UpdateInstance where
+    toPath = const "/"
+
+instance ToHeaders UpdateInstance
+
+instance ToQuery UpdateInstance where
+    toQuery = const mempty
+
+instance ToJSON UpdateInstance where
+    toJSON = genericToJSON jsonOptions

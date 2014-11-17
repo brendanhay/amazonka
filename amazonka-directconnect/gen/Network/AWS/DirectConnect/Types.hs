@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.DirectConnect.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.DirectConnect.Types
       DirectConnect
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * VirtualInterface
     , VirtualInterface
@@ -141,6 +145,7 @@ module Network.AWS.DirectConnect.Types
     , rfpCidr
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -162,6 +167,11 @@ instance AWSService DirectConnect where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data VirtualInterface = VirtualInterface
     { _viAmazonAddress         :: Maybe Text
@@ -288,9 +298,11 @@ viVirtualInterfaceType =
 viVlan :: Lens' VirtualInterface (Maybe Int)
 viVlan = lens _viVlan (\s a -> s { _viVlan = a })
 
-instance FromJSON VirtualInterface
+instance FromJSON VirtualInterface where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VirtualInterface
+instance ToJSON VirtualInterface where
+    toJSON = genericToJSON jsonOptions
 
 data Location = Location
     { _lLocationCode :: Maybe Text
@@ -320,9 +332,11 @@ lLocationCode = lens _lLocationCode (\s a -> s { _lLocationCode = a })
 lLocationName :: Lens' Location (Maybe Text)
 lLocationName = lens _lLocationName (\s a -> s { _lLocationName = a })
 
-instance FromJSON Location
+instance FromJSON Location where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Location
+instance ToJSON Location where
+    toJSON = genericToJSON jsonOptions
 
 newtype Connections = Connections
     { _cConnections :: [Connection]
@@ -349,9 +363,11 @@ connections = Connections
 cConnections :: Lens' Connections [Connection]
 cConnections = lens _cConnections (\s a -> s { _cConnections = a })
 
-instance FromJSON Connections
+instance FromJSON Connections where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Connections
+instance ToJSON Connections where
+    toJSON = genericToJSON jsonOptions
 
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     { _npviaAmazonAddress        :: Maybe Text
@@ -413,9 +429,11 @@ npviaVirtualInterfaceName =
 npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaVlan = lens _npviaVlan (\s a -> s { _npviaVlan = a })
 
-instance FromJSON NewPrivateVirtualInterfaceAllocation
+instance FromJSON NewPrivateVirtualInterfaceAllocation where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON NewPrivateVirtualInterfaceAllocation
+instance ToJSON NewPrivateVirtualInterfaceAllocation where
+    toJSON = genericToJSON jsonOptions
 
 data VirtualInterfaceState
     = Available  -- ^ available
@@ -448,9 +466,11 @@ instance ToText VirtualInterfaceState where
         Rejected   -> "rejected"
         Verifying  -> "verifying"
 
-instance FromJSON VirtualInterfaceState
+instance FromJSON VirtualInterfaceState where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VirtualInterfaceState
+instance ToJSON VirtualInterfaceState where
+    toJSON = genericToJSON jsonOptions
 
 data Connection = Connection
     { _cBandwidth       :: Maybe Text
@@ -528,9 +548,11 @@ cRegion = lens _cRegion (\s a -> s { _cRegion = a })
 cVlan :: Lens' Connection (Maybe Int)
 cVlan = lens _cVlan (\s a -> s { _cVlan = a })
 
-instance FromJSON Connection
+instance FromJSON Connection where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Connection
+instance ToJSON Connection where
+    toJSON = genericToJSON jsonOptions
 
 data NewPublicVirtualInterface = NewPublicVirtualInterface
     { _npviAmazonAddress        :: Text
@@ -602,9 +624,11 @@ npviVirtualInterfaceName =
 npviVlan :: Lens' NewPublicVirtualInterface Int
 npviVlan = lens _npviVlan (\s a -> s { _npviVlan = a })
 
-instance FromJSON NewPublicVirtualInterface
+instance FromJSON NewPublicVirtualInterface where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON NewPublicVirtualInterface
+instance ToJSON NewPublicVirtualInterface where
+    toJSON = genericToJSON jsonOptions
 
 data Interconnect = Interconnect
     { _iBandwidth         :: Maybe Text
@@ -661,9 +685,11 @@ iLocation = lens _iLocation (\s a -> s { _iLocation = a })
 iRegion :: Lens' Interconnect (Maybe Text)
 iRegion = lens _iRegion (\s a -> s { _iRegion = a })
 
-instance FromJSON Interconnect
+instance FromJSON Interconnect where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Interconnect
+instance ToJSON Interconnect where
+    toJSON = genericToJSON jsonOptions
 
 data InterconnectState
     = ISAvailable -- ^ available
@@ -693,9 +719,11 @@ instance ToText InterconnectState where
         ISPending   -> "pending"
         ISRequested -> "requested"
 
-instance FromJSON InterconnectState
+instance FromJSON InterconnectState where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON InterconnectState
+instance ToJSON InterconnectState where
+    toJSON = genericToJSON jsonOptions
 
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     { _npvi1AmazonAddress        :: Maybe Text
@@ -766,9 +794,11 @@ npvi1VirtualInterfaceName =
 npvi1Vlan :: Lens' NewPrivateVirtualInterface Int
 npvi1Vlan = lens _npvi1Vlan (\s a -> s { _npvi1Vlan = a })
 
-instance FromJSON NewPrivateVirtualInterface
+instance FromJSON NewPrivateVirtualInterface where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON NewPrivateVirtualInterface
+instance ToJSON NewPrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions
 
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
     { _npvia1AmazonAddress        :: Text
@@ -841,9 +871,11 @@ npvia1VirtualInterfaceName =
 npvia1Vlan :: Lens' NewPublicVirtualInterfaceAllocation Int
 npvia1Vlan = lens _npvia1Vlan (\s a -> s { _npvia1Vlan = a })
 
-instance FromJSON NewPublicVirtualInterfaceAllocation
+instance FromJSON NewPublicVirtualInterfaceAllocation where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON NewPublicVirtualInterfaceAllocation
+instance ToJSON NewPublicVirtualInterfaceAllocation where
+    toJSON = genericToJSON jsonOptions
 
 data ConnectionState
     = CSAvailable -- ^ available
@@ -879,9 +911,11 @@ instance ToText ConnectionState where
         CSRejected  -> "rejected"
         CSRequested -> "requested"
 
-instance FromJSON ConnectionState
+instance FromJSON ConnectionState where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConnectionState
+instance ToJSON ConnectionState where
+    toJSON = genericToJSON jsonOptions
 
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId    :: Maybe Text
@@ -910,9 +944,11 @@ vgVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
 vgVirtualGatewayState =
     lens _vgVirtualGatewayState (\s a -> s { _vgVirtualGatewayState = a })
 
-instance FromJSON VirtualGateway
+instance FromJSON VirtualGateway where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VirtualGateway
+instance ToJSON VirtualGateway where
+    toJSON = genericToJSON jsonOptions
 
 newtype RouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr :: Maybe Text
@@ -934,6 +970,8 @@ routeFilterPrefix = RouteFilterPrefix
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\s a -> s { _rfpCidr = a })
 
-instance FromJSON RouteFilterPrefix
+instance FromJSON RouteFilterPrefix where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RouteFilterPrefix
+instance ToJSON RouteFilterPrefix where
+    toJSON = genericToJSON jsonOptions

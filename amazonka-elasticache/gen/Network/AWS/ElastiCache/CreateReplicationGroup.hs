@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateReplicationGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -338,11 +338,6 @@ crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow =
     lens _crgSnapshotWindow (\s a -> s { _crgSnapshotWindow = a })
 
-instance ToQuery CreateReplicationGroup
-
-instance ToPath CreateReplicationGroup where
-    toPath = const "/"
-
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Eq, Show, Generic)
@@ -367,5 +362,15 @@ instance AWSRequest CreateReplicationGroup where
     type Rs CreateReplicationGroup = CreateReplicationGroupResponse
 
     request  = post "CreateReplicationGroup"
-    response = xmlResponse $ \h x -> CreateReplicationGroupResponse
-        <$> x %| "ReplicationGroup"
+    response = xmlResponse
+
+instance FromXML CreateReplicationGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateReplicationGroupResponse"
+
+instance ToPath CreateReplicationGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateReplicationGroup
+
+instance ToQuery CreateReplicationGroup

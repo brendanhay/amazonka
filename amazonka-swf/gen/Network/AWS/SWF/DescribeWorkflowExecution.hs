@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.DescribeWorkflowExecution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ dweDomain = lens _dweDomain (\s a -> s { _dweDomain = a })
 -- | The workflow execution to describe.
 dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
 dweExecution = lens _dweExecution (\s a -> s { _dweExecution = a })
-
-instance ToPath DescribeWorkflowExecution where
-    toPath = const "/"
-
-instance ToQuery DescribeWorkflowExecution where
-    toQuery = const mempty
-
-instance ToHeaders DescribeWorkflowExecution
-
-instance ToBody DescribeWorkflowExecution where
-    toBody = toBody . encode . _dweDomain
 
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
     { _dwerExecutionConfiguration      :: WorkflowExecutionConfiguration
@@ -170,9 +159,18 @@ instance AWSRequest DescribeWorkflowExecution where
     type Rs DescribeWorkflowExecution = DescribeWorkflowExecutionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeWorkflowExecutionResponse
-        <$> o .: "executionConfiguration"
-        <*> o .: "executionInfo"
-        <*> o .: "latestActivityTaskTimestamp"
-        <*> o .: "latestExecutionContext"
-        <*> o .: "openCounts"
+    response = jsonResponse
+
+instance FromJSON DescribeWorkflowExecutionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeWorkflowExecution where
+    toPath = const "/"
+
+instance ToHeaders DescribeWorkflowExecution
+
+instance ToQuery DescribeWorkflowExecution where
+    toQuery = const mempty
+
+instance ToJSON DescribeWorkflowExecution where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.ListDomains
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ ldMaxNumberOfDomains =
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
-instance ToQuery ListDomains
-
-instance ToPath ListDomains where
-    toPath = const "/"
-
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: [Text]
     , _ldrNextToken   :: Maybe Text
@@ -116,10 +111,15 @@ instance AWSRequest ListDomains where
     type Rs ListDomains = ListDomainsResponse
 
     request  = post "ListDomains"
-    response = xmlResponse $ \h x -> ListDomainsResponse
-        <$> x %| "DomainNames"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager ListDomains where
-    next rq rs = (\x -> rq & ldNextToken ?~ x)
-        <$> (rs ^. ldrNextToken)
+instance FromXML ListDomainsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDomainsResponse"
+
+instance ToPath ListDomains where
+    toPath = const "/"
+
+instance ToHeaders ListDomains
+
+instance ToQuery ListDomains

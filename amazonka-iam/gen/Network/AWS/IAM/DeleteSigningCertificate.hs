@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ dscCertificateId = lens _dscCertificateId (\s a -> s { _dscCertificateId = a })
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\s a -> s { _dscUserName = a })
 
-instance ToQuery DeleteSigningCertificate
-
-instance ToPath DeleteSigningCertificate where
-    toPath = const "/"
-
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +84,11 @@ instance AWSRequest DeleteSigningCertificate where
     type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
 
     request  = post "DeleteSigningCertificate"
-    response = nullaryResponse DeleteSigningCertificateResponse
+    response = nullResponse DeleteSigningCertificateResponse
+
+instance ToPath DeleteSigningCertificate where
+    toPath = const "/"
+
+instance ToHeaders DeleteSigningCertificate
+
+instance ToQuery DeleteSigningCertificate

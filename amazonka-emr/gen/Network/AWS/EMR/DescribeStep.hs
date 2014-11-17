@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.DescribeStep
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.EMR.DescribeStep
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ dsClusterId = lens _dsClusterId (\s a -> s { _dsClusterId = a })
 dsStepId :: Lens' DescribeStep Text
 dsStepId = lens _dsStepId (\s a -> s { _dsStepId = a })
 
-instance ToPath DescribeStep where
-    toPath = const "/"
-
-instance ToQuery DescribeStep where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStep
-
-instance ToBody DescribeStep where
-    toBody = toBody . encode . _dsClusterId
-
 newtype DescribeStepResponse = DescribeStepResponse
     { _dsrStep :: Maybe Step
     } deriving (Eq, Show, Generic)
@@ -106,5 +95,18 @@ instance AWSRequest DescribeStep where
     type Rs DescribeStep = DescribeStepResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeStepResponse
-        <$> o .: "Step"
+    response = jsonResponse
+
+instance FromJSON DescribeStepResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeStep where
+    toPath = const "/"
+
+instance ToHeaders DescribeStep
+
+instance ToQuery DescribeStep where
+    toQuery = const mempty
+
+instance ToJSON DescribeStep where
+    toJSON = genericToJSON jsonOptions

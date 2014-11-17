@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.S3.PutBucketRequestPayment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -80,23 +80,6 @@ pbrpRequestPaymentConfiguration =
     lens _pbrpRequestPaymentConfiguration
         (\s a -> s { _pbrpRequestPaymentConfiguration = a })
 
-instance ToPath PutBucketRequestPayment where
-    toPath PutBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toText _pbrpBucket
-        ]
-
-instance ToQuery PutBucketRequestPayment where
-    toQuery = const "requestPayment"
-
-instance ToHeaders PutBucketRequestPayment where
-    toHeaders PutBucketRequestPayment{..} = mconcat
-        [ "Content-MD5" =: _pbrpContentMD5
-        ]
-
-instance ToBody PutBucketRequestPayment where
-    toBody = toBody . encodeXML . _pbrpRequestPaymentConfiguration
-
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -109,4 +92,22 @@ instance AWSRequest PutBucketRequestPayment where
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
     request  = put
-    response = nullaryResponse PutBucketRequestPaymentResponse
+    response = nullResponse PutBucketRequestPaymentResponse
+
+instance ToPath PutBucketRequestPayment where
+    toPath PutBucketRequestPayment{..} = mconcat
+        [ "/"
+        , toText _pbrpBucket
+        ]
+
+instance ToHeaders PutBucketRequestPayment where
+    toHeaders PutBucketRequestPayment{..} = mconcat
+        [ "Content-MD5" =: _pbrpContentMD5
+        ]
+
+instance ToQuery PutBucketRequestPayment where
+    toQuery = const "requestPayment"
+
+instance ToXML PutBucketRequestPayment where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketRequestPayment"

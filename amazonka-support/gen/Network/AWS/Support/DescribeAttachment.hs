@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeAttachment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.Support.DescribeAttachment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ describeAttachment p1 = DescribeAttachment
 -- DescribeCommunications operation.
 daAttachmentId :: Lens' DescribeAttachment Text
 daAttachmentId = lens _daAttachmentId (\s a -> s { _daAttachmentId = a })
-
-instance ToPath DescribeAttachment where
-    toPath = const "/"
-
-instance ToQuery DescribeAttachment where
-    toQuery = const mempty
-
-instance ToHeaders DescribeAttachment
-
-instance ToBody DescribeAttachment where
-    toBody = toBody . encode . _daAttachmentId
 
 newtype DescribeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment :: Maybe Attachment
@@ -101,5 +90,18 @@ instance AWSRequest DescribeAttachment where
     type Rs DescribeAttachment = DescribeAttachmentResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeAttachmentResponse
-        <$> o .: "attachment"
+    response = jsonResponse
+
+instance FromJSON DescribeAttachmentResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeAttachment where
+    toPath = const "/"
+
+instance ToHeaders DescribeAttachment
+
+instance ToQuery DescribeAttachment where
+    toQuery = const mempty
+
+instance ToJSON DescribeAttachment where
+    toJSON = genericToJSON jsonOptions

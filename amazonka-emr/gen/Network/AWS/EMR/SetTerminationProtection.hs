@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.SetTerminationProtection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.EMR.SetTerminationProtection
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -85,17 +85,6 @@ stpTerminationProtected :: Lens' SetTerminationProtection Bool
 stpTerminationProtected =
     lens _stpTerminationProtected (\s a -> s { _stpTerminationProtected = a })
 
-instance ToPath SetTerminationProtection where
-    toPath = const "/"
-
-instance ToQuery SetTerminationProtection where
-    toQuery = const mempty
-
-instance ToHeaders SetTerminationProtection
-
-instance ToBody SetTerminationProtection where
-    toBody = toBody . encode . _stpJobFlowIds
-
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -108,4 +97,15 @@ instance AWSRequest SetTerminationProtection where
     type Rs SetTerminationProtection = SetTerminationProtectionResponse
 
     request  = post
-    response = nullaryResponse SetTerminationProtectionResponse
+    response = nullResponse SetTerminationProtectionResponse
+
+instance ToPath SetTerminationProtection where
+    toPath = const "/"
+
+instance ToHeaders SetTerminationProtection
+
+instance ToQuery SetTerminationProtection where
+    toQuery = const mempty
+
+instance ToJSON SetTerminationProtection where
+    toJSON = genericToJSON jsonOptions

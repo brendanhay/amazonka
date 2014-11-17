@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ListTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a })
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
-instance ToQuery ListTagsForResource
-
-instance ToPath ListTagsForResource where
-    toPath = const "/"
-
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -108,5 +103,15 @@ instance AWSRequest ListTagsForResource where
     type Rs ListTagsForResource = ListTagsForResourceResponse
 
     request  = post "ListTagsForResource"
-    response = xmlResponse $ \h x -> ListTagsForResourceResponse
-        <$> x %| "TagList"
+    response = xmlResponse
+
+instance FromXML ListTagsForResourceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListTagsForResourceResponse"
+
+instance ToPath ListTagsForResource where
+    toPath = const "/"
+
+instance ToHeaders ListTagsForResource
+
+instance ToQuery ListTagsForResource

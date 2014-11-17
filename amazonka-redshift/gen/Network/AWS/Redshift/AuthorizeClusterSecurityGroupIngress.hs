@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -106,11 +106,6 @@ acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId
         (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery AuthorizeClusterSecurityGroupIngress
-
-instance ToPath AuthorizeClusterSecurityGroupIngress where
-    toPath = const "/"
-
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -136,5 +131,15 @@ instance AWSRequest AuthorizeClusterSecurityGroupIngress where
     type Rs AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngressResponse
 
     request  = post "AuthorizeClusterSecurityGroupIngress"
-    response = xmlResponse $ \h x -> AuthorizeClusterSecurityGroupIngressResponse
-        <$> x %| "ClusterSecurityGroup"
+    response = xmlResponse
+
+instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeClusterSecurityGroupIngressResponse"
+
+instance ToPath AuthorizeClusterSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders AuthorizeClusterSecurityGroupIngress
+
+instance ToQuery AuthorizeClusterSecurityGroupIngress

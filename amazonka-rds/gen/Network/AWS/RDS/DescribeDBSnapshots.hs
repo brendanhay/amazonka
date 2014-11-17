@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSnapshots
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -126,11 +126,6 @@ ddbsMaxRecords = lens _ddbsMaxRecords (\s a -> s { _ddbsMaxRecords = a })
 ddbsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsSnapshotType = lens _ddbsSnapshotType (\s a -> s { _ddbsSnapshotType = a })
 
-instance ToQuery DescribeDBSnapshots
-
-instance ToPath DescribeDBSnapshots where
-    toPath = const "/"
-
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrDBSnapshots :: [DBSnapshot]
     , _ddbsrMarker      :: Maybe Text
@@ -165,10 +160,15 @@ instance AWSRequest DescribeDBSnapshots where
     type Rs DescribeDBSnapshots = DescribeDBSnapshotsResponse
 
     request  = post "DescribeDBSnapshots"
-    response = xmlResponse $ \h x -> DescribeDBSnapshotsResponse
-        <$> x %| "DBSnapshots"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBSnapshots where
-    next rq rs = (\x -> rq & ddbsMarker ?~ x)
-        <$> (rs ^. ddbsrMarker)
+instance FromXML DescribeDBSnapshotsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBSnapshotsResponse"
+
+instance ToPath DescribeDBSnapshots where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBSnapshots
+
+instance ToQuery DescribeDBSnapshots

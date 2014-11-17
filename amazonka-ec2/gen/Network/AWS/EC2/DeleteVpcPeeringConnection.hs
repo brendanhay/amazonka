@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ dvpcVpcPeeringConnectionId =
     lens _dvpcVpcPeeringConnectionId
         (\s a -> s { _dvpcVpcPeeringConnectionId = a })
 
-instance ToQuery DeleteVpcPeeringConnection
-
-instance ToPath DeleteVpcPeeringConnection where
-    toPath = const "/"
-
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest DeleteVpcPeeringConnection where
     type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResponse
 
     request  = post "DeleteVpcPeeringConnection"
-    response = xmlResponse $ \h x -> DeleteVpcPeeringConnectionResponse
-        <$> x %| "return"
+    response = xmlResponse
+
+instance FromXML DeleteVpcPeeringConnectionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVpcPeeringConnectionResponse"
+
+instance ToPath DeleteVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToHeaders DeleteVpcPeeringConnection
+
+instance ToQuery DeleteVpcPeeringConnection

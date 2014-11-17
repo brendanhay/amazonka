@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ dsaDryRun = lens _dsaDryRun (\s a -> s { _dsaDryRun = a })
 dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
 dsaSnapshotId = lens _dsaSnapshotId (\s a -> s { _dsaSnapshotId = a })
 
-instance ToQuery DescribeSnapshotAttribute
-
-instance ToPath DescribeSnapshotAttribute where
-    toPath = const "/"
-
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes            :: [ProductCode]
@@ -131,7 +126,15 @@ instance AWSRequest DescribeSnapshotAttribute where
     type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResponse
 
     request  = post "DescribeSnapshotAttribute"
-    response = xmlResponse $ \h x -> DescribeSnapshotAttributeResponse
-        <$> x %| "createVolumePermission"
-        <*> x %| "productCodes"
-        <*> x %| "snapshotId"
+    response = xmlResponse
+
+instance FromXML DescribeSnapshotAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResponse"
+
+instance ToPath DescribeSnapshotAttribute where
+    toPath = const "/"
+
+instance ToHeaders DescribeSnapshotAttribute
+
+instance ToQuery DescribeSnapshotAttribute

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.ExecutePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
 
-instance ToQuery ExecutePolicy
-
-instance ToPath ExecutePolicy where
-    toPath = const "/"
-
 data ExecutePolicyResponse = ExecutePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +95,11 @@ instance AWSRequest ExecutePolicy where
     type Rs ExecutePolicy = ExecutePolicyResponse
 
     request  = post "ExecutePolicy"
-    response = nullaryResponse ExecutePolicyResponse
+    response = nullResponse ExecutePolicyResponse
+
+instance ToPath ExecutePolicy where
+    toPath = const "/"
+
+instance ToHeaders ExecutePolicy
+
+instance ToQuery ExecutePolicy

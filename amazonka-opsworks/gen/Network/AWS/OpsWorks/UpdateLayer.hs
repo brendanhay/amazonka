@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -204,17 +204,6 @@ ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
 ulVolumeConfigurations =
     lens _ulVolumeConfigurations (\s a -> s { _ulVolumeConfigurations = a })
 
-instance ToPath UpdateLayer where
-    toPath = const "/"
-
-instance ToQuery UpdateLayer where
-    toQuery = const mempty
-
-instance ToHeaders UpdateLayer
-
-instance ToBody UpdateLayer where
-    toBody = toBody . encode . _ulLayerId
-
 data UpdateLayerResponse = UpdateLayerResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -227,4 +216,15 @@ instance AWSRequest UpdateLayer where
     type Rs UpdateLayer = UpdateLayerResponse
 
     request  = post
-    response = nullaryResponse UpdateLayerResponse
+    response = nullResponse UpdateLayerResponse
+
+instance ToPath UpdateLayer where
+    toPath = const "/"
+
+instance ToHeaders UpdateLayer
+
+instance ToQuery UpdateLayer where
+    toQuery = const mempty
+
+instance ToJSON UpdateLayer where
+    toJSON = genericToJSON jsonOptions

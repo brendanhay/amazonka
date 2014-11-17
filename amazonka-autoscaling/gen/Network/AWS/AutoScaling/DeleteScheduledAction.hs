@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName =
     lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })
 
-instance ToQuery DeleteScheduledAction
-
-instance ToPath DeleteScheduledAction where
-    toPath = const "/"
-
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest DeleteScheduledAction where
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse
 
     request  = post "DeleteScheduledAction"
-    response = nullaryResponse DeleteScheduledActionResponse
+    response = nullResponse DeleteScheduledActionResponse
+
+instance ToPath DeleteScheduledAction where
+    toPath = const "/"
+
+instance ToHeaders DeleteScheduledAction
+
+instance ToQuery DeleteScheduledAction

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeSnapshots
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -111,11 +111,6 @@ dsSnapshotName = lens _dsSnapshotName (\s a -> s { _dsSnapshotName = a })
 dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotSource = lens _dsSnapshotSource (\s a -> s { _dsSnapshotSource = a })
 
-instance ToQuery DescribeSnapshots
-
-instance ToPath DescribeSnapshots where
-    toPath = const "/"
-
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrMarker    :: Maybe Text
     , _dsrSnapshots :: [Snapshot]
@@ -152,10 +147,15 @@ instance AWSRequest DescribeSnapshots where
     type Rs DescribeSnapshots = DescribeSnapshotsResponse
 
     request  = post "DescribeSnapshots"
-    response = xmlResponse $ \h x -> DescribeSnapshotsResponse
-        <$> x %| "Marker"
-        <*> x %| "Snapshots"
+    response = xmlResponse
 
-instance AWSPager DescribeSnapshots where
-    next rq rs = (\x -> rq & dsMarker ?~ x)
-        <$> (rs ^. dsrMarker)
+instance FromXML DescribeSnapshotsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
+
+instance ToPath DescribeSnapshots where
+    toPath = const "/"
+
+instance ToHeaders DescribeSnapshots
+
+instance ToQuery DescribeSnapshots

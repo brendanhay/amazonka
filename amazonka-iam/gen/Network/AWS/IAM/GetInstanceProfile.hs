@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName =
     lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
 
-instance ToQuery GetInstanceProfile
-
-instance ToPath GetInstanceProfile where
-    toPath = const "/"
-
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
     } deriving (Eq, Show, Generic)
@@ -96,5 +91,15 @@ instance AWSRequest GetInstanceProfile where
     type Rs GetInstanceProfile = GetInstanceProfileResponse
 
     request  = post "GetInstanceProfile"
-    response = xmlResponse $ \h x -> GetInstanceProfileResponse
-        <$> x %| "InstanceProfile"
+    response = xmlResponse
+
+instance FromXML GetInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetInstanceProfileResponse"
+
+instance ToPath GetInstanceProfile where
+    toPath = const "/"
+
+instance ToHeaders GetInstanceProfile
+
+instance ToQuery GetInstanceProfile

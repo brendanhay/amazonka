@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
 rsaSnapshotIdentifier =
     lens _rsaSnapshotIdentifier (\s a -> s { _rsaSnapshotIdentifier = a })
 
-instance ToQuery RevokeSnapshotAccess
-
-instance ToPath RevokeSnapshotAccess where
-    toPath = const "/"
-
 newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -121,5 +116,15 @@ instance AWSRequest RevokeSnapshotAccess where
     type Rs RevokeSnapshotAccess = RevokeSnapshotAccessResponse
 
     request  = post "RevokeSnapshotAccess"
-    response = xmlResponse $ \h x -> RevokeSnapshotAccessResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML RevokeSnapshotAccessResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeSnapshotAccessResponse"
+
+instance ToPath RevokeSnapshotAccess where
+    toPath = const "/"
+
+instance ToHeaders RevokeSnapshotAccess
+
+instance ToQuery RevokeSnapshotAccess

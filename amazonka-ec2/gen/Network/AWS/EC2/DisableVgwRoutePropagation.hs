@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DisableVgwRoutePropagation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
 dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
 dvrpRouteTableId = lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
 
-instance ToQuery DisableVgwRoutePropagation
-
-instance ToPath DisableVgwRoutePropagation where
-    toPath = const "/"
-
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest DisableVgwRoutePropagation where
     type Rs DisableVgwRoutePropagation = DisableVgwRoutePropagationResponse
 
     request  = post "DisableVgwRoutePropagation"
-    response = nullaryResponse DisableVgwRoutePropagationResponse
+    response = nullResponse DisableVgwRoutePropagationResponse
+
+instance ToPath DisableVgwRoutePropagation where
+    toPath = const "/"
+
+instance ToHeaders DisableVgwRoutePropagation
+
+instance ToQuery DisableVgwRoutePropagation

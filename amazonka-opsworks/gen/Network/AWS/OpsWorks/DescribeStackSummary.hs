@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ describeStackSummary p1 = DescribeStackSummary
 -- | The stack ID.
 dssStackId :: Lens' DescribeStackSummary Text
 dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
-
-instance ToPath DescribeStackSummary where
-    toPath = const "/"
-
-instance ToQuery DescribeStackSummary where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStackSummary
-
-instance ToBody DescribeStackSummary where
-    toBody = toBody . encode . _dssStackId
 
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary :: Maybe StackSummary
@@ -101,5 +90,18 @@ instance AWSRequest DescribeStackSummary where
     type Rs DescribeStackSummary = DescribeStackSummaryResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeStackSummaryResponse
-        <$> o .: "StackSummary"
+    response = jsonResponse
+
+instance FromJSON DescribeStackSummaryResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeStackSummary where
+    toPath = const "/"
+
+instance ToHeaders DescribeStackSummary
+
+instance ToQuery DescribeStackSummary where
+    toQuery = const mempty
+
+instance ToJSON DescribeStackSummary where
+    toJSON = genericToJSON jsonOptions

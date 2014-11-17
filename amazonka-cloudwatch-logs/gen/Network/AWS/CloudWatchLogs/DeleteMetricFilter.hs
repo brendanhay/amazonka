@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ dmf1FilterName = lens _dmf1FilterName (\s a -> s { _dmf1FilterName = a })
 dmf1LogGroupName :: Lens' DeleteMetricFilter Text
 dmf1LogGroupName = lens _dmf1LogGroupName (\s a -> s { _dmf1LogGroupName = a })
 
-instance ToPath DeleteMetricFilter where
-    toPath = const "/"
-
-instance ToQuery DeleteMetricFilter where
-    toQuery = const mempty
-
-instance ToHeaders DeleteMetricFilter
-
-instance ToBody DeleteMetricFilter where
-    toBody = toBody . encode . _dmf1LogGroupName
-
 data DeleteMetricFilterResponse = DeleteMetricFilterResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +79,15 @@ instance AWSRequest DeleteMetricFilter where
     type Rs DeleteMetricFilter = DeleteMetricFilterResponse
 
     request  = post
-    response = nullaryResponse DeleteMetricFilterResponse
+    response = nullResponse DeleteMetricFilterResponse
+
+instance ToPath DeleteMetricFilter where
+    toPath = const "/"
+
+instance ToHeaders DeleteMetricFilter
+
+instance ToQuery DeleteMetricFilter where
+    toQuery = const mempty
+
+instance ToJSON DeleteMetricFilter where
+    toJSON = genericToJSON jsonOptions

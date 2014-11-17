@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.CopyObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,7 +72,7 @@ module Network.AWS.S3.CopyObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -379,51 +379,6 @@ coWebsiteRedirectLocation =
     lens _coWebsiteRedirectLocation
         (\s a -> s { _coWebsiteRedirectLocation = a })
 
-instance ToPath CopyObject where
-    toPath CopyObject{..} = mconcat
-        [ "/"
-        , toText _coBucket
-        , "/"
-        , toText _coKey
-        ]
-
-instance ToQuery CopyObject where
-    toQuery = const mempty
-
-instance ToHeaders CopyObject where
-    toHeaders CopyObject{..} = mconcat
-        [ "x-amz-acl"                                                   =: _coACL
-        , "Cache-Control"                                               =: _coCacheControl
-        , "Content-Disposition"                                         =: _coContentDisposition
-        , "Content-Encoding"                                            =: _coContentEncoding
-        , "Content-Language"                                            =: _coContentLanguage
-        , "Content-Type"                                                =: _coContentType
-        , "x-amz-copy-source"                                           =: _coCopySource
-        , "x-amz-copy-source-if-match"                                  =: _coCopySourceIfMatch
-        , "x-amz-copy-source-if-modified-since"                         =: _coCopySourceIfModifiedSince
-        , "x-amz-copy-source-if-none-match"                             =: _coCopySourceIfNoneMatch
-        , "x-amz-copy-source-if-unmodified-since"                       =: _coCopySourceIfUnmodifiedSince
-        , "Expires"                                                     =: _coExpires
-        , "x-amz-grant-full-control"                                    =: _coGrantFullControl
-        , "x-amz-grant-read"                                            =: _coGrantRead
-        , "x-amz-grant-read-acp"                                        =: _coGrantReadACP
-        , "x-amz-grant-write-acp"                                       =: _coGrantWriteACP
-        , "x-amz-meta-"                                                 =: _coMetadata
-        , "x-amz-metadata-directive"                                    =: _coMetadataDirective
-        , "x-amz-server-side-encryption"                                =: _coServerSideEncryption
-        , "x-amz-storage-class"                                         =: _coStorageClass
-        , "x-amz-website-redirect-location"                             =: _coWebsiteRedirectLocation
-        , "x-amz-server-side-encryption-customer-algorithm"             =: _coSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"                   =: _coSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"               =: _coSSECustomerKeyMD5
-        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _coCopySourceSSECustomerAlgorithm
-        , "x-amz-copy-source-server-side-encryption-customer-key"       =: _coCopySourceSSECustomerKey
-        , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _coCopySourceSSECustomerKeyMD5
-        , "x-amz-copy-source-server-side-encryption-aws-kms-key-id"     =: _coCopySourceSSEKMSKeyId
-        ]
-
-instance ToBody CopyObject
-
 data CopyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult     :: Maybe CopyObjectResult
     , _corCopySourceVersionId  :: Maybe Text
@@ -507,7 +462,7 @@ instance AWSRequest CopyObject where
     type Rs CopyObject = CopyObjectResponse
 
     request  = put
-    response = xmlResponse $ \h x -> CopyObjectResponse
+    response = xmlHeaderResponse $ \h x -> CopyObjectResponse
         <$> x %| "CopyObjectResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-expiration"
@@ -515,3 +470,50 @@ instance AWSRequest CopyObject where
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
+
+instance ToPath CopyObject where
+    toPath CopyObject{..} = mconcat
+        [ "/"
+        , toText _coBucket
+        , "/"
+        , toText _coKey
+        ]
+
+instance ToHeaders CopyObject where
+    toHeaders CopyObject{..} = mconcat
+        [ "x-amz-acl"                                                   =: _coACL
+        , "Cache-Control"                                               =: _coCacheControl
+        , "Content-Disposition"                                         =: _coContentDisposition
+        , "Content-Encoding"                                            =: _coContentEncoding
+        , "Content-Language"                                            =: _coContentLanguage
+        , "Content-Type"                                                =: _coContentType
+        , "x-amz-copy-source"                                           =: _coCopySource
+        , "x-amz-copy-source-if-match"                                  =: _coCopySourceIfMatch
+        , "x-amz-copy-source-if-modified-since"                         =: _coCopySourceIfModifiedSince
+        , "x-amz-copy-source-if-none-match"                             =: _coCopySourceIfNoneMatch
+        , "x-amz-copy-source-if-unmodified-since"                       =: _coCopySourceIfUnmodifiedSince
+        , "Expires"                                                     =: _coExpires
+        , "x-amz-grant-full-control"                                    =: _coGrantFullControl
+        , "x-amz-grant-read"                                            =: _coGrantRead
+        , "x-amz-grant-read-acp"                                        =: _coGrantReadACP
+        , "x-amz-grant-write-acp"                                       =: _coGrantWriteACP
+        , "x-amz-meta-"                                                 =: _coMetadata
+        , "x-amz-metadata-directive"                                    =: _coMetadataDirective
+        , "x-amz-server-side-encryption"                                =: _coServerSideEncryption
+        , "x-amz-storage-class"                                         =: _coStorageClass
+        , "x-amz-website-redirect-location"                             =: _coWebsiteRedirectLocation
+        , "x-amz-server-side-encryption-customer-algorithm"             =: _coSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"                   =: _coSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"               =: _coSSECustomerKeyMD5
+        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _coCopySourceSSECustomerAlgorithm
+        , "x-amz-copy-source-server-side-encryption-customer-key"       =: _coCopySourceSSECustomerKey
+        , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _coCopySourceSSECustomerKeyMD5
+        , "x-amz-copy-source-server-side-encryption-aws-kms-key-id"     =: _coCopySourceSSEKMSKeyId
+        ]
+
+instance ToQuery CopyObject where
+    toQuery = const mempty
+
+instance ToXML CopyObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CopyObject"

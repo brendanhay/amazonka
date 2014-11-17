@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ deleteLogGroup p1 = DeleteLogGroup
 dlgLogGroupName :: Lens' DeleteLogGroup Text
 dlgLogGroupName = lens _dlgLogGroupName (\s a -> s { _dlgLogGroupName = a })
 
-instance ToPath DeleteLogGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteLogGroup where
-    toQuery = const mempty
-
-instance ToHeaders DeleteLogGroup
-
-instance ToBody DeleteLogGroup where
-    toBody = toBody . encode . _dlgLogGroupName
-
 data DeleteLogGroupResponse = DeleteLogGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,15 @@ instance AWSRequest DeleteLogGroup where
     type Rs DeleteLogGroup = DeleteLogGroupResponse
 
     request  = post
-    response = nullaryResponse DeleteLogGroupResponse
+    response = nullResponse DeleteLogGroupResponse
+
+instance ToPath DeleteLogGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteLogGroup
+
+instance ToQuery DeleteLogGroup where
+    toQuery = const mempty
+
+instance ToJSON DeleteLogGroup where
+    toJSON = genericToJSON jsonOptions

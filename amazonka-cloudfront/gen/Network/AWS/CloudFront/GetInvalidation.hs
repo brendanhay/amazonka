@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.GetInvalidation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.GetInvalidation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -71,19 +71,6 @@ giDistributionId = lens _giDistributionId (\s a -> s { _giDistributionId = a })
 giId :: Lens' GetInvalidation Text
 giId = lens _giId (\s a -> s { _giId = a })
 
-instance ToPath GetInvalidation where
-    toPath GetInvalidation{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _giDistributionId
-        , "/invalidation/"
-        , toText _giId
-        ]
-
-instance ToQuery GetInvalidation where
-    toQuery = const mempty
-
-instance ToHeaders GetInvalidation
-
 newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
     } deriving (Eq, Show, Generic)
@@ -108,5 +95,25 @@ instance AWSRequest GetInvalidation where
     type Rs GetInvalidation = GetInvalidationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetInvalidationResponse
-        <$> x %| "Invalidation"
+    response = xmlResponse
+
+instance FromXML GetInvalidationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetInvalidationResponse"
+
+instance ToPath GetInvalidation where
+    toPath GetInvalidation{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _giDistributionId
+        , "/invalidation/"
+        , toText _giId
+        ]
+
+instance ToHeaders GetInvalidation
+
+instance ToQuery GetInvalidation where
+    toQuery = const mempty
+
+instance ToXML GetInvalidation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetInvalidation"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.SubscribeToDataset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -93,25 +93,6 @@ stdIdentityPoolId :: Lens' SubscribeToDataset Text
 stdIdentityPoolId =
     lens _stdIdentityPoolId (\s a -> s { _stdIdentityPoolId = a })
 
-instance ToPath SubscribeToDataset where
-    toPath SubscribeToDataset{..} = mconcat
-        [ "/identitypools/"
-        , toText _stdIdentityPoolId
-        , "/identities/"
-        , toText _stdIdentityId
-        , "/datasets/"
-        , toText _stdDatasetName
-        , "/subscriptions/"
-        , toText _stdDeviceId
-        ]
-
-instance ToQuery SubscribeToDataset where
-    toQuery = const mempty
-
-instance ToHeaders SubscribeToDataset
-
-instance ToBody SubscribeToDataset
-
 data SubscribeToDatasetResponse = SubscribeToDatasetResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -124,4 +105,24 @@ instance AWSRequest SubscribeToDataset where
     type Rs SubscribeToDataset = SubscribeToDatasetResponse
 
     request  = post
-    response = nullaryResponse SubscribeToDatasetResponse
+    response = nullResponse SubscribeToDatasetResponse
+
+instance ToPath SubscribeToDataset where
+    toPath SubscribeToDataset{..} = mconcat
+        [ "/identitypools/"
+        , toText _stdIdentityPoolId
+        , "/identities/"
+        , toText _stdIdentityId
+        , "/datasets/"
+        , toText _stdDatasetName
+        , "/subscriptions/"
+        , toText _stdDeviceId
+        ]
+
+instance ToHeaders SubscribeToDataset
+
+instance ToQuery SubscribeToDataset where
+    toQuery = const mempty
+
+instance ToJSON SubscribeToDataset where
+    toJSON = genericToJSON jsonOptions

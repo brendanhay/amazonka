@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListSAMLProviders
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,11 +46,6 @@ data ListSAMLProviders = ListSAMLProviders
 listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
 
-instance ToQuery ListSAMLProviders
-
-instance ToPath ListSAMLProviders where
-    toPath = const "/"
-
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -82,5 +77,15 @@ instance AWSRequest ListSAMLProviders where
     type Rs ListSAMLProviders = ListSAMLProvidersResponse
 
     request  = post "ListSAMLProviders"
-    response = xmlResponse $ \h x -> ListSAMLProvidersResponse
-        <$> x %| "SAMLProviderList"
+    response = xmlResponse
+
+instance FromXML ListSAMLProvidersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSAMLProvidersResponse"
+
+instance ToPath ListSAMLProviders where
+    toPath = const "/"
+
+instance ToHeaders ListSAMLProviders
+
+instance ToQuery ListSAMLProviders

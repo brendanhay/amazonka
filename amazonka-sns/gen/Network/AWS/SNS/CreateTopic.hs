@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.CreateTopic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,11 +67,6 @@ createTopic p1 = CreateTopic
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\s a -> s { _ctName = a })
 
-instance ToQuery CreateTopic
-
-instance ToPath CreateTopic where
-    toPath = const "/"
-
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -96,5 +91,15 @@ instance AWSRequest CreateTopic where
     type Rs CreateTopic = CreateTopicResponse
 
     request  = post "CreateTopic"
-    response = xmlResponse $ \h x -> CreateTopicResponse
-        <$> x %| "TopicArn"
+    response = xmlResponse
+
+instance FromXML CreateTopicResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateTopicResponse"
+
+instance ToPath CreateTopic where
+    toPath = const "/"
+
+instance ToHeaders CreateTopic
+
+instance ToQuery CreateTopic

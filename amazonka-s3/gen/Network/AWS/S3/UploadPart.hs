@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.UploadPart
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,12 +56,12 @@ module Network.AWS.S3.UploadPart
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data UploadPart = UploadPart
-    { _upBody                 :: RqBody
+    { _upBody                 :: Maybe Base64
     , _upBucket               :: Text
     , _upContentLength        :: Maybe Int
     , _upContentMD5           :: Maybe Text
@@ -72,13 +72,13 @@ data UploadPart = UploadPart
     , _upSSECustomerKeyMD5    :: Maybe Text
     , _upSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _upUploadId             :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UploadPart' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upBody' @::@ 'RqBody'
+-- * 'upBody' @::@ 'Maybe' 'Base64'
 --
 -- * 'upBucket' @::@ 'Text'
 --
@@ -100,18 +100,17 @@ data UploadPart = UploadPart
 --
 -- * 'upUploadId' @::@ 'Text'
 --
-uploadPart :: RqBody -- ^ 'upBody'
-           -> Text -- ^ 'upBucket'
+uploadPart :: Text -- ^ 'upBucket'
            -> Text -- ^ 'upKey'
            -> Int -- ^ 'upPartNumber'
            -> Text -- ^ 'upUploadId'
            -> UploadPart
-uploadPart p1 p2 p3 p4 p5 = UploadPart
-    { _upBody                 = p1
-    , _upBucket               = p2
-    , _upKey                  = p3
-    , _upPartNumber           = p4
-    , _upUploadId             = p5
+uploadPart p1 p2 p3 p4 = UploadPart
+    { _upBucket               = p1
+    , _upKey                  = p2
+    , _upPartNumber           = p3
+    , _upUploadId             = p4
+    , _upBody                 = Nothing
     , _upContentLength        = Nothing
     , _upContentMD5           = Nothing
     , _upSSECustomerAlgorithm = Nothing
@@ -120,7 +119,7 @@ uploadPart p1 p2 p3 p4 p5 = UploadPart
     , _upSSEKMSKeyId          = Nothing
     }
 
-upBody :: Lens' UploadPart RqBody
+upBody :: Lens' UploadPart (Maybe Base64)
 upBody = lens _upBody (\s a -> s { _upBody = a })
 
 upBucket :: Lens' UploadPart Text
@@ -173,33 +172,6 @@ upSSEKMSKeyId = lens _upSSEKMSKeyId (\s a -> s { _upSSEKMSKeyId = a })
 -- | Upload ID identifying the multipart upload whose part is being uploaded.
 upUploadId :: Lens' UploadPart Text
 upUploadId = lens _upUploadId (\s a -> s { _upUploadId = a })
-
-instance ToPath UploadPart where
-    toPath UploadPart{..} = mconcat
-        [ "/"
-        , toText _upBucket
-        , "/"
-        , toText _upKey
-        ]
-
-instance ToQuery UploadPart where
-    toQuery UploadPart{..} = mconcat
-        [ "partNumber" =? _upPartNumber
-        , "uploadId"   =? _upUploadId
-        ]
-
-instance ToHeaders UploadPart where
-    toHeaders UploadPart{..} = mconcat
-        [ "Content-Length"                                  =: _upContentLength
-        , "Content-MD5"                                     =: _upContentMD5
-        , "x-amz-server-side-encryption-customer-algorithm" =: _upSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _upSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _upSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _upSSEKMSKeyId
-        ]
-
-instance ToBody UploadPart where
-    toBody = toBody . _upBody
 
 data UploadPartResponse = UploadPartResponse
     { _uprETag                 :: Maybe Text
@@ -266,9 +238,36 @@ instance AWSRequest UploadPart where
     type Rs UploadPart = UploadPartResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UploadPartResponse
-        <$> h ~:? "ETag"
+    response = xmlHeaderResponse $ \h x -> UploadPartResponse
+        <*> h ~:? "ETag"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
+
+instance ToPath UploadPart where
+    toPath UploadPart{..} = mconcat
+        [ "/"
+        , toText _upBucket
+        , "/"
+        , toText _upKey
+        ]
+
+instance ToHeaders UploadPart where
+    toHeaders UploadPart{..} = mconcat
+        [ "Content-Length"                                  =: _upContentLength
+        , "Content-MD5"                                     =: _upContentMD5
+        , "x-amz-server-side-encryption-customer-algorithm" =: _upSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _upSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _upSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _upSSEKMSKeyId
+        ]
+
+instance ToQuery UploadPart where
+    toQuery UploadPart{..} = mconcat
+        [ "partNumber" =? _upPartNumber
+        , "uploadId"   =? _upUploadId
+        ]
+
+instance ToBody UploadPart where
+

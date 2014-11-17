@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.AddCommunicationToCase
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.Support.AddCommunicationToCase
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -101,17 +101,6 @@ actcCommunicationBody :: Lens' AddCommunicationToCase Text
 actcCommunicationBody =
     lens _actcCommunicationBody (\s a -> s { _actcCommunicationBody = a })
 
-instance ToPath AddCommunicationToCase where
-    toPath = const "/"
-
-instance ToQuery AddCommunicationToCase where
-    toQuery = const mempty
-
-instance ToHeaders AddCommunicationToCase
-
-instance ToBody AddCommunicationToCase where
-    toBody = toBody . encode . _actcCaseId
-
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -136,5 +125,18 @@ instance AWSRequest AddCommunicationToCase where
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddCommunicationToCaseResponse
-        <$> o .: "result"
+    response = jsonResponse
+
+instance FromJSON AddCommunicationToCaseResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddCommunicationToCase where
+    toPath = const "/"
+
+instance ToHeaders AddCommunicationToCase
+
+instance ToQuery AddCommunicationToCase where
+    toQuery = const mempty
+
+instance ToJSON AddCommunicationToCase where
+    toJSON = genericToJSON jsonOptions

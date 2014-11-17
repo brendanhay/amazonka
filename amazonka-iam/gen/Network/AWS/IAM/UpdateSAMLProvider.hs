@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateSAMLProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ usamlpSAMLProviderArn :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderArn =
     lens _usamlpSAMLProviderArn (\s a -> s { _usamlpSAMLProviderArn = a })
 
-instance ToQuery UpdateSAMLProvider
-
-instance ToPath UpdateSAMLProvider where
-    toPath = const "/"
-
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -109,5 +104,15 @@ instance AWSRequest UpdateSAMLProvider where
     type Rs UpdateSAMLProvider = UpdateSAMLProviderResponse
 
     request  = post "UpdateSAMLProvider"
-    response = xmlResponse $ \h x -> UpdateSAMLProviderResponse
-        <$> x %| "SAMLProviderArn"
+    response = xmlResponse
+
+instance FromXML UpdateSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateSAMLProviderResponse"
+
+instance ToPath UpdateSAMLProvider where
+    toPath = const "/"
+
+instance ToHeaders UpdateSAMLProvider
+
+instance ToQuery UpdateSAMLProvider

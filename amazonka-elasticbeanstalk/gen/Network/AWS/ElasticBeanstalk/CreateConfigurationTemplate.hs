@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -157,11 +157,6 @@ cctSourceConfiguration =
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
 
-instance ToQuery CreateConfigurationTemplate
-
-instance ToPath CreateConfigurationTemplate where
-    toPath = const "/"
-
 data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     { _cctrApplicationName   :: Maybe Text
     , _cctrDateCreated       :: Maybe RFC822
@@ -272,13 +267,15 @@ instance AWSRequest CreateConfigurationTemplate where
     type Rs CreateConfigurationTemplate = CreateConfigurationTemplateResponse
 
     request  = post "CreateConfigurationTemplate"
-    response = xmlResponse $ \h x -> CreateConfigurationTemplateResponse
-        <$> x %| "ApplicationName"
-        <*> x %| "DateCreated"
-        <*> x %| "DateUpdated"
-        <*> x %| "DeploymentStatus"
-        <*> x %| "Description"
-        <*> x %| "EnvironmentName"
-        <*> x %| "OptionSettings"
-        <*> x %| "SolutionStackName"
-        <*> x %| "TemplateName"
+    response = xmlResponse
+
+instance FromXML CreateConfigurationTemplateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateConfigurationTemplateResponse"
+
+instance ToPath CreateConfigurationTemplate where
+    toPath = const "/"
+
+instance ToHeaders CreateConfigurationTemplate
+
+instance ToQuery CreateConfigurationTemplate

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -143,17 +143,6 @@ cdgServiceRoleArn :: Lens' CreateDeploymentGroup (Maybe Text)
 cdgServiceRoleArn =
     lens _cdgServiceRoleArn (\s a -> s { _cdgServiceRoleArn = a })
 
-instance ToPath CreateDeploymentGroup where
-    toPath = const "/"
-
-instance ToQuery CreateDeploymentGroup where
-    toQuery = const mempty
-
-instance ToHeaders CreateDeploymentGroup
-
-instance ToBody CreateDeploymentGroup where
-    toBody = toBody . encode . _cdgApplicationName
-
 newtype CreateDeploymentGroupResponse = CreateDeploymentGroupResponse
     { _cdgrDeploymentGroupId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -179,5 +168,18 @@ instance AWSRequest CreateDeploymentGroup where
     type Rs CreateDeploymentGroup = CreateDeploymentGroupResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateDeploymentGroupResponse
-        <$> o .: "deploymentGroupId"
+    response = jsonResponse
+
+instance FromJSON CreateDeploymentGroupResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateDeploymentGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateDeploymentGroup
+
+instance ToQuery CreateDeploymentGroup where
+    toQuery = const mempty
+
+instance ToJSON CreateDeploymentGroup where
+    toJSON = genericToJSON jsonOptions

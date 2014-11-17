@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeLoggingStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ describeLoggingStatus p1 = DescribeLoggingStatus
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier =
     lens _dlsClusterIdentifier (\s a -> s { _dlsClusterIdentifier = a })
-
-instance ToQuery DescribeLoggingStatus
-
-instance ToPath DescribeLoggingStatus where
-    toPath = const "/"
 
 data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     { _dlsrBucketName                 :: Maybe Text
@@ -145,10 +140,15 @@ instance AWSRequest DescribeLoggingStatus where
     type Rs DescribeLoggingStatus = DescribeLoggingStatusResponse
 
     request  = post "DescribeLoggingStatus"
-    response = xmlResponse $ \h x -> DescribeLoggingStatusResponse
-        <$> x %| "BucketName"
-        <*> x %| "LastFailureMessage"
-        <*> x %| "LastFailureTime"
-        <*> x %| "LastSuccessfulDeliveryTime"
-        <*> x %| "LoggingEnabled"
-        <*> x %| "S3KeyPrefix"
+    response = xmlResponse
+
+instance FromXML DescribeLoggingStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoggingStatusResponse"
+
+instance ToPath DescribeLoggingStatus where
+    toPath = const "/"
+
+instance ToHeaders DescribeLoggingStatus
+
+instance ToQuery DescribeLoggingStatus

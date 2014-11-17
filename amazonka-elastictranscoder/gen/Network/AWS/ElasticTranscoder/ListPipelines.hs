@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListPipelines
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ lpAscending = lens _lpAscending (\s a -> s { _lpAscending = a })
 -- results.
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\s a -> s { _lpPageToken = a })
-
-instance ToPath ListPipelines where
-    toPath = const "/2012-09-25/pipelines"
-
-instance ToQuery ListPipelines where
-    toQuery ListPipelines{..} = mconcat
-        [ "Ascending" =? _lpAscending
-        , "PageToken" =? _lpPageToken
-        ]
-
-instance ToHeaders ListPipelines
 
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprNextPageToken :: Maybe Text
@@ -120,6 +109,14 @@ instance AWSRequest ListPipelines where
     type Rs ListPipelines = ListPipelinesResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListPipelinesResponse
-        <$> o .: "NextPageToken"
-        <*> o .: "Pipelines"
+    response = jsonResponse
+
+instance FromJSON ListPipelinesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListPipelines where
+    toPath = const "/2012-09-25/pipelines"
+
+instance ToHeaders ListPipelines
+
+instance ToQuery ListPipelines

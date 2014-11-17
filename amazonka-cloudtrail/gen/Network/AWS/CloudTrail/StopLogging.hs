@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.StopLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudTrail.StopLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ stopLogging p1 = StopLogging
 slName :: Lens' StopLogging Text
 slName = lens _slName (\s a -> s { _slName = a })
 
-instance ToPath StopLogging where
-    toPath = const "/"
-
-instance ToQuery StopLogging where
-    toQuery = const mempty
-
-instance ToHeaders StopLogging
-
-instance ToBody StopLogging where
-    toBody = toBody . encode . _slName
-
 data StopLoggingResponse = StopLoggingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest StopLogging where
     type Rs StopLogging = StopLoggingResponse
 
     request  = post
-    response = nullaryResponse StopLoggingResponse
+    response = nullResponse StopLoggingResponse
+
+instance ToPath StopLogging where
+    toPath = const "/"
+
+instance ToHeaders StopLogging
+
+instance ToQuery StopLogging where
+    toQuery = const mempty
+
+instance ToJSON StopLogging where
+    toJSON = genericToJSON jsonOptions

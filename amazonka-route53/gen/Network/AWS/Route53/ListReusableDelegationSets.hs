@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListReusableDelegationSets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.Route53.ListReusableDelegationSets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ lrdsMarker = lens _lrdsMarker (\s a -> s { _lrdsMarker = a })
 -- of results.
 lrdsMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMaxItems = lens _lrdsMaxItems (\s a -> s { _lrdsMaxItems = a })
-
-instance ToPath ListReusableDelegationSets where
-    toPath = const "/2013-04-01/delegationset"
-
-instance ToQuery ListReusableDelegationSets where
-    toQuery ListReusableDelegationSets{..} = mconcat
-        [ "marker"   =? _lrdsMarker
-        , "maxitems" =? _lrdsMaxItems
-        ]
-
-instance ToHeaders ListReusableDelegationSets
 
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse
     { _lrdsrDelegationSets :: [DelegationSet]
@@ -171,9 +160,15 @@ instance AWSRequest ListReusableDelegationSets where
     type Rs ListReusableDelegationSets = ListReusableDelegationSetsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListReusableDelegationSetsResponse
-        <$> x %| "DelegationSets"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "MaxItems"
-        <*> x %| "NextMarker"
+    response = xmlResponse
+
+instance FromXML ListReusableDelegationSetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListReusableDelegationSetsResponse"
+
+instance ToPath ListReusableDelegationSets where
+    toPath = const "/2013-04-01/delegationset"
+
+instance ToHeaders ListReusableDelegationSets
+
+instance ToQuery ListReusableDelegationSets

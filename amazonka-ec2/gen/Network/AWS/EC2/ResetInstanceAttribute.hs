@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\s a -> s { _riaInstanceId = a })
 
-instance ToQuery ResetInstanceAttribute
-
-instance ToPath ResetInstanceAttribute where
-    toPath = const "/"
-
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -101,4 +96,11 @@ instance AWSRequest ResetInstanceAttribute where
     type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
 
     request  = post "ResetInstanceAttribute"
-    response = nullaryResponse ResetInstanceAttributeResponse
+    response = nullResponse ResetInstanceAttributeResponse
+
+instance ToPath ResetInstanceAttribute where
+    toPath = const "/"
+
+instance ToHeaders ResetInstanceAttribute
+
+instance ToQuery ResetInstanceAttribute

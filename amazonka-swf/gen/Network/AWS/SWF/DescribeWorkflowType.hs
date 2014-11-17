@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.DescribeWorkflowType
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,7 +52,7 @@ module Network.AWS.SWF.DescribeWorkflowType
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -84,17 +84,6 @@ dwtDomain = lens _dwtDomain (\s a -> s { _dwtDomain = a })
 -- | The workflow type to describe.
 dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
 dwtWorkflowType = lens _dwtWorkflowType (\s a -> s { _dwtWorkflowType = a })
-
-instance ToPath DescribeWorkflowType where
-    toPath = const "/"
-
-instance ToQuery DescribeWorkflowType where
-    toQuery = const mempty
-
-instance ToHeaders DescribeWorkflowType
-
-instance ToBody DescribeWorkflowType where
-    toBody = toBody . encode . _dwtDomain
 
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
     { _dwtrConfiguration :: WorkflowTypeConfiguration
@@ -138,6 +127,18 @@ instance AWSRequest DescribeWorkflowType where
     type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeWorkflowTypeResponse
-        <$> o .: "configuration"
-        <*> o .: "typeInfo"
+    response = jsonResponse
+
+instance FromJSON DescribeWorkflowTypeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeWorkflowType where
+    toPath = const "/"
+
+instance ToHeaders DescribeWorkflowType
+
+instance ToQuery DescribeWorkflowType where
+    toQuery = const mempty
+
+instance ToJSON DescribeWorkflowType where
+    toJSON = genericToJSON jsonOptions

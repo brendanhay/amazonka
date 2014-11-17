@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ deleteVirtualInterface p1 = DeleteVirtualInterface
 dvi1VirtualInterfaceId :: Lens' DeleteVirtualInterface Text
 dvi1VirtualInterfaceId =
     lens _dvi1VirtualInterfaceId (\s a -> s { _dvi1VirtualInterfaceId = a })
-
-instance ToPath DeleteVirtualInterface where
-    toPath = const "/"
-
-instance ToQuery DeleteVirtualInterface where
-    toQuery = const mempty
-
-instance ToHeaders DeleteVirtualInterface
-
-instance ToBody DeleteVirtualInterface where
-    toBody = toBody . encode . _dvi1VirtualInterfaceId
 
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState :: Maybe Text
@@ -97,5 +86,18 @@ instance AWSRequest DeleteVirtualInterface where
     type Rs DeleteVirtualInterface = DeleteVirtualInterfaceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteVirtualInterfaceResponse
-        <$> o .: "virtualInterfaceState"
+    response = jsonResponse
+
+instance FromJSON DeleteVirtualInterfaceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteVirtualInterface where
+    toPath = const "/"
+
+instance ToHeaders DeleteVirtualInterface
+
+instance ToQuery DeleteVirtualInterface where
+    toQuery = const mempty
+
+instance ToJSON DeleteVirtualInterface where
+    toJSON = genericToJSON jsonOptions

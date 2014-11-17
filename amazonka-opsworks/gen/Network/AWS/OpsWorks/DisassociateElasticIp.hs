@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DisassociateElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.OpsWorks.DisassociateElasticIp
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ disassociateElasticIp p1 = DisassociateElasticIp
 deiElasticIp :: Lens' DisassociateElasticIp Text
 deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
 
-instance ToPath DisassociateElasticIp where
-    toPath = const "/"
-
-instance ToQuery DisassociateElasticIp where
-    toQuery = const mempty
-
-instance ToHeaders DisassociateElasticIp
-
-instance ToBody DisassociateElasticIp where
-    toBody = toBody . encode . _deiElasticIp
-
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +76,15 @@ instance AWSRequest DisassociateElasticIp where
     type Rs DisassociateElasticIp = DisassociateElasticIpResponse
 
     request  = post
-    response = nullaryResponse DisassociateElasticIpResponse
+    response = nullResponse DisassociateElasticIpResponse
+
+instance ToPath DisassociateElasticIp where
+    toPath = const "/"
+
+instance ToHeaders DisassociateElasticIp
+
+instance ToQuery DisassociateElasticIp where
+    toQuery = const mempty
+
+instance ToJSON DisassociateElasticIp where
+    toJSON = genericToJSON jsonOptions

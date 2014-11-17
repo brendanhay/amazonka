@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.DeleteFunction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.Lambda.DeleteFunction
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ deleteFunction p1 = DeleteFunction
 dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\s a -> s { _dfFunctionName = a })
 
-instance ToPath DeleteFunction where
-    toPath DeleteFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _dfFunctionName
-        ]
-
-instance ToQuery DeleteFunction where
-    toQuery = const mempty
-
-instance ToHeaders DeleteFunction
-
 data DeleteFunctionResponse = DeleteFunctionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +72,18 @@ instance AWSRequest DeleteFunction where
     type Rs DeleteFunction = DeleteFunctionResponse
 
     request  = delete
-    response = nullaryResponse DeleteFunctionResponse
+    response = nullResponse DeleteFunctionResponse
+
+instance ToPath DeleteFunction where
+    toPath DeleteFunction{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _dfFunctionName
+        ]
+
+instance ToHeaders DeleteFunction
+
+instance ToQuery DeleteFunction where
+    toQuery = const mempty
+
+instance ToJSON DeleteFunction where
+    toJSON = genericToJSON jsonOptions

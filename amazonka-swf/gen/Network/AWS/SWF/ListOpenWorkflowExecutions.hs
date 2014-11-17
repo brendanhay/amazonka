@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.ListOpenWorkflowExecutions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,7 +60,7 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -158,17 +158,6 @@ loweTagFilter = lens _loweTagFilter (\s a -> s { _loweTagFilter = a })
 loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 loweTypeFilter = lens _loweTypeFilter (\s a -> s { _loweTypeFilter = a })
 
-instance ToPath ListOpenWorkflowExecutions where
-    toPath = const "/"
-
-instance ToQuery ListOpenWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToHeaders ListOpenWorkflowExecutions
-
-instance ToBody ListOpenWorkflowExecutions where
-    toBody = toBody . encode . _loweDomain
-
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos :: [WorkflowExecutionInfo]
     , _lowerNextPageToken  :: Maybe Text
@@ -205,6 +194,18 @@ instance AWSRequest ListOpenWorkflowExecutions where
     type Rs ListOpenWorkflowExecutions = ListOpenWorkflowExecutionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListOpenWorkflowExecutionsResponse
-        <$> o .: "executionInfos"
-        <*> o .: "nextPageToken"
+    response = jsonResponse
+
+instance FromJSON ListOpenWorkflowExecutionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListOpenWorkflowExecutions where
+    toPath = const "/"
+
+instance ToHeaders ListOpenWorkflowExecutions
+
+instance ToQuery ListOpenWorkflowExecutions where
+    toQuery = const mempty
+
+instance ToJSON ListOpenWorkflowExecutions where
+    toJSON = genericToJSON jsonOptions

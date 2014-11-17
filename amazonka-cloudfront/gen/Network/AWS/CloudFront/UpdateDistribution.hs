@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -83,24 +83,6 @@ udId = lens _udId (\s a -> s { _udId = a })
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
 
-instance ToPath UpdateDistribution where
-    toPath UpdateDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _udId
-        , "/config"
-        ]
-
-instance ToQuery UpdateDistribution where
-    toQuery = const mempty
-
-instance ToHeaders UpdateDistribution where
-    toHeaders UpdateDistribution{..} = mconcat
-        [ "If-Match" =: _udIfMatch
-        ]
-
-instance ToBody UpdateDistribution where
-    toBody = toBody . encodeXML . _udDistributionConfig
-
 data UpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution :: Maybe Distribution
     , _udrETag         :: Maybe Text
@@ -133,6 +115,25 @@ instance AWSRequest UpdateDistribution where
     type Rs UpdateDistribution = UpdateDistributionResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UpdateDistributionResponse
+    response = xmlHeaderResponse $ \h x -> UpdateDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
+
+instance ToPath UpdateDistribution where
+    toPath UpdateDistribution{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _udId
+        , "/config"
+        ]
+
+instance ToHeaders UpdateDistribution where
+    toHeaders UpdateDistribution{..} = mconcat
+        [ "If-Match" =: _udIfMatch
+        ]
+
+instance ToQuery UpdateDistribution where
+    toQuery = const mempty
+
+instance ToXML UpdateDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateDistribution"

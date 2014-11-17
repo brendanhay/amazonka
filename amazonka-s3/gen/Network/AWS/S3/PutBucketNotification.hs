@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketNotification
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.PutBucketNotification
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -77,23 +77,6 @@ pbnNotificationConfiguration =
     lens _pbnNotificationConfiguration
         (\s a -> s { _pbnNotificationConfiguration = a })
 
-instance ToPath PutBucketNotification where
-    toPath PutBucketNotification{..} = mconcat
-        [ "/"
-        , toText _pbnBucket
-        ]
-
-instance ToQuery PutBucketNotification where
-    toQuery = const "notification"
-
-instance ToHeaders PutBucketNotification where
-    toHeaders PutBucketNotification{..} = mconcat
-        [ "Content-MD5" =: _pbnContentMD5
-        ]
-
-instance ToBody PutBucketNotification where
-    toBody = toBody . encodeXML . _pbnNotificationConfiguration
-
 data PutBucketNotificationResponse = PutBucketNotificationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -106,4 +89,22 @@ instance AWSRequest PutBucketNotification where
     type Rs PutBucketNotification = PutBucketNotificationResponse
 
     request  = put
-    response = nullaryResponse PutBucketNotificationResponse
+    response = nullResponse PutBucketNotificationResponse
+
+instance ToPath PutBucketNotification where
+    toPath PutBucketNotification{..} = mconcat
+        [ "/"
+        , toText _pbnBucket
+        ]
+
+instance ToHeaders PutBucketNotification where
+    toHeaders PutBucketNotification{..} = mconcat
+        [ "Content-MD5" =: _pbnContentMD5
+        ]
+
+instance ToQuery PutBucketNotification where
+    toQuery = const "notification"
+
+instance ToXML PutBucketNotification where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketNotification"

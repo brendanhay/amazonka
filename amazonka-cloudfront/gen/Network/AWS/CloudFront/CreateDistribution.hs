@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.CreateDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CloudFront.CreateDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ createDistribution p1 = CreateDistribution
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig =
     lens _cdDistributionConfig (\s a -> s { _cdDistributionConfig = a })
-
-instance ToPath CreateDistribution where
-    toPath = const "/2014-05-31/distribution"
-
-instance ToQuery CreateDistribution where
-    toQuery = const mempty
-
-instance ToHeaders CreateDistribution
-
-instance ToBody CreateDistribution where
-    toBody = toBody . encodeXML . _cdDistributionConfig
 
 data CreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution :: Maybe Distribution
@@ -117,7 +106,19 @@ instance AWSRequest CreateDistribution where
     type Rs CreateDistribution = CreateDistributionResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateDistributionResponse
+    response = xmlHeaderResponse $ \h x -> CreateDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"
+
+instance ToPath CreateDistribution where
+    toPath = const "/2014-05-31/distribution"
+
+instance ToHeaders CreateDistribution
+
+instance ToQuery CreateDistribution where
+    toQuery = const mempty
+
+instance ToXML CreateDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateDistribution"

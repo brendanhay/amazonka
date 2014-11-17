@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteOpenIDConnectProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ doidcpOpenIDConnectProviderArn =
     lens _doidcpOpenIDConnectProviderArn
         (\s a -> s { _doidcpOpenIDConnectProviderArn = a })
 
-instance ToQuery DeleteOpenIDConnectProvider
-
-instance ToPath DeleteOpenIDConnectProvider where
-    toPath = const "/"
-
 data DeleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -85,4 +80,11 @@ instance AWSRequest DeleteOpenIDConnectProvider where
     type Rs DeleteOpenIDConnectProvider = DeleteOpenIDConnectProviderResponse
 
     request  = post "DeleteOpenIDConnectProvider"
-    response = nullaryResponse DeleteOpenIDConnectProviderResponse
+    response = nullResponse DeleteOpenIDConnectProviderResponse
+
+instance ToPath DeleteOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToHeaders DeleteOpenIDConnectProvider
+
+instance ToQuery DeleteOpenIDConnectProvider

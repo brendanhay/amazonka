@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -90,21 +90,6 @@ upnId = lens _upnId (\s a -> s { _upnId = a })
 upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications = lens _upnNotifications (\s a -> s { _upnNotifications = a })
 
-instance ToPath UpdatePipelineNotifications where
-    toPath UpdatePipelineNotifications{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _upnId
-        , "/notifications"
-        ]
-
-instance ToQuery UpdatePipelineNotifications where
-    toQuery = const mempty
-
-instance ToHeaders UpdatePipelineNotifications
-
-instance ToBody UpdatePipelineNotifications where
-    toBody = toBody . encode . _upnNotifications
-
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline :: Maybe Pipeline
     } deriving (Eq, Show, Generic)
@@ -130,5 +115,22 @@ instance AWSRequest UpdatePipelineNotifications where
     type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdatePipelineNotificationsResponse
-        <$> o .: "Pipeline"
+    response = jsonResponse
+
+instance FromJSON UpdatePipelineNotificationsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdatePipelineNotifications where
+    toPath UpdatePipelineNotifications{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _upnId
+        , "/notifications"
+        ]
+
+instance ToHeaders UpdatePipelineNotifications
+
+instance ToQuery UpdatePipelineNotifications where
+    toQuery = const mempty
+
+instance ToJSON UpdatePipelineNotifications where
+    toJSON = genericToJSON jsonOptions

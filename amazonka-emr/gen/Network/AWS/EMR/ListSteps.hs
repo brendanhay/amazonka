@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.ListSteps
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.EMR.ListSteps
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -80,17 +80,6 @@ lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
 lsStepStates :: Lens' ListSteps [Text]
 lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a })
 
-instance ToPath ListSteps where
-    toPath = const "/"
-
-instance ToQuery ListSteps where
-    toQuery = const mempty
-
-instance ToHeaders ListSteps
-
-instance ToBody ListSteps where
-    toBody = toBody . encode . _lsClusterId
-
 data ListStepsResponse = ListStepsResponse
     { _lsrMarker :: Maybe Text
     , _lsrSteps  :: [StepSummary]
@@ -123,6 +112,18 @@ instance AWSRequest ListSteps where
     type Rs ListSteps = ListStepsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListStepsResponse
-        <$> o .: "Marker"
-        <*> o .: "Steps"
+    response = jsonResponse
+
+instance FromJSON ListStepsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListSteps where
+    toPath = const "/"
+
+instance ToHeaders ListSteps
+
+instance ToQuery ListSteps where
+    toQuery = const mempty
+
+instance ToJSON ListSteps where
+    toJSON = genericToJSON jsonOptions

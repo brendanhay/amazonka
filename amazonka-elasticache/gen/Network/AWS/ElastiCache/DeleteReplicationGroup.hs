@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster =
     lens _drgRetainPrimaryCluster (\s a -> s { _drgRetainPrimaryCluster = a })
 
-instance ToQuery DeleteReplicationGroup
-
-instance ToPath DeleteReplicationGroup where
-    toPath = const "/"
-
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Eq, Show, Generic)
@@ -123,5 +118,15 @@ instance AWSRequest DeleteReplicationGroup where
     type Rs DeleteReplicationGroup = DeleteReplicationGroupResponse
 
     request  = post "DeleteReplicationGroup"
-    response = xmlResponse $ \h x -> DeleteReplicationGroupResponse
-        <$> x %| "ReplicationGroup"
+    response = xmlResponse
+
+instance FromXML DeleteReplicationGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteReplicationGroupResponse"
+
+instance ToPath DeleteReplicationGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteReplicationGroup
+
+instance ToQuery DeleteReplicationGroup

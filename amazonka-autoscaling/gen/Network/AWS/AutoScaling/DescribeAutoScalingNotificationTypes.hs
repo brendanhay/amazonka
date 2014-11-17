@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,11 +47,6 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 
-instance ToQuery DescribeAutoScalingNotificationTypes
-
-instance ToPath DescribeAutoScalingNotificationTypes where
-    toPath = const "/"
-
 newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { _dasntrAutoScalingNotificationTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -87,5 +82,15 @@ instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse
 
     request  = post "DescribeAutoScalingNotificationTypes"
-    response = xmlResponse $ \h x -> DescribeAutoScalingNotificationTypesResponse
-        <$> x %| "AutoScalingNotificationTypes"
+    response = xmlResponse
+
+instance FromXML DescribeAutoScalingNotificationTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesResponse"
+
+instance ToPath DescribeAutoScalingNotificationTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeAutoScalingNotificationTypes
+
+instance ToQuery DescribeAutoScalingNotificationTypes

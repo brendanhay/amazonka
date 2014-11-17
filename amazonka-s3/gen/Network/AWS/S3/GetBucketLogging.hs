@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.GetBucketLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ getBucketLogging p1 = GetBucketLogging
 
 gbl2Bucket :: Lens' GetBucketLogging Text
 gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
-
-instance ToPath GetBucketLogging where
-    toPath GetBucketLogging{..} = mconcat
-        [ "/"
-        , toText _gbl2Bucket
-        ]
-
-instance ToQuery GetBucketLogging where
-    toQuery = const "logging"
-
-instance ToHeaders GetBucketLogging
 
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblrLoggingEnabled :: Maybe LoggingEnabled
@@ -96,5 +85,23 @@ instance AWSRequest GetBucketLogging where
     type Rs GetBucketLogging = GetBucketLoggingResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketLoggingResponse
-        <$> x %| "LoggingEnabled"
+    response = xmlResponse
+
+instance FromXML GetBucketLoggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketLoggingResponse"
+
+instance ToPath GetBucketLogging where
+    toPath GetBucketLogging{..} = mconcat
+        [ "/"
+        , toText _gbl2Bucket
+        ]
+
+instance ToHeaders GetBucketLogging
+
+instance ToQuery GetBucketLogging where
+    toQuery = const "logging"
+
+instance ToXML GetBucketLogging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketLogging"

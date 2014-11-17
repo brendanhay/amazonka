@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.UnsubscribeFromDataset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -93,23 +93,6 @@ ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
 ufdIdentityPoolId =
     lens _ufdIdentityPoolId (\s a -> s { _ufdIdentityPoolId = a })
 
-instance ToPath UnsubscribeFromDataset where
-    toPath UnsubscribeFromDataset{..} = mconcat
-        [ "/identitypools/"
-        , toText _ufdIdentityPoolId
-        , "/identities/"
-        , toText _ufdIdentityId
-        , "/datasets/"
-        , toText _ufdDatasetName
-        , "/subscriptions/"
-        , toText _ufdDeviceId
-        ]
-
-instance ToQuery UnsubscribeFromDataset where
-    toQuery = const mempty
-
-instance ToHeaders UnsubscribeFromDataset
-
 data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -122,4 +105,24 @@ instance AWSRequest UnsubscribeFromDataset where
     type Rs UnsubscribeFromDataset = UnsubscribeFromDatasetResponse
 
     request  = delete
-    response = nullaryResponse UnsubscribeFromDatasetResponse
+    response = nullResponse UnsubscribeFromDatasetResponse
+
+instance ToPath UnsubscribeFromDataset where
+    toPath UnsubscribeFromDataset{..} = mconcat
+        [ "/identitypools/"
+        , toText _ufdIdentityPoolId
+        , "/identities/"
+        , toText _ufdIdentityId
+        , "/datasets/"
+        , toText _ufdDatasetName
+        , "/subscriptions/"
+        , toText _ufdDeviceId
+        ]
+
+instance ToHeaders UnsubscribeFromDataset
+
+instance ToQuery UnsubscribeFromDataset where
+    toQuery = const mempty
+
+instance ToJSON UnsubscribeFromDataset where
+    toJSON = genericToJSON jsonOptions

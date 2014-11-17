@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DetachVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -116,11 +116,6 @@ dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 dvVolumeId :: Lens' DetachVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
-instance ToQuery DetachVolume
-
-instance ToPath DetachVolume where
-    toPath = const "/"
-
 data DetachVolumeResponse = DetachVolumeResponse
     { _dvrAttachTime          :: Maybe RFC822
     , _dvrDeleteOnTermination :: Maybe Bool
@@ -188,10 +183,15 @@ instance AWSRequest DetachVolume where
     type Rs DetachVolume = DetachVolumeResponse
 
     request  = post "DetachVolume"
-    response = xmlResponse $ \h x -> DetachVolumeResponse
-        <$> x %| "attachTime"
-        <*> x %| "deleteOnTermination"
-        <*> x %| "device"
-        <*> x %| "instanceId"
-        <*> x %| "status"
-        <*> x %| "volumeId"
+    response = xmlResponse
+
+instance FromXML DetachVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachVolumeResponse"
+
+instance ToPath DetachVolume where
+    toPath = const "/"
+
+instance ToHeaders DetachVolume
+
+instance ToQuery DetachVolume

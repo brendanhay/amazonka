@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackEvents
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ dseNextToken = lens _dseNextToken (\s a -> s { _dseNextToken = a })
 dseStackName :: Lens' DescribeStackEvents (Maybe Text)
 dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
 
-instance ToQuery DescribeStackEvents
-
-instance ToPath DescribeStackEvents where
-    toPath = const "/"
-
 data DescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserNextToken   :: Maybe Text
     , _dserStackEvents :: [StackEvent]
@@ -116,10 +111,15 @@ instance AWSRequest DescribeStackEvents where
     type Rs DescribeStackEvents = DescribeStackEventsResponse
 
     request  = post "DescribeStackEvents"
-    response = xmlResponse $ \h x -> DescribeStackEventsResponse
-        <$> x %| "NextToken"
-        <*> x %| "StackEvents"
+    response = xmlResponse
 
-instance AWSPager DescribeStackEvents where
-    next rq rs = (\x -> rq & dseNextToken ?~ x)
-        <$> (rs ^. dserNextToken)
+instance FromXML DescribeStackEventsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeStackEventsResponse"
+
+instance ToPath DescribeStackEvents where
+    toPath = const "/"
+
+instance ToHeaders DescribeStackEvents
+
+instance ToQuery DescribeStackEvents

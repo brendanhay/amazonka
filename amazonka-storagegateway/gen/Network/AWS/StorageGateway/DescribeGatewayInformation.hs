@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeGatewayInformation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ describeGatewayInformation p1 = DescribeGatewayInformation
 
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
 dgiGatewayARN = lens _dgiGatewayARN (\s a -> s { _dgiGatewayARN = a })
-
-instance ToPath DescribeGatewayInformation where
-    toPath = const "/"
-
-instance ToQuery DescribeGatewayInformation where
-    toQuery = const mempty
-
-instance ToHeaders DescribeGatewayInformation
-
-instance ToBody DescribeGatewayInformation where
-    toBody = toBody . encode . _dgiGatewayARN
 
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     { _dgirGatewayARN                 :: Maybe Text
@@ -160,11 +149,18 @@ instance AWSRequest DescribeGatewayInformation where
     type Rs DescribeGatewayInformation = DescribeGatewayInformationResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeGatewayInformationResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "GatewayId"
-        <*> o .: "GatewayNetworkInterfaces"
-        <*> o .: "GatewayState"
-        <*> o .: "GatewayTimezone"
-        <*> o .: "GatewayType"
-        <*> o .: "NextUpdateAvailabilityDate"
+    response = jsonResponse
+
+instance FromJSON DescribeGatewayInformationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeGatewayInformation where
+    toPath = const "/"
+
+instance ToHeaders DescribeGatewayInformation
+
+instance ToQuery DescribeGatewayInformation where
+    toQuery = const mempty
+
+instance ToJSON DescribeGatewayInformation where
+    toJSON = genericToJSON jsonOptions

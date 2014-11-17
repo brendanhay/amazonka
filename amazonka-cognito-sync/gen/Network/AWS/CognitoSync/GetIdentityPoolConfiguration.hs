@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -64,18 +64,6 @@ getIdentityPoolConfiguration p1 = GetIdentityPoolConfiguration
 gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
 gipcIdentityPoolId =
     lens _gipcIdentityPoolId (\s a -> s { _gipcIdentityPoolId = a })
-
-instance ToPath GetIdentityPoolConfiguration where
-    toPath GetIdentityPoolConfiguration{..} = mconcat
-        [ "/identitypools/"
-        , toText _gipcIdentityPoolId
-        , "/configuration"
-        ]
-
-instance ToQuery GetIdentityPoolConfiguration where
-    toQuery = const mempty
-
-instance ToHeaders GetIdentityPoolConfiguration
 
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     { _gipcrIdentityPoolId :: Maybe Text
@@ -112,6 +100,22 @@ instance AWSRequest GetIdentityPoolConfiguration where
     type Rs GetIdentityPoolConfiguration = GetIdentityPoolConfigurationResponse
 
     request  = get
-    response = jsonResponse $ \h o -> GetIdentityPoolConfigurationResponse
-        <$> o .: "IdentityPoolId"
-        <*> o .: "PushSync"
+    response = jsonResponse
+
+instance FromJSON GetIdentityPoolConfigurationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetIdentityPoolConfiguration where
+    toPath GetIdentityPoolConfiguration{..} = mconcat
+        [ "/identitypools/"
+        , toText _gipcIdentityPoolId
+        , "/configuration"
+        ]
+
+instance ToHeaders GetIdentityPoolConfiguration
+
+instance ToQuery GetIdentityPoolConfiguration where
+    toQuery = const mempty
+
+instance ToJSON GetIdentityPoolConfiguration where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.HeadBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.S3.HeadBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ headBucket p1 = HeadBucket
 hbBucket :: Lens' HeadBucket Text
 hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
 
-instance ToPath HeadBucket where
-    toPath HeadBucket{..} = mconcat
-        [ "/"
-        , toText _hbBucket
-        ]
-
-instance ToQuery HeadBucket where
-    toQuery = const mempty
-
-instance ToHeaders HeadBucket
-
 data HeadBucketResponse = HeadBucketResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,19 @@ instance AWSRequest HeadBucket where
     type Rs HeadBucket = HeadBucketResponse
 
     request  = head
-    response = nullaryResponse HeadBucketResponse
+    response = nullResponse HeadBucketResponse
+
+instance ToPath HeadBucket where
+    toPath HeadBucket{..} = mconcat
+        [ "/"
+        , toText _hbBucket
+        ]
+
+instance ToHeaders HeadBucket
+
+instance ToQuery HeadBucket where
+    toQuery = const mempty
+
+instance ToXML HeadBucket where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "HeadBucket"

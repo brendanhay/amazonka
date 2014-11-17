@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetOpenIDConnectProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ goidcpOpenIDConnectProviderArn =
     lens _goidcpOpenIDConnectProviderArn
         (\s a -> s { _goidcpOpenIDConnectProviderArn = a })
 
-instance ToQuery GetOpenIDConnectProvider
-
-instance ToPath GetOpenIDConnectProvider where
-    toPath = const "/"
-
 data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
     { _goidcprClientIDList   :: [Text]
     , _goidcprCreateDate     :: Maybe RFC822
@@ -131,8 +126,15 @@ instance AWSRequest GetOpenIDConnectProvider where
     type Rs GetOpenIDConnectProvider = GetOpenIDConnectProviderResponse
 
     request  = post "GetOpenIDConnectProvider"
-    response = xmlResponse $ \h x -> GetOpenIDConnectProviderResponse
-        <$> x %| "ClientIDList"
-        <*> x %| "CreateDate"
-        <*> x %| "ThumbprintList"
-        <*> x %| "Url"
+    response = xmlResponse
+
+instance FromXML GetOpenIDConnectProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetOpenIDConnectProviderResponse"
+
+instance ToPath GetOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToHeaders GetOpenIDConnectProvider
+
+instance ToQuery GetOpenIDConnectProvider

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.DeleteQueue
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ deleteQueue p1 = DeleteQueue
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
 
-instance ToQuery DeleteQueue
-
-instance ToPath DeleteQueue where
-    toPath = const "/"
-
 data DeleteQueueResponse = DeleteQueueResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest DeleteQueue where
     type Rs DeleteQueue = DeleteQueueResponse
 
     request  = post "DeleteQueue"
-    response = nullaryResponse DeleteQueueResponse
+    response = nullResponse DeleteQueueResponse
+
+instance ToPath DeleteQueue where
+    toPath = const "/"
+
+instance ToHeaders DeleteQueue
+
+instance ToQuery DeleteQueue

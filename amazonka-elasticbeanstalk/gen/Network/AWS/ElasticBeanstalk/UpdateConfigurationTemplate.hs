@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -116,11 +116,6 @@ uctOptionsToRemove =
 -- InvalidParameterValue error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\s a -> s { _uctTemplateName = a })
-
-instance ToQuery UpdateConfigurationTemplate
-
-instance ToPath UpdateConfigurationTemplate where
-    toPath = const "/"
 
 data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     { _uctrApplicationName   :: Maybe Text
@@ -232,13 +227,15 @@ instance AWSRequest UpdateConfigurationTemplate where
     type Rs UpdateConfigurationTemplate = UpdateConfigurationTemplateResponse
 
     request  = post "UpdateConfigurationTemplate"
-    response = xmlResponse $ \h x -> UpdateConfigurationTemplateResponse
-        <$> x %| "ApplicationName"
-        <*> x %| "DateCreated"
-        <*> x %| "DateUpdated"
-        <*> x %| "DeploymentStatus"
-        <*> x %| "Description"
-        <*> x %| "EnvironmentName"
-        <*> x %| "OptionSettings"
-        <*> x %| "SolutionStackName"
-        <*> x %| "TemplateName"
+    response = xmlResponse
+
+instance FromXML UpdateConfigurationTemplateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateConfigurationTemplateResponse"
+
+instance ToPath UpdateConfigurationTemplate where
+    toPath = const "/"
+
+instance ToHeaders UpdateConfigurationTemplate
+
+instance ToQuery UpdateConfigurationTemplate

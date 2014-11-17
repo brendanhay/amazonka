@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId
         (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery AuthorizeCacheSecurityGroupIngress
-
-instance ToPath AuthorizeCacheSecurityGroupIngress where
-    toPath = const "/"
-
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -123,5 +118,15 @@ instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     type Rs AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngressResponse
 
     request  = post "AuthorizeCacheSecurityGroupIngress"
-    response = xmlResponse $ \h x -> AuthorizeCacheSecurityGroupIngressResponse
-        <$> x %| "CacheSecurityGroup"
+    response = xmlResponse
+
+instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResponse"
+
+instance ToPath AuthorizeCacheSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders AuthorizeCacheSecurityGroupIngress
+
+instance ToQuery AuthorizeCacheSecurityGroupIngress

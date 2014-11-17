@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Suggest
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.CloudSearchDomains.Suggest
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudSearchDomains.Types
 import qualified GHC.Exts
 
@@ -94,19 +94,6 @@ sSize = lens _sSize (\s a -> s { _sSize = a })
 sSuggester :: Lens' Suggest Text
 sSuggester = lens _sSuggester (\s a -> s { _sSuggester = a })
 
-instance ToPath Suggest where
-    toPath = const "/2013-01-01/suggest"
-
-instance ToQuery Suggest where
-    toQuery Suggest{..} = mconcat
-        [ "format=sdk&pretty=true"
-        , "q"         =? _sQuery
-        , "suggester" =? _sSuggester
-        , "size"      =? _sSize
-        ]
-
-instance ToHeaders Suggest
-
 data SuggestResponse = SuggestResponse
     { _srStatus  :: Maybe SuggestStatus
     , _srSuggest :: Maybe SuggestModel
@@ -140,6 +127,14 @@ instance AWSRequest Suggest where
     type Rs Suggest = SuggestResponse
 
     request  = get
-    response = jsonResponse $ \h o -> SuggestResponse
-        <$> o .: "status"
-        <*> o .: "suggest"
+    response = jsonResponse
+
+instance FromJSON SuggestResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath Suggest where
+    toPath = const "/2013-01-01/suggest"
+
+instance ToHeaders Suggest
+
+instance ToQuery Suggest

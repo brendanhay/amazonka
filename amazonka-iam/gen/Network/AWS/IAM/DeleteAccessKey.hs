@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccessKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
 
-instance ToQuery DeleteAccessKey
-
-instance ToPath DeleteAccessKey where
-    toPath = const "/"
-
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +85,11 @@ instance AWSRequest DeleteAccessKey where
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
 
     request  = post "DeleteAccessKey"
-    response = nullaryResponse DeleteAccessKeyResponse
+    response = nullResponse DeleteAccessKeyResponse
+
+instance ToPath DeleteAccessKey where
+    toPath = const "/"
+
+instance ToHeaders DeleteAccessKey
+
+instance ToQuery DeleteAccessKey

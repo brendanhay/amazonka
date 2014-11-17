@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.RequestSpotInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -170,11 +170,6 @@ rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a })
     . mapping _Time
 
-instance ToQuery RequestSpotInstances
-
-instance ToPath RequestSpotInstances where
-    toPath = const "/"
-
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -207,5 +202,15 @@ instance AWSRequest RequestSpotInstances where
     type Rs RequestSpotInstances = RequestSpotInstancesResponse
 
     request  = post "RequestSpotInstances"
-    response = xmlResponse $ \h x -> RequestSpotInstancesResponse
-        <$> x %| "spotInstanceRequestSet"
+    response = xmlResponse
+
+instance FromXML RequestSpotInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RequestSpotInstancesResponse"
+
+instance ToPath RequestSpotInstances where
+    toPath = const "/"
+
+instance ToHeaders RequestSpotInstances
+
+instance ToQuery RequestSpotInstances

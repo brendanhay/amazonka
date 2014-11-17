@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -61,18 +61,6 @@ getCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityCo
 -- | The identity's id.
 gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
 gcfoaicId = lens _gcfoaicId (\s a -> s { _gcfoaicId = a })
-
-instance ToPath GetCloudFrontOriginAccessIdentityConfig where
-    toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toText _gcfoaicId
-        , "/config"
-        ]
-
-instance ToQuery GetCloudFrontOriginAccessIdentityConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetCloudFrontOriginAccessIdentityConfig
 
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
@@ -108,6 +96,22 @@ instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Rs GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfigResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetCloudFrontOriginAccessIdentityConfigResponse
+    response = xmlHeaderResponse $ \h x -> GetCloudFrontOriginAccessIdentityConfigResponse
         <$> x %| "CloudFrontOriginAccessIdentityConfig"
         <*> h ~:? "ETag"
+
+instance ToPath GetCloudFrontOriginAccessIdentityConfig where
+    toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
+        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        , toText _gcfoaicId
+        , "/config"
+        ]
+
+instance ToHeaders GetCloudFrontOriginAccessIdentityConfig
+
+instance ToQuery GetCloudFrontOriginAccessIdentityConfig where
+    toQuery = const mempty
+
+instance ToXML GetCloudFrontOriginAccessIdentityConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityConfig"

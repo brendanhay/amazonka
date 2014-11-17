@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.ListKeyPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.KMS.ListKeyPolicies
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -88,17 +88,6 @@ lkpLimit = lens _lkpLimit (\s a -> s { _lkpLimit = a })
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\s a -> s { _lkpMarker = a })
 
-instance ToPath ListKeyPolicies where
-    toPath = const "/"
-
-instance ToQuery ListKeyPolicies where
-    toQuery = const mempty
-
-instance ToHeaders ListKeyPolicies
-
-instance ToBody ListKeyPolicies where
-    toBody = toBody . encode . _lkpKeyId
-
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse
     { _lkprNextMarker  :: Maybe Text
     , _lkprPolicyNames :: [Text]
@@ -143,7 +132,18 @@ instance AWSRequest ListKeyPolicies where
     type Rs ListKeyPolicies = ListKeyPoliciesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListKeyPoliciesResponse
-        <$> o .: "NextMarker"
-        <*> o .: "PolicyNames"
-        <*> o .: "Truncated"
+    response = jsonResponse
+
+instance FromJSON ListKeyPoliciesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListKeyPolicies where
+    toPath = const "/"
+
+instance ToHeaders ListKeyPolicies
+
+instance ToQuery ListKeyPolicies where
+    toQuery = const mempty
+
+instance ToJSON ListKeyPolicies where
+    toJSON = genericToJSON jsonOptions

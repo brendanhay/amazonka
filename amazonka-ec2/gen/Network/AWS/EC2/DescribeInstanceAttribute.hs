@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstanceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ diaDryRun = lens _diaDryRun (\s a -> s { _diaDryRun = a })
 -- | The ID of the instance.
 diaInstanceId :: Lens' DescribeInstanceAttribute Text
 diaInstanceId = lens _diaInstanceId (\s a -> s { _diaInstanceId = a })
-
-instance ToQuery DescribeInstanceAttribute
-
-instance ToPath DescribeInstanceAttribute where
-    toPath = const "/"
 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { _diar1BlockDeviceMappings               :: [InstanceBlockDeviceMapping]
@@ -245,18 +240,15 @@ instance AWSRequest DescribeInstanceAttribute where
     type Rs DescribeInstanceAttribute = DescribeInstanceAttributeResponse
 
     request  = post "DescribeInstanceAttribute"
-    response = xmlResponse $ \h x -> DescribeInstanceAttributeResponse
-        <$> x %| "blockDeviceMapping"
-        <*> x %| "disableApiTermination"
-        <*> x %| "ebsOptimized"
-        <*> x %| "groupSet"
-        <*> x %| "instanceId"
-        <*> x %| "instanceInitiatedShutdownBehavior"
-        <*> x %| "instanceType"
-        <*> x %| "kernel"
-        <*> x %| "productCodes"
-        <*> x %| "ramdisk"
-        <*> x %| "rootDeviceName"
-        <*> x %| "sourceDestCheck"
-        <*> x %| "sriovNetSupport"
-        <*> x %| "userData"
+    response = xmlResponse
+
+instance FromXML DescribeInstanceAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInstanceAttributeResponse"
+
+instance ToPath DescribeInstanceAttribute where
+    toPath = const "/"
+
+instance ToHeaders DescribeInstanceAttribute
+
+instance ToQuery DescribeInstanceAttribute

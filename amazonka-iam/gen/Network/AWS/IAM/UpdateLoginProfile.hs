@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateLoginProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ ulpPasswordResetRequired =
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
 
-instance ToQuery UpdateLoginProfile
-
-instance ToPath UpdateLoginProfile where
-    toPath = const "/"
-
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +94,11 @@ instance AWSRequest UpdateLoginProfile where
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse
 
     request  = post "UpdateLoginProfile"
-    response = nullaryResponse UpdateLoginProfileResponse
+    response = nullResponse UpdateLoginProfileResponse
+
+instance ToPath UpdateLoginProfile where
+    toPath = const "/"
+
+instance ToHeaders UpdateLoginProfile
+
+instance ToQuery UpdateLoginProfile

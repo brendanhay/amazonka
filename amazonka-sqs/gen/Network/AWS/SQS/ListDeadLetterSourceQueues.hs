@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
 ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
 
-instance ToQuery ListDeadLetterSourceQueues
-
-instance ToPath ListDeadLetterSourceQueues where
-    toPath = const "/"
-
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -99,5 +94,15 @@ instance AWSRequest ListDeadLetterSourceQueues where
     type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResponse
 
     request  = post "ListDeadLetterSourceQueues"
-    response = xmlResponse $ \h x -> ListDeadLetterSourceQueuesResponse
-        <$> x %| "queueUrls"
+    response = xmlResponse
+
+instance FromXML ListDeadLetterSourceQueuesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResponse"
+
+instance ToPath ListDeadLetterSourceQueues where
+    toPath = const "/"
+
+instance ToHeaders ListDeadLetterSourceQueues
+
+instance ToQuery ListDeadLetterSourceQueues

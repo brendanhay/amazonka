@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ImportKeyPair
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
 ikpPublicKeyMaterial =
     lens _ikpPublicKeyMaterial (\s a -> s { _ikpPublicKeyMaterial = a })
 
-instance ToQuery ImportKeyPair
-
-instance ToPath ImportKeyPair where
-    toPath = const "/"
-
 data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyFingerprint :: Maybe Text
     , _ikprKeyName        :: Maybe Text
@@ -126,6 +121,15 @@ instance AWSRequest ImportKeyPair where
     type Rs ImportKeyPair = ImportKeyPairResponse
 
     request  = post "ImportKeyPair"
-    response = xmlResponse $ \h x -> ImportKeyPairResponse
-        <$> x %| "keyFingerprint"
-        <*> x %| "keyName"
+    response = xmlResponse
+
+instance FromXML ImportKeyPairResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImportKeyPairResponse"
+
+instance ToPath ImportKeyPair where
+    toPath = const "/"
+
+instance ToHeaders ImportKeyPair
+
+instance ToQuery ImportKeyPair

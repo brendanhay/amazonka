@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.IndexDocuments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ indexDocuments p1 = IndexDocuments
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
 
-instance ToQuery IndexDocuments
-
-instance ToPath IndexDocuments where
-    toPath = const "/"
-
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -97,5 +92,15 @@ instance AWSRequest IndexDocuments where
     type Rs IndexDocuments = IndexDocumentsResponse
 
     request  = post "IndexDocuments"
-    response = xmlResponse $ \h x -> IndexDocumentsResponse
-        <$> x %| "FieldNames"
+    response = xmlResponse
+
+instance FromXML IndexDocumentsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "IndexDocumentsResponse"
+
+instance ToPath IndexDocuments where
+    toPath = const "/"
+
+instance ToHeaders IndexDocuments
+
+instance ToQuery IndexDocuments

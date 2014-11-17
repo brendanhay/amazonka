@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -109,11 +109,6 @@ dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
 dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe Text)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
-instance ToQuery DescribeAlarmsForMetric
-
-instance ToPath DescribeAlarmsForMetric where
-    toPath = const "/"
-
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: [MetricAlarm]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -145,5 +140,15 @@ instance AWSRequest DescribeAlarmsForMetric where
     type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
 
     request  = post "DescribeAlarmsForMetric"
-    response = xmlResponse $ \h x -> DescribeAlarmsForMetricResponse
-        <$> x %| "MetricAlarms"
+    response = xmlResponse
+
+instance FromXML DescribeAlarmsForMetricResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAlarmsForMetricResponse"
+
+instance ToPath DescribeAlarmsForMetric where
+    toPath = const "/"
+
+instance ToHeaders DescribeAlarmsForMetric
+
+instance ToQuery DescribeAlarmsForMetric

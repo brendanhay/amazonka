@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeReservedNodes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
 drnReservedNodeId =
     lens _drnReservedNodeId (\s a -> s { _drnReservedNodeId = a })
 
-instance ToQuery DescribeReservedNodes
-
-instance ToPath DescribeReservedNodes where
-    toPath = const "/"
-
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker        :: Maybe Text
     , _drnrReservedNodes :: [ReservedNode]
@@ -132,10 +127,15 @@ instance AWSRequest DescribeReservedNodes where
     type Rs DescribeReservedNodes = DescribeReservedNodesResponse
 
     request  = post "DescribeReservedNodes"
-    response = xmlResponse $ \h x -> DescribeReservedNodesResponse
-        <$> x %| "Marker"
-        <*> x %| "ReservedNodes"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedNodes where
-    next rq rs = (\x -> rq & drnMarker ?~ x)
-        <$> (rs ^. drnrMarker)
+instance FromXML DescribeReservedNodesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedNodesResponse"
+
+instance ToPath DescribeReservedNodes where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedNodes
+
+instance ToQuery DescribeReservedNodes

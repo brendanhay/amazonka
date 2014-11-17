@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,11 +67,6 @@ deleteTags = DeleteTags
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\s a -> s { _dtTags = a })
 
-instance ToQuery DeleteTags
-
-instance ToPath DeleteTags where
-    toPath = const "/"
-
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +79,11 @@ instance AWSRequest DeleteTags where
     type Rs DeleteTags = DeleteTagsResponse
 
     request  = post "DeleteTags"
-    response = nullaryResponse DeleteTagsResponse
+    response = nullResponse DeleteTagsResponse
+
+instance ToPath DeleteTags where
+    toPath = const "/"
+
+instance ToHeaders DeleteTags
+
+instance ToQuery DeleteTags

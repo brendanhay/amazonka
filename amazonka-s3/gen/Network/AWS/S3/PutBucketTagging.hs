@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.PutBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -75,23 +75,6 @@ pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
 pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
 
-instance ToPath PutBucketTagging where
-    toPath PutBucketTagging{..} = mconcat
-        [ "/"
-        , toText _pbtBucket
-        ]
-
-instance ToQuery PutBucketTagging where
-    toQuery = const "tagging"
-
-instance ToHeaders PutBucketTagging where
-    toHeaders PutBucketTagging{..} = mconcat
-        [ "Content-MD5" =: _pbtContentMD5
-        ]
-
-instance ToBody PutBucketTagging where
-    toBody = toBody . encodeXML . _pbtTagging
-
 data PutBucketTaggingResponse = PutBucketTaggingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -104,4 +87,22 @@ instance AWSRequest PutBucketTagging where
     type Rs PutBucketTagging = PutBucketTaggingResponse
 
     request  = put
-    response = nullaryResponse PutBucketTaggingResponse
+    response = nullResponse PutBucketTaggingResponse
+
+instance ToPath PutBucketTagging where
+    toPath PutBucketTagging{..} = mconcat
+        [ "/"
+        , toText _pbtBucket
+        ]
+
+instance ToHeaders PutBucketTagging where
+    toHeaders PutBucketTagging{..} = mconcat
+        [ "Content-MD5" =: _pbtContentMD5
+        ]
+
+instance ToQuery PutBucketTagging where
+    toQuery = const "tagging"
+
+instance ToXML PutBucketTagging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketTagging"

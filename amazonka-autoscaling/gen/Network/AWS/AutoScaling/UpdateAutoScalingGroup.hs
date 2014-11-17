@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.UpdateAutoScalingGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -194,11 +194,6 @@ uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier =
     lens _uasgVPCZoneIdentifier (\s a -> s { _uasgVPCZoneIdentifier = a })
 
-instance ToQuery UpdateAutoScalingGroup
-
-instance ToPath UpdateAutoScalingGroup where
-    toPath = const "/"
-
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -211,4 +206,11 @@ instance AWSRequest UpdateAutoScalingGroup where
     type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
 
     request  = post "UpdateAutoScalingGroup"
-    response = nullaryResponse UpdateAutoScalingGroupResponse
+    response = nullResponse UpdateAutoScalingGroupResponse
+
+instance ToPath UpdateAutoScalingGroup where
+    toPath = const "/"
+
+instance ToHeaders UpdateAutoScalingGroup
+
+instance ToQuery UpdateAutoScalingGroup

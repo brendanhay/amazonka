@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.PutRecord
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,7 +67,7 @@ module Network.AWS.Kinesis.PutRecord
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -143,17 +143,6 @@ prSequenceNumberForOrdering =
 prStreamName :: Lens' PutRecord Text
 prStreamName = lens _prStreamName (\s a -> s { _prStreamName = a })
 
-instance ToPath PutRecord where
-    toPath = const "/"
-
-instance ToQuery PutRecord where
-    toQuery = const mempty
-
-instance ToHeaders PutRecord
-
-instance ToBody PutRecord where
-    toBody = toBody . encode . _prStreamName
-
 data PutRecordResponse = PutRecordResponse
     { _prrSequenceNumber :: Text
     , _prrShardId        :: Text
@@ -192,6 +181,18 @@ instance AWSRequest PutRecord where
     type Rs PutRecord = PutRecordResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PutRecordResponse
-        <$> o .: "SequenceNumber"
-        <*> o .: "ShardId"
+    response = jsonResponse
+
+instance FromJSON PutRecordResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PutRecord where
+    toPath = const "/"
+
+instance ToHeaders PutRecord
+
+instance ToQuery PutRecord where
+    toQuery = const mempty
+
+instance ToJSON PutRecord where
+    toJSON = genericToJSON jsonOptions

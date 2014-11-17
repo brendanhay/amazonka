@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.RunInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -332,11 +332,6 @@ riSubnetId = lens _riSubnetId (\s a -> s { _riSubnetId = a })
 riUserData :: Lens' RunInstances (Maybe Text)
 riUserData = lens _riUserData (\s a -> s { _riUserData = a })
 
-instance ToQuery RunInstances
-
-instance ToPath RunInstances where
-    toPath = const "/"
-
 data RunInstancesResponse = RunInstancesResponse
     { _rirGroups        :: [GroupIdentifier]
     , _rirInstances     :: [Instance]
@@ -394,9 +389,15 @@ instance AWSRequest RunInstances where
     type Rs RunInstances = RunInstancesResponse
 
     request  = post "RunInstances"
-    response = xmlResponse $ \h x -> RunInstancesResponse
-        <$> x %| "groupSet"
-        <*> x %| "instancesSet"
-        <*> x %| "ownerId"
-        <*> x %| "requesterId"
-        <*> x %| "reservationId"
+    response = xmlResponse
+
+instance FromXML RunInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RunInstancesResponse"
+
+instance ToPath RunInstances where
+    toPath = const "/"
+
+instance ToHeaders RunInstances
+
+instance ToQuery RunInstances

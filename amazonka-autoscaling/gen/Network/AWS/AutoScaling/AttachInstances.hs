@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.AttachInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ aiAutoScalingGroupName =
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
 
-instance ToQuery AttachInstances
-
-instance ToPath AttachInstances where
-    toPath = const "/"
-
 data AttachInstancesResponse = AttachInstancesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest AttachInstances where
     type Rs AttachInstances = AttachInstancesResponse
 
     request  = post "AttachInstances"
-    response = nullaryResponse AttachInstancesResponse
+    response = nullResponse AttachInstancesResponse
+
+instance ToPath AttachInstances where
+    toPath = const "/"
+
+instance ToHeaders AttachInstances
+
+instance ToQuery AttachInstances

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.AddTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a })
     . _List1
 
-instance ToQuery AddTags
-
-instance ToPath AddTags where
-    toPath = const "/"
-
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -93,4 +88,11 @@ instance AWSRequest AddTags where
     type Rs AddTags = AddTagsResponse
 
     request  = post "AddTags"
-    response = nullaryResponse AddTagsResponse
+    response = nullResponse AddTagsResponse
+
+instance ToPath AddTags where
+    toPath = const "/"
+
+instance ToHeaders AddTags
+
+instance ToQuery AddTags

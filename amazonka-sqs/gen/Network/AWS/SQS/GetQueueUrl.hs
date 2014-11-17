@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.GetQueueUrl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ gquQueueOwnerAWSAccountId =
     lens _gquQueueOwnerAWSAccountId
         (\s a -> s { _gquQueueOwnerAWSAccountId = a })
 
-instance ToQuery GetQueueUrl
-
-instance ToPath GetQueueUrl where
-    toPath = const "/"
-
 newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -108,5 +103,15 @@ instance AWSRequest GetQueueUrl where
     type Rs GetQueueUrl = GetQueueUrlResponse
 
     request  = post "GetQueueUrl"
-    response = xmlResponse $ \h x -> GetQueueUrlResponse
-        <$> x %| "QueueUrl"
+    response = xmlResponse
+
+instance FromXML GetQueueUrlResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetQueueUrlResponse"
+
+instance ToPath GetQueueUrl where
+    toPath = const "/"
+
+instance ToHeaders GetQueueUrl
+
+instance ToQuery GetQueueUrl

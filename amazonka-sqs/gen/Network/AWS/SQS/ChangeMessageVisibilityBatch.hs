@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a })
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 
-instance ToQuery ChangeMessageVisibilityBatch
-
-instance ToPath ChangeMessageVisibilityBatch where
-    toPath = const "/"
-
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrFailed     :: [BatchResultErrorEntry]
     , _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
@@ -116,6 +111,15 @@ instance AWSRequest ChangeMessageVisibilityBatch where
     type Rs ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatchResponse
 
     request  = post "ChangeMessageVisibilityBatch"
-    response = xmlResponse $ \h x -> ChangeMessageVisibilityBatchResponse
-        <$> x %| "Failed"
-        <*> x %| "Successful"
+    response = xmlResponse
+
+instance FromXML ChangeMessageVisibilityBatchResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResponse"
+
+instance ToPath ChangeMessageVisibilityBatch where
+    toPath = const "/"
+
+instance ToHeaders ChangeMessageVisibilityBatch
+
+instance ToQuery ChangeMessageVisibilityBatch

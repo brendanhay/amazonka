@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CancelJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.ElasticTranscoder.CancelJob
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ cancelJob p1 = CancelJob
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\s a -> s { _cjId = a })
 
-instance ToPath CancelJob where
-    toPath CancelJob{..} = mconcat
-        [ "/2012-09-25/jobs/"
-        , toText _cjId
-        ]
-
-instance ToQuery CancelJob where
-    toQuery = const mempty
-
-instance ToHeaders CancelJob
-
 data CancelJobResponse = CancelJobResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,18 @@ instance AWSRequest CancelJob where
     type Rs CancelJob = CancelJobResponse
 
     request  = delete
-    response = nullaryResponse CancelJobResponse
+    response = nullResponse CancelJobResponse
+
+instance ToPath CancelJob where
+    toPath CancelJob{..} = mconcat
+        [ "/2012-09-25/jobs/"
+        , toText _cjId
+        ]
+
+instance ToHeaders CancelJob
+
+instance ToQuery CancelJob where
+    toQuery = const mempty
+
+instance ToJSON CancelJob where
+    toJSON = genericToJSON jsonOptions

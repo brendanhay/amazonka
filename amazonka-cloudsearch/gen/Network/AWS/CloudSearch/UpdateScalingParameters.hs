@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters =
     lens _uspScalingParameters (\s a -> s { _uspScalingParameters = a })
 
-instance ToQuery UpdateScalingParameters
-
-instance ToPath UpdateScalingParameters where
-    toPath = const "/"
-
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
     } deriving (Eq, Show, Generic)
@@ -106,5 +101,15 @@ instance AWSRequest UpdateScalingParameters where
     type Rs UpdateScalingParameters = UpdateScalingParametersResponse
 
     request  = post "UpdateScalingParameters"
-    response = xmlResponse $ \h x -> UpdateScalingParametersResponse
-        <$> x %| "ScalingParameters"
+    response = xmlResponse
+
+instance FromXML UpdateScalingParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateScalingParametersResponse"
+
+instance ToPath UpdateScalingParameters where
+    toPath = const "/"
+
+instance ToHeaders UpdateScalingParameters
+
+instance ToQuery UpdateScalingParameters

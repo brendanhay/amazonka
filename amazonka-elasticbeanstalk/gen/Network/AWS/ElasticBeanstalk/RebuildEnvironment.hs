@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentName =
     lens _reEnvironmentName (\s a -> s { _reEnvironmentName = a })
 
-instance ToQuery RebuildEnvironment
-
-instance ToPath RebuildEnvironment where
-    toPath = const "/"
-
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest RebuildEnvironment where
     type Rs RebuildEnvironment = RebuildEnvironmentResponse
 
     request  = post "RebuildEnvironment"
-    response = nullaryResponse RebuildEnvironmentResponse
+    response = nullResponse RebuildEnvironmentResponse
+
+instance ToPath RebuildEnvironment where
+    toPath = const "/"
+
+instance ToHeaders RebuildEnvironment
+
+instance ToQuery RebuildEnvironment

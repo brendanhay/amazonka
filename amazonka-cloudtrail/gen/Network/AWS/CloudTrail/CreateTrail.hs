@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.CreateTrail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.CloudTrail.CreateTrail
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -134,17 +134,6 @@ ctS3KeyPrefix = lens _ctS3KeyPrefix (\s a -> s { _ctS3KeyPrefix = a })
 -- log file delivery.
 ctSnsTopicName :: Lens' CreateTrail (Maybe Text)
 ctSnsTopicName = lens _ctSnsTopicName (\s a -> s { _ctSnsTopicName = a })
-
-instance ToPath CreateTrail where
-    toPath = const "/"
-
-instance ToQuery CreateTrail where
-    toQuery = const mempty
-
-instance ToHeaders CreateTrail
-
-instance ToBody CreateTrail where
-    toBody = toBody . encode . _ctName
 
 data CreateTrailResponse = CreateTrailResponse
     { _ctrCloudWatchLogsLogGroupArn  :: Maybe Text
@@ -230,11 +219,18 @@ instance AWSRequest CreateTrail where
     type Rs CreateTrail = CreateTrailResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateTrailResponse
-        <$> o .: "CloudWatchLogsLogGroupArn"
-        <*> o .: "CloudWatchLogsRoleArn"
-        <*> o .: "IncludeGlobalServiceEvents"
-        <*> o .: "Name"
-        <*> o .: "S3BucketName"
-        <*> o .: "S3KeyPrefix"
-        <*> o .: "SnsTopicName"
+    response = jsonResponse
+
+instance FromJSON CreateTrailResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateTrail where
+    toPath = const "/"
+
+instance ToHeaders CreateTrail
+
+instance ToQuery CreateTrail where
+    toQuery = const mempty
+
+instance ToJSON CreateTrail where
+    toJSON = genericToJSON jsonOptions

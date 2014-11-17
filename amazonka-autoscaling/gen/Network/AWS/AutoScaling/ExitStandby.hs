@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.ExitStandby
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ es1AutoScalingGroupName =
 es1InstanceIds :: Lens' ExitStandby [Text]
 es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
 
-instance ToQuery ExitStandby
-
-instance ToPath ExitStandby where
-    toPath = const "/"
-
 newtype ExitStandbyResponse = ExitStandbyResponse
     { _esrActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -111,5 +106,15 @@ instance AWSRequest ExitStandby where
     type Rs ExitStandby = ExitStandbyResponse
 
     request  = post "ExitStandby"
-    response = xmlResponse $ \h x -> ExitStandbyResponse
-        <$> x %| "Activities"
+    response = xmlResponse
+
+instance FromXML ExitStandbyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ExitStandbyResponse"
+
+instance ToPath ExitStandby where
+    toPath = const "/"
+
+instance ToHeaders ExitStandby
+
+instance ToQuery ExitStandby

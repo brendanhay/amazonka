@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateVpnGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 cvgType :: Lens' CreateVpnGateway Text
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
 
-instance ToQuery CreateVpnGateway
-
-instance ToPath CreateVpnGateway where
-    toPath = const "/"
-
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
     } deriving (Eq, Show, Generic)
@@ -112,5 +107,15 @@ instance AWSRequest CreateVpnGateway where
     type Rs CreateVpnGateway = CreateVpnGatewayResponse
 
     request  = post "CreateVpnGateway"
-    response = xmlResponse $ \h x -> CreateVpnGatewayResponse
-        <$> x %| "vpnGateway"
+    response = xmlResponse
+
+instance FromXML CreateVpnGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpnGatewayResponse"
+
+instance ToPath CreateVpnGateway where
+    toPath = const "/"
+
+instance ToHeaders CreateVpnGateway
+
+instance ToQuery CreateVpnGateway

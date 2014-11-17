@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeCases
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.Support.DescribeCases
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -150,17 +150,6 @@ dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a })
 dcNextToken :: Lens' DescribeCases (Maybe Text)
 dcNextToken = lens _dcNextToken (\s a -> s { _dcNextToken = a })
 
-instance ToPath DescribeCases where
-    toPath = const "/"
-
-instance ToQuery DescribeCases where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCases
-
-instance ToBody DescribeCases where
-    toBody = toBody . encode . _dcCaseIdList
-
 data DescribeCasesResponse = DescribeCasesResponse
     { _dcr1Cases     :: [CaseDetails]
     , _dcr1NextToken :: Maybe Text
@@ -193,6 +182,18 @@ instance AWSRequest DescribeCases where
     type Rs DescribeCases = DescribeCasesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeCasesResponse
-        <$> o .: "cases"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON DescribeCasesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeCases where
+    toPath = const "/"
+
+instance ToHeaders DescribeCases
+
+instance ToQuery DescribeCases where
+    toQuery = const mempty
+
+instance ToJSON DescribeCases where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ daApplicationNames :: Lens' DescribeApplications [Text]
 daApplicationNames =
     lens _daApplicationNames (\s a -> s { _daApplicationNames = a })
 
-instance ToQuery DescribeApplications
-
-instance ToPath DescribeApplications where
-    toPath = const "/"
-
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications :: [ApplicationDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -103,5 +98,15 @@ instance AWSRequest DescribeApplications where
     type Rs DescribeApplications = DescribeApplicationsResponse
 
     request  = post "DescribeApplications"
-    response = xmlResponse $ \h x -> DescribeApplicationsResponse
-        <$> x %| "Applications"
+    response = xmlResponse
+
+instance FromXML DescribeApplicationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeApplicationsResponse"
+
+instance ToPath DescribeApplications where
+    toPath = const "/"
+
+instance ToHeaders DescribeApplications
+
+instance ToQuery DescribeApplications

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -131,11 +131,6 @@ cniSecondaryPrivateIpAddressCount =
 cniSubnetId :: Lens' CreateNetworkInterface Text
 cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
 
-instance ToQuery CreateNetworkInterface
-
-instance ToPath CreateNetworkInterface where
-    toPath = const "/"
-
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
     } deriving (Eq, Show, Generic)
@@ -161,5 +156,15 @@ instance AWSRequest CreateNetworkInterface where
     type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse
 
     request  = post "CreateNetworkInterface"
-    response = xmlResponse $ \h x -> CreateNetworkInterfaceResponse
-        <$> x %| "networkInterface"
+    response = xmlResponse
+
+instance FromXML CreateNetworkInterfaceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateNetworkInterfaceResponse"
+
+instance ToPath CreateNetworkInterface where
+    toPath = const "/"
+
+instance ToHeaders CreateNetworkInterface
+
+instance ToQuery CreateNetworkInterface

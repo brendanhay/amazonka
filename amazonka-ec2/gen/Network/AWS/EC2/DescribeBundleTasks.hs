@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
 
-instance ToQuery DescribeBundleTasks
-
-instance ToPath DescribeBundleTasks where
-    toPath = const "/"
-
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -121,5 +116,15 @@ instance AWSRequest DescribeBundleTasks where
     type Rs DescribeBundleTasks = DescribeBundleTasksResponse
 
     request  = post "DescribeBundleTasks"
-    response = xmlResponse $ \h x -> DescribeBundleTasksResponse
-        <$> x %| "bundleInstanceTasksSet"
+    response = xmlResponse
+
+instance FromXML DescribeBundleTasksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeBundleTasksResponse"
+
+instance ToPath DescribeBundleTasks where
+    toPath = const "/"
+
+instance ToHeaders DescribeBundleTasks
+
+instance ToQuery DescribeBundleTasks

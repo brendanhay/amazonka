@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.RevokeDBSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -120,11 +120,6 @@ rdbsgiEC2SecurityGroupOwnerId =
     lens _rdbsgiEC2SecurityGroupOwnerId
         (\s a -> s { _rdbsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery RevokeDBSecurityGroupIngress
-
-instance ToPath RevokeDBSecurityGroupIngress where
-    toPath = const "/"
-
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -149,5 +144,15 @@ instance AWSRequest RevokeDBSecurityGroupIngress where
     type Rs RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngressResponse
 
     request  = post "RevokeDBSecurityGroupIngress"
-    response = xmlResponse $ \h x -> RevokeDBSecurityGroupIngressResponse
-        <$> x %| "DBSecurityGroup"
+    response = xmlResponse
+
+instance FromXML RevokeDBSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeDBSecurityGroupIngressResponse"
+
+instance ToPath RevokeDBSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders RevokeDBSecurityGroupIngress
+
+instance ToQuery RevokeDBSecurityGroupIngress

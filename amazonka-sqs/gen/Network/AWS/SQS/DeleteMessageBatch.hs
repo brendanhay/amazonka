@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.DeleteMessageBatch
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a })
 dmbQueueUrl :: Lens' DeleteMessageBatch Text
 dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
 
-instance ToQuery DeleteMessageBatch
-
-instance ToPath DeleteMessageBatch where
-    toPath = const "/"
-
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
     { _dmbrFailed     :: [BatchResultErrorEntry]
     , _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
@@ -113,6 +108,15 @@ instance AWSRequest DeleteMessageBatch where
     type Rs DeleteMessageBatch = DeleteMessageBatchResponse
 
     request  = post "DeleteMessageBatch"
-    response = xmlResponse $ \h x -> DeleteMessageBatchResponse
-        <$> x %| "Failed"
-        <*> x %| "Successful"
+    response = xmlResponse
+
+instance FromXML DeleteMessageBatchResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteMessageBatchResponse"
+
+instance ToPath DeleteMessageBatch where
+    toPath = const "/"
+
+instance ToHeaders DeleteMessageBatch
+
+instance ToQuery DeleteMessageBatch

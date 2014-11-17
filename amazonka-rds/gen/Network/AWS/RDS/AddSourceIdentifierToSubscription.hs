@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.AddSourceIdentifierToSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName =
     lens _asitsSubscriptionName (\s a -> s { _asitsSubscriptionName = a })
 
-instance ToQuery AddSourceIdentifierToSubscription
-
-instance ToPath AddSourceIdentifierToSubscription where
-    toPath = const "/"
-
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
@@ -112,5 +107,15 @@ instance AWSRequest AddSourceIdentifierToSubscription where
     type Rs AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscriptionResponse
 
     request  = post "AddSourceIdentifierToSubscription"
-    response = xmlResponse $ \h x -> AddSourceIdentifierToSubscriptionResponse
-        <$> x %| "EventSubscription"
+    response = xmlResponse
+
+instance FromXML AddSourceIdentifierToSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddSourceIdentifierToSubscriptionResponse"
+
+instance ToPath AddSourceIdentifierToSubscription where
+    toPath = const "/"
+
+instance ToHeaders AddSourceIdentifierToSubscription
+
+instance ToQuery AddSourceIdentifierToSubscription

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ getStackPolicy p1 = GetStackPolicy
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
 
-instance ToQuery GetStackPolicy
-
-instance ToPath GetStackPolicy where
-    toPath = const "/"
-
 newtype GetStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -95,5 +90,15 @@ instance AWSRequest GetStackPolicy where
     type Rs GetStackPolicy = GetStackPolicyResponse
 
     request  = post "GetStackPolicy"
-    response = xmlResponse $ \h x -> GetStackPolicyResponse
-        <$> x %| "StackPolicyBody"
+    response = xmlResponse
+
+instance FromXML GetStackPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetStackPolicyResponse"
+
+instance ToPath GetStackPolicy where
+    toPath = const "/"
+
+instance ToHeaders GetStackPolicy
+
+instance ToQuery GetStackPolicy

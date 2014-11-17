@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.GetConsoleOutput
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ gcoDryRun = lens _gcoDryRun (\s a -> s { _gcoDryRun = a })
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
 
-instance ToQuery GetConsoleOutput
-
-instance ToPath GetConsoleOutput where
-    toPath = const "/"
-
 data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
     , _gcorOutput     :: Maybe Text
@@ -129,7 +124,15 @@ instance AWSRequest GetConsoleOutput where
     type Rs GetConsoleOutput = GetConsoleOutputResponse
 
     request  = post "GetConsoleOutput"
-    response = xmlResponse $ \h x -> GetConsoleOutputResponse
-        <$> x %| "instanceId"
-        <*> x %| "output"
-        <*> x %| "timestamp"
+    response = xmlResponse
+
+instance FromXML GetConsoleOutputResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetConsoleOutputResponse"
+
+instance ToPath GetConsoleOutput where
+    toPath = const "/"
+
+instance ToHeaders GetConsoleOutput
+
+instance ToQuery GetConsoleOutput

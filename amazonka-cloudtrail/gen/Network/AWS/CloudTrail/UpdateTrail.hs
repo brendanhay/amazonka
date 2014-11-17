@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.UpdateTrail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -136,17 +136,6 @@ utS3KeyPrefix = lens _utS3KeyPrefix (\s a -> s { _utS3KeyPrefix = a })
 -- log file delivery.
 utSnsTopicName :: Lens' UpdateTrail (Maybe Text)
 utSnsTopicName = lens _utSnsTopicName (\s a -> s { _utSnsTopicName = a })
-
-instance ToPath UpdateTrail where
-    toPath = const "/"
-
-instance ToQuery UpdateTrail where
-    toQuery = const mempty
-
-instance ToHeaders UpdateTrail
-
-instance ToBody UpdateTrail where
-    toBody = toBody . encode . _utName
 
 data UpdateTrailResponse = UpdateTrailResponse
     { _utrCloudWatchLogsLogGroupArn  :: Maybe Text
@@ -232,11 +221,18 @@ instance AWSRequest UpdateTrail where
     type Rs UpdateTrail = UpdateTrailResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateTrailResponse
-        <$> o .: "CloudWatchLogsLogGroupArn"
-        <*> o .: "CloudWatchLogsRoleArn"
-        <*> o .: "IncludeGlobalServiceEvents"
-        <*> o .: "Name"
-        <*> o .: "S3BucketName"
-        <*> o .: "S3KeyPrefix"
-        <*> o .: "SnsTopicName"
+    response = jsonResponse
+
+instance FromJSON UpdateTrailResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateTrail where
+    toPath = const "/"
+
+instance ToHeaders UpdateTrail
+
+instance ToQuery UpdateTrail where
+    toQuery = const mempty
+
+instance ToJSON UpdateTrail where
+    toJSON = genericToJSON jsonOptions

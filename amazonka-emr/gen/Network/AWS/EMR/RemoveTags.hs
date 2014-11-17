@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.RemoveTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.EMR.RemoveTags
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ rtResourceId = lens _rtResourceId (\s a -> s { _rtResourceId = a })
 rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a })
 
-instance ToPath RemoveTags where
-    toPath = const "/"
-
-instance ToQuery RemoveTags where
-    toQuery = const mempty
-
-instance ToHeaders RemoveTags
-
-instance ToBody RemoveTags where
-    toBody = toBody . encode . _rtResourceId
-
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -96,4 +85,15 @@ instance AWSRequest RemoveTags where
     type Rs RemoveTags = RemoveTagsResponse
 
     request  = post
-    response = nullaryResponse RemoveTagsResponse
+    response = nullResponse RemoveTagsResponse
+
+instance ToPath RemoveTags where
+    toPath = const "/"
+
+instance ToHeaders RemoveTags
+
+instance ToQuery RemoveTags where
+    toQuery = const mempty
+
+instance ToJSON RemoveTags where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.PutItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,7 +63,7 @@ module Network.AWS.DynamoDB.PutItem
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -341,17 +341,6 @@ piReturnValues = lens _piReturnValues (\s a -> s { _piReturnValues = a })
 piTableName :: Lens' PutItem Text
 piTableName = lens _piTableName (\s a -> s { _piTableName = a })
 
-instance ToPath PutItem where
-    toPath = const "/"
-
-instance ToQuery PutItem where
-    toQuery = const mempty
-
-instance ToHeaders PutItem
-
-instance ToBody PutItem where
-    toBody = toBody . encode . _piTableName
-
 data PutItemResponse = PutItemResponse
     { _pirAttributes            :: Map Text AttributeValue
     , _pirConsumedCapacity      :: Maybe ConsumedCapacity
@@ -410,7 +399,18 @@ instance AWSRequest PutItem where
     type Rs PutItem = PutItemResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PutItemResponse
-        <$> o .: "Attributes"
-        <*> o .: "ConsumedCapacity"
-        <*> o .: "ItemCollectionMetrics"
+    response = jsonResponse
+
+instance FromJSON PutItemResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PutItem where
+    toPath = const "/"
+
+instance ToHeaders PutItem
+
+instance ToQuery PutItem where
+    toQuery = const mempty
+
+instance ToJSON PutItem where
+    toJSON = genericToJSON jsonOptions

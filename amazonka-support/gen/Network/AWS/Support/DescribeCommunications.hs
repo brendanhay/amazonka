@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeCommunications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,7 +49,7 @@ module Network.AWS.Support.DescribeCommunications
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -110,17 +110,6 @@ dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
 dc1NextToken :: Lens' DescribeCommunications (Maybe Text)
 dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
 
-instance ToPath DescribeCommunications where
-    toPath = const "/"
-
-instance ToQuery DescribeCommunications where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCommunications
-
-instance ToBody DescribeCommunications where
-    toBody = toBody . encode . _dc1CaseId
-
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrCommunications :: [Communication]
     , _dcrNextToken      :: Maybe Text
@@ -154,6 +143,18 @@ instance AWSRequest DescribeCommunications where
     type Rs DescribeCommunications = DescribeCommunicationsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeCommunicationsResponse
-        <$> o .: "communications"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON DescribeCommunicationsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeCommunications where
+    toPath = const "/"
+
+instance ToHeaders DescribeCommunications
+
+instance ToQuery DescribeCommunications where
+    toQuery = const mempty
+
+instance ToJSON DescribeCommunications where
+    toJSON = genericToJSON jsonOptions

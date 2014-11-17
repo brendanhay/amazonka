@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeCustomerGateways
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
 dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a })
 
-instance ToQuery DescribeCustomerGateways
-
-instance ToPath DescribeCustomerGateways where
-    toPath = const "/"
-
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -131,5 +126,15 @@ instance AWSRequest DescribeCustomerGateways where
     type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse
 
     request  = post "DescribeCustomerGateways"
-    response = xmlResponse $ \h x -> DescribeCustomerGatewaysResponse
-        <$> x %| "customerGatewaySet"
+    response = xmlResponse
+
+instance FromXML DescribeCustomerGatewaysResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResponse"
+
+instance ToPath DescribeCustomerGateways where
+    toPath = const "/"
+
+instance ToHeaders DescribeCustomerGateways
+
+instance ToQuery DescribeCustomerGateways

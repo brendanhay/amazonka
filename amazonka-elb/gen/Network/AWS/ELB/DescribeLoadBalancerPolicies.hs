@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ dlbpLoadBalancerName =
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
 dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s { _dlbpPolicyNames = a })
 
-instance ToQuery DescribeLoadBalancerPolicies
-
-instance ToPath DescribeLoadBalancerPolicies where
-    toPath = const "/"
-
 newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { _dlbprPolicyDescriptions :: [PolicyDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -116,5 +111,15 @@ instance AWSRequest DescribeLoadBalancerPolicies where
     type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
 
     request  = post "DescribeLoadBalancerPolicies"
-    response = xmlResponse $ \h x -> DescribeLoadBalancerPoliciesResponse
-        <$> x %| "PolicyDescriptions"
+    response = xmlResponse
+
+instance FromXML DescribeLoadBalancerPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerPoliciesResponse"
+
+instance ToPath DescribeLoadBalancerPolicies where
+    toPath = const "/"
+
+instance ToHeaders DescribeLoadBalancerPolicies
+
+instance ToQuery DescribeLoadBalancerPolicies

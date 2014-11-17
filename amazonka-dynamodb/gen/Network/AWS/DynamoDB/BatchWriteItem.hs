@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchWriteItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,7 +89,7 @@ module Network.AWS.DynamoDB.BatchWriteItem
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -153,17 +153,6 @@ bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe Text)
 bwiReturnItemCollectionMetrics =
     lens _bwiReturnItemCollectionMetrics
         (\s a -> s { _bwiReturnItemCollectionMetrics = a })
-
-instance ToPath BatchWriteItem where
-    toPath = const "/"
-
-instance ToQuery BatchWriteItem where
-    toQuery = const mempty
-
-instance ToHeaders BatchWriteItem
-
-instance ToBody BatchWriteItem where
-    toBody = toBody . encode . _bwiRequestItems
 
 data BatchWriteItemResponse = BatchWriteItemResponse
     { _bwirConsumedCapacity      :: [ConsumedCapacity]
@@ -246,7 +235,18 @@ instance AWSRequest BatchWriteItem where
     type Rs BatchWriteItem = BatchWriteItemResponse
 
     request  = post
-    response = jsonResponse $ \h o -> BatchWriteItemResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "ItemCollectionMetrics"
-        <*> o .: "UnprocessedItems"
+    response = jsonResponse
+
+instance FromJSON BatchWriteItemResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath BatchWriteItem where
+    toPath = const "/"
+
+instance ToHeaders BatchWriteItem
+
+instance ToQuery BatchWriteItem where
+    toQuery = const mempty
+
+instance ToJSON BatchWriteItem where
+    toJSON = genericToJSON jsonOptions

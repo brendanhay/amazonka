@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ describeUserProfiles = DescribeUserProfiles
 -- | An array of IAM user ARNs that identify the users to be described.
 dupIamUserArns :: Lens' DescribeUserProfiles [Text]
 dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a })
-
-instance ToPath DescribeUserProfiles where
-    toPath = const "/"
-
-instance ToQuery DescribeUserProfiles where
-    toQuery = const mempty
-
-instance ToHeaders DescribeUserProfiles
-
-instance ToBody DescribeUserProfiles where
-    toBody = toBody . encode . _dupIamUserArns
 
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles :: [UserProfile]
@@ -109,5 +98,18 @@ instance AWSRequest DescribeUserProfiles where
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeUserProfilesResponse
-        <$> o .: "UserProfiles"
+    response = jsonResponse
+
+instance FromJSON DescribeUserProfilesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeUserProfiles where
+    toPath = const "/"
+
+instance ToHeaders DescribeUserProfiles
+
+instance ToQuery DescribeUserProfiles where
+    toQuery = const mempty
+
+instance ToJSON DescribeUserProfiles where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLayers
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeLayers
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -75,17 +75,6 @@ dlLayerIds = lens _dlLayerIds (\s a -> s { _dlLayerIds = a })
 dlStackId :: Lens' DescribeLayers (Maybe Text)
 dlStackId = lens _dlStackId (\s a -> s { _dlStackId = a })
 
-instance ToPath DescribeLayers where
-    toPath = const "/"
-
-instance ToQuery DescribeLayers where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLayers
-
-instance ToBody DescribeLayers where
-    toBody = toBody . encode . _dlStackId
-
 newtype DescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers :: [Layer]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -116,5 +105,18 @@ instance AWSRequest DescribeLayers where
     type Rs DescribeLayers = DescribeLayersResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeLayersResponse
-        <$> o .: "Layers"
+    response = jsonResponse
+
+instance FromJSON DescribeLayersResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeLayers where
+    toPath = const "/"
+
+instance ToHeaders DescribeLayers
+
+instance ToQuery DescribeLayers where
+    toQuery = const mempty
+
+instance ToJSON DescribeLayers where
+    toJSON = genericToJSON jsonOptions

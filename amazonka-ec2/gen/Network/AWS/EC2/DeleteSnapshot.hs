@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ ds3DryRun = lens _ds3DryRun (\s a -> s { _ds3DryRun = a })
 ds3SnapshotId :: Lens' DeleteSnapshot Text
 ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
 
-instance ToQuery DeleteSnapshot
-
-instance ToPath DeleteSnapshot where
-    toPath = const "/"
-
 data DeleteSnapshotResponse = DeleteSnapshotResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -93,4 +88,11 @@ instance AWSRequest DeleteSnapshot where
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request  = post "DeleteSnapshot"
-    response = nullaryResponse DeleteSnapshotResponse
+    response = nullResponse DeleteSnapshotResponse
+
+instance ToPath DeleteSnapshot where
+    toPath = const "/"
+
+instance ToHeaders DeleteSnapshot
+
+instance ToQuery DeleteSnapshot

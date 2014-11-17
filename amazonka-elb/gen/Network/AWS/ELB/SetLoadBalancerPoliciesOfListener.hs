@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames =
     lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })
 
-instance ToQuery SetLoadBalancerPoliciesOfListener
-
-instance ToPath SetLoadBalancerPoliciesOfListener where
-    toPath = const "/"
-
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +95,11 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
 
     request  = post "SetLoadBalancerPoliciesOfListener"
-    response = nullaryResponse SetLoadBalancerPoliciesOfListenerResponse
+    response = nullResponse SetLoadBalancerPoliciesOfListenerResponse
+
+instance ToPath SetLoadBalancerPoliciesOfListener where
+    toPath = const "/"
+
+instance ToHeaders SetLoadBalancerPoliciesOfListener
+
+instance ToQuery SetLoadBalancerPoliciesOfListener

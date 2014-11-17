@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateLoginProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ clpPasswordResetRequired =
 clpUserName :: Lens' CreateLoginProfile Text
 clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
 
-instance ToQuery CreateLoginProfile
-
-instance ToPath CreateLoginProfile where
-    toPath = const "/"
-
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
     } deriving (Eq, Show, Generic)
@@ -117,5 +112,15 @@ instance AWSRequest CreateLoginProfile where
     type Rs CreateLoginProfile = CreateLoginProfileResponse
 
     request  = post "CreateLoginProfile"
-    response = xmlResponse $ \h x -> CreateLoginProfileResponse
-        <$> x %| "LoginProfile"
+    response = xmlResponse
+
+instance FromXML CreateLoginProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateLoginProfileResponse"
+
+instance ToPath CreateLoginProfile where
+    toPath = const "/"
+
+instance ToHeaders CreateLoginProfile
+
+instance ToQuery CreateLoginProfile

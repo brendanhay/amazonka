@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.EnableDomainTransferLock
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ enableDomainTransferLock p1 = EnableDomainTransferLock
 -- Required: Yes.
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\s a -> s { _edtlDomainName = a })
-
-instance ToPath EnableDomainTransferLock where
-    toPath = const "/"
-
-instance ToQuery EnableDomainTransferLock where
-    toQuery = const mempty
-
-instance ToHeaders EnableDomainTransferLock
-
-instance ToBody EnableDomainTransferLock where
-    toBody = toBody . encode . _edtlDomainName
 
 newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
     { _edtlrOperationId :: Text
@@ -106,5 +95,18 @@ instance AWSRequest EnableDomainTransferLock where
     type Rs EnableDomainTransferLock = EnableDomainTransferLockResponse
 
     request  = post
-    response = jsonResponse $ \h o -> EnableDomainTransferLockResponse
-        <$> o .: "OperationId"
+    response = jsonResponse
+
+instance FromJSON EnableDomainTransferLockResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath EnableDomainTransferLock where
+    toPath = const "/"
+
+instance ToHeaders EnableDomainTransferLock
+
+instance ToQuery EnableDomainTransferLock where
+    toQuery = const mempty
+
+instance ToJSON EnableDomainTransferLock where
+    toJSON = genericToJSON jsonOptions

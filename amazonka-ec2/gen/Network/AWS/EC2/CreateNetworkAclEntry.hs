@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkAclEntry
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -152,11 +152,6 @@ cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
 cnaeRuleNumber :: Lens' CreateNetworkAclEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
 
-instance ToQuery CreateNetworkAclEntry
-
-instance ToPath CreateNetworkAclEntry where
-    toPath = const "/"
-
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -169,4 +164,11 @@ instance AWSRequest CreateNetworkAclEntry where
     type Rs CreateNetworkAclEntry = CreateNetworkAclEntryResponse
 
     request  = post "CreateNetworkAclEntry"
-    response = nullaryResponse CreateNetworkAclEntryResponse
+    response = nullResponse CreateNetworkAclEntryResponse
+
+instance ToPath CreateNetworkAclEntry where
+    toPath = const "/"
+
+instance ToHeaders CreateNetworkAclEntry
+
+instance ToQuery CreateNetworkAclEntry

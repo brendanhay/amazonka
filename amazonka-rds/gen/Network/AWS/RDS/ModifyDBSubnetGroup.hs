@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ mdbsgDBSubnetGroupName =
 mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
 mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a })
 
-instance ToQuery ModifyDBSubnetGroup
-
-instance ToPath ModifyDBSubnetGroup where
-    toPath = const "/"
-
 newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Eq, Show, Generic)
@@ -114,5 +109,15 @@ instance AWSRequest ModifyDBSubnetGroup where
     type Rs ModifyDBSubnetGroup = ModifyDBSubnetGroupResponse
 
     request  = post "ModifyDBSubnetGroup"
-    response = xmlResponse $ \h x -> ModifyDBSubnetGroupResponse
-        <$> x %| "DBSubnetGroup"
+    response = xmlResponse
+
+instance FromXML ModifyDBSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResponse"
+
+instance ToPath ModifyDBSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyDBSubnetGroup
+
+instance ToQuery ModifyDBSubnetGroup

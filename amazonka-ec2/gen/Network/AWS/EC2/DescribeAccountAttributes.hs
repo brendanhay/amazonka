@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ daaAttributeNames =
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
 
-instance ToQuery DescribeAccountAttributes
-
-instance ToPath DescribeAccountAttributes where
-    toPath = const "/"
-
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -105,5 +100,15 @@ instance AWSRequest DescribeAccountAttributes where
     type Rs DescribeAccountAttributes = DescribeAccountAttributesResponse
 
     request  = post "DescribeAccountAttributes"
-    response = xmlResponse $ \h x -> DescribeAccountAttributesResponse
-        <$> x %| "accountAttributeSet"
+    response = xmlResponse
+
+instance FromXML DescribeAccountAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAccountAttributesResponse"
+
+instance ToPath DescribeAccountAttributes where
+    toPath = const "/"
+
+instance ToHeaders DescribeAccountAttributes
+
+instance ToQuery DescribeAccountAttributes

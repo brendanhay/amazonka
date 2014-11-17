@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.ListPipelines
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.DataPipeline.ListPipelines
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ listPipelines = ListPipelines
 -- the marker value from the response to retrieve the next set of results.
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\s a -> s { _lpMarker = a })
-
-instance ToPath ListPipelines where
-    toPath = const "/"
-
-instance ToQuery ListPipelines where
-    toQuery = const mempty
-
-instance ToHeaders ListPipelines
-
-instance ToBody ListPipelines where
-    toBody = toBody . encode . _lpMarker
 
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprHasMoreResults :: Maybe Bool
@@ -125,7 +114,18 @@ instance AWSRequest ListPipelines where
     type Rs ListPipelines = ListPipelinesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListPipelinesResponse
-        <$> o .: "hasMoreResults"
-        <*> o .: "marker"
-        <*> o .: "pipelineIdList"
+    response = jsonResponse
+
+instance FromJSON ListPipelinesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListPipelines where
+    toPath = const "/"
+
+instance ToHeaders ListPipelines
+
+instance ToQuery ListPipelines where
+    toQuery = const mempty
+
+instance ToJSON ListPipelines where
+    toJSON = genericToJSON jsonOptions

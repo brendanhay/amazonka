@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CancelConversionTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ cctDryRun = lens _cctDryRun (\s a -> s { _cctDryRun = a })
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage = lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
 
-instance ToQuery CancelConversionTask
-
-instance ToPath CancelConversionTask where
-    toPath = const "/"
-
 data CancelConversionTaskResponse = CancelConversionTaskResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +94,11 @@ instance AWSRequest CancelConversionTask where
     type Rs CancelConversionTask = CancelConversionTaskResponse
 
     request  = post "CancelConversionTask"
-    response = nullaryResponse CancelConversionTaskResponse
+    response = nullResponse CancelConversionTaskResponse
+
+instance ToPath CancelConversionTask where
+    toPath = const "/"
+
+instance ToHeaders CancelConversionTask
+
+instance ToQuery CancelConversionTask

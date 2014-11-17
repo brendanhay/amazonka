@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeployments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.CodeDeploy.ListDeployments
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -110,17 +110,6 @@ ldIncludeOnlyStatuses =
 ldNextToken :: Lens' ListDeployments (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
-instance ToPath ListDeployments where
-    toPath = const "/"
-
-instance ToQuery ListDeployments where
-    toQuery = const mempty
-
-instance ToHeaders ListDeployments
-
-instance ToBody ListDeployments where
-    toBody = toBody . encode . _ldApplicationName
-
 data ListDeploymentsResponse = ListDeploymentsResponse
     { _ldrDeployments :: [Text]
     , _ldrNextToken   :: Maybe Text
@@ -155,6 +144,18 @@ instance AWSRequest ListDeployments where
     type Rs ListDeployments = ListDeploymentsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListDeploymentsResponse
-        <$> o .: "deployments"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON ListDeploymentsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListDeployments where
+    toPath = const "/"
+
+instance ToHeaders ListDeployments
+
+instance ToQuery ListDeployments where
+    toQuery = const mempty
+
+instance ToJSON ListDeployments where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -99,17 +99,6 @@ pleLogStreamName = lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
 
-instance ToPath PutLogEvents where
-    toPath = const "/"
-
-instance ToQuery PutLogEvents where
-    toQuery = const mempty
-
-instance ToHeaders PutLogEvents
-
-instance ToBody PutLogEvents where
-    toBody = toBody . encode . _pleLogGroupName
-
 newtype PutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -134,5 +123,18 @@ instance AWSRequest PutLogEvents where
     type Rs PutLogEvents = PutLogEventsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PutLogEventsResponse
-        <$> o .: "nextSequenceToken"
+    response = jsonResponse
+
+instance FromJSON PutLogEventsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PutLogEvents where
+    toPath = const "/"
+
+instance ToHeaders PutLogEvents
+
+instance ToQuery PutLogEvents where
+    toQuery = const mempty
+
+instance ToJSON PutLogEvents where
+    toJSON = genericToJSON jsonOptions

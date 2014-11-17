@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadPreset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ readPreset p1 = ReadPreset
 -- information.
 rpId :: Lens' ReadPreset Text
 rpId = lens _rpId (\s a -> s { _rpId = a })
-
-instance ToPath ReadPreset where
-    toPath ReadPreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toText _rpId
-        ]
-
-instance ToQuery ReadPreset where
-    toQuery = const mempty
-
-instance ToHeaders ReadPreset
 
 newtype ReadPresetResponse = ReadPresetResponse
     { _rprPreset :: Maybe Preset
@@ -98,5 +87,21 @@ instance AWSRequest ReadPreset where
     type Rs ReadPreset = ReadPresetResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ReadPresetResponse
-        <$> o .: "Preset"
+    response = jsonResponse
+
+instance FromJSON ReadPresetResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ReadPreset where
+    toPath ReadPreset{..} = mconcat
+        [ "/2012-09-25/presets/"
+        , toText _rpId
+        ]
+
+instance ToHeaders ReadPreset
+
+instance ToQuery ReadPreset where
+    toQuery = const mempty
+
+instance ToJSON ReadPreset where
+    toJSON = genericToJSON jsonOptions

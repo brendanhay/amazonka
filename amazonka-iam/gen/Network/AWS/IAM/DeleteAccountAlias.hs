@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccountAlias
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ deleteAccountAlias p1 = DeleteAccountAlias
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
 
-instance ToQuery DeleteAccountAlias
-
-instance ToPath DeleteAccountAlias where
-    toPath = const "/"
-
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteAccountAlias where
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse
 
     request  = post "DeleteAccountAlias"
-    response = nullaryResponse DeleteAccountAliasResponse
+    response = nullResponse DeleteAccountAliasResponse
+
+instance ToPath DeleteAccountAlias where
+    toPath = const "/"
+
+instance ToHeaders DeleteAccountAlias
+
+instance ToQuery DeleteAccountAlias

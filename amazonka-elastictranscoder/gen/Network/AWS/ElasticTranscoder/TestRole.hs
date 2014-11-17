@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.TestRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.ElasticTranscoder.TestRole
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -100,17 +100,6 @@ trRole = lens _trRole (\s a -> s { _trRole = a })
 trTopics :: Lens' TestRole [Text]
 trTopics = lens _trTopics (\s a -> s { _trTopics = a })
 
-instance ToPath TestRole where
-    toPath = const "/2012-09-25/roleTests"
-
-instance ToQuery TestRole where
-    toQuery = const mempty
-
-instance ToHeaders TestRole
-
-instance ToBody TestRole where
-    toBody = toBody . encode . _trRole
-
 data TestRoleResponse = TestRoleResponse
     { _trrMessages :: [Text]
     , _trrSuccess  :: Maybe Text
@@ -145,6 +134,18 @@ instance AWSRequest TestRole where
     type Rs TestRole = TestRoleResponse
 
     request  = post
-    response = jsonResponse $ \h o -> TestRoleResponse
-        <$> o .: "Messages"
-        <*> o .: "Success"
+    response = jsonResponse
+
+instance FromJSON TestRoleResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath TestRole where
+    toPath = const "/2012-09-25/roleTests"
+
+instance ToHeaders TestRole
+
+instance ToQuery TestRole where
+    toQuery = const mempty
+
+instance ToJSON TestRole where
+    toJSON = genericToJSON jsonOptions

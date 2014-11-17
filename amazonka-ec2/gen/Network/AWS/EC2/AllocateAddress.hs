@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AllocateAddress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\s a -> s { _aaDryRun = a })
 
-instance ToQuery AllocateAddress
-
-instance ToPath AllocateAddress where
-    toPath = const "/"
-
 data AllocateAddressResponse = AllocateAddressResponse
     { _aarAllocationId :: Maybe Text
     , _aarDomain       :: Maybe Text
@@ -120,7 +115,15 @@ instance AWSRequest AllocateAddress where
     type Rs AllocateAddress = AllocateAddressResponse
 
     request  = post "AllocateAddress"
-    response = xmlResponse $ \h x -> AllocateAddressResponse
-        <$> x %| "allocationId"
-        <*> x %| "domain"
-        <*> x %| "publicIp"
+    response = xmlResponse
+
+instance FromXML AllocateAddressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AllocateAddressResponse"
+
+instance ToPath AllocateAddress where
+    toPath = const "/"
+
+instance ToHeaders AllocateAddress
+
+instance ToQuery AllocateAddress

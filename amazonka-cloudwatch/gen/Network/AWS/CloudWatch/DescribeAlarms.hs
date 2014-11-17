@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -112,11 +112,6 @@ daNextToken = lens _daNextToken (\s a -> s { _daNextToken = a })
 daStateValue :: Lens' DescribeAlarms (Maybe Text)
 daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 
-instance ToQuery DescribeAlarms
-
-instance ToPath DescribeAlarms where
-    toPath = const "/"
-
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms :: [MetricAlarm]
     , _darNextToken    :: Maybe Text
@@ -149,10 +144,15 @@ instance AWSRequest DescribeAlarms where
     type Rs DescribeAlarms = DescribeAlarmsResponse
 
     request  = post "DescribeAlarms"
-    response = xmlResponse $ \h x -> DescribeAlarmsResponse
-        <$> x %| "MetricAlarms"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeAlarms where
-    next rq rs = (\x -> rq & daNextToken ?~ x)
-        <$> (rs ^. darNextToken)
+instance FromXML DescribeAlarmsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAlarmsResponse"
+
+instance ToPath DescribeAlarms where
+    toPath = const "/"
+
+instance ToHeaders DescribeAlarms
+
+instance ToQuery DescribeAlarms

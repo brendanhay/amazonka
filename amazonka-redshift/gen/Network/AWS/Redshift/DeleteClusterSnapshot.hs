@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier =
     lens _dcsSnapshotIdentifier (\s a -> s { _dcsSnapshotIdentifier = a })
 
-instance ToQuery DeleteClusterSnapshot
-
-instance ToPath DeleteClusterSnapshot where
-    toPath = const "/"
-
 newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -111,5 +106,15 @@ instance AWSRequest DeleteClusterSnapshot where
     type Rs DeleteClusterSnapshot = DeleteClusterSnapshotResponse
 
     request  = post "DeleteClusterSnapshot"
-    response = xmlResponse $ \h x -> DeleteClusterSnapshotResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML DeleteClusterSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterSnapshotResponse"
+
+instance ToPath DeleteClusterSnapshot where
+    toPath = const "/"
+
+instance ToHeaders DeleteClusterSnapshot
+
+instance ToQuery DeleteClusterSnapshot

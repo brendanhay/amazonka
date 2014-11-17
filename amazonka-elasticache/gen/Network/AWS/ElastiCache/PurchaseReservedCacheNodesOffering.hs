@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ prcnoReservedCacheNodesOfferingId =
     lens _prcnoReservedCacheNodesOfferingId
         (\s a -> s { _prcnoReservedCacheNodesOfferingId = a })
 
-instance ToQuery PurchaseReservedCacheNodesOffering
-
-instance ToPath PurchaseReservedCacheNodesOffering where
-    toPath = const "/"
-
 newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
     } deriving (Eq, Show, Generic)
@@ -116,5 +111,15 @@ instance AWSRequest PurchaseReservedCacheNodesOffering where
     type Rs PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOfferingResponse
 
     request  = post "PurchaseReservedCacheNodesOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedCacheNodesOfferingResponse
-        <$> x %| "ReservedCacheNode"
+    response = xmlResponse
+
+instance FromXML PurchaseReservedCacheNodesOfferingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResponse"
+
+instance ToPath PurchaseReservedCacheNodesOffering where
+    toPath = const "/"
+
+instance ToHeaders PurchaseReservedCacheNodesOffering
+
+instance ToQuery PurchaseReservedCacheNodesOffering

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,7 +56,7 @@ module Network.AWS.DynamoDB.UpdateItem
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -438,17 +438,6 @@ uiUpdateExpression :: Lens' UpdateItem (Maybe Text)
 uiUpdateExpression =
     lens _uiUpdateExpression (\s a -> s { _uiUpdateExpression = a })
 
-instance ToPath UpdateItem where
-    toPath = const "/"
-
-instance ToQuery UpdateItem where
-    toQuery = const mempty
-
-instance ToHeaders UpdateItem
-
-instance ToBody UpdateItem where
-    toBody = toBody . encode . _uiTableName
-
 data UpdateItemResponse = UpdateItemResponse
     { _uirAttributes            :: Map Text AttributeValue
     , _uirConsumedCapacity      :: Maybe ConsumedCapacity
@@ -494,7 +483,18 @@ instance AWSRequest UpdateItem where
     type Rs UpdateItem = UpdateItemResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateItemResponse
-        <$> o .: "Attributes"
-        <*> o .: "ConsumedCapacity"
-        <*> o .: "ItemCollectionMetrics"
+    response = jsonResponse
+
+instance FromJSON UpdateItemResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateItem where
+    toPath = const "/"
+
+instance ToHeaders UpdateItem
+
+instance ToQuery UpdateItem where
+    toQuery = const mempty
+
+instance ToJSON UpdateItem where
+    toJSON = genericToJSON jsonOptions

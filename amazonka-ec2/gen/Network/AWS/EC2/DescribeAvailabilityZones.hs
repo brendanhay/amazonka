@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeAvailabilityZones
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
 
-instance ToQuery DescribeAvailabilityZones
-
-instance ToPath DescribeAvailabilityZones where
-    toPath = const "/"
-
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -122,5 +117,15 @@ instance AWSRequest DescribeAvailabilityZones where
     type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResponse
 
     request  = post "DescribeAvailabilityZones"
-    response = xmlResponse $ \h x -> DescribeAvailabilityZonesResponse
-        <$> x %| "availabilityZoneInfo"
+    response = xmlResponse
+
+instance FromXML DescribeAvailabilityZonesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResponse"
+
+instance ToPath DescribeAvailabilityZones where
+    toPath = const "/"
+
+instance ToHeaders DescribeAvailabilityZones
+
+instance ToQuery DescribeAvailabilityZones

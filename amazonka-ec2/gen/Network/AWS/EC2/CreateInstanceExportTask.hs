@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateInstanceExportTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe Text)
 cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })
 
-instance ToQuery CreateInstanceExportTask
-
-instance ToPath CreateInstanceExportTask where
-    toPath = const "/"
-
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask :: Maybe ExportTask
     } deriving (Eq, Show, Generic)
@@ -121,5 +116,15 @@ instance AWSRequest CreateInstanceExportTask where
     type Rs CreateInstanceExportTask = CreateInstanceExportTaskResponse
 
     request  = post "CreateInstanceExportTask"
-    response = xmlResponse $ \h x -> CreateInstanceExportTaskResponse
-        <$> x %| "exportTask"
+    response = xmlResponse
+
+instance FromXML CreateInstanceExportTaskResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInstanceExportTaskResponse"
+
+instance ToPath CreateInstanceExportTask where
+    toPath = const "/"
+
+instance ToHeaders CreateInstanceExportTask
+
+instance ToQuery CreateInstanceExportTask

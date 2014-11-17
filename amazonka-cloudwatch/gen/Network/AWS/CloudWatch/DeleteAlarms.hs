@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ deleteAlarms = DeleteAlarms
 da1AlarmNames :: Lens' DeleteAlarms [Text]
 da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a })
 
-instance ToQuery DeleteAlarms
-
-instance ToPath DeleteAlarms where
-    toPath = const "/"
-
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +77,11 @@ instance AWSRequest DeleteAlarms where
     type Rs DeleteAlarms = DeleteAlarmsResponse
 
     request  = post "DeleteAlarms"
-    response = nullaryResponse DeleteAlarmsResponse
+    response = nullResponse DeleteAlarmsResponse
+
+instance ToPath DeleteAlarms where
+    toPath = const "/"
+
+instance ToHeaders DeleteAlarms
+
+instance ToQuery DeleteAlarms

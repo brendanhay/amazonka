@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListApplications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.ListApplications
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ listApplications = ListApplications
 -- which can be used to return the next set of applications in the list.
 laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\s a -> s { _laNextToken = a })
-
-instance ToPath ListApplications where
-    toPath = const "/"
-
-instance ToQuery ListApplications where
-    toQuery = const mempty
-
-instance ToHeaders ListApplications
-
-instance ToBody ListApplications where
-    toBody = toBody . encode . _laNextToken
 
 data ListApplicationsResponse = ListApplicationsResponse
     { _lar1Applications :: [Text]
@@ -107,6 +96,18 @@ instance AWSRequest ListApplications where
     type Rs ListApplications = ListApplicationsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListApplicationsResponse
-        <$> o .: "applications"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON ListApplicationsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListApplications where
+    toPath = const "/"
+
+instance ToHeaders ListApplications
+
+instance ToQuery ListApplications where
+    toQuery = const mempty
+
+instance ToJSON ListApplications where
+    toJSON = genericToJSON jsonOptions

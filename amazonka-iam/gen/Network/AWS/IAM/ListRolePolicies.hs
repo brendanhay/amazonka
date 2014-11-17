@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListRolePolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
 
-instance ToQuery ListRolePolicies
-
-instance ToPath ListRolePolicies where
-    toPath = const "/"
-
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
     , _lrprMarker      :: Maybe Text
@@ -140,13 +135,15 @@ instance AWSRequest ListRolePolicies where
     type Rs ListRolePolicies = ListRolePoliciesResponse
 
     request  = post "ListRolePolicies"
-    response = xmlResponse $ \h x -> ListRolePoliciesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "PolicyNames"
+    response = xmlResponse
 
-instance AWSPager ListRolePolicies where
-    next rq rs
-        | not (more (rs ^. lrprIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lrpMarker .~ rs ^. lrprMarker
+instance FromXML ListRolePoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListRolePoliciesResponse"
+
+instance ToPath ListRolePolicies where
+    toPath = const "/"
+
+instance ToHeaders ListRolePolicies
+
+instance ToQuery ListRolePolicies

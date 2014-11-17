@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteIndexField
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName =
     lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
 
-instance ToQuery DeleteIndexField
-
-instance ToPath DeleteIndexField where
-    toPath = const "/"
-
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest DeleteIndexField where
     type Rs DeleteIndexField = DeleteIndexFieldResponse
 
     request  = post "DeleteIndexField"
-    response = xmlResponse $ \h x -> DeleteIndexFieldResponse
-        <$> x %| "IndexField"
+    response = xmlResponse
+
+instance FromXML DeleteIndexFieldResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteIndexFieldResponse"
+
+instance ToPath DeleteIndexField where
+    toPath = const "/"
+
+instance ToHeaders DeleteIndexField
+
+instance ToQuery DeleteIndexField

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ usapAccessPolicies =
 usapDomainName :: Lens' UpdateServiceAccessPolicies Text
 usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
 
-instance ToQuery UpdateServiceAccessPolicies
-
-instance ToPath UpdateServiceAccessPolicies where
-    toPath = const "/"
-
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
     } deriving (Eq, Show, Generic)
@@ -105,5 +100,15 @@ instance AWSRequest UpdateServiceAccessPolicies where
     type Rs UpdateServiceAccessPolicies = UpdateServiceAccessPoliciesResponse
 
     request  = post "UpdateServiceAccessPolicies"
-    response = xmlResponse $ \h x -> UpdateServiceAccessPoliciesResponse
-        <$> x %| "AccessPolicies"
+    response = xmlResponse
+
+instance FromXML UpdateServiceAccessPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateServiceAccessPoliciesResponse"
+
+instance ToPath UpdateServiceAccessPolicies where
+    toPath = const "/"
+
+instance ToHeaders UpdateServiceAccessPolicies
+
+instance ToQuery UpdateServiceAccessPolicies

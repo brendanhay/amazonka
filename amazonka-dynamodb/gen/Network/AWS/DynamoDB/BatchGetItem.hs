@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,7 +76,7 @@ module Network.AWS.DynamoDB.BatchGetItem
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -122,17 +122,6 @@ bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe Text)
 bgiReturnConsumedCapacity =
     lens _bgiReturnConsumedCapacity
         (\s a -> s { _bgiReturnConsumedCapacity = a })
-
-instance ToPath BatchGetItem where
-    toPath = const "/"
-
-instance ToQuery BatchGetItem where
-    toQuery = const mempty
-
-instance ToHeaders BatchGetItem
-
-instance ToBody BatchGetItem where
-    toBody = toBody . encode . _bgiRequestItems
 
 data BatchGetItemResponse = BatchGetItemResponse
     { _bgirConsumedCapacity :: [ConsumedCapacity]
@@ -194,7 +183,18 @@ instance AWSRequest BatchGetItem where
     type Rs BatchGetItem = BatchGetItemResponse
 
     request  = post
-    response = jsonResponse $ \h o -> BatchGetItemResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Responses"
-        <*> o .: "UnprocessedKeys"
+    response = jsonResponse
+
+instance FromJSON BatchGetItemResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath BatchGetItem where
+    toPath = const "/"
+
+instance ToHeaders BatchGetItem
+
+instance ToQuery BatchGetItem where
+    toQuery = const mempty
+
+instance ToJSON BatchGetItem where
+    toJSON = genericToJSON jsonOptions

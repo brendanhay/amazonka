@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRaidArrays
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -75,17 +75,6 @@ draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
 draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a })
 
-instance ToPath DescribeRaidArrays where
-    toPath = const "/"
-
-instance ToQuery DescribeRaidArrays where
-    toQuery = const mempty
-
-instance ToHeaders DescribeRaidArrays
-
-instance ToBody DescribeRaidArrays where
-    toBody = toBody . encode . _draInstanceId
-
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: [RaidArray]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -116,5 +105,18 @@ instance AWSRequest DescribeRaidArrays where
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeRaidArraysResponse
-        <$> o .: "RaidArrays"
+    response = jsonResponse
+
+instance FromJSON DescribeRaidArraysResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeRaidArrays where
+    toPath = const "/"
+
+instance ToHeaders DescribeRaidArrays
+
+instance ToQuery DescribeRaidArrays where
+    toQuery = const mempty
+
+instance ToJSON DescribeRaidArrays where
+    toJSON = genericToJSON jsonOptions

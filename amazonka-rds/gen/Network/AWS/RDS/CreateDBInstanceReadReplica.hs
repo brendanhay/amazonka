@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -224,11 +224,6 @@ cdbirrStorageType =
 cdbirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
 cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a })
 
-instance ToQuery CreateDBInstanceReadReplica
-
-instance ToPath CreateDBInstanceReadReplica where
-    toPath = const "/"
-
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -253,5 +248,15 @@ instance AWSRequest CreateDBInstanceReadReplica where
     type Rs CreateDBInstanceReadReplica = CreateDBInstanceReadReplicaResponse
 
     request  = post "CreateDBInstanceReadReplica"
-    response = xmlResponse $ \h x -> CreateDBInstanceReadReplicaResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML CreateDBInstanceReadReplicaResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBInstanceReadReplicaResponse"
+
+instance ToPath CreateDBInstanceReadReplica where
+    toPath = const "/"
+
+instance ToHeaders CreateDBInstanceReadReplica
+
+instance ToQuery CreateDBInstanceReadReplica

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dgpGroupName = lens _dgpGroupName (\s a -> s { _dgpGroupName = a })
 dgpPolicyName :: Lens' DeleteGroupPolicy Text
 dgpPolicyName = lens _dgpPolicyName (\s a -> s { _dgpPolicyName = a })
 
-instance ToQuery DeleteGroupPolicy
-
-instance ToPath DeleteGroupPolicy where
-    toPath = const "/"
-
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteGroupPolicy where
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
 
     request  = post "DeleteGroupPolicy"
-    response = nullaryResponse DeleteGroupPolicyResponse
+    response = nullResponse DeleteGroupPolicyResponse
+
+instance ToPath DeleteGroupPolicy where
+    toPath = const "/"
+
+instance ToHeaders DeleteGroupPolicy
+
+instance ToQuery DeleteGroupPolicy

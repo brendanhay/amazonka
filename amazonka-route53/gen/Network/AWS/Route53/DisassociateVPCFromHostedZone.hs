@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.DisassociateVPCFromHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -90,21 +90,6 @@ dvpcfhzHostedZoneId =
 dvpcfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
 dvpcfhzVPC = lens _dvpcfhzVPC (\s a -> s { _dvpcfhzVPC = a })
 
-instance ToPath DisassociateVPCFromHostedZone where
-    toPath DisassociateVPCFromHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _dvpcfhzHostedZoneId
-        , "/disassociatevpc"
-        ]
-
-instance ToQuery DisassociateVPCFromHostedZone where
-    toQuery = const mempty
-
-instance ToHeaders DisassociateVPCFromHostedZone
-
-instance ToBody DisassociateVPCFromHostedZone where
-    toBody = toBody . encodeXML . _dvpcfhzVPC
-
 newtype DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse
     { _dvpcfhzrChangeInfo :: ChangeInfo
     } deriving (Eq, Show, Generic)
@@ -132,5 +117,24 @@ instance AWSRequest DisassociateVPCFromHostedZone where
     type Rs DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZoneResponse
 
     request  = post
-    response = xmlResponse $ \h x -> DisassociateVPCFromHostedZoneResponse
-        <$> x %| "ChangeInfo"
+    response = xmlResponse
+
+instance FromXML DisassociateVPCFromHostedZoneResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisassociateVPCFromHostedZoneResponse"
+
+instance ToPath DisassociateVPCFromHostedZone where
+    toPath DisassociateVPCFromHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _dvpcfhzHostedZoneId
+        , "/disassociatevpc"
+        ]
+
+instance ToHeaders DisassociateVPCFromHostedZone
+
+instance ToQuery DisassociateVPCFromHostedZone where
+    toQuery = const mempty
+
+instance ToXML DisassociateVPCFromHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DisassociateVPCFromHostedZone"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.EnableKeyRotation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.KMS.EnableKeyRotation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ enableKeyRotation p1 = EnableKeyRotation
 ekrKeyId :: Lens' EnableKeyRotation Text
 ekrKeyId = lens _ekrKeyId (\s a -> s { _ekrKeyId = a })
 
-instance ToPath EnableKeyRotation where
-    toPath = const "/"
-
-instance ToQuery EnableKeyRotation where
-    toQuery = const mempty
-
-instance ToHeaders EnableKeyRotation
-
-instance ToBody EnableKeyRotation where
-    toBody = toBody . encode . _ekrKeyId
-
 data EnableKeyRotationResponse = EnableKeyRotationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +72,15 @@ instance AWSRequest EnableKeyRotation where
     type Rs EnableKeyRotation = EnableKeyRotationResponse
 
     request  = post
-    response = nullaryResponse EnableKeyRotationResponse
+    response = nullResponse EnableKeyRotationResponse
+
+instance ToPath EnableKeyRotation where
+    toPath = const "/"
+
+instance ToHeaders EnableKeyRotation
+
+instance ToQuery EnableKeyRotation where
+    toQuery = const mempty
+
+instance ToJSON EnableKeyRotation where
+    toJSON = genericToJSON jsonOptions

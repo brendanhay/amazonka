@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesModifications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -105,11 +105,6 @@ drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
         (\s a -> s { _drimReservedInstancesModificationIds = a })
 
-instance ToQuery DescribeReservedInstancesModifications
-
-instance ToPath DescribeReservedInstancesModifications where
-    toPath = const "/"
-
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrNextToken                      :: Maybe Text
     , _drimrReservedInstancesModifications :: [ReservedInstancesModification]
@@ -144,10 +139,15 @@ instance AWSRequest DescribeReservedInstancesModifications where
     type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResponse
 
     request  = post "DescribeReservedInstancesModifications"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesModificationsResponse
-        <$> x %| "nextToken"
-        <*> x %| "reservedInstancesModificationsSet"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedInstancesModifications where
-    next rq rs = (\x -> rq & drimNextToken ?~ x)
-        <$> (rs ^. drimrNextToken)
+instance FromXML DescribeReservedInstancesModificationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResponse"
+
+instance ToPath DescribeReservedInstancesModifications where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedInstancesModifications
+
+instance ToQuery DescribeReservedInstancesModifications

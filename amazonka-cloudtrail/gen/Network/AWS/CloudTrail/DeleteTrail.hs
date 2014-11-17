@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudTrail.DeleteTrail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.CloudTrail.DeleteTrail
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ deleteTrail p1 = DeleteTrail
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\s a -> s { _dtName = a })
 
-instance ToPath DeleteTrail where
-    toPath = const "/"
-
-instance ToQuery DeleteTrail where
-    toQuery = const mempty
-
-instance ToHeaders DeleteTrail
-
-instance ToBody DeleteTrail where
-    toBody = toBody . encode . _dtName
-
 data DeleteTrailResponse = DeleteTrailResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,15 @@ instance AWSRequest DeleteTrail where
     type Rs DeleteTrail = DeleteTrailResponse
 
     request  = post
-    response = nullaryResponse DeleteTrailResponse
+    response = nullResponse DeleteTrailResponse
+
+instance ToPath DeleteTrail where
+    toPath = const "/"
+
+instance ToHeaders DeleteTrail
+
+instance ToQuery DeleteTrail where
+    toQuery = const mempty
+
+instance ToJSON DeleteTrail where
+    toJSON = genericToJSON jsonOptions

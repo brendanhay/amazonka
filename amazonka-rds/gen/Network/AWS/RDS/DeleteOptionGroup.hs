@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,11 +60,6 @@ dog1OptionGroupName :: Lens' DeleteOptionGroup Text
 dog1OptionGroupName =
     lens _dog1OptionGroupName (\s a -> s { _dog1OptionGroupName = a })
 
-instance ToQuery DeleteOptionGroup
-
-instance ToPath DeleteOptionGroup where
-    toPath = const "/"
-
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -77,4 +72,11 @@ instance AWSRequest DeleteOptionGroup where
     type Rs DeleteOptionGroup = DeleteOptionGroupResponse
 
     request  = post "DeleteOptionGroup"
-    response = nullaryResponse DeleteOptionGroupResponse
+    response = nullResponse DeleteOptionGroupResponse
+
+instance ToPath DeleteOptionGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteOptionGroup
+
+instance ToQuery DeleteOptionGroup

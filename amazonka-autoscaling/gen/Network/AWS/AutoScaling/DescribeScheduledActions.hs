@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScheduledActions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -120,11 +120,6 @@ dsa1StartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeScheduledActions
-
-instance ToPath DescribeScheduledActions where
-    toPath = const "/"
-
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarNextToken                   :: Maybe Text
     , _dsarScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
@@ -159,10 +154,15 @@ instance AWSRequest DescribeScheduledActions where
     type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
 
     request  = post "DescribeScheduledActions"
-    response = xmlResponse $ \h x -> DescribeScheduledActionsResponse
-        <$> x %| "NextToken"
-        <*> x %| "ScheduledUpdateGroupActions"
+    response = xmlResponse
 
-instance AWSPager DescribeScheduledActions where
-    next rq rs = (\x -> rq & dsa1NextToken ?~ x)
-        <$> (rs ^. dsarNextToken)
+instance FromXML DescribeScheduledActionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeScheduledActionsResponse"
+
+instance ToPath DescribeScheduledActions where
+    toPath = const "/"
+
+instance ToHeaders DescribeScheduledActions
+
+instance ToQuery DescribeScheduledActions

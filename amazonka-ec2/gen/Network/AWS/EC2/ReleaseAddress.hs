@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ReleaseAddress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
 raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
 
-instance ToQuery ReleaseAddress
-
-instance ToPath ReleaseAddress where
-    toPath = const "/"
-
 data ReleaseAddressResponse = ReleaseAddressResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -103,4 +98,11 @@ instance AWSRequest ReleaseAddress where
     type Rs ReleaseAddress = ReleaseAddressResponse
 
     request  = post "ReleaseAddress"
-    response = nullaryResponse ReleaseAddressResponse
+    response = nullResponse ReleaseAddressResponse
+
+instance ToPath ReleaseAddress where
+    toPath = const "/"
+
+instance ToHeaders ReleaseAddress
+
+instance ToQuery ReleaseAddress

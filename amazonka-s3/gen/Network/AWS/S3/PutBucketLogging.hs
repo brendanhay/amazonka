@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.S3.PutBucketLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -78,23 +78,6 @@ pblBucketLoggingStatus =
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
 
-instance ToPath PutBucketLogging where
-    toPath PutBucketLogging{..} = mconcat
-        [ "/"
-        , toText _pblBucket
-        ]
-
-instance ToQuery PutBucketLogging where
-    toQuery = const "logging"
-
-instance ToHeaders PutBucketLogging where
-    toHeaders PutBucketLogging{..} = mconcat
-        [ "Content-MD5" =: _pblContentMD5
-        ]
-
-instance ToBody PutBucketLogging where
-    toBody = toBody . encodeXML . _pblBucketLoggingStatus
-
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -107,4 +90,22 @@ instance AWSRequest PutBucketLogging where
     type Rs PutBucketLogging = PutBucketLoggingResponse
 
     request  = put
-    response = nullaryResponse PutBucketLoggingResponse
+    response = nullResponse PutBucketLoggingResponse
+
+instance ToPath PutBucketLogging where
+    toPath PutBucketLogging{..} = mconcat
+        [ "/"
+        , toText _pblBucket
+        ]
+
+instance ToHeaders PutBucketLogging where
+    toHeaders PutBucketLogging{..} = mconcat
+        [ "Content-MD5" =: _pblContentMD5
+        ]
+
+instance ToQuery PutBucketLogging where
+    toQuery = const "logging"
+
+instance ToXML PutBucketLogging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketLogging"

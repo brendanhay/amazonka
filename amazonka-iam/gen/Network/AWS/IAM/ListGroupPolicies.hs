@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListGroupPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a })
     . mapping _Nat
 
-instance ToQuery ListGroupPolicies
-
-instance ToPath ListGroupPolicies where
-    toPath = const "/"
-
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
     , _lgprMarker      :: Maybe Text
@@ -139,13 +134,15 @@ instance AWSRequest ListGroupPolicies where
     type Rs ListGroupPolicies = ListGroupPoliciesResponse
 
     request  = post "ListGroupPolicies"
-    response = xmlResponse $ \h x -> ListGroupPoliciesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "PolicyNames"
+    response = xmlResponse
 
-instance AWSPager ListGroupPolicies where
-    next rq rs
-        | not (more (rs ^. lgprIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lgpMarker .~ rs ^. lgprMarker
+instance FromXML ListGroupPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGroupPoliciesResponse"
+
+instance ToPath ListGroupPolicies where
+    toPath = const "/"
+
+instance ToHeaders ListGroupPolicies
+
+instance ToQuery ListGroupPolicies

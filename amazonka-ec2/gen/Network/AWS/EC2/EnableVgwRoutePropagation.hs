@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.EnableVgwRoutePropagation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
 evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
 
-instance ToQuery EnableVgwRoutePropagation
-
-instance ToPath EnableVgwRoutePropagation where
-    toPath = const "/"
-
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest EnableVgwRoutePropagation where
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse
 
     request  = post "EnableVgwRoutePropagation"
-    response = nullaryResponse EnableVgwRoutePropagationResponse
+    response = nullResponse EnableVgwRoutePropagationResponse
+
+instance ToPath EnableVgwRoutePropagation where
+    toPath = const "/"
+
+instance ToHeaders EnableVgwRoutePropagation
+
+instance ToQuery EnableVgwRoutePropagation

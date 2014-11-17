@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHsmClientCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ dhcc1HsmClientCertificateIdentifier =
     lens _dhcc1HsmClientCertificateIdentifier
         (\s a -> s { _dhcc1HsmClientCertificateIdentifier = a })
 
-instance ToQuery DeleteHsmClientCertificate
-
-instance ToPath DeleteHsmClientCertificate where
-    toPath = const "/"
-
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteHsmClientCertificate where
     type Rs DeleteHsmClientCertificate = DeleteHsmClientCertificateResponse
 
     request  = post "DeleteHsmClientCertificate"
-    response = nullaryResponse DeleteHsmClientCertificateResponse
+    response = nullResponse DeleteHsmClientCertificateResponse
+
+instance ToPath DeleteHsmClientCertificate where
+    toPath = const "/"
+
+instance ToHeaders DeleteHsmClientCertificate
+
+instance ToQuery DeleteHsmClientCertificate

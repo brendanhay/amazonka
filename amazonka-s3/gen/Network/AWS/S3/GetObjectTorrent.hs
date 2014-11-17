@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetObjectTorrent
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.GetObjectTorrent
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -69,6 +69,31 @@ gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
 gotKey :: Lens' GetObjectTorrent Text
 gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
+newtype GetObjectTorrentResponse = GetObjectTorrentResponse
+    { _gotrBody :: Maybe Base64
+    } deriving (Eq, Show, Generic)
+
+-- | 'GetObjectTorrentResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gotrBody' @::@ 'Maybe' 'Base64'
+--
+getObjectTorrentResponse :: GetObjectTorrentResponse
+getObjectTorrentResponse = GetObjectTorrentResponse
+    { _gotrBody = Nothing
+    }
+
+gotrBody :: Lens' GetObjectTorrentResponse (Maybe Base64)
+gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
+
+instance AWSRequest GetObjectTorrent where
+    type Sv GetObjectTorrent = S3
+    type Rs GetObjectTorrent = GetObjectTorrentResponse
+
+    request  = get
+    response = bodyResponse . const $ \b -> GetObjectTorrentResponse
+
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
         [ "/"
@@ -77,34 +102,11 @@ instance ToPath GetObjectTorrent where
         , toText _gotKey
         ]
 
+instance ToHeaders GetObjectTorrent
+
 instance ToQuery GetObjectTorrent where
     toQuery = const "torrent"
 
-instance ToHeaders GetObjectTorrent
-
-newtype GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotrBody :: RsBody
-    } deriving (Show, Generic)
-
--- | 'GetObjectTorrentResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gotrBody' @::@ 'RsBody'
---
-getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
-                         -> GetObjectTorrentResponse
-getObjectTorrentResponse p1 = GetObjectTorrentResponse
-    { _gotrBody = p1
-    }
-
-gotrBody :: Lens' GetObjectTorrentResponse RsBody
-gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
-
-instance AWSRequest GetObjectTorrent where
-    type Sv GetObjectTorrent = S3
-    type Rs GetObjectTorrent = GetObjectTorrentResponse
-
-    request  = get
-    response = bodyResponse $ \h b -> GetObjectTorrentResponse
-        <$> pure (RsBody b)
+instance ToXML GetObjectTorrent where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetObjectTorrent"

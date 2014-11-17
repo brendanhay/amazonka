@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.PutDeliveryChannel
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.Config.PutDeliveryChannel
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ pdcDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
 pdcDeliveryChannel =
     lens _pdcDeliveryChannel (\s a -> s { _pdcDeliveryChannel = a })
 
-instance ToPath PutDeliveryChannel where
-    toPath = const "/"
-
-instance ToQuery PutDeliveryChannel where
-    toQuery = const mempty
-
-instance ToHeaders PutDeliveryChannel
-
-instance ToBody PutDeliveryChannel where
-    toBody = toBody . encode . _pdcDeliveryChannel
-
 data PutDeliveryChannelResponse = PutDeliveryChannelResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +80,15 @@ instance AWSRequest PutDeliveryChannel where
     type Rs PutDeliveryChannel = PutDeliveryChannelResponse
 
     request  = post
-    response = nullaryResponse PutDeliveryChannelResponse
+    response = nullResponse PutDeliveryChannelResponse
+
+instance ToPath PutDeliveryChannel where
+    toPath = const "/"
+
+instance ToHeaders PutDeliveryChannel
+
+instance ToQuery PutDeliveryChannel where
+    toQuery = const mempty
+
+instance ToJSON PutDeliveryChannel where
+    toJSON = genericToJSON jsonOptions

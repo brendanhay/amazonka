@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.GetBucketAcl
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ getBucketAcl p1 = GetBucketAcl
 
 gbaBucket :: Lens' GetBucketAcl Text
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
-
-instance ToPath GetBucketAcl where
-    toPath GetBucketAcl{..} = mconcat
-        [ "/"
-        , toText _gbaBucket
-        ]
-
-instance ToQuery GetBucketAcl where
-    toQuery = const "acl"
-
-instance ToHeaders GetBucketAcl
 
 data GetBucketAclResponse = GetBucketAclResponse
     { _gbarGrants :: [Grant]
@@ -103,6 +92,23 @@ instance AWSRequest GetBucketAcl where
     type Rs GetBucketAcl = GetBucketAclResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketAclResponse
-        <$> x %| "AccessControlList"
-        <*> x %| "Owner"
+    response = xmlResponse
+
+instance FromXML GetBucketAclResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketAclResponse"
+
+instance ToPath GetBucketAcl where
+    toPath GetBucketAcl{..} = mconcat
+        [ "/"
+        , toText _gbaBucket
+        ]
+
+instance ToHeaders GetBucketAcl
+
+instance ToQuery GetBucketAcl where
+    toQuery = const "acl"
+
+instance ToXML GetBucketAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketAcl"

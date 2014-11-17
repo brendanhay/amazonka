@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.DescribeJobFlows
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.EMR.DescribeJobFlows
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -100,17 +100,6 @@ djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a })
 djfJobFlowStates :: Lens' DescribeJobFlows [Text]
 djfJobFlowStates = lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a })
 
-instance ToPath DescribeJobFlows where
-    toPath = const "/"
-
-instance ToQuery DescribeJobFlows where
-    toQuery = const mempty
-
-instance ToHeaders DescribeJobFlows
-
-instance ToBody DescribeJobFlows where
-    toBody = toBody . encode . _djfCreatedAfter
-
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfrJobFlows :: [JobFlowDetail]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -141,5 +130,18 @@ instance AWSRequest DescribeJobFlows where
     type Rs DescribeJobFlows = DescribeJobFlowsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeJobFlowsResponse
-        <$> o .: "JobFlows"
+    response = jsonResponse
+
+instance FromJSON DescribeJobFlowsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeJobFlows where
+    toPath = const "/"
+
+instance ToHeaders DescribeJobFlows
+
+instance ToQuery DescribeJobFlows where
+    toQuery = const mempty
+
+instance ToJSON DescribeJobFlows where
+    toJSON = genericToJSON jsonOptions

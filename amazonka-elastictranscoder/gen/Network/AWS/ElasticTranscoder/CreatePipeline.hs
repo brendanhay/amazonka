@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -232,17 +232,6 @@ cp1ThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cp1ThumbnailConfig =
     lens _cp1ThumbnailConfig (\s a -> s { _cp1ThumbnailConfig = a })
 
-instance ToPath CreatePipeline where
-    toPath = const "/2012-09-25/pipelines"
-
-instance ToQuery CreatePipeline where
-    toQuery = const mempty
-
-instance ToHeaders CreatePipeline
-
-instance ToBody CreatePipeline where
-    toBody = toBody . encode . _cp1Name
-
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline :: Maybe Pipeline
     } deriving (Eq, Show, Generic)
@@ -268,5 +257,18 @@ instance AWSRequest CreatePipeline where
     type Rs CreatePipeline = CreatePipelineResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreatePipelineResponse
-        <$> o .: "Pipeline"
+    response = jsonResponse
+
+instance FromJSON CreatePipelineResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreatePipeline where
+    toPath = const "/2012-09-25/pipelines"
+
+instance ToHeaders CreatePipeline
+
+instance ToQuery CreatePipeline where
+    toQuery = const mempty
+
+instance ToJSON CreatePipeline where
+    toJSON = genericToJSON jsonOptions

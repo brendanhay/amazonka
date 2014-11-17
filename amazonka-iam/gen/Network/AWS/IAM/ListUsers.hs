@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListUsers
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
 
-instance ToQuery ListUsers
-
-instance ToPath ListUsers where
-    toPath = const "/"
-
 data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
     , _lurMarker      :: Maybe Text
@@ -143,13 +138,15 @@ instance AWSRequest ListUsers where
     type Rs ListUsers = ListUsersResponse
 
     request  = post "ListUsers"
-    response = xmlResponse $ \h x -> ListUsersResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "Users"
+    response = xmlResponse
 
-instance AWSPager ListUsers where
-    next rq rs
-        | not (more (rs ^. lurIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & luMarker .~ rs ^. lurMarker
+instance FromXML ListUsersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListUsersResponse"
+
+instance ToPath ListUsers where
+    toPath = const "/"
+
+instance ToHeaders ListUsers
+
+instance ToQuery ListUsers

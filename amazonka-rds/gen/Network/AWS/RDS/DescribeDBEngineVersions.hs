@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBEngineVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -140,11 +140,6 @@ ddbevMarker = lens _ddbevMarker (\s a -> s { _ddbevMarker = a })
 ddbevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
 ddbevMaxRecords = lens _ddbevMaxRecords (\s a -> s { _ddbevMaxRecords = a })
 
-instance ToQuery DescribeDBEngineVersions
-
-instance ToPath DescribeDBEngineVersions where
-    toPath = const "/"
-
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrDBEngineVersions :: [DBEngineVersion]
     , _ddbevrMarker           :: Maybe Text
@@ -180,10 +175,15 @@ instance AWSRequest DescribeDBEngineVersions where
     type Rs DescribeDBEngineVersions = DescribeDBEngineVersionsResponse
 
     request  = post "DescribeDBEngineVersions"
-    response = xmlResponse $ \h x -> DescribeDBEngineVersionsResponse
-        <$> x %| "DBEngineVersions"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBEngineVersions where
-    next rq rs = (\x -> rq & ddbevMarker ?~ x)
-        <$> (rs ^. ddbevrMarker)
+instance FromXML DescribeDBEngineVersionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBEngineVersionsResponse"
+
+instance ToPath DescribeDBEngineVersions where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBEngineVersions
+
+instance ToQuery DescribeDBEngineVersions

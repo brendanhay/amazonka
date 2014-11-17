@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ getDeploymentConfig p1 = GetDeploymentConfig
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName =
     lens _gdcDeploymentConfigName (\s a -> s { _gdcDeploymentConfigName = a })
-
-instance ToPath GetDeploymentConfig where
-    toPath = const "/"
-
-instance ToQuery GetDeploymentConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetDeploymentConfig
-
-instance ToBody GetDeploymentConfig where
-    toBody = toBody . encode . _gdcDeploymentConfigName
 
 newtype GetDeploymentConfigResponse = GetDeploymentConfigResponse
     { _gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo
@@ -100,5 +89,18 @@ instance AWSRequest GetDeploymentConfig where
     type Rs GetDeploymentConfig = GetDeploymentConfigResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetDeploymentConfigResponse
-        <$> o .: "deploymentConfigInfo"
+    response = jsonResponse
+
+instance FromJSON GetDeploymentConfigResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetDeploymentConfig where
+    toPath = const "/"
+
+instance ToHeaders GetDeploymentConfig
+
+instance ToQuery GetDeploymentConfig where
+    toQuery = const mempty
+
+instance ToJSON GetDeploymentConfig where
+    toJSON = genericToJSON jsonOptions

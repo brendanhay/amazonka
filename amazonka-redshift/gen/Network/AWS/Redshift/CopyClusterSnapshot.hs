@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -102,11 +102,6 @@ ccsTargetSnapshotIdentifier =
     lens _ccsTargetSnapshotIdentifier
         (\s a -> s { _ccsTargetSnapshotIdentifier = a })
 
-instance ToQuery CopyClusterSnapshot
-
-instance ToPath CopyClusterSnapshot where
-    toPath = const "/"
-
 newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -130,5 +125,15 @@ instance AWSRequest CopyClusterSnapshot where
     type Rs CopyClusterSnapshot = CopyClusterSnapshotResponse
 
     request  = post "CopyClusterSnapshot"
-    response = xmlResponse $ \h x -> CopyClusterSnapshotResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML CopyClusterSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyClusterSnapshotResponse"
+
+instance ToPath CopyClusterSnapshot where
+    toPath = const "/"
+
+instance ToHeaders CopyClusterSnapshot
+
+instance ToQuery CopyClusterSnapshot

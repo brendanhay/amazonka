@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.ListClusters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.EMR.ListClusters
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -94,17 +94,6 @@ lcCreatedBefore = lens _lcCreatedBefore (\s a -> s { _lcCreatedBefore = a })
 lcMarker :: Lens' ListClusters (Maybe Text)
 lcMarker = lens _lcMarker (\s a -> s { _lcMarker = a })
 
-instance ToPath ListClusters where
-    toPath = const "/"
-
-instance ToQuery ListClusters where
-    toQuery = const mempty
-
-instance ToHeaders ListClusters
-
-instance ToBody ListClusters where
-    toBody = toBody . encode . _lcCreatedAfter
-
 data ListClustersResponse = ListClustersResponse
     { _lcrClusters :: [ClusterSummary]
     , _lcrMarker   :: Maybe Text
@@ -137,6 +126,18 @@ instance AWSRequest ListClusters where
     type Rs ListClusters = ListClustersResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListClustersResponse
-        <$> o .: "Clusters"
-        <*> o .: "Marker"
+    response = jsonResponse
+
+instance FromJSON ListClustersResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListClusters where
+    toPath = const "/"
+
+instance ToHeaders ListClusters
+
+instance ToQuery ListClusters where
+    toQuery = const mempty
+
+instance ToJSON ListClusters where
+    toJSON = genericToJSON jsonOptions

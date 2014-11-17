@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.PutGroupPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ pgpPolicyDocument =
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
 
-instance ToQuery PutGroupPolicy
-
-instance ToPath PutGroupPolicy where
-    toPath = const "/"
-
 data PutGroupPolicyResponse = PutGroupPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -101,4 +96,11 @@ instance AWSRequest PutGroupPolicy where
     type Rs PutGroupPolicy = PutGroupPolicyResponse
 
     request  = post "PutGroupPolicy"
-    response = nullaryResponse PutGroupPolicyResponse
+    response = nullResponse PutGroupPolicyResponse
+
+instance ToPath PutGroupPolicy where
+    toPath = const "/"
+
+instance ToHeaders PutGroupPolicy
+
+instance ToQuery PutGroupPolicy

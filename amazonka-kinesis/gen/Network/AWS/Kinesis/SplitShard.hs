@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.SplitShard
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,7 +70,7 @@ module Network.AWS.Kinesis.SplitShard
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -120,17 +120,6 @@ ssShardToSplit = lens _ssShardToSplit (\s a -> s { _ssShardToSplit = a })
 ssStreamName :: Lens' SplitShard Text
 ssStreamName = lens _ssStreamName (\s a -> s { _ssStreamName = a })
 
-instance ToPath SplitShard where
-    toPath = const "/"
-
-instance ToQuery SplitShard where
-    toQuery = const mempty
-
-instance ToHeaders SplitShard
-
-instance ToBody SplitShard where
-    toBody = toBody . encode . _ssStreamName
-
 data SplitShardResponse = SplitShardResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -143,4 +132,15 @@ instance AWSRequest SplitShard where
     type Rs SplitShard = SplitShardResponse
 
     request  = post
-    response = nullaryResponse SplitShardResponse
+    response = nullResponse SplitShardResponse
+
+instance ToPath SplitShard where
+    toPath = const "/"
+
+instance ToHeaders SplitShard
+
+instance ToQuery SplitShard where
+    toQuery = const mempty
+
+instance ToJSON SplitShard where
+    toJSON = genericToJSON jsonOptions

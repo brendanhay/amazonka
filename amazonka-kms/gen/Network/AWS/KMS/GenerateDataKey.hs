@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.GenerateDataKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.KMS.GenerateDataKey
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -110,17 +110,6 @@ gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\s a -> s { _gdkNumberOfBytes = a })
     . mapping _Nat
 
-instance ToPath GenerateDataKey where
-    toPath = const "/"
-
-instance ToQuery GenerateDataKey where
-    toQuery = const mempty
-
-instance ToHeaders GenerateDataKey
-
-instance ToBody GenerateDataKey where
-    toBody = toBody . encode . _gdkKeyId
-
 data GenerateDataKeyResponse = GenerateDataKeyResponse
     { _gdkrCiphertextBlob :: Maybe Base64
     , _gdkrKeyId          :: Maybe Text
@@ -165,7 +154,18 @@ instance AWSRequest GenerateDataKey where
     type Rs GenerateDataKey = GenerateDataKeyResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GenerateDataKeyResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
-        <*> o .: "Plaintext"
+    response = jsonResponse
+
+instance FromJSON GenerateDataKeyResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GenerateDataKey where
+    toPath = const "/"
+
+instance ToHeaders GenerateDataKey
+
+instance ToQuery GenerateDataKey where
+    toQuery = const mempty
+
+instance ToJSON GenerateDataKey where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingActivities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ dsa2MaxRecords = lens _dsa2MaxRecords (\s a -> s { _dsa2MaxRecords = a })
 dsa2NextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
 
-instance ToQuery DescribeScalingActivities
-
-instance ToPath DescribeScalingActivities where
-    toPath = const "/"
-
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { _dsar1Activities :: [Activity]
     , _dsar1NextToken  :: Maybe Text
@@ -140,10 +135,15 @@ instance AWSRequest DescribeScalingActivities where
     type Rs DescribeScalingActivities = DescribeScalingActivitiesResponse
 
     request  = post "DescribeScalingActivities"
-    response = xmlResponse $ \h x -> DescribeScalingActivitiesResponse
-        <$> x %| "Activities"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeScalingActivities where
-    next rq rs = (\x -> rq & dsa2NextToken ?~ x)
-        <$> (rs ^. dsar1NextToken)
+instance FromXML DescribeScalingActivitiesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeScalingActivitiesResponse"
+
+instance ToPath DescribeScalingActivities where
+    toPath = const "/"
+
+instance ToHeaders DescribeScalingActivities
+
+instance ToQuery DescribeScalingActivities

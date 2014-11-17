@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeReservedNodeOfferings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ drnoReservedNodeOfferingId =
     lens _drnoReservedNodeOfferingId
         (\s a -> s { _drnoReservedNodeOfferingId = a })
 
-instance ToQuery DescribeReservedNodeOfferings
-
-instance ToPath DescribeReservedNodeOfferings where
-    toPath = const "/"
-
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker                :: Maybe Text
     , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
@@ -141,10 +136,15 @@ instance AWSRequest DescribeReservedNodeOfferings where
     type Rs DescribeReservedNodeOfferings = DescribeReservedNodeOfferingsResponse
 
     request  = post "DescribeReservedNodeOfferings"
-    response = xmlResponse $ \h x -> DescribeReservedNodeOfferingsResponse
-        <$> x %| "Marker"
-        <*> x %| "ReservedNodeOfferings"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedNodeOfferings where
-    next rq rs = (\x -> rq & drnoMarker ?~ x)
-        <$> (rs ^. drnorMarker)
+instance FromXML DescribeReservedNodeOfferingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedNodeOfferingsResponse"
+
+instance ToPath DescribeReservedNodeOfferings where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedNodeOfferings
+
+instance ToQuery DescribeReservedNodeOfferings

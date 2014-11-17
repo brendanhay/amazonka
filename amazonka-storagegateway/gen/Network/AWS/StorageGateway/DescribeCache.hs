@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeCache
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.DescribeCache
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ describeCache p1 = DescribeCache
 
 dcGatewayARN :: Lens' DescribeCache Text
 dcGatewayARN = lens _dcGatewayARN (\s a -> s { _dcGatewayARN = a })
-
-instance ToPath DescribeCache where
-    toPath = const "/"
-
-instance ToQuery DescribeCache where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCache
-
-instance ToBody DescribeCache where
-    toBody = toBody . encode . _dcGatewayARN
 
 data DescribeCacheResponse = DescribeCacheResponse
     { _dcrCacheAllocatedInBytes :: Maybe Integer
@@ -151,11 +140,18 @@ instance AWSRequest DescribeCache where
     type Rs DescribeCache = DescribeCacheResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeCacheResponse
-        <$> o .: "CacheAllocatedInBytes"
-        <*> o .: "CacheDirtyPercentage"
-        <*> o .: "CacheHitPercentage"
-        <*> o .: "CacheMissPercentage"
-        <*> o .: "CacheUsedPercentage"
-        <*> o .: "DiskIds"
-        <*> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON DescribeCacheResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeCache where
+    toPath = const "/"
+
+instance ToHeaders DescribeCache
+
+instance ToQuery DescribeCache where
+    toQuery = const mempty
+
+instance ToJSON DescribeCache where
+    toJSON = genericToJSON jsonOptions

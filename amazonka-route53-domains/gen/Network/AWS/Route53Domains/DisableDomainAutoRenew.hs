@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.DisableDomainAutoRenew
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ disableDomainAutoRenew p1 = DisableDomainAutoRenew
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
 ddarDomainName = lens _ddarDomainName (\s a -> s { _ddarDomainName = a })
 
-instance ToPath DisableDomainAutoRenew where
-    toPath = const "/"
-
-instance ToQuery DisableDomainAutoRenew where
-    toQuery = const mempty
-
-instance ToHeaders DisableDomainAutoRenew
-
-instance ToBody DisableDomainAutoRenew where
-    toBody = toBody . encode . _ddarDomainName
-
 data DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,15 @@ instance AWSRequest DisableDomainAutoRenew where
     type Rs DisableDomainAutoRenew = DisableDomainAutoRenewResponse
 
     request  = post
-    response = nullaryResponse DisableDomainAutoRenewResponse
+    response = nullResponse DisableDomainAutoRenewResponse
+
+instance ToPath DisableDomainAutoRenew where
+    toPath = const "/"
+
+instance ToHeaders DisableDomainAutoRenew
+
+instance ToQuery DisableDomainAutoRenew where
+    toQuery = const mempty
+
+instance ToJSON DisableDomainAutoRenew where
+    toJSON = genericToJSON jsonOptions

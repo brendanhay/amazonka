@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -286,11 +286,6 @@ rdbifdbsTdeCredentialPassword =
     lens _rdbifdbsTdeCredentialPassword
         (\s a -> s { _rdbifdbsTdeCredentialPassword = a })
 
-instance ToQuery RestoreDBInstanceFromDBSnapshot
-
-instance ToPath RestoreDBInstanceFromDBSnapshot where
-    toPath = const "/"
-
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -315,5 +310,15 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot where
     type Rs RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshotResponse
 
     request  = post "RestoreDBInstanceFromDBSnapshot"
-    response = xmlResponse $ \h x -> RestoreDBInstanceFromDBSnapshotResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestoreDBInstanceFromDBSnapshotResponse"
+
+instance ToPath RestoreDBInstanceFromDBSnapshot where
+    toPath = const "/"
+
+instance ToHeaders RestoreDBInstanceFromDBSnapshot
+
+instance ToQuery RestoreDBInstanceFromDBSnapshot

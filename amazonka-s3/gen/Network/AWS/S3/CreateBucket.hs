@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.CreateBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.S3.CreateBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -126,28 +126,6 @@ cbGrantWrite = lens _cbGrantWrite (\s a -> s { _cbGrantWrite = a })
 cbGrantWriteACP :: Lens' CreateBucket (Maybe Text)
 cbGrantWriteACP = lens _cbGrantWriteACP (\s a -> s { _cbGrantWriteACP = a })
 
-instance ToPath CreateBucket where
-    toPath CreateBucket{..} = mconcat
-        [ "/"
-        , toText _cbBucket
-        ]
-
-instance ToQuery CreateBucket where
-    toQuery = const mempty
-
-instance ToHeaders CreateBucket where
-    toHeaders CreateBucket{..} = mconcat
-        [ "x-amz-acl"                =: _cbACL
-        , "x-amz-grant-full-control" =: _cbGrantFullControl
-        , "x-amz-grant-read"         =: _cbGrantRead
-        , "x-amz-grant-read-acp"     =: _cbGrantReadACP
-        , "x-amz-grant-write"        =: _cbGrantWrite
-        , "x-amz-grant-write-acp"    =: _cbGrantWriteACP
-        ]
-
-instance ToBody CreateBucket where
-    toBody = toBody . encodeXML . _cbCreateBucketConfiguration
-
 newtype CreateBucketResponse = CreateBucketResponse
     { _cbrLocation :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -171,5 +149,28 @@ instance AWSRequest CreateBucket where
     type Rs CreateBucket = CreateBucketResponse
 
     request  = put
-    response = xmlResponse $ \h x -> CreateBucketResponse
-        <$> h ~:? "Location"
+    response = xmlHeaderResponse $ \h x -> CreateBucketResponse
+        <*> h ~:? "Location"
+
+instance ToPath CreateBucket where
+    toPath CreateBucket{..} = mconcat
+        [ "/"
+        , toText _cbBucket
+        ]
+
+instance ToHeaders CreateBucket where
+    toHeaders CreateBucket{..} = mconcat
+        [ "x-amz-acl"                =: _cbACL
+        , "x-amz-grant-full-control" =: _cbGrantFullControl
+        , "x-amz-grant-read"         =: _cbGrantRead
+        , "x-amz-grant-read-acp"     =: _cbGrantReadACP
+        , "x-amz-grant-write"        =: _cbGrantWrite
+        , "x-amz-grant-write-acp"    =: _cbGrantWriteACP
+        ]
+
+instance ToQuery CreateBucket where
+    toQuery = const mempty
+
+instance ToXML CreateBucket where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateBucket"

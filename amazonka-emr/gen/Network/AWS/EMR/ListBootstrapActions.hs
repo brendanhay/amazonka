@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.ListBootstrapActions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.EMR.ListBootstrapActions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ lbaClusterId = lens _lbaClusterId (\s a -> s { _lbaClusterId = a })
 -- | The pagination token that indicates the next set of results to retrieve .
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaMarker = lens _lbaMarker (\s a -> s { _lbaMarker = a })
-
-instance ToPath ListBootstrapActions where
-    toPath = const "/"
-
-instance ToQuery ListBootstrapActions where
-    toQuery = const mempty
-
-instance ToHeaders ListBootstrapActions
-
-instance ToBody ListBootstrapActions where
-    toBody = toBody . encode . _lbaClusterId
 
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions :: [Command]
@@ -115,6 +104,18 @@ instance AWSRequest ListBootstrapActions where
     type Rs ListBootstrapActions = ListBootstrapActionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListBootstrapActionsResponse
-        <$> o .: "BootstrapActions"
-        <*> o .: "Marker"
+    response = jsonResponse
+
+instance FromJSON ListBootstrapActionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListBootstrapActions where
+    toPath = const "/"
+
+instance ToHeaders ListBootstrapActions
+
+instance ToQuery ListBootstrapActions where
+    toQuery = const mempty
+
+instance ToJSON ListBootstrapActions where
+    toJSON = genericToJSON jsonOptions

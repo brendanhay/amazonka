@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -315,11 +315,6 @@ mccSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccSnapshotWindow =
     lens _mccSnapshotWindow (\s a -> s { _mccSnapshotWindow = a })
 
-instance ToQuery ModifyCacheCluster
-
-instance ToPath ModifyCacheCluster where
-    toPath = const "/"
-
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
@@ -343,5 +338,15 @@ instance AWSRequest ModifyCacheCluster where
     type Rs ModifyCacheCluster = ModifyCacheClusterResponse
 
     request  = post "ModifyCacheCluster"
-    response = xmlResponse $ \h x -> ModifyCacheClusterResponse
-        <$> x %| "CacheCluster"
+    response = xmlResponse
+
+instance FromXML ModifyCacheClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyCacheClusterResponse"
+
+instance ToPath ModifyCacheCluster where
+    toPath = const "/"
+
+instance ToHeaders ModifyCacheCluster
+
+instance ToQuery ModifyCacheCluster

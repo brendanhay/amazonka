@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.GetIdentityDkimAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
 
-instance ToQuery GetIdentityDkimAttributes
-
-instance ToPath GetIdentityDkimAttributes where
-    toPath = const "/"
-
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -110,5 +105,15 @@ instance AWSRequest GetIdentityDkimAttributes where
     type Rs GetIdentityDkimAttributes = GetIdentityDkimAttributesResponse
 
     request  = post "GetIdentityDkimAttributes"
-    response = xmlResponse $ \h x -> GetIdentityDkimAttributesResponse
-        <$> x %| "DkimAttributes"
+    response = xmlResponse
+
+instance FromXML GetIdentityDkimAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetIdentityDkimAttributesResponse"
+
+instance ToPath GetIdentityDkimAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetIdentityDkimAttributes
+
+instance ToQuery GetIdentityDkimAttributes

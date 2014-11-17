@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.ActivatePipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ activatePipeline p1 = ActivatePipeline
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
 
-instance ToPath ActivatePipeline where
-    toPath = const "/"
-
-instance ToQuery ActivatePipeline where
-    toQuery = const mempty
-
-instance ToHeaders ActivatePipeline
-
-instance ToBody ActivatePipeline where
-    toBody = toBody . encode . _apPipelineId
-
 data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest ActivatePipeline where
     type Rs ActivatePipeline = ActivatePipelineResponse
 
     request  = post
-    response = nullaryResponse ActivatePipelineResponse
+    response = nullResponse ActivatePipelineResponse
+
+instance ToPath ActivatePipeline where
+    toPath = const "/"
+
+instance ToHeaders ActivatePipeline
+
+instance ToQuery ActivatePipeline where
+    toQuery = const mempty
+
+instance ToJSON ActivatePipeline where
+    toJSON = genericToJSON jsonOptions

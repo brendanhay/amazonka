@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.ReadJob
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ readJob p1 = ReadJob
 -- | The identifier of the job for which you want to get detailed information.
 rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\s a -> s { _rjId = a })
-
-instance ToPath ReadJob where
-    toPath ReadJob{..} = mconcat
-        [ "/2012-09-25/jobs/"
-        , toText _rjId
-        ]
-
-instance ToQuery ReadJob where
-    toQuery = const mempty
-
-instance ToHeaders ReadJob
 
 newtype ReadJobResponse = ReadJobResponse
     { _rjrJob :: Maybe Job'
@@ -96,5 +85,21 @@ instance AWSRequest ReadJob where
     type Rs ReadJob = ReadJobResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ReadJobResponse
-        <$> o .: "Job"
+    response = jsonResponse
+
+instance FromJSON ReadJobResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ReadJob where
+    toPath ReadJob{..} = mconcat
+        [ "/2012-09-25/jobs/"
+        , toText _rjId
+        ]
+
+instance ToHeaders ReadJob
+
+instance ToQuery ReadJob where
+    toQuery = const mempty
+
+instance ToJSON ReadJob where
+    toJSON = genericToJSON jsonOptions

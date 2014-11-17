@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -78,21 +78,6 @@ upsId = lens _upsId (\s a -> s { _upsId = a })
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
 
-instance ToPath UpdatePipelineStatus where
-    toPath UpdatePipelineStatus{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _upsId
-        , "/status"
-        ]
-
-instance ToQuery UpdatePipelineStatus where
-    toQuery = const mempty
-
-instance ToHeaders UpdatePipelineStatus
-
-instance ToBody UpdatePipelineStatus where
-    toBody = toBody . encode . _upsStatus
-
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline :: Maybe Pipeline
     } deriving (Eq, Show, Generic)
@@ -118,5 +103,22 @@ instance AWSRequest UpdatePipelineStatus where
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdatePipelineStatusResponse
-        <$> o .: "Pipeline"
+    response = jsonResponse
+
+instance FromJSON UpdatePipelineStatusResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdatePipelineStatus where
+    toPath UpdatePipelineStatus{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _upsId
+        , "/status"
+        ]
+
+instance ToHeaders UpdatePipelineStatus
+
+instance ToQuery UpdatePipelineStatus where
+    toQuery = const mempty
+
+instance ToJSON UpdatePipelineStatus where
+    toJSON = genericToJSON jsonOptions

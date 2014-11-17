@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a })
     . mapping _Nat
 
-instance ToQuery GetGroup
-
-instance ToPath GetGroup where
-    toPath = const "/"
-
 data GetGroupResponse = GetGroupResponse
     { _ggrGroup       :: Group
     , _ggrIsTruncated :: Maybe Bool
@@ -147,14 +142,15 @@ instance AWSRequest GetGroup where
     type Rs GetGroup = GetGroupResponse
 
     request  = post "GetGroup"
-    response = xmlResponse $ \h x -> GetGroupResponse
-        <$> x %| "Group"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "Users"
+    response = xmlResponse
 
-instance AWSPager GetGroup where
-    next rq rs
-        | not (more (rs ^. ggrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & ggMarker .~ rs ^. ggrMarker
+instance FromXML GetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetGroupResponse"
+
+instance ToPath GetGroup where
+    toPath = const "/"
+
+instance ToHeaders GetGroup
+
+instance ToQuery GetGroup

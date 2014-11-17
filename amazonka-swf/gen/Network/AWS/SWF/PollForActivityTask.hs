@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.PollForActivityTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,7 +63,7 @@ module Network.AWS.SWF.PollForActivityTask
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -110,17 +110,6 @@ pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
 -- &quot;arn&quot;.
 pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\s a -> s { _pfatTaskList = a })
-
-instance ToPath PollForActivityTask where
-    toPath = const "/"
-
-instance ToQuery PollForActivityTask where
-    toQuery = const mempty
-
-instance ToHeaders PollForActivityTask
-
-instance ToBody PollForActivityTask where
-    toBody = toBody . encode . _pfatDomain
 
 data PollForActivityTaskResponse = PollForActivityTaskResponse
     { _pfatrActivityId        :: Text
@@ -198,10 +187,18 @@ instance AWSRequest PollForActivityTask where
     type Rs PollForActivityTask = PollForActivityTaskResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PollForActivityTaskResponse
-        <$> o .: "activityId"
-        <*> o .: "activityType"
-        <*> o .: "input"
-        <*> o .: "startedEventId"
-        <*> o .: "taskToken"
-        <*> o .: "workflowExecution"
+    response = jsonResponse
+
+instance FromJSON PollForActivityTaskResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PollForActivityTask where
+    toPath = const "/"
+
+instance ToHeaders PollForActivityTask
+
+instance ToQuery PollForActivityTask where
+    toQuery = const mempty
+
+instance ToJSON PollForActivityTask where
+    toJSON = genericToJSON jsonOptions

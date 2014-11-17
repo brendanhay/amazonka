@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.SignalWorkflowExecution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.SWF.SignalWorkflowExecution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -111,17 +111,6 @@ sweSignalName = lens _sweSignalName (\s a -> s { _sweSignalName = a })
 sweWorkflowId :: Lens' SignalWorkflowExecution Text
 sweWorkflowId = lens _sweWorkflowId (\s a -> s { _sweWorkflowId = a })
 
-instance ToPath SignalWorkflowExecution where
-    toPath = const "/"
-
-instance ToQuery SignalWorkflowExecution where
-    toQuery = const mempty
-
-instance ToHeaders SignalWorkflowExecution
-
-instance ToBody SignalWorkflowExecution where
-    toBody = toBody . encode . _sweDomain
-
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -134,4 +123,15 @@ instance AWSRequest SignalWorkflowExecution where
     type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse
 
     request  = post
-    response = nullaryResponse SignalWorkflowExecutionResponse
+    response = nullResponse SignalWorkflowExecutionResponse
+
+instance ToPath SignalWorkflowExecution where
+    toPath = const "/"
+
+instance ToHeaders SignalWorkflowExecution
+
+instance ToQuery SignalWorkflowExecution where
+    toQuery = const mempty
+
+instance ToJSON SignalWorkflowExecution where
+    toJSON = genericToJSON jsonOptions

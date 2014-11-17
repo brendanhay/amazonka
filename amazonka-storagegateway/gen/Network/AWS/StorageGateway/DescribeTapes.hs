@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.DescribeTapes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -97,17 +97,6 @@ dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 dtTapeARNs :: Lens' DescribeTapes [Text]
 dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a })
 
-instance ToPath DescribeTapes where
-    toPath = const "/"
-
-instance ToQuery DescribeTapes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTapes
-
-instance ToBody DescribeTapes where
-    toBody = toBody . encode . _dtGatewayARN
-
 data DescribeTapesResponse = DescribeTapesResponse
     { _dtrMarker :: Maybe Text
     , _dtrTapes  :: [Tape]
@@ -142,6 +131,18 @@ instance AWSRequest DescribeTapes where
     type Rs DescribeTapes = DescribeTapesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTapesResponse
-        <$> o .: "Marker"
-        <*> o .: "Tapes"
+    response = jsonResponse
+
+instance FromJSON DescribeTapesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTapes where
+    toPath = const "/"
+
+instance ToHeaders DescribeTapes
+
+instance ToQuery DescribeTapes where
+    toQuery = const mempty
+
+instance ToJSON DescribeTapes where
+    toJSON = genericToJSON jsonOptions

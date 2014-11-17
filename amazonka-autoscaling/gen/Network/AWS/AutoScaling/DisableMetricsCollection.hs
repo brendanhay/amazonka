@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DisableMetricsCollection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ dmcAutoScalingGroupName =
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a })
 
-instance ToQuery DisableMetricsCollection
-
-instance ToPath DisableMetricsCollection where
-    toPath = const "/"
-
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -92,4 +87,11 @@ instance AWSRequest DisableMetricsCollection where
     type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
 
     request  = post "DisableMetricsCollection"
-    response = nullaryResponse DisableMetricsCollectionResponse
+    response = nullResponse DisableMetricsCollectionResponse
+
+instance ToPath DisableMetricsCollection where
+    toPath = const "/"
+
+instance ToHeaders DisableMetricsCollection
+
+instance ToQuery DisableMetricsCollection

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpnConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ dvcVpnConnectionId :: Lens' DeleteVpnConnection Text
 dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })
 
-instance ToQuery DeleteVpnConnection
-
-instance ToPath DeleteVpnConnection where
-    toPath = const "/"
-
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -93,4 +88,11 @@ instance AWSRequest DeleteVpnConnection where
     type Rs DeleteVpnConnection = DeleteVpnConnectionResponse
 
     request  = post "DeleteVpnConnection"
-    response = nullaryResponse DeleteVpnConnectionResponse
+    response = nullResponse DeleteVpnConnectionResponse
+
+instance ToPath DeleteVpnConnection where
+    toPath = const "/"
+
+instance ToHeaders DeleteVpnConnection
+
+instance ToQuery DeleteVpnConnection

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames =
     lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
 
-instance ToQuery DescribeLoadBalancerPolicyTypes
-
-instance ToPath DescribeLoadBalancerPolicyTypes where
-    toPath = const "/"
-
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -111,5 +106,15 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes where
     type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
 
     request  = post "DescribeLoadBalancerPolicyTypes"
-    response = xmlResponse $ \h x -> DescribeLoadBalancerPolicyTypesResponse
-        <$> x %| "PolicyTypeDescriptions"
+    response = xmlResponse
+
+instance FromXML DescribeLoadBalancerPolicyTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesResponse"
+
+instance ToPath DescribeLoadBalancerPolicyTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeLoadBalancerPolicyTypes
+
+instance ToQuery DescribeLoadBalancerPolicyTypes

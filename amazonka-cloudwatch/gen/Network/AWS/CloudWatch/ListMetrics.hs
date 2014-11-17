@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.ListMetrics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
 lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 
-instance ToQuery ListMetrics
-
-instance ToPath ListMetrics where
-    toPath = const "/"
-
 data ListMetricsResponse = ListMetricsResponse
     { _lmrMetrics   :: [Metric]
     , _lmrNextToken :: Maybe Text
@@ -128,10 +123,15 @@ instance AWSRequest ListMetrics where
     type Rs ListMetrics = ListMetricsResponse
 
     request  = post "ListMetrics"
-    response = xmlResponse $ \h x -> ListMetricsResponse
-        <$> x %| "Metrics"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager ListMetrics where
-    next rq rs = (\x -> rq & lmNextToken ?~ x)
-        <$> (rs ^. lmrNextToken)
+instance FromXML ListMetricsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListMetricsResponse"
+
+instance ToPath ListMetrics where
+    toPath = const "/"
+
+instance ToHeaders ListMetrics
+
+instance ToQuery ListMetrics

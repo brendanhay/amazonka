@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ ddbpgMarker = lens _ddbpgMarker (\s a -> s { _ddbpgMarker = a })
 ddbpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
 ddbpgMaxRecords = lens _ddbpgMaxRecords (\s a -> s { _ddbpgMaxRecords = a })
 
-instance ToQuery DescribeDBParameterGroups
-
-instance ToPath DescribeDBParameterGroups where
-    toPath = const "/"
-
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     { _ddbpgrDBParameterGroups :: [DBParameterGroup]
     , _ddbpgrMarker            :: Maybe Text
@@ -141,10 +136,15 @@ instance AWSRequest DescribeDBParameterGroups where
     type Rs DescribeDBParameterGroups = DescribeDBParameterGroupsResponse
 
     request  = post "DescribeDBParameterGroups"
-    response = xmlResponse $ \h x -> DescribeDBParameterGroupsResponse
-        <$> x %| "DBParameterGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBParameterGroups where
-    next rq rs = (\x -> rq & ddbpgMarker ?~ x)
-        <$> (rs ^. ddbpgrMarker)
+instance FromXML DescribeDBParameterGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBParameterGroupsResponse"
+
+instance ToPath DescribeDBParameterGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBParameterGroups
+
+instance ToQuery DescribeDBParameterGroups

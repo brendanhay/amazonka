@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -95,17 +95,6 @@ uupSshPublicKey = lens _uupSshPublicKey (\s a -> s { _uupSshPublicKey = a })
 uupSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSshUsername = lens _uupSshUsername (\s a -> s { _uupSshUsername = a })
 
-instance ToPath UpdateUserProfile where
-    toPath = const "/"
-
-instance ToQuery UpdateUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders UpdateUserProfile
-
-instance ToBody UpdateUserProfile where
-    toBody = toBody . encode . _uupIamUserArn
-
 data UpdateUserProfileResponse = UpdateUserProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -118,4 +107,15 @@ instance AWSRequest UpdateUserProfile where
     type Rs UpdateUserProfile = UpdateUserProfileResponse
 
     request  = post
-    response = nullaryResponse UpdateUserProfileResponse
+    response = nullResponse UpdateUserProfileResponse
+
+instance ToPath UpdateUserProfile where
+    toPath = const "/"
+
+instance ToHeaders UpdateUserProfile
+
+instance ToQuery UpdateUserProfile where
+    toQuery = const mempty
+
+instance ToJSON UpdateUserProfile where
+    toJSON = genericToJSON jsonOptions

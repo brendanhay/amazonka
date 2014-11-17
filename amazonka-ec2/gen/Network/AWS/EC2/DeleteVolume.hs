@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 dv4VolumeId :: Lens' DeleteVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
 
-instance ToQuery DeleteVolume
-
-instance ToPath DeleteVolume where
-    toPath = const "/"
-
 data DeleteVolumeResponse = DeleteVolumeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest DeleteVolume where
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request  = post "DeleteVolume"
-    response = nullaryResponse DeleteVolumeResponse
+    response = nullResponse DeleteVolumeResponse
+
+instance ToPath DeleteVolume where
+    toPath = const "/"
+
+instance ToHeaders DeleteVolume
+
+instance ToQuery DeleteVolume

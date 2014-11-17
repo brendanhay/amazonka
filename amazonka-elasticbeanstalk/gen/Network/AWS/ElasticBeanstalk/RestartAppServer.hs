@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RestartAppServer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName =
     lens _rasEnvironmentName (\s a -> s { _rasEnvironmentName = a })
 
-instance ToQuery RestartAppServer
-
-instance ToPath RestartAppServer where
-    toPath = const "/"
-
 data RestartAppServerResponse = RestartAppServerResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest RestartAppServer where
     type Rs RestartAppServer = RestartAppServerResponse
 
     request  = post "RestartAppServer"
-    response = nullaryResponse RestartAppServerResponse
+    response = nullResponse RestartAppServerResponse
+
+instance ToPath RestartAppServer where
+    toPath = const "/"
+
+instance ToHeaders RestartAppServer
+
+instance ToQuery RestartAppServer

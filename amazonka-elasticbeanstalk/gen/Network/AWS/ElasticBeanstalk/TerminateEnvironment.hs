@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.TerminateEnvironment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -106,11 +106,6 @@ teEnvironmentName =
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 teTerminateResources =
     lens _teTerminateResources (\s a -> s { _teTerminateResources = a })
-
-instance ToQuery TerminateEnvironment
-
-instance ToPath TerminateEnvironment where
-    toPath = const "/"
 
 data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     { _terApplicationName   :: Maybe Text
@@ -272,19 +267,15 @@ instance AWSRequest TerminateEnvironment where
     type Rs TerminateEnvironment = TerminateEnvironmentResponse
 
     request  = post "TerminateEnvironment"
-    response = xmlResponse $ \h x -> TerminateEnvironmentResponse
-        <$> x %| "ApplicationName"
-        <*> x %| "CNAME"
-        <*> x %| "DateCreated"
-        <*> x %| "DateUpdated"
-        <*> x %| "Description"
-        <*> x %| "EndpointURL"
-        <*> x %| "EnvironmentId"
-        <*> x %| "EnvironmentName"
-        <*> x %| "Health"
-        <*> x %| "Resources"
-        <*> x %| "SolutionStackName"
-        <*> x %| "Status"
-        <*> x %| "TemplateName"
-        <*> x %| "Tier"
-        <*> x %| "VersionLabel"
+    response = xmlResponse
+
+instance FromXML TerminateEnvironmentResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TerminateEnvironmentResponse"
+
+instance ToPath TerminateEnvironment where
+    toPath = const "/"
+
+instance ToHeaders TerminateEnvironment
+
+instance ToQuery TerminateEnvironment

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ResetDBParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdbpgResetAllParameters =
     lens _rdbpgResetAllParameters (\s a -> s { _rdbpgResetAllParameters = a })
 
-instance ToQuery ResetDBParameterGroup
-
-instance ToPath ResetDBParameterGroup where
-    toPath = const "/"
-
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -129,5 +124,15 @@ instance AWSRequest ResetDBParameterGroup where
     type Rs ResetDBParameterGroup = ResetDBParameterGroupResponse
 
     request  = post "ResetDBParameterGroup"
-    response = xmlResponse $ \h x -> ResetDBParameterGroupResponse
-        <$> x %| "DBParameterGroupName"
+    response = xmlResponse
+
+instance FromXML ResetDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetDBParameterGroupResponse"
+
+instance ToPath ResetDBParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders ResetDBParameterGroup
+
+instance ToQuery ResetDBParameterGroup

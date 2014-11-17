@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,11 +60,6 @@ deleteUser p1 = DeleteUser
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\s a -> s { _duUserName = a })
 
-instance ToQuery DeleteUser
-
-instance ToPath DeleteUser where
-    toPath = const "/"
-
 data DeleteUserResponse = DeleteUserResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -77,4 +72,11 @@ instance AWSRequest DeleteUser where
     type Rs DeleteUser = DeleteUserResponse
 
     request  = post "DeleteUser"
-    response = nullaryResponse DeleteUserResponse
+    response = nullResponse DeleteUserResponse
+
+instance ToPath DeleteUser where
+    toPath = const "/"
+
+instance ToHeaders DeleteUser
+
+instance ToQuery DeleteUser

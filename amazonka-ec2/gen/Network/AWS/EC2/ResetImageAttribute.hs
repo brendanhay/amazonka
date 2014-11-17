@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ResetImageAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
 ria1ImageId :: Lens' ResetImageAttribute Text
 ria1ImageId = lens _ria1ImageId (\s a -> s { _ria1ImageId = a })
 
-instance ToQuery ResetImageAttribute
-
-instance ToPath ResetImageAttribute where
-    toPath = const "/"
-
 data ResetImageAttributeResponse = ResetImageAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +90,11 @@ instance AWSRequest ResetImageAttribute where
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
     request  = post "ResetImageAttribute"
-    response = nullaryResponse ResetImageAttributeResponse
+    response = nullResponse ResetImageAttributeResponse
+
+instance ToPath ResetImageAttribute where
+    toPath = const "/"
+
+instance ToHeaders ResetImageAttribute
+
+instance ToQuery ResetImageAttribute

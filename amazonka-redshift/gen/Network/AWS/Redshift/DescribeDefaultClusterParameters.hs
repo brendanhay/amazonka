@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeDefaultClusterParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ ddcpParameterGroupFamily =
     lens _ddcpParameterGroupFamily
         (\s a -> s { _ddcpParameterGroupFamily = a })
 
-instance ToQuery DescribeDefaultClusterParameters
-
-instance ToPath DescribeDefaultClusterParameters where
-    toPath = const "/"
-
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
     } deriving (Eq, Show, Generic)
@@ -122,9 +117,15 @@ instance AWSRequest DescribeDefaultClusterParameters where
     type Rs DescribeDefaultClusterParameters = DescribeDefaultClusterParametersResponse
 
     request  = post "DescribeDefaultClusterParameters"
-    response = xmlResponse $ \h x -> DescribeDefaultClusterParametersResponse
-        <$> x %| "DefaultClusterParameters"
+    response = xmlResponse
 
-instance AWSPager DescribeDefaultClusterParameters where
-    next rq rs = (\x -> rq & ddcpMarker ?~ x)
-        <$> (rs ^. ddcprDefaultClusterParameters . dcpMarker)
+instance FromXML DescribeDefaultClusterParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResponse"
+
+instance ToPath DescribeDefaultClusterParameters where
+    toPath = const "/"
+
+instance ToHeaders DescribeDefaultClusterParameters
+
+instance ToQuery DescribeDefaultClusterParameters

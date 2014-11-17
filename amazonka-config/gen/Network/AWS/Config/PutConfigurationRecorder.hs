@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.Config.PutConfigurationRecorder
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ pcrConfigurationRecorder =
     lens _pcrConfigurationRecorder
         (\s a -> s { _pcrConfigurationRecorder = a })
 
-instance ToPath PutConfigurationRecorder where
-    toPath = const "/"
-
-instance ToQuery PutConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToHeaders PutConfigurationRecorder
-
-instance ToBody PutConfigurationRecorder where
-    toBody = toBody . encode . _pcrConfigurationRecorder
-
 data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +77,15 @@ instance AWSRequest PutConfigurationRecorder where
     type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
 
     request  = post
-    response = nullaryResponse PutConfigurationRecorderResponse
+    response = nullResponse PutConfigurationRecorderResponse
+
+instance ToPath PutConfigurationRecorder where
+    toPath = const "/"
+
+instance ToHeaders PutConfigurationRecorder
+
+instance ToQuery PutConfigurationRecorder where
+    toQuery = const mempty
+
+instance ToJSON PutConfigurationRecorder where
+    toJSON = genericToJSON jsonOptions

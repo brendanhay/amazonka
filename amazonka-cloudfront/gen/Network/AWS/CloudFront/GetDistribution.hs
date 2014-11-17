@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.GetDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ getDistribution p1 = GetDistribution
 -- | The distribution's id.
 gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\s a -> s { _gdId = a })
-
-instance ToPath GetDistribution where
-    toPath GetDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _gdId
-        ]
-
-instance ToQuery GetDistribution where
-    toQuery = const mempty
-
-instance ToHeaders GetDistribution
 
 data GetDistributionResponse = GetDistributionResponse
     { _gdrDistribution :: Maybe Distribution
@@ -106,6 +95,21 @@ instance AWSRequest GetDistribution where
     type Rs GetDistribution = GetDistributionResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetDistributionResponse
+    response = xmlHeaderResponse $ \h x -> GetDistributionResponse
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
+
+instance ToPath GetDistribution where
+    toPath GetDistribution{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _gdId
+        ]
+
+instance ToHeaders GetDistribution
+
+instance ToQuery GetDistribution where
+    toQuery = const mempty
+
+instance ToXML GetDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetDistribution"

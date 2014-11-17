@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.RevokeGrant
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.KMS.RevokeGrant
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ rgGrantId = lens _rgGrantId (\s a -> s { _rgGrantId = a })
 rgKeyId :: Lens' RevokeGrant Text
 rgKeyId = lens _rgKeyId (\s a -> s { _rgKeyId = a })
 
-instance ToPath RevokeGrant where
-    toPath = const "/"
-
-instance ToQuery RevokeGrant where
-    toQuery = const mempty
-
-instance ToHeaders RevokeGrant
-
-instance ToBody RevokeGrant where
-    toBody = toBody . encode . _rgKeyId
-
 data RevokeGrantResponse = RevokeGrantResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -93,4 +82,15 @@ instance AWSRequest RevokeGrant where
     type Rs RevokeGrant = RevokeGrantResponse
 
     request  = post
-    response = nullaryResponse RevokeGrantResponse
+    response = nullResponse RevokeGrantResponse
+
+instance ToPath RevokeGrant where
+    toPath = const "/"
+
+instance ToHeaders RevokeGrant
+
+instance ToQuery RevokeGrant where
+    toQuery = const mempty
+
+instance ToJSON RevokeGrant where
+    toJSON = genericToJSON jsonOptions

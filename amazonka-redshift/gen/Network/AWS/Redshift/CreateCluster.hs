@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CreateCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -355,11 +355,6 @@ ccVpcSecurityGroupIds :: Lens' CreateCluster [Text]
 ccVpcSecurityGroupIds =
     lens _ccVpcSecurityGroupIds (\s a -> s { _ccVpcSecurityGroupIds = a })
 
-instance ToQuery CreateCluster
-
-instance ToPath CreateCluster where
-    toPath = const "/"
-
 newtype CreateClusterResponse = CreateClusterResponse
     { _ccrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -383,5 +378,15 @@ instance AWSRequest CreateCluster where
     type Rs CreateCluster = CreateClusterResponse
 
     request  = post "CreateCluster"
-    response = xmlResponse $ \h x -> CreateClusterResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML CreateClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateClusterResponse"
+
+instance ToPath CreateCluster where
+    toPath = const "/"
+
+instance ToHeaders CreateCluster
+
+instance ToQuery CreateCluster

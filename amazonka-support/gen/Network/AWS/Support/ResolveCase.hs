@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.ResolveCase
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Support.ResolveCase
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ resolveCase = ResolveCase
 -- case-12345678910-2013-c4c1d2bf33c5cf47.
 rcCaseId :: Lens' ResolveCase (Maybe Text)
 rcCaseId = lens _rcCaseId (\s a -> s { _rcCaseId = a })
-
-instance ToPath ResolveCase where
-    toPath = const "/"
-
-instance ToQuery ResolveCase where
-    toQuery = const mempty
-
-instance ToHeaders ResolveCase
-
-instance ToBody ResolveCase where
-    toBody = toBody . encode . _rcCaseId
 
 data ResolveCaseResponse = ResolveCaseResponse
     { _rcrFinalCaseStatus   :: Maybe Text
@@ -109,6 +98,18 @@ instance AWSRequest ResolveCase where
     type Rs ResolveCase = ResolveCaseResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ResolveCaseResponse
-        <$> o .: "finalCaseStatus"
-        <*> o .: "initialCaseStatus"
+    response = jsonResponse
+
+instance FromJSON ResolveCaseResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ResolveCase where
+    toPath = const "/"
+
+instance ToHeaders ResolveCase
+
+instance ToQuery ResolveCase where
+    toQuery = const mempty
+
+instance ToJSON ResolveCase where
+    toJSON = genericToJSON jsonOptions

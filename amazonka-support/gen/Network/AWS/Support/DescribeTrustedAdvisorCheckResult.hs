@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -80,17 +80,6 @@ dtacrCheckId = lens _dtacrCheckId (\s a -> s { _dtacrCheckId = a })
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
 dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
 
-instance ToPath DescribeTrustedAdvisorCheckResult where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorCheckResult where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorCheckResult
-
-instance ToBody DescribeTrustedAdvisorCheckResult where
-    toBody = toBody . encode . _dtacrCheckId
-
 newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
     } deriving (Eq, Show, Generic)
@@ -115,5 +104,18 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult where
     type Rs DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResultResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTrustedAdvisorCheckResultResponse
-        <$> o .: "result"
+    response = jsonResponse
+
+instance FromJSON DescribeTrustedAdvisorCheckResultResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTrustedAdvisorCheckResult where
+    toPath = const "/"
+
+instance ToHeaders DescribeTrustedAdvisorCheckResult
+
+instance ToQuery DescribeTrustedAdvisorCheckResult where
+    toQuery = const mempty
+
+instance ToJSON DescribeTrustedAdvisorCheckResult where
+    toJSON = genericToJSON jsonOptions

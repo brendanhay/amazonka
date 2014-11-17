@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.PutNotificationConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ pncNotificationTypes =
 pncTopicARN :: Lens' PutNotificationConfiguration Text
 pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
 
-instance ToQuery PutNotificationConfiguration
-
-instance ToPath PutNotificationConfiguration where
-    toPath = const "/"
-
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -105,4 +100,11 @@ instance AWSRequest PutNotificationConfiguration where
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
 
     request  = post "PutNotificationConfiguration"
-    response = nullaryResponse PutNotificationConfigurationResponse
+    response = nullResponse PutNotificationConfigurationResponse
+
+instance ToPath PutNotificationConfiguration where
+    toPath = const "/"
+
+instance ToHeaders PutNotificationConfiguration
+
+instance ToQuery PutNotificationConfiguration

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccountPasswordPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -162,11 +162,6 @@ uappRequireUppercaseCharacters =
     lens _uappRequireUppercaseCharacters
         (\s a -> s { _uappRequireUppercaseCharacters = a })
 
-instance ToQuery UpdateAccountPasswordPolicy
-
-instance ToPath UpdateAccountPasswordPolicy where
-    toPath = const "/"
-
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -179,4 +174,11 @@ instance AWSRequest UpdateAccountPasswordPolicy where
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
 
     request  = post "UpdateAccountPasswordPolicy"
-    response = nullaryResponse UpdateAccountPasswordPolicyResponse
+    response = nullResponse UpdateAccountPasswordPolicyResponse
+
+instance ToPath UpdateAccountPasswordPolicy where
+    toPath = const "/"
+
+instance ToHeaders UpdateAccountPasswordPolicy
+
+instance ToQuery UpdateAccountPasswordPolicy

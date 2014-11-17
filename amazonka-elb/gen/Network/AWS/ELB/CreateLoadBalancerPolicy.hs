@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyTypeName =
     lens _clbpPolicyTypeName (\s a -> s { _clbpPolicyTypeName = a })
 
-instance ToQuery CreateLoadBalancerPolicy
-
-instance ToPath CreateLoadBalancerPolicy where
-    toPath = const "/"
-
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -114,4 +109,11 @@ instance AWSRequest CreateLoadBalancerPolicy where
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
 
     request  = post "CreateLoadBalancerPolicy"
-    response = nullaryResponse CreateLoadBalancerPolicyResponse
+    response = nullResponse CreateLoadBalancerPolicyResponse
+
+instance ToPath CreateLoadBalancerPolicy where
+    toPath = const "/"
+
+instance ToHeaders CreateLoadBalancerPolicy
+
+instance ToQuery CreateLoadBalancerPolicy

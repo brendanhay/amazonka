@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dcsg1ClusterSecurityGroupName =
     lens _dcsg1ClusterSecurityGroupName
         (\s a -> s { _dcsg1ClusterSecurityGroupName = a })
 
-instance ToQuery DeleteClusterSecurityGroup
-
-instance ToPath DeleteClusterSecurityGroup where
-    toPath = const "/"
-
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest DeleteClusterSecurityGroup where
     type Rs DeleteClusterSecurityGroup = DeleteClusterSecurityGroupResponse
 
     request  = post "DeleteClusterSecurityGroup"
-    response = nullaryResponse DeleteClusterSecurityGroupResponse
+    response = nullResponse DeleteClusterSecurityGroupResponse
+
+instance ToPath DeleteClusterSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteClusterSecurityGroup
+
+instance ToQuery DeleteClusterSecurityGroup

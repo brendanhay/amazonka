@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -97,17 +97,6 @@ cupSshPublicKey = lens _cupSshPublicKey (\s a -> s { _cupSshPublicKey = a })
 cupSshUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSshUsername = lens _cupSshUsername (\s a -> s { _cupSshUsername = a })
 
-instance ToPath CreateUserProfile where
-    toPath = const "/"
-
-instance ToQuery CreateUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders CreateUserProfile
-
-instance ToBody CreateUserProfile where
-    toBody = toBody . encode . _cupIamUserArn
-
 newtype CreateUserProfileResponse = CreateUserProfileResponse
     { _cuprIamUserArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -132,5 +121,18 @@ instance AWSRequest CreateUserProfile where
     type Rs CreateUserProfile = CreateUserProfileResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateUserProfileResponse
-        <$> o .: "IamUserArn"
+    response = jsonResponse
+
+instance FromJSON CreateUserProfileResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateUserProfile where
+    toPath = const "/"
+
+instance ToHeaders CreateUserProfile
+
+instance ToQuery CreateUserProfile where
+    toQuery = const mempty
+
+instance ToJSON CreateUserProfile where
+    toJSON = genericToJSON jsonOptions

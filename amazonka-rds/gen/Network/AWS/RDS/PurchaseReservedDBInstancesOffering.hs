@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ prdbioReservedDBInstancesOfferingId =
 prdbioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
 prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a })
 
-instance ToQuery PurchaseReservedDBInstancesOffering
-
-instance ToPath PurchaseReservedDBInstancesOffering where
-    toPath = const "/"
-
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
     } deriving (Eq, Show, Generic)
@@ -124,5 +119,15 @@ instance AWSRequest PurchaseReservedDBInstancesOffering where
     type Rs PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOfferingResponse
 
     request  = post "PurchaseReservedDBInstancesOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedDBInstancesOfferingResponse
-        <$> x %| "ReservedDBInstance"
+    response = xmlResponse
+
+instance FromXML PurchaseReservedDBInstancesOfferingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResponse"
+
+instance ToPath PurchaseReservedDBInstancesOffering where
+    toPath = const "/"
+
+instance ToHeaders PurchaseReservedDBInstancesOffering
+
+instance ToQuery PurchaseReservedDBInstancesOffering

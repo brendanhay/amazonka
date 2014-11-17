@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -102,11 +102,6 @@ ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupName =
     lens _ccpgParameterGroupName (\s a -> s { _ccpgParameterGroupName = a })
 
-instance ToQuery CreateClusterParameterGroup
-
-instance ToPath CreateClusterParameterGroup where
-    toPath = const "/"
-
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
     } deriving (Eq, Show, Generic)
@@ -132,5 +127,15 @@ instance AWSRequest CreateClusterParameterGroup where
     type Rs CreateClusterParameterGroup = CreateClusterParameterGroupResponse
 
     request  = post "CreateClusterParameterGroup"
-    response = xmlResponse $ \h x -> CreateClusterParameterGroupResponse
-        <$> x %| "ClusterParameterGroup"
+    response = xmlResponse
+
+instance FromXML CreateClusterParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateClusterParameterGroupResponse"
+
+instance ToPath CreateClusterParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateClusterParameterGroup
+
+instance ToQuery CreateClusterParameterGroup

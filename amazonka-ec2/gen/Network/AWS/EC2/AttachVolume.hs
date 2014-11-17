@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AttachVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -115,11 +115,6 @@ avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 
-instance ToQuery AttachVolume
-
-instance ToPath AttachVolume where
-    toPath = const "/"
-
 data AttachVolumeResponse = AttachVolumeResponse
     { _avrAttachTime          :: Maybe RFC822
     , _avrDeleteOnTermination :: Maybe Bool
@@ -187,10 +182,15 @@ instance AWSRequest AttachVolume where
     type Rs AttachVolume = AttachVolumeResponse
 
     request  = post "AttachVolume"
-    response = xmlResponse $ \h x -> AttachVolumeResponse
-        <$> x %| "attachTime"
-        <*> x %| "deleteOnTermination"
-        <*> x %| "device"
-        <*> x %| "instanceId"
-        <*> x %| "status"
-        <*> x %| "volumeId"
+    response = xmlResponse
+
+instance FromXML AttachVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachVolumeResponse"
+
+instance ToPath AttachVolume where
+    toPath = const "/"
+
+instance ToHeaders AttachVolume
+
+instance ToQuery AttachVolume

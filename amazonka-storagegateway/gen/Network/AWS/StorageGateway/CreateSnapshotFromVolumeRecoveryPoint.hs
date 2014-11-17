@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,7 +52,7 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -84,17 +84,6 @@ csfvrpSnapshotDescription =
 
 csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpVolumeARN = lens _csfvrpVolumeARN (\s a -> s { _csfvrpVolumeARN = a })
-
-instance ToPath CreateSnapshotFromVolumeRecoveryPoint where
-    toPath = const "/"
-
-instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
-    toQuery = const mempty
-
-instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
-
-instance ToBody CreateSnapshotFromVolumeRecoveryPoint where
-    toBody = toBody . encode . _csfvrpVolumeARN
 
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
     { _csfvrprSnapshotId              :: Maybe Text
@@ -136,7 +125,18 @@ instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateSnapshotFromVolumeRecoveryPointResponse
-        <$> o .: "SnapshotId"
-        <*> o .: "VolumeARN"
-        <*> o .: "VolumeRecoveryPointTime"
+    response = jsonResponse
+
+instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateSnapshotFromVolumeRecoveryPoint where
+    toPath = const "/"
+
+instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
+
+instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
+    toQuery = const mempty
+
+instance ToJSON CreateSnapshotFromVolumeRecoveryPoint where
+    toJSON = genericToJSON jsonOptions

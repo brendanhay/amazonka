@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteLaunchConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dlcLaunchConfigurationName =
     lens _dlcLaunchConfigurationName
         (\s a -> s { _dlcLaunchConfigurationName = a })
 
-instance ToQuery DeleteLaunchConfiguration
-
-instance ToPath DeleteLaunchConfiguration where
-    toPath = const "/"
-
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest DeleteLaunchConfiguration where
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
 
     request  = post "DeleteLaunchConfiguration"
-    response = nullaryResponse DeleteLaunchConfigurationResponse
+    response = nullResponse DeleteLaunchConfigurationResponse
+
+instance ToPath DeleteLaunchConfiguration where
+    toPath = const "/"
+
+instance ToHeaders DeleteLaunchConfiguration
+
+instance ToQuery DeleteLaunchConfiguration

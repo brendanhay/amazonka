@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -114,11 +114,6 @@ driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds =
     lens _driReservedInstancesIds (\s a -> s { _driReservedInstancesIds = a })
 
-instance ToQuery DescribeReservedInstances
-
-instance ToPath DescribeReservedInstances where
-    toPath = const "/"
-
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: [ReservedInstances]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -150,5 +145,15 @@ instance AWSRequest DescribeReservedInstances where
     type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
 
     request  = post "DescribeReservedInstances"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesResponse
-        <$> x %| "reservedInstancesSet"
+    response = xmlResponse
+
+instance FromXML DescribeReservedInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesResponse"
+
+instance ToPath DescribeReservedInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedInstances
+
+instance ToQuery DescribeReservedInstances

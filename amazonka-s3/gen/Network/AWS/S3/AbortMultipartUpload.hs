@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.AbortMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.S3.AbortMultipartUpload
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -78,19 +78,6 @@ amuKey = lens _amuKey (\s a -> s { _amuKey = a })
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
 
-instance ToPath AbortMultipartUpload where
-    toPath AbortMultipartUpload{..} = mconcat
-        [ "/"
-        , toText _amuBucket
-        , "/"
-        , toText _amuKey
-        ]
-
-instance ToQuery AbortMultipartUpload where
-    toQuery rq = "uploadId" =? _amuUploadId rq
-
-instance ToHeaders AbortMultipartUpload
-
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -103,4 +90,21 @@ instance AWSRequest AbortMultipartUpload where
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
     request  = delete
-    response = nullaryResponse AbortMultipartUploadResponse
+    response = nullResponse AbortMultipartUploadResponse
+
+instance ToPath AbortMultipartUpload where
+    toPath AbortMultipartUpload{..} = mconcat
+        [ "/"
+        , toText _amuBucket
+        , "/"
+        , toText _amuKey
+        ]
+
+instance ToHeaders AbortMultipartUpload
+
+instance ToQuery AbortMultipartUpload where
+    toQuery rq = "uploadId" =? _amuUploadId rq
+
+instance ToXML AbortMultipartUpload where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AbortMultipartUpload"

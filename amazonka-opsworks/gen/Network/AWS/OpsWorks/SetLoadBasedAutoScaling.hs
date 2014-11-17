@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -95,17 +95,6 @@ slbasLayerId = lens _slbasLayerId (\s a -> s { _slbasLayerId = a })
 slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasUpScaling = lens _slbasUpScaling (\s a -> s { _slbasUpScaling = a })
 
-instance ToPath SetLoadBasedAutoScaling where
-    toPath = const "/"
-
-instance ToQuery SetLoadBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToHeaders SetLoadBasedAutoScaling
-
-instance ToBody SetLoadBasedAutoScaling where
-    toBody = toBody . encode . _slbasLayerId
-
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -118,4 +107,15 @@ instance AWSRequest SetLoadBasedAutoScaling where
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse
 
     request  = post
-    response = nullaryResponse SetLoadBasedAutoScalingResponse
+    response = nullResponse SetLoadBasedAutoScalingResponse
+
+instance ToPath SetLoadBasedAutoScaling where
+    toPath = const "/"
+
+instance ToHeaders SetLoadBasedAutoScaling
+
+instance ToQuery SetLoadBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToJSON SetLoadBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions

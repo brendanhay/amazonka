@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateDeployment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,7 +49,7 @@ module Network.AWS.OpsWorks.CreateDeployment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -121,17 +121,6 @@ cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a })
 cdStackId :: Lens' CreateDeployment Text
 cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
 
-instance ToPath CreateDeployment where
-    toPath = const "/"
-
-instance ToQuery CreateDeployment where
-    toQuery = const mempty
-
-instance ToHeaders CreateDeployment
-
-instance ToBody CreateDeployment where
-    toBody = toBody . encode . _cdStackId
-
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -157,5 +146,18 @@ instance AWSRequest CreateDeployment where
     type Rs CreateDeployment = CreateDeploymentResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateDeploymentResponse
-        <$> o .: "DeploymentId"
+    response = jsonResponse
+
+instance FromJSON CreateDeploymentResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateDeployment where
+    toPath = const "/"
+
+instance ToHeaders CreateDeployment
+
+instance ToQuery CreateDeployment where
+    toQuery = const mempty
+
+instance ToJSON CreateDeployment where
+    toJSON = genericToJSON jsonOptions

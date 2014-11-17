@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.AssociateVPCWithHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -91,21 +91,6 @@ avpcwhzHostedZoneId =
 avpcwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avpcwhzVPC = lens _avpcwhzVPC (\s a -> s { _avpcwhzVPC = a })
 
-instance ToPath AssociateVPCWithHostedZone where
-    toPath AssociateVPCWithHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _avpcwhzHostedZoneId
-        , "/associatevpc"
-        ]
-
-instance ToQuery AssociateVPCWithHostedZone where
-    toQuery = const mempty
-
-instance ToHeaders AssociateVPCWithHostedZone
-
-instance ToBody AssociateVPCWithHostedZone where
-    toBody = toBody . encodeXML . _avpcwhzVPC
-
 newtype AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse
     { _avpcwhzrChangeInfo :: ChangeInfo
     } deriving (Eq, Show, Generic)
@@ -133,5 +118,24 @@ instance AWSRequest AssociateVPCWithHostedZone where
     type Rs AssociateVPCWithHostedZone = AssociateVPCWithHostedZoneResponse
 
     request  = post
-    response = xmlResponse $ \h x -> AssociateVPCWithHostedZoneResponse
-        <$> x %| "ChangeInfo"
+    response = xmlResponse
+
+instance FromXML AssociateVPCWithHostedZoneResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateVPCWithHostedZoneResponse"
+
+instance ToPath AssociateVPCWithHostedZone where
+    toPath AssociateVPCWithHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _avpcwhzHostedZoneId
+        , "/associatevpc"
+        ]
+
+instance ToHeaders AssociateVPCWithHostedZone
+
+instance ToQuery AssociateVPCWithHostedZone where
+    toQuery = const mempty
+
+instance ToXML AssociateVPCWithHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AssociateVPCWithHostedZone"

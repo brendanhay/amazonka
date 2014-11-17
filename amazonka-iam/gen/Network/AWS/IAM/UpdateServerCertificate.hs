@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateServerCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ usc1ServerCertificateName =
     lens _usc1ServerCertificateName
         (\s a -> s { _usc1ServerCertificateName = a })
 
-instance ToQuery UpdateServerCertificate
-
-instance ToPath UpdateServerCertificate where
-    toPath = const "/"
-
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -103,4 +98,11 @@ instance AWSRequest UpdateServerCertificate where
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse
 
     request  = post "UpdateServerCertificate"
-    response = nullaryResponse UpdateServerCertificateResponse
+    response = nullResponse UpdateServerCertificateResponse
+
+instance ToPath UpdateServerCertificate where
+    toPath = const "/"
+
+instance ToHeaders UpdateServerCertificate
+
+instance ToQuery UpdateServerCertificate

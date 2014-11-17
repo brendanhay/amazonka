@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ uaApplicationName =
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 
-instance ToQuery UpdateApplication
-
-instance ToPath UpdateApplication where
-    toPath = const "/"
-
 newtype UpdateApplicationResponse = UpdateApplicationResponse
     { _uarApplication :: Maybe ApplicationDescription
     } deriving (Eq, Show, Generic)
@@ -102,5 +97,15 @@ instance AWSRequest UpdateApplication where
     type Rs UpdateApplication = UpdateApplicationResponse
 
     request  = post "UpdateApplication"
-    response = xmlResponse $ \h x -> UpdateApplicationResponse
-        <$> x %| "Application"
+    response = xmlResponse
+
+instance FromXML UpdateApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateApplicationResponse"
+
+instance ToPath UpdateApplication where
+    toPath = const "/"
+
+instance ToHeaders UpdateApplication
+
+instance ToQuery UpdateApplication

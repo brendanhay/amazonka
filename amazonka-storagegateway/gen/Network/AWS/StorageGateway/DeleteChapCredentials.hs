@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ dcc1InitiatorName =
 dcc1TargetARN :: Lens' DeleteChapCredentials Text
 dcc1TargetARN = lens _dcc1TargetARN (\s a -> s { _dcc1TargetARN = a })
 
-instance ToPath DeleteChapCredentials where
-    toPath = const "/"
-
-instance ToQuery DeleteChapCredentials where
-    toQuery = const mempty
-
-instance ToHeaders DeleteChapCredentials
-
-instance ToBody DeleteChapCredentials where
-    toBody = toBody . encode . _dcc1TargetARN
-
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
     { _dccrInitiatorName :: Maybe Text
     , _dccrTargetARN     :: Maybe Text
@@ -120,6 +109,18 @@ instance AWSRequest DeleteChapCredentials where
     type Rs DeleteChapCredentials = DeleteChapCredentialsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteChapCredentialsResponse
-        <$> o .: "InitiatorName"
-        <*> o .: "TargetARN"
+    response = jsonResponse
+
+instance FromJSON DeleteChapCredentialsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteChapCredentials where
+    toPath = const "/"
+
+instance ToHeaders DeleteChapCredentials
+
+instance ToQuery DeleteChapCredentials where
+    toQuery = const mempty
+
+instance ToJSON DeleteChapCredentials where
+    toJSON = genericToJSON jsonOptions

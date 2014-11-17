@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.UnassignPrivateIpAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiaPrivateIpAddresses =
     lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })
 
-instance ToQuery UnassignPrivateIpAddresses
-
-instance ToPath UnassignPrivateIpAddresses where
-    toPath = const "/"
-
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +85,11 @@ instance AWSRequest UnassignPrivateIpAddresses where
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse
 
     request  = post "UnassignPrivateIpAddresses"
-    response = nullaryResponse UnassignPrivateIpAddressesResponse
+    response = nullResponse UnassignPrivateIpAddressesResponse
+
+instance ToPath UnassignPrivateIpAddresses where
+    toPath = const "/"
+
+instance ToHeaders UnassignPrivateIpAddresses
+
+instance ToQuery UnassignPrivateIpAddresses

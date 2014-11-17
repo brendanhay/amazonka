@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
 dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a })
-
-instance ToPath DescribeTrustedAdvisorCheckSummaries where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorCheckSummaries where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorCheckSummaries
-
-instance ToBody DescribeTrustedAdvisorCheckSummaries where
-    toBody = toBody . encode . _dtacsCheckIds
 
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
     { _dtacsrSummaries :: [TrustedAdvisorCheckSummary]
@@ -110,5 +99,18 @@ instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
     type Rs DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummariesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTrustedAdvisorCheckSummariesResponse
-        <$> o .: "summaries"
+    response = jsonResponse
+
+instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTrustedAdvisorCheckSummaries where
+    toPath = const "/"
+
+instance ToHeaders DescribeTrustedAdvisorCheckSummaries
+
+instance ToQuery DescribeTrustedAdvisorCheckSummaries where
+    toQuery = const mempty
+
+instance ToJSON DescribeTrustedAdvisorCheckSummaries where
+    toJSON = genericToJSON jsonOptions

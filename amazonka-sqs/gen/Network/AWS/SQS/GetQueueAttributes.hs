@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.GetQueueAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ gqaAttributeNames =
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
-instance ToQuery GetQueueAttributes
-
-instance ToPath GetQueueAttributes where
-    toPath = const "/"
-
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -125,5 +120,15 @@ instance AWSRequest GetQueueAttributes where
     type Rs GetQueueAttributes = GetQueueAttributesResponse
 
     request  = post "GetQueueAttributes"
-    response = xmlResponse $ \h x -> GetQueueAttributesResponse
-        <$> x %| "Attribute"
+    response = xmlResponse
+
+instance FromXML GetQueueAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetQueueAttributesResponse"
+
+instance ToPath GetQueueAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetQueueAttributes
+
+instance ToQuery GetQueueAttributes

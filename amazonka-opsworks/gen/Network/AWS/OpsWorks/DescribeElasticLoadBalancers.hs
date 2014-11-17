@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeElasticLoadBalancers
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ delbLayerIds = lens _delbLayerIds (\s a -> s { _delbLayerIds = a })
 -- instances.
 delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
 delbStackId = lens _delbStackId (\s a -> s { _delbStackId = a })
-
-instance ToPath DescribeElasticLoadBalancers where
-    toPath = const "/"
-
-instance ToQuery DescribeElasticLoadBalancers where
-    toQuery = const mempty
-
-instance ToHeaders DescribeElasticLoadBalancers
-
-instance ToBody DescribeElasticLoadBalancers where
-    toBody = toBody . encode . _delbStackId
 
 newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers :: [ElasticLoadBalancer]
@@ -119,5 +108,18 @@ instance AWSRequest DescribeElasticLoadBalancers where
     type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeElasticLoadBalancersResponse
-        <$> o .: "ElasticLoadBalancers"
+    response = jsonResponse
+
+instance FromJSON DescribeElasticLoadBalancersResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeElasticLoadBalancers where
+    toPath = const "/"
+
+instance ToHeaders DescribeElasticLoadBalancers
+
+instance ToQuery DescribeElasticLoadBalancers where
+    toQuery = const mempty
+
+instance ToJSON DescribeElasticLoadBalancers where
+    toJSON = genericToJSON jsonOptions

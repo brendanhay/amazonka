@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpcs
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a })
 dv1VpcIds :: Lens' DescribeVpcs [Text]
 dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a })
 
-instance ToQuery DescribeVpcs
-
-instance ToPath DescribeVpcs where
-    toPath = const "/"
-
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs :: [Vpc]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -126,5 +121,15 @@ instance AWSRequest DescribeVpcs where
     type Rs DescribeVpcs = DescribeVpcsResponse
 
     request  = post "DescribeVpcs"
-    response = xmlResponse $ \h x -> DescribeVpcsResponse
-        <$> x %| "vpcSet"
+    response = xmlResponse
+
+instance FromXML DescribeVpcsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpcsResponse"
+
+instance ToPath DescribeVpcs where
+    toPath = const "/"
+
+instance ToHeaders DescribeVpcs
+
+instance ToQuery DescribeVpcs

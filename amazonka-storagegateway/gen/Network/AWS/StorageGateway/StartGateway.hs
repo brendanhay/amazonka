@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.StartGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.StartGateway
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ startGateway p1 = StartGateway
 
 sgGatewayARN :: Lens' StartGateway Text
 sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
-
-instance ToPath StartGateway where
-    toPath = const "/"
-
-instance ToQuery StartGateway where
-    toQuery = const mempty
-
-instance ToHeaders StartGateway
-
-instance ToBody StartGateway where
-    toBody = toBody . encode . _sgGatewayARN
 
 newtype StartGatewayResponse = StartGatewayResponse
     { _sgrGatewayARN :: Maybe Text
@@ -99,5 +88,18 @@ instance AWSRequest StartGateway where
     type Rs StartGateway = StartGatewayResponse
 
     request  = post
-    response = jsonResponse $ \h o -> StartGatewayResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON StartGatewayResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath StartGateway where
+    toPath = const "/"
+
+instance ToHeaders StartGateway
+
+instance ToQuery StartGateway where
+    toQuery = const mempty
+
+instance ToJSON StartGateway where
+    toJSON = genericToJSON jsonOptions

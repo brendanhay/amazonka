@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.RegisterDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,7 +62,7 @@ module Network.AWS.Route53Domains.RegisterDomain
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -200,17 +200,6 @@ rdRegistrantContact =
 rdTechContact :: Lens' RegisterDomain ContactDetail
 rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
 
-instance ToPath RegisterDomain where
-    toPath = const "/"
-
-instance ToQuery RegisterDomain where
-    toQuery = const mempty
-
-instance ToHeaders RegisterDomain
-
-instance ToBody RegisterDomain where
-    toBody = toBody . encode . _rdDomainName
-
 newtype RegisterDomainResponse = RegisterDomainResponse
     { _rdrOperationId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -238,5 +227,18 @@ instance AWSRequest RegisterDomain where
     type Rs RegisterDomain = RegisterDomainResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RegisterDomainResponse
-        <$> o .: "OperationId"
+    response = jsonResponse
+
+instance FromJSON RegisterDomainResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RegisterDomain where
+    toPath = const "/"
+
+instance ToHeaders RegisterDomain
+
+instance ToQuery RegisterDomain where
+    toQuery = const mempty
+
+instance ToJSON RegisterDomain where
+    toJSON = genericToJSON jsonOptions

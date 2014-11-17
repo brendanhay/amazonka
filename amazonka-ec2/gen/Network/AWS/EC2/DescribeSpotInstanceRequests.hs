@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotInstanceRequests
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -144,11 +144,6 @@ dsirSpotInstanceRequestIds =
     lens _dsirSpotInstanceRequestIds
         (\s a -> s { _dsirSpotInstanceRequestIds = a })
 
-instance ToQuery DescribeSpotInstanceRequests
-
-instance ToPath DescribeSpotInstanceRequests where
-    toPath = const "/"
-
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -181,5 +176,15 @@ instance AWSRequest DescribeSpotInstanceRequests where
     type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResponse
 
     request  = post "DescribeSpotInstanceRequests"
-    response = xmlResponse $ \h x -> DescribeSpotInstanceRequestsResponse
-        <$> x %| "spotInstanceRequestSet"
+    response = xmlResponse
+
+instance FromXML DescribeSpotInstanceRequestsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResponse"
+
+instance ToPath DescribeSpotInstanceRequests where
+    toPath = const "/"
+
+instance ToHeaders DescribeSpotInstanceRequests
+
+instance ToQuery DescribeSpotInstanceRequests

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.GenerateRandom
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.KMS.GenerateRandom
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ generateRandom = GenerateRandom
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
 grNumberOfBytes = lens _grNumberOfBytes (\s a -> s { _grNumberOfBytes = a })
     . mapping _Nat
-
-instance ToPath GenerateRandom where
-    toPath = const "/"
-
-instance ToQuery GenerateRandom where
-    toQuery = const mempty
-
-instance ToHeaders GenerateRandom
-
-instance ToBody GenerateRandom where
-    toBody = toBody . encode . _grNumberOfBytes
 
 newtype GenerateRandomResponse = GenerateRandomResponse
     { _grrPlaintext :: Maybe Base64
@@ -97,5 +86,18 @@ instance AWSRequest GenerateRandom where
     type Rs GenerateRandom = GenerateRandomResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GenerateRandomResponse
-        <$> o .: "Plaintext"
+    response = jsonResponse
+
+instance FromJSON GenerateRandomResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GenerateRandom where
+    toPath = const "/"
+
+instance ToHeaders GenerateRandom
+
+instance ToQuery GenerateRandom where
+    toQuery = const mempty
+
+instance ToJSON GenerateRandom where
+    toJSON = genericToJSON jsonOptions

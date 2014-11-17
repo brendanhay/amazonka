@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,7 +59,7 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -105,17 +105,6 @@ apviNewPrivateVirtualInterfaceAllocation =
 -- None.
 apviOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
 apviOwnerAccount = lens _apviOwnerAccount (\s a -> s { _apviOwnerAccount = a })
-
-instance ToPath AllocatePrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToQuery AllocatePrivateVirtualInterface where
-    toQuery = const mempty
-
-instance ToHeaders AllocatePrivateVirtualInterface
-
-instance ToBody AllocatePrivateVirtualInterface where
-    toBody = toBody . encode . _apviConnectionId
 
 data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceResponse
     { _apvirAmazonAddress         :: Maybe Text
@@ -255,19 +244,18 @@ instance AWSRequest AllocatePrivateVirtualInterface where
     type Rs AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterfaceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AllocatePrivateVirtualInterfaceResponse
-        <$> o .: "amazonAddress"
-        <*> o .: "asn"
-        <*> o .: "authKey"
-        <*> o .: "connectionId"
-        <*> o .: "customerAddress"
-        <*> o .: "customerRouterConfig"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
-        <*> o .: "virtualGatewayId"
-        <*> o .: "virtualInterfaceId"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "virtualInterfaceState"
-        <*> o .: "virtualInterfaceType"
-        <*> o .: "vlan"
+    response = jsonResponse
+
+instance FromJSON AllocatePrivateVirtualInterfaceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AllocatePrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToHeaders AllocatePrivateVirtualInterface
+
+instance ToQuery AllocatePrivateVirtualInterface where
+    toQuery = const mempty
+
+instance ToJSON AllocatePrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions

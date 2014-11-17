@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ dctApplicationName =
 dctTemplateName :: Lens' DeleteConfigurationTemplate Text
 dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
 
-instance ToQuery DeleteConfigurationTemplate
-
-instance ToPath DeleteConfigurationTemplate where
-    toPath = const "/"
-
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest DeleteConfigurationTemplate where
     type Rs DeleteConfigurationTemplate = DeleteConfigurationTemplateResponse
 
     request  = post "DeleteConfigurationTemplate"
-    response = nullaryResponse DeleteConfigurationTemplateResponse
+    response = nullResponse DeleteConfigurationTemplateResponse
+
+instance ToPath DeleteConfigurationTemplate where
+    toPath = const "/"
+
+instance ToHeaders DeleteConfigurationTemplate
+
+instance ToQuery DeleteConfigurationTemplate

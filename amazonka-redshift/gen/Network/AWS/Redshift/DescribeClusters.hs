@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -96,11 +96,6 @@ dcMarker = lens _dcMarker (\s a -> s { _dcMarker = a })
 dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\s a -> s { _dcMaxRecords = a })
 
-instance ToQuery DescribeClusters
-
-instance ToPath DescribeClusters where
-    toPath = const "/"
-
 data DescribeClustersResponse = DescribeClustersResponse
     { _dcrClusters :: [Cluster]
     , _dcrMarker   :: Maybe Text
@@ -138,10 +133,15 @@ instance AWSRequest DescribeClusters where
     type Rs DescribeClusters = DescribeClustersResponse
 
     request  = post "DescribeClusters"
-    response = xmlResponse $ \h x -> DescribeClustersResponse
-        <$> x %| "Clusters"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeClusters where
-    next rq rs = (\x -> rq & dcMarker ?~ x)
-        <$> (rs ^. dcrMarker)
+instance FromXML DescribeClustersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClustersResponse"
+
+instance ToPath DescribeClusters where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusters
+
+instance ToQuery DescribeClusters

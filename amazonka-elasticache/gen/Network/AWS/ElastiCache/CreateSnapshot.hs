@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ csCacheClusterId = lens _csCacheClusterId (\s a -> s { _csCacheClusterId = a })
 csSnapshotName :: Lens' CreateSnapshot Text
 csSnapshotName = lens _csSnapshotName (\s a -> s { _csSnapshotName = a })
 
-instance ToQuery CreateSnapshot
-
-instance ToPath CreateSnapshot where
-    toPath = const "/"
-
 newtype CreateSnapshotResponse = CreateSnapshotResponse
     { _csr1Snapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest CreateSnapshot where
     type Rs CreateSnapshot = CreateSnapshotResponse
 
     request  = post "CreateSnapshot"
-    response = xmlResponse $ \h x -> CreateSnapshotResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML CreateSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
+
+instance ToPath CreateSnapshot where
+    toPath = const "/"
+
+instance ToHeaders CreateSnapshot
+
+instance ToQuery CreateSnapshot

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ getBucketCors p1 = GetBucketCors
 
 gbcBucket :: Lens' GetBucketCors Text
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
-
-instance ToPath GetBucketCors where
-    toPath GetBucketCors{..} = mconcat
-        [ "/"
-        , toText _gbcBucket
-        ]
-
-instance ToQuery GetBucketCors where
-    toQuery = const "cors"
-
-instance ToHeaders GetBucketCors
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules :: [CORSRule]
@@ -100,5 +89,23 @@ instance AWSRequest GetBucketCors where
     type Rs GetBucketCors = GetBucketCorsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketCorsResponse
-        <$> x %| "CORSRule"
+    response = xmlResponse
+
+instance FromXML GetBucketCorsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketCorsResponse"
+
+instance ToPath GetBucketCors where
+    toPath GetBucketCors{..} = mconcat
+        [ "/"
+        , toText _gbcBucket
+        ]
+
+instance ToHeaders GetBucketCors
+
+instance ToQuery GetBucketCors where
+    toQuery = const "cors"
+
+instance ToXML GetBucketCors where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketCors"

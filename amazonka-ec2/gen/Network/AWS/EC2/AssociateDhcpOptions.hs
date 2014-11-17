@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AssociateDhcpOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ adoDryRun = lens _adoDryRun (\s a -> s { _adoDryRun = a })
 adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
 
-instance ToQuery AssociateDhcpOptions
-
-instance ToPath AssociateDhcpOptions where
-    toPath = const "/"
-
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -103,4 +98,11 @@ instance AWSRequest AssociateDhcpOptions where
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
 
     request  = post "AssociateDhcpOptions"
-    response = nullaryResponse AssociateDhcpOptionsResponse
+    response = nullResponse AssociateDhcpOptionsResponse
+
+instance ToPath AssociateDhcpOptions where
+    toPath = const "/"
+
+instance ToHeaders AssociateDhcpOptions
+
+instance ToQuery AssociateDhcpOptions

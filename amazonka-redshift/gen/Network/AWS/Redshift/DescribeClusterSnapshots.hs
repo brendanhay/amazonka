@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSnapshots
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -154,11 +154,6 @@ dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeClusterSnapshots
-
-instance ToPath DescribeClusterSnapshots where
-    toPath = const "/"
-
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrMarker    :: Maybe Text
     , _dcsrSnapshots :: [Snapshot]
@@ -196,10 +191,15 @@ instance AWSRequest DescribeClusterSnapshots where
     type Rs DescribeClusterSnapshots = DescribeClusterSnapshotsResponse
 
     request  = post "DescribeClusterSnapshots"
-    response = xmlResponse $ \h x -> DescribeClusterSnapshotsResponse
-        <$> x %| "Marker"
-        <*> x %| "Snapshots"
+    response = xmlResponse
 
-instance AWSPager DescribeClusterSnapshots where
-    next rq rs = (\x -> rq & dcs1Marker ?~ x)
-        <$> (rs ^. dcsrMarker)
+instance FromXML DescribeClusterSnapshotsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClusterSnapshotsResponse"
+
+instance ToPath DescribeClusterSnapshots where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusterSnapshots
+
+instance ToQuery DescribeClusterSnapshots

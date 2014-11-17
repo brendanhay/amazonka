@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.PutAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -114,11 +114,6 @@ paExpected = lens _paExpected (\s a -> s { _paExpected = a })
 paItemName :: Lens' PutAttributes Text
 paItemName = lens _paItemName (\s a -> s { _paItemName = a })
 
-instance ToQuery PutAttributes
-
-instance ToPath PutAttributes where
-    toPath = const "/"
-
 data PutAttributesResponse = PutAttributesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -131,4 +126,11 @@ instance AWSRequest PutAttributes where
     type Rs PutAttributes = PutAttributesResponse
 
     request  = post "PutAttributes"
-    response = nullaryResponse PutAttributesResponse
+    response = nullResponse PutAttributesResponse
+
+instance ToPath PutAttributes where
+    toPath = const "/"
+
+instance ToHeaders PutAttributes
+
+instance ToQuery PutAttributes

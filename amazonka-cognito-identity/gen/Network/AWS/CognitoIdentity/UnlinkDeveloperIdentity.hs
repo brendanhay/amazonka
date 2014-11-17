@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -99,17 +99,6 @@ udiIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
 udiIdentityPoolId =
     lens _udiIdentityPoolId (\s a -> s { _udiIdentityPoolId = a })
 
-instance ToPath UnlinkDeveloperIdentity where
-    toPath = const "/"
-
-instance ToQuery UnlinkDeveloperIdentity where
-    toQuery = const mempty
-
-instance ToHeaders UnlinkDeveloperIdentity
-
-instance ToBody UnlinkDeveloperIdentity where
-    toBody = toBody . encode . _udiIdentityId
-
 data UnlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -122,4 +111,15 @@ instance AWSRequest UnlinkDeveloperIdentity where
     type Rs UnlinkDeveloperIdentity = UnlinkDeveloperIdentityResponse
 
     request  = post
-    response = nullaryResponse UnlinkDeveloperIdentityResponse
+    response = nullResponse UnlinkDeveloperIdentityResponse
+
+instance ToPath UnlinkDeveloperIdentity where
+    toPath = const "/"
+
+instance ToHeaders UnlinkDeveloperIdentity
+
+instance ToQuery UnlinkDeveloperIdentity where
+    toQuery = const mempty
+
+instance ToJSON UnlinkDeveloperIdentity where
+    toJSON = genericToJSON jsonOptions

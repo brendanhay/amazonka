@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeNotificationConfigurations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ dncMaxRecords = lens _dncMaxRecords (\s a -> s { _dncMaxRecords = a })
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 
-instance ToQuery DescribeNotificationConfigurations
-
-instance ToPath DescribeNotificationConfigurations where
-    toPath = const "/"
-
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { _dncrNextToken                  :: Maybe Text
     , _dncrNotificationConfigurations :: [NotificationConfiguration]
@@ -123,10 +118,15 @@ instance AWSRequest DescribeNotificationConfigurations where
     type Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse
 
     request  = post "DescribeNotificationConfigurations"
-    response = xmlResponse $ \h x -> DescribeNotificationConfigurationsResponse
-        <$> x %| "NextToken"
-        <*> x %| "NotificationConfigurations"
+    response = xmlResponse
 
-instance AWSPager DescribeNotificationConfigurations where
-    next rq rs = (\x -> rq & dncNextToken ?~ x)
-        <$> (rs ^. dncrNextToken)
+instance FromXML DescribeNotificationConfigurationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsResponse"
+
+instance ToPath DescribeNotificationConfigurations where
+    toPath = const "/"
+
+instance ToHeaders DescribeNotificationConfigurations
+
+instance ToQuery DescribeNotificationConfigurations

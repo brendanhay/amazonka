@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,7 +73,7 @@ module Network.AWS.DynamoDB.Query
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -427,17 +427,6 @@ qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 qTableName :: Lens' Query Text
 qTableName = lens _qTableName (\s a -> s { _qTableName = a })
 
-instance ToPath Query where
-    toPath = const "/"
-
-instance ToQuery Query where
-    toQuery = const mempty
-
-instance ToHeaders Query
-
-instance ToBody Query where
-    toBody = toBody . encode . _qTableName
-
 data QueryResponse = QueryResponse
     { _qrConsumedCapacity :: Maybe ConsumedCapacity
     , _qrCount            :: Maybe Int
@@ -513,9 +502,18 @@ instance AWSRequest Query where
     type Rs Query = QueryResponse
 
     request  = post
-    response = jsonResponse $ \h o -> QueryResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Count"
-        <*> o .: "Items"
-        <*> o .: "LastEvaluatedKey"
-        <*> o .: "ScannedCount"
+    response = jsonResponse
+
+instance FromJSON QueryResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath Query where
+    toPath = const "/"
+
+instance ToHeaders Query
+
+instance ToQuery Query where
+    toQuery = const mempty
+
+instance ToJSON Query where
+    toJSON = genericToJSON jsonOptions

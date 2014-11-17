@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -79,17 +79,6 @@ ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayTimezone =
     lens _ugiGatewayTimezone (\s a -> s { _ugiGatewayTimezone = a })
 
-instance ToPath UpdateGatewayInformation where
-    toPath = const "/"
-
-instance ToQuery UpdateGatewayInformation where
-    toQuery = const mempty
-
-instance ToHeaders UpdateGatewayInformation
-
-instance ToBody UpdateGatewayInformation where
-    toBody = toBody . encode . _ugiGatewayARN
-
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -113,5 +102,18 @@ instance AWSRequest UpdateGatewayInformation where
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateGatewayInformationResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON UpdateGatewayInformationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateGatewayInformation where
+    toPath = const "/"
+
+instance ToHeaders UpdateGatewayInformation
+
+instance ToQuery UpdateGatewayInformation where
+    toQuery = const mempty
+
+instance ToJSON UpdateGatewayInformation where
+    toJSON = genericToJSON jsonOptions

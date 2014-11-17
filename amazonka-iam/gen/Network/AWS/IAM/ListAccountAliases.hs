@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListAccountAliases
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,11 +81,6 @@ laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
     . mapping _Nat
 
-instance ToQuery ListAccountAliases
-
-instance ToPath ListAccountAliases where
-    toPath = const "/"
-
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
     , _laarIsTruncated    :: Maybe Bool
@@ -132,13 +127,15 @@ instance AWSRequest ListAccountAliases where
     type Rs ListAccountAliases = ListAccountAliasesResponse
 
     request  = post "ListAccountAliases"
-    response = xmlResponse $ \h x -> ListAccountAliasesResponse
-        <$> x %| "AccountAliases"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListAccountAliases where
-    next rq rs
-        | not (more (rs ^. laarIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & laaMarker .~ rs ^. laarMarker
+instance FromXML ListAccountAliasesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListAccountAliasesResponse"
+
+instance ToPath ListAccountAliases where
+    toPath = const "/"
+
+instance ToHeaders ListAccountAliases
+
+instance ToQuery ListAccountAliases

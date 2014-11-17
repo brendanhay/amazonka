@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.CreatePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -94,17 +94,6 @@ cpName = lens _cpName (\s a -> s { _cpName = a })
 cpUniqueId :: Lens' CreatePipeline Text
 cpUniqueId = lens _cpUniqueId (\s a -> s { _cpUniqueId = a })
 
-instance ToPath CreatePipeline where
-    toPath = const "/"
-
-instance ToQuery CreatePipeline where
-    toQuery = const mempty
-
-instance ToHeaders CreatePipeline
-
-instance ToBody CreatePipeline where
-    toBody = toBody . encode . _cpName
-
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipelineId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -131,5 +120,18 @@ instance AWSRequest CreatePipeline where
     type Rs CreatePipeline = CreatePipelineResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreatePipelineResponse
-        <$> o .: "pipelineId"
+    response = jsonResponse
+
+instance FromJSON CreatePipelineResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreatePipeline where
+    toPath = const "/"
+
+instance ToHeaders CreatePipeline
+
+instance ToQuery CreatePipeline where
+    toQuery = const mempty
+
+instance ToJSON CreatePipeline where
+    toJSON = genericToJSON jsonOptions

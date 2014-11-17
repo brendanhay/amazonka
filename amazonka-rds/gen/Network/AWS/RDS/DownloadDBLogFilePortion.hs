@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DownloadDBLogFilePortion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -112,11 +112,6 @@ ddblfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
 ddblfpNumberOfLines =
     lens _ddblfpNumberOfLines (\s a -> s { _ddblfpNumberOfLines = a })
 
-instance ToQuery DownloadDBLogFilePortion
-
-instance ToPath DownloadDBLogFilePortion where
-    toPath = const "/"
-
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending :: Maybe Bool
     , _ddblfprLogFileData           :: Maybe Text
@@ -162,13 +157,15 @@ instance AWSRequest DownloadDBLogFilePortion where
     type Rs DownloadDBLogFilePortion = DownloadDBLogFilePortionResponse
 
     request  = post "DownloadDBLogFilePortion"
-    response = xmlResponse $ \h x -> DownloadDBLogFilePortionResponse
-        <$> x %| "AdditionalDataPending"
-        <*> x %| "LogFileData"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DownloadDBLogFilePortion where
-    next rq rs
-        | not (more (rs ^. ddblfprAdditionalDataPending)) = Nothing
-        | otherwise = Just $ rq
-            & ddblfpMarker .~ rs ^. ddblfprMarker
+instance FromXML DownloadDBLogFilePortionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DownloadDBLogFilePortionResponse"
+
+instance ToPath DownloadDBLogFilePortion where
+    toPath = const "/"
+
+instance ToHeaders DownloadDBLogFilePortion
+
+instance ToQuery DownloadDBLogFilePortion

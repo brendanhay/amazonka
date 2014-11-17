@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ dsgGroupId = lens _dsgGroupId (\s a -> s { _dsgGroupId = a })
 dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
 
-instance ToQuery DeleteSecurityGroup
-
-instance ToPath DeleteSecurityGroup where
-    toPath = const "/"
-
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -96,4 +91,11 @@ instance AWSRequest DeleteSecurityGroup where
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
     request  = post "DeleteSecurityGroup"
-    response = nullaryResponse DeleteSecurityGroupResponse
+    response = nullResponse DeleteSecurityGroupResponse
+
+instance ToPath DeleteSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteSecurityGroup
+
+instance ToQuery DeleteSecurityGroup

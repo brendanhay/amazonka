@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -49,16 +49,6 @@ data DescribeVirtualGateways = DescribeVirtualGateways
 -- | 'DescribeVirtualGateways' constructor.
 describeVirtualGateways :: DescribeVirtualGateways
 describeVirtualGateways = DescribeVirtualGateways
-
-instance ToPath DescribeVirtualGateways where
-    toPath = const "/"
-
-instance ToQuery DescribeVirtualGateways where
-    toQuery = const mempty
-
-instance ToHeaders DescribeVirtualGateways
-
-instance ToBody DescribeVirtualGateways
 
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _dvgrVirtualGateways :: [VirtualGateway]
@@ -91,5 +81,14 @@ instance AWSRequest DescribeVirtualGateways where
     type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeVirtualGatewaysResponse
-        <$> o .: "virtualGateways"
+    response = jsonResponse
+
+instance FromJSON DescribeVirtualGatewaysResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeVirtualGateways where
+    toPath = const "/"
+
+instance ToHeaders DescribeVirtualGateways
+
+instance ToQuery DescribeVirtualGateways

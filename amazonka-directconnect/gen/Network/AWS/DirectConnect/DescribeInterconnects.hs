@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeInterconnects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ describeInterconnects = DescribeInterconnects
 
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 diInterconnectId = lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
-
-instance ToPath DescribeInterconnects where
-    toPath = const "/"
-
-instance ToQuery DescribeInterconnects where
-    toQuery = const mempty
-
-instance ToHeaders DescribeInterconnects
-
-instance ToBody DescribeInterconnects where
-    toBody = toBody . encode . _diInterconnectId
 
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
     { _dirInterconnects :: [Interconnect]
@@ -102,5 +91,18 @@ instance AWSRequest DescribeInterconnects where
     type Rs DescribeInterconnects = DescribeInterconnectsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeInterconnectsResponse
-        <$> o .: "interconnects"
+    response = jsonResponse
+
+instance FromJSON DescribeInterconnectsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeInterconnects where
+    toPath = const "/"
+
+instance ToHeaders DescribeInterconnects
+
+instance ToQuery DescribeInterconnects where
+    toQuery = const mempty
+
+instance ToJSON DescribeInterconnects where
+    toJSON = genericToJSON jsonOptions

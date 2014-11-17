@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ dsr1LogicalResourceId =
 dsr1StackName :: Lens' DescribeStackResource Text
 dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
-instance ToQuery DescribeStackResource
-
-instance ToPath DescribeStackResource where
-    toPath = const "/"
-
 newtype DescribeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail :: Maybe StackResourceDetail
     } deriving (Eq, Show, Generic)
@@ -109,5 +104,15 @@ instance AWSRequest DescribeStackResource where
     type Rs DescribeStackResource = DescribeStackResourceResponse
 
     request  = post "DescribeStackResource"
-    response = xmlResponse $ \h x -> DescribeStackResourceResponse
-        <$> x %| "StackResourceDetail"
+    response = xmlResponse
+
+instance FromXML DescribeStackResourceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeStackResourceResponse"
+
+instance ToPath DescribeStackResource where
+    toPath = const "/"
+
+instance ToHeaders DescribeStackResource
+
+instance ToQuery DescribeStackResource

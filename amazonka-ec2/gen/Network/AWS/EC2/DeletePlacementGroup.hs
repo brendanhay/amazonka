@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ dpgDryRun = lens _dpgDryRun (\s a -> s { _dpgDryRun = a })
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
 
-instance ToQuery DeletePlacementGroup
-
-instance ToPath DeletePlacementGroup where
-    toPath = const "/"
-
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest DeletePlacementGroup where
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
     request  = post "DeletePlacementGroup"
-    response = nullaryResponse DeletePlacementGroupResponse
+    response = nullResponse DeletePlacementGroupResponse
+
+instance ToPath DeletePlacementGroup where
+    toPath = const "/"
+
+instance ToHeaders DeletePlacementGroup
+
+instance ToQuery DeletePlacementGroup

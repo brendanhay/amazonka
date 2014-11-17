@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
 diflbLoadBalancerName =
     lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
 
-instance ToQuery DeregisterInstancesFromLoadBalancer
-
-instance ToPath DeregisterInstancesFromLoadBalancer where
-    toPath = const "/"
-
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _diflbrInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -113,5 +108,15 @@ instance AWSRequest DeregisterInstancesFromLoadBalancer where
     type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
 
     request  = post "DeregisterInstancesFromLoadBalancer"
-    response = xmlResponse $ \h x -> DeregisterInstancesFromLoadBalancerResponse
-        <$> x %| "Instances"
+    response = xmlResponse
+
+instance FromXML DeregisterInstancesFromLoadBalancerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeregisterInstancesFromLoadBalancerResponse"
+
+instance ToPath DeregisterInstancesFromLoadBalancer where
+    toPath = const "/"
+
+instance ToHeaders DeregisterInstancesFromLoadBalancer
+
+instance ToQuery DeregisterInstancesFromLoadBalancer

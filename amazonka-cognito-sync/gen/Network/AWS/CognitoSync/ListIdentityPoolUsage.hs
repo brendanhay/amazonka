@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ lipuMaxResults = lens _lipuMaxResults (\s a -> s { _lipuMaxResults = a })
 -- | A pagination token for obtaining the next page of results.
 lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
 lipuNextToken = lens _lipuNextToken (\s a -> s { _lipuNextToken = a })
-
-instance ToPath ListIdentityPoolUsage where
-    toPath = const "/identitypools"
-
-instance ToQuery ListIdentityPoolUsage where
-    toQuery ListIdentityPoolUsage{..} = mconcat
-        [ "nextToken"  =? _lipuNextToken
-        , "maxResults" =? _lipuMaxResults
-        ]
-
-instance ToHeaders ListIdentityPoolUsage
 
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse
     { _lipurCount              :: Maybe Int
@@ -132,8 +121,14 @@ instance AWSRequest ListIdentityPoolUsage where
     type Rs ListIdentityPoolUsage = ListIdentityPoolUsageResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListIdentityPoolUsageResponse
-        <$> o .: "Count"
-        <*> o .: "IdentityPoolUsages"
-        <*> o .: "MaxResults"
-        <*> o .: "NextToken"
+    response = jsonResponse
+
+instance FromJSON ListIdentityPoolUsageResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListIdentityPoolUsage where
+    toPath = const "/identitypools"
+
+instance ToHeaders ListIdentityPoolUsage
+
+instance ToQuery ListIdentityPoolUsage

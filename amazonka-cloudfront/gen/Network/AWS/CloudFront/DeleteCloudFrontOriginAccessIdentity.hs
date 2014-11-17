@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -69,20 +69,6 @@ dcfoaiId = lens _dcfoaiId (\s a -> s { _dcfoaiId = a })
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s { _dcfoaiIfMatch = a })
 
-instance ToPath DeleteCloudFrontOriginAccessIdentity where
-    toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toText _dcfoaiId
-        ]
-
-instance ToQuery DeleteCloudFrontOriginAccessIdentity where
-    toQuery = const mempty
-
-instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
-    toHeaders DeleteCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "If-Match" =: _dcfoaiIfMatch
-        ]
-
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +81,22 @@ instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
 
     request  = delete
-    response = nullaryResponse DeleteCloudFrontOriginAccessIdentityResponse
+    response = nullResponse DeleteCloudFrontOriginAccessIdentityResponse
+
+instance ToPath DeleteCloudFrontOriginAccessIdentity where
+    toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
+        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        , toText _dcfoaiId
+        ]
+
+instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
+    toHeaders DeleteCloudFrontOriginAccessIdentity{..} = mconcat
+        [ "If-Match" =: _dcfoaiIfMatch
+        ]
+
+instance ToQuery DeleteCloudFrontOriginAccessIdentity where
+    toQuery = const mempty
+
+instance ToXML DeleteCloudFrontOriginAccessIdentity where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentity"

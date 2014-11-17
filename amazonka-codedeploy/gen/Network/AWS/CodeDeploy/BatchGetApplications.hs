@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplications
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ batchGetApplications = BatchGetApplications
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames =
     lens _bgaApplicationNames (\s a -> s { _bgaApplicationNames = a })
-
-instance ToPath BatchGetApplications where
-    toPath = const "/"
-
-instance ToQuery BatchGetApplications where
-    toQuery = const mempty
-
-instance ToHeaders BatchGetApplications
-
-instance ToBody BatchGetApplications where
-    toBody = toBody . encode . _bgaApplicationNames
 
 newtype BatchGetApplicationsResponse = BatchGetApplicationsResponse
     { _bgarApplicationsInfo :: [ApplicationInfo]
@@ -110,5 +99,18 @@ instance AWSRequest BatchGetApplications where
     type Rs BatchGetApplications = BatchGetApplicationsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> BatchGetApplicationsResponse
-        <$> o .: "applicationsInfo"
+    response = jsonResponse
+
+instance FromJSON BatchGetApplicationsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath BatchGetApplications where
+    toPath = const "/"
+
+instance ToHeaders BatchGetApplications
+
+instance ToQuery BatchGetApplications where
+    toQuery = const mempty
+
+instance ToJSON BatchGetApplications where
+    toJSON = genericToJSON jsonOptions

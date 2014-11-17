@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
 
-instance ToQuery DeleteInstanceProfile
-
-instance ToPath DeleteInstanceProfile where
-    toPath = const "/"
-
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +77,11 @@ instance AWSRequest DeleteInstanceProfile where
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
 
     request  = post "DeleteInstanceProfile"
-    response = nullaryResponse DeleteInstanceProfileResponse
+    response = nullResponse DeleteInstanceProfileResponse
+
+instance ToPath DeleteInstanceProfile where
+    toPath = const "/"
+
+instance ToHeaders DeleteInstanceProfile
+
+instance ToQuery DeleteInstanceProfile

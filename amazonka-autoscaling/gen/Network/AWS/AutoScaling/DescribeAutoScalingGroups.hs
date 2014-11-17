@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ dasgMaxRecords = lens _dasgMaxRecords (\s a -> s { _dasgMaxRecords = a })
 dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 
-instance ToQuery DescribeAutoScalingGroups
-
-instance ToPath DescribeAutoScalingGroups where
-    toPath = const "/"
-
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups :: [AutoScalingGroup]
     , _dasgrNextToken         :: Maybe Text
@@ -124,10 +119,15 @@ instance AWSRequest DescribeAutoScalingGroups where
     type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
 
     request  = post "DescribeAutoScalingGroups"
-    response = xmlResponse $ \h x -> DescribeAutoScalingGroupsResponse
-        <$> x %| "AutoScalingGroups"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeAutoScalingGroups where
-    next rq rs = (\x -> rq & dasgNextToken ?~ x)
-        <$> (rs ^. dasgrNextToken)
+instance FromXML DescribeAutoScalingGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAutoScalingGroupsResponse"
+
+instance ToPath DescribeAutoScalingGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeAutoScalingGroups
+
+instance ToQuery DescribeAutoScalingGroups

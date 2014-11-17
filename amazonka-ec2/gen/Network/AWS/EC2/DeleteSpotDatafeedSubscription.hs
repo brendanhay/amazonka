@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,11 +58,6 @@ deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsds1DryRun = lens _dsds1DryRun (\s a -> s { _dsds1DryRun = a })
 
-instance ToQuery DeleteSpotDatafeedSubscription
-
-instance ToPath DeleteSpotDatafeedSubscription where
-    toPath = const "/"
-
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -75,4 +70,11 @@ instance AWSRequest DeleteSpotDatafeedSubscription where
     type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse
 
     request  = post "DeleteSpotDatafeedSubscription"
-    response = nullaryResponse DeleteSpotDatafeedSubscriptionResponse
+    response = nullResponse DeleteSpotDatafeedSubscriptionResponse
+
+instance ToPath DeleteSpotDatafeedSubscription where
+    toPath = const "/"
+
+instance ToHeaders DeleteSpotDatafeedSubscription
+
+instance ToQuery DeleteSpotDatafeedSubscription

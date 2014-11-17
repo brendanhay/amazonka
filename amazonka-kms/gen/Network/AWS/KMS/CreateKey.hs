@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.CreateKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.KMS.CreateKey
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -86,17 +86,6 @@ ckKeyUsage = lens _ckKeyUsage (\s a -> s { _ckKeyUsage = a })
 ckPolicy :: Lens' CreateKey (Maybe Text)
 ckPolicy = lens _ckPolicy (\s a -> s { _ckPolicy = a })
 
-instance ToPath CreateKey where
-    toPath = const "/"
-
-instance ToQuery CreateKey where
-    toQuery = const mempty
-
-instance ToHeaders CreateKey
-
-instance ToBody CreateKey where
-    toBody = toBody . encode . _ckPolicy
-
 newtype CreateKeyResponse = CreateKeyResponse
     { _ckrKeyMetadata :: Maybe KeyMetadata
     } deriving (Eq, Show, Generic)
@@ -121,5 +110,18 @@ instance AWSRequest CreateKey where
     type Rs CreateKey = CreateKeyResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateKeyResponse
-        <$> o .: "KeyMetadata"
+    response = jsonResponse
+
+instance FromJSON CreateKeyResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateKey where
+    toPath = const "/"
+
+instance ToHeaders CreateKey
+
+instance ToQuery CreateKey where
+    toQuery = const mempty
+
+instance ToJSON CreateKey where
+    toJSON = genericToJSON jsonOptions

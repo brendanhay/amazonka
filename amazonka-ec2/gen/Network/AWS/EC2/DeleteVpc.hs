@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpc
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 dv3VpcId :: Lens' DeleteVpc Text
 dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
 
-instance ToQuery DeleteVpc
-
-instance ToPath DeleteVpc where
-    toPath = const "/"
-
 data DeleteVpcResponse = DeleteVpcResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +84,11 @@ instance AWSRequest DeleteVpc where
     type Rs DeleteVpc = DeleteVpcResponse
 
     request  = post "DeleteVpc"
-    response = nullaryResponse DeleteVpcResponse
+    response = nullResponse DeleteVpcResponse
+
+instance ToPath DeleteVpc where
+    toPath = const "/"
+
+instance ToHeaders DeleteVpc
+
+instance ToQuery DeleteVpc

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListAccessKeys
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
 
-instance ToQuery ListAccessKeys
-
-instance ToPath ListAccessKeys where
-    toPath = const "/"
-
 data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
     , _lakrIsTruncated       :: Maybe Bool
@@ -143,13 +138,15 @@ instance AWSRequest ListAccessKeys where
     type Rs ListAccessKeys = ListAccessKeysResponse
 
     request  = post "ListAccessKeys"
-    response = xmlResponse $ \h x -> ListAccessKeysResponse
-        <$> x %| "AccessKeyMetadata"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListAccessKeys where
-    next rq rs
-        | not (more (rs ^. lakrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lakMarker .~ rs ^. lakrMarker
+instance FromXML ListAccessKeysResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListAccessKeysResponse"
+
+instance ToPath ListAccessKeys where
+    toPath = const "/"
+
+instance ToHeaders ListAccessKeys
+
+instance ToQuery ListAccessKeys

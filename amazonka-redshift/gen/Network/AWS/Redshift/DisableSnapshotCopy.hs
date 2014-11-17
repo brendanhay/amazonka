@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,11 +66,6 @@ dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier =
     lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })
 
-instance ToQuery DisableSnapshotCopy
-
-instance ToPath DisableSnapshotCopy where
-    toPath = const "/"
-
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -94,5 +89,15 @@ instance AWSRequest DisableSnapshotCopy where
     type Rs DisableSnapshotCopy = DisableSnapshotCopyResponse
 
     request  = post "DisableSnapshotCopy"
-    response = xmlResponse $ \h x -> DisableSnapshotCopyResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML DisableSnapshotCopyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableSnapshotCopyResponse"
+
+instance ToPath DisableSnapshotCopy where
+    toPath = const "/"
+
+instance ToHeaders DisableSnapshotCopy
+
+instance ToQuery DisableSnapshotCopy

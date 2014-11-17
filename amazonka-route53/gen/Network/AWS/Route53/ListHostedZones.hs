@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListHostedZones
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.Route53.ListHostedZones
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -91,18 +91,6 @@ lhzMarker = lens _lhzMarker (\s a -> s { _lhzMarker = a })
 -- | Specify the maximum number of hosted zones to return per page of results.
 lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
 lhzMaxItems = lens _lhzMaxItems (\s a -> s { _lhzMaxItems = a })
-
-instance ToPath ListHostedZones where
-    toPath = const "/2013-04-01/hostedzone"
-
-instance ToQuery ListHostedZones where
-    toQuery ListHostedZones{..} = mconcat
-        [ "marker"          =? _lhzMarker
-        , "maxitems"        =? _lhzMaxItems
-        , "delegationsetid" =? _lhzDelegationSetId
-        ]
-
-instance ToHeaders ListHostedZones
 
 data ListHostedZonesResponse = ListHostedZonesResponse
     { _lhzrHostedZones :: [HostedZone]
@@ -177,9 +165,15 @@ instance AWSRequest ListHostedZones where
     type Rs ListHostedZones = ListHostedZonesResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListHostedZonesResponse
-        <$> x %| "HostedZones"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "MaxItems"
-        <*> x %| "NextMarker"
+    response = xmlResponse
+
+instance FromXML ListHostedZonesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListHostedZonesResponse"
+
+instance ToPath ListHostedZones where
+    toPath = const "/2013-04-01/hostedzone"
+
+instance ToHeaders ListHostedZones
+
+instance ToQuery ListHostedZones

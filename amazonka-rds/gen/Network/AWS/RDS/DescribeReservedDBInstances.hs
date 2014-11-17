@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -164,11 +164,6 @@ drdbiReservedDBInstancesOfferingId =
     lens _drdbiReservedDBInstancesOfferingId
         (\s a -> s { _drdbiReservedDBInstancesOfferingId = a })
 
-instance ToQuery DescribeReservedDBInstances
-
-instance ToPath DescribeReservedDBInstances where
-    toPath = const "/"
-
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker              :: Maybe Text
     , _drdbirReservedDBInstances :: [ReservedDBInstance]
@@ -205,10 +200,15 @@ instance AWSRequest DescribeReservedDBInstances where
     type Rs DescribeReservedDBInstances = DescribeReservedDBInstancesResponse
 
     request  = post "DescribeReservedDBInstances"
-    response = xmlResponse $ \h x -> DescribeReservedDBInstancesResponse
-        <$> x %| "Marker"
-        <*> x %| "ReservedDBInstances"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedDBInstances where
-    next rq rs = (\x -> rq & drdbiMarker ?~ x)
-        <$> (rs ^. drdbirMarker)
+instance FromXML DescribeReservedDBInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedDBInstancesResponse"
+
+instance ToPath DescribeReservedDBInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedDBInstances
+
+instance ToQuery DescribeReservedDBInstances

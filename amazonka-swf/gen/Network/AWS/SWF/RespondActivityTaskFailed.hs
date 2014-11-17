@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskFailed
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.SWF.RespondActivityTaskFailed
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -96,17 +96,6 @@ ratfReason = lens _ratfReason (\s a -> s { _ratfReason = a })
 ratfTaskToken :: Lens' RespondActivityTaskFailed Text
 ratfTaskToken = lens _ratfTaskToken (\s a -> s { _ratfTaskToken = a })
 
-instance ToPath RespondActivityTaskFailed where
-    toPath = const "/"
-
-instance ToQuery RespondActivityTaskFailed where
-    toQuery = const mempty
-
-instance ToHeaders RespondActivityTaskFailed
-
-instance ToBody RespondActivityTaskFailed where
-    toBody = toBody . encode . _ratfTaskToken
-
 data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -119,4 +108,15 @@ instance AWSRequest RespondActivityTaskFailed where
     type Rs RespondActivityTaskFailed = RespondActivityTaskFailedResponse
 
     request  = post
-    response = nullaryResponse RespondActivityTaskFailedResponse
+    response = nullResponse RespondActivityTaskFailedResponse
+
+instance ToPath RespondActivityTaskFailed where
+    toPath = const "/"
+
+instance ToHeaders RespondActivityTaskFailed
+
+instance ToQuery RespondActivityTaskFailed where
+    toQuery = const mempty
+
+instance ToJSON RespondActivityTaskFailed where
+    toJSON = genericToJSON jsonOptions

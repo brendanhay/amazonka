@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.CodeDeploy.DeleteApplication
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ daApplicationName :: Lens' DeleteApplication Text
 daApplicationName =
     lens _daApplicationName (\s a -> s { _daApplicationName = a })
 
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
-instance ToQuery DeleteApplication where
-    toQuery = const mempty
-
-instance ToHeaders DeleteApplication
-
-instance ToBody DeleteApplication where
-    toBody = toBody . encode . _daApplicationName
-
 data DeleteApplicationResponse = DeleteApplicationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,15 @@ instance AWSRequest DeleteApplication where
     type Rs DeleteApplication = DeleteApplicationResponse
 
     request  = post
-    response = nullaryResponse DeleteApplicationResponse
+    response = nullResponse DeleteApplicationResponse
+
+instance ToPath DeleteApplication where
+    toPath = const "/"
+
+instance ToHeaders DeleteApplication
+
+instance ToQuery DeleteApplication where
+    toQuery = const mempty
+
+instance ToJSON DeleteApplication where
+    toJSON = genericToJSON jsonOptions

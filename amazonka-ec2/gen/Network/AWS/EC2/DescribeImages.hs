@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeImages
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -135,11 +135,6 @@ di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a })
 di2Owners :: Lens' DescribeImages [Text]
 di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a })
 
-instance ToQuery DescribeImages
-
-instance ToPath DescribeImages where
-    toPath = const "/"
-
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -170,5 +165,15 @@ instance AWSRequest DescribeImages where
     type Rs DescribeImages = DescribeImagesResponse
 
     request  = post "DescribeImages"
-    response = xmlResponse $ \h x -> DescribeImagesResponse
-        <$> x %| "imagesSet"
+    response = xmlResponse
+
+instance FromXML DescribeImagesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeImagesResponse"
+
+instance ToPath DescribeImages where
+    toPath = const "/"
+
+instance ToHeaders DescribeImages
+
+instance ToQuery DescribeImages

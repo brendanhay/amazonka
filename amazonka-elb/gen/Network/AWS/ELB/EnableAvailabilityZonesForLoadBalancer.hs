@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
 eazflbLoadBalancerName =
     lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
 
-instance ToQuery EnableAvailabilityZonesForLoadBalancer
-
-instance ToPath EnableAvailabilityZonesForLoadBalancer where
-    toPath = const "/"
-
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { _eazflbrAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -116,5 +111,15 @@ instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
     type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
 
     request  = post "EnableAvailabilityZonesForLoadBalancer"
-    response = xmlResponse $ \h x -> EnableAvailabilityZonesForLoadBalancerResponse
-        <$> x %| "AvailabilityZones"
+    response = xmlResponse
+
+instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableAvailabilityZonesForLoadBalancerResponse"
+
+instance ToPath EnableAvailabilityZonesForLoadBalancer where
+    toPath = const "/"
+
+instance ToHeaders EnableAvailabilityZonesForLoadBalancer
+
+instance ToQuery EnableAvailabilityZonesForLoadBalancer

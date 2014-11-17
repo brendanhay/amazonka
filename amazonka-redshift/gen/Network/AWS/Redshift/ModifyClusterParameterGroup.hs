@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.ModifyClusterParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ mcpgParameterGroupName =
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a })
 
-instance ToQuery ModifyClusterParameterGroup
-
-instance ToPath ModifyClusterParameterGroup where
-    toPath = const "/"
-
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName   :: Maybe Text
     , _mcpgrParameterGroupStatus :: Maybe Text
@@ -121,6 +116,15 @@ instance AWSRequest ModifyClusterParameterGroup where
     type Rs ModifyClusterParameterGroup = ModifyClusterParameterGroupResponse
 
     request  = post "ModifyClusterParameterGroup"
-    response = xmlResponse $ \h x -> ModifyClusterParameterGroupResponse
-        <$> x %| "ParameterGroupName"
-        <*> x %| "ParameterGroupStatus"
+    response = xmlResponse
+
+instance FromXML ModifyClusterParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyClusterParameterGroupResponse"
+
+instance ToPath ModifyClusterParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyClusterParameterGroup
+
+instance ToQuery ModifyClusterParameterGroup

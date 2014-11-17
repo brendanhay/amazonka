@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.Route53Domains.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.Route53Domains.Types
       Route53Domains
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * DomainSummary
     , DomainSummary
@@ -89,6 +93,7 @@ module Network.AWS.Route53Domains.Types
     , osType
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -110,6 +115,11 @@ instance AWSService Route53Domains where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data DomainSummary = DomainSummary
     { _dsAutoRenew    :: Maybe Bool
@@ -159,9 +169,11 @@ dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a })
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
 
-instance FromJSON DomainSummary
+instance FromJSON DomainSummary where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DomainSummary
+instance ToJSON DomainSummary where
+    toJSON = genericToJSON jsonOptions
 
 data ExtraParamName
     = AuIdNumber          -- ^ AU_ID_NUMBER
@@ -224,9 +236,11 @@ instance ToText ExtraParamName where
         SgIdNumber          -> "SG_ID_NUMBER"
         VatNumber           -> "VAT_NUMBER"
 
-instance FromJSON ExtraParamName
+instance FromJSON ExtraParamName where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExtraParamName
+instance ToJSON ExtraParamName where
+    toJSON = genericToJSON jsonOptions
 
 data Nameserver = Nameserver
     { _nGlueIps :: [Text]
@@ -262,9 +276,11 @@ nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
 nName :: Lens' Nameserver Text
 nName = lens _nName (\s a -> s { _nName = a })
 
-instance FromJSON Nameserver
+instance FromJSON Nameserver where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Nameserver
+instance ToJSON Nameserver where
+    toJSON = genericToJSON jsonOptions
 
 data OperationStatus
     = Error      -- ^ ERROR
@@ -291,9 +307,11 @@ instance ToText OperationStatus where
         Submitted  -> "SUBMITTED"
         Successful -> "SUCCESSFUL"
 
-instance FromJSON OperationStatus
+instance FromJSON OperationStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON OperationStatus
+instance ToJSON OperationStatus where
+    toJSON = genericToJSON jsonOptions
 
 data DomainAvailability
     = Available             -- ^ AVAILABLE
@@ -326,9 +344,11 @@ instance ToText DomainAvailability where
         UnavailablePremium    -> "UNAVAILABLE_PREMIUM"
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
-instance FromJSON DomainAvailability
+instance FromJSON DomainAvailability where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DomainAvailability
+instance ToJSON DomainAvailability where
+    toJSON = genericToJSON jsonOptions
 
 data OperationType
     = OTChangePrivacyProtection -- ^ CHANGE_PRIVACY_PROTECTION
@@ -361,9 +381,11 @@ instance ToText OperationType where
         OTUpdateDomainContact     -> "UPDATE_DOMAIN_CONTACT"
         OTUpdateNameserver        -> "UPDATE_NAMESERVER"
 
-instance FromJSON OperationType
+instance FromJSON OperationType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON OperationType
+instance ToJSON OperationType where
+    toJSON = genericToJSON jsonOptions
 
 data CountryCode
     = Ad  -- ^ AD
@@ -1062,9 +1084,11 @@ instance ToText CountryCode where
         Zm  -> "ZM"
         Zw  -> "ZW"
 
-instance FromJSON CountryCode
+instance FromJSON CountryCode where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CountryCode
+instance ToJSON CountryCode where
+    toJSON = genericToJSON jsonOptions
 
 data ExtraParam = ExtraParam
     { _epName  :: Text
@@ -1103,9 +1127,11 @@ epName = lens _epName (\s a -> s { _epName = a })
 epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\s a -> s { _epValue = a })
 
-instance FromJSON ExtraParam
+instance FromJSON ExtraParam where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExtraParam
+instance ToJSON ExtraParam where
+    toJSON = genericToJSON jsonOptions
 
 data ContactType
     = CTAssociation -- ^ ASSOCIATION
@@ -1132,9 +1158,11 @@ instance ToText ContactType where
         CTPublicBody  -> "PUBLIC_BODY"
         CTReseller    -> "RESELLER"
 
-instance FromJSON ContactType
+instance FromJSON ContactType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ContactType
+instance ToJSON ContactType where
+    toJSON = genericToJSON jsonOptions
 
 data ContactDetail = ContactDetail
     { _cdAddressLine1     :: Maybe Text
@@ -1296,9 +1324,11 @@ cdState = lens _cdState (\s a -> s { _cdState = a })
 cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 
-instance FromJSON ContactDetail
+instance FromJSON ContactDetail where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ContactDetail
+instance ToJSON ContactDetail where
+    toJSON = genericToJSON jsonOptions
 
 data OperationSummary = OperationSummary
     { _osOperationId   :: Text
@@ -1351,6 +1381,8 @@ osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a })
 osType :: Lens' OperationSummary Text
 osType = lens _osType (\s a -> s { _osType = a })
 
-instance FromJSON OperationSummary
+instance FromJSON OperationSummary where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON OperationSummary
+instance ToJSON OperationSummary where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateVpnConnectionRoute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
 cvcrVpnConnectionId =
     lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })
 
-instance ToQuery CreateVpnConnectionRoute
-
-instance ToPath CreateVpnConnectionRoute where
-    toPath = const "/"
-
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +89,11 @@ instance AWSRequest CreateVpnConnectionRoute where
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse
 
     request  = post "CreateVpnConnectionRoute"
-    response = nullaryResponse CreateVpnConnectionRouteResponse
+    response = nullResponse CreateVpnConnectionRouteResponse
+
+instance ToPath CreateVpnConnectionRoute where
+    toPath = const "/"
+
+instance ToHeaders CreateVpnConnectionRoute
+
+instance ToQuery CreateVpnConnectionRoute

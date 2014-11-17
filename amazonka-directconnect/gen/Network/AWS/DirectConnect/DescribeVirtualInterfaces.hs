@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ dviConnectionId = lens _dviConnectionId (\s a -> s { _dviConnectionId = a })
 dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviVirtualInterfaceId =
     lens _dviVirtualInterfaceId (\s a -> s { _dviVirtualInterfaceId = a })
-
-instance ToPath DescribeVirtualInterfaces where
-    toPath = const "/"
-
-instance ToQuery DescribeVirtualInterfaces where
-    toQuery = const mempty
-
-instance ToHeaders DescribeVirtualInterfaces
-
-instance ToBody DescribeVirtualInterfaces where
-    toBody = toBody . encode . _dviConnectionId
 
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirVirtualInterfaces :: [VirtualInterface]
@@ -119,5 +108,18 @@ instance AWSRequest DescribeVirtualInterfaces where
     type Rs DescribeVirtualInterfaces = DescribeVirtualInterfacesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeVirtualInterfacesResponse
-        <$> o .: "virtualInterfaces"
+    response = jsonResponse
+
+instance FromJSON DescribeVirtualInterfacesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeVirtualInterfaces where
+    toPath = const "/"
+
+instance ToHeaders DescribeVirtualInterfaces
+
+instance ToQuery DescribeVirtualInterfaces where
+    toQuery = const mempty
+
+instance ToJSON DescribeVirtualInterfaces where
+    toJSON = genericToJSON jsonOptions

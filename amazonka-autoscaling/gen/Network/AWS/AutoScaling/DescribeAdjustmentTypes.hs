@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAdjustmentTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,11 +46,6 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
 
-instance ToQuery DescribeAdjustmentTypes
-
-instance ToPath DescribeAdjustmentTypes where
-    toPath = const "/"
-
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: [AdjustmentType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -82,5 +77,15 @@ instance AWSRequest DescribeAdjustmentTypes where
     type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
 
     request  = post "DescribeAdjustmentTypes"
-    response = xmlResponse $ \h x -> DescribeAdjustmentTypesResponse
-        <$> x %| "AdjustmentTypes"
+    response = xmlResponse
+
+instance FromXML DescribeAdjustmentTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAdjustmentTypesResponse"
+
+instance ToPath DescribeAdjustmentTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeAdjustmentTypes
+
+instance ToQuery DescribeAdjustmentTypes

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.CountClosedWorkflowExecutions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,7 +57,7 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -140,17 +140,6 @@ ccweTagFilter = lens _ccweTagFilter (\s a -> s { _ccweTagFilter = a })
 ccweTypeFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
 ccweTypeFilter = lens _ccweTypeFilter (\s a -> s { _ccweTypeFilter = a })
 
-instance ToPath CountClosedWorkflowExecutions where
-    toPath = const "/"
-
-instance ToQuery CountClosedWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToHeaders CountClosedWorkflowExecutions
-
-instance ToBody CountClosedWorkflowExecutions where
-    toBody = toBody . encode . _ccweDomain
-
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
     { _ccwerCount     :: Nat
     , _ccwerTruncated :: Maybe Bool
@@ -186,6 +175,18 @@ instance AWSRequest CountClosedWorkflowExecutions where
     type Rs CountClosedWorkflowExecutions = CountClosedWorkflowExecutionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CountClosedWorkflowExecutionsResponse
-        <$> o .: "count"
-        <*> o .: "truncated"
+    response = jsonResponse
+
+instance FromJSON CountClosedWorkflowExecutionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CountClosedWorkflowExecutions where
+    toPath = const "/"
+
+instance ToHeaders CountClosedWorkflowExecutions
+
+instance ToQuery CountClosedWorkflowExecutions where
+    toQuery = const mempty
+
+instance ToJSON CountClosedWorkflowExecutions where
+    toJSON = genericToJSON jsonOptions

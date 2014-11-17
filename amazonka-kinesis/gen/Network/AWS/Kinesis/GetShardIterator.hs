@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.GetShardIterator
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,7 +69,7 @@ module Network.AWS.Kinesis.GetShardIterator
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -131,17 +131,6 @@ gsiStartingSequenceNumber =
 gsiStreamName :: Lens' GetShardIterator Text
 gsiStreamName = lens _gsiStreamName (\s a -> s { _gsiStreamName = a })
 
-instance ToPath GetShardIterator where
-    toPath = const "/"
-
-instance ToQuery GetShardIterator where
-    toQuery = const mempty
-
-instance ToHeaders GetShardIterator
-
-instance ToBody GetShardIterator where
-    toBody = toBody . encode . _gsiStreamName
-
 newtype GetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -169,5 +158,18 @@ instance AWSRequest GetShardIterator where
     type Rs GetShardIterator = GetShardIteratorResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetShardIteratorResponse
-        <$> o .: "ShardIterator"
+    response = jsonResponse
+
+instance FromJSON GetShardIteratorResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetShardIterator where
+    toPath = const "/"
+
+instance ToHeaders GetShardIterator
+
+instance ToQuery GetShardIterator where
+    toQuery = const mempty
+
+instance ToJSON GetShardIterator where
+    toJSON = genericToJSON jsonOptions

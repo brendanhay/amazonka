@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.S3.GetBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ getBucketWebsite p1 = GetBucketWebsite
 
 gbwBucket :: Lens' GetBucketWebsite Text
 gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
-
-instance ToPath GetBucketWebsite where
-    toPath GetBucketWebsite{..} = mconcat
-        [ "/"
-        , toText _gbwBucket
-        ]
-
-instance ToQuery GetBucketWebsite where
-    toQuery = const "website"
-
-instance ToHeaders GetBucketWebsite
 
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrErrorDocument         :: Maybe ErrorDocument
@@ -122,8 +111,23 @@ instance AWSRequest GetBucketWebsite where
     type Rs GetBucketWebsite = GetBucketWebsiteResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketWebsiteResponse
-        <$> x %| "ErrorDocument"
-        <*> x %| "IndexDocument"
-        <*> x %| "RedirectAllRequestsTo"
-        <*> x %| "RoutingRules"
+    response = xmlResponse
+
+instance FromXML GetBucketWebsiteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketWebsiteResponse"
+
+instance ToPath GetBucketWebsite where
+    toPath GetBucketWebsite{..} = mconcat
+        [ "/"
+        , toText _gbwBucket
+        ]
+
+instance ToHeaders GetBucketWebsite
+
+instance ToQuery GetBucketWebsite where
+    toQuery = const "website"
+
+instance ToXML GetBucketWebsite where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketWebsite"

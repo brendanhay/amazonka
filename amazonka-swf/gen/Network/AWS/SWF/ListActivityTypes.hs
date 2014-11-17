@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.ListActivityTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,7 +56,7 @@ module Network.AWS.SWF.ListActivityTypes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -133,17 +133,6 @@ latRegistrationStatus =
 latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })
 
-instance ToPath ListActivityTypes where
-    toPath = const "/"
-
-instance ToQuery ListActivityTypes where
-    toQuery = const mempty
-
-instance ToHeaders ListActivityTypes
-
-instance ToBody ListActivityTypes where
-    toBody = toBody . encode . _latDomain
-
 data ListActivityTypesResponse = ListActivityTypesResponse
     { _latrNextPageToken :: Maybe Text
     , _latrTypeInfos     :: [ActivityTypeInfo]
@@ -179,6 +168,18 @@ instance AWSRequest ListActivityTypes where
     type Rs ListActivityTypes = ListActivityTypesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListActivityTypesResponse
-        <$> o .: "nextPageToken"
-        <*> o .: "typeInfos"
+    response = jsonResponse
+
+instance FromJSON ListActivityTypesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListActivityTypes where
+    toPath = const "/"
+
+instance ToHeaders ListActivityTypes
+
+instance ToQuery ListActivityTypes where
+    toQuery = const mempty
+
+instance ToJSON ListActivityTypes where
+    toJSON = genericToJSON jsonOptions

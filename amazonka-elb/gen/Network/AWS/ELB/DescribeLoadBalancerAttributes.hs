@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
 dlbaLoadBalancerName =
     lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
 
-instance ToQuery DescribeLoadBalancerAttributes
-
-instance ToPath DescribeLoadBalancerAttributes where
-    toPath = const "/"
-
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Eq, Show, Generic)
@@ -94,5 +89,15 @@ instance AWSRequest DescribeLoadBalancerAttributes where
     type Rs DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributesResponse
 
     request  = post "DescribeLoadBalancerAttributes"
-    response = xmlResponse $ \h x -> DescribeLoadBalancerAttributesResponse
-        <$> x %| "LoadBalancerAttributes"
+    response = xmlResponse
+
+instance FromXML DescribeLoadBalancerAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesResponse"
+
+instance ToPath DescribeLoadBalancerAttributes where
+    toPath = const "/"
+
+instance ToHeaders DescribeLoadBalancerAttributes
+
+instance ToQuery DescribeLoadBalancerAttributes

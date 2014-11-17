@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.StopInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ siForce = lens _siForce (\s a -> s { _siForce = a })
 siInstanceIds :: Lens' StopInstances [Text]
 siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
 
-instance ToQuery StopInstances
-
-instance ToPath StopInstances where
-    toPath = const "/"
-
 newtype StopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -137,5 +132,15 @@ instance AWSRequest StopInstances where
     type Rs StopInstances = StopInstancesResponse
 
     request  = post "StopInstances"
-    response = xmlResponse $ \h x -> StopInstancesResponse
-        <$> x %| "instancesSet"
+    response = xmlResponse
+
+instance FromXML StopInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "StopInstancesResponse"
+
+instance ToPath StopInstances where
+    toPath = const "/"
+
+instance ToHeaders StopInstances
+
+instance ToQuery StopInstances

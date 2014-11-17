@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.DeleteHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.Route53.DeleteHostedZone
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ deleteHostedZone p1 = DeleteHostedZone
 -- | The ID of the hosted zone you want to delete.
 dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\s a -> s { _dhzId = a })
-
-instance ToPath DeleteHostedZone where
-    toPath DeleteHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _dhzId
-        ]
-
-instance ToQuery DeleteHostedZone where
-    toQuery = const mempty
-
-instance ToHeaders DeleteHostedZone
 
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzrChangeInfo :: ChangeInfo
@@ -107,5 +96,23 @@ instance AWSRequest DeleteHostedZone where
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
 
     request  = delete
-    response = xmlResponse $ \h x -> DeleteHostedZoneResponse
-        <$> x %| "ChangeInfo"
+    response = xmlResponse
+
+instance FromXML DeleteHostedZoneResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteHostedZoneResponse"
+
+instance ToPath DeleteHostedZone where
+    toPath DeleteHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _dhzId
+        ]
+
+instance ToHeaders DeleteHostedZone
+
+instance ToQuery DeleteHostedZone where
+    toQuery = const mempty
+
+instance ToXML DeleteHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteHostedZone"

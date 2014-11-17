@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.RebootDBInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ rdbiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
 rdbiForceFailover =
     lens _rdbiForceFailover (\s a -> s { _rdbiForceFailover = a })
 
-instance ToQuery RebootDBInstance
-
-instance ToPath RebootDBInstance where
-    toPath = const "/"
-
 newtype RebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -120,5 +115,15 @@ instance AWSRequest RebootDBInstance where
     type Rs RebootDBInstance = RebootDBInstanceResponse
 
     request  = post "RebootDBInstance"
-    response = xmlResponse $ \h x -> RebootDBInstanceResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML RebootDBInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootDBInstanceResponse"
+
+instance ToPath RebootDBInstance where
+    toPath = const "/"
+
+instance ToHeaders RebootDBInstance
+
+instance ToQuery RebootDBInstance

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.STS.GetFederationToken
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -156,11 +156,6 @@ gftName = lens _gftName (\s a -> s { _gftName = a })
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\s a -> s { _gftPolicy = a })
 
-instance ToQuery GetFederationToken
-
-instance ToPath GetFederationToken where
-    toPath = const "/"
-
 data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
@@ -209,7 +204,15 @@ instance AWSRequest GetFederationToken where
     type Rs GetFederationToken = GetFederationTokenResponse
 
     request  = post "GetFederationToken"
-    response = xmlResponse $ \h x -> GetFederationTokenResponse
-        <$> x %| "Credentials"
-        <*> x %| "FederatedUser"
-        <*> x %| "PackedPolicySize"
+    response = xmlResponse
+
+instance FromXML GetFederationTokenResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetFederationTokenResponse"
+
+instance ToPath GetFederationToken where
+    toPath = const "/"
+
+instance ToHeaders GetFederationToken
+
+instance ToQuery GetFederationToken

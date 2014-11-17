@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeExportTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,11 +66,6 @@ describeExportTasks = DescribeExportTasks
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
 
-instance ToQuery DescribeExportTasks
-
-instance ToPath DescribeExportTasks where
-    toPath = const "/"
-
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -100,5 +95,15 @@ instance AWSRequest DescribeExportTasks where
     type Rs DescribeExportTasks = DescribeExportTasksResponse
 
     request  = post "DescribeExportTasks"
-    response = xmlResponse $ \h x -> DescribeExportTasksResponse
-        <$> x %| "exportTaskSet"
+    response = xmlResponse
+
+instance FromXML DescribeExportTasksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeExportTasksResponse"
+
+instance ToPath DescribeExportTasks where
+    toPath = const "/"
+
+instance ToHeaders DescribeExportTasks
+
+instance ToQuery DescribeExportTasks

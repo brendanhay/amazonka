@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.DirectConnect.DescribeLocations
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -47,16 +47,6 @@ data DescribeLocations = DescribeLocations
 -- | 'DescribeLocations' constructor.
 describeLocations :: DescribeLocations
 describeLocations = DescribeLocations
-
-instance ToPath DescribeLocations where
-    toPath = const "/"
-
-instance ToQuery DescribeLocations where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLocations
-
-instance ToBody DescribeLocations
 
 newtype DescribeLocationsResponse = DescribeLocationsResponse
     { _dlrLocations :: [Location]
@@ -87,5 +77,14 @@ instance AWSRequest DescribeLocations where
     type Rs DescribeLocations = DescribeLocationsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeLocationsResponse
-        <$> o .: "locations"
+    response = jsonResponse
+
+instance FromJSON DescribeLocationsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeLocations where
+    toPath = const "/"
+
+instance ToHeaders DescribeLocations
+
+instance ToQuery DescribeLocations

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -106,11 +106,6 @@ dc1SkipFinalClusterSnapshot =
     lens _dc1SkipFinalClusterSnapshot
         (\s a -> s { _dc1SkipFinalClusterSnapshot = a })
 
-instance ToQuery DeleteCluster
-
-instance ToPath DeleteCluster where
-    toPath = const "/"
-
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -134,5 +129,15 @@ instance AWSRequest DeleteCluster where
     type Rs DeleteCluster = DeleteClusterResponse
 
     request  = post "DeleteCluster"
-    response = xmlResponse $ \h x -> DeleteClusterResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML DeleteClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterResponse"
+
+instance ToPath DeleteCluster where
+    toPath = const "/"
+
+instance ToHeaders DeleteCluster
+
+instance ToQuery DeleteCluster

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListResourceRecordSets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,7 +77,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -147,23 +147,6 @@ lrrsStartRecordName =
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
-
-instance ToPath ListResourceRecordSets where
-    toPath ListResourceRecordSets{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _lrrsHostedZoneId
-        , "/rrset"
-        ]
-
-instance ToQuery ListResourceRecordSets where
-    toQuery ListResourceRecordSets{..} = mconcat
-        [ "name"       =? _lrrsStartRecordName
-        , "type"       =? _lrrsStartRecordType
-        , "identifier" =? _lrrsStartRecordIdentifier
-        , "maxitems"   =? _lrrsMaxItems
-        ]
-
-instance ToHeaders ListResourceRecordSets
 
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { _lrrsrIsTruncated          :: Bool
@@ -248,10 +231,29 @@ instance AWSRequest ListResourceRecordSets where
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListResourceRecordSetsResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "MaxItems"
-        <*> x %| "NextRecordIdentifier"
-        <*> x %| "NextRecordName"
-        <*> x %| "NextRecordType"
-        <*> x %| "ResourceRecordSets"
+    response = xmlResponse
+
+instance FromXML ListResourceRecordSetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListResourceRecordSetsResponse"
+
+instance ToPath ListResourceRecordSets where
+    toPath ListResourceRecordSets{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _lrrsHostedZoneId
+        , "/rrset"
+        ]
+
+instance ToHeaders ListResourceRecordSets
+
+instance ToQuery ListResourceRecordSets where
+    toQuery ListResourceRecordSets{..} = mconcat
+        [ "name"       =? _lrrsStartRecordName
+        , "type"       =? _lrrsStartRecordType
+        , "identifier" =? _lrrsStartRecordIdentifier
+        , "maxitems"   =? _lrrsMaxItems
+        ]
+
+instance ToXML ListResourceRecordSets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListResourceRecordSets"

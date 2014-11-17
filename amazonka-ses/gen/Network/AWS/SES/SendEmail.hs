@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.SendEmail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -123,11 +123,6 @@ seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\s a -> s { _seSource = a })
 
-instance ToQuery SendEmail
-
-instance ToPath SendEmail where
-    toPath = const "/"
-
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -153,5 +148,15 @@ instance AWSRequest SendEmail where
     type Rs SendEmail = SendEmailResponse
 
     request  = post "SendEmail"
-    response = xmlResponse $ \h x -> SendEmailResponse
-        <$> x %| "MessageId"
+    response = xmlResponse
+
+instance FromXML SendEmailResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendEmailResponse"
+
+instance ToPath SendEmail where
+    toPath = const "/"
+
+instance ToHeaders SendEmail
+
+instance ToQuery SendEmail

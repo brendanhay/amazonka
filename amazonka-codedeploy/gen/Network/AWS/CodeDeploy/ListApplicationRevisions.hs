@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListApplicationRevisions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -134,17 +134,6 @@ larSortBy = lens _larSortBy (\s a -> s { _larSortBy = a })
 larSortOrder :: Lens' ListApplicationRevisions (Maybe Text)
 larSortOrder = lens _larSortOrder (\s a -> s { _larSortOrder = a })
 
-instance ToPath ListApplicationRevisions where
-    toPath = const "/"
-
-instance ToQuery ListApplicationRevisions where
-    toQuery = const mempty
-
-instance ToHeaders ListApplicationRevisions
-
-instance ToBody ListApplicationRevisions where
-    toBody = toBody . encode . _larApplicationName
-
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse
     { _larrNextToken :: Maybe Text
     , _larrRevisions :: [RevisionLocation]
@@ -180,6 +169,18 @@ instance AWSRequest ListApplicationRevisions where
     type Rs ListApplicationRevisions = ListApplicationRevisionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListApplicationRevisionsResponse
-        <$> o .: "nextToken"
-        <*> o .: "revisions"
+    response = jsonResponse
+
+instance FromJSON ListApplicationRevisionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListApplicationRevisions where
+    toPath = const "/"
+
+instance ToHeaders ListApplicationRevisions
+
+instance ToQuery ListApplicationRevisions where
+    toQuery = const mempty
+
+instance ToJSON ListApplicationRevisions where
+    toJSON = genericToJSON jsonOptions

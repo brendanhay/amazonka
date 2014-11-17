@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,11 +49,6 @@ data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses
 
-instance ToQuery ListVerifiedEmailAddresses
-
-instance ToPath ListVerifiedEmailAddresses where
-    toPath = const "/"
-
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -86,5 +81,15 @@ instance AWSRequest ListVerifiedEmailAddresses where
     type Rs ListVerifiedEmailAddresses = ListVerifiedEmailAddressesResponse
 
     request  = post "ListVerifiedEmailAddresses"
-    response = xmlResponse $ \h x -> ListVerifiedEmailAddressesResponse
-        <$> x %| "VerifiedEmailAddresses"
+    response = xmlResponse
+
+instance FromXML ListVerifiedEmailAddressesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListVerifiedEmailAddressesResponse"
+
+instance ToPath ListVerifiedEmailAddresses where
+    toPath = const "/"
+
+instance ToHeaders ListVerifiedEmailAddresses
+
+instance ToQuery ListVerifiedEmailAddresses

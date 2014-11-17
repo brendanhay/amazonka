@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -58,17 +58,6 @@ deleteBucketPolicy p1 = DeleteBucketPolicy
 dbpBucket :: Lens' DeleteBucketPolicy Text
 dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
 
-instance ToPath DeleteBucketPolicy where
-    toPath DeleteBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _dbpBucket
-        ]
-
-instance ToQuery DeleteBucketPolicy where
-    toQuery = const "policy"
-
-instance ToHeaders DeleteBucketPolicy
-
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -81,4 +70,19 @@ instance AWSRequest DeleteBucketPolicy where
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
     request  = delete
-    response = nullaryResponse DeleteBucketPolicyResponse
+    response = nullResponse DeleteBucketPolicyResponse
+
+instance ToPath DeleteBucketPolicy where
+    toPath DeleteBucketPolicy{..} = mconcat
+        [ "/"
+        , toText _dbpBucket
+        ]
+
+instance ToHeaders DeleteBucketPolicy
+
+instance ToQuery DeleteBucketPolicy where
+    toQuery = const "policy"
+
+instance ToXML DeleteBucketPolicy where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteBucketPolicy"

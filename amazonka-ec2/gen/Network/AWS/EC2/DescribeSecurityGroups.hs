@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSecurityGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,11 +107,6 @@ dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
 dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
 
-instance ToQuery DescribeSecurityGroups
-
-instance ToPath DescribeSecurityGroups where
-    toPath = const "/"
-
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -143,5 +138,15 @@ instance AWSRequest DescribeSecurityGroups where
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
 
     request  = post "DescribeSecurityGroups"
-    response = xmlResponse $ \h x -> DescribeSecurityGroupsResponse
-        <$> x %| "securityGroupInfo"
+    response = xmlResponse
+
+instance FromXML DescribeSecurityGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSecurityGroupsResponse"
+
+instance ToPath DescribeSecurityGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeSecurityGroups
+
+instance ToQuery DescribeSecurityGroups

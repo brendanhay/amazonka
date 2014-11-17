@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.PutBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -75,23 +75,6 @@ pbcCORSConfiguration =
 pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
 
-instance ToPath PutBucketCors where
-    toPath PutBucketCors{..} = mconcat
-        [ "/"
-        , toText _pbcBucket
-        ]
-
-instance ToQuery PutBucketCors where
-    toQuery = const "cors"
-
-instance ToHeaders PutBucketCors where
-    toHeaders PutBucketCors{..} = mconcat
-        [ "Content-MD5" =: _pbcContentMD5
-        ]
-
-instance ToBody PutBucketCors where
-    toBody = toBody . encodeXML . _pbcCORSConfiguration
-
 data PutBucketCorsResponse = PutBucketCorsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -104,4 +87,22 @@ instance AWSRequest PutBucketCors where
     type Rs PutBucketCors = PutBucketCorsResponse
 
     request  = put
-    response = nullaryResponse PutBucketCorsResponse
+    response = nullResponse PutBucketCorsResponse
+
+instance ToPath PutBucketCors where
+    toPath PutBucketCors{..} = mconcat
+        [ "/"
+        , toText _pbcBucket
+        ]
+
+instance ToHeaders PutBucketCors where
+    toHeaders PutBucketCors{..} = mconcat
+        [ "Content-MD5" =: _pbcContentMD5
+        ]
+
+instance ToQuery PutBucketCors where
+    toQuery = const "cors"
+
+instance ToXML PutBucketCors where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketCors"

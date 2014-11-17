@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.MergeShards
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,7 +63,7 @@ module Network.AWS.Kinesis.MergeShards
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -107,17 +107,6 @@ msShardToMerge = lens _msShardToMerge (\s a -> s { _msShardToMerge = a })
 msStreamName :: Lens' MergeShards Text
 msStreamName = lens _msStreamName (\s a -> s { _msStreamName = a })
 
-instance ToPath MergeShards where
-    toPath = const "/"
-
-instance ToQuery MergeShards where
-    toQuery = const mempty
-
-instance ToHeaders MergeShards
-
-instance ToBody MergeShards where
-    toBody = toBody . encode . _msStreamName
-
 data MergeShardsResponse = MergeShardsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -130,4 +119,15 @@ instance AWSRequest MergeShards where
     type Rs MergeShards = MergeShardsResponse
 
     request  = post
-    response = nullaryResponse MergeShardsResponse
+    response = nullResponse MergeShardsResponse
+
+instance ToPath MergeShards where
+    toPath = const "/"
+
+instance ToHeaders MergeShards
+
+instance ToQuery MergeShards where
+    toQuery = const mempty
+
+instance ToJSON MergeShards where
+    toJSON = genericToJSON jsonOptions

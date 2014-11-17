@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.ListQueues
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
 
-instance ToQuery ListQueues
-
-instance ToPath ListQueues where
-    toPath = const "/"
-
 newtype ListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -100,5 +95,15 @@ instance AWSRequest ListQueues where
     type Rs ListQueues = ListQueuesResponse
 
     request  = post "ListQueues"
-    response = xmlResponse $ \h x -> ListQueuesResponse
-        <$> x %| "QueueUrls"
+    response = xmlResponse
+
+instance FromXML ListQueuesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListQueuesResponse"
+
+instance ToPath ListQueues where
+    toPath = const "/"
+
+instance ToHeaders ListQueues
+
+instance ToQuery ListQueues

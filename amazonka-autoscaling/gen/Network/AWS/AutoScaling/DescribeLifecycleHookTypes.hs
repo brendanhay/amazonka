@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,11 +46,6 @@ data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
 
-instance ToQuery DescribeLifecycleHookTypes
-
-instance ToPath DescribeLifecycleHookTypes where
-    toPath = const "/"
-
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -84,5 +79,15 @@ instance AWSRequest DescribeLifecycleHookTypes where
     type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesResponse
 
     request  = post "DescribeLifecycleHookTypes"
-    response = xmlResponse $ \h x -> DescribeLifecycleHookTypesResponse
-        <$> x %| "LifecycleHookTypes"
+    response = xmlResponse
+
+instance FromXML DescribeLifecycleHookTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesResponse"
+
+instance ToPath DescribeLifecycleHookTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeLifecycleHookTypes
+
+instance ToQuery DescribeLifecycleHookTypes

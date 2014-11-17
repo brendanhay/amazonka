@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListOpenIDConnectProviders
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,11 +46,6 @@ data ListOpenIDConnectProviders = ListOpenIDConnectProviders
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
 listOpenIDConnectProviders = ListOpenIDConnectProviders
 
-instance ToQuery ListOpenIDConnectProviders
-
-instance ToPath ListOpenIDConnectProviders where
-    toPath = const "/"
-
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -83,5 +78,15 @@ instance AWSRequest ListOpenIDConnectProviders where
     type Rs ListOpenIDConnectProviders = ListOpenIDConnectProvidersResponse
 
     request  = post "ListOpenIDConnectProviders"
-    response = xmlResponse $ \h x -> ListOpenIDConnectProvidersResponse
-        <$> x %| "OpenIDConnectProviderList"
+    response = xmlResponse
+
+instance FromXML ListOpenIDConnectProvidersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListOpenIDConnectProvidersResponse"
+
+instance ToPath ListOpenIDConnectProviders where
+    toPath = const "/"
+
+instance ToHeaders ListOpenIDConnectProviders
+
+instance ToQuery ListOpenIDConnectProviders

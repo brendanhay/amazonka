@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -81,17 +81,6 @@ uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a })
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
 uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a })
 
-instance ToPath UnlinkIdentity where
-    toPath = const "/"
-
-instance ToQuery UnlinkIdentity where
-    toQuery = const mempty
-
-instance ToHeaders UnlinkIdentity
-
-instance ToBody UnlinkIdentity where
-    toBody = toBody . encode . _uiIdentityId
-
 data UnlinkIdentityResponse = UnlinkIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -104,4 +93,15 @@ instance AWSRequest UnlinkIdentity where
     type Rs UnlinkIdentity = UnlinkIdentityResponse
 
     request  = post
-    response = nullaryResponse UnlinkIdentityResponse
+    response = nullResponse UnlinkIdentityResponse
+
+instance ToPath UnlinkIdentity where
+    toPath = const "/"
+
+instance ToHeaders UnlinkIdentity
+
+instance ToQuery UnlinkIdentity where
+    toQuery = const mempty
+
+instance ToJSON UnlinkIdentity where
+    toJSON = genericToJSON jsonOptions

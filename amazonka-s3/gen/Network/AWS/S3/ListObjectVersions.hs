@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.ListObjectVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +55,7 @@ module Network.AWS.S3.ListObjectVersions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -126,25 +126,6 @@ lovPrefix = lens _lovPrefix (\s a -> s { _lovPrefix = a })
 lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
 lovVersionIdMarker =
     lens _lovVersionIdMarker (\s a -> s { _lovVersionIdMarker = a })
-
-instance ToPath ListObjectVersions where
-    toPath ListObjectVersions{..} = mconcat
-        [ "/"
-        , toText _lovBucket
-        ]
-
-instance ToQuery ListObjectVersions where
-    toQuery ListObjectVersions{..} = mconcat
-        [ "versions"
-        , "delimiter"         =? _lovDelimiter
-        , "encoding-type"     =? _lovEncodingType
-        , "key-marker"        =? _lovKeyMarker
-        , "max-keys"          =? _lovMaxKeys
-        , "prefix"            =? _lovPrefix
-        , "version-id-marker" =? _lovVersionIdMarker
-        ]
-
-instance ToHeaders ListObjectVersions
 
 data ListObjectVersionsResponse = ListObjectVersionsResponse
     { _lovrCommonPrefixes      :: [CommonPrefix]
@@ -269,17 +250,31 @@ instance AWSRequest ListObjectVersions where
     type Rs ListObjectVersions = ListObjectVersionsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListObjectVersionsResponse
-        <$> x %| "CommonPrefixes"
-        <*> x %| "DeleteMarker"
-        <*> x %| "Delimiter"
-        <*> x %| "EncodingType"
-        <*> x %| "IsTruncated"
-        <*> x %| "KeyMarker"
-        <*> x %| "MaxKeys"
-        <*> x %| "Name"
-        <*> x %| "NextKeyMarker"
-        <*> x %| "NextVersionIdMarker"
-        <*> x %| "Prefix"
-        <*> x %| "VersionIdMarker"
-        <*> x %| "Version"
+    response = xmlResponse
+
+instance FromXML ListObjectVersionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListObjectVersionsResponse"
+
+instance ToPath ListObjectVersions where
+    toPath ListObjectVersions{..} = mconcat
+        [ "/"
+        , toText _lovBucket
+        ]
+
+instance ToHeaders ListObjectVersions
+
+instance ToQuery ListObjectVersions where
+    toQuery ListObjectVersions{..} = mconcat
+        [ "versions"
+        , "delimiter"         =? _lovDelimiter
+        , "encoding-type"     =? _lovEncodingType
+        , "key-marker"        =? _lovKeyMarker
+        , "max-keys"          =? _lovMaxKeys
+        , "prefix"            =? _lovPrefix
+        , "version-id-marker" =? _lovVersionIdMarker
+        ]
+
+instance ToXML ListObjectVersions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListObjectVersions"

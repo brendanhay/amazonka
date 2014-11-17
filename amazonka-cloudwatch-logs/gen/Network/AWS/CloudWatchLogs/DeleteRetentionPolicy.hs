@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ deleteRetentionPolicy p1 = DeleteRetentionPolicy
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
 drpLogGroupName = lens _drpLogGroupName (\s a -> s { _drpLogGroupName = a })
 
-instance ToPath DeleteRetentionPolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteRetentionPolicy where
-    toQuery = const mempty
-
-instance ToHeaders DeleteRetentionPolicy
-
-instance ToBody DeleteRetentionPolicy where
-    toBody = toBody . encode . _drpLogGroupName
-
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,15 @@ instance AWSRequest DeleteRetentionPolicy where
     type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
 
     request  = post
-    response = nullaryResponse DeleteRetentionPolicyResponse
+    response = nullResponse DeleteRetentionPolicyResponse
+
+instance ToPath DeleteRetentionPolicy where
+    toPath = const "/"
+
+instance ToHeaders DeleteRetentionPolicy
+
+instance ToQuery DeleteRetentionPolicy where
+    toQuery = const mempty
+
+instance ToJSON DeleteRetentionPolicy where
+    toJSON = genericToJSON jsonOptions

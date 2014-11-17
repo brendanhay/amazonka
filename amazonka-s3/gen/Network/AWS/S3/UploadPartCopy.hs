@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.UploadPartCopy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,7 +58,7 @@ module Network.AWS.S3.UploadPartCopy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -256,39 +256,6 @@ upcSSECustomerKeyMD5 =
 upcUploadId :: Lens' UploadPartCopy Text
 upcUploadId = lens _upcUploadId (\s a -> s { _upcUploadId = a })
 
-instance ToPath UploadPartCopy where
-    toPath UploadPartCopy{..} = mconcat
-        [ "/"
-        , toText _upcBucket
-        , "/"
-        , toText _upcKey
-        ]
-
-instance ToQuery UploadPartCopy where
-    toQuery UploadPartCopy{..} = mconcat
-        [ "partNumber" =? _upcPartNumber
-        , "uploadId"   =? _upcUploadId
-        ]
-
-instance ToHeaders UploadPartCopy where
-    toHeaders UploadPartCopy{..} = mconcat
-        [ "x-amz-copy-source"                                           =: _upcCopySource
-        , "x-amz-copy-source-if-match"                                  =: _upcCopySourceIfMatch
-        , "x-amz-copy-source-if-modified-since"                         =: _upcCopySourceIfModifiedSince
-        , "x-amz-copy-source-if-none-match"                             =: _upcCopySourceIfNoneMatch
-        , "x-amz-copy-source-if-unmodified-since"                       =: _upcCopySourceIfUnmodifiedSince
-        , "x-amz-copy-source-range"                                     =: _upcCopySourceRange
-        , "x-amz-server-side-encryption-customer-algorithm"             =: _upcSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"                   =: _upcSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"               =: _upcSSECustomerKeyMD5
-        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _upcCopySourceSSECustomerAlgorithm
-        , "x-amz-copy-source-server-side-encryption-customer-key"       =: _upcCopySourceSSECustomerKey
-        , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _upcCopySourceSSEKMSKeyId
-        ]
-
-instance ToBody UploadPartCopy
-
 data UploadPartCopyResponse = UploadPartCopyResponse
     { _upcrCopyPartResult       :: Maybe CopyPartResult
     , _upcrCopySourceVersionId  :: Maybe Text
@@ -366,10 +333,45 @@ instance AWSRequest UploadPartCopy where
     type Rs UploadPartCopy = UploadPartCopyResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UploadPartCopyResponse
+    response = xmlHeaderResponse $ \h x -> UploadPartCopyResponse
         <$> x %| "CopyPartResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
+
+instance ToPath UploadPartCopy where
+    toPath UploadPartCopy{..} = mconcat
+        [ "/"
+        , toText _upcBucket
+        , "/"
+        , toText _upcKey
+        ]
+
+instance ToHeaders UploadPartCopy where
+    toHeaders UploadPartCopy{..} = mconcat
+        [ "x-amz-copy-source"                                           =: _upcCopySource
+        , "x-amz-copy-source-if-match"                                  =: _upcCopySourceIfMatch
+        , "x-amz-copy-source-if-modified-since"                         =: _upcCopySourceIfModifiedSince
+        , "x-amz-copy-source-if-none-match"                             =: _upcCopySourceIfNoneMatch
+        , "x-amz-copy-source-if-unmodified-since"                       =: _upcCopySourceIfUnmodifiedSince
+        , "x-amz-copy-source-range"                                     =: _upcCopySourceRange
+        , "x-amz-server-side-encryption-customer-algorithm"             =: _upcSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"                   =: _upcSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"               =: _upcSSECustomerKeyMD5
+        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _upcCopySourceSSECustomerAlgorithm
+        , "x-amz-copy-source-server-side-encryption-customer-key"       =: _upcCopySourceSSECustomerKey
+        , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _upcCopySourceSSEKMSKeyId
+        ]
+
+instance ToQuery UploadPartCopy where
+    toQuery UploadPartCopy{..} = mconcat
+        [ "partNumber" =? _upcPartNumber
+        , "uploadId"   =? _upcUploadId
+        ]
+
+instance ToXML UploadPartCopy where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UploadPartCopy"

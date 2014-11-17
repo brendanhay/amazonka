@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.SetIdentityDkimEnabled
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
 
-instance ToQuery SetIdentityDkimEnabled
-
-instance ToPath SetIdentityDkimEnabled where
-    toPath = const "/"
-
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest SetIdentityDkimEnabled where
     type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
 
     request  = post "SetIdentityDkimEnabled"
-    response = nullaryResponse SetIdentityDkimEnabledResponse
+    response = nullResponse SetIdentityDkimEnabledResponse
+
+instance ToPath SetIdentityDkimEnabled where
+    toPath = const "/"
+
+instance ToHeaders SetIdentityDkimEnabled
+
+instance ToQuery SetIdentityDkimEnabled

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
 
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
 lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
-
-instance ToPath ListVolumeRecoveryPoints where
-    toPath = const "/"
-
-instance ToQuery ListVolumeRecoveryPoints where
-    toQuery = const mempty
-
-instance ToHeaders ListVolumeRecoveryPoints
-
-instance ToBody ListVolumeRecoveryPoints where
-    toBody = toBody . encode . _lvrpGatewayARN
 
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN               :: Maybe Text
@@ -109,6 +98,18 @@ instance AWSRequest ListVolumeRecoveryPoints where
     type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListVolumeRecoveryPointsResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "VolumeRecoveryPointInfos"
+    response = jsonResponse
+
+instance FromJSON ListVolumeRecoveryPointsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListVolumeRecoveryPoints where
+    toPath = const "/"
+
+instance ToHeaders ListVolumeRecoveryPoints
+
+instance ToQuery ListVolumeRecoveryPoints where
+    toQuery = const mempty
+
+instance ToJSON ListVolumeRecoveryPoints where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,11 +49,6 @@ data GenerateCredentialReport = GenerateCredentialReport
 generateCredentialReport :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport
 
-instance ToQuery GenerateCredentialReport
-
-instance ToPath GenerateCredentialReport where
-    toPath = const "/"
-
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrDescription :: Maybe Text
     , _gcrrState       :: Maybe Text
@@ -86,6 +81,15 @@ instance AWSRequest GenerateCredentialReport where
     type Rs GenerateCredentialReport = GenerateCredentialReportResponse
 
     request  = post "GenerateCredentialReport"
-    response = xmlResponse $ \h x -> GenerateCredentialReportResponse
-        <$> x %| "Description"
-        <*> x %| "State"
+    response = xmlResponse
+
+instance FromXML GenerateCredentialReportResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GenerateCredentialReportResponse"
+
+instance ToPath GenerateCredentialReport where
+    toPath = const "/"
+
+instance ToHeaders GenerateCredentialReport
+
+instance ToQuery GenerateCredentialReport

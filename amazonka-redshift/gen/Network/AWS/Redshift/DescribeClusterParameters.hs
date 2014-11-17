@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -110,11 +110,6 @@ dcp1ParameterGroupName =
 dcp1Source :: Lens' DescribeClusterParameters (Maybe Text)
 dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
 
-instance ToQuery DescribeClusterParameters
-
-instance ToPath DescribeClusterParameters where
-    toPath = const "/"
-
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprMarker     :: Maybe Text
     , _dcprParameters :: [Parameter]
@@ -153,10 +148,15 @@ instance AWSRequest DescribeClusterParameters where
     type Rs DescribeClusterParameters = DescribeClusterParametersResponse
 
     request  = post "DescribeClusterParameters"
-    response = xmlResponse $ \h x -> DescribeClusterParametersResponse
-        <$> x %| "Marker"
-        <*> x %| "Parameters"
+    response = xmlResponse
 
-instance AWSPager DescribeClusterParameters where
-    next rq rs = (\x -> rq & dcp1Marker ?~ x)
-        <$> (rs ^. dcprMarker)
+instance FromXML DescribeClusterParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClusterParametersResponse"
+
+instance ToPath DescribeClusterParameters where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusterParameters
+
+instance ToQuery DescribeClusterParameters

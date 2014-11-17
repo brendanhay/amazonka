@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.CreateApplication
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ caApplicationName :: Lens' CreateApplication Text
 caApplicationName =
     lens _caApplicationName (\s a -> s { _caApplicationName = a })
 
-instance ToPath CreateApplication where
-    toPath = const "/"
-
-instance ToQuery CreateApplication where
-    toQuery = const mempty
-
-instance ToHeaders CreateApplication
-
-instance ToBody CreateApplication where
-    toBody = toBody . encode . _caApplicationName
-
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplicationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -98,5 +87,18 @@ instance AWSRequest CreateApplication where
     type Rs CreateApplication = CreateApplicationResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateApplicationResponse
-        <$> o .: "applicationId"
+    response = jsonResponse
+
+instance FromJSON CreateApplicationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateApplication where
+    toPath = const "/"
+
+instance ToHeaders CreateApplication
+
+instance ToQuery CreateApplication where
+    toQuery = const mempty
+
+instance ToJSON CreateApplication where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -110,11 +110,6 @@ csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
-instance ToQuery CreateSecurityGroup
-
-instance ToPath CreateSecurityGroup where
-    toPath = const "/"
-
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -139,5 +134,15 @@ instance AWSRequest CreateSecurityGroup where
     type Rs CreateSecurityGroup = CreateSecurityGroupResponse
 
     request  = post "CreateSecurityGroup"
-    response = xmlResponse $ \h x -> CreateSecurityGroupResponse
-        <$> x %| "groupId"
+    response = xmlResponse
+
+instance FromXML CreateSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSecurityGroupResponse"
+
+instance ToPath CreateSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateSecurityGroup
+
+instance ToQuery CreateSecurityGroup

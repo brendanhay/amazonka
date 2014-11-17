@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -93,17 +93,6 @@ rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\s a -> s { _rtrhTaskrunnerId = a })
 rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
 
-instance ToPath ReportTaskRunnerHeartbeat where
-    toPath = const "/"
-
-instance ToQuery ReportTaskRunnerHeartbeat where
-    toQuery = const mempty
-
-instance ToHeaders ReportTaskRunnerHeartbeat
-
-instance ToBody ReportTaskRunnerHeartbeat where
-    toBody = toBody . encode . _rtrhTaskrunnerId
-
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate :: Bool
     } deriving (Eq, Ord, Show, Generic, Enum)
@@ -130,5 +119,18 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
     type Rs ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeatResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ReportTaskRunnerHeartbeatResponse
-        <$> o .: "terminate"
+    response = jsonResponse
+
+instance FromJSON ReportTaskRunnerHeartbeatResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ReportTaskRunnerHeartbeat where
+    toPath = const "/"
+
+instance ToHeaders ReportTaskRunnerHeartbeat
+
+instance ToQuery ReportTaskRunnerHeartbeat where
+    toQuery = const mempty
+
+instance ToJSON ReportTaskRunnerHeartbeat where
+    toJSON = genericToJSON jsonOptions

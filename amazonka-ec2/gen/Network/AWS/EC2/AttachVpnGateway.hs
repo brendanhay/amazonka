@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AttachVpnGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,11 +81,6 @@ avgVpcId = lens _avgVpcId (\s a -> s { _avgVpcId = a })
 avgVpnGatewayId :: Lens' AttachVpnGateway Text
 avgVpnGatewayId = lens _avgVpnGatewayId (\s a -> s { _avgVpnGatewayId = a })
 
-instance ToQuery AttachVpnGateway
-
-instance ToPath AttachVpnGateway where
-    toPath = const "/"
-
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
     } deriving (Eq, Show, Generic)
@@ -111,5 +106,15 @@ instance AWSRequest AttachVpnGateway where
     type Rs AttachVpnGateway = AttachVpnGatewayResponse
 
     request  = post "AttachVpnGateway"
-    response = xmlResponse $ \h x -> AttachVpnGatewayResponse
-        <$> x %| "attachment"
+    response = xmlResponse
+
+instance FromXML AttachVpnGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachVpnGatewayResponse"
+
+instance ToPath AttachVpnGateway where
+    toPath = const "/"
+
+instance ToHeaders AttachVpnGateway
+
+instance ToQuery AttachVpnGateway

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeEventCategories
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ decFilters = lens _decFilters (\s a -> s { _decFilters = a })
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
-instance ToQuery DescribeEventCategories
-
-instance ToPath DescribeEventCategories where
-    toPath = const "/"
-
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -109,5 +104,15 @@ instance AWSRequest DescribeEventCategories where
     type Rs DescribeEventCategories = DescribeEventCategoriesResponse
 
     request  = post "DescribeEventCategories"
-    response = xmlResponse $ \h x -> DescribeEventCategoriesResponse
-        <$> x %| "EventCategoriesMapList"
+    response = xmlResponse
+
+instance FromXML DescribeEventCategoriesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEventCategoriesResponse"
+
+instance ToPath DescribeEventCategories where
+    toPath = const "/"
+
+instance ToHeaders DescribeEventCategories
+
+instance ToQuery DescribeEventCategories

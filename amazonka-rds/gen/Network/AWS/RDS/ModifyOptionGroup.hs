@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -99,11 +99,6 @@ mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
 mogOptionsToRemove =
     lens _mogOptionsToRemove (\s a -> s { _mogOptionsToRemove = a })
 
-instance ToQuery ModifyOptionGroup
-
-instance ToPath ModifyOptionGroup where
-    toPath = const "/"
-
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup :: Maybe OptionGroup
     } deriving (Eq, Show, Generic)
@@ -127,5 +122,15 @@ instance AWSRequest ModifyOptionGroup where
     type Rs ModifyOptionGroup = ModifyOptionGroupResponse
 
     request  = post "ModifyOptionGroup"
-    response = xmlResponse $ \h x -> ModifyOptionGroupResponse
-        <$> x %| "OptionGroup"
+    response = xmlResponse
+
+instance FromXML ModifyOptionGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyOptionGroupResponse"
+
+instance ToPath ModifyOptionGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyOptionGroup
+
+instance ToQuery ModifyOptionGroup

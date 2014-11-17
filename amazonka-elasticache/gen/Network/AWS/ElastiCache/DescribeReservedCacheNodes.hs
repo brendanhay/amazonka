@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -144,11 +144,6 @@ drcnReservedCacheNodesOfferingId =
     lens _drcnReservedCacheNodesOfferingId
         (\s a -> s { _drcnReservedCacheNodesOfferingId = a })
 
-instance ToQuery DescribeReservedCacheNodes
-
-instance ToPath DescribeReservedCacheNodes where
-    toPath = const "/"
-
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker             :: Maybe Text
     , _drcnrReservedCacheNodes :: [ReservedCacheNode]
@@ -183,10 +178,15 @@ instance AWSRequest DescribeReservedCacheNodes where
     type Rs DescribeReservedCacheNodes = DescribeReservedCacheNodesResponse
 
     request  = post "DescribeReservedCacheNodes"
-    response = xmlResponse $ \h x -> DescribeReservedCacheNodesResponse
-        <$> x %| "Marker"
-        <*> x %| "ReservedCacheNodes"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedCacheNodes where
-    next rq rs = (\x -> rq & drcnMarker ?~ x)
-        <$> (rs ^. drcnrMarker)
+instance FromXML DescribeReservedCacheNodesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedCacheNodesResponse"
+
+instance ToPath DescribeReservedCacheNodes where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedCacheNodes
+
+instance ToQuery DescribeReservedCacheNodes

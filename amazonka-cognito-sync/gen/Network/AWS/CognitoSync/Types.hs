@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.CognitoSync.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.CognitoSync.Types
       CognitoSync
     -- ** Error
     , RESTError
+    -- ** JSON
+    , jsonOptions
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
@@ -84,6 +88,7 @@ module Network.AWS.CognitoSync.Types
     , psRoleArn
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -105,6 +110,11 @@ instance AWSService CognitoSync where
         }
 
     handle = restError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer
@@ -155,9 +165,11 @@ ipuSyncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
 ipuSyncSessionsCount =
     lens _ipuSyncSessionsCount (\s a -> s { _ipuSyncSessionsCount = a })
 
-instance FromJSON IdentityPoolUsage
+instance FromJSON IdentityPoolUsage where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON IdentityPoolUsage
+instance ToJSON IdentityPoolUsage where
+    toJSON = genericToJSON jsonOptions
 
 data Platform
     = Adm         -- ^ ADM
@@ -181,9 +193,11 @@ instance ToText Platform where
         ApnsSandbox -> "APNS_SANDBOX"
         Gcm         -> "GCM"
 
-instance FromJSON Platform
+instance FromJSON Platform where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Platform
+instance ToJSON Platform where
+    toJSON = genericToJSON jsonOptions
 
 data Dataset = Dataset
     { _dCreationDate     :: Maybe RFC822
@@ -258,9 +272,11 @@ dLastModifiedDate =
 dNumRecords :: Lens' Dataset (Maybe Integer)
 dNumRecords = lens _dNumRecords (\s a -> s { _dNumRecords = a })
 
-instance FromJSON Dataset
+instance FromJSON Dataset where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Dataset
+instance ToJSON Dataset where
+    toJSON = genericToJSON jsonOptions
 
 data Operation
     = Remove  -- ^ remove
@@ -278,9 +294,11 @@ instance ToText Operation where
         Remove  -> "remove"
         Replace -> "replace"
 
-instance FromJSON Operation
+instance FromJSON Operation where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Operation
+instance ToJSON Operation where
+    toJSON = genericToJSON jsonOptions
 
 data Record = Record
     { _rDeviceLastModifiedDate :: Maybe RFC822
@@ -345,9 +363,11 @@ rSyncCount = lens _rSyncCount (\s a -> s { _rSyncCount = a })
 rValue :: Lens' Record (Maybe Text)
 rValue = lens _rValue (\s a -> s { _rValue = a })
 
-instance FromJSON Record
+instance FromJSON Record where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Record
+instance ToJSON Record where
+    toJSON = genericToJSON jsonOptions
 
 data IdentityUsage = IdentityUsage
     { _iuDataStorage      :: Maybe Integer
@@ -406,9 +426,11 @@ iuLastModifiedDate =
     lens _iuLastModifiedDate (\s a -> s { _iuLastModifiedDate = a })
         . mapping _Time
 
-instance FromJSON IdentityUsage
+instance FromJSON IdentityUsage where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON IdentityUsage
+instance ToJSON IdentityUsage where
+    toJSON = genericToJSON jsonOptions
 
 data RecordPatch = RecordPatch
     { _rpDeviceLastModifiedDate :: Maybe RFC822
@@ -467,9 +489,11 @@ rpSyncCount = lens _rpSyncCount (\s a -> s { _rpSyncCount = a })
 rpValue :: Lens' RecordPatch (Maybe Text)
 rpValue = lens _rpValue (\s a -> s { _rpValue = a })
 
-instance FromJSON RecordPatch
+instance FromJSON RecordPatch where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RecordPatch
+instance ToJSON RecordPatch where
+    toJSON = genericToJSON jsonOptions
 
 data PushSync = PushSync
     { _psApplicationArns :: [Text]
@@ -500,6 +524,8 @@ psApplicationArns =
 psRoleArn :: Lens' PushSync (Maybe Text)
 psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
 
-instance FromJSON PushSync
+instance FromJSON PushSync where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON PushSync
+instance ToJSON PushSync where
+    toJSON = genericToJSON jsonOptions

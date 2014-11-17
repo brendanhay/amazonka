@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CreateHsmConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -128,11 +128,6 @@ chcHsmServerPublicCertificate =
     lens _chcHsmServerPublicCertificate
         (\s a -> s { _chcHsmServerPublicCertificate = a })
 
-instance ToQuery CreateHsmConfiguration
-
-instance ToPath CreateHsmConfiguration where
-    toPath = const "/"
-
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
     } deriving (Eq, Show, Generic)
@@ -157,5 +152,15 @@ instance AWSRequest CreateHsmConfiguration where
     type Rs CreateHsmConfiguration = CreateHsmConfigurationResponse
 
     request  = post "CreateHsmConfiguration"
-    response = xmlResponse $ \h x -> CreateHsmConfigurationResponse
-        <$> x %| "HsmConfiguration"
+    response = xmlResponse
+
+instance FromXML CreateHsmConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateHsmConfigurationResponse"
+
+instance ToPath CreateHsmConfiguration where
+    toPath = const "/"
+
+instance ToHeaders CreateHsmConfiguration
+
+instance ToQuery CreateHsmConfiguration

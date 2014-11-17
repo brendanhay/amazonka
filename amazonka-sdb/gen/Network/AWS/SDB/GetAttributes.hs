@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.GetAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ gaDomainName = lens _gaDomainName (\s a -> s { _gaDomainName = a })
 gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
 
-instance ToQuery GetAttributes
-
-instance ToPath GetAttributes where
-    toPath = const "/"
-
 newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: [Attribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -133,5 +128,15 @@ instance AWSRequest GetAttributes where
     type Rs GetAttributes = GetAttributesResponse
 
     request  = post "GetAttributes"
-    response = xmlResponse $ \h x -> GetAttributesResponse
-        <$> x %| "Attributes"
+    response = xmlResponse
+
+instance FromXML GetAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetAttributesResponse"
+
+instance ToPath GetAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetAttributes
+
+instance ToQuery GetAttributes

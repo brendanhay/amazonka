@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterParameterGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgParameterGroupName =
     lens _dcpgParameterGroupName (\s a -> s { _dcpgParameterGroupName = a })
 
-instance ToQuery DescribeClusterParameterGroups
-
-instance ToPath DescribeClusterParameterGroups where
-    toPath = const "/"
-
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker          :: Maybe Text
     , _dcpgrParameterGroups :: [ClusterParameterGroup]
@@ -141,10 +136,15 @@ instance AWSRequest DescribeClusterParameterGroups where
     type Rs DescribeClusterParameterGroups = DescribeClusterParameterGroupsResponse
 
     request  = post "DescribeClusterParameterGroups"
-    response = xmlResponse $ \h x -> DescribeClusterParameterGroupsResponse
-        <$> x %| "Marker"
-        <*> x %| "ParameterGroups"
+    response = xmlResponse
 
-instance AWSPager DescribeClusterParameterGroups where
-    next rq rs = (\x -> rq & dcpgMarker ?~ x)
-        <$> (rs ^. dcpgrMarker)
+instance FromXML DescribeClusterParameterGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClusterParameterGroupsResponse"
+
+instance ToPath DescribeClusterParameterGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusterParameterGroups
+
+instance ToQuery DescribeClusterParameterGroups

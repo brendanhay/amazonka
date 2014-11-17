@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateKeyPair
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ ckpDryRun = lens _ckpDryRun (\s a -> s { _ckpDryRun = a })
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
 
-instance ToQuery CreateKeyPair
-
-instance ToPath CreateKeyPair where
-    toPath = const "/"
-
 data CreateKeyPairResponse = CreateKeyPairResponse
     { _ckprKeyFingerprint :: Maybe Text
     , _ckprKeyMaterial    :: Maybe Text
@@ -125,7 +120,15 @@ instance AWSRequest CreateKeyPair where
     type Rs CreateKeyPair = CreateKeyPairResponse
 
     request  = post "CreateKeyPair"
-    response = xmlResponse $ \h x -> CreateKeyPairResponse
-        <$> x %| "keyFingerprint"
-        <*> x %| "keyMaterial"
-        <*> x %| "keyName"
+    response = xmlResponse
+
+instance FromXML CreateKeyPairResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateKeyPairResponse"
+
+instance ToPath CreateKeyPair where
+    toPath = const "/"
+
+instance ToHeaders CreateKeyPair
+
+instance ToQuery CreateKeyPair

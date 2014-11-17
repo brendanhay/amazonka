@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -86,23 +86,12 @@ dseServiceErrorIds =
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
 
-instance ToPath DescribeServiceErrors where
-    toPath = const "/"
-
-instance ToQuery DescribeServiceErrors where
-    toQuery = const mempty
-
-instance ToHeaders DescribeServiceErrors
-
-instance ToBody DescribeServiceErrors where
-    toBody = toBody . encode . _dseStackId
-
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
-    { _dserServiceErrors :: [ServiceError]
+    { _dserServiceErrors :: [ServiceError']
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeServiceErrorsResponse where
-    type Item DescribeServiceErrorsResponse = ServiceError
+    type Item DescribeServiceErrorsResponse = ServiceError'
 
     fromList = DescribeServiceErrorsResponse . GHC.Exts.fromList
     toList   = GHC.Exts.toList . _dserServiceErrors
@@ -111,7 +100,7 @@ instance GHC.Exts.IsList DescribeServiceErrorsResponse where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dserServiceErrors' @::@ ['ServiceError']
+-- * 'dserServiceErrors' @::@ ['ServiceError'']
 --
 describeServiceErrorsResponse :: DescribeServiceErrorsResponse
 describeServiceErrorsResponse = DescribeServiceErrorsResponse
@@ -120,7 +109,7 @@ describeServiceErrorsResponse = DescribeServiceErrorsResponse
 
 -- | An array of ServiceError objects that describe the specified service
 -- errors.
-dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError]
+dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors =
     lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })
 
@@ -129,5 +118,18 @@ instance AWSRequest DescribeServiceErrors where
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeServiceErrorsResponse
-        <$> o .: "ServiceErrors"
+    response = jsonResponse
+
+instance FromJSON DescribeServiceErrorsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeServiceErrors where
+    toPath = const "/"
+
+instance ToHeaders DescribeServiceErrors
+
+instance ToQuery DescribeServiceErrors where
+    toQuery = const mempty
+
+instance ToJSON DescribeServiceErrors where
+    toJSON = genericToJSON jsonOptions

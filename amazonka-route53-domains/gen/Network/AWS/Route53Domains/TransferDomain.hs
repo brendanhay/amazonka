@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.TransferDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,7 +63,7 @@ module Network.AWS.Route53Domains.TransferDomain
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -220,17 +220,6 @@ tdRegistrantContact =
 tdTechContact :: Lens' TransferDomain ContactDetail
 tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
 
-instance ToPath TransferDomain where
-    toPath = const "/"
-
-instance ToQuery TransferDomain where
-    toQuery = const mempty
-
-instance ToHeaders TransferDomain
-
-instance ToBody TransferDomain where
-    toBody = toBody . encode . _tdDomainName
-
 newtype TransferDomainResponse = TransferDomainResponse
     { _tdrOperationId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -258,5 +247,18 @@ instance AWSRequest TransferDomain where
     type Rs TransferDomain = TransferDomainResponse
 
     request  = post
-    response = jsonResponse $ \h o -> TransferDomainResponse
-        <$> o .: "OperationId"
+    response = jsonResponse
+
+instance FromJSON TransferDomainResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath TransferDomain where
+    toPath = const "/"
+
+instance ToHeaders TransferDomain
+
+instance ToQuery TransferDomain where
+    toQuery = const mempty
+
+instance ToJSON TransferDomain where
+    toJSON = genericToJSON jsonOptions

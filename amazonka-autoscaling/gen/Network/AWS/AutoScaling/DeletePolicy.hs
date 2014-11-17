@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DeletePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dpAutoScalingGroupName =
 dpPolicyName :: Lens' DeletePolicy Text
 dpPolicyName = lens _dpPolicyName (\s a -> s { _dpPolicyName = a })
 
-instance ToQuery DeletePolicy
-
-instance ToPath DeletePolicy where
-    toPath = const "/"
-
 data DeletePolicyResponse = DeletePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeletePolicy where
     type Rs DeletePolicy = DeletePolicyResponse
 
     request  = post "DeletePolicy"
-    response = nullaryResponse DeletePolicyResponse
+    response = nullResponse DeletePolicyResponse
+
+instance ToPath DeletePolicy where
+    toPath = const "/"
+
+instance ToHeaders DeletePolicy
+
+instance ToQuery DeletePolicy

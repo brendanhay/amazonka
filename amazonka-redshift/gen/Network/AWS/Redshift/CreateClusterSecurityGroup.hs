@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ ccsg1ClusterSecurityGroupName =
 ccsg1Description :: Lens' CreateClusterSecurityGroup Text
 ccsg1Description = lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
 
-instance ToQuery CreateClusterSecurityGroup
-
-instance ToPath CreateClusterSecurityGroup where
-    toPath = const "/"
-
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -110,5 +105,15 @@ instance AWSRequest CreateClusterSecurityGroup where
     type Rs CreateClusterSecurityGroup = CreateClusterSecurityGroupResponse
 
     request  = post "CreateClusterSecurityGroup"
-    response = xmlResponse $ \h x -> CreateClusterSecurityGroupResponse
-        <$> x %| "ClusterSecurityGroup"
+    response = xmlResponse
+
+instance FromXML CreateClusterSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateClusterSecurityGroupResponse"
+
+instance ToPath CreateClusterSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateClusterSecurityGroup
+
+instance ToQuery CreateClusterSecurityGroup

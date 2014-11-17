@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.TerminateWorkflowExecution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,7 +54,7 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -128,17 +128,6 @@ tweRunId = lens _tweRunId (\s a -> s { _tweRunId = a })
 tweWorkflowId :: Lens' TerminateWorkflowExecution Text
 tweWorkflowId = lens _tweWorkflowId (\s a -> s { _tweWorkflowId = a })
 
-instance ToPath TerminateWorkflowExecution where
-    toPath = const "/"
-
-instance ToQuery TerminateWorkflowExecution where
-    toQuery = const mempty
-
-instance ToHeaders TerminateWorkflowExecution
-
-instance ToBody TerminateWorkflowExecution where
-    toBody = toBody . encode . _tweDomain
-
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -151,4 +140,15 @@ instance AWSRequest TerminateWorkflowExecution where
     type Rs TerminateWorkflowExecution = TerminateWorkflowExecutionResponse
 
     request  = post
-    response = nullaryResponse TerminateWorkflowExecutionResponse
+    response = nullResponse TerminateWorkflowExecutionResponse
+
+instance ToPath TerminateWorkflowExecution where
+    toPath = const "/"
+
+instance ToHeaders TerminateWorkflowExecution
+
+instance ToQuery TerminateWorkflowExecution where
+    toQuery = const mempty
+
+instance ToJSON TerminateWorkflowExecution where
+    toJSON = genericToJSON jsonOptions

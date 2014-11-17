@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateOptionGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -108,11 +108,6 @@ cogOptionGroupName =
 cogTags :: Lens' CreateOptionGroup [Tag]
 cogTags = lens _cogTags (\s a -> s { _cogTags = a })
 
-instance ToQuery CreateOptionGroup
-
-instance ToPath CreateOptionGroup where
-    toPath = const "/"
-
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogr1OptionGroup :: Maybe OptionGroup
     } deriving (Eq, Show, Generic)
@@ -136,5 +131,15 @@ instance AWSRequest CreateOptionGroup where
     type Rs CreateOptionGroup = CreateOptionGroupResponse
 
     request  = post "CreateOptionGroup"
-    response = xmlResponse $ \h x -> CreateOptionGroupResponse
-        <$> x %| "OptionGroup"
+    response = xmlResponse
+
+instance FromXML CreateOptionGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateOptionGroupResponse"
+
+instance ToPath CreateOptionGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateOptionGroup
+
+instance ToQuery CreateOptionGroup

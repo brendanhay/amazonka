@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.CreateInterconnect
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,7 +56,7 @@ module Network.AWS.DirectConnect.CreateInterconnect
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -100,17 +100,6 @@ ciInterconnectName =
 -- | Where the interconnect is located Example: EqSV5 Default: None.
 ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\s a -> s { _ciLocation = a })
-
-instance ToPath CreateInterconnect where
-    toPath = const "/"
-
-instance ToQuery CreateInterconnect where
-    toQuery = const mempty
-
-instance ToHeaders CreateInterconnect
-
-instance ToBody CreateInterconnect where
-    toBody = toBody . encode . _ciInterconnectName
 
 data CreateInterconnectResponse = CreateInterconnectResponse
     { _cirBandwidth         :: Maybe Text
@@ -173,10 +162,18 @@ instance AWSRequest CreateInterconnect where
     type Rs CreateInterconnect = CreateInterconnectResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateInterconnectResponse
-        <$> o .: "bandwidth"
-        <*> o .: "interconnectId"
-        <*> o .: "interconnectName"
-        <*> o .: "interconnectState"
-        <*> o .: "location"
-        <*> o .: "region"
+    response = jsonResponse
+
+instance FromJSON CreateInterconnectResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateInterconnect where
+    toPath = const "/"
+
+instance ToHeaders CreateInterconnect
+
+instance ToQuery CreateInterconnect where
+    toQuery = const mempty
+
+instance ToJSON CreateInterconnect where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ uarpPolicyDocument =
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
 
-instance ToQuery UpdateAssumeRolePolicy
-
-instance ToPath UpdateAssumeRolePolicy where
-    toPath = const "/"
-
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest UpdateAssumeRolePolicy where
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
 
     request  = post "UpdateAssumeRolePolicy"
-    response = nullaryResponse UpdateAssumeRolePolicyResponse
+    response = nullResponse UpdateAssumeRolePolicyResponse
+
+instance ToPath UpdateAssumeRolePolicy where
+    toPath = const "/"
+
+instance ToHeaders UpdateAssumeRolePolicy
+
+instance ToQuery UpdateAssumeRolePolicy

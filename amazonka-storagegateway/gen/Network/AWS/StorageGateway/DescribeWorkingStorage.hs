@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ describeWorkingStorage p1 = DescribeWorkingStorage
 
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
 dwsGatewayARN = lens _dwsGatewayARN (\s a -> s { _dwsGatewayARN = a })
-
-instance ToPath DescribeWorkingStorage where
-    toPath = const "/"
-
-instance ToQuery DescribeWorkingStorage where
-    toQuery = const mempty
-
-instance ToHeaders DescribeWorkingStorage
-
-instance ToBody DescribeWorkingStorage where
-    toBody = toBody . encode . _dwsGatewayARN
 
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
     { _dwsrDiskIds                        :: [Text]
@@ -135,8 +124,18 @@ instance AWSRequest DescribeWorkingStorage where
     type Rs DescribeWorkingStorage = DescribeWorkingStorageResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeWorkingStorageResponse
-        <$> o .: "DiskIds"
-        <*> o .: "GatewayARN"
-        <*> o .: "WorkingStorageAllocatedInBytes"
-        <*> o .: "WorkingStorageUsedInBytes"
+    response = jsonResponse
+
+instance FromJSON DescribeWorkingStorageResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeWorkingStorage where
+    toPath = const "/"
+
+instance ToHeaders DescribeWorkingStorage
+
+instance ToQuery DescribeWorkingStorage where
+    toQuery = const mempty
+
+instance ToJSON DescribeWorkingStorage where
+    toJSON = genericToJSON jsonOptions

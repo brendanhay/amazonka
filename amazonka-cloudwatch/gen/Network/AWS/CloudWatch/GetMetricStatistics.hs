@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -163,11 +163,6 @@ gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a })
 gmsUnit :: Lens' GetMetricStatistics (Maybe Text)
 gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
 
-instance ToQuery GetMetricStatistics
-
-instance ToPath GetMetricStatistics where
-    toPath = const "/"
-
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { _gmsrDatapoints :: [Datapoint]
     , _gmsrLabel      :: Maybe Text
@@ -200,6 +195,15 @@ instance AWSRequest GetMetricStatistics where
     type Rs GetMetricStatistics = GetMetricStatisticsResponse
 
     request  = post "GetMetricStatistics"
-    response = xmlResponse $ \h x -> GetMetricStatisticsResponse
-        <$> x %| "Datapoints"
-        <*> x %| "Label"
+    response = xmlResponse
+
+instance FromXML GetMetricStatisticsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetMetricStatisticsResponse"
+
+instance ToPath GetMetricStatistics where
+    toPath = const "/"
+
+instance ToHeaders GetMetricStatistics
+
+instance ToQuery GetMetricStatistics

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.DeleteVerifiedEmailAddress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
 
-instance ToQuery DeleteVerifiedEmailAddress
-
-instance ToPath DeleteVerifiedEmailAddress where
-    toPath = const "/"
-
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -79,4 +74,11 @@ instance AWSRequest DeleteVerifiedEmailAddress where
     type Rs DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddressResponse
 
     request  = post "DeleteVerifiedEmailAddress"
-    response = nullaryResponse DeleteVerifiedEmailAddressResponse
+    response = nullResponse DeleteVerifiedEmailAddressResponse
+
+instance ToPath DeleteVerifiedEmailAddress where
+    toPath = const "/"
+
+instance ToHeaders DeleteVerifiedEmailAddress
+
+instance ToQuery DeleteVerifiedEmailAddress

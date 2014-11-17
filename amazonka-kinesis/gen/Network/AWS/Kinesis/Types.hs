@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.Kinesis.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.Kinesis.Types
       Kinesis
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * Shard
     , Shard
@@ -74,6 +78,7 @@ module Network.AWS.Kinesis.Types
     , ShardIteratorType (..)
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -95,6 +100,11 @@ instance AWSService Kinesis where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data Shard = Shard
     { _sAdjacentParentShardId :: Maybe Text
@@ -153,9 +163,11 @@ sSequenceNumberRange =
 sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 
-instance FromJSON Shard
+instance FromJSON Shard where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Shard
+instance ToJSON Shard where
+    toJSON = genericToJSON jsonOptions
 
 data Tag = Tag
     { _tagKey   :: Text
@@ -188,9 +200,11 @@ tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
-instance FromJSON Tag
+instance FromJSON Tag where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Tag
+instance ToJSON Tag where
+    toJSON = genericToJSON jsonOptions
 
 data StreamDescription = StreamDescription
     { _sdHasMoreShards :: Bool
@@ -255,9 +269,11 @@ sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 sdStreamStatus :: Lens' StreamDescription Text
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 
-instance FromJSON StreamDescription
+instance FromJSON StreamDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StreamDescription
+instance ToJSON StreamDescription where
+    toJSON = genericToJSON jsonOptions
 
 data StreamStatus
     = Active   -- ^ ACTIVE
@@ -281,9 +297,11 @@ instance ToText StreamStatus where
         Deleting -> "DELETING"
         Updating -> "UPDATING"
 
-instance FromJSON StreamStatus
+instance FromJSON StreamStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StreamStatus
+instance ToJSON StreamStatus where
+    toJSON = genericToJSON jsonOptions
 
 data HashKeyRange = HashKeyRange
     { _hkrEndingHashKey   :: Text
@@ -315,9 +333,11 @@ hkrStartingHashKey :: Lens' HashKeyRange Text
 hkrStartingHashKey =
     lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
 
-instance FromJSON HashKeyRange
+instance FromJSON HashKeyRange where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON HashKeyRange
+instance ToJSON HashKeyRange where
+    toJSON = genericToJSON jsonOptions
 
 data Record = Record
     { _rData           :: Base64
@@ -360,9 +380,11 @@ rPartitionKey = lens _rPartitionKey (\s a -> s { _rPartitionKey = a })
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 
-instance FromJSON Record
+instance FromJSON Record where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Record
+instance ToJSON Record where
+    toJSON = genericToJSON jsonOptions
 
 data SequenceNumberRange = SequenceNumberRange
     { _snrEndingSequenceNumber   :: Maybe Text
@@ -396,9 +418,11 @@ snrStartingSequenceNumber =
     lens _snrStartingSequenceNumber
         (\s a -> s { _snrStartingSequenceNumber = a })
 
-instance FromJSON SequenceNumberRange
+instance FromJSON SequenceNumberRange where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SequenceNumberRange
+instance ToJSON SequenceNumberRange where
+    toJSON = genericToJSON jsonOptions
 
 data ShardIteratorType
     = AfterSequenceNumber -- ^ AFTER_SEQUENCE_NUMBER
@@ -422,6 +446,8 @@ instance ToText ShardIteratorType where
         Latest              -> "LATEST"
         TrimHorizon         -> "TRIM_HORIZON"
 
-instance FromJSON ShardIteratorType
+instance FromJSON ShardIteratorType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ShardIteratorType
+instance ToJSON ShardIteratorType where
+    toJSON = genericToJSON jsonOptions

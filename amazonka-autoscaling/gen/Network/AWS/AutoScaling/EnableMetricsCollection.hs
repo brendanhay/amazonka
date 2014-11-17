@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.EnableMetricsCollection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a })
 
-instance ToQuery EnableMetricsCollection
-
-instance ToPath EnableMetricsCollection where
-    toPath = const "/"
-
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -105,4 +100,11 @@ instance AWSRequest EnableMetricsCollection where
     type Rs EnableMetricsCollection = EnableMetricsCollectionResponse
 
     request  = post "EnableMetricsCollection"
-    response = nullaryResponse EnableMetricsCollectionResponse
+    response = nullResponse EnableMetricsCollectionResponse
+
+instance ToPath EnableMetricsCollection where
+    toPath = const "/"
+
+instance ToHeaders EnableMetricsCollection
+
+instance ToQuery EnableMetricsCollection

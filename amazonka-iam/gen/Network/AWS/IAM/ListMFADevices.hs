@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListMFADevices
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
 lmfadUserName :: Lens' ListMFADevices (Maybe Text)
 lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
 
-instance ToQuery ListMFADevices
-
-instance ToPath ListMFADevices where
-    toPath = const "/"
-
 data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
     , _lmfadrMFADevices  :: [MFADevice]
@@ -140,13 +135,15 @@ instance AWSRequest ListMFADevices where
     type Rs ListMFADevices = ListMFADevicesResponse
 
     request  = post "ListMFADevices"
-    response = xmlResponse $ \h x -> ListMFADevicesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "MFADevices"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListMFADevices where
-    next rq rs
-        | not (more (rs ^. lmfadrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lmfadMarker .~ rs ^. lmfadrMarker
+instance FromXML ListMFADevicesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListMFADevicesResponse"
+
+instance ToPath ListMFADevices where
+    toPath = const "/"
+
+instance ToHeaders ListMFADevices
+
+instance ToQuery ListMFADevices

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.BatchDeleteAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
 
-instance ToQuery BatchDeleteAttributes
-
-instance ToPath BatchDeleteAttributes where
-    toPath = const "/"
-
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +84,11 @@ instance AWSRequest BatchDeleteAttributes where
     type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse
 
     request  = post "BatchDeleteAttributes"
-    response = nullaryResponse BatchDeleteAttributesResponse
+    response = nullResponse BatchDeleteAttributesResponse
+
+instance ToPath BatchDeleteAttributes where
+    toPath = const "/"
+
+instance ToHeaders BatchDeleteAttributes
+
+instance ToQuery BatchDeleteAttributes

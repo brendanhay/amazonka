@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ drpPolicyName = lens _drpPolicyName (\s a -> s { _drpPolicyName = a })
 drpRoleName :: Lens' DeleteRolePolicy Text
 drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
 
-instance ToQuery DeleteRolePolicy
-
-instance ToPath DeleteRolePolicy where
-    toPath = const "/"
-
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteRolePolicy where
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse
 
     request  = post "DeleteRolePolicy"
-    response = nullaryResponse DeleteRolePolicyResponse
+    response = nullResponse DeleteRolePolicyResponse
+
+instance ToPath DeleteRolePolicy where
+    toPath = const "/"
+
+instance ToHeaders DeleteRolePolicy
+
+instance ToQuery DeleteRolePolicy

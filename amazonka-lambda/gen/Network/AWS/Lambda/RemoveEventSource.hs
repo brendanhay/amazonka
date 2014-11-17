@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.RemoveEventSource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.Lambda.RemoveEventSource
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ removeEventSource p1 = RemoveEventSource
 resUUID :: Lens' RemoveEventSource Text
 resUUID = lens _resUUID (\s a -> s { _resUUID = a })
 
-instance ToPath RemoveEventSource where
-    toPath RemoveEventSource{..} = mconcat
-        [ "/2014-11-13/event-source-mappings/"
-        , toText _resUUID
-        ]
-
-instance ToQuery RemoveEventSource where
-    toQuery = const mempty
-
-instance ToHeaders RemoveEventSource
-
 data RemoveEventSourceResponse = RemoveEventSourceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,18 @@ instance AWSRequest RemoveEventSource where
     type Rs RemoveEventSource = RemoveEventSourceResponse
 
     request  = delete
-    response = nullaryResponse RemoveEventSourceResponse
+    response = nullResponse RemoveEventSourceResponse
+
+instance ToPath RemoveEventSource where
+    toPath RemoveEventSource{..} = mconcat
+        [ "/2014-11-13/event-source-mappings/"
+        , toText _resUUID
+        ]
+
+instance ToHeaders RemoveEventSource
+
+instance ToQuery RemoveEventSource where
+    toQuery = const mempty
+
+instance ToJSON RemoveEventSource where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.GetStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ getStatus p1 = GetStatus
 
 gsJobId :: Lens' GetStatus Text
 gsJobId = lens _gsJobId (\s a -> s { _gsJobId = a })
-
-instance ToQuery GetStatus
-
-instance ToPath GetStatus where
-    toPath = const "/"
 
 data GetStatusResponse = GetStatusResponse
     { _gsrAwsShippingAddress    :: Maybe Text
@@ -219,20 +214,15 @@ instance AWSRequest GetStatus where
     type Rs GetStatus = GetStatusResponse
 
     request  = post "GetStatus"
-    response = xmlResponse $ \h x -> GetStatusResponse
-        <$> x %| "AwsShippingAddress"
-        <*> x %| "Carrier"
-        <*> x %| "CreationDate"
-        <*> x %| "CurrentManifest"
-        <*> x %| "ErrorCount"
-        <*> x %| "JobId"
-        <*> x %| "JobType"
-        <*> x %| "LocationCode"
-        <*> x %| "LocationMessage"
-        <*> x %| "LogBucket"
-        <*> x %| "LogKey"
-        <*> x %| "ProgressCode"
-        <*> x %| "ProgressMessage"
-        <*> x %| "Signature"
-        <*> x %| "SignatureFileContents"
-        <*> x %| "TrackingNumber"
+    response = xmlResponse
+
+instance FromXML GetStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetStatusResponse"
+
+instance ToPath GetStatus where
+    toPath = const "/"
+
+instance ToHeaders GetStatus
+
+instance ToQuery GetStatus

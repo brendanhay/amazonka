@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.STS.AssumeRoleWithWebIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -186,11 +186,6 @@ arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken =
     lens _arwwiWebIdentityToken (\s a -> s { _arwwiWebIdentityToken = a })
 
-instance ToQuery AssumeRoleWithWebIdentity
-
-instance ToPath AssumeRoleWithWebIdentity where
-    toPath = const "/"
-
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirAssumedRoleUser             :: Maybe AssumedRoleUser
     , _arwwirAudience                    :: Maybe Text
@@ -280,10 +275,15 @@ instance AWSRequest AssumeRoleWithWebIdentity where
     type Rs AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentityResponse
 
     request  = post "AssumeRoleWithWebIdentity"
-    response = xmlResponse $ \h x -> AssumeRoleWithWebIdentityResponse
-        <$> x %| "AssumedRoleUser"
-        <*> x %| "Audience"
-        <*> x %| "Credentials"
-        <*> x %| "PackedPolicySize"
-        <*> x %| "Provider"
-        <*> x %| "SubjectFromWebIdentityToken"
+    response = xmlResponse
+
+instance FromXML AssumeRoleWithWebIdentityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssumeRoleWithWebIdentityResponse"
+
+instance ToPath AssumeRoleWithWebIdentity where
+    toPath = const "/"
+
+instance ToHeaders AssumeRoleWithWebIdentity
+
+instance ToQuery AssumeRoleWithWebIdentity

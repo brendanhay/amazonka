@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ das2AnalysisScheme =
 das2DomainName :: Lens' DefineAnalysisScheme Text
 das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
 
-instance ToQuery DefineAnalysisScheme
-
-instance ToPath DefineAnalysisScheme where
-    toPath = const "/"
-
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dasr1AnalysisScheme :: AnalysisSchemeStatus
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest DefineAnalysisScheme where
     type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse
 
     request  = post "DefineAnalysisScheme"
-    response = xmlResponse $ \h x -> DefineAnalysisSchemeResponse
-        <$> x %| "AnalysisScheme"
+    response = xmlResponse
+
+instance FromXML DefineAnalysisSchemeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineAnalysisSchemeResponse"
+
+instance ToPath DefineAnalysisScheme where
+    toPath = const "/"
+
+instance ToHeaders DefineAnalysisScheme
+
+instance ToQuery DefineAnalysisScheme

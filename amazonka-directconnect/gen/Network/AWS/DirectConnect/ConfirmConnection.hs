@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.DirectConnect.ConfirmConnection
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ confirmConnection p1 = ConfirmConnection
 
 ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
-
-instance ToPath ConfirmConnection where
-    toPath = const "/"
-
-instance ToQuery ConfirmConnection where
-    toQuery = const mempty
-
-instance ToHeaders ConfirmConnection
-
-instance ToBody ConfirmConnection where
-    toBody = toBody . encode . _ccConnectionId
 
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccr1ConnectionState :: Maybe Text
@@ -98,5 +87,18 @@ instance AWSRequest ConfirmConnection where
     type Rs ConfirmConnection = ConfirmConnectionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ConfirmConnectionResponse
-        <$> o .: "connectionState"
+    response = jsonResponse
+
+instance FromJSON ConfirmConnectionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ConfirmConnection where
+    toPath = const "/"
+
+instance ToHeaders ConfirmConnection
+
+instance ToQuery ConfirmConnection where
+    toQuery = const mempty
+
+instance ToJSON ConfirmConnection where
+    toJSON = genericToJSON jsonOptions

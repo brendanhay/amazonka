@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ prnoReservedNodeOfferingId =
     lens _prnoReservedNodeOfferingId
         (\s a -> s { _prnoReservedNodeOfferingId = a })
 
-instance ToQuery PurchaseReservedNodeOffering
-
-instance ToPath PurchaseReservedNodeOffering where
-    toPath = const "/"
-
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
     } deriving (Eq, Show, Generic)
@@ -107,5 +102,15 @@ instance AWSRequest PurchaseReservedNodeOffering where
     type Rs PurchaseReservedNodeOffering = PurchaseReservedNodeOfferingResponse
 
     request  = post "PurchaseReservedNodeOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedNodeOfferingResponse
-        <$> x %| "ReservedNode"
+    response = xmlResponse
+
+instance FromXML PurchaseReservedNodeOfferingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResponse"
+
+instance ToPath PurchaseReservedNodeOffering where
+    toPath = const "/"
+
+instance ToHeaders PurchaseReservedNodeOffering
+
+instance ToQuery PurchaseReservedNodeOffering

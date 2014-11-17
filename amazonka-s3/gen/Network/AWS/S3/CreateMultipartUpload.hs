@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.CreateMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,7 +68,7 @@ module Network.AWS.S3.CreateMultipartUpload
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -278,42 +278,6 @@ cmuWebsiteRedirectLocation =
     lens _cmuWebsiteRedirectLocation
         (\s a -> s { _cmuWebsiteRedirectLocation = a })
 
-instance ToPath CreateMultipartUpload where
-    toPath CreateMultipartUpload{..} = mconcat
-        [ "/"
-        , toText _cmuBucket
-        , "/"
-        , toText _cmuKey
-        ]
-
-instance ToQuery CreateMultipartUpload where
-    toQuery = const "uploads"
-
-instance ToHeaders CreateMultipartUpload where
-    toHeaders CreateMultipartUpload{..} = mconcat
-        [ "x-amz-acl"                                       =: _cmuACL
-        , "Cache-Control"                                   =: _cmuCacheControl
-        , "Content-Disposition"                             =: _cmuContentDisposition
-        , "Content-Encoding"                                =: _cmuContentEncoding
-        , "Content-Language"                                =: _cmuContentLanguage
-        , "Content-Type"                                    =: _cmuContentType
-        , "Expires"                                         =: _cmuExpires
-        , "x-amz-grant-full-control"                        =: _cmuGrantFullControl
-        , "x-amz-grant-read"                                =: _cmuGrantRead
-        , "x-amz-grant-read-acp"                            =: _cmuGrantReadACP
-        , "x-amz-grant-write-acp"                           =: _cmuGrantWriteACP
-        , "x-amz-meta-"                                     =: _cmuMetadata
-        , "x-amz-server-side-encryption"                    =: _cmuServerSideEncryption
-        , "x-amz-storage-class"                             =: _cmuStorageClass
-        , "x-amz-website-redirect-location"                 =: _cmuWebsiteRedirectLocation
-        , "x-amz-server-side-encryption-customer-algorithm" =: _cmuSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _cmuSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmuSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
-        ]
-
-instance ToBody CreateMultipartUpload
-
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     { _cmurBucket               :: Maybe Text
     , _cmurKey                  :: Maybe Text
@@ -397,7 +361,7 @@ instance AWSRequest CreateMultipartUpload where
     type Rs CreateMultipartUpload = CreateMultipartUploadResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateMultipartUploadResponse
+    response = xmlHeaderResponse $ \h x -> CreateMultipartUploadResponse
         <$> x %| "Bucket"
         <*> x %| "Key"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
@@ -405,3 +369,41 @@ instance AWSRequest CreateMultipartUpload where
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> x %| "UploadId"
+
+instance ToPath CreateMultipartUpload where
+    toPath CreateMultipartUpload{..} = mconcat
+        [ "/"
+        , toText _cmuBucket
+        , "/"
+        , toText _cmuKey
+        ]
+
+instance ToHeaders CreateMultipartUpload where
+    toHeaders CreateMultipartUpload{..} = mconcat
+        [ "x-amz-acl"                                       =: _cmuACL
+        , "Cache-Control"                                   =: _cmuCacheControl
+        , "Content-Disposition"                             =: _cmuContentDisposition
+        , "Content-Encoding"                                =: _cmuContentEncoding
+        , "Content-Language"                                =: _cmuContentLanguage
+        , "Content-Type"                                    =: _cmuContentType
+        , "Expires"                                         =: _cmuExpires
+        , "x-amz-grant-full-control"                        =: _cmuGrantFullControl
+        , "x-amz-grant-read"                                =: _cmuGrantRead
+        , "x-amz-grant-read-acp"                            =: _cmuGrantReadACP
+        , "x-amz-grant-write-acp"                           =: _cmuGrantWriteACP
+        , "x-amz-meta-"                                     =: _cmuMetadata
+        , "x-amz-server-side-encryption"                    =: _cmuServerSideEncryption
+        , "x-amz-storage-class"                             =: _cmuStorageClass
+        , "x-amz-website-redirect-location"                 =: _cmuWebsiteRedirectLocation
+        , "x-amz-server-side-encryption-customer-algorithm" =: _cmuSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _cmuSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmuSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
+        ]
+
+instance ToQuery CreateMultipartUpload where
+    toQuery = const "uploads"
+
+instance ToXML CreateMultipartUpload where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateMultipartUpload"

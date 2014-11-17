@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ gdiDeploymentId = lens _gdiDeploymentId (\s a -> s { _gdiDeploymentId = a })
 gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\s a -> s { _gdiInstanceId = a })
 
-instance ToPath GetDeploymentInstance where
-    toPath = const "/"
-
-instance ToQuery GetDeploymentInstance where
-    toQuery = const mempty
-
-instance ToHeaders GetDeploymentInstance
-
-instance ToBody GetDeploymentInstance where
-    toBody = toBody . encode . _gdiDeploymentId
-
 newtype GetDeploymentInstanceResponse = GetDeploymentInstanceResponse
     { _gdirInstanceSummary :: Maybe InstanceSummary
     } deriving (Eq, Show, Generic)
@@ -108,5 +97,18 @@ instance AWSRequest GetDeploymentInstance where
     type Rs GetDeploymentInstance = GetDeploymentInstanceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetDeploymentInstanceResponse
-        <$> o .: "instanceSummary"
+    response = jsonResponse
+
+instance FromJSON GetDeploymentInstanceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetDeploymentInstance where
+    toPath = const "/"
+
+instance ToHeaders GetDeploymentInstance
+
+instance ToQuery GetDeploymentInstance where
+    toQuery = const mempty
+
+instance ToJSON GetDeploymentInstance where
+    toJSON = genericToJSON jsonOptions

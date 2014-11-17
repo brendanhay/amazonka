@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -121,11 +121,6 @@ adbsgiEC2SecurityGroupOwnerId =
     lens _adbsgiEC2SecurityGroupOwnerId
         (\s a -> s { _adbsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery AuthorizeDBSecurityGroupIngress
-
-instance ToPath AuthorizeDBSecurityGroupIngress where
-    toPath = const "/"
-
 newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -150,5 +145,15 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress where
     type Rs AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngressResponse
 
     request  = post "AuthorizeDBSecurityGroupIngress"
-    response = xmlResponse $ \h x -> AuthorizeDBSecurityGroupIngressResponse
-        <$> x %| "DBSecurityGroup"
+    response = xmlResponse
+
+instance FromXML AuthorizeDBSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeDBSecurityGroupIngressResponse"
+
+instance ToPath AuthorizeDBSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders AuthorizeDBSecurityGroupIngress
+
+instance ToQuery AuthorizeDBSecurityGroupIngress

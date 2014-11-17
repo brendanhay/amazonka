@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.CognitoIdentity.ListIdentities
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -82,17 +82,6 @@ liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a })
 -- | A pagination token.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
-
-instance ToPath ListIdentities where
-    toPath = const "/"
-
-instance ToQuery ListIdentities where
-    toQuery = const mempty
-
-instance ToHeaders ListIdentities
-
-instance ToBody ListIdentities where
-    toBody = toBody . encode . _liIdentityPoolId
 
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities     :: [IdentityDescription]
@@ -135,7 +124,18 @@ instance AWSRequest ListIdentities where
     type Rs ListIdentities = ListIdentitiesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListIdentitiesResponse
-        <$> o .: "Identities"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "NextToken"
+    response = jsonResponse
+
+instance FromJSON ListIdentitiesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListIdentities where
+    toPath = const "/"
+
+instance ToHeaders ListIdentities
+
+instance ToQuery ListIdentities where
+    toQuery = const mempty
+
+instance ToJSON ListIdentities where
+    toJSON = genericToJSON jsonOptions

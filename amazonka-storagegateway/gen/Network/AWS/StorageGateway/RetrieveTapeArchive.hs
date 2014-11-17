@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeArchive
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -81,17 +81,6 @@ rtaGatewayARN = lens _rtaGatewayARN (\s a -> s { _rtaGatewayARN = a })
 rtaTapeARN :: Lens' RetrieveTapeArchive Text
 rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
 
-instance ToPath RetrieveTapeArchive where
-    toPath = const "/"
-
-instance ToQuery RetrieveTapeArchive where
-    toQuery = const mempty
-
-instance ToHeaders RetrieveTapeArchive
-
-instance ToBody RetrieveTapeArchive where
-    toBody = toBody . encode . _rtaTapeARN
-
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -116,5 +105,18 @@ instance AWSRequest RetrieveTapeArchive where
     type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RetrieveTapeArchiveResponse
-        <$> o .: "TapeARN"
+    response = jsonResponse
+
+instance FromJSON RetrieveTapeArchiveResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RetrieveTapeArchive where
+    toPath = const "/"
+
+instance ToHeaders RetrieveTapeArchive
+
+instance ToQuery RetrieveTapeArchive where
+    toQuery = const mempty
+
+instance ToJSON RetrieveTapeArchive where
+    toJSON = genericToJSON jsonOptions

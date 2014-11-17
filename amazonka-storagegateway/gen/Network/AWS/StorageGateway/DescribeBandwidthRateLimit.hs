@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ describeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
 
 dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
 dbrlGatewayARN = lens _dbrlGatewayARN (\s a -> s { _dbrlGatewayARN = a })
-
-instance ToPath DescribeBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToQuery DescribeBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToHeaders DescribeBandwidthRateLimit
-
-instance ToBody DescribeBandwidthRateLimit where
-    toBody = toBody . encode . _dbrlGatewayARN
 
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     { _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
@@ -126,7 +115,18 @@ instance AWSRequest DescribeBandwidthRateLimit where
     type Rs DescribeBandwidthRateLimit = DescribeBandwidthRateLimitResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeBandwidthRateLimitResponse
-        <$> o .: "AverageDownloadRateLimitInBitsPerSec"
-        <*> o .: "AverageUploadRateLimitInBitsPerSec"
-        <*> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON DescribeBandwidthRateLimitResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeBandwidthRateLimit where
+    toPath = const "/"
+
+instance ToHeaders DescribeBandwidthRateLimit
+
+instance ToQuery DescribeBandwidthRateLimit where
+    toQuery = const mempty
+
+instance ToJSON DescribeBandwidthRateLimit where
+    toJSON = genericToJSON jsonOptions

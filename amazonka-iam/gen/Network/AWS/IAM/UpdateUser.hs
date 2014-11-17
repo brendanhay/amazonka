@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
 
-instance ToQuery UpdateUser
-
-instance ToPath UpdateUser where
-    toPath = const "/"
-
 data UpdateUserResponse = UpdateUserResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +94,11 @@ instance AWSRequest UpdateUser where
     type Rs UpdateUser = UpdateUserResponse
 
     request  = post "UpdateUser"
-    response = nullaryResponse UpdateUserResponse
+    response = nullResponse UpdateUserResponse
+
+instance ToPath UpdateUser where
+    toPath = const "/"
+
+instance ToHeaders UpdateUser
+
+instance ToQuery UpdateUser

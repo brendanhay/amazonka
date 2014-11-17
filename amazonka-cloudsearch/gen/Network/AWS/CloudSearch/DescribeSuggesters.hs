@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeSuggesters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
 ds1SuggesterNames =
     lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
 
-instance ToQuery DescribeSuggesters
-
-instance ToPath DescribeSuggesters where
-    toPath = const "/"
-
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: [SuggesterStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -122,5 +117,15 @@ instance AWSRequest DescribeSuggesters where
     type Rs DescribeSuggesters = DescribeSuggestersResponse
 
     request  = post "DescribeSuggesters"
-    response = xmlResponse $ \h x -> DescribeSuggestersResponse
-        <$> x %| "Suggesters"
+    response = xmlResponse
+
+instance FromXML DescribeSuggestersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSuggestersResponse"
+
+instance ToPath DescribeSuggesters where
+    toPath = const "/"
+
+instance ToHeaders DescribeSuggesters
+
+instance ToQuery DescribeSuggesters

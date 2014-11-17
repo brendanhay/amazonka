@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreateJob
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -124,17 +124,6 @@ cjPipelineId = lens _cjPipelineId (\s a -> s { _cjPipelineId = a })
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
 cjPlaylists = lens _cjPlaylists (\s a -> s { _cjPlaylists = a })
 
-instance ToPath CreateJob where
-    toPath = const "/2012-09-25/jobs"
-
-instance ToQuery CreateJob where
-    toQuery = const mempty
-
-instance ToHeaders CreateJob
-
-instance ToBody CreateJob where
-    toBody = toBody . encode . _cjPipelineId
-
 newtype CreateJobResponse = CreateJobResponse
     { _cjrJob :: Maybe Job'
     } deriving (Eq, Show, Generic)
@@ -160,5 +149,18 @@ instance AWSRequest CreateJob where
     type Rs CreateJob = CreateJobResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateJobResponse
-        <$> o .: "Job"
+    response = jsonResponse
+
+instance FromJSON CreateJobResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateJob where
+    toPath = const "/2012-09-25/jobs"
+
+instance ToHeaders CreateJob
+
+instance ToQuery CreateJob where
+    toQuery = const mempty
+
+instance ToJSON CreateJob where
+    toJSON = genericToJSON jsonOptions

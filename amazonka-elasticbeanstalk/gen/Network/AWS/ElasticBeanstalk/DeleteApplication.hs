@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
 daTerminateEnvByForce =
     lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })
 
-instance ToQuery DeleteApplication
-
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
 data DeleteApplicationResponse = DeleteApplicationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +85,11 @@ instance AWSRequest DeleteApplication where
     type Rs DeleteApplication = DeleteApplicationResponse
 
     request  = post "DeleteApplication"
-    response = nullaryResponse DeleteApplicationResponse
+    response = nullResponse DeleteApplicationResponse
+
+instance ToPath DeleteApplication where
+    toPath = const "/"
+
+instance ToHeaders DeleteApplication
+
+instance ToQuery DeleteApplication

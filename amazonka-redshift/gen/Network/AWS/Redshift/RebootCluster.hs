@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.RebootCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -67,11 +67,6 @@ rcClusterIdentifier :: Lens' RebootCluster Text
 rcClusterIdentifier =
     lens _rcClusterIdentifier (\s a -> s { _rcClusterIdentifier = a })
 
-instance ToQuery RebootCluster
-
-instance ToPath RebootCluster where
-    toPath = const "/"
-
 newtype RebootClusterResponse = RebootClusterResponse
     { _rcrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -95,5 +90,15 @@ instance AWSRequest RebootCluster where
     type Rs RebootCluster = RebootClusterResponse
 
     request  = post "RebootCluster"
-    response = xmlResponse $ \h x -> RebootClusterResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML RebootClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootClusterResponse"
+
+instance ToPath RebootCluster where
+    toPath = const "/"
+
+instance ToHeaders RebootCluster
+
+instance ToQuery RebootCluster

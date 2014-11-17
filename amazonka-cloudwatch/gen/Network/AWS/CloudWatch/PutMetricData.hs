@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.PutMetricData
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a })
 pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\s a -> s { _pmdNamespace = a })
 
-instance ToQuery PutMetricData
-
-instance ToPath PutMetricData where
-    toPath = const "/"
-
 data PutMetricDataResponse = PutMetricDataResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -96,4 +91,11 @@ instance AWSRequest PutMetricData where
     type Rs PutMetricData = PutMetricDataResponse
 
     request  = post "PutMetricData"
-    response = nullaryResponse PutMetricDataResponse
+    response = nullResponse PutMetricDataResponse
+
+instance ToPath PutMetricData where
+    toPath = const "/"
+
+instance ToHeaders PutMetricData
+
+instance ToQuery PutMetricData

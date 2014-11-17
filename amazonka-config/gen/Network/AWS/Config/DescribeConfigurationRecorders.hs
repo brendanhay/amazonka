@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorders
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
 dcrConfigurationRecorderNames =
     lens _dcrConfigurationRecorderNames
         (\s a -> s { _dcrConfigurationRecorderNames = a })
-
-instance ToPath DescribeConfigurationRecorders where
-    toPath = const "/"
-
-instance ToQuery DescribeConfigurationRecorders where
-    toQuery = const mempty
-
-instance ToHeaders DescribeConfigurationRecorders
-
-instance ToBody DescribeConfigurationRecorders where
-    toBody = toBody . encode . _dcrConfigurationRecorderNames
 
 newtype DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse
     { _dcrrConfigurationRecorders :: [ConfigurationRecorder]
@@ -114,5 +103,18 @@ instance AWSRequest DescribeConfigurationRecorders where
     type Rs DescribeConfigurationRecorders = DescribeConfigurationRecordersResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeConfigurationRecordersResponse
-        <$> o .: "ConfigurationRecorders"
+    response = jsonResponse
+
+instance FromJSON DescribeConfigurationRecordersResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeConfigurationRecorders where
+    toPath = const "/"
+
+instance ToHeaders DescribeConfigurationRecorders
+
+instance ToQuery DescribeConfigurationRecorders where
+    toQuery = const mempty
+
+instance ToJSON DescribeConfigurationRecorders where
+    toJSON = genericToJSON jsonOptions

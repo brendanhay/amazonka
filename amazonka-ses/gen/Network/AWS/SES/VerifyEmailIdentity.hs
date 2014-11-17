@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.VerifyEmailIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ verifyEmailIdentity p1 = VerifyEmailIdentity
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
 
-instance ToQuery VerifyEmailIdentity
-
-instance ToPath VerifyEmailIdentity where
-    toPath = const "/"
-
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest VerifyEmailIdentity where
     type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
 
     request  = post "VerifyEmailIdentity"
-    response = nullaryResponse VerifyEmailIdentityResponse
+    response = nullResponse VerifyEmailIdentityResponse
+
+instance ToPath VerifyEmailIdentity where
+    toPath = const "/"
+
+instance ToHeaders VerifyEmailIdentity
+
+instance ToQuery VerifyEmailIdentity

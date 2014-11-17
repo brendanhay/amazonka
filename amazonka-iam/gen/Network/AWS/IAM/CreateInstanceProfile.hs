@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ cipInstanceProfileName =
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
 
-instance ToQuery CreateInstanceProfile
-
-instance ToPath CreateInstanceProfile where
-    toPath = const "/"
-
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
     } deriving (Eq, Show, Generic)
@@ -107,5 +102,15 @@ instance AWSRequest CreateInstanceProfile where
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse
 
     request  = post "CreateInstanceProfile"
-    response = xmlResponse $ \h x -> CreateInstanceProfileResponse
-        <$> x %| "InstanceProfile"
+    response = xmlResponse
+
+instance FromXML CreateInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInstanceProfileResponse"
+
+instance ToPath CreateInstanceProfile where
+    toPath = const "/"
+
+instance ToHeaders CreateInstanceProfile
+
+instance ToQuery CreateInstanceProfile

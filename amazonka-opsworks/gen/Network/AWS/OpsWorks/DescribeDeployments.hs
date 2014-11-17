@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeDeployments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeDeployments
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -86,17 +86,6 @@ ddDeploymentIds = lens _ddDeploymentIds (\s a -> s { _ddDeploymentIds = a })
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
 ddStackId = lens _ddStackId (\s a -> s { _ddStackId = a })
 
-instance ToPath DescribeDeployments where
-    toPath = const "/"
-
-instance ToQuery DescribeDeployments where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDeployments
-
-instance ToBody DescribeDeployments where
-    toBody = toBody . encode . _ddStackId
-
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments :: [Deployment]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -127,5 +116,18 @@ instance AWSRequest DescribeDeployments where
     type Rs DescribeDeployments = DescribeDeploymentsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeDeploymentsResponse
-        <$> o .: "Deployments"
+    response = jsonResponse
+
+instance FromJSON DescribeDeploymentsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeDeployments where
+    toPath = const "/"
+
+instance ToHeaders DescribeDeployments
+
+instance ToQuery DescribeDeployments where
+    toQuery = const mempty
+
+instance ToJSON DescribeDeployments where
+    toJSON = genericToJSON jsonOptions

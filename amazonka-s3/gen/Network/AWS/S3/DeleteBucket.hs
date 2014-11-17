@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.DeleteBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ deleteBucket p1 = DeleteBucket
 dbBucket :: Lens' DeleteBucket Text
 dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
 
-instance ToPath DeleteBucket where
-    toPath DeleteBucket{..} = mconcat
-        [ "/"
-        , toText _dbBucket
-        ]
-
-instance ToQuery DeleteBucket where
-    toQuery = const mempty
-
-instance ToHeaders DeleteBucket
-
 data DeleteBucketResponse = DeleteBucketResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +72,19 @@ instance AWSRequest DeleteBucket where
     type Rs DeleteBucket = DeleteBucketResponse
 
     request  = delete
-    response = nullaryResponse DeleteBucketResponse
+    response = nullResponse DeleteBucketResponse
+
+instance ToPath DeleteBucket where
+    toPath DeleteBucket{..} = mconcat
+        [ "/"
+        , toText _dbBucket
+        ]
+
+instance ToHeaders DeleteBucket
+
+instance ToQuery DeleteBucket where
+    toQuery = const mempty
+
+instance ToXML DeleteBucket where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteBucket"

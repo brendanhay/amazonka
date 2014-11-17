@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ listDeploymentConfigs = ListDeploymentConfigs
 -- deployment configurations in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\s a -> s { _ldcNextToken = a })
-
-instance ToPath ListDeploymentConfigs where
-    toPath = const "/"
-
-instance ToQuery ListDeploymentConfigs where
-    toQuery = const mempty
-
-instance ToHeaders ListDeploymentConfigs
-
-instance ToBody ListDeploymentConfigs where
-    toBody = toBody . encode . _ldcNextToken
 
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse
     { _ldcrDeploymentConfigsList :: [Text]
@@ -112,6 +101,18 @@ instance AWSRequest ListDeploymentConfigs where
     type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListDeploymentConfigsResponse
-        <$> o .: "deploymentConfigsList"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON ListDeploymentConfigsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListDeploymentConfigs where
+    toPath = const "/"
+
+instance ToHeaders ListDeploymentConfigs
+
+instance ToQuery ListDeploymentConfigs where
+    toQuery = const mempty
+
+instance ToJSON ListDeploymentConfigs where
+    toJSON = genericToJSON jsonOptions

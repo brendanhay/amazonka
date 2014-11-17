@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ daoDeployed = lens _daoDeployed (\s a -> s { _daoDeployed = a })
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
 
-instance ToQuery DescribeAvailabilityOptions
-
-instance ToPath DescribeAvailabilityOptions where
-    toPath = const "/"
-
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Eq, Show, Generic)
@@ -106,5 +101,15 @@ instance AWSRequest DescribeAvailabilityOptions where
     type Rs DescribeAvailabilityOptions = DescribeAvailabilityOptionsResponse
 
     request  = post "DescribeAvailabilityOptions"
-    response = xmlResponse $ \h x -> DescribeAvailabilityOptionsResponse
-        <$> x %| "AvailabilityOptions"
+    response = xmlResponse
+
+instance FromXML DescribeAvailabilityOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAvailabilityOptionsResponse"
+
+instance ToPath DescribeAvailabilityOptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeAvailabilityOptions
+
+instance ToQuery DescribeAvailabilityOptions

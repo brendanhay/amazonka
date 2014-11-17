@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingProcessTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,11 +47,6 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
 
-instance ToQuery DescribeScalingProcessTypes
-
-instance ToPath DescribeScalingProcessTypes where
-    toPath = const "/"
-
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses :: [ProcessType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -82,5 +77,15 @@ instance AWSRequest DescribeScalingProcessTypes where
     type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
 
     request  = post "DescribeScalingProcessTypes"
-    response = xmlResponse $ \h x -> DescribeScalingProcessTypesResponse
-        <$> x %| "Processes"
+    response = xmlResponse
+
+instance FromXML DescribeScalingProcessTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeScalingProcessTypesResponse"
+
+instance ToPath DescribeScalingProcessTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeScalingProcessTypes
+
+instance ToQuery DescribeScalingProcessTypes

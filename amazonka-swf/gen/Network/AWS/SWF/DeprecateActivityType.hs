@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.DeprecateActivityType
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.SWF.DeprecateActivityType
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ dat1ActivityType = lens _dat1ActivityType (\s a -> s { _dat1ActivityType = a })
 dat1Domain :: Lens' DeprecateActivityType Text
 dat1Domain = lens _dat1Domain (\s a -> s { _dat1Domain = a })
 
-instance ToPath DeprecateActivityType where
-    toPath = const "/"
-
-instance ToQuery DeprecateActivityType where
-    toQuery = const mempty
-
-instance ToHeaders DeprecateActivityType
-
-instance ToBody DeprecateActivityType where
-    toBody = toBody . encode . _dat1Domain
-
 data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -106,4 +95,15 @@ instance AWSRequest DeprecateActivityType where
     type Rs DeprecateActivityType = DeprecateActivityTypeResponse
 
     request  = post
-    response = nullaryResponse DeprecateActivityTypeResponse
+    response = nullResponse DeprecateActivityTypeResponse
+
+instance ToPath DeprecateActivityType where
+    toPath = const "/"
+
+instance ToHeaders DeprecateActivityType
+
+instance ToQuery DeprecateActivityType where
+    toQuery = const mempty
+
+instance ToJSON DeprecateActivityType where
+    toJSON = genericToJSON jsonOptions

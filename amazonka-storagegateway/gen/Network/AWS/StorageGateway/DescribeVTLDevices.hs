@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -96,17 +96,6 @@ dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
 dvtldVTLDeviceARNs =
     lens _dvtldVTLDeviceARNs (\s a -> s { _dvtldVTLDeviceARNs = a })
 
-instance ToPath DescribeVTLDevices where
-    toPath = const "/"
-
-instance ToQuery DescribeVTLDevices where
-    toQuery = const mempty
-
-instance ToHeaders DescribeVTLDevices
-
-instance ToBody DescribeVTLDevices where
-    toBody = toBody . encode . _dvtldGatewayARN
-
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN :: Maybe Text
     , _dvtldrMarker     :: Maybe Text
@@ -150,7 +139,18 @@ instance AWSRequest DescribeVTLDevices where
     type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeVTLDevicesResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "Marker"
-        <*> o .: "VTLDevices"
+    response = jsonResponse
+
+instance FromJSON DescribeVTLDevicesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeVTLDevices where
+    toPath = const "/"
+
+instance ToHeaders DescribeVTLDevices
+
+instance ToQuery DescribeVTLDevices where
+    toQuery = const mempty
+
+instance ToJSON DescribeVTLDevices where
+    toJSON = genericToJSON jsonOptions

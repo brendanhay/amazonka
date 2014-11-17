@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteSubnet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -68,11 +68,6 @@ ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
 ds2SubnetId :: Lens' DeleteSubnet Text
 ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
 
-instance ToQuery DeleteSubnet
-
-instance ToPath DeleteSubnet where
-    toPath = const "/"
-
 data DeleteSubnetResponse = DeleteSubnetResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -85,4 +80,11 @@ instance AWSRequest DeleteSubnet where
     type Rs DeleteSubnet = DeleteSubnetResponse
 
     request  = post "DeleteSubnet"
-    response = nullaryResponse DeleteSubnetResponse
+    response = nullResponse DeleteSubnetResponse
+
+instance ToPath DeleteSubnet where
+    toPath = const "/"
+
+instance ToHeaders DeleteSubnet
+
+instance ToQuery DeleteSubnet

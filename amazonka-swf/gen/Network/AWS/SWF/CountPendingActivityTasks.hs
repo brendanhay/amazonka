@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.CountPendingActivityTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.SWF.CountPendingActivityTasks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ cpatDomain = lens _cpatDomain (\s a -> s { _cpatDomain = a })
 -- | The name of the task list.
 cpatTaskList :: Lens' CountPendingActivityTasks TaskList
 cpatTaskList = lens _cpatTaskList (\s a -> s { _cpatTaskList = a })
-
-instance ToPath CountPendingActivityTasks where
-    toPath = const "/"
-
-instance ToQuery CountPendingActivityTasks where
-    toQuery = const mempty
-
-instance ToHeaders CountPendingActivityTasks
-
-instance ToBody CountPendingActivityTasks where
-    toBody = toBody . encode . _cpatDomain
 
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
     { _cpatrCount     :: Nat
@@ -130,6 +119,18 @@ instance AWSRequest CountPendingActivityTasks where
     type Rs CountPendingActivityTasks = CountPendingActivityTasksResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CountPendingActivityTasksResponse
-        <$> o .: "count"
-        <*> o .: "truncated"
+    response = jsonResponse
+
+instance FromJSON CountPendingActivityTasksResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CountPendingActivityTasks where
+    toPath = const "/"
+
+instance ToHeaders CountPendingActivityTasks
+
+instance ToQuery CountPendingActivityTasks where
+    toQuery = const mempty
+
+instance ToJSON CountPendingActivityTasks where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DisassociateRouteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ drtAssociationId = lens _drtAssociationId (\s a -> s { _drtAssociationId = a })
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\s a -> s { _drtDryRun = a })
 
-instance ToQuery DisassociateRouteTable
-
-instance ToPath DisassociateRouteTable where
-    toPath = const "/"
-
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest DisassociateRouteTable where
     type Rs DisassociateRouteTable = DisassociateRouteTableResponse
 
     request  = post "DisassociateRouteTable"
-    response = nullaryResponse DisassociateRouteTableResponse
+    response = nullResponse DisassociateRouteTableResponse
+
+instance ToPath DisassociateRouteTable where
+    toPath = const "/"
+
+instance ToHeaders DisassociateRouteTable
+
+instance ToQuery DisassociateRouteTable

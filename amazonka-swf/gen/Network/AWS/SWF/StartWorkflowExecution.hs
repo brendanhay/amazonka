@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.StartWorkflowExecution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,7 +62,7 @@ module Network.AWS.SWF.StartWorkflowExecution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -197,17 +197,6 @@ swe1WorkflowId = lens _swe1WorkflowId (\s a -> s { _swe1WorkflowId = a })
 swe1WorkflowType :: Lens' StartWorkflowExecution WorkflowType
 swe1WorkflowType = lens _swe1WorkflowType (\s a -> s { _swe1WorkflowType = a })
 
-instance ToPath StartWorkflowExecution where
-    toPath = const "/"
-
-instance ToQuery StartWorkflowExecution where
-    toQuery = const mempty
-
-instance ToHeaders StartWorkflowExecution
-
-instance ToBody StartWorkflowExecution where
-    toBody = toBody . encode . _swe1Domain
-
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -234,5 +223,18 @@ instance AWSRequest StartWorkflowExecution where
     type Rs StartWorkflowExecution = StartWorkflowExecutionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> StartWorkflowExecutionResponse
-        <$> o .: "runId"
+    response = jsonResponse
+
+instance FromJSON StartWorkflowExecutionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath StartWorkflowExecution where
+    toPath = const "/"
+
+instance ToHeaders StartWorkflowExecution
+
+instance ToQuery StartWorkflowExecution where
+    toQuery = const mempty
+
+instance ToJSON StartWorkflowExecution where
+    toJSON = genericToJSON jsonOptions

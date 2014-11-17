@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ rcidfoidcpOpenIDConnectProviderArn =
     lens _rcidfoidcpOpenIDConnectProviderArn
         (\s a -> s { _rcidfoidcpOpenIDConnectProviderArn = a })
 
-instance ToQuery RemoveClientIDFromOpenIDConnectProvider
-
-instance ToPath RemoveClientIDFromOpenIDConnectProvider where
-    toPath = const "/"
-
 data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -96,4 +91,11 @@ instance AWSRequest RemoveClientIDFromOpenIDConnectProvider where
     type Rs RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProviderResponse
 
     request  = post "RemoveClientIDFromOpenIDConnectProvider"
-    response = nullaryResponse RemoveClientIDFromOpenIDConnectProviderResponse
+    response = nullResponse RemoveClientIDFromOpenIDConnectProviderResponse
+
+instance ToPath RemoveClientIDFromOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToHeaders RemoveClientIDFromOpenIDConnectProvider
+
+instance ToQuery RemoveClientIDFromOpenIDConnectProvider

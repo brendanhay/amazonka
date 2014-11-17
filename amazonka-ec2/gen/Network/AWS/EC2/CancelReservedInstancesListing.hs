@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CancelReservedInstancesListing
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ crilReservedInstancesListingId =
     lens _crilReservedInstancesListingId
         (\s a -> s { _crilReservedInstancesListingId = a })
 
-instance ToQuery CancelReservedInstancesListing
-
-instance ToPath CancelReservedInstancesListing where
-    toPath = const "/"
-
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -102,5 +97,15 @@ instance AWSRequest CancelReservedInstancesListing where
     type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
 
     request  = post "CancelReservedInstancesListing"
-    response = xmlResponse $ \h x -> CancelReservedInstancesListingResponse
-        <$> x %| "reservedInstancesListingsSet"
+    response = xmlResponse
+
+instance FromXML CancelReservedInstancesListingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelReservedInstancesListingResponse"
+
+instance ToPath CancelReservedInstancesListing where
+    toPath = const "/"
+
+instance ToHeaders CancelReservedInstancesListing
+
+instance ToQuery CancelReservedInstancesListing

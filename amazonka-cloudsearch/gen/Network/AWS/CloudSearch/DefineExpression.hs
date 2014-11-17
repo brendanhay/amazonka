@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineExpression
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
 de1Expression :: Lens' DefineExpression Expression
 de1Expression = lens _de1Expression (\s a -> s { _de1Expression = a })
 
-instance ToQuery DefineExpression
-
-instance ToPath DefineExpression where
-    toPath = const "/"
-
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest DefineExpression where
     type Rs DefineExpression = DefineExpressionResponse
 
     request  = post "DefineExpression"
-    response = xmlResponse $ \h x -> DefineExpressionResponse
-        <$> x %| "Expression"
+    response = xmlResponse
+
+instance FromXML DefineExpressionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineExpressionResponse"
+
+instance ToPath DefineExpression where
+    toPath = const "/"
+
+instance ToHeaders DefineExpression
+
+instance ToQuery DefineExpression

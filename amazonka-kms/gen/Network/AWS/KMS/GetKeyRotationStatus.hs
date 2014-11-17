@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.GetKeyRotationStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.KMS.GetKeyRotationStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ getKeyRotationStatus p1 = GetKeyRotationStatus
 -- unique identifier.
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\s a -> s { _gkrsKeyId = a })
-
-instance ToPath GetKeyRotationStatus where
-    toPath = const "/"
-
-instance ToQuery GetKeyRotationStatus where
-    toQuery = const mempty
-
-instance ToHeaders GetKeyRotationStatus
-
-instance ToBody GetKeyRotationStatus where
-    toBody = toBody . encode . _gkrsKeyId
 
 newtype GetKeyRotationStatusResponse = GetKeyRotationStatusResponse
     { _gkrsrKeyRotationEnabled :: Maybe Bool
@@ -99,5 +88,18 @@ instance AWSRequest GetKeyRotationStatus where
     type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetKeyRotationStatusResponse
-        <$> o .: "KeyRotationEnabled"
+    response = jsonResponse
+
+instance FromJSON GetKeyRotationStatusResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetKeyRotationStatus where
+    toPath = const "/"
+
+instance ToHeaders GetKeyRotationStatus
+
+instance ToQuery GetKeyRotationStatus where
+    toQuery = const mempty
+
+instance ToJSON GetKeyRotationStatus where
+    toJSON = genericToJSON jsonOptions

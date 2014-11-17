@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
 dif2IndexField :: Lens' DefineIndexField IndexField
 dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
 
-instance ToQuery DefineIndexField
-
-instance ToPath DefineIndexField where
-    toPath = const "/"
-
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difr1IndexField :: IndexFieldStatus
     } deriving (Eq, Show, Generic)
@@ -106,5 +101,15 @@ instance AWSRequest DefineIndexField where
     type Rs DefineIndexField = DefineIndexFieldResponse
 
     request  = post "DefineIndexField"
-    response = xmlResponse $ \h x -> DefineIndexFieldResponse
-        <$> x %| "IndexField"
+    response = xmlResponse
+
+instance FromXML DefineIndexFieldResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineIndexFieldResponse"
+
+instance ToPath DefineIndexField where
+    toPath = const "/"
+
+instance ToHeaders DefineIndexField
+
+instance ToQuery DefineIndexField

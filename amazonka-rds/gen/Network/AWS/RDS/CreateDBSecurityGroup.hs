@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ cdbsgDBSecurityGroupName =
 cdbsgTags :: Lens' CreateDBSecurityGroup [Tag]
 cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a })
 
-instance ToQuery CreateDBSecurityGroup
-
-instance ToPath CreateDBSecurityGroup where
-    toPath = const "/"
-
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -117,5 +112,15 @@ instance AWSRequest CreateDBSecurityGroup where
     type Rs CreateDBSecurityGroup = CreateDBSecurityGroupResponse
 
     request  = post "CreateDBSecurityGroup"
-    response = xmlResponse $ \h x -> CreateDBSecurityGroupResponse
-        <$> x %| "DBSecurityGroup"
+    response = xmlResponse
+
+instance FromXML CreateDBSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBSecurityGroupResponse"
+
+instance ToPath CreateDBSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateDBSecurityGroup
+
+instance ToQuery CreateDBSecurityGroup

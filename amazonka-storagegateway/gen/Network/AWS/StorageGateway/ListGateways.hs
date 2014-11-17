@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.ListGateways
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.ListGateways
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -80,17 +80,6 @@ lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
 lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
-instance ToPath ListGateways where
-    toPath = const "/"
-
-instance ToQuery ListGateways where
-    toQuery = const mempty
-
-instance ToHeaders ListGateways
-
-instance ToBody ListGateways where
-    toBody = toBody . encode . _lgMarker
-
 data ListGatewaysResponse = ListGatewaysResponse
     { _lgrGateways :: [GatewayInfo]
     , _lgrMarker   :: Maybe Text
@@ -121,6 +110,18 @@ instance AWSRequest ListGateways where
     type Rs ListGateways = ListGatewaysResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListGatewaysResponse
-        <$> o .: "Gateways"
-        <*> o .: "Marker"
+    response = jsonResponse
+
+instance FromJSON ListGatewaysResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListGateways where
+    toPath = const "/"
+
+instance ToHeaders ListGateways
+
+instance ToQuery ListGateways where
+    toQuery = const mempty
+
+instance ToJSON ListGateways where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.OpsWorks.DeregisterElasticIp
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ deregisterElasticIp p1 = DeregisterElasticIp
 dei1ElasticIp :: Lens' DeregisterElasticIp Text
 dei1ElasticIp = lens _dei1ElasticIp (\s a -> s { _dei1ElasticIp = a })
 
-instance ToPath DeregisterElasticIp where
-    toPath = const "/"
-
-instance ToQuery DeregisterElasticIp where
-    toQuery = const mempty
-
-instance ToHeaders DeregisterElasticIp
-
-instance ToBody DeregisterElasticIp where
-    toBody = toBody . encode . _dei1ElasticIp
-
 data DeregisterElasticIpResponse = DeregisterElasticIpResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +76,15 @@ instance AWSRequest DeregisterElasticIp where
     type Rs DeregisterElasticIp = DeregisterElasticIpResponse
 
     request  = post
-    response = nullaryResponse DeregisterElasticIpResponse
+    response = nullResponse DeregisterElasticIpResponse
+
+instance ToPath DeregisterElasticIp where
+    toPath = const "/"
+
+instance ToHeaders DeregisterElasticIp
+
+instance ToQuery DeregisterElasticIp where
+    toQuery = const mempty
+
+instance ToJSON DeregisterElasticIp where
+    toJSON = genericToJSON jsonOptions

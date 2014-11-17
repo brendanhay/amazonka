@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeVolumes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.DescribeVolumes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -96,17 +96,6 @@ dvStackId = lens _dvStackId (\s a -> s { _dvStackId = a })
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a })
 
-instance ToPath DescribeVolumes where
-    toPath = const "/"
-
-instance ToQuery DescribeVolumes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeVolumes
-
-instance ToBody DescribeVolumes where
-    toBody = toBody . encode . _dvInstanceId
-
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -137,5 +126,18 @@ instance AWSRequest DescribeVolumes where
     type Rs DescribeVolumes = DescribeVolumesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeVolumesResponse
-        <$> o .: "Volumes"
+    response = jsonResponse
+
+instance FromJSON DescribeVolumesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeVolumes where
+    toPath = const "/"
+
+instance ToHeaders DescribeVolumes
+
+instance ToQuery DescribeVolumes where
+    toQuery = const mempty
+
+instance ToJSON DescribeVolumes where
+    toJSON = genericToJSON jsonOptions

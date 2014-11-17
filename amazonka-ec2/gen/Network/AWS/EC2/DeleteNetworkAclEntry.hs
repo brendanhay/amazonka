@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkAclEntry
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ dnaeNetworkAclId = lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
 dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Int
 dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
 
-instance ToQuery DeleteNetworkAclEntry
-
-instance ToPath DeleteNetworkAclEntry where
-    toPath = const "/"
-
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -105,4 +100,11 @@ instance AWSRequest DeleteNetworkAclEntry where
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
     request  = post "DeleteNetworkAclEntry"
-    response = nullaryResponse DeleteNetworkAclEntryResponse
+    response = nullResponse DeleteNetworkAclEntryResponse
+
+instance ToPath DeleteNetworkAclEntry where
+    toPath = const "/"
+
+instance ToHeaders DeleteNetworkAclEntry
+
+instance ToQuery DeleteNetworkAclEntry

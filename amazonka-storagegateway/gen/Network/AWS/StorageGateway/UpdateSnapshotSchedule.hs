@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -103,17 +103,6 @@ ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a })
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })
 
-instance ToPath UpdateSnapshotSchedule where
-    toPath = const "/"
-
-instance ToQuery UpdateSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToHeaders UpdateSnapshotSchedule
-
-instance ToBody UpdateSnapshotSchedule where
-    toBody = toBody . encode . _ussVolumeARN
-
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussrVolumeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -137,5 +126,18 @@ instance AWSRequest UpdateSnapshotSchedule where
     type Rs UpdateSnapshotSchedule = UpdateSnapshotScheduleResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateSnapshotScheduleResponse
-        <$> o .: "VolumeARN"
+    response = jsonResponse
+
+instance FromJSON UpdateSnapshotScheduleResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateSnapshotSchedule where
+    toPath = const "/"
+
+instance ToHeaders UpdateSnapshotSchedule
+
+instance ToQuery UpdateSnapshotSchedule where
+    toQuery = const mempty
+
+instance ToJSON UpdateSnapshotSchedule where
+    toJSON = genericToJSON jsonOptions

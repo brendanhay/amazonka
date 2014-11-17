@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateEnvironment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -166,11 +166,6 @@ ueTier = lens _ueTier (\s a -> s { _ueTier = a })
 -- found, returns an InvalidParameterValue error.
 ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\s a -> s { _ueVersionLabel = a })
-
-instance ToQuery UpdateEnvironment
-
-instance ToPath UpdateEnvironment where
-    toPath = const "/"
 
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     { _uerApplicationName   :: Maybe Text
@@ -332,19 +327,15 @@ instance AWSRequest UpdateEnvironment where
     type Rs UpdateEnvironment = UpdateEnvironmentResponse
 
     request  = post "UpdateEnvironment"
-    response = xmlResponse $ \h x -> UpdateEnvironmentResponse
-        <$> x %| "ApplicationName"
-        <*> x %| "CNAME"
-        <*> x %| "DateCreated"
-        <*> x %| "DateUpdated"
-        <*> x %| "Description"
-        <*> x %| "EndpointURL"
-        <*> x %| "EnvironmentId"
-        <*> x %| "EnvironmentName"
-        <*> x %| "Health"
-        <*> x %| "Resources"
-        <*> x %| "SolutionStackName"
-        <*> x %| "Status"
-        <*> x %| "TemplateName"
-        <*> x %| "Tier"
-        <*> x %| "VersionLabel"
+    response = xmlResponse
+
+instance FromXML UpdateEnvironmentResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateEnvironmentResponse"
+
+instance ToPath UpdateEnvironment where
+    toPath = const "/"
+
+instance ToHeaders UpdateEnvironment
+
+instance ToQuery UpdateEnvironment

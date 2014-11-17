@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ChangeTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.Route53.ChangeTagsForResource
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -95,22 +95,6 @@ ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
 ctfrResourceType :: Lens' ChangeTagsForResource Text
 ctfrResourceType = lens _ctfrResourceType (\s a -> s { _ctfrResourceType = a })
 
-instance ToPath ChangeTagsForResource where
-    toPath ChangeTagsForResource{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toText _ctfrResourceType
-        , "/"
-        , toText _ctfrResourceId
-        ]
-
-instance ToQuery ChangeTagsForResource where
-    toQuery = const mempty
-
-instance ToHeaders ChangeTagsForResource
-
-instance ToBody ChangeTagsForResource where
-    toBody = toBody . encodeXML . _ctfrAddTags
-
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -123,4 +107,21 @@ instance AWSRequest ChangeTagsForResource where
     type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
 
     request  = post
-    response = nullaryResponse ChangeTagsForResourceResponse
+    response = nullResponse ChangeTagsForResourceResponse
+
+instance ToPath ChangeTagsForResource where
+    toPath ChangeTagsForResource{..} = mconcat
+        [ "/2013-04-01/tags/"
+        , toText _ctfrResourceType
+        , "/"
+        , toText _ctfrResourceId
+        ]
+
+instance ToHeaders ChangeTagsForResource
+
+instance ToQuery ChangeTagsForResource where
+    toQuery = const mempty
+
+instance ToXML ChangeTagsForResource where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ChangeTagsForResource"

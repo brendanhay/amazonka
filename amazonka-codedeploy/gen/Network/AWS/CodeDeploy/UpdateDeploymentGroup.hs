@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.UpdateDeploymentGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -127,17 +127,6 @@ udgServiceRoleArn :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgServiceRoleArn =
     lens _udgServiceRoleArn (\s a -> s { _udgServiceRoleArn = a })
 
-instance ToPath UpdateDeploymentGroup where
-    toPath = const "/"
-
-instance ToQuery UpdateDeploymentGroup where
-    toQuery = const mempty
-
-instance ToHeaders UpdateDeploymentGroup
-
-instance ToBody UpdateDeploymentGroup where
-    toBody = toBody . encode . _udgApplicationName
-
 newtype UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse
     { _udgrHooksNotCleanedUp :: [AutoScalingGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -173,5 +162,18 @@ instance AWSRequest UpdateDeploymentGroup where
     type Rs UpdateDeploymentGroup = UpdateDeploymentGroupResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateDeploymentGroupResponse
-        <$> o .: "hooksNotCleanedUp"
+    response = jsonResponse
+
+instance FromJSON UpdateDeploymentGroupResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateDeploymentGroup where
+    toPath = const "/"
+
+instance ToHeaders UpdateDeploymentGroup
+
+instance ToQuery UpdateDeploymentGroup where
+    toQuery = const mempty
+
+instance ToJSON UpdateDeploymentGroup where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.GetWorkflowExecutionHistory
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -123,17 +123,6 @@ gwehNextPageToken =
 gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
 gwehReverseOrder = lens _gwehReverseOrder (\s a -> s { _gwehReverseOrder = a })
 
-instance ToPath GetWorkflowExecutionHistory where
-    toPath = const "/"
-
-instance ToQuery GetWorkflowExecutionHistory where
-    toQuery = const mempty
-
-instance ToHeaders GetWorkflowExecutionHistory
-
-instance ToBody GetWorkflowExecutionHistory where
-    toBody = toBody . encode . _gwehDomain
-
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents        :: [HistoryEvent]
     , _gwehrNextPageToken :: Maybe Text
@@ -169,6 +158,18 @@ instance AWSRequest GetWorkflowExecutionHistory where
     type Rs GetWorkflowExecutionHistory = GetWorkflowExecutionHistoryResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetWorkflowExecutionHistoryResponse
-        <$> o .: "events"
-        <*> o .: "nextPageToken"
+    response = jsonResponse
+
+instance FromJSON GetWorkflowExecutionHistoryResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetWorkflowExecutionHistory where
+    toPath = const "/"
+
+instance ToHeaders GetWorkflowExecutionHistory
+
+instance ToQuery GetWorkflowExecutionHistory where
+    toQuery = const mempty
+
+instance ToJSON GetWorkflowExecutionHistory where
+    toJSON = genericToJSON jsonOptions

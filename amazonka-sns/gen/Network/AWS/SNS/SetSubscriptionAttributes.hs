@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ ssaSubscriptionArn :: Lens' SetSubscriptionAttributes Text
 ssaSubscriptionArn =
     lens _ssaSubscriptionArn (\s a -> s { _ssaSubscriptionArn = a })
 
-instance ToQuery SetSubscriptionAttributes
-
-instance ToPath SetSubscriptionAttributes where
-    toPath = const "/"
-
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +95,11 @@ instance AWSRequest SetSubscriptionAttributes where
     type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse
 
     request  = post "SetSubscriptionAttributes"
-    response = nullaryResponse SetSubscriptionAttributesResponse
+    response = nullResponse SetSubscriptionAttributesResponse
+
+instance ToPath SetSubscriptionAttributes where
+    toPath = const "/"
+
+instance ToHeaders SetSubscriptionAttributes
+
+instance ToQuery SetSubscriptionAttributes

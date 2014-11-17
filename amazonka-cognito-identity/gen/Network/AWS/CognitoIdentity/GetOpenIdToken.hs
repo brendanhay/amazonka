@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -75,17 +75,6 @@ goitIdentityId = lens _goitIdentityId (\s a -> s { _goitIdentityId = a })
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
 goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a })
     . _Map
-
-instance ToPath GetOpenIdToken where
-    toPath = const "/"
-
-instance ToQuery GetOpenIdToken where
-    toQuery = const mempty
-
-instance ToHeaders GetOpenIdToken
-
-instance ToBody GetOpenIdToken where
-    toBody = toBody . encode . _goitIdentityId
 
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId :: Maybe Text
@@ -120,6 +109,18 @@ instance AWSRequest GetOpenIdToken where
     type Rs GetOpenIdToken = GetOpenIdTokenResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetOpenIdTokenResponse
-        <$> o .: "IdentityId"
-        <*> o .: "Token"
+    response = jsonResponse
+
+instance FromJSON GetOpenIdTokenResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetOpenIdToken where
+    toPath = const "/"
+
+instance ToHeaders GetOpenIdToken
+
+instance ToQuery GetOpenIdToken where
+    toQuery = const mempty
+
+instance ToJSON GetOpenIdToken where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ describeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
 
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
 dmstGatewayARN = lens _dmstGatewayARN (\s a -> s { _dmstGatewayARN = a })
-
-instance ToPath DescribeMaintenanceStartTime where
-    toPath = const "/"
-
-instance ToQuery DescribeMaintenanceStartTime where
-    toQuery = const mempty
-
-instance ToHeaders DescribeMaintenanceStartTime
-
-instance ToBody DescribeMaintenanceStartTime where
-    toBody = toBody . encode . _dmstGatewayARN
 
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     { _dmstrDayOfWeek    :: Maybe Nat
@@ -132,9 +121,18 @@ instance AWSRequest DescribeMaintenanceStartTime where
     type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeMaintenanceStartTimeResponse
-        <$> o .: "DayOfWeek"
-        <*> o .: "GatewayARN"
-        <*> o .: "HourOfDay"
-        <*> o .: "MinuteOfHour"
-        <*> o .: "Timezone"
+    response = jsonResponse
+
+instance FromJSON DescribeMaintenanceStartTimeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeMaintenanceStartTime where
+    toPath = const "/"
+
+instance ToHeaders DescribeMaintenanceStartTime
+
+instance ToQuery DescribeMaintenanceStartTime where
+    toQuery = const mempty
+
+instance ToJSON DescribeMaintenanceStartTime where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.ListMultipartUploads
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,7 +54,7 @@ module Network.AWS.S3.ListMultipartUploads
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -130,25 +130,6 @@ lmuPrefix = lens _lmuPrefix (\s a -> s { _lmuPrefix = a })
 lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuUploadIdMarker =
     lens _lmuUploadIdMarker (\s a -> s { _lmuUploadIdMarker = a })
-
-instance ToPath ListMultipartUploads where
-    toPath ListMultipartUploads{..} = mconcat
-        [ "/"
-        , toText _lmuBucket
-        ]
-
-instance ToQuery ListMultipartUploads where
-    toQuery ListMultipartUploads{..} = mconcat
-        [ "uploads"
-        , "delimiter"        =? _lmuDelimiter
-        , "encoding-type"    =? _lmuEncodingType
-        , "key-marker"       =? _lmuKeyMarker
-        , "max-uploads"      =? _lmuMaxUploads
-        , "prefix"           =? _lmuPrefix
-        , "upload-id-marker" =? _lmuUploadIdMarker
-        ]
-
-instance ToHeaders ListMultipartUploads
 
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     { _lmurBucket             :: Maybe Text
@@ -271,16 +252,31 @@ instance AWSRequest ListMultipartUploads where
     type Rs ListMultipartUploads = ListMultipartUploadsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListMultipartUploadsResponse
-        <$> x %| "Bucket"
-        <*> x %| "CommonPrefixes"
-        <*> x %| "Delimiter"
-        <*> x %| "EncodingType"
-        <*> x %| "IsTruncated"
-        <*> x %| "KeyMarker"
-        <*> x %| "MaxUploads"
-        <*> x %| "NextKeyMarker"
-        <*> x %| "NextUploadIdMarker"
-        <*> x %| "Prefix"
-        <*> x %| "UploadIdMarker"
-        <*> x %| "Upload"
+    response = xmlResponse
+
+instance FromXML ListMultipartUploadsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListMultipartUploadsResponse"
+
+instance ToPath ListMultipartUploads where
+    toPath ListMultipartUploads{..} = mconcat
+        [ "/"
+        , toText _lmuBucket
+        ]
+
+instance ToHeaders ListMultipartUploads
+
+instance ToQuery ListMultipartUploads where
+    toQuery ListMultipartUploads{..} = mconcat
+        [ "uploads"
+        , "delimiter"        =? _lmuDelimiter
+        , "encoding-type"    =? _lmuEncodingType
+        , "key-marker"       =? _lmuKeyMarker
+        , "max-uploads"      =? _lmuMaxUploads
+        , "prefix"           =? _lmuPrefix
+        , "upload-id-marker" =? _lmuUploadIdMarker
+        ]
+
+instance ToXML ListMultipartUploads where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListMultipartUploads"

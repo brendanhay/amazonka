@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -78,17 +78,6 @@ svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers =
     lens _svtauVisibleToAllUsers (\s a -> s { _svtauVisibleToAllUsers = a })
 
-instance ToPath SetVisibleToAllUsers where
-    toPath = const "/"
-
-instance ToQuery SetVisibleToAllUsers where
-    toQuery = const mempty
-
-instance ToHeaders SetVisibleToAllUsers
-
-instance ToBody SetVisibleToAllUsers where
-    toBody = toBody . encode . _svtauJobFlowIds
-
 data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -101,4 +90,15 @@ instance AWSRequest SetVisibleToAllUsers where
     type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
 
     request  = post
-    response = nullaryResponse SetVisibleToAllUsersResponse
+    response = nullResponse SetVisibleToAllUsersResponse
+
+instance ToPath SetVisibleToAllUsers where
+    toPath = const "/"
+
+instance ToHeaders SetVisibleToAllUsers
+
+instance ToQuery SetVisibleToAllUsers where
+    toQuery = const mempty
+
+instance ToJSON SetVisibleToAllUsers where
+    toJSON = genericToJSON jsonOptions

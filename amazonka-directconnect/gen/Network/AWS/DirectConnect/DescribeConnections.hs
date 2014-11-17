@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeConnections
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.DirectConnect.DescribeConnections
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ describeConnections = DescribeConnections
 
 dc1ConnectionId :: Lens' DescribeConnections (Maybe Text)
 dc1ConnectionId = lens _dc1ConnectionId (\s a -> s { _dc1ConnectionId = a })
-
-instance ToPath DescribeConnections where
-    toPath = const "/"
-
-instance ToQuery DescribeConnections where
-    toQuery = const mempty
-
-instance ToHeaders DescribeConnections
-
-instance ToBody DescribeConnections where
-    toBody = toBody . encode . _dc1ConnectionId
 
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
     { _dcrConnections :: [Connection]
@@ -101,5 +90,18 @@ instance AWSRequest DescribeConnections where
     type Rs DescribeConnections = DescribeConnectionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeConnectionsResponse
-        <$> o .: "connections"
+    response = jsonResponse
+
+instance FromJSON DescribeConnectionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeConnections where
+    toPath = const "/"
+
+instance ToHeaders DescribeConnections
+
+instance ToQuery DescribeConnections where
+    toQuery = const mempty
+
+instance ToJSON DescribeConnections where
+    toJSON = genericToJSON jsonOptions

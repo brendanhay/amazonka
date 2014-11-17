@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ReplaceRoute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -122,11 +122,6 @@ rrVpcPeeringConnectionId =
     lens _rrVpcPeeringConnectionId
         (\s a -> s { _rrVpcPeeringConnectionId = a })
 
-instance ToQuery ReplaceRoute
-
-instance ToPath ReplaceRoute where
-    toPath = const "/"
-
 data ReplaceRouteResponse = ReplaceRouteResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -139,4 +134,11 @@ instance AWSRequest ReplaceRoute where
     type Rs ReplaceRoute = ReplaceRouteResponse
 
     request  = post "ReplaceRoute"
-    response = nullaryResponse ReplaceRouteResponse
+    response = nullResponse ReplaceRouteResponse
+
+instance ToPath ReplaceRoute where
+    toPath = const "/"
+
+instance ToHeaders ReplaceRoute
+
+instance ToQuery ReplaceRoute

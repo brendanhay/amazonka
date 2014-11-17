@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancers
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a })
     . mapping _Nat
 
-instance ToQuery DescribeLoadBalancers
-
-instance ToPath DescribeLoadBalancers where
-    toPath = const "/"
-
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrLoadBalancerDescriptions :: [LoadBalancerDescription]
     , _dlbrNextMarker               :: Maybe Text
@@ -127,10 +122,15 @@ instance AWSRequest DescribeLoadBalancers where
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
 
     request  = post "DescribeLoadBalancers"
-    response = xmlResponse $ \h x -> DescribeLoadBalancersResponse
-        <$> x %| "LoadBalancerDescriptions"
-        <*> x %| "NextMarker"
+    response = xmlResponse
 
-instance AWSPager DescribeLoadBalancers where
-    next rq rs = (\x -> rq & dlbMarker ?~ x)
-        <$> (rs ^. dlbrNextMarker)
+instance FromXML DescribeLoadBalancersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoadBalancersResponse"
+
+instance ToPath DescribeLoadBalancers where
+    toPath = const "/"
+
+instance ToHeaders DescribeLoadBalancers
+
+instance ToQuery DescribeLoadBalancers

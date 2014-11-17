@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,11 +107,6 @@ dcvMarker = lens _dcvMarker (\s a -> s { _dcvMarker = a })
 dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
 dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 
-instance ToQuery DescribeClusterVersions
-
-instance ToPath DescribeClusterVersions where
-    toPath = const "/"
-
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrClusterVersions :: [ClusterVersion]
     , _dcvrMarker          :: Maybe Text
@@ -150,10 +145,15 @@ instance AWSRequest DescribeClusterVersions where
     type Rs DescribeClusterVersions = DescribeClusterVersionsResponse
 
     request  = post "DescribeClusterVersions"
-    response = xmlResponse $ \h x -> DescribeClusterVersionsResponse
-        <$> x %| "ClusterVersions"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeClusterVersions where
-    next rq rs = (\x -> rq & dcvMarker ?~ x)
-        <$> (rs ^. dcvrMarker)
+instance FromXML DescribeClusterVersionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClusterVersionsResponse"
+
+instance ToPath DescribeClusterVersions where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusterVersions
+
+instance ToQuery DescribeClusterVersions

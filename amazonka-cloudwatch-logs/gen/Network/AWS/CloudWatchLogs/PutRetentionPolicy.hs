@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutRetentionPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ prpRetentionInDays :: Lens' PutRetentionPolicy Int
 prpRetentionInDays =
     lens _prpRetentionInDays (\s a -> s { _prpRetentionInDays = a })
 
-instance ToPath PutRetentionPolicy where
-    toPath = const "/"
-
-instance ToQuery PutRetentionPolicy where
-    toQuery = const mempty
-
-instance ToHeaders PutRetentionPolicy
-
-instance ToBody PutRetentionPolicy where
-    toBody = toBody . encode . _prpLogGroupName
-
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -93,4 +82,15 @@ instance AWSRequest PutRetentionPolicy where
     type Rs PutRetentionPolicy = PutRetentionPolicyResponse
 
     request  = post
-    response = nullaryResponse PutRetentionPolicyResponse
+    response = nullResponse PutRetentionPolicyResponse
+
+instance ToPath PutRetentionPolicy where
+    toPath = const "/"
+
+instance ToHeaders PutRetentionPolicy
+
+instance ToQuery PutRetentionPolicy where
+    toQuery = const mempty
+
+instance ToJSON PutRetentionPolicy where
+    toJSON = genericToJSON jsonOptions

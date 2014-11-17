@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.ListInvalidations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CloudFront.ListInvalidations
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -85,21 +85,6 @@ liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
-instance ToPath ListInvalidations where
-    toPath ListInvalidations{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _liDistributionId
-        , "/invalidation"
-        ]
-
-instance ToQuery ListInvalidations where
-    toQuery ListInvalidations{..} = mconcat
-        [ "Marker"   =? _liMarker
-        , "MaxItems" =? _liMaxItems
-        ]
-
-instance ToHeaders ListInvalidations
-
 newtype ListInvalidationsResponse = ListInvalidationsResponse
     { _lirInvalidationList :: Maybe InvalidationList
     } deriving (Eq, Show, Generic)
@@ -125,5 +110,27 @@ instance AWSRequest ListInvalidations where
     type Rs ListInvalidations = ListInvalidationsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListInvalidationsResponse
-        <$> x %| "InvalidationList"
+    response = xmlResponse
+
+instance FromXML ListInvalidationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListInvalidationsResponse"
+
+instance ToPath ListInvalidations where
+    toPath ListInvalidations{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _liDistributionId
+        , "/invalidation"
+        ]
+
+instance ToHeaders ListInvalidations
+
+instance ToQuery ListInvalidations where
+    toQuery ListInvalidations{..} = mconcat
+        [ "Marker"   =? _liMarker
+        , "MaxItems" =? _liMaxItems
+        ]
+
+instance ToXML ListInvalidations where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListInvalidations"

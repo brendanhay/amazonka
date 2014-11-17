@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSubnetGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ ddbsgMarker = lens _ddbsgMarker (\s a -> s { _ddbsgMarker = a })
 ddbsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
 ddbsgMaxRecords = lens _ddbsgMaxRecords (\s a -> s { _ddbsgMaxRecords = a })
 
-instance ToQuery DescribeDBSubnetGroups
-
-instance ToPath DescribeDBSubnetGroups where
-    toPath = const "/"
-
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrDBSubnetGroups :: [DBSubnetGroup]
     , _ddbsgrMarker         :: Maybe Text
@@ -138,10 +133,15 @@ instance AWSRequest DescribeDBSubnetGroups where
     type Rs DescribeDBSubnetGroups = DescribeDBSubnetGroupsResponse
 
     request  = post "DescribeDBSubnetGroups"
-    response = xmlResponse $ \h x -> DescribeDBSubnetGroupsResponse
-        <$> x %| "DBSubnetGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBSubnetGroups where
-    next rq rs = (\x -> rq & ddbsgMarker ?~ x)
-        <$> (rs ^. ddbsgrMarker)
+instance FromXML DescribeDBSubnetGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBSubnetGroupsResponse"
+
+instance ToPath DescribeDBSubnetGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBSubnetGroups
+
+instance ToQuery DescribeDBSubnetGroups

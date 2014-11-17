@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.DeletePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.DeletePipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ deletePipeline p1 = DeletePipeline
 dpPipelineId :: Lens' DeletePipeline Text
 dpPipelineId = lens _dpPipelineId (\s a -> s { _dpPipelineId = a })
 
-instance ToPath DeletePipeline where
-    toPath = const "/"
-
-instance ToQuery DeletePipeline where
-    toQuery = const mempty
-
-instance ToHeaders DeletePipeline
-
-instance ToBody DeletePipeline where
-    toBody = toBody . encode . _dpPipelineId
-
 data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +77,15 @@ instance AWSRequest DeletePipeline where
     type Rs DeletePipeline = DeletePipelineResponse
 
     request  = post
-    response = nullaryResponse DeletePipelineResponse
+    response = nullResponse DeletePipelineResponse
+
+instance ToPath DeletePipeline where
+    toPath = const "/"
+
+instance ToHeaders DeletePipeline
+
+instance ToQuery DeletePipeline where
+    toQuery = const mempty
+
+instance ToJSON DeletePipeline where
+    toJSON = genericToJSON jsonOptions

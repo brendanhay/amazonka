@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteLoginProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ deleteLoginProfile p1 = DeleteLoginProfile
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\s a -> s { _dlpUserName = a })
 
-instance ToQuery DeleteLoginProfile
-
-instance ToPath DeleteLoginProfile where
-    toPath = const "/"
-
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +77,11 @@ instance AWSRequest DeleteLoginProfile where
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
 
     request  = post "DeleteLoginProfile"
-    response = nullaryResponse DeleteLoginProfileResponse
+    response = nullResponse DeleteLoginProfileResponse
+
+instance ToPath DeleteLoginProfile where
+    toPath = const "/"
+
+instance ToHeaders DeleteLoginProfile
+
+instance ToQuery DeleteLoginProfile

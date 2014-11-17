@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.GetSendStatistics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,11 +49,6 @@ data GetSendStatistics = GetSendStatistics
 getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
 
-instance ToQuery GetSendStatistics
-
-instance ToPath GetSendStatistics where
-    toPath = const "/"
-
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -85,5 +80,15 @@ instance AWSRequest GetSendStatistics where
     type Rs GetSendStatistics = GetSendStatisticsResponse
 
     request  = post "GetSendStatistics"
-    response = xmlResponse $ \h x -> GetSendStatisticsResponse
-        <$> x %| "SendDataPoints"
+    response = xmlResponse
+
+instance FromXML GetSendStatisticsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSendStatisticsResponse"
+
+instance ToPath GetSendStatistics where
+    toPath = const "/"
+
+instance ToHeaders GetSendStatistics
+
+instance ToQuery GetSendStatistics

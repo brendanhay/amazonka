@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.ListJobs
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
 ljMaxJobs :: Lens' ListJobs (Maybe Int)
 ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
 
-instance ToQuery ListJobs
-
-instance ToPath ListJobs where
-    toPath = const "/"
-
 data ListJobsResponse = ListJobsResponse
     { _ljrIsTruncated :: Maybe Bool
     , _ljrJobs        :: [Job]
@@ -107,12 +102,15 @@ instance AWSRequest ListJobs where
     type Rs ListJobs = ListJobsResponse
 
     request  = post "ListJobs"
-    response = xmlResponse $ \h x -> ListJobsResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Jobs"
+    response = xmlResponse
 
-instance AWSPager ListJobs where
-    next rq rs
-        | not (more (rs ^. ljrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & ljMarker .~ rs ^. index ljrJobs jobJobId
+instance FromXML ListJobsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListJobsResponse"
+
+instance ToPath ListJobs where
+    toPath = const "/"
+
+instance ToHeaders ListJobs
+
+instance ToQuery ListJobs

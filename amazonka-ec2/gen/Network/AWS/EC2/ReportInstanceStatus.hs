@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ReportInstanceStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -131,11 +131,6 @@ risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a })
 risStatus :: Lens' ReportInstanceStatus Text
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
 
-instance ToQuery ReportInstanceStatus
-
-instance ToPath ReportInstanceStatus where
-    toPath = const "/"
-
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -148,4 +143,11 @@ instance AWSRequest ReportInstanceStatus where
     type Rs ReportInstanceStatus = ReportInstanceStatusResponse
 
     request  = post "ReportInstanceStatus"
-    response = nullaryResponse ReportInstanceStatusResponse
+    response = nullResponse ReportInstanceStatusResponse
+
+instance ToPath ReportInstanceStatus where
+    toPath = const "/"
+
+instance ToHeaders ReportInstanceStatus
+
+instance ToQuery ReportInstanceStatus

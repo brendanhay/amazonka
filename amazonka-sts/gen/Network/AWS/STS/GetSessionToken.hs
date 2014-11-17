@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.STS.GetSessionToken
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -119,11 +119,6 @@ gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
 
-instance ToQuery GetSessionToken
-
-instance ToPath GetSessionToken where
-    toPath = const "/"
-
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
     } deriving (Eq, Show, Generic)
@@ -148,5 +143,15 @@ instance AWSRequest GetSessionToken where
     type Rs GetSessionToken = GetSessionTokenResponse
 
     request  = post "GetSessionToken"
-    response = xmlResponse $ \h x -> GetSessionTokenResponse
-        <$> x %| "Credentials"
+    response = xmlResponse
+
+instance FromXML GetSessionTokenResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSessionTokenResponse"
+
+instance ToPath GetSessionToken where
+    toPath = const "/"
+
+instance ToHeaders GetSessionToken
+
+instance ToQuery GetSessionToken

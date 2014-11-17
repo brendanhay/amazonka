@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.DescribeTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.DynamoDB.DescribeTable
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ describeTable p1 = DescribeTable
 -- | The name of the table to describe.
 dt1TableName :: Lens' DescribeTable Text
 dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
-
-instance ToPath DescribeTable where
-    toPath = const "/"
-
-instance ToQuery DescribeTable where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTable
-
-instance ToBody DescribeTable where
-    toBody = toBody . encode . _dt1TableName
 
 newtype DescribeTableResponse = DescribeTableResponse
     { _dtrTable :: Maybe TableDescription
@@ -97,5 +86,18 @@ instance AWSRequest DescribeTable where
     type Rs DescribeTable = DescribeTableResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTableResponse
-        <$> o .: "Table"
+    response = jsonResponse
+
+instance FromJSON DescribeTableResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTable where
+    toPath = const "/"
+
+instance ToHeaders DescribeTable
+
+instance ToQuery DescribeTable where
+    toQuery = const mempty
+
+instance ToJSON DescribeTable where
+    toJSON = genericToJSON jsonOptions

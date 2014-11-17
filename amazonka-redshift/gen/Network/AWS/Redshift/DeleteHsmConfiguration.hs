@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHsmConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ dhcHsmConfigurationIdentifier =
     lens _dhcHsmConfigurationIdentifier
         (\s a -> s { _dhcHsmConfigurationIdentifier = a })
 
-instance ToQuery DeleteHsmConfiguration
-
-instance ToPath DeleteHsmConfiguration where
-    toPath = const "/"
-
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteHsmConfiguration where
     type Rs DeleteHsmConfiguration = DeleteHsmConfigurationResponse
 
     request  = post "DeleteHsmConfiguration"
-    response = nullaryResponse DeleteHsmConfigurationResponse
+    response = nullResponse DeleteHsmConfigurationResponse
+
+instance ToPath DeleteHsmConfiguration where
+    toPath = const "/"
+
+instance ToHeaders DeleteHsmConfiguration
+
+instance ToQuery DeleteHsmConfiguration

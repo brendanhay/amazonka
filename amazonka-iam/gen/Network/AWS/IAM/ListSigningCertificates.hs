@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListSigningCertificates
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
 lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
 lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
 
-instance ToQuery ListSigningCertificates
-
-instance ToPath ListSigningCertificates where
-    toPath = const "/"
-
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscr1Certificates :: [SigningCertificate]
     , _lscr1IsTruncated  :: Maybe Bool
@@ -145,13 +140,15 @@ instance AWSRequest ListSigningCertificates where
     type Rs ListSigningCertificates = ListSigningCertificatesResponse
 
     request  = post "ListSigningCertificates"
-    response = xmlResponse $ \h x -> ListSigningCertificatesResponse
-        <$> x %| "Certificates"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListSigningCertificates where
-    next rq rs
-        | not (more (rs ^. lscr1IsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lsc1Marker .~ rs ^. lscr1Marker
+instance FromXML ListSigningCertificatesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSigningCertificatesResponse"
+
+instance ToPath ListSigningCertificates where
+    toPath = const "/"
+
+instance ToHeaders ListSigningCertificates
+
+instance ToQuery ListSigningCertificates

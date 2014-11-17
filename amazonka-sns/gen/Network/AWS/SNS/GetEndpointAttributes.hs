@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.GetEndpointAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ getEndpointAttributes p1 = GetEndpointAttributes
 geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
-instance ToQuery GetEndpointAttributes
-
-instance ToPath GetEndpointAttributes where
-    toPath = const "/"
-
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -102,5 +97,15 @@ instance AWSRequest GetEndpointAttributes where
     type Rs GetEndpointAttributes = GetEndpointAttributesResponse
 
     request  = post "GetEndpointAttributes"
-    response = xmlResponse $ \h x -> GetEndpointAttributesResponse
-        <$> x %| "Attributes"
+    response = xmlResponse
+
+instance FromXML GetEndpointAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetEndpointAttributesResponse"
+
+instance ToPath GetEndpointAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetEndpointAttributes
+
+instance ToQuery GetEndpointAttributes

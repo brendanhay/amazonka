@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.DataPipeline.EvaluateExpression
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -82,17 +82,6 @@ eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
 eePipelineId :: Lens' EvaluateExpression Text
 eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
 
-instance ToPath EvaluateExpression where
-    toPath = const "/"
-
-instance ToQuery EvaluateExpression where
-    toQuery = const mempty
-
-instance ToHeaders EvaluateExpression
-
-instance ToBody EvaluateExpression where
-    toBody = toBody . encode . _eePipelineId
-
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eerEvaluatedExpression :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -119,5 +108,18 @@ instance AWSRequest EvaluateExpression where
     type Rs EvaluateExpression = EvaluateExpressionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> EvaluateExpressionResponse
-        <$> o .: "evaluatedExpression"
+    response = jsonResponse
+
+instance FromJSON EvaluateExpressionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath EvaluateExpression where
+    toPath = const "/"
+
+instance ToHeaders EvaluateExpression
+
+instance ToQuery EvaluateExpression where
+    toQuery = const mempty
+
+instance ToJSON EvaluateExpression where
+    toJSON = genericToJSON jsonOptions

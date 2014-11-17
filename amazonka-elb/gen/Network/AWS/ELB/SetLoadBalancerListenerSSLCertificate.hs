@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ slblsslcSSLCertificateId =
     lens _slblsslcSSLCertificateId
         (\s a -> s { _slblsslcSSLCertificateId = a })
 
-instance ToQuery SetLoadBalancerListenerSSLCertificate
-
-instance ToPath SetLoadBalancerListenerSSLCertificate where
-    toPath = const "/"
-
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -108,4 +103,11 @@ instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
 
     request  = post "SetLoadBalancerListenerSSLCertificate"
-    response = nullaryResponse SetLoadBalancerListenerSSLCertificateResponse
+    response = nullResponse SetLoadBalancerListenerSSLCertificateResponse
+
+instance ToPath SetLoadBalancerListenerSSLCertificate where
+    toPath = const "/"
+
+instance ToHeaders SetLoadBalancerListenerSSLCertificate
+
+instance ToQuery SetLoadBalancerListenerSSLCertificate

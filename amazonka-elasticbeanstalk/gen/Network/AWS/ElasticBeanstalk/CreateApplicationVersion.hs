@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -120,11 +120,6 @@ cavSourceBundle = lens _cavSourceBundle (\s a -> s { _cavSourceBundle = a })
 cavVersionLabel :: Lens' CreateApplicationVersion Text
 cavVersionLabel = lens _cavVersionLabel (\s a -> s { _cavVersionLabel = a })
 
-instance ToQuery CreateApplicationVersion
-
-instance ToPath CreateApplicationVersion where
-    toPath = const "/"
-
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Eq, Show, Generic)
@@ -150,5 +145,15 @@ instance AWSRequest CreateApplicationVersion where
     type Rs CreateApplicationVersion = CreateApplicationVersionResponse
 
     request  = post "CreateApplicationVersion"
-    response = xmlResponse $ \h x -> CreateApplicationVersionResponse
-        <$> x %| "ApplicationVersion"
+    response = xmlResponse
+
+instance FromXML CreateApplicationVersionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateApplicationVersionResponse"
+
+instance ToPath CreateApplicationVersion where
+    toPath = const "/"
+
+instance ToHeaders CreateApplicationVersion
+
+instance ToQuery CreateApplicationVersion

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.CreateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -207,11 +207,6 @@ csTimeoutInMinutes =
     lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
         . mapping _Nat
 
-instance ToQuery CreateStack
-
-instance ToPath CreateStack where
-    toPath = const "/"
-
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -236,5 +231,15 @@ instance AWSRequest CreateStack where
     type Rs CreateStack = CreateStackResponse
 
     request  = post "CreateStack"
-    response = xmlResponse $ \h x -> CreateStackResponse
-        <$> x %| "StackId"
+    response = xmlResponse
+
+instance FromXML CreateStackResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateStackResponse"
+
+instance ToPath CreateStack where
+    toPath = const "/"
+
+instance ToHeaders CreateStack
+
+instance ToQuery CreateStack

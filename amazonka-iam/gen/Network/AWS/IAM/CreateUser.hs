@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateUser
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ cuPath = lens _cuPath (\s a -> s { _cuPath = a })
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
 
-instance ToQuery CreateUser
-
-instance ToPath CreateUser where
-    toPath = const "/"
-
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest CreateUser where
     type Rs CreateUser = CreateUserResponse
 
     request  = post "CreateUser"
-    response = xmlResponse $ \h x -> CreateUserResponse
-        <$> x %| "User"
+    response = xmlResponse
+
+instance FromXML CreateUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateUserResponse"
+
+instance ToPath CreateUser where
+    toPath = const "/"
+
+instance ToHeaders CreateUser
+
+instance ToQuery CreateUser

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.CountPendingDecisionTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.SWF.CountPendingDecisionTasks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ cpdtDomain = lens _cpdtDomain (\s a -> s { _cpdtDomain = a })
 -- | The name of the task list.
 cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
-
-instance ToPath CountPendingDecisionTasks where
-    toPath = const "/"
-
-instance ToQuery CountPendingDecisionTasks where
-    toQuery = const mempty
-
-instance ToHeaders CountPendingDecisionTasks
-
-instance ToBody CountPendingDecisionTasks where
-    toBody = toBody . encode . _cpdtDomain
 
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     { _cpdtrCount     :: Nat
@@ -130,6 +119,18 @@ instance AWSRequest CountPendingDecisionTasks where
     type Rs CountPendingDecisionTasks = CountPendingDecisionTasksResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CountPendingDecisionTasksResponse
-        <$> o .: "count"
-        <*> o .: "truncated"
+    response = jsonResponse
+
+instance FromJSON CountPendingDecisionTasksResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CountPendingDecisionTasks where
+    toPath = const "/"
+
+instance ToHeaders CountPendingDecisionTasks
+
+instance ToQuery CountPendingDecisionTasks where
+    toQuery = const mempty
+
+instance ToJSON CountPendingDecisionTasks where
+    toJSON = genericToJSON jsonOptions

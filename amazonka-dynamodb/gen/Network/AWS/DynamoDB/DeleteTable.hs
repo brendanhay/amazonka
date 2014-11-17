@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.DynamoDB.DeleteTable
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ deleteTable p1 = DeleteTable
 -- | The name of the table to delete.
 dtTableName :: Lens' DeleteTable Text
 dtTableName = lens _dtTableName (\s a -> s { _dtTableName = a })
-
-instance ToPath DeleteTable where
-    toPath = const "/"
-
-instance ToQuery DeleteTable where
-    toQuery = const mempty
-
-instance ToHeaders DeleteTable
-
-instance ToBody DeleteTable where
-    toBody = toBody . encode . _dtTableName
 
 newtype DeleteTableResponse = DeleteTableResponse
     { _dtrTableDescription :: Maybe TableDescription
@@ -104,5 +93,18 @@ instance AWSRequest DeleteTable where
     type Rs DeleteTable = DeleteTableResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteTableResponse
-        <$> o .: "TableDescription"
+    response = jsonResponse
+
+instance FromJSON DeleteTableResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteTable where
+    toPath = const "/"
+
+instance ToHeaders DeleteTable
+
+instance ToQuery DeleteTable where
+    toQuery = const mempty
+
+instance ToJSON DeleteTable where
+    toJSON = genericToJSON jsonOptions

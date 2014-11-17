@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ ccpgCacheParameterGroupName =
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
-instance ToQuery CreateCacheParameterGroup
-
-instance ToPath CreateCacheParameterGroup where
-    toPath = const "/"
-
 newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
     } deriving (Eq, Show, Generic)
@@ -118,5 +113,15 @@ instance AWSRequest CreateCacheParameterGroup where
     type Rs CreateCacheParameterGroup = CreateCacheParameterGroupResponse
 
     request  = post "CreateCacheParameterGroup"
-    response = xmlResponse $ \h x -> CreateCacheParameterGroupResponse
-        <$> x %| "CacheParameterGroup"
+    response = xmlResponse
+
+instance FromXML CreateCacheParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheParameterGroupResponse"
+
+instance ToPath CreateCacheParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateCacheParameterGroup
+
+instance ToQuery CreateCacheParameterGroup

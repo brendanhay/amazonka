@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateReservedInstancesListing
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -114,11 +114,6 @@ crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId =
     lens _crilReservedInstancesId (\s a -> s { _crilReservedInstancesId = a })
 
-instance ToQuery CreateReservedInstancesListing
-
-instance ToPath CreateReservedInstancesListing where
-    toPath = const "/"
-
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -151,5 +146,15 @@ instance AWSRequest CreateReservedInstancesListing where
     type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResponse
 
     request  = post "CreateReservedInstancesListing"
-    response = xmlResponse $ \h x -> CreateReservedInstancesListingResponse
-        <$> x %| "reservedInstancesListingsSet"
+    response = xmlResponse
+
+instance FromXML CreateReservedInstancesListingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateReservedInstancesListingResponse"
+
+instance ToPath CreateReservedInstancesListing where
+    toPath = const "/"
+
+instance ToHeaders CreateReservedInstancesListing
+
+instance ToQuery CreateReservedInstancesListing

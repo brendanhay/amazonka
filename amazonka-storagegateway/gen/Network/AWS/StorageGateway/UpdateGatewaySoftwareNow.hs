@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ updateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
 
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
 ugsnGatewayARN = lens _ugsnGatewayARN (\s a -> s { _ugsnGatewayARN = a })
-
-instance ToPath UpdateGatewaySoftwareNow where
-    toPath = const "/"
-
-instance ToQuery UpdateGatewaySoftwareNow where
-    toQuery = const mempty
-
-instance ToHeaders UpdateGatewaySoftwareNow
-
-instance ToBody UpdateGatewaySoftwareNow where
-    toBody = toBody . encode . _ugsnGatewayARN
 
 newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
     { _ugsnrGatewayARN :: Maybe Text
@@ -100,5 +89,18 @@ instance AWSRequest UpdateGatewaySoftwareNow where
     type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateGatewaySoftwareNowResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON UpdateGatewaySoftwareNowResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateGatewaySoftwareNow where
+    toPath = const "/"
+
+instance ToHeaders UpdateGatewaySoftwareNow
+
+instance ToQuery UpdateGatewaySoftwareNow where
+    toQuery = const mempty
+
+instance ToJSON UpdateGatewaySoftwareNow where
+    toJSON = genericToJSON jsonOptions

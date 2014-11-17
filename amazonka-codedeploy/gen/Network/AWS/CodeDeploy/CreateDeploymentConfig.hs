@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHost
 cdcMinimumHealthyHosts =
     lens _cdcMinimumHealthyHosts (\s a -> s { _cdcMinimumHealthyHosts = a })
 
-instance ToPath CreateDeploymentConfig where
-    toPath = const "/"
-
-instance ToQuery CreateDeploymentConfig where
-    toQuery = const mempty
-
-instance ToHeaders CreateDeploymentConfig
-
-instance ToBody CreateDeploymentConfig where
-    toBody = toBody . encode . _cdcDeploymentConfigName
-
 newtype CreateDeploymentConfigResponse = CreateDeploymentConfigResponse
     { _cdcrDeploymentConfigId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -119,5 +108,18 @@ instance AWSRequest CreateDeploymentConfig where
     type Rs CreateDeploymentConfig = CreateDeploymentConfigResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateDeploymentConfigResponse
-        <$> o .: "deploymentConfigId"
+    response = jsonResponse
+
+instance FromJSON CreateDeploymentConfigResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateDeploymentConfig where
+    toPath = const "/"
+
+instance ToHeaders CreateDeploymentConfig
+
+instance ToQuery CreateDeploymentConfig where
+    toQuery = const mempty
+
+instance ToJSON CreateDeploymentConfig where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.TerminateInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
 
-instance ToQuery TerminateInstances
-
-instance ToPath TerminateInstances where
-    toPath = const "/"
-
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -118,5 +113,15 @@ instance AWSRequest TerminateInstances where
     type Rs TerminateInstances = TerminateInstancesResponse
 
     request  = post "TerminateInstances"
-    response = xmlResponse $ \h x -> TerminateInstancesResponse
-        <$> x %| "instancesSet"
+    response = xmlResponse
+
+instance FromXML TerminateInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TerminateInstancesResponse"
+
+instance ToPath TerminateInstances where
+    toPath = const "/"
+
+instance ToHeaders TerminateInstances
+
+instance ToQuery TerminateInstances

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -78,17 +78,6 @@ cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualInterfaceId =
     lens _cpviVirtualInterfaceId (\s a -> s { _cpviVirtualInterfaceId = a })
 
-instance ToPath ConfirmPrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToQuery ConfirmPrivateVirtualInterface where
-    toQuery = const mempty
-
-instance ToHeaders ConfirmPrivateVirtualInterface
-
-instance ToBody ConfirmPrivateVirtualInterface where
-    toBody = toBody . encode . _cpviVirtualInterfaceId
-
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvir1VirtualInterfaceState :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -114,5 +103,18 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ConfirmPrivateVirtualInterfaceResponse
-        <$> o .: "virtualInterfaceState"
+    response = jsonResponse
+
+instance FromJSON ConfirmPrivateVirtualInterfaceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ConfirmPrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToHeaders ConfirmPrivateVirtualInterface
+
+instance ToQuery ConfirmPrivateVirtualInterface where
+    toQuery = const mempty
+
+instance ToJSON ConfirmPrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions

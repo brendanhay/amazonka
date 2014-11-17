@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +55,7 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -89,17 +89,6 @@ cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVir
 cpviNewPublicVirtualInterface =
     lens _cpviNewPublicVirtualInterface
         (\s a -> s { _cpviNewPublicVirtualInterface = a })
-
-instance ToPath CreatePublicVirtualInterface where
-    toPath = const "/"
-
-instance ToQuery CreatePublicVirtualInterface where
-    toQuery = const mempty
-
-instance ToHeaders CreatePublicVirtualInterface
-
-instance ToBody CreatePublicVirtualInterface where
-    toBody = toBody . encode . _cpviConnectionId
 
 data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
     { _cpvirAmazonAddress         :: Maybe Text
@@ -239,19 +228,18 @@ instance AWSRequest CreatePublicVirtualInterface where
     type Rs CreatePublicVirtualInterface = CreatePublicVirtualInterfaceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreatePublicVirtualInterfaceResponse
-        <$> o .: "amazonAddress"
-        <*> o .: "asn"
-        <*> o .: "authKey"
-        <*> o .: "connectionId"
-        <*> o .: "customerAddress"
-        <*> o .: "customerRouterConfig"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
-        <*> o .: "virtualGatewayId"
-        <*> o .: "virtualInterfaceId"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "virtualInterfaceState"
-        <*> o .: "virtualInterfaceType"
-        <*> o .: "vlan"
+    response = jsonResponse
+
+instance FromJSON CreatePublicVirtualInterfaceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreatePublicVirtualInterface where
+    toPath = const "/"
+
+instance ToHeaders CreatePublicVirtualInterface
+
+instance ToQuery CreatePublicVirtualInterface where
+    toQuery = const mempty
+
+instance ToJSON CreatePublicVirtualInterface where
+    toJSON = genericToJSON jsonOptions

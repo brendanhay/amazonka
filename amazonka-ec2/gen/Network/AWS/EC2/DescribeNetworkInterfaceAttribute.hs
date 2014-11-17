@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId =
     lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
 
-instance ToQuery DescribeNetworkInterfaceAttribute
-
-instance ToPath DescribeNetworkInterfaceAttribute where
-    toPath = const "/"
-
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarAttachment         :: Maybe NetworkInterfaceAttachment
     , _dniarDescription        :: Maybe AttributeValue
@@ -147,9 +142,15 @@ instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Rs DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeResponse
 
     request  = post "DescribeNetworkInterfaceAttribute"
-    response = xmlResponse $ \h x -> DescribeNetworkInterfaceAttributeResponse
-        <$> x %| "attachment"
-        <*> x %| "description"
-        <*> x %| "groupSet"
-        <*> x %| "networkInterfaceId"
-        <*> x %| "sourceDestCheck"
+    response = xmlResponse
+
+instance FromXML DescribeNetworkInterfaceAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResponse"
+
+instance ToPath DescribeNetworkInterfaceAttribute where
+    toPath = const "/"
+
+instance ToHeaders DescribeNetworkInterfaceAttribute
+
+instance ToQuery DescribeNetworkInterfaceAttribute

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CopyDBParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -104,11 +104,6 @@ cdbpgTargetDBParameterGroupIdentifier =
     lens _cdbpgTargetDBParameterGroupIdentifier
         (\s a -> s { _cdbpgTargetDBParameterGroupIdentifier = a })
 
-instance ToQuery CopyDBParameterGroup
-
-instance ToPath CopyDBParameterGroup where
-    toPath = const "/"
-
 newtype CopyDBParameterGroupResponse = CopyDBParameterGroupResponse
     { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
     } deriving (Eq, Show, Generic)
@@ -133,5 +128,15 @@ instance AWSRequest CopyDBParameterGroup where
     type Rs CopyDBParameterGroup = CopyDBParameterGroupResponse
 
     request  = post "CopyDBParameterGroup"
-    response = xmlResponse $ \h x -> CopyDBParameterGroupResponse
-        <$> x %| "DBParameterGroup"
+    response = xmlResponse
+
+instance FromXML CopyDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyDBParameterGroupResponse"
+
+instance ToPath CopyDBParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders CopyDBParameterGroup
+
+instance ToQuery CopyDBParameterGroup

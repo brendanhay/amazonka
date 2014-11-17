@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.GetDeployment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ getDeployment p1 = GetDeployment
 -- | An existing deployment ID within the AWS user account.
 gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\s a -> s { _gdDeploymentId = a })
-
-instance ToPath GetDeployment where
-    toPath = const "/"
-
-instance ToQuery GetDeployment where
-    toQuery = const mempty
-
-instance ToHeaders GetDeployment
-
-instance ToBody GetDeployment where
-    toBody = toBody . encode . _gdDeploymentId
 
 newtype GetDeploymentResponse = GetDeploymentResponse
     { _gdrDeploymentInfo :: Maybe DeploymentInfo
@@ -97,5 +86,18 @@ instance AWSRequest GetDeployment where
     type Rs GetDeployment = GetDeploymentResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetDeploymentResponse
-        <$> o .: "deploymentInfo"
+    response = jsonResponse
+
+instance FromJSON GetDeploymentResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetDeployment where
+    toPath = const "/"
+
+instance ToHeaders GetDeployment
+
+instance ToQuery GetDeployment where
+    toQuery = const mempty
+
+instance ToJSON GetDeployment where
+    toJSON = genericToJSON jsonOptions

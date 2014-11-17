@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.SWF.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.SWF.Types
       SWF
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * WorkflowExecutionCancelRequestedEventAttributes
     , WorkflowExecutionCancelRequestedEventAttributes
@@ -773,6 +777,7 @@ module Network.AWS.SWF.Types
     , wecaneaWorkflowType
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -794,6 +799,11 @@ instance AWSService SWF where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
     { _wecreaCause                     :: Maybe Text
@@ -842,9 +852,11 @@ wecreaExternalWorkflowExecution =
     lens _wecreaExternalWorkflowExecution
         (\s a -> s { _wecreaExternalWorkflowExecution = a })
 
-instance FromJSON WorkflowExecutionCancelRequestedEventAttributes
+instance FromJSON WorkflowExecutionCancelRequestedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionCancelRequestedEventAttributes
+instance ToJSON WorkflowExecutionCancelRequestedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes
     { _rcewedaControl    :: Maybe Text
@@ -885,9 +897,11 @@ rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttribu
 rcewedaWorkflowId =
     lens _rcewedaWorkflowId (\s a -> s { _rcewedaWorkflowId = a })
 
-instance FromJSON RequestCancelExternalWorkflowExecutionDecisionAttributes
+instance FromJSON RequestCancelExternalWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelExternalWorkflowExecutionDecisionAttributes
+instance ToJSON RequestCancelExternalWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
     { _dtseaStartToCloseTimeout :: Maybe Text
@@ -923,9 +937,11 @@ dtseaStartToCloseTimeout =
 dtseaTaskList :: Lens' DecisionTaskScheduledEventAttributes TaskList
 dtseaTaskList = lens _dtseaTaskList (\s a -> s { _dtseaTaskList = a })
 
-instance FromJSON DecisionTaskScheduledEventAttributes
+instance FromJSON DecisionTaskScheduledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DecisionTaskScheduledEventAttributes
+instance ToJSON DecisionTaskScheduledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes
     { _weceaDecisionTaskCompletedEventId :: Integer
@@ -960,9 +976,11 @@ weceaDecisionTaskCompletedEventId =
 weceaResult :: Lens' WorkflowExecutionCompletedEventAttributes (Maybe Text)
 weceaResult = lens _weceaResult (\s a -> s { _weceaResult = a })
 
-instance FromJSON WorkflowExecutionCompletedEventAttributes
+instance FromJSON WorkflowExecutionCompletedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionCompletedEventAttributes
+instance ToJSON WorkflowExecutionCompletedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ExecutionTimeFilter = ExecutionTimeFilter
     { _etfLatestDate :: Maybe RFC822
@@ -994,9 +1012,11 @@ etfOldestDate :: Lens' ExecutionTimeFilter UTCTime
 etfOldestDate = lens _etfOldestDate (\s a -> s { _etfOldestDate = a })
     . _Time
 
-instance FromJSON ExecutionTimeFilter
+instance FromJSON ExecutionTimeFilter where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExecutionTimeFilter
+instance ToJSON ExecutionTimeFilter where
+    toJSON = genericToJSON jsonOptions
 
 data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes
     { _stfeaCause                        :: Text
@@ -1042,9 +1062,11 @@ stfeaDecisionTaskCompletedEventId =
 stfeaTimerId :: Lens' StartTimerFailedEventAttributes Text
 stfeaTimerId = lens _stfeaTimerId (\s a -> s { _stfeaTimerId = a })
 
-instance FromJSON StartTimerFailedEventAttributes
+instance FromJSON StartTimerFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartTimerFailedEventAttributes
+instance ToJSON StartTimerFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
     { _rceweieaControl                      :: Maybe Text
@@ -1098,9 +1120,11 @@ rceweieaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEvent
 rceweieaWorkflowId =
     lens _rceweieaWorkflowId (\s a -> s { _rceweieaWorkflowId = a })
 
-instance FromJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+instance FromJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+instance ToJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
     { _rmfeaCause                        :: Text
@@ -1146,9 +1170,11 @@ rmfeaDecisionTaskCompletedEventId =
 rmfeaMarkerName :: Lens' RecordMarkerFailedEventAttributes Text
 rmfeaMarkerName = lens _rmfeaMarkerName (\s a -> s { _rmfeaMarkerName = a })
 
-instance FromJSON RecordMarkerFailedEventAttributes
+instance FromJSON RecordMarkerFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RecordMarkerFailedEventAttributes
+instance ToJSON RecordMarkerFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionCount = WorkflowExecutionCount
     { _wecCount     :: Nat
@@ -1180,9 +1206,11 @@ wecCount = lens _wecCount (\s a -> s { _wecCount = a })
 wecTruncated :: Lens' WorkflowExecutionCount (Maybe Bool)
 wecTruncated = lens _wecTruncated (\s a -> s { _wecTruncated = a })
 
-instance FromJSON WorkflowExecutionCount
+instance FromJSON WorkflowExecutionCount where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionCount
+instance ToJSON WorkflowExecutionCount where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
     { _atseaActivityId                   :: Text
@@ -1299,9 +1327,11 @@ atseaStartToCloseTimeout =
 atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes TaskList
 atseaTaskList = lens _atseaTaskList (\s a -> s { _atseaTaskList = a })
 
-instance FromJSON ActivityTaskScheduledEventAttributes
+instance FromJSON ActivityTaskScheduledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskScheduledEventAttributes
+instance ToJSON ActivityTaskScheduledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype CloseStatusFilter = CloseStatusFilter
     { _csfStatus :: Text
@@ -1324,9 +1354,11 @@ closeStatusFilter p1 = CloseStatusFilter
 csfStatus :: Lens' CloseStatusFilter Text
 csfStatus = lens _csfStatus (\s a -> s { _csfStatus = a })
 
-instance FromJSON CloseStatusFilter
+instance FromJSON CloseStatusFilter where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CloseStatusFilter
+instance ToJSON CloseStatusFilter where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionTimeoutType
     = StartToClose -- ^ START_TO_CLOSE
@@ -1340,9 +1372,11 @@ instance FromText WorkflowExecutionTimeoutType where
 instance ToText WorkflowExecutionTimeoutType where
     toText StartToClose = "START_TO_CLOSE"
 
-instance FromJSON WorkflowExecutionTimeoutType
+instance FromJSON WorkflowExecutionTimeoutType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionTimeoutType
+instance ToJSON WorkflowExecutionTimeoutType where
+    toJSON = genericToJSON jsonOptions
 
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes
     { _satdaActivityId             :: Text
@@ -1468,9 +1502,11 @@ satdaStartToCloseTimeout =
 satdaTaskList :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe TaskList)
 satdaTaskList = lens _satdaTaskList (\s a -> s { _satdaTaskList = a })
 
-instance FromJSON ScheduleActivityTaskDecisionAttributes
+instance FromJSON ScheduleActivityTaskDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ScheduleActivityTaskDecisionAttributes
+instance ToJSON ScheduleActivityTaskDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTypeConfiguration = ActivityTypeConfiguration
     { _atcDefaultTaskHeartbeatTimeout       :: Maybe Text
@@ -1562,9 +1598,11 @@ atcDefaultTaskStartToCloseTimeout =
     lens _atcDefaultTaskStartToCloseTimeout
         (\s a -> s { _atcDefaultTaskStartToCloseTimeout = a })
 
-instance FromJSON ActivityTypeConfiguration
+instance FromJSON ActivityTypeConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTypeConfiguration
+instance ToJSON ActivityTypeConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityType = ActivityType
     { _atName    :: Text
@@ -1595,9 +1633,11 @@ atName = lens _atName (\s a -> s { _atName = a })
 atVersion :: Lens' ActivityType Text
 atVersion = lens _atVersion (\s a -> s { _atVersion = a })
 
-instance FromJSON ActivityType
+instance FromJSON ActivityType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityType
+instance ToJSON ActivityType where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowTypeInfo = WorkflowTypeInfo
     { _wtiCreationDate    :: RFC822
@@ -1657,9 +1697,11 @@ wtiStatus = lens _wtiStatus (\s a -> s { _wtiStatus = a })
 wtiWorkflowType :: Lens' WorkflowTypeInfo WorkflowType
 wtiWorkflowType = lens _wtiWorkflowType (\s a -> s { _wtiWorkflowType = a })
 
-instance FromJSON WorkflowTypeInfo
+instance FromJSON WorkflowTypeInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowTypeInfo
+instance ToJSON WorkflowTypeInfo where
+    toJSON = genericToJSON jsonOptions
 
 data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes
     { _cweceaInitiatedEventId  :: Integer
@@ -1726,9 +1768,11 @@ cweceaWorkflowType :: Lens' ChildWorkflowExecutionCompletedEventAttributes Workf
 cweceaWorkflowType =
     lens _cweceaWorkflowType (\s a -> s { _cweceaWorkflowType = a })
 
-instance FromJSON ChildWorkflowExecutionCompletedEventAttributes
+instance FromJSON ChildWorkflowExecutionCompletedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildWorkflowExecutionCompletedEventAttributes
+instance ToJSON ChildWorkflowExecutionCompletedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
     { _weocOpenActivityTasks           :: Nat
@@ -1787,9 +1831,11 @@ weocOpenTimers :: Lens' WorkflowExecutionOpenCounts Natural
 weocOpenTimers = lens _weocOpenTimers (\s a -> s { _weocOpenTimers = a })
     . _Nat
 
-instance FromJSON WorkflowExecutionOpenCounts
+instance FromJSON WorkflowExecutionOpenCounts where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionOpenCounts
+instance ToJSON WorkflowExecutionOpenCounts where
+    toJSON = genericToJSON jsonOptions
 
 data RequestCancelActivityTaskFailedCause
     = ActivityIdUnknown     -- ^ ACTIVITY_ID_UNKNOWN
@@ -1807,9 +1853,11 @@ instance ToText RequestCancelActivityTaskFailedCause where
         ActivityIdUnknown     -> "ACTIVITY_ID_UNKNOWN"
         OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
-instance FromJSON RequestCancelActivityTaskFailedCause
+instance FromJSON RequestCancelActivityTaskFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelActivityTaskFailedCause
+instance ToJSON RequestCancelActivityTaskFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEventAttributes
     { _satfeaActivityId                   :: Text
@@ -1866,9 +1914,11 @@ satfeaDecisionTaskCompletedEventId =
     lens _satfeaDecisionTaskCompletedEventId
         (\s a -> s { _satfeaDecisionTaskCompletedEventId = a })
 
-instance FromJSON ScheduleActivityTaskFailedEventAttributes
+instance FromJSON ScheduleActivityTaskFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ScheduleActivityTaskFailedEventAttributes
+instance ToJSON ScheduleActivityTaskFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes
     { _mreaDecisionTaskCompletedEventId :: Integer
@@ -1912,9 +1962,11 @@ mreaDetails = lens _mreaDetails (\s a -> s { _mreaDetails = a })
 mreaMarkerName :: Lens' MarkerRecordedEventAttributes Text
 mreaMarkerName = lens _mreaMarkerName (\s a -> s { _mreaMarkerName = a })
 
-instance FromJSON MarkerRecordedEventAttributes
+instance FromJSON MarkerRecordedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON MarkerRecordedEventAttributes
+instance ToJSON MarkerRecordedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes
     { _sewedaControl    :: Maybe Text
@@ -1973,9 +2025,11 @@ sewedaSignalName = lens _sewedaSignalName (\s a -> s { _sewedaSignalName = a })
 sewedaWorkflowId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaWorkflowId = lens _sewedaWorkflowId (\s a -> s { _sewedaWorkflowId = a })
 
-instance FromJSON SignalExternalWorkflowExecutionDecisionAttributes
+instance FromJSON SignalExternalWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SignalExternalWorkflowExecutionDecisionAttributes
+instance ToJSON SignalExternalWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionTerminatedCause
     = ChildPolicyApplied -- ^ CHILD_POLICY_APPLIED
@@ -1996,9 +2050,11 @@ instance ToText WorkflowExecutionTerminatedCause where
         EventLimitExceeded -> "EVENT_LIMIT_EXCEEDED"
         OperatorInitiated  -> "OPERATOR_INITIATED"
 
-instance FromJSON WorkflowExecutionTerminatedCause
+instance FromJSON WorkflowExecutionTerminatedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionTerminatedCause
+instance ToJSON WorkflowExecutionTerminatedCause where
+    toJSON = genericToJSON jsonOptions
 
 data CancelWorkflowExecutionFailedCause
     = CWEFCOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -2016,9 +2072,11 @@ instance ToText CancelWorkflowExecutionFailedCause where
         CWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         CWEFCUnhandledDecision     -> "UNHANDLED_DECISION"
 
-instance FromJSON CancelWorkflowExecutionFailedCause
+instance FromJSON CancelWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CancelWorkflowExecutionFailedCause
+instance ToJSON CancelWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data SignalExternalWorkflowExecutionFailedCause
     = SEWEFCOperationNotPermitted                       -- ^ OPERATION_NOT_PERMITTED
@@ -2039,9 +2097,11 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
         SEWEFCSignalExternalWorkflowExecutionRateExceeded -> "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
         SEWEFCUnknownExternalWorkflowExecution            -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
-instance FromJSON SignalExternalWorkflowExecutionFailedCause
+instance FromJSON SignalExternalWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SignalExternalWorkflowExecutionFailedCause
+instance ToJSON SignalExternalWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
     { _rmdaDetails    :: Maybe Text
@@ -2071,9 +2131,11 @@ rmdaDetails = lens _rmdaDetails (\s a -> s { _rmdaDetails = a })
 rmdaMarkerName :: Lens' RecordMarkerDecisionAttributes Text
 rmdaMarkerName = lens _rmdaMarkerName (\s a -> s { _rmdaMarkerName = a })
 
-instance FromJSON RecordMarkerDecisionAttributes
+instance FromJSON RecordMarkerDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RecordMarkerDecisionAttributes
+instance ToJSON RecordMarkerDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes
     { _cwefeaCause                        :: Text
@@ -2110,9 +2172,11 @@ cwefeaDecisionTaskCompletedEventId =
     lens _cwefeaDecisionTaskCompletedEventId
         (\s a -> s { _cwefeaDecisionTaskCompletedEventId = a })
 
-instance FromJSON CompleteWorkflowExecutionFailedEventAttributes
+instance FromJSON CompleteWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CompleteWorkflowExecutionFailedEventAttributes
+instance ToJSON CompleteWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes
     { _stdaControl            :: Maybe Text
@@ -2159,9 +2223,11 @@ stdaStartToFireTimeout =
 stdaTimerId :: Lens' StartTimerDecisionAttributes Text
 stdaTimerId = lens _stdaTimerId (\s a -> s { _stdaTimerId = a })
 
-instance FromJSON StartTimerDecisionAttributes
+instance FromJSON StartTimerDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartTimerDecisionAttributes
+instance ToJSON StartTimerDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data DecisionType
     = CancelTimer                            -- ^ CancelTimer
@@ -2209,9 +2275,11 @@ instance ToText DecisionType where
         StartChildWorkflowExecution            -> "StartChildWorkflowExecution"
         StartTimer                             -> "StartTimer"
 
-instance FromJSON DecisionType
+instance FromJSON DecisionType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DecisionType
+instance ToJSON DecisionType where
+    toJSON = genericToJSON jsonOptions
 
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes
     { _rcewefeaCause                        :: Text
@@ -2289,9 +2357,11 @@ rcewefeaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAtt
 rcewefeaWorkflowId =
     lens _rcewefeaWorkflowId (\s a -> s { _rcewefeaWorkflowId = a })
 
-instance FromJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes
+instance FromJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes
+instance ToJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTypeInfo = ActivityTypeInfo
     { _atiActivityType    :: ActivityType
@@ -2351,9 +2421,11 @@ atiDescription = lens _atiDescription (\s a -> s { _atiDescription = a })
 atiStatus :: Lens' ActivityTypeInfo Text
 atiStatus = lens _atiStatus (\s a -> s { _atiStatus = a })
 
-instance FromJSON ActivityTypeInfo
+instance FromJSON ActivityTypeInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTypeInfo
+instance ToJSON ActivityTypeInfo where
+    toJSON = genericToJSON jsonOptions
 
 data TimerCanceledEventAttributes = TimerCanceledEventAttributes
     { _tceaDecisionTaskCompletedEventId :: Integer
@@ -2401,9 +2473,11 @@ tceaStartedEventId =
 tceaTimerId :: Lens' TimerCanceledEventAttributes Text
 tceaTimerId = lens _tceaTimerId (\s a -> s { _tceaTimerId = a })
 
-instance FromJSON TimerCanceledEventAttributes
+instance FromJSON TimerCanceledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TimerCanceledEventAttributes
+instance ToJSON TimerCanceledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes
     { _weseaChildPolicy                  :: Text
@@ -2536,9 +2610,11 @@ weseaWorkflowType :: Lens' WorkflowExecutionStartedEventAttributes WorkflowType
 weseaWorkflowType =
     lens _weseaWorkflowType (\s a -> s { _weseaWorkflowType = a })
 
-instance FromJSON WorkflowExecutionStartedEventAttributes
+instance FromJSON WorkflowExecutionStartedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionStartedEventAttributes
+instance ToJSON WorkflowExecutionStartedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowTypeConfiguration = WorkflowTypeConfiguration
     { _wtcDefaultChildPolicy                  :: Maybe Text
@@ -2619,9 +2695,11 @@ wtcDefaultTaskStartToCloseTimeout =
     lens _wtcDefaultTaskStartToCloseTimeout
         (\s a -> s { _wtcDefaultTaskStartToCloseTimeout = a })
 
-instance FromJSON WorkflowTypeConfiguration
+instance FromJSON WorkflowTypeConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowTypeConfiguration
+instance ToJSON WorkflowTypeConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskTimeoutType
     = ATTTHeartbeat       -- ^ HEARTBEAT
@@ -2645,9 +2723,11 @@ instance ToText ActivityTaskTimeoutType where
         ATTTScheduleToStart -> "SCHEDULE_TO_START"
         ATTTStartToClose    -> "START_TO_CLOSE"
 
-instance FromJSON ActivityTaskTimeoutType
+instance FromJSON ActivityTaskTimeoutType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskTimeoutType
+instance ToJSON ActivityTaskTimeoutType where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowType = WorkflowType
     { _wtName    :: Text
@@ -2678,9 +2758,11 @@ wtName = lens _wtName (\s a -> s { _wtName = a })
 wtVersion :: Lens' WorkflowType Text
 wtVersion = lens _wtVersion (\s a -> s { _wtVersion = a })
 
-instance FromJSON WorkflowType
+instance FromJSON WorkflowType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowType
+instance ToJSON WorkflowType where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
     { _atceaResult           :: Maybe Text
@@ -2726,9 +2808,11 @@ atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
 atceaStartedEventId =
     lens _atceaStartedEventId (\s a -> s { _atceaStartedEventId = a })
 
-instance FromJSON ActivityTaskCompletedEventAttributes
+instance FromJSON ActivityTaskCompletedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskCompletedEventAttributes
+instance ToJSON ActivityTaskCompletedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ExecutionStatus
     = Closed -- ^ CLOSED
@@ -2746,9 +2830,11 @@ instance ToText ExecutionStatus where
         Closed -> "CLOSED"
         Open   -> "OPEN"
 
-instance FromJSON ExecutionStatus
+instance FromJSON ExecutionStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExecutionStatus
+instance ToJSON ExecutionStatus where
+    toJSON = genericToJSON jsonOptions
 
 data DecisionTaskTimeoutType
     = DTTTStartToClose -- ^ START_TO_CLOSE
@@ -2762,9 +2848,11 @@ instance FromText DecisionTaskTimeoutType where
 instance ToText DecisionTaskTimeoutType where
     toText DTTTStartToClose = "START_TO_CLOSE"
 
-instance FromJSON DecisionTaskTimeoutType
+instance FromJSON DecisionTaskTimeoutType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DecisionTaskTimeoutType
+instance ToJSON DecisionTaskTimeoutType where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionCancelRequestedCause
     = WECRCChildPolicyApplied -- ^ CHILD_POLICY_APPLIED
@@ -2778,9 +2866,11 @@ instance FromText WorkflowExecutionCancelRequestedCause where
 instance ToText WorkflowExecutionCancelRequestedCause where
     toText WECRCChildPolicyApplied = "CHILD_POLICY_APPLIED"
 
-instance FromJSON WorkflowExecutionCancelRequestedCause
+instance FromJSON WorkflowExecutionCancelRequestedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionCancelRequestedCause
+instance ToJSON WorkflowExecutionCancelRequestedCause where
+    toJSON = genericToJSON jsonOptions
 
 data StartChildWorkflowExecutionFailedCause
     = SCWEFCChildCreationRateExceeded                    -- ^ CHILD_CREATION_RATE_EXCEEDED
@@ -2825,9 +2915,11 @@ instance ToText StartChildWorkflowExecutionFailedCause where
         SCWEFCWorkflowTypeDeprecated                       -> "WORKFLOW_TYPE_DEPRECATED"
         SCWEFCWorkflowTypeDoesNotExist                     -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
-instance FromJSON StartChildWorkflowExecutionFailedCause
+instance FromJSON StartChildWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartChildWorkflowExecutionFailedCause
+instance ToJSON StartChildWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
     { _dttoeaScheduledEventId :: Integer
@@ -2876,9 +2968,11 @@ dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes Text
 dttoeaTimeoutType =
     lens _dttoeaTimeoutType (\s a -> s { _dttoeaTimeoutType = a })
 
-instance FromJSON DecisionTaskTimedOutEventAttributes
+instance FromJSON DecisionTaskTimedOutEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DecisionTaskTimedOutEventAttributes
+instance ToJSON DecisionTaskTimedOutEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes
     { _cweseaInitiatedEventId  :: Integer
@@ -2924,9 +3018,11 @@ cweseaWorkflowType :: Lens' ChildWorkflowExecutionStartedEventAttributes Workflo
 cweseaWorkflowType =
     lens _cweseaWorkflowType (\s a -> s { _cweseaWorkflowType = a })
 
-instance FromJSON ChildWorkflowExecutionStartedEventAttributes
+instance FromJSON ChildWorkflowExecutionStartedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildWorkflowExecutionStartedEventAttributes
+instance ToJSON ChildWorkflowExecutionStartedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes
     { _ctfeaCause                        :: Text
@@ -2972,9 +3068,11 @@ ctfeaDecisionTaskCompletedEventId =
 ctfeaTimerId :: Lens' CancelTimerFailedEventAttributes Text
 ctfeaTimerId = lens _ctfeaTimerId (\s a -> s { _ctfeaTimerId = a })
 
-instance FromJSON CancelTimerFailedEventAttributes
+instance FromJSON CancelTimerFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CancelTimerFailedEventAttributes
+instance ToJSON CancelTimerFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data FailWorkflowExecutionFailedCause
     = FWEFCOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -2992,9 +3090,11 @@ instance ToText FailWorkflowExecutionFailedCause where
         FWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         FWEFCUnhandledDecision     -> "UNHANDLED_DECISION"
 
-instance FromJSON FailWorkflowExecutionFailedCause
+instance FromJSON FailWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON FailWorkflowExecutionFailedCause
+instance ToJSON FailWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter
     { _wefWorkflowId :: Text
@@ -3016,9 +3116,11 @@ workflowExecutionFilter p1 = WorkflowExecutionFilter
 wefWorkflowId :: Lens' WorkflowExecutionFilter Text
 wefWorkflowId = lens _wefWorkflowId (\s a -> s { _wefWorkflowId = a })
 
-instance FromJSON WorkflowExecutionFilter
+instance FromJSON WorkflowExecutionFilter where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionFilter
+instance ToJSON WorkflowExecutionFilter where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes
     { _atcea1Details                      :: Maybe Text
@@ -3077,9 +3179,11 @@ atcea1StartedEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
 atcea1StartedEventId =
     lens _atcea1StartedEventId (\s a -> s { _atcea1StartedEventId = a })
 
-instance FromJSON ActivityTaskCanceledEventAttributes
+instance FromJSON ActivityTaskCanceledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskCanceledEventAttributes
+instance ToJSON ActivityTaskCanceledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionInfos = WorkflowExecutionInfos
     { _weiExecutionInfos :: [WorkflowExecutionInfo]
@@ -3111,9 +3215,11 @@ weiExecutionInfos =
 weiNextPageToken :: Lens' WorkflowExecutionInfos (Maybe Text)
 weiNextPageToken = lens _weiNextPageToken (\s a -> s { _weiNextPageToken = a })
 
-instance FromJSON WorkflowExecutionInfos
+instance FromJSON WorkflowExecutionInfos where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionInfos
+instance ToJSON WorkflowExecutionInfos where
+    toJSON = genericToJSON jsonOptions
 
 data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes
     { _scwedaChildPolicy                  :: Maybe Text
@@ -3238,9 +3344,11 @@ scwedaWorkflowType :: Lens' StartChildWorkflowExecutionDecisionAttributes Workfl
 scwedaWorkflowType =
     lens _scwedaWorkflowType (\s a -> s { _scwedaWorkflowType = a })
 
-instance FromJSON StartChildWorkflowExecutionDecisionAttributes
+instance FromJSON StartChildWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartChildWorkflowExecutionDecisionAttributes
+instance ToJSON StartChildWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ContinueAsNewWorkflowExecutionFailedCause
     = CANWEFCDefaultChildPolicyUndefined                  -- ^ DEFAULT_CHILD_POLICY_UNDEFINED
@@ -3276,9 +3384,11 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
         CANWEFCWorkflowTypeDeprecated                       -> "WORKFLOW_TYPE_DEPRECATED"
         CANWEFCWorkflowTypeDoesNotExist                     -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
-instance FromJSON ContinueAsNewWorkflowExecutionFailedCause
+instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ContinueAsNewWorkflowExecutionFailedCause
+instance ToJSON ContinueAsNewWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes
     { _fwedaDetails :: Maybe Text
@@ -3307,9 +3417,11 @@ fwedaDetails = lens _fwedaDetails (\s a -> s { _fwedaDetails = a })
 fwedaReason :: Lens' FailWorkflowExecutionDecisionAttributes (Maybe Text)
 fwedaReason = lens _fwedaReason (\s a -> s { _fwedaReason = a })
 
-instance FromJSON FailWorkflowExecutionDecisionAttributes
+instance FromJSON FailWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON FailWorkflowExecutionDecisionAttributes
+instance ToJSON FailWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data EventType
     = ActivityTaskCancelRequested                     -- ^ ActivityTaskCancelRequested
@@ -3462,9 +3574,11 @@ instance ToText EventType where
         WorkflowExecutionTerminated                     -> "WorkflowExecutionTerminated"
         WorkflowExecutionTimedOut                       -> "WorkflowExecutionTimedOut"
 
-instance FromJSON EventType
+instance FromJSON EventType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON EventType
+instance ToJSON EventType where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
     { _attoeaDetails          :: Maybe Text
@@ -3521,9 +3635,11 @@ attoeaTimeoutType :: Lens' ActivityTaskTimedOutEventAttributes Text
 attoeaTimeoutType =
     lens _attoeaTimeoutType (\s a -> s { _attoeaTimeoutType = a })
 
-instance FromJSON ActivityTaskTimedOutEventAttributes
+instance FromJSON ActivityTaskTimedOutEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskTimedOutEventAttributes
+instance ToJSON ActivityTaskTimedOutEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskFailedEventAttributes
     { _rcatfeaActivityId                   :: Text
@@ -3571,9 +3687,11 @@ rcatfeaDecisionTaskCompletedEventId =
     lens _rcatfeaDecisionTaskCompletedEventId
         (\s a -> s { _rcatfeaDecisionTaskCompletedEventId = a })
 
-instance FromJSON RequestCancelActivityTaskFailedEventAttributes
+instance FromJSON RequestCancelActivityTaskFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelActivityTaskFailedEventAttributes
+instance ToJSON RequestCancelActivityTaskFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes
     { _cwedaResult :: Maybe Text
@@ -3595,9 +3713,11 @@ completeWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionA
 cwedaResult :: Lens' CompleteWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaResult = lens _cwedaResult (\s a -> s { _cwedaResult = a })
 
-instance FromJSON CompleteWorkflowExecutionDecisionAttributes
+instance FromJSON CompleteWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CompleteWorkflowExecutionDecisionAttributes
+instance ToJSON CompleteWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes
     { _dtseaIdentity         :: Maybe Text
@@ -3632,9 +3752,11 @@ dtseaScheduledEventId :: Lens' DecisionTaskStartedEventAttributes Integer
 dtseaScheduledEventId =
     lens _dtseaScheduledEventId (\s a -> s { _dtseaScheduledEventId = a })
 
-instance FromJSON DecisionTaskStartedEventAttributes
+instance FromJSON DecisionTaskStartedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DecisionTaskStartedEventAttributes
+instance ToJSON DecisionTaskStartedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes
     { _cwetoeaInitiatedEventId  :: Integer
@@ -3705,9 +3827,11 @@ cwetoeaWorkflowType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Workf
 cwetoeaWorkflowType =
     lens _cwetoeaWorkflowType (\s a -> s { _cwetoeaWorkflowType = a })
 
-instance FromJSON ChildWorkflowExecutionTimedOutEventAttributes
+instance FromJSON ChildWorkflowExecutionTimedOutEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildWorkflowExecutionTimedOutEventAttributes
+instance ToJSON ChildWorkflowExecutionTimedOutEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes
     { _scweieaChildPolicy                  :: Text
@@ -3834,9 +3958,11 @@ scweieaWorkflowType :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes
 scweieaWorkflowType =
     lens _scweieaWorkflowType (\s a -> s { _scweieaWorkflowType = a })
 
-instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes
+instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartChildWorkflowExecutionInitiatedEventAttributes
+instance ToJSON StartChildWorkflowExecutionInitiatedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes
     { _cwefea1Cause                        :: Text
@@ -3873,9 +3999,11 @@ cwefea1DecisionTaskCompletedEventId =
     lens _cwefea1DecisionTaskCompletedEventId
         (\s a -> s { _cwefea1DecisionTaskCompletedEventId = a })
 
-instance FromJSON CancelWorkflowExecutionFailedEventAttributes
+instance FromJSON CancelWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CancelWorkflowExecutionFailedEventAttributes
+instance ToJSON CancelWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEventAttributes
     { _weteaCause       :: Maybe Text
@@ -3931,9 +4059,11 @@ weteaDetails = lens _weteaDetails (\s a -> s { _weteaDetails = a })
 weteaReason :: Lens' WorkflowExecutionTerminatedEventAttributes (Maybe Text)
 weteaReason = lens _weteaReason (\s a -> s { _weteaReason = a })
 
-instance FromJSON WorkflowExecutionTerminatedEventAttributes
+instance FromJSON WorkflowExecutionTerminatedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionTerminatedEventAttributes
+instance ToJSON WorkflowExecutionTerminatedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype TaskList = TaskList
     { _tlName :: Text
@@ -3955,9 +4085,11 @@ taskList p1 = TaskList
 tlName :: Lens' TaskList Text
 tlName = lens _tlName (\s a -> s { _tlName = a })
 
-instance FromJSON TaskList
+instance FromJSON TaskList where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TaskList
+instance ToJSON TaskList where
+    toJSON = genericToJSON jsonOptions
 
 data ScheduleActivityTaskFailedCause
     = SATFCActivityCreationRateExceeded           -- ^ ACTIVITY_CREATION_RATE_EXCEEDED
@@ -4002,9 +4134,11 @@ instance ToText ScheduleActivityTaskFailedCause where
         SATFCOpenActivitiesLimitExceeded            -> "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
         SATFCOperationNotPermitted                  -> "OPERATION_NOT_PERMITTED"
 
-instance FromJSON ScheduleActivityTaskFailedCause
+instance FromJSON ScheduleActivityTaskFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ScheduleActivityTaskFailedCause
+instance ToJSON ScheduleActivityTaskFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes
     { _cwecea1Details           :: Maybe Text
@@ -4072,9 +4206,11 @@ cwecea1WorkflowType :: Lens' ChildWorkflowExecutionCanceledEventAttributes Workf
 cwecea1WorkflowType =
     lens _cwecea1WorkflowType (\s a -> s { _cwecea1WorkflowType = a })
 
-instance FromJSON ChildWorkflowExecutionCanceledEventAttributes
+instance FromJSON ChildWorkflowExecutionCanceledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildWorkflowExecutionCanceledEventAttributes
+instance ToJSON ChildWorkflowExecutionCanceledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionInfo = WorkflowExecutionInfo
     { _weiCancelRequested :: Maybe Bool
@@ -4181,9 +4317,11 @@ weiTagList = lens _weiTagList (\s a -> s { _weiTagList = a })
 weiWorkflowType :: Lens' WorkflowExecutionInfo WorkflowType
 weiWorkflowType = lens _weiWorkflowType (\s a -> s { _weiWorkflowType = a })
 
-instance FromJSON WorkflowExecutionInfo
+instance FromJSON WorkflowExecutionInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionInfo
+instance ToJSON WorkflowExecutionInfo where
+    toJSON = genericToJSON jsonOptions
 
 data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkflowExecutionFailedEventAttributes
     { _sewefeaCause                        :: Text
@@ -4260,9 +4398,11 @@ sewefeaWorkflowId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes 
 sewefeaWorkflowId =
     lens _sewefeaWorkflowId (\s a -> s { _sewefeaWorkflowId = a })
 
-instance FromJSON SignalExternalWorkflowExecutionFailedEventAttributes
+instance FromJSON SignalExternalWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SignalExternalWorkflowExecutionFailedEventAttributes
+instance ToJSON SignalExternalWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype TagFilter = TagFilter
     { _tfTag :: Text
@@ -4285,9 +4425,11 @@ tagFilter p1 = TagFilter
 tfTag :: Lens' TagFilter Text
 tfTag = lens _tfTag (\s a -> s { _tfTag = a })
 
-instance FromJSON TagFilter
+instance FromJSON TagFilter where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TagFilter
+instance ToJSON TagFilter where
+    toJSON = genericToJSON jsonOptions
 
 data ChildPolicy
     = Abandon       -- ^ ABANDON
@@ -4308,9 +4450,11 @@ instance ToText ChildPolicy where
         RequestCancel -> "REQUEST_CANCEL"
         Terminate     -> "TERMINATE"
 
-instance FromJSON ChildPolicy
+instance FromJSON ChildPolicy where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildPolicy
+instance ToJSON ChildPolicy where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
     { _atseaIdentity         :: Maybe Text
@@ -4345,9 +4489,11 @@ atseaScheduledEventId :: Lens' ActivityTaskStartedEventAttributes Integer
 atseaScheduledEventId =
     lens _atseaScheduledEventId (\s a -> s { _atseaScheduledEventId = a })
 
-instance FromJSON ActivityTaskStartedEventAttributes
+instance FromJSON ActivityTaskStartedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskStartedEventAttributes
+instance ToJSON ActivityTaskStartedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data CloseStatus
     = CSCanceled       -- ^ CANCELED
@@ -4377,9 +4523,11 @@ instance ToText CloseStatus where
         CSTerminated     -> "TERMINATED"
         CSTimedOut       -> "TIMED_OUT"
 
-instance FromJSON CloseStatus
+instance FromJSON CloseStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CloseStatus
+instance ToJSON CloseStatus where
+    toJSON = genericToJSON jsonOptions
 
 data CompleteWorkflowExecutionFailedCause
     = CompleteWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -4397,9 +4545,11 @@ instance ToText CompleteWorkflowExecutionFailedCause where
         CompleteWorkflowExecutionFailedCauseOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         CompleteWorkflowExecutionFailedCauseUnhandledDecision     -> "UNHANDLED_DECISION"
 
-instance FromJSON CompleteWorkflowExecutionFailedCause
+instance FromJSON CompleteWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CompleteWorkflowExecutionFailedCause
+instance ToJSON CompleteWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data StartTimerFailedCause
     = STFCOpenTimersLimitExceeded   -- ^ OPEN_TIMERS_LIMIT_EXCEEDED
@@ -4423,9 +4573,11 @@ instance ToText StartTimerFailedCause where
         STFCTimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
         STFCTimerIdAlreadyInUse       -> "TIMER_ID_ALREADY_IN_USE"
 
-instance FromJSON StartTimerFailedCause
+instance FromJSON StartTimerFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartTimerFailedCause
+instance ToJSON StartTimerFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes
     { _atcreaActivityId                   :: Text
@@ -4461,9 +4613,11 @@ atcreaDecisionTaskCompletedEventId =
     lens _atcreaDecisionTaskCompletedEventId
         (\s a -> s { _atcreaDecisionTaskCompletedEventId = a })
 
-instance FromJSON ActivityTaskCancelRequestedEventAttributes
+instance FromJSON ActivityTaskCancelRequestedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskCancelRequestedEventAttributes
+instance ToJSON ActivityTaskCancelRequestedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes
     { _wetoeaChildPolicy :: Text
@@ -4503,9 +4657,11 @@ wetoeaTimeoutType :: Lens' WorkflowExecutionTimedOutEventAttributes Text
 wetoeaTimeoutType =
     lens _wetoeaTimeoutType (\s a -> s { _wetoeaTimeoutType = a })
 
-instance FromJSON WorkflowExecutionTimedOutEventAttributes
+instance FromJSON WorkflowExecutionTimedOutEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionTimedOutEventAttributes
+instance ToJSON WorkflowExecutionTimedOutEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes
     { _cweteaInitiatedEventId  :: Integer
@@ -4564,9 +4720,11 @@ cweteaWorkflowType :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Work
 cweteaWorkflowType =
     lens _cweteaWorkflowType (\s a -> s { _cweteaWorkflowType = a })
 
-instance FromJSON ChildWorkflowExecutionTerminatedEventAttributes
+instance FromJSON ChildWorkflowExecutionTerminatedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildWorkflowExecutionTerminatedEventAttributes
+instance ToJSON ChildWorkflowExecutionTerminatedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes
     { _wecea1DecisionTaskCompletedEventId :: Integer
@@ -4601,9 +4759,11 @@ wecea1DecisionTaskCompletedEventId =
 wecea1Details :: Lens' WorkflowExecutionCanceledEventAttributes (Maybe Text)
 wecea1Details = lens _wecea1Details (\s a -> s { _wecea1Details = a })
 
-instance FromJSON WorkflowExecutionCanceledEventAttributes
+instance FromJSON WorkflowExecutionCanceledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionCanceledEventAttributes
+instance ToJSON WorkflowExecutionCanceledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes
     { _wesea1ExternalInitiatedEventId  :: Maybe Integer
@@ -4662,9 +4822,11 @@ wesea1Input = lens _wesea1Input (\s a -> s { _wesea1Input = a })
 wesea1SignalName :: Lens' WorkflowExecutionSignaledEventAttributes Text
 wesea1SignalName = lens _wesea1SignalName (\s a -> s { _wesea1SignalName = a })
 
-instance FromJSON WorkflowExecutionSignaledEventAttributes
+instance FromJSON WorkflowExecutionSignaledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionSignaledEventAttributes
+instance ToJSON WorkflowExecutionSignaledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data RecordMarkerFailedCause
     = RMFCOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -4678,9 +4840,11 @@ instance FromText RecordMarkerFailedCause where
 instance ToText RecordMarkerFailedCause where
     toText RMFCOperationNotPermitted = "OPERATION_NOT_PERMITTED"
 
-instance FromJSON RecordMarkerFailedCause
+instance FromJSON RecordMarkerFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RecordMarkerFailedCause
+instance ToJSON RecordMarkerFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data RegistrationStatus
     = Deprecated -- ^ DEPRECATED
@@ -4698,9 +4862,11 @@ instance ToText RegistrationStatus where
         Deprecated -> "DEPRECATED"
         Registered -> "REGISTERED"
 
-instance FromJSON RegistrationStatus
+instance FromJSON RegistrationStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RegistrationStatus
+instance ToJSON RegistrationStatus where
+    toJSON = genericToJSON jsonOptions
 
 data TimerStartedEventAttributes = TimerStartedEventAttributes
     { _tseaControl                      :: Maybe Text
@@ -4757,9 +4923,11 @@ tseaStartToFireTimeout =
 tseaTimerId :: Lens' TimerStartedEventAttributes Text
 tseaTimerId = lens _tseaTimerId (\s a -> s { _tseaTimerId = a })
 
-instance FromJSON TimerStartedEventAttributes
+instance FromJSON TimerStartedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TimerStartedEventAttributes
+instance ToJSON TimerStartedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes
     { _rcatdaActivityId :: Text
@@ -4781,9 +4949,11 @@ requestCancelActivityTaskDecisionAttributes p1 = RequestCancelActivityTaskDecisi
 rcatdaActivityId :: Lens' RequestCancelActivityTaskDecisionAttributes Text
 rcatdaActivityId = lens _rcatdaActivityId (\s a -> s { _rcatdaActivityId = a })
 
-instance FromJSON RequestCancelActivityTaskDecisionAttributes
+instance FromJSON RequestCancelActivityTaskDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelActivityTaskDecisionAttributes
+instance ToJSON RequestCancelActivityTaskDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data Decision = Decision
     { _dCancelTimerDecisionAttributes                            :: Maybe CancelTimerDecisionAttributes
@@ -4937,9 +5107,11 @@ dStartTimerDecisionAttributes =
     lens _dStartTimerDecisionAttributes
         (\s a -> s { _dStartTimerDecisionAttributes = a })
 
-instance FromJSON Decision
+instance FromJSON Decision where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Decision
+instance ToJSON Decision where
+    toJSON = genericToJSON jsonOptions
 
 data TimerFiredEventAttributes = TimerFiredEventAttributes
     { _tfeaStartedEventId :: Integer
@@ -4973,9 +5145,11 @@ tfeaStartedEventId =
 tfeaTimerId :: Lens' TimerFiredEventAttributes Text
 tfeaTimerId = lens _tfeaTimerId (\s a -> s { _tfeaTimerId = a })
 
-instance FromJSON TimerFiredEventAttributes
+instance FromJSON TimerFiredEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TimerFiredEventAttributes
+instance ToJSON TimerFiredEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype DomainConfiguration = DomainConfiguration
     { _dcWorkflowExecutionRetentionPeriodInDays :: Text
@@ -4999,9 +5173,11 @@ dcWorkflowExecutionRetentionPeriodInDays =
     lens _dcWorkflowExecutionRetentionPeriodInDays
         (\s a -> s { _dcWorkflowExecutionRetentionPeriodInDays = a })
 
-instance FromJSON DomainConfiguration
+instance FromJSON DomainConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DomainConfiguration
+instance ToJSON DomainConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutionSignaledEventAttributes
     { _eweseaInitiatedEventId  :: Integer
@@ -5037,9 +5213,11 @@ eweseaWorkflowExecution :: Lens' ExternalWorkflowExecutionSignaledEventAttribute
 eweseaWorkflowExecution =
     lens _eweseaWorkflowExecution (\s a -> s { _eweseaWorkflowExecution = a })
 
-instance FromJSON ExternalWorkflowExecutionSignaledEventAttributes
+instance FromJSON ExternalWorkflowExecutionSignaledEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExternalWorkflowExecutionSignaledEventAttributes
+instance ToJSON ExternalWorkflowExecutionSignaledEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes
     { _cwedaDetails :: Maybe Text
@@ -5060,9 +5238,11 @@ cancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttri
 cwedaDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaDetails = lens _cwedaDetails (\s a -> s { _cwedaDetails = a })
 
-instance FromJSON CancelWorkflowExecutionDecisionAttributes
+instance FromJSON CancelWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CancelWorkflowExecutionDecisionAttributes
+instance ToJSON CancelWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes
     { _atfeaDetails          :: Maybe Text
@@ -5116,9 +5296,11 @@ atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes Integer
 atfeaStartedEventId =
     lens _atfeaStartedEventId (\s a -> s { _atfeaStartedEventId = a })
 
-instance FromJSON ActivityTaskFailedEventAttributes
+instance FromJSON ActivityTaskFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ActivityTaskFailedEventAttributes
+instance ToJSON ActivityTaskFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEventAttributes
     { _fwefeaCause                        :: Text
@@ -5155,9 +5337,11 @@ fwefeaDecisionTaskCompletedEventId =
     lens _fwefeaDecisionTaskCompletedEventId
         (\s a -> s { _fwefeaDecisionTaskCompletedEventId = a })
 
-instance FromJSON FailWorkflowExecutionFailedEventAttributes
+instance FromJSON FailWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON FailWorkflowExecutionFailedEventAttributes
+instance ToJSON FailWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecutionFailedEventAttributes
     { _scwefeaCause                        :: Text
@@ -5235,9 +5419,11 @@ scwefeaWorkflowType :: Lens' StartChildWorkflowExecutionFailedEventAttributes Wo
 scwefeaWorkflowType =
     lens _scwefeaWorkflowType (\s a -> s { _scwefeaWorkflowType = a })
 
-instance FromJSON StartChildWorkflowExecutionFailedEventAttributes
+instance FromJSON StartChildWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StartChildWorkflowExecutionFailedEventAttributes
+instance ToJSON StartChildWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowTypeFilter = WorkflowTypeFilter
     { _wtfName    :: Text
@@ -5267,9 +5453,11 @@ wtfName = lens _wtfName (\s a -> s { _wtfName = a })
 wtfVersion :: Lens' WorkflowTypeFilter (Maybe Text)
 wtfVersion = lens _wtfVersion (\s a -> s { _wtfVersion = a })
 
-instance FromJSON WorkflowTypeFilter
+instance FromJSON WorkflowTypeFilter where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowTypeFilter
+instance ToJSON WorkflowTypeFilter where
+    toJSON = genericToJSON jsonOptions
 
 data CancelTimerFailedCause
     = CTFCOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -5287,9 +5475,11 @@ instance ToText CancelTimerFailedCause where
         CTFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         CTFCTimerIdUnknown        -> "TIMER_ID_UNKNOWN"
 
-instance FromJSON CancelTimerFailedCause
+instance FromJSON CancelTimerFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CancelTimerFailedCause
+instance ToJSON CancelTimerFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
     { _dtceaExecutionContext :: Maybe Text
@@ -5336,9 +5526,11 @@ dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
 dtceaStartedEventId =
     lens _dtceaStartedEventId (\s a -> s { _dtceaStartedEventId = a })
 
-instance FromJSON DecisionTaskCompletedEventAttributes
+instance FromJSON DecisionTaskCompletedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DecisionTaskCompletedEventAttributes
+instance ToJSON DecisionTaskCompletedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes
     { _cwefeaDetails           :: Maybe Text
@@ -5413,9 +5605,11 @@ cwefeaWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes Workflow
 cwefeaWorkflowType =
     lens _cwefeaWorkflowType (\s a -> s { _cwefeaWorkflowType = a })
 
-instance FromJSON ChildWorkflowExecutionFailedEventAttributes
+instance FromJSON ChildWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChildWorkflowExecutionFailedEventAttributes
+instance ToJSON ChildWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data DomainInfo = DomainInfo
     { _diDescription :: Maybe Text
@@ -5458,9 +5652,11 @@ diName = lens _diName (\s a -> s { _diName = a })
 diStatus :: Lens' DomainInfo Text
 diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
-instance FromJSON DomainInfo
+instance FromJSON DomainInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DomainInfo
+instance ToJSON DomainInfo where
+    toJSON = genericToJSON jsonOptions
 
 data HistoryEvent = HistoryEvent
     { _heActivityTaskCancelRequestedEventAttributes                     :: Maybe ActivityTaskCancelRequestedEventAttributes
@@ -6066,9 +6262,11 @@ heWorkflowExecutionTimedOutEventAttributes =
     lens _heWorkflowExecutionTimedOutEventAttributes
         (\s a -> s { _heWorkflowExecutionTimedOutEventAttributes = a })
 
-instance FromJSON HistoryEvent
+instance FromJSON HistoryEvent where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON HistoryEvent
+instance ToJSON HistoryEvent where
+    toJSON = genericToJSON jsonOptions
 
 data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes
     { _canwefeaCause                        :: Text
@@ -6105,9 +6303,11 @@ canwefeaDecisionTaskCompletedEventId =
     lens _canwefeaDecisionTaskCompletedEventId
         (\s a -> s { _canwefeaDecisionTaskCompletedEventId = a })
 
-instance FromJSON ContinueAsNewWorkflowExecutionFailedEventAttributes
+instance FromJSON ContinueAsNewWorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ContinueAsNewWorkflowExecutionFailedEventAttributes
+instance ToJSON ContinueAsNewWorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes
     { _seweieaControl                      :: Maybe Text
@@ -6179,9 +6379,11 @@ seweieaWorkflowId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttribut
 seweieaWorkflowId =
     lens _seweieaWorkflowId (\s a -> s { _seweieaWorkflowId = a })
 
-instance FromJSON SignalExternalWorkflowExecutionInitiatedEventAttributes
+instance FromJSON SignalExternalWorkflowExecutionInitiatedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SignalExternalWorkflowExecutionInitiatedEventAttributes
+instance ToJSON SignalExternalWorkflowExecutionInitiatedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes
     { _ctdaTimerId :: Text
@@ -6203,9 +6405,11 @@ cancelTimerDecisionAttributes p1 = CancelTimerDecisionAttributes
 ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
 ctdaTimerId = lens _ctdaTimerId (\s a -> s { _ctdaTimerId = a })
 
-instance FromJSON CancelTimerDecisionAttributes
+instance FromJSON CancelTimerDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CancelTimerDecisionAttributes
+instance ToJSON CancelTimerDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes
     { _wefeaDecisionTaskCompletedEventId :: Integer
@@ -6248,9 +6452,11 @@ wefeaDetails = lens _wefeaDetails (\s a -> s { _wefeaDetails = a })
 wefeaReason :: Lens' WorkflowExecutionFailedEventAttributes (Maybe Text)
 wefeaReason = lens _wefeaReason (\s a -> s { _wefeaReason = a })
 
-instance FromJSON WorkflowExecutionFailedEventAttributes
+instance FromJSON WorkflowExecutionFailedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionFailedEventAttributes
+instance ToJSON WorkflowExecutionFailedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
     { _wecChildPolicy                  :: Text
@@ -6318,9 +6524,11 @@ wecTaskStartToCloseTimeout =
     lens _wecTaskStartToCloseTimeout
         (\s a -> s { _wecTaskStartToCloseTimeout = a })
 
-instance FromJSON WorkflowExecutionConfiguration
+instance FromJSON WorkflowExecutionConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionConfiguration
+instance ToJSON WorkflowExecutionConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecution = WorkflowExecution
     { _weRunId      :: Text
@@ -6351,9 +6559,11 @@ weRunId = lens _weRunId (\s a -> s { _weRunId = a })
 weWorkflowId :: Lens' WorkflowExecution Text
 weWorkflowId = lens _weWorkflowId (\s a -> s { _weWorkflowId = a })
 
-instance FromJSON WorkflowExecution
+instance FromJSON WorkflowExecution where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecution
+instance ToJSON WorkflowExecution where
+    toJSON = genericToJSON jsonOptions
 
 data RequestCancelExternalWorkflowExecutionFailedCause
     = RCEWEFCOperationNotPermitted                              -- ^ OPERATION_NOT_PERMITTED
@@ -6374,9 +6584,11 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
         RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded -> "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
         RCEWEFCUnknownExternalWorkflowExecution                   -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
-instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause
+instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RequestCancelExternalWorkflowExecutionFailedCause
+instance ToJSON RequestCancelExternalWorkflowExecutionFailedCause where
+    toJSON = genericToJSON jsonOptions
 
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes
     { _canwedaChildPolicy                  :: Maybe Text
@@ -6472,9 +6684,11 @@ canwedaWorkflowTypeVersion =
     lens _canwedaWorkflowTypeVersion
         (\s a -> s { _canwedaWorkflowTypeVersion = a })
 
-instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes
+instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ContinueAsNewWorkflowExecutionDecisionAttributes
+instance ToJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowExecutionCancelRequestedEventAttributes
     { _ewecreaInitiatedEventId  :: Integer
@@ -6513,9 +6727,11 @@ ewecreaWorkflowExecution =
     lens _ewecreaWorkflowExecution
         (\s a -> s { _ewecreaWorkflowExecution = a })
 
-instance FromJSON ExternalWorkflowExecutionCancelRequestedEventAttributes
+instance FromJSON ExternalWorkflowExecutionCancelRequestedEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExternalWorkflowExecutionCancelRequestedEventAttributes
+instance ToJSON ExternalWorkflowExecutionCancelRequestedEventAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data PendingTaskCount = PendingTaskCount
     { _ptcCount     :: Nat
@@ -6547,9 +6763,11 @@ ptcCount = lens _ptcCount (\s a -> s { _ptcCount = a })
 ptcTruncated :: Lens' PendingTaskCount (Maybe Bool)
 ptcTruncated = lens _ptcTruncated (\s a -> s { _ptcTruncated = a })
 
-instance FromJSON PendingTaskCount
+instance FromJSON PendingTaskCount where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON PendingTaskCount
+instance ToJSON PendingTaskCount where
+    toJSON = genericToJSON jsonOptions
 
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes
     { _wecaneaChildPolicy                  :: Text
@@ -6664,6 +6882,8 @@ wecaneaWorkflowType :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Work
 wecaneaWorkflowType =
     lens _wecaneaWorkflowType (\s a -> s { _wecaneaWorkflowType = a })
 
-instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes
+instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WorkflowExecutionContinuedAsNewEventAttributes
+instance ToJSON WorkflowExecutionContinuedAsNewEventAttributes where
+    toJSON = genericToJSON jsonOptions

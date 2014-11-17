@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.Route53.DeleteHealthCheck
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ deleteHealthCheck p1 = DeleteHealthCheck
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
 dhcHealthCheckId = lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
 
-instance ToPath DeleteHealthCheck where
-    toPath DeleteHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _dhcHealthCheckId
-        ]
-
-instance ToQuery DeleteHealthCheck where
-    toQuery = const mempty
-
-instance ToHeaders DeleteHealthCheck
-
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +79,19 @@ instance AWSRequest DeleteHealthCheck where
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
 
     request  = delete
-    response = nullaryResponse DeleteHealthCheckResponse
+    response = nullResponse DeleteHealthCheckResponse
+
+instance ToPath DeleteHealthCheck where
+    toPath DeleteHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _dhcHealthCheckId
+        ]
+
+instance ToHeaders DeleteHealthCheck
+
+instance ToQuery DeleteHealthCheck where
+    toQuery = const mempty
+
+instance ToXML DeleteHealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteHealthCheck"

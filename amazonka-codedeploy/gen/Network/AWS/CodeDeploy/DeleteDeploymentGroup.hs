@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ ddgApplicationName =
 ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
 ddgDeploymentGroupName =
     lens _ddgDeploymentGroupName (\s a -> s { _ddgDeploymentGroupName = a })
-
-instance ToPath DeleteDeploymentGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteDeploymentGroup where
-    toQuery = const mempty
-
-instance ToHeaders DeleteDeploymentGroup
-
-instance ToBody DeleteDeploymentGroup where
-    toBody = toBody . encode . _ddgApplicationName
 
 newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
     { _ddgrHooksNotCleanedUp :: [AutoScalingGroup]
@@ -121,5 +110,18 @@ instance AWSRequest DeleteDeploymentGroup where
     type Rs DeleteDeploymentGroup = DeleteDeploymentGroupResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteDeploymentGroupResponse
-        <$> o .: "hooksNotCleanedUp"
+    response = jsonResponse
+
+instance FromJSON DeleteDeploymentGroupResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteDeploymentGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteDeploymentGroup
+
+instance ToQuery DeleteDeploymentGroup where
+    toQuery = const mempty
+
+instance ToJSON DeleteDeploymentGroup where
+    toJSON = genericToJSON jsonOptions

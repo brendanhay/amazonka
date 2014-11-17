@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ dlsLogGroupName = lens _dlsLogGroupName (\s a -> s { _dlsLogGroupName = a })
 dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName = lens _dlsLogStreamName (\s a -> s { _dlsLogStreamName = a })
 
-instance ToPath DeleteLogStream where
-    toPath = const "/"
-
-instance ToQuery DeleteLogStream where
-    toQuery = const mempty
-
-instance ToHeaders DeleteLogStream
-
-instance ToBody DeleteLogStream where
-    toBody = toBody . encode . _dlsLogGroupName
-
 data DeleteLogStreamResponse = DeleteLogStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +80,15 @@ instance AWSRequest DeleteLogStream where
     type Rs DeleteLogStream = DeleteLogStreamResponse
 
     request  = post
-    response = nullaryResponse DeleteLogStreamResponse
+    response = nullResponse DeleteLogStreamResponse
+
+instance ToPath DeleteLogStream where
+    toPath = const "/"
+
+instance ToHeaders DeleteLogStream
+
+instance ToQuery DeleteLogStream where
+    toQuery = const mempty
+
+instance ToJSON DeleteLogStream where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,11 +64,6 @@ rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier =
     lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })
 
-instance ToQuery RotateEncryptionKey
-
-instance ToPath RotateEncryptionKey where
-    toPath = const "/"
-
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -92,5 +87,15 @@ instance AWSRequest RotateEncryptionKey where
     type Rs RotateEncryptionKey = RotateEncryptionKeyResponse
 
     request  = post "RotateEncryptionKey"
-    response = xmlResponse $ \h x -> RotateEncryptionKeyResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML RotateEncryptionKeyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RotateEncryptionKeyResponse"
+
+instance ToPath RotateEncryptionKey where
+    toPath = const "/"
+
+instance ToHeaders RotateEncryptionKey
+
+instance ToQuery RotateEncryptionKey

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.Subscribe
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
 sTopicArn :: Lens' Subscribe Text
 sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
 
-instance ToQuery Subscribe
-
-instance ToPath Subscribe where
-    toPath = const "/"
-
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -128,5 +123,15 @@ instance AWSRequest Subscribe where
     type Rs Subscribe = SubscribeResponse
 
     request  = post "Subscribe"
-    response = xmlResponse $ \h x -> SubscribeResponse
-        <$> x %| "SubscriptionArn"
+    response = xmlResponse
+
+instance FromXML SubscribeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SubscribeResponse"
+
+instance ToPath Subscribe where
+    toPath = const "/"
+
+instance ToHeaders Subscribe
+
+instance ToQuery Subscribe

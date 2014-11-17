@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ dccFinalSnapshotIdentifier =
     lens _dccFinalSnapshotIdentifier
         (\s a -> s { _dccFinalSnapshotIdentifier = a })
 
-instance ToQuery DeleteCacheCluster
-
-instance ToPath DeleteCacheCluster where
-    toPath = const "/"
-
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
@@ -110,5 +105,15 @@ instance AWSRequest DeleteCacheCluster where
     type Rs DeleteCacheCluster = DeleteCacheClusterResponse
 
     request  = post "DeleteCacheCluster"
-    response = xmlResponse $ \h x -> DeleteCacheClusterResponse
-        <$> x %| "CacheCluster"
+    response = xmlResponse
+
+instance FromXML DeleteCacheClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCacheClusterResponse"
+
+instance ToPath DeleteCacheCluster where
+    toPath = const "/"
+
+instance ToHeaders DeleteCacheCluster
+
+instance ToQuery DeleteCacheCluster

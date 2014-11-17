@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.DescribeCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.EMR.DescribeCluster
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ describeCluster p1 = DescribeCluster
 -- | The identifier of the cluster to describe.
 dcClusterId :: Lens' DescribeCluster Text
 dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
-
-instance ToPath DescribeCluster where
-    toPath = const "/"
-
-instance ToQuery DescribeCluster where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCluster
-
-instance ToBody DescribeCluster where
-    toBody = toBody . encode . _dcClusterId
 
 newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster :: Maybe Cluster
@@ -98,5 +87,18 @@ instance AWSRequest DescribeCluster where
     type Rs DescribeCluster = DescribeClusterResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeClusterResponse
-        <$> o .: "Cluster"
+    response = jsonResponse
+
+instance FromJSON DescribeClusterResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeCluster where
+    toPath = const "/"
+
+instance ToHeaders DescribeCluster
+
+instance ToQuery DescribeCluster where
+    toQuery = const mempty
+
+instance ToJSON DescribeCluster where
+    toJSON = genericToJSON jsonOptions

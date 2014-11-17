@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyURL =
     lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })
 
-instance ToQuery SetStackPolicy
-
-instance ToPath SetStackPolicy where
-    toPath = const "/"
-
 data SetStackPolicyResponse = SetStackPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -102,4 +97,11 @@ instance AWSRequest SetStackPolicy where
     type Rs SetStackPolicy = SetStackPolicyResponse
 
     request  = post "SetStackPolicy"
-    response = nullaryResponse SetStackPolicyResponse
+    response = nullResponse SetStackPolicyResponse
+
+instance ToPath SetStackPolicy where
+    toPath = const "/"
+
+instance ToHeaders SetStackPolicy
+
+instance ToQuery SetStackPolicy

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ResyncMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -96,11 +96,6 @@ rmfadSerialNumber =
 rmfadUserName :: Lens' ResyncMFADevice Text
 rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
 
-instance ToQuery ResyncMFADevice
-
-instance ToPath ResyncMFADevice where
-    toPath = const "/"
-
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -113,4 +108,11 @@ instance AWSRequest ResyncMFADevice where
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
 
     request  = post "ResyncMFADevice"
-    response = nullaryResponse ResyncMFADeviceResponse
+    response = nullResponse ResyncMFADeviceResponse
+
+instance ToPath ResyncMFADevice where
+    toPath = const "/"
+
+instance ToHeaders ResyncMFADevice
+
+instance ToQuery ResyncMFADevice

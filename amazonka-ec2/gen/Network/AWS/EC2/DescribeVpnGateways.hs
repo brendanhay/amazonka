@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpnGateways
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ dvg2VpnGatewayIds :: Lens' DescribeVpnGateways [Text]
 dvg2VpnGatewayIds =
     lens _dvg2VpnGatewayIds (\s a -> s { _dvg2VpnGatewayIds = a })
 
-instance ToQuery DescribeVpnGateways
-
-instance ToPath DescribeVpnGateways where
-    toPath = const "/"
-
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: [VpnGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -132,5 +127,15 @@ instance AWSRequest DescribeVpnGateways where
     type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse
 
     request  = post "DescribeVpnGateways"
-    response = xmlResponse $ \h x -> DescribeVpnGatewaysResponse
-        <$> x %| "vpnGatewaySet"
+    response = xmlResponse
+
+instance FromXML DescribeVpnGatewaysResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpnGatewaysResponse"
+
+instance ToPath DescribeVpnGateways where
+    toPath = const "/"
+
+instance ToHeaders DescribeVpnGateways
+
+instance ToQuery DescribeVpnGateways

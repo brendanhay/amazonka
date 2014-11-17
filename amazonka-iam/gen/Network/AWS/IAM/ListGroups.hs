@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a })
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
 
-instance ToQuery ListGroups
-
-instance ToPath ListGroups where
-    toPath = const "/"
-
 data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups      :: [Group]
     , _lgrIsTruncated :: Maybe Bool
@@ -138,13 +133,15 @@ instance AWSRequest ListGroups where
     type Rs ListGroups = ListGroupsResponse
 
     request  = post "ListGroups"
-    response = xmlResponse $ \h x -> ListGroupsResponse
-        <$> x %| "Groups"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager ListGroups where
-    next rq rs
-        | not (more (rs ^. lgrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lgMarker .~ rs ^. lgrMarker
+instance FromXML ListGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGroupsResponse"
+
+instance ToPath ListGroups where
+    toPath = const "/"
+
+instance ToHeaders ListGroups
+
+instance ToQuery ListGroups

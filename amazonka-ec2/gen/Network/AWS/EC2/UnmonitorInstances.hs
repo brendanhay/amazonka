@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.UnmonitorInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
 
-instance ToQuery UnmonitorInstances
-
-instance ToPath UnmonitorInstances where
-    toPath = const "/"
-
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -106,5 +101,15 @@ instance AWSRequest UnmonitorInstances where
     type Rs UnmonitorInstances = UnmonitorInstancesResponse
 
     request  = post "UnmonitorInstances"
-    response = xmlResponse $ \h x -> UnmonitorInstancesResponse
-        <$> x %| "instancesSet"
+    response = xmlResponse
+
+instance FromXML UnmonitorInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UnmonitorInstancesResponse"
+
+instance ToPath UnmonitorInstances where
+    toPath = const "/"
+
+instance ToHeaders UnmonitorInstances
+
+instance ToQuery UnmonitorInstances

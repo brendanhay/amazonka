@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.GetResourceConfigHistory
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.Config.GetResourceConfigHistory
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -130,17 +130,6 @@ grchResourceId = lens _grchResourceId (\s a -> s { _grchResourceId = a })
 grchResourceType :: Lens' GetResourceConfigHistory Text
 grchResourceType = lens _grchResourceType (\s a -> s { _grchResourceType = a })
 
-instance ToPath GetResourceConfigHistory where
-    toPath = const "/"
-
-instance ToQuery GetResourceConfigHistory where
-    toQuery = const mempty
-
-instance ToHeaders GetResourceConfigHistory
-
-instance ToBody GetResourceConfigHistory where
-    toBody = toBody . encode . _grchResourceType
-
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse
     { _grchrConfigurationItems :: [ConfigurationItem]
     , _grchrNextToken          :: Maybe Text
@@ -174,6 +163,18 @@ instance AWSRequest GetResourceConfigHistory where
     type Rs GetResourceConfigHistory = GetResourceConfigHistoryResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetResourceConfigHistoryResponse
-        <$> o .: "configurationItems"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON GetResourceConfigHistoryResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetResourceConfigHistory where
+    toPath = const "/"
+
+instance ToHeaders GetResourceConfigHistory
+
+instance ToQuery GetResourceConfigHistory where
+    toQuery = const mempty
+
+instance ToJSON GetResourceConfigHistory where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketLifecycle
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -58,17 +58,6 @@ deleteBucketLifecycle p1 = DeleteBucketLifecycle
 dblBucket :: Lens' DeleteBucketLifecycle Text
 dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
 
-instance ToPath DeleteBucketLifecycle where
-    toPath DeleteBucketLifecycle{..} = mconcat
-        [ "/"
-        , toText _dblBucket
-        ]
-
-instance ToQuery DeleteBucketLifecycle where
-    toQuery = const "lifecycle"
-
-instance ToHeaders DeleteBucketLifecycle
-
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -81,4 +70,19 @@ instance AWSRequest DeleteBucketLifecycle where
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
     request  = delete
-    response = nullaryResponse DeleteBucketLifecycleResponse
+    response = nullResponse DeleteBucketLifecycleResponse
+
+instance ToPath DeleteBucketLifecycle where
+    toPath DeleteBucketLifecycle{..} = mconcat
+        [ "/"
+        , toText _dblBucket
+        ]
+
+instance ToHeaders DeleteBucketLifecycle
+
+instance ToQuery DeleteBucketLifecycle where
+    toQuery = const "lifecycle"
+
+instance ToXML DeleteBucketLifecycle where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteBucketLifecycle"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.AddUserToGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ autgGroupName = lens _autgGroupName (\s a -> s { _autgGroupName = a })
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\s a -> s { _autgUserName = a })
 
-instance ToQuery AddUserToGroup
-
-instance ToPath AddUserToGroup where
-    toPath = const "/"
-
 data AddUserToGroupResponse = AddUserToGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest AddUserToGroup where
     type Rs AddUserToGroup = AddUserToGroupResponse
 
     request  = post "AddUserToGroup"
-    response = nullaryResponse AddUserToGroupResponse
+    response = nullResponse AddUserToGroupResponse
+
+instance ToPath AddUserToGroup where
+    toPath = const "/"
+
+instance ToHeaders AddUserToGroup
+
+instance ToQuery AddUserToGroup

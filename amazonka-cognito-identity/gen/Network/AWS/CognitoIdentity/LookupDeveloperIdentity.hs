@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -118,17 +118,6 @@ ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a })
 ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
-instance ToPath LookupDeveloperIdentity where
-    toPath = const "/"
-
-instance ToQuery LookupDeveloperIdentity where
-    toQuery = const mempty
-
-instance ToHeaders LookupDeveloperIdentity
-
-instance ToBody LookupDeveloperIdentity where
-    toBody = toBody . encode . _ldiIdentityPoolId
-
 data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse
     { _ldirDeveloperUserIdentifierList :: [Text]
     , _ldirIdentityId                  :: Maybe Text
@@ -178,7 +167,18 @@ instance AWSRequest LookupDeveloperIdentity where
     type Rs LookupDeveloperIdentity = LookupDeveloperIdentityResponse
 
     request  = post
-    response = jsonResponse $ \h o -> LookupDeveloperIdentityResponse
-        <$> o .: "DeveloperUserIdentifierList"
-        <*> o .: "IdentityId"
-        <*> o .: "NextToken"
+    response = jsonResponse
+
+instance FromJSON LookupDeveloperIdentityResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath LookupDeveloperIdentity where
+    toPath = const "/"
+
+instance ToHeaders LookupDeveloperIdentity
+
+instance ToQuery LookupDeveloperIdentity where
+    toQuery = const mempty
+
+instance ToJSON LookupDeveloperIdentity where
+    toJSON = genericToJSON jsonOptions

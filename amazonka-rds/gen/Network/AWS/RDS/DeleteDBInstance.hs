@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbiSkipFinalSnapshot =
     lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })
 
-instance ToQuery DeleteDBInstance
-
-instance ToPath DeleteDBInstance where
-    toPath = const "/"
-
 newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -129,5 +124,15 @@ instance AWSRequest DeleteDBInstance where
     type Rs DeleteDBInstance = DeleteDBInstanceResponse
 
     request  = post "DeleteDBInstance"
-    response = xmlResponse $ \h x -> DeleteDBInstanceResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML DeleteDBInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBInstanceResponse"
+
+instance ToPath DeleteDBInstance where
+    toPath = const "/"
+
+instance ToHeaders DeleteDBInstance
+
+instance ToQuery DeleteDBInstance

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.EstimateTemplateCost
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 
-instance ToQuery EstimateTemplateCost
-
-instance ToPath EstimateTemplateCost where
-    toPath = const "/"
-
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcrUrl :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -118,5 +113,15 @@ instance AWSRequest EstimateTemplateCost where
     type Rs EstimateTemplateCost = EstimateTemplateCostResponse
 
     request  = post "EstimateTemplateCost"
-    response = xmlResponse $ \h x -> EstimateTemplateCostResponse
-        <$> x %| "Url"
+    response = xmlResponse
+
+instance FromXML EstimateTemplateCostResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EstimateTemplateCostResponse"
+
+instance ToPath EstimateTemplateCost where
+    toPath = const "/"
+
+instance ToHeaders EstimateTemplateCost
+
+instance ToQuery EstimateTemplateCost

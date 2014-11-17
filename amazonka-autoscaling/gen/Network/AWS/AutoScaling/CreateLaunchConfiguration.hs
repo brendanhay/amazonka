@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateLaunchConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -274,11 +274,6 @@ clcSpotPrice = lens _clcSpotPrice (\s a -> s { _clcSpotPrice = a })
 clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcUserData = lens _clcUserData (\s a -> s { _clcUserData = a })
 
-instance ToQuery CreateLaunchConfiguration
-
-instance ToPath CreateLaunchConfiguration where
-    toPath = const "/"
-
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -291,4 +286,11 @@ instance AWSRequest CreateLaunchConfiguration where
     type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
 
     request  = post "CreateLaunchConfiguration"
-    response = nullaryResponse CreateLaunchConfigurationResponse
+    response = nullResponse CreateLaunchConfigurationResponse
+
+instance ToPath CreateLaunchConfiguration where
+    toPath = const "/"
+
+instance ToHeaders CreateLaunchConfiguration
+
+instance ToQuery CreateLaunchConfiguration

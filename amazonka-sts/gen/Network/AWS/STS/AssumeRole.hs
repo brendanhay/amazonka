@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.STS.AssumeRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -202,11 +202,6 @@ arSerialNumber = lens _arSerialNumber (\s a -> s { _arSerialNumber = a })
 arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\s a -> s { _arTokenCode = a })
 
-instance ToQuery AssumeRole
-
-instance ToPath AssumeRole where
-    toPath = const "/"
-
 data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
@@ -258,7 +253,15 @@ instance AWSRequest AssumeRole where
     type Rs AssumeRole = AssumeRoleResponse
 
     request  = post "AssumeRole"
-    response = xmlResponse $ \h x -> AssumeRoleResponse
-        <$> x %| "AssumedRoleUser"
-        <*> x %| "Credentials"
-        <*> x %| "PackedPolicySize"
+    response = xmlResponse
+
+instance FromXML AssumeRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssumeRoleResponse"
+
+instance ToPath AssumeRole where
+    toPath = const "/"
+
+instance ToHeaders AssumeRole
+
+instance ToQuery AssumeRole

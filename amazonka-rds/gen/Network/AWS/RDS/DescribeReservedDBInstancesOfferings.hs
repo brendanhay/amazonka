@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstancesOfferings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -153,11 +153,6 @@ drdbioReservedDBInstancesOfferingId =
     lens _drdbioReservedDBInstancesOfferingId
         (\s a -> s { _drdbioReservedDBInstancesOfferingId = a })
 
-instance ToQuery DescribeReservedDBInstancesOfferings
-
-instance ToPath DescribeReservedDBInstancesOfferings where
-    toPath = const "/"
-
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker                       :: Maybe Text
     , _drdbiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
@@ -194,10 +189,15 @@ instance AWSRequest DescribeReservedDBInstancesOfferings where
     type Rs DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferingsResponse
 
     request  = post "DescribeReservedDBInstancesOfferings"
-    response = xmlResponse $ \h x -> DescribeReservedDBInstancesOfferingsResponse
-        <$> x %| "Marker"
-        <*> x %| "ReservedDBInstancesOfferings"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedDBInstancesOfferings where
-    next rq rs = (\x -> rq & drdbioMarker ?~ x)
-        <$> (rs ^. drdbiorMarker)
+instance FromXML DescribeReservedDBInstancesOfferingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedDBInstancesOfferingsResponse"
+
+instance ToPath DescribeReservedDBInstancesOfferings where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedDBInstancesOfferings
+
+instance ToQuery DescribeReservedDBInstancesOfferings

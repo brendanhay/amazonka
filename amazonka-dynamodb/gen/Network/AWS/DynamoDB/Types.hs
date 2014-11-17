@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.DynamoDB.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.DynamoDB.Types
       DynamoDB
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * WriteRequest
     , WriteRequest
@@ -233,6 +237,7 @@ module Network.AWS.DynamoDB.Types
     , gsiuUpdate
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -254,6 +259,11 @@ instance AWSService DynamoDB where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest
@@ -282,9 +292,11 @@ wDeleteRequest = lens _wDeleteRequest (\s a -> s { _wDeleteRequest = a })
 wPutRequest :: Lens' WriteRequest (Maybe PutRequest)
 wPutRequest = lens _wPutRequest (\s a -> s { _wPutRequest = a })
 
-instance FromJSON WriteRequest
+instance FromJSON WriteRequest where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WriteRequest
+instance ToJSON WriteRequest where
+    toJSON = genericToJSON jsonOptions
 
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     { _ptdLastDecreaseDateTime   :: Maybe RFC822
@@ -357,9 +369,11 @@ ptdWriteCapacityUnits =
     lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
         . mapping _Nat
 
-instance FromJSON ProvisionedThroughputDescription
+instance FromJSON ProvisionedThroughputDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ProvisionedThroughputDescription
+instance ToJSON ProvisionedThroughputDescription where
+    toJSON = genericToJSON jsonOptions
 
 data KeyType
     = Hash  -- ^ HASH
@@ -377,9 +391,11 @@ instance ToText KeyType where
         Hash  -> "HASH"
         Range -> "RANGE"
 
-instance FromJSON KeyType
+instance FromJSON KeyType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON KeyType
+instance ToJSON KeyType where
+    toJSON = genericToJSON jsonOptions
 
 data AttributeValue = AttributeValue
     { _avB    :: Maybe Base64
@@ -473,9 +489,11 @@ avS = lens _avS (\s a -> s { _avS = a })
 avSS :: Lens' AttributeValue [Text]
 avSS = lens _avSS (\s a -> s { _avSS = a })
 
-instance FromJSON AttributeValue
+instance FromJSON AttributeValue where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AttributeValue
+instance ToJSON AttributeValue where
+    toJSON = genericToJSON jsonOptions
 
 data IndexStatus
     = Active   -- ^ ACTIVE
@@ -499,9 +517,11 @@ instance ToText IndexStatus where
         Deleting -> "DELETING"
         Updating -> "UPDATING"
 
-instance FromJSON IndexStatus
+instance FromJSON IndexStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON IndexStatus
+instance ToJSON IndexStatus where
+    toJSON = genericToJSON jsonOptions
 
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits  :: Nat
@@ -541,9 +561,11 @@ ptWriteCapacityUnits =
     lens _ptWriteCapacityUnits (\s a -> s { _ptWriteCapacityUnits = a })
         . _Nat
 
-instance FromJSON ProvisionedThroughput
+instance FromJSON ProvisionedThroughput where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ProvisionedThroughput
+instance ToJSON ProvisionedThroughput where
+    toJSON = genericToJSON jsonOptions
 
 data TableStatus
     = TSActive   -- ^ ACTIVE
@@ -567,9 +589,11 @@ instance ToText TableStatus where
         TSDeleting -> "DELETING"
         TSUpdating -> "UPDATING"
 
-instance FromJSON TableStatus
+instance FromJSON TableStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TableStatus
+instance ToJSON TableStatus where
+    toJSON = genericToJSON jsonOptions
 
 data ProjectionType
     = All      -- ^ ALL
@@ -590,9 +614,11 @@ instance ToText ProjectionType where
         Include  -> "INCLUDE"
         KeysOnly -> "KEYS_ONLY"
 
-instance FromJSON ProjectionType
+instance FromJSON ProjectionType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ProjectionType
+instance ToJSON ProjectionType where
+    toJSON = genericToJSON jsonOptions
 
 data TableDescription = TableDescription
     { _tdAttributeDefinitions   :: [AttributeDefinition]
@@ -767,9 +793,11 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 tdTableStatus :: Lens' TableDescription (Maybe Text)
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
-instance FromJSON TableDescription
+instance FromJSON TableDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TableDescription
+instance ToJSON TableDescription where
+    toJSON = genericToJSON jsonOptions
 
 data KeysAndAttributes = KeysAndAttributes
     { _kaaAttributesToGet          :: List1 Text
@@ -853,9 +881,11 @@ kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression =
     lens _kaaProjectionExpression (\s a -> s { _kaaProjectionExpression = a })
 
-instance FromJSON KeysAndAttributes
+instance FromJSON KeysAndAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON KeysAndAttributes
+instance ToJSON KeysAndAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data ReturnConsumedCapacity
     = Indexes -- ^ INDEXES
@@ -876,9 +906,11 @@ instance ToText ReturnConsumedCapacity where
         None    -> "NONE"
         Total   -> "TOTAL"
 
-instance FromJSON ReturnConsumedCapacity
+instance FromJSON ReturnConsumedCapacity where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ReturnConsumedCapacity
+instance ToJSON ReturnConsumedCapacity where
+    toJSON = genericToJSON jsonOptions
 
 data ReturnItemCollectionMetrics
     = RICMNone -- ^ NONE
@@ -896,9 +928,11 @@ instance ToText ReturnItemCollectionMetrics where
         RICMNone -> "NONE"
         RICMSize -> "SIZE"
 
-instance FromJSON ReturnItemCollectionMetrics
+instance FromJSON ReturnItemCollectionMetrics where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ReturnItemCollectionMetrics
+instance ToJSON ReturnItemCollectionMetrics where
+    toJSON = genericToJSON jsonOptions
 
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuAction :: Maybe Text
@@ -959,9 +993,11 @@ avuAction = lens _avuAction (\s a -> s { _avuAction = a })
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\s a -> s { _avuValue = a })
 
-instance FromJSON AttributeValueUpdate
+instance FromJSON AttributeValueUpdate where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AttributeValueUpdate
+instance ToJSON AttributeValueUpdate where
+    toJSON = genericToJSON jsonOptions
 
 data ExpectedAttributeValue = ExpectedAttributeValue
     { _eavAttributeValueList :: [AttributeValue]
@@ -1111,9 +1147,11 @@ eavExists = lens _eavExists (\s a -> s { _eavExists = a })
 eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
 eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 
-instance FromJSON ExpectedAttributeValue
+instance FromJSON ExpectedAttributeValue where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ExpectedAttributeValue
+instance ToJSON ExpectedAttributeValue where
+    toJSON = genericToJSON jsonOptions
 
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
@@ -1144,9 +1182,11 @@ adAttributeName = lens _adAttributeName (\s a -> s { _adAttributeName = a })
 adAttributeType :: Lens' AttributeDefinition Text
 adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
 
-instance FromJSON AttributeDefinition
+instance FromJSON AttributeDefinition where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AttributeDefinition
+instance ToJSON AttributeDefinition where
+    toJSON = genericToJSON jsonOptions
 
 data ComparisonOperator
     = BeginsWith  -- ^ BEGINS_WITH
@@ -1197,9 +1237,11 @@ instance ToText ComparisonOperator where
         NotNull     -> "NOT_NULL"
         Null        -> "NULL"
 
-instance FromJSON ComparisonOperator
+instance FromJSON ComparisonOperator where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ComparisonOperator
+instance ToJSON ComparisonOperator where
+    toJSON = genericToJSON jsonOptions
 
 data ReturnValue
     = RVAllNew     -- ^ ALL_NEW
@@ -1226,9 +1268,11 @@ instance ToText ReturnValue where
         RVUpdatedNew -> "UPDATED_NEW"
         RVUpdatedOld -> "UPDATED_OLD"
 
-instance FromJSON ReturnValue
+instance FromJSON ReturnValue where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ReturnValue
+instance ToJSON ReturnValue where
+    toJSON = genericToJSON jsonOptions
 
 data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName  :: Text
@@ -1270,9 +1314,11 @@ lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
 
-instance FromJSON LocalSecondaryIndex
+instance FromJSON LocalSecondaryIndex where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LocalSecondaryIndex
+instance ToJSON LocalSecondaryIndex where
+    toJSON = genericToJSON jsonOptions
 
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName             :: Maybe Text
@@ -1353,9 +1399,11 @@ gsidProvisionedThroughput =
     lens _gsidProvisionedThroughput
         (\s a -> s { _gsidProvisionedThroughput = a })
 
-instance FromJSON GlobalSecondaryIndexDescription
+instance FromJSON GlobalSecondaryIndexDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GlobalSecondaryIndexDescription
+instance ToJSON GlobalSecondaryIndexDescription where
+    toJSON = genericToJSON jsonOptions
 
 data ItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey   :: Map Text AttributeValue
@@ -1395,9 +1443,11 @@ icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
 icmSizeEstimateRangeGB =
     lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
 
-instance FromJSON ItemCollectionMetrics
+instance FromJSON ItemCollectionMetrics where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ItemCollectionMetrics
+instance ToJSON ItemCollectionMetrics where
+    toJSON = genericToJSON jsonOptions
 
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
@@ -1418,9 +1468,11 @@ capacity = Capacity
 cCapacityUnits :: Lens' Capacity (Maybe Double)
 cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
 
-instance FromJSON Capacity
+instance FromJSON Capacity where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Capacity
+instance ToJSON Capacity where
+    toJSON = genericToJSON jsonOptions
 
 data ConsumedCapacity = ConsumedCapacity
     { _ccCapacityUnits          :: Maybe Double
@@ -1480,9 +1532,11 @@ ccTable = lens _ccTable (\s a -> s { _ccTable = a })
 ccTableName :: Lens' ConsumedCapacity (Maybe Text)
 ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 
-instance FromJSON ConsumedCapacity
+instance FromJSON ConsumedCapacity where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConsumedCapacity
+instance ToJSON ConsumedCapacity where
+    toJSON = genericToJSON jsonOptions
 
 data GlobalSecondaryIndex = GlobalSecondaryIndex
     { _gsiIndexName             :: Text
@@ -1534,9 +1588,11 @@ gsiProvisionedThroughput =
     lens _gsiProvisionedThroughput
         (\s a -> s { _gsiProvisionedThroughput = a })
 
-instance FromJSON GlobalSecondaryIndex
+instance FromJSON GlobalSecondaryIndex where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GlobalSecondaryIndex
+instance ToJSON GlobalSecondaryIndex where
+    toJSON = genericToJSON jsonOptions
 
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName      :: Maybe Text
@@ -1596,9 +1652,11 @@ lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
 
-instance FromJSON LocalSecondaryIndexDescription
+instance FromJSON LocalSecondaryIndexDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LocalSecondaryIndexDescription
+instance ToJSON LocalSecondaryIndexDescription where
+    toJSON = genericToJSON jsonOptions
 
 data AttributeAction
     = Add     -- ^ ADD
@@ -1619,9 +1677,11 @@ instance ToText AttributeAction where
         Delete' -> "DELETE"
         Put     -> "PUT"
 
-instance FromJSON AttributeAction
+instance FromJSON AttributeAction where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AttributeAction
+instance ToJSON AttributeAction where
+    toJSON = genericToJSON jsonOptions
 
 data ScalarAttributeType
     = B -- ^ B
@@ -1642,9 +1702,11 @@ instance ToText ScalarAttributeType where
         N -> "N"
         S -> "S"
 
-instance FromJSON ScalarAttributeType
+instance FromJSON ScalarAttributeType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ScalarAttributeType
+instance ToJSON ScalarAttributeType where
+    toJSON = genericToJSON jsonOptions
 
 data Projection = Projection
     { _pNonKeyAttributes :: List1 Text
@@ -1684,9 +1746,11 @@ pNonKeyAttributes =
 pProjectionType :: Lens' Projection (Maybe Text)
 pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 
-instance FromJSON Projection
+instance FromJSON Projection where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Projection
+instance ToJSON Projection where
+    toJSON = genericToJSON jsonOptions
 
 data Select
     = AllAttributes          -- ^ ALL_ATTRIBUTES
@@ -1710,9 +1774,11 @@ instance ToText Select where
         Count                  -> "COUNT"
         SpecificAttributes     -> "SPECIFIC_ATTRIBUTES"
 
-instance FromJSON Select
+instance FromJSON Select where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Select
+instance ToJSON Select where
+    toJSON = genericToJSON jsonOptions
 
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
@@ -1744,9 +1810,11 @@ kseAttributeName = lens _kseAttributeName (\s a -> s { _kseAttributeName = a })
 kseKeyType :: Lens' KeySchemaElement Text
 kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 
-instance FromJSON KeySchemaElement
+instance FromJSON KeySchemaElement where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON KeySchemaElement
+instance ToJSON KeySchemaElement where
+    toJSON = genericToJSON jsonOptions
 
 newtype DeleteRequest = DeleteRequest
     { _dKey :: Map Text AttributeValue
@@ -1771,9 +1839,11 @@ dKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
 dKey = lens _dKey (\s a -> s { _dKey = a })
     . _Map
 
-instance FromJSON DeleteRequest
+instance FromJSON DeleteRequest where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeleteRequest
+instance ToJSON DeleteRequest where
+    toJSON = genericToJSON jsonOptions
 
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName             :: Text
@@ -1805,9 +1875,11 @@ ugsiaProvisionedThroughput =
     lens _ugsiaProvisionedThroughput
         (\s a -> s { _ugsiaProvisionedThroughput = a })
 
-instance FromJSON UpdateGlobalSecondaryIndexAction
+instance FromJSON UpdateGlobalSecondaryIndexAction where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON UpdateGlobalSecondaryIndexAction
+instance ToJSON UpdateGlobalSecondaryIndexAction where
+    toJSON = genericToJSON jsonOptions
 
 newtype PutRequest = PutRequest
     { _pItem :: Map Text AttributeValue
@@ -1834,9 +1906,11 @@ pItem :: Lens' PutRequest (HashMap Text AttributeValue)
 pItem = lens _pItem (\s a -> s { _pItem = a })
     . _Map
 
-instance FromJSON PutRequest
+instance FromJSON PutRequest where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON PutRequest
+instance ToJSON PutRequest where
+    toJSON = genericToJSON jsonOptions
 
 data Condition = Condition
     { _cAttributeValueList :: [AttributeValue]
@@ -1957,9 +2031,11 @@ cComparisonOperator :: Lens' Condition Text
 cComparisonOperator =
     lens _cComparisonOperator (\s a -> s { _cComparisonOperator = a })
 
-instance FromJSON Condition
+instance FromJSON Condition where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Condition
+instance ToJSON Condition where
+    toJSON = genericToJSON jsonOptions
 
 data ConditionalOperator
     = And -- ^ AND
@@ -1977,9 +2053,11 @@ instance ToText ConditionalOperator where
         And -> "AND"
         Or  -> "OR"
 
-instance FromJSON ConditionalOperator
+instance FromJSON ConditionalOperator where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ConditionalOperator
+instance ToJSON ConditionalOperator where
+    toJSON = genericToJSON jsonOptions
 
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
@@ -2001,6 +2079,8 @@ globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
 
-instance FromJSON GlobalSecondaryIndexUpdate
+instance FromJSON GlobalSecondaryIndexUpdate where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GlobalSecondaryIndexUpdate
+instance ToJSON GlobalSecondaryIndexUpdate where
+    toJSON = genericToJSON jsonOptions

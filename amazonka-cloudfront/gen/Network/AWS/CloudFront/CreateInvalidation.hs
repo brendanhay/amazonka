@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -72,21 +72,6 @@ ciDistributionId = lens _ciDistributionId (\s a -> s { _ciDistributionId = a })
 ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
 ciInvalidationBatch =
     lens _ciInvalidationBatch (\s a -> s { _ciInvalidationBatch = a })
-
-instance ToPath CreateInvalidation where
-    toPath CreateInvalidation{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _ciDistributionId
-        , "/invalidation"
-        ]
-
-instance ToQuery CreateInvalidation where
-    toQuery = const mempty
-
-instance ToHeaders CreateInvalidation
-
-instance ToBody CreateInvalidation where
-    toBody = toBody . encodeXML . _ciInvalidationBatch
 
 data CreateInvalidationResponse = CreateInvalidationResponse
     { _cirInvalidation :: Maybe Invalidation
@@ -121,6 +106,22 @@ instance AWSRequest CreateInvalidation where
     type Rs CreateInvalidation = CreateInvalidationResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateInvalidationResponse
+    response = xmlHeaderResponse $ \h x -> CreateInvalidationResponse
         <$> x %| "Invalidation"
         <*> h ~:? "Location"
+
+instance ToPath CreateInvalidation where
+    toPath CreateInvalidation{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _ciDistributionId
+        , "/invalidation"
+        ]
+
+instance ToHeaders CreateInvalidation
+
+instance ToQuery CreateInvalidation where
+    toQuery = const mempty
+
+instance ToXML CreateInvalidation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateInvalidation"

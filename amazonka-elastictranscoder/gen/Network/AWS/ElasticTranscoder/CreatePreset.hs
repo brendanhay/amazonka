@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,7 +56,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -124,17 +124,6 @@ cpThumbnails = lens _cpThumbnails (\s a -> s { _cpThumbnails = a })
 cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
 cpVideo = lens _cpVideo (\s a -> s { _cpVideo = a })
 
-instance ToPath CreatePreset where
-    toPath = const "/2012-09-25/presets"
-
-instance ToQuery CreatePreset where
-    toQuery = const mempty
-
-instance ToHeaders CreatePreset
-
-instance ToBody CreatePreset where
-    toBody = toBody . encode . _cpName
-
 data CreatePresetResponse = CreatePresetResponse
     { _cprPreset  :: Maybe Preset
     , _cprWarning :: Maybe Text
@@ -172,6 +161,18 @@ instance AWSRequest CreatePreset where
     type Rs CreatePreset = CreatePresetResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreatePresetResponse
-        <$> o .: "Preset"
-        <*> o .: "Warning"
+    response = jsonResponse
+
+instance FromJSON CreatePresetResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreatePreset where
+    toPath = const "/2012-09-25/presets"
+
+instance ToHeaders CreatePreset
+
+instance ToQuery CreatePreset where
+    toQuery = const mempty
+
+instance ToJSON CreatePreset where
+    toJSON = genericToJSON jsonOptions

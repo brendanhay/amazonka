@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.MonitorInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
 
-instance ToQuery MonitorInstances
-
-instance ToPath MonitorInstances where
-    toPath = const "/"
-
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -106,5 +101,15 @@ instance AWSRequest MonitorInstances where
     type Rs MonitorInstances = MonitorInstancesResponse
 
     request  = post "MonitorInstances"
-    response = xmlResponse $ \h x -> MonitorInstancesResponse
-        <$> x %| "instancesSet"
+    response = xmlResponse
+
+instance FromXML MonitorInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "MonitorInstancesResponse"
+
+instance ToPath MonitorInstances where
+    toPath = const "/"
+
+instance ToHeaders MonitorInstances
+
+instance ToQuery MonitorInstances

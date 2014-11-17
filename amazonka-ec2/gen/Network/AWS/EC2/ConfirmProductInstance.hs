@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ConfirmProductInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
 cpiProductCode :: Lens' ConfirmProductInstance Text
 cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
 
-instance ToQuery ConfirmProductInstance
-
-instance ToPath ConfirmProductInstance where
-    toPath = const "/"
-
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -112,5 +107,15 @@ instance AWSRequest ConfirmProductInstance where
     type Rs ConfirmProductInstance = ConfirmProductInstanceResponse
 
     request  = post "ConfirmProductInstance"
-    response = xmlResponse $ \h x -> ConfirmProductInstanceResponse
-        <$> x %| "ownerId"
+    response = xmlResponse
+
+instance FromXML ConfirmProductInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfirmProductInstanceResponse"
+
+instance ToPath ConfirmProductInstance where
+    toPath = const "/"
+
+instance ToHeaders ConfirmProductInstance
+
+instance ToQuery ConfirmProductInstance

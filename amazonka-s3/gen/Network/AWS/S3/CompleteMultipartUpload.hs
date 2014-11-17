@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.CompleteMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -93,22 +93,6 @@ cmu1MultipartUpload =
 
 cmu1UploadId :: Lens' CompleteMultipartUpload Text
 cmu1UploadId = lens _cmu1UploadId (\s a -> s { _cmu1UploadId = a })
-
-instance ToPath CompleteMultipartUpload where
-    toPath CompleteMultipartUpload{..} = mconcat
-        [ "/"
-        , toText _cmu1Bucket
-        , "/"
-        , toText _cmu1Key
-        ]
-
-instance ToQuery CompleteMultipartUpload where
-    toQuery rq = "uploadId" =? _cmu1UploadId rq
-
-instance ToHeaders CompleteMultipartUpload
-
-instance ToBody CompleteMultipartUpload where
-    toBody = toBody . encodeXML . _cmu1MultipartUpload
 
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmur1Bucket               :: Maybe Text
@@ -194,7 +178,7 @@ instance AWSRequest CompleteMultipartUpload where
     type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CompleteMultipartUploadResponse
+    response = xmlHeaderResponse $ \h x -> CompleteMultipartUploadResponse
         <$> x %| "Bucket"
         <*> x %| "ETag"
         <*> h ~:? "x-amz-expiration"
@@ -203,3 +187,20 @@ instance AWSRequest CompleteMultipartUpload where
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
+
+instance ToPath CompleteMultipartUpload where
+    toPath CompleteMultipartUpload{..} = mconcat
+        [ "/"
+        , toText _cmu1Bucket
+        , "/"
+        , toText _cmu1Key
+        ]
+
+instance ToHeaders CompleteMultipartUpload
+
+instance ToQuery CompleteMultipartUpload where
+    toQuery rq = "uploadId" =? _cmu1UploadId rq
+
+instance ToXML CompleteMultipartUpload where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CompleteMultipartUpload"

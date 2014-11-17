@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeOptionGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -117,11 +117,6 @@ dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
 dogOptionGroupName =
     lens _dogOptionGroupName (\s a -> s { _dogOptionGroupName = a })
 
-instance ToQuery DescribeOptionGroups
-
-instance ToPath DescribeOptionGroups where
-    toPath = const "/"
-
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrMarker           :: Maybe Text
     , _dogrOptionGroupsList :: [OptionGroup]
@@ -157,10 +152,15 @@ instance AWSRequest DescribeOptionGroups where
     type Rs DescribeOptionGroups = DescribeOptionGroupsResponse
 
     request  = post "DescribeOptionGroups"
-    response = xmlResponse $ \h x -> DescribeOptionGroupsResponse
-        <$> x %| "Marker"
-        <*> x %| "OptionGroupsList"
+    response = xmlResponse
 
-instance AWSPager DescribeOptionGroups where
-    next rq rs = (\x -> rq & dogMarker ?~ x)
-        <$> (rs ^. dogrMarker)
+instance FromXML DescribeOptionGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeOptionGroupsResponse"
+
+instance ToPath DescribeOptionGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeOptionGroups
+
+instance ToQuery DescribeOptionGroups

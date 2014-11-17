@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -130,11 +130,6 @@ ddblfMarker = lens _ddblfMarker (\s a -> s { _ddblfMarker = a })
 ddblfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddblfMaxRecords = lens _ddblfMaxRecords (\s a -> s { _ddblfMaxRecords = a })
 
-instance ToQuery DescribeDBLogFiles
-
-instance ToPath DescribeDBLogFiles where
-    toPath = const "/"
-
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
     , _ddblfrMarker             :: Maybe Text
@@ -170,10 +165,15 @@ instance AWSRequest DescribeDBLogFiles where
     type Rs DescribeDBLogFiles = DescribeDBLogFilesResponse
 
     request  = post "DescribeDBLogFiles"
-    response = xmlResponse $ \h x -> DescribeDBLogFilesResponse
-        <$> x %| "DescribeDBLogFiles"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeDBLogFiles where
-    next rq rs = (\x -> rq & ddblfMarker ?~ x)
-        <$> (rs ^. ddblfrMarker)
+instance FromXML DescribeDBLogFilesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBLogFilesResponse"
+
+instance ToPath DescribeDBLogFiles where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBLogFiles
+
+instance ToQuery DescribeDBLogFiles

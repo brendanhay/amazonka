@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ clsLogGroupName = lens _clsLogGroupName (\s a -> s { _clsLogGroupName = a })
 clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName = lens _clsLogStreamName (\s a -> s { _clsLogStreamName = a })
 
-instance ToPath CreateLogStream where
-    toPath = const "/"
-
-instance ToQuery CreateLogStream where
-    toQuery = const mempty
-
-instance ToHeaders CreateLogStream
-
-instance ToBody CreateLogStream where
-    toBody = toBody . encode . _clsLogGroupName
-
 data CreateLogStreamResponse = CreateLogStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +83,15 @@ instance AWSRequest CreateLogStream where
     type Rs CreateLogStream = CreateLogStreamResponse
 
     request  = post
-    response = nullaryResponse CreateLogStreamResponse
+    response = nullResponse CreateLogStreamResponse
+
+instance ToPath CreateLogStream where
+    toPath = const "/"
+
+instance ToHeaders CreateLogStream
+
+instance ToQuery CreateLogStream where
+    toQuery = const mempty
+
+instance ToJSON CreateLogStream where
+    toJSON = genericToJSON jsonOptions

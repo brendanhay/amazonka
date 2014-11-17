@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,11 +46,6 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
-instance ToQuery DescribeTerminationPolicyTypes
-
-instance ToPath DescribeTerminationPolicyTypes where
-    toPath = const "/"
-
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -85,5 +80,15 @@ instance AWSRequest DescribeTerminationPolicyTypes where
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
 
     request  = post "DescribeTerminationPolicyTypes"
-    response = xmlResponse $ \h x -> DescribeTerminationPolicyTypesResponse
-        <$> x %| "TerminationPolicyTypes"
+    response = xmlResponse
+
+instance FromXML DescribeTerminationPolicyTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesResponse"
+
+instance ToPath DescribeTerminationPolicyTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeTerminationPolicyTypes
+
+instance ToQuery DescribeTerminationPolicyTypes

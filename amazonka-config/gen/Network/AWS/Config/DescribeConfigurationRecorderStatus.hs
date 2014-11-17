@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorderStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Tex
 dcrsConfigurationRecorderNames =
     lens _dcrsConfigurationRecorderNames
         (\s a -> s { _dcrsConfigurationRecorderNames = a })
-
-instance ToPath DescribeConfigurationRecorderStatus where
-    toPath = const "/"
-
-instance ToQuery DescribeConfigurationRecorderStatus where
-    toQuery = const mempty
-
-instance ToHeaders DescribeConfigurationRecorderStatus
-
-instance ToBody DescribeConfigurationRecorderStatus where
-    toBody = toBody . encode . _dcrsConfigurationRecorderNames
 
 newtype DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse
     { _dcrsrConfigurationRecordersStatus :: [ConfigurationRecorderStatus]
@@ -115,5 +104,18 @@ instance AWSRequest DescribeConfigurationRecorderStatus where
     type Rs DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatusResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeConfigurationRecorderStatusResponse
-        <$> o .: "ConfigurationRecordersStatus"
+    response = jsonResponse
+
+instance FromJSON DescribeConfigurationRecorderStatusResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeConfigurationRecorderStatus where
+    toPath = const "/"
+
+instance ToHeaders DescribeConfigurationRecorderStatus
+
+instance ToQuery DescribeConfigurationRecorderStatus where
+    toQuery = const mempty
+
+instance ToJSON DescribeConfigurationRecorderStatus where
+    toJSON = genericToJSON jsonOptions

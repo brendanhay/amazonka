@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeScalingParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ describeScalingParameters p1 = DescribeScalingParameters
 dspDomainName :: Lens' DescribeScalingParameters Text
 dspDomainName = lens _dspDomainName (\s a -> s { _dspDomainName = a })
 
-instance ToQuery DescribeScalingParameters
-
-instance ToPath DescribeScalingParameters where
-    toPath = const "/"
-
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dsprScalingParameters :: ScalingParametersStatus
     } deriving (Eq, Show, Generic)
@@ -93,5 +88,15 @@ instance AWSRequest DescribeScalingParameters where
     type Rs DescribeScalingParameters = DescribeScalingParametersResponse
 
     request  = post "DescribeScalingParameters"
-    response = xmlResponse $ \h x -> DescribeScalingParametersResponse
-        <$> x %| "ScalingParameters"
+    response = xmlResponse
+
+instance FromXML DescribeScalingParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeScalingParametersResponse"
+
+instance ToPath DescribeScalingParameters where
+    toPath = const "/"
+
+instance ToHeaders DescribeScalingParameters
+
+instance ToQuery DescribeScalingParameters

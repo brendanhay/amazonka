@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyReplicationGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -263,11 +263,6 @@ mrgSnapshottingClusterId =
     lens _mrgSnapshottingClusterId
         (\s a -> s { _mrgSnapshottingClusterId = a })
 
-instance ToQuery ModifyReplicationGroup
-
-instance ToPath ModifyReplicationGroup where
-    toPath = const "/"
-
 newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Eq, Show, Generic)
@@ -292,5 +287,15 @@ instance AWSRequest ModifyReplicationGroup where
     type Rs ModifyReplicationGroup = ModifyReplicationGroupResponse
 
     request  = post "ModifyReplicationGroup"
-    response = xmlResponse $ \h x -> ModifyReplicationGroupResponse
-        <$> x %| "ReplicationGroup"
+    response = xmlResponse
+
+instance FromXML ModifyReplicationGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyReplicationGroupResponse"
+
+instance ToPath ModifyReplicationGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyReplicationGroup
+
+instance ToQuery ModifyReplicationGroup

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RespondDecisionTaskCompleted
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,7 +49,7 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -95,17 +95,6 @@ rdtcExecutionContext =
 rdtcTaskToken :: Lens' RespondDecisionTaskCompleted Text
 rdtcTaskToken = lens _rdtcTaskToken (\s a -> s { _rdtcTaskToken = a })
 
-instance ToPath RespondDecisionTaskCompleted where
-    toPath = const "/"
-
-instance ToQuery RespondDecisionTaskCompleted where
-    toQuery = const mempty
-
-instance ToHeaders RespondDecisionTaskCompleted
-
-instance ToBody RespondDecisionTaskCompleted where
-    toBody = toBody . encode . _rdtcTaskToken
-
 data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -118,4 +107,15 @@ instance AWSRequest RespondDecisionTaskCompleted where
     type Rs RespondDecisionTaskCompleted = RespondDecisionTaskCompletedResponse
 
     request  = post
-    response = nullaryResponse RespondDecisionTaskCompletedResponse
+    response = nullResponse RespondDecisionTaskCompletedResponse
+
+instance ToPath RespondDecisionTaskCompleted where
+    toPath = const "/"
+
+instance ToHeaders RespondDecisionTaskCompleted
+
+instance ToQuery RespondDecisionTaskCompleted where
+    toQuery = const mempty
+
+instance ToJSON RespondDecisionTaskCompleted where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ siffeForwardingEnabled =
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
 
-instance ToQuery SetIdentityFeedbackForwardingEnabled
-
-instance ToPath SetIdentityFeedbackForwardingEnabled where
-    toPath = const "/"
-
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +94,11 @@ instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Rs SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabledResponse
 
     request  = post "SetIdentityFeedbackForwardingEnabled"
-    response = nullaryResponse SetIdentityFeedbackForwardingEnabledResponse
+    response = nullResponse SetIdentityFeedbackForwardingEnabledResponse
+
+instance ToPath SetIdentityFeedbackForwardingEnabled where
+    toPath = const "/"
+
+instance ToHeaders SetIdentityFeedbackForwardingEnabled
+
+instance ToQuery SetIdentityFeedbackForwardingEnabled

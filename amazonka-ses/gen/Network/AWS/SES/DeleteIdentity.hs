@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.DeleteIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ deleteIdentity p1 = DeleteIdentity
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
 
-instance ToQuery DeleteIdentity
-
-instance ToPath DeleteIdentity where
-    toPath = const "/"
-
 data DeleteIdentityResponse = DeleteIdentityResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteIdentity where
     type Rs DeleteIdentity = DeleteIdentityResponse
 
     request  = post "DeleteIdentity"
-    response = nullaryResponse DeleteIdentityResponse
+    response = nullResponse DeleteIdentityResponse
+
+instance ToPath DeleteIdentity where
+    toPath = const "/"
+
+instance ToHeaders DeleteIdentity
+
+instance ToQuery DeleteIdentity

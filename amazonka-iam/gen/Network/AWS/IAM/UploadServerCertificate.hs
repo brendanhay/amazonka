@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UploadServerCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -112,11 +112,6 @@ uscServerCertificateName =
     lens _uscServerCertificateName
         (\s a -> s { _uscServerCertificateName = a })
 
-instance ToQuery UploadServerCertificate
-
-instance ToPath UploadServerCertificate where
-    toPath = const "/"
-
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
     } deriving (Eq, Show, Generic)
@@ -144,5 +139,15 @@ instance AWSRequest UploadServerCertificate where
     type Rs UploadServerCertificate = UploadServerCertificateResponse
 
     request  = post "UploadServerCertificate"
-    response = xmlResponse $ \h x -> UploadServerCertificateResponse
-        <$> x %| "ServerCertificateMetadata"
+    response = xmlResponse
+
+instance FromXML UploadServerCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UploadServerCertificateResponse"
+
+instance ToPath UploadServerCertificate where
+    toPath = const "/"
+
+instance ToHeaders UploadServerCertificate
+
+instance ToQuery UploadServerCertificate

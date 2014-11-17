@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.ListParts
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.S3.ListParts
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -108,23 +108,6 @@ lpPartNumberMarker =
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\s a -> s { _lpUploadId = a })
-
-instance ToPath ListParts where
-    toPath ListParts{..} = mconcat
-        [ "/"
-        , toText _lpBucket
-        , "/"
-        , toText _lpKey
-        ]
-
-instance ToQuery ListParts where
-    toQuery ListParts{..} = mconcat
-        [ "max-parts"          =? _lpMaxParts
-        , "part-number-marker" =? _lpPartNumberMarker
-        , "uploadId"           =? _lpUploadId
-        ]
-
-instance ToHeaders ListParts
 
 data ListPartsResponse = ListPartsResponse
     { _lprBucket               :: Maybe Text
@@ -232,15 +215,29 @@ instance AWSRequest ListParts where
     type Rs ListParts = ListPartsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListPartsResponse
-        <$> x %| "Bucket"
-        <*> x %| "Initiator"
-        <*> x %| "IsTruncated"
-        <*> x %| "Key"
-        <*> x %| "MaxParts"
-        <*> x %| "NextPartNumberMarker"
-        <*> x %| "Owner"
-        <*> x %| "PartNumberMarker"
-        <*> x %| "Part"
-        <*> x %| "StorageClass"
-        <*> x %| "UploadId"
+    response = xmlResponse
+
+instance FromXML ListPartsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListPartsResponse"
+
+instance ToPath ListParts where
+    toPath ListParts{..} = mconcat
+        [ "/"
+        , toText _lpBucket
+        , "/"
+        , toText _lpKey
+        ]
+
+instance ToHeaders ListParts
+
+instance ToQuery ListParts where
+    toQuery ListParts{..} = mconcat
+        [ "max-parts"          =? _lpMaxParts
+        , "part-number-marker" =? _lpPartNumberMarker
+        , "uploadId"           =? _lpUploadId
+        ]
+
+instance ToXML ListParts where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListParts"

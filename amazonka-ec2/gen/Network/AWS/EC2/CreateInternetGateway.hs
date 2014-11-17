@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateInternetGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ createInternetGateway = CreateInternetGateway
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\s a -> s { _cigDryRun = a })
 
-instance ToQuery CreateInternetGateway
-
-instance ToPath CreateInternetGateway where
-    toPath = const "/"
-
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
     } deriving (Eq, Show, Generic)
@@ -92,5 +87,15 @@ instance AWSRequest CreateInternetGateway where
     type Rs CreateInternetGateway = CreateInternetGatewayResponse
 
     request  = post "CreateInternetGateway"
-    response = xmlResponse $ \h x -> CreateInternetGatewayResponse
-        <$> x %| "internetGateway"
+    response = xmlResponse
+
+instance FromXML CreateInternetGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInternetGatewayResponse"
+
+instance ToPath CreateInternetGateway where
+    toPath = const "/"
+
+instance ToHeaders CreateInternetGateway
+
+instance ToQuery CreateInternetGateway

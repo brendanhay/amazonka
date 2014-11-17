@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UploadSigningCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ usc1CertificateBody =
 usc1UserName :: Lens' UploadSigningCertificate (Maybe Text)
 usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
 
-instance ToQuery UploadSigningCertificate
-
-instance ToPath UploadSigningCertificate where
-    toPath = const "/"
-
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrCertificate :: SigningCertificate
     } deriving (Eq, Show, Generic)
@@ -108,5 +103,15 @@ instance AWSRequest UploadSigningCertificate where
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse
 
     request  = post "UploadSigningCertificate"
-    response = xmlResponse $ \h x -> UploadSigningCertificateResponse
-        <$> x %| "Certificate"
+    response = xmlResponse
+
+instance FromXML UploadSigningCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UploadSigningCertificateResponse"
+
+instance ToPath UploadSigningCertificate where
+    toPath = const "/"
+
+instance ToHeaders UploadSigningCertificate
+
+instance ToQuery UploadSigningCertificate

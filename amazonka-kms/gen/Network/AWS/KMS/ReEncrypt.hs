@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.ReEncrypt
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.KMS.ReEncrypt
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -112,17 +112,6 @@ reSourceEncryptionContext =
         (\s a -> s { _reSourceEncryptionContext = a })
             . _Map
 
-instance ToPath ReEncrypt where
-    toPath = const "/"
-
-instance ToQuery ReEncrypt where
-    toQuery = const mempty
-
-instance ToHeaders ReEncrypt
-
-instance ToBody ReEncrypt where
-    toBody = toBody . encode . _reCiphertextBlob
-
 data ReEncryptResponse = ReEncryptResponse
     { _rerCiphertextBlob :: Maybe Base64
     , _rerKeyId          :: Maybe Text
@@ -164,7 +153,18 @@ instance AWSRequest ReEncrypt where
     type Rs ReEncrypt = ReEncryptResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ReEncryptResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
-        <*> o .: "SourceKeyId"
+    response = jsonResponse
+
+instance FromJSON ReEncryptResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ReEncrypt where
+    toPath = const "/"
+
+instance ToHeaders ReEncrypt
+
+instance ToQuery ReEncrypt where
+    toQuery = const mempty
+
+instance ToJSON ReEncrypt where
+    toJSON = genericToJSON jsonOptions

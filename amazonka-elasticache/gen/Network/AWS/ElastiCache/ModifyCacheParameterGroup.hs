@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues =
     lens _mcpgParameterNameValues (\s a -> s { _mcpgParameterNameValues = a })
 
-instance ToQuery ModifyCacheParameterGroup
-
-instance ToPath ModifyCacheParameterGroup where
-    toPath = const "/"
-
 newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _mcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -108,5 +103,15 @@ instance AWSRequest ModifyCacheParameterGroup where
     type Rs ModifyCacheParameterGroup = ModifyCacheParameterGroupResponse
 
     request  = post "ModifyCacheParameterGroup"
-    response = xmlResponse $ \h x -> ModifyCacheParameterGroupResponse
-        <$> x %| "CacheParameterGroupName"
+    response = xmlResponse
+
+instance FromXML ModifyCacheParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyCacheParameterGroupResponse"
+
+instance ToPath ModifyCacheParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders ModifyCacheParameterGroup
+
+instance ToQuery ModifyCacheParameterGroup

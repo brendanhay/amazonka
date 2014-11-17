@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.AddCache
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.AddCache
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ acDiskIds = lens _acDiskIds (\s a -> s { _acDiskIds = a })
 acGatewayARN :: Lens' AddCache Text
 acGatewayARN = lens _acGatewayARN (\s a -> s { _acGatewayARN = a })
 
-instance ToPath AddCache where
-    toPath = const "/"
-
-instance ToQuery AddCache where
-    toQuery = const mempty
-
-instance ToHeaders AddCache
-
-instance ToBody AddCache where
-    toBody = toBody . encode . _acGatewayARN
-
 newtype AddCacheResponse = AddCacheResponse
     { _acrGatewayARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -107,5 +96,18 @@ instance AWSRequest AddCache where
     type Rs AddCache = AddCacheResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddCacheResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON AddCacheResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddCache where
+    toPath = const "/"
+
+instance ToHeaders AddCache
+
+instance ToQuery AddCache where
+    toQuery = const mempty
+
+instance ToJSON AddCache where
+    toJSON = genericToJSON jsonOptions

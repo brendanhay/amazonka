@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeEventSubscriptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
 
-instance ToQuery DescribeEventSubscriptions
-
-instance ToPath DescribeEventSubscriptions where
-    toPath = const "/"
-
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrEventSubscriptionsList :: [EventSubscription]
     , _desrMarker                 :: Maybe Text
@@ -140,10 +135,15 @@ instance AWSRequest DescribeEventSubscriptions where
     type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse
 
     request  = post "DescribeEventSubscriptions"
-    response = xmlResponse $ \h x -> DescribeEventSubscriptionsResponse
-        <$> x %| "EventSubscriptionsList"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeEventSubscriptions where
-    next rq rs = (\x -> rq & des1Marker ?~ x)
-        <$> (rs ^. desrMarker)
+instance FromXML DescribeEventSubscriptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEventSubscriptionsResponse"
+
+instance ToPath DescribeEventSubscriptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeEventSubscriptions
+
+instance ToQuery DescribeEventSubscriptions

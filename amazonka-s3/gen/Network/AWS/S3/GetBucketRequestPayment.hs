@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ getBucketRequestPayment p1 = GetBucketRequestPayment
 
 gbrpBucket :: Lens' GetBucketRequestPayment Text
 gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
-
-instance ToPath GetBucketRequestPayment where
-    toPath GetBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toText _gbrpBucket
-        ]
-
-instance ToQuery GetBucketRequestPayment where
-    toQuery = const "requestPayment"
-
-instance ToHeaders GetBucketRequestPayment
 
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrprPayer :: Maybe Text
@@ -95,5 +84,23 @@ instance AWSRequest GetBucketRequestPayment where
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketRequestPaymentResponse
-        <$> x %| "Payer"
+    response = xmlResponse
+
+instance FromXML GetBucketRequestPaymentResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketRequestPaymentResponse"
+
+instance ToPath GetBucketRequestPayment where
+    toPath GetBucketRequestPayment{..} = mconcat
+        [ "/"
+        , toText _gbrpBucket
+        ]
+
+instance ToHeaders GetBucketRequestPayment
+
+instance ToQuery GetBucketRequestPayment where
+    toQuery = const "requestPayment"
+
+instance ToXML GetBucketRequestPayment where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketRequestPayment"

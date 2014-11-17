@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
 ds1StackName :: Lens' DescribeStacks (Maybe Text)
 ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 
-instance ToQuery DescribeStacks
-
-instance ToPath DescribeStacks where
-    toPath = const "/"
-
 data DescribeStacksResponse = DescribeStacksResponse
     { _dsrNextToken :: Maybe Text
     , _dsrStacks    :: [Stack]
@@ -113,10 +108,15 @@ instance AWSRequest DescribeStacks where
     type Rs DescribeStacks = DescribeStacksResponse
 
     request  = post "DescribeStacks"
-    response = xmlResponse $ \h x -> DescribeStacksResponse
-        <$> x %| "NextToken"
-        <*> x %| "Stacks"
+    response = xmlResponse
 
-instance AWSPager DescribeStacks where
-    next rq rs = (\x -> rq & ds1NextToken ?~ x)
-        <$> (rs ^. dsrNextToken)
+instance FromXML DescribeStacksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeStacksResponse"
+
+instance ToPath DescribeStacks where
+    toPath = const "/"
+
+instance ToHeaders DescribeStacks
+
+instance ToQuery DescribeStacks

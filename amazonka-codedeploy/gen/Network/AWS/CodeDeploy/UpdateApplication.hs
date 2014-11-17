@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.UpdateApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CodeDeploy.UpdateApplication
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaNewApplicationName =
     lens _uaNewApplicationName (\s a -> s { _uaNewApplicationName = a })
 
-instance ToPath UpdateApplication where
-    toPath = const "/"
-
-instance ToQuery UpdateApplication where
-    toQuery = const mempty
-
-instance ToHeaders UpdateApplication
-
-instance ToBody UpdateApplication where
-    toBody = toBody . encode . _uaApplicationName
-
 data UpdateApplicationResponse = UpdateApplicationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -92,4 +81,15 @@ instance AWSRequest UpdateApplication where
     type Rs UpdateApplication = UpdateApplicationResponse
 
     request  = post
-    response = nullaryResponse UpdateApplicationResponse
+    response = nullResponse UpdateApplicationResponse
+
+instance ToPath UpdateApplication where
+    toPath = const "/"
+
+instance ToHeaders UpdateApplication
+
+instance ToQuery UpdateApplication where
+    toQuery = const mempty
+
+instance ToJSON UpdateApplication where
+    toJSON = genericToJSON jsonOptions

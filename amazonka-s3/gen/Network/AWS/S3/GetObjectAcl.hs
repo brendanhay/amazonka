@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetObjectAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.S3.GetObjectAcl
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -79,22 +79,6 @@ goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 goaVersionId :: Lens' GetObjectAcl (Maybe Text)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
-instance ToPath GetObjectAcl where
-    toPath GetObjectAcl{..} = mconcat
-        [ "/"
-        , toText _goaBucket
-        , "/"
-        , toText _goaKey
-        ]
-
-instance ToQuery GetObjectAcl where
-    toQuery GetObjectAcl{..} = mconcat
-        [ "acl"
-        , "versionId" =? _goaVersionId
-        ]
-
-instance ToHeaders GetObjectAcl
-
 data GetObjectAclResponse = GetObjectAclResponse
     { _goarGrants :: [Grant]
     , _goarOwner  :: Maybe Owner
@@ -126,6 +110,28 @@ instance AWSRequest GetObjectAcl where
     type Rs GetObjectAcl = GetObjectAclResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetObjectAclResponse
-        <$> x %| "AccessControlList"
-        <*> x %| "Owner"
+    response = xmlResponse
+
+instance FromXML GetObjectAclResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetObjectAclResponse"
+
+instance ToPath GetObjectAcl where
+    toPath GetObjectAcl{..} = mconcat
+        [ "/"
+        , toText _goaBucket
+        , "/"
+        , toText _goaKey
+        ]
+
+instance ToHeaders GetObjectAcl
+
+instance ToQuery GetObjectAcl where
+    toQuery GetObjectAcl{..} = mconcat
+        [ "acl"
+        , "versionId" =? _goaVersionId
+        ]
+
+instance ToXML GetObjectAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetObjectAcl"

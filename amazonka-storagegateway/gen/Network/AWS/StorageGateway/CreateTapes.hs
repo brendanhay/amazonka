@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateTapes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.CreateTapes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -111,17 +111,6 @@ ctTapeSizeInBytes =
     lens _ctTapeSizeInBytes (\s a -> s { _ctTapeSizeInBytes = a })
         . _Nat
 
-instance ToPath CreateTapes where
-    toPath = const "/"
-
-instance ToQuery CreateTapes where
-    toQuery = const mempty
-
-instance ToHeaders CreateTapes
-
-instance ToBody CreateTapes where
-    toBody = toBody . encode . _ctGatewayARN
-
 newtype CreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -153,5 +142,18 @@ instance AWSRequest CreateTapes where
     type Rs CreateTapes = CreateTapesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateTapesResponse
-        <$> o .: "TapeARNs"
+    response = jsonResponse
+
+instance FromJSON CreateTapesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateTapes where
+    toPath = const "/"
+
+instance ToHeaders CreateTapes
+
+instance ToQuery CreateTapes where
+    toQuery = const mempty
+
+instance ToJSON CreateTapes where
+    toJSON = genericToJSON jsonOptions

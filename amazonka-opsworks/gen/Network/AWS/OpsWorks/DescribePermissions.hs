@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribePermissions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
 -- | The stack ID.
 dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
-
-instance ToPath DescribePermissions where
-    toPath = const "/"
-
-instance ToQuery DescribePermissions where
-    toQuery = const mempty
-
-instance ToHeaders DescribePermissions
-
-instance ToBody DescribePermissions where
-    toBody = toBody . encode . _dpIamUserArn
 
 newtype DescribePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions :: [Permission]
@@ -120,5 +109,18 @@ instance AWSRequest DescribePermissions where
     type Rs DescribePermissions = DescribePermissionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribePermissionsResponse
-        <$> o .: "Permissions"
+    response = jsonResponse
+
+instance FromJSON DescribePermissionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribePermissions where
+    toPath = const "/"
+
+instance ToHeaders DescribePermissions
+
+instance ToQuery DescribePermissions where
+    toQuery = const mempty
+
+instance ToJSON DescribePermissions where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.Route53.GetHostedZone
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ getHostedZone p1 = GetHostedZone
 -- servers in the delegation set.
 ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\s a -> s { _ghzId = a })
-
-instance ToPath GetHostedZone where
-    toPath GetHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _ghzId
-        ]
-
-instance ToQuery GetHostedZone where
-    toQuery = const mempty
-
-instance ToHeaders GetHostedZone
 
 data GetHostedZoneResponse = GetHostedZoneResponse
     { _ghzrDelegationSet :: Maybe DelegationSet
@@ -125,7 +114,23 @@ instance AWSRequest GetHostedZone where
     type Rs GetHostedZone = GetHostedZoneResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetHostedZoneResponse
-        <$> x %| "DelegationSet"
-        <*> x %| "HostedZone"
-        <*> x %| "VPCs"
+    response = xmlResponse
+
+instance FromXML GetHostedZoneResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetHostedZoneResponse"
+
+instance ToPath GetHostedZone where
+    toPath GetHostedZone{..} = mconcat
+        [ "/2013-04-01/hostedzone/"
+        , toText _ghzId
+        ]
+
+instance ToHeaders GetHostedZone
+
+instance ToQuery GetHostedZone where
+    toQuery = const mempty
+
+instance ToXML GetHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHostedZone"

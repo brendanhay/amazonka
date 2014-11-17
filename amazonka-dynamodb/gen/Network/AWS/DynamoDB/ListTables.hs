@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.ListTables
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.DynamoDB.ListTables
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ ltExclusiveStartTableName =
 ltLimit :: Lens' ListTables (Maybe Natural)
 ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a })
     . mapping _Nat
-
-instance ToPath ListTables where
-    toPath = const "/"
-
-instance ToQuery ListTables where
-    toQuery = const mempty
-
-instance ToHeaders ListTables
-
-instance ToBody ListTables where
-    toBody = toBody . encode . _ltExclusiveStartTableName
 
 data ListTablesResponse = ListTablesResponse
     { _ltrLastEvaluatedTableName :: Maybe Text
@@ -131,6 +120,18 @@ instance AWSRequest ListTables where
     type Rs ListTables = ListTablesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListTablesResponse
-        <$> o .: "LastEvaluatedTableName"
-        <*> o .: "TableNames"
+    response = jsonResponse
+
+instance FromJSON ListTablesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListTables where
+    toPath = const "/"
+
+instance ToHeaders ListTables
+
+instance ToQuery ListTables where
+    toQuery = const mempty
+
+instance ToJSON ListTables where
+    toJSON = genericToJSON jsonOptions

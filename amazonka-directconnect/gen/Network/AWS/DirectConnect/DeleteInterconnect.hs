@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteInterconnect
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ deleteInterconnect p1 = DeleteInterconnect
 di1InterconnectId :: Lens' DeleteInterconnect Text
 di1InterconnectId =
     lens _di1InterconnectId (\s a -> s { _di1InterconnectId = a })
-
-instance ToPath DeleteInterconnect where
-    toPath = const "/"
-
-instance ToQuery DeleteInterconnect where
-    toQuery = const mempty
-
-instance ToHeaders DeleteInterconnect
-
-instance ToBody DeleteInterconnect where
-    toBody = toBody . encode . _di1InterconnectId
 
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse
     { _dirInterconnectState :: Maybe Text
@@ -96,5 +85,18 @@ instance AWSRequest DeleteInterconnect where
     type Rs DeleteInterconnect = DeleteInterconnectResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteInterconnectResponse
-        <$> o .: "interconnectState"
+    response = jsonResponse
+
+instance FromJSON DeleteInterconnectResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteInterconnect where
+    toPath = const "/"
+
+instance ToHeaders DeleteInterconnect
+
+instance ToQuery DeleteInterconnect where
+    toQuery = const mempty
+
+instance ToJSON DeleteInterconnect where
+    toJSON = genericToJSON jsonOptions

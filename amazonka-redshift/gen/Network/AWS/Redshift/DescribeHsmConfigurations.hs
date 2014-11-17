@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeHsmConfigurations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ dhc1Marker = lens _dhc1Marker (\s a -> s { _dhc1Marker = a })
 dhc1MaxRecords :: Lens' DescribeHsmConfigurations (Maybe Int)
 dhc1MaxRecords = lens _dhc1MaxRecords (\s a -> s { _dhc1MaxRecords = a })
 
-instance ToQuery DescribeHsmConfigurations
-
-instance ToPath DescribeHsmConfigurations where
-    toPath = const "/"
-
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrHsmConfigurations :: [HsmConfiguration]
     , _dhcrMarker            :: Maybe Text
@@ -137,10 +132,15 @@ instance AWSRequest DescribeHsmConfigurations where
     type Rs DescribeHsmConfigurations = DescribeHsmConfigurationsResponse
 
     request  = post "DescribeHsmConfigurations"
-    response = xmlResponse $ \h x -> DescribeHsmConfigurationsResponse
-        <$> x %| "HsmConfigurations"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeHsmConfigurations where
-    next rq rs = (\x -> rq & dhc1Marker ?~ x)
-        <$> (rs ^. dhcrMarker)
+instance FromXML DescribeHsmConfigurationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeHsmConfigurationsResponse"
+
+instance ToPath DescribeHsmConfigurations where
+    toPath = const "/"
+
+instance ToHeaders DescribeHsmConfigurations
+
+instance ToQuery DescribeHsmConfigurations

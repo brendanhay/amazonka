@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetUserPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
 gupUserName :: Lens' GetUserPolicy Text
 gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
 
-instance ToQuery GetUserPolicy
-
-instance ToPath GetUserPolicy where
-    toPath = const "/"
-
 data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprPolicyDocument :: Text
     , _guprPolicyName     :: Text
@@ -124,7 +119,15 @@ instance AWSRequest GetUserPolicy where
     type Rs GetUserPolicy = GetUserPolicyResponse
 
     request  = post "GetUserPolicy"
-    response = xmlResponse $ \h x -> GetUserPolicyResponse
-        <$> x %| "PolicyDocument"
-        <*> x %| "PolicyName"
-        <*> x %| "UserName"
+    response = xmlResponse
+
+instance FromXML GetUserPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetUserPolicyResponse"
+
+instance ToPath GetUserPolicy where
+    toPath = const "/"
+
+instance ToHeaders GetUserPolicy
+
+instance ToQuery GetUserPolicy

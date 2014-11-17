@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -61,11 +61,6 @@ dcsgClusterSubnetGroupName =
     lens _dcsgClusterSubnetGroupName
         (\s a -> s { _dcsgClusterSubnetGroupName = a })
 
-instance ToQuery DeleteClusterSubnetGroup
-
-instance ToPath DeleteClusterSubnetGroup where
-    toPath = const "/"
-
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -78,4 +73,11 @@ instance AWSRequest DeleteClusterSubnetGroup where
     type Rs DeleteClusterSubnetGroup = DeleteClusterSubnetGroupResponse
 
     request  = post "DeleteClusterSubnetGroup"
-    response = nullaryResponse DeleteClusterSubnetGroupResponse
+    response = nullResponse DeleteClusterSubnetGroupResponse
+
+instance ToPath DeleteClusterSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteClusterSubnetGroup
+
+instance ToQuery DeleteClusterSubnetGroup

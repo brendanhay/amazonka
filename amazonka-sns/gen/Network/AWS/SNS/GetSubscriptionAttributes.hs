@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.GetSubscriptionAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
 
-instance ToQuery GetSubscriptionAttributes
-
-instance ToPath GetSubscriptionAttributes where
-    toPath = const "/"
-
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -100,5 +95,15 @@ instance AWSRequest GetSubscriptionAttributes where
     type Rs GetSubscriptionAttributes = GetSubscriptionAttributesResponse
 
     request  = post "GetSubscriptionAttributes"
-    response = xmlResponse $ \h x -> GetSubscriptionAttributesResponse
-        <$> x %| "Attributes"
+    response = xmlResponse
+
+instance FromXML GetSubscriptionAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"
+
+instance ToPath GetSubscriptionAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetSubscriptionAttributes
+
+instance ToQuery GetSubscriptionAttributes

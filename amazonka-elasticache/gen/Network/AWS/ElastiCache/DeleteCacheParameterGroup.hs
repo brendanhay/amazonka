@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dcpg1CacheParameterGroupName =
     lens _dcpg1CacheParameterGroupName
         (\s a -> s { _dcpg1CacheParameterGroupName = a })
 
-instance ToQuery DeleteCacheParameterGroup
-
-instance ToPath DeleteCacheParameterGroup where
-    toPath = const "/"
-
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest DeleteCacheParameterGroup where
     type Rs DeleteCacheParameterGroup = DeleteCacheParameterGroupResponse
 
     request  = post "DeleteCacheParameterGroup"
-    response = nullaryResponse DeleteCacheParameterGroupResponse
+    response = nullResponse DeleteCacheParameterGroupResponse
+
+instance ToPath DeleteCacheParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteCacheParameterGroup
+
+instance ToQuery DeleteCacheParameterGroup

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.ListStreams
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.Kinesis.ListStreams
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -83,17 +83,6 @@ lsExclusiveStartStreamName =
 lsLimit :: Lens' ListStreams (Maybe Natural)
 lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a })
     . mapping _Nat
-
-instance ToPath ListStreams where
-    toPath = const "/"
-
-instance ToQuery ListStreams where
-    toQuery = const mempty
-
-instance ToHeaders ListStreams
-
-instance ToBody ListStreams where
-    toBody = toBody . encode . _lsLimit
 
 data ListStreamsResponse = ListStreamsResponse
     { _lsrHasMoreStreams :: Bool
@@ -130,6 +119,18 @@ instance AWSRequest ListStreams where
     type Rs ListStreams = ListStreamsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListStreamsResponse
-        <$> o .: "HasMoreStreams"
-        <*> o .: "StreamNames"
+    response = jsonResponse
+
+instance FromJSON ListStreamsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListStreams where
+    toPath = const "/"
+
+instance ToHeaders ListStreams
+
+instance ToQuery ListStreams where
+    toQuery = const mempty
+
+instance ToJSON ListStreams where
+    toJSON = genericToJSON jsonOptions

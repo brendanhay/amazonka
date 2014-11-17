@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ dlcMaxRecords = lens _dlcMaxRecords (\s a -> s { _dlcMaxRecords = a })
 dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
 
-instance ToQuery DescribeLaunchConfigurations
-
-instance ToPath DescribeLaunchConfigurations where
-    toPath = const "/"
-
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations :: [LaunchConfiguration]
     , _dlcrNextToken            :: Maybe Text
@@ -122,10 +117,15 @@ instance AWSRequest DescribeLaunchConfigurations where
     type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
 
     request  = post "DescribeLaunchConfigurations"
-    response = xmlResponse $ \h x -> DescribeLaunchConfigurationsResponse
-        <$> x %| "LaunchConfigurations"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeLaunchConfigurations where
-    next rq rs = (\x -> rq & dlcNextToken ?~ x)
-        <$> (rs ^. dlcrNextToken)
+instance FromXML DescribeLaunchConfigurationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLaunchConfigurationsResponse"
+
+instance ToPath DescribeLaunchConfigurations where
+    toPath = const "/"
+
+instance ToHeaders DescribeLaunchConfigurations
+
+instance ToQuery DescribeLaunchConfigurations

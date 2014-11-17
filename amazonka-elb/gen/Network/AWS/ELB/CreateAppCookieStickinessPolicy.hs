@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ cacspLoadBalancerName =
 cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspPolicyName = lens _cacspPolicyName (\s a -> s { _cacspPolicyName = a })
 
-instance ToQuery CreateAppCookieStickinessPolicy
-
-instance ToPath CreateAppCookieStickinessPolicy where
-    toPath = const "/"
-
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -111,4 +106,11 @@ instance AWSRequest CreateAppCookieStickinessPolicy where
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
 
     request  = post "CreateAppCookieStickinessPolicy"
-    response = nullaryResponse CreateAppCookieStickinessPolicyResponse
+    response = nullResponse CreateAppCookieStickinessPolicyResponse
+
+instance ToPath CreateAppCookieStickinessPolicy where
+    toPath = const "/"
+
+instance ToHeaders CreateAppCookieStickinessPolicy
+
+instance ToQuery CreateAppCookieStickinessPolicy

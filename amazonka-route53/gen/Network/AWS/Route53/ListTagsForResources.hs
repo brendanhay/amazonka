@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListTagsForResources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.Route53.ListTagsForResources
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -75,20 +75,6 @@ ltfr1ResourceType :: Lens' ListTagsForResources Text
 ltfr1ResourceType =
     lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
 
-instance ToPath ListTagsForResources where
-    toPath ListTagsForResources{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toText _ltfr1ResourceType
-        ]
-
-instance ToQuery ListTagsForResources where
-    toQuery = const mempty
-
-instance ToHeaders ListTagsForResources
-
-instance ToBody ListTagsForResources where
-    toBody = toBody . encodeXML . _ltfr1ResourceIds
-
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrResourceTagSets :: [ResourceTagSet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -121,5 +107,23 @@ instance AWSRequest ListTagsForResources where
     type Rs ListTagsForResources = ListTagsForResourcesResponse
 
     request  = post
-    response = xmlResponse $ \h x -> ListTagsForResourcesResponse
-        <$> x %| "ResourceTagSets"
+    response = xmlResponse
+
+instance FromXML ListTagsForResourcesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListTagsForResourcesResponse"
+
+instance ToPath ListTagsForResources where
+    toPath ListTagsForResources{..} = mconcat
+        [ "/2013-04-01/tags/"
+        , toText _ltfr1ResourceType
+        ]
+
+instance ToHeaders ListTagsForResources
+
+instance ToQuery ListTagsForResources where
+    toQuery = const mempty
+
+instance ToXML ListTagsForResources where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListTagsForResources"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.AddWorkingStorage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a })
 awsGatewayARN :: Lens' AddWorkingStorage Text
 awsGatewayARN = lens _awsGatewayARN (\s a -> s { _awsGatewayARN = a })
 
-instance ToPath AddWorkingStorage where
-    toPath = const "/"
-
-instance ToQuery AddWorkingStorage where
-    toQuery = const mempty
-
-instance ToHeaders AddWorkingStorage
-
-instance ToBody AddWorkingStorage where
-    toBody = toBody . encode . _awsGatewayARN
-
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
     { _awsrGatewayARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -111,5 +100,18 @@ instance AWSRequest AddWorkingStorage where
     type Rs AddWorkingStorage = AddWorkingStorageResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddWorkingStorageResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON AddWorkingStorageResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddWorkingStorage where
+    toPath = const "/"
+
+instance ToHeaders AddWorkingStorage
+
+instance ToQuery AddWorkingStorage where
+    toQuery = const mempty
+
+instance ToJSON AddWorkingStorage where
+    toJSON = genericToJSON jsonOptions

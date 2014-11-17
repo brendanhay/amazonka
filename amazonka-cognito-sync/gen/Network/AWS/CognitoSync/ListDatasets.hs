@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.ListDatasets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.CognitoSync.ListDatasets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -99,23 +99,6 @@ ldMaxResults = lens _ldMaxResults (\s a -> s { _ldMaxResults = a })
 ldNextToken :: Lens' ListDatasets (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
-instance ToPath ListDatasets where
-    toPath ListDatasets{..} = mconcat
-        [ "/identitypools/"
-        , toText _ldIdentityPoolId
-        , "/identities/"
-        , toText _ldIdentityId
-        , "/datasets"
-        ]
-
-instance ToQuery ListDatasets where
-    toQuery ListDatasets{..} = mconcat
-        [ "nextToken"  =? _ldNextToken
-        , "maxResults" =? _ldMaxResults
-        ]
-
-instance ToHeaders ListDatasets
-
 data ListDatasetsResponse = ListDatasetsResponse
     { _ldrCount     :: Maybe Int
     , _ldrDatasets  :: [Dataset]
@@ -156,7 +139,27 @@ instance AWSRequest ListDatasets where
     type Rs ListDatasets = ListDatasetsResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListDatasetsResponse
-        <$> o .: "Count"
-        <*> o .: "Datasets"
-        <*> o .: "NextToken"
+    response = jsonResponse
+
+instance FromJSON ListDatasetsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListDatasets where
+    toPath ListDatasets{..} = mconcat
+        [ "/identitypools/"
+        , toText _ldIdentityPoolId
+        , "/identities/"
+        , toText _ldIdentityId
+        , "/datasets"
+        ]
+
+instance ToHeaders ListDatasets
+
+instance ToQuery ListDatasets where
+    toQuery ListDatasets{..} = mconcat
+        [ "nextToken"  =? _ldNextToken
+        , "maxResults" =? _ldMaxResults
+        ]
+
+instance ToJSON ListDatasets where
+    toJSON = genericToJSON jsonOptions

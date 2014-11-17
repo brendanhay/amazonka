@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.CloudSearchDomains.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.CloudSearchDomains.Types
       CloudSearchDomains
     -- ** Error
     , RESTError
+    -- ** JSON
+    , jsonOptions
 
     -- * SearchStatus
     , SearchStatus
@@ -88,6 +92,7 @@ module Network.AWS.CloudSearchDomains.Types
     , ContentType (..)
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -109,6 +114,11 @@ instance AWSService CloudSearchDomains where
         }
 
     handle = restError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text
@@ -137,9 +147,11 @@ ssRid = lens _ssRid (\s a -> s { _ssRid = a })
 ssTimems :: Lens' SearchStatus (Maybe Integer)
 ssTimems = lens _ssTimems (\s a -> s { _ssTimems = a })
 
-instance FromJSON SearchStatus
+instance FromJSON SearchStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SearchStatus
+instance ToJSON SearchStatus where
+    toJSON = genericToJSON jsonOptions
 
 data QueryParser
     = Dismax     -- ^ dismax
@@ -163,9 +175,11 @@ instance ToText QueryParser where
         Simple     -> "simple"
         Structured -> "structured"
 
-instance FromJSON QueryParser
+instance FromJSON QueryParser where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON QueryParser
+instance ToJSON QueryParser where
+    toJSON = genericToJSON jsonOptions
 
 data Hit = Hit
     { _hitFields     :: Map Text [Text]
@@ -204,9 +218,11 @@ hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a })
 hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\s a -> s { _hitId = a })
 
-instance FromJSON Hit
+instance FromJSON Hit where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Hit
+instance ToJSON Hit where
+    toJSON = genericToJSON jsonOptions
 
 data SuggestStatus = SuggestStatus
     { _ss1Rid    :: Maybe Text
@@ -235,9 +251,11 @@ ss1Rid = lens _ss1Rid (\s a -> s { _ss1Rid = a })
 ss1Timems :: Lens' SuggestStatus (Maybe Integer)
 ss1Timems = lens _ss1Timems (\s a -> s { _ss1Timems = a })
 
-instance FromJSON SuggestStatus
+instance FromJSON SuggestStatus where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SuggestStatus
+instance ToJSON SuggestStatus where
+    toJSON = genericToJSON jsonOptions
 
 data Bucket = Bucket
     { _bCount :: Maybe Integer
@@ -267,9 +285,11 @@ bCount = lens _bCount (\s a -> s { _bCount = a })
 bValue :: Lens' Bucket (Maybe Text)
 bValue = lens _bValue (\s a -> s { _bValue = a })
 
-instance FromJSON Bucket
+instance FromJSON Bucket where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Bucket
+instance ToJSON Bucket where
+    toJSON = genericToJSON jsonOptions
 
 data SuggestionMatch = SuggestionMatch
     { _smId         :: Maybe Text
@@ -306,9 +326,11 @@ smScore = lens _smScore (\s a -> s { _smScore = a })
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 
-instance FromJSON SuggestionMatch
+instance FromJSON SuggestionMatch where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SuggestionMatch
+instance ToJSON SuggestionMatch where
+    toJSON = genericToJSON jsonOptions
 
 newtype BucketInfo = BucketInfo
     { _biBuckets :: [Bucket]
@@ -335,9 +357,11 @@ bucketInfo = BucketInfo
 biBuckets :: Lens' BucketInfo [Bucket]
 biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a })
 
-instance FromJSON BucketInfo
+instance FromJSON BucketInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON BucketInfo
+instance ToJSON BucketInfo where
+    toJSON = genericToJSON jsonOptions
 
 newtype DocumentServiceWarning = DocumentServiceWarning
     { _dswMessage :: Maybe Text
@@ -358,9 +382,11 @@ documentServiceWarning = DocumentServiceWarning
 dswMessage :: Lens' DocumentServiceWarning (Maybe Text)
 dswMessage = lens _dswMessage (\s a -> s { _dswMessage = a })
 
-instance FromJSON DocumentServiceWarning
+instance FromJSON DocumentServiceWarning where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DocumentServiceWarning
+instance ToJSON DocumentServiceWarning where
+    toJSON = genericToJSON jsonOptions
 
 data SuggestModel = SuggestModel
     { _smFound       :: Maybe Integer
@@ -397,9 +423,11 @@ smQuery = lens _smQuery (\s a -> s { _smQuery = a })
 smSuggestions :: Lens' SuggestModel [SuggestionMatch]
 smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a })
 
-instance FromJSON SuggestModel
+instance FromJSON SuggestModel where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SuggestModel
+instance ToJSON SuggestModel where
+    toJSON = genericToJSON jsonOptions
 
 data Hits = Hits
     { _hCursor :: Maybe Text
@@ -445,9 +473,11 @@ hHit = lens _hHit (\s a -> s { _hHit = a })
 hStart :: Lens' Hits (Maybe Integer)
 hStart = lens _hStart (\s a -> s { _hStart = a })
 
-instance FromJSON Hits
+instance FromJSON Hits where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Hits
+instance ToJSON Hits where
+    toJSON = genericToJSON jsonOptions
 
 data ContentType
     = ApplicationJson -- ^ application/json
@@ -465,6 +495,8 @@ instance ToText ContentType where
         ApplicationJson -> "application/json"
         ApplicationXml  -> "application/xml"
 
-instance FromJSON ContentType
+instance FromJSON ContentType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ContentType
+instance ToJSON ContentType where
+    toJSON = genericToJSON jsonOptions

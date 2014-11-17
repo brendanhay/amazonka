@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.GetPasswordData
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
 
-instance ToQuery GetPasswordData
-
-instance ToPath GetPasswordData where
-    toPath = const "/"
-
 data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
@@ -126,7 +121,15 @@ instance AWSRequest GetPasswordData where
     type Rs GetPasswordData = GetPasswordDataResponse
 
     request  = post "GetPasswordData"
-    response = xmlResponse $ \h x -> GetPasswordDataResponse
-        <$> x %| "instanceId"
-        <*> x %| "passwordData"
-        <*> x %| "timestamp"
+    response = xmlResponse
+
+instance FromXML GetPasswordDataResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetPasswordDataResponse"
+
+instance ToPath GetPasswordData where
+    toPath = const "/"
+
+instance ToHeaders GetPasswordData
+
+instance ToQuery GetPasswordData

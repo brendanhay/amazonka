@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,7 +59,7 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudSearchDomains.Types
 import qualified GHC.Exts
 
@@ -92,20 +92,6 @@ udContentType = lens _udContentType (\s a -> s { _udContentType = a })
 -- | A batch of documents formatted in JSON or HTML.
 udDocuments :: Lens' UploadDocuments Base64
 udDocuments = lens _udDocuments (\s a -> s { _udDocuments = a })
-
-instance ToPath UploadDocuments where
-    toPath = const "/2013-01-01/documents/batch"
-
-instance ToQuery UploadDocuments where
-    toQuery = const "format=sdk"
-
-instance ToHeaders UploadDocuments where
-    toHeaders UploadDocuments{..} = mconcat
-        [ "Content-Type" =: _udContentType
-        ]
-
-instance ToBody UploadDocuments where
-    toBody = toBody . encode . _udDocuments
 
 data UploadDocumentsResponse = UploadDocumentsResponse
     { _udrAdds     :: Maybe Integer
@@ -156,8 +142,21 @@ instance AWSRequest UploadDocuments where
     type Rs UploadDocuments = UploadDocumentsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UploadDocumentsResponse
-        <$> o .: "adds"
-        <*> o .: "deletes"
-        <*> o .: "status"
-        <*> o .: "warnings"
+    response = jsonResponse
+
+instance FromJSON UploadDocumentsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UploadDocuments where
+    toPath = const "/2013-01-01/documents/batch"
+
+instance ToHeaders UploadDocuments where
+    toHeaders UploadDocuments{..} = mconcat
+        [ "Content-Type" =: _udContentType
+        ]
+
+instance ToQuery UploadDocuments where
+    toQuery = const "format=sdk"
+
+instance ToJSON UploadDocuments where
+    toJSON = genericToJSON jsonOptions

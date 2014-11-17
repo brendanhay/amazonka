@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.DisableAlarmActions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,11 +66,6 @@ disableAlarmActions = DisableAlarmActions
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a })
 
-instance ToQuery DisableAlarmActions
-
-instance ToPath DisableAlarmActions where
-    toPath = const "/"
-
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +78,11 @@ instance AWSRequest DisableAlarmActions where
     type Rs DisableAlarmActions = DisableAlarmActionsResponse
 
     request  = post "DisableAlarmActions"
-    response = nullaryResponse DisableAlarmActionsResponse
+    response = nullResponse DisableAlarmActionsResponse
+
+instance ToPath DisableAlarmActions where
+    toPath = const "/"
+
+instance ToHeaders DisableAlarmActions
+
+instance ToQuery DisableAlarmActions

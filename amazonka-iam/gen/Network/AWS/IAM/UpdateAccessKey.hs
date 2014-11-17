@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccessKey
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
 
-instance ToQuery UpdateAccessKey
-
-instance ToPath UpdateAccessKey where
-    toPath = const "/"
-
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -104,4 +99,11 @@ instance AWSRequest UpdateAccessKey where
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
 
     request  = post "UpdateAccessKey"
-    response = nullaryResponse UpdateAccessKeyResponse
+    response = nullResponse UpdateAccessKeyResponse
+
+instance ToPath UpdateAccessKey where
+    toPath = const "/"
+
+instance ToHeaders UpdateAccessKey
+
+instance ToQuery UpdateAccessKey

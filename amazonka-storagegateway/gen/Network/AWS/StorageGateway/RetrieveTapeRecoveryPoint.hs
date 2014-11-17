@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ rtrpGatewayARN = lens _rtrpGatewayARN (\s a -> s { _rtrpGatewayARN = a })
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
 
-instance ToPath RetrieveTapeRecoveryPoint where
-    toPath = const "/"
-
-instance ToQuery RetrieveTapeRecoveryPoint where
-    toQuery = const mempty
-
-instance ToHeaders RetrieveTapeRecoveryPoint
-
-instance ToBody RetrieveTapeRecoveryPoint where
-    toBody = toBody . encode . _rtrpTapeARN
-
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -110,5 +99,18 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RetrieveTapeRecoveryPointResponse
-        <$> o .: "TapeARN"
+    response = jsonResponse
+
+instance FromJSON RetrieveTapeRecoveryPointResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RetrieveTapeRecoveryPoint where
+    toPath = const "/"
+
+instance ToHeaders RetrieveTapeRecoveryPoint
+
+instance ToQuery RetrieveTapeRecoveryPoint where
+    toQuery = const mempty
+
+instance ToJSON RetrieveTapeRecoveryPoint where
+    toJSON = genericToJSON jsonOptions

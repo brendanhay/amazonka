@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.EMR.ModifyInstanceGroups
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups =
     lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })
 
-instance ToPath ModifyInstanceGroups where
-    toPath = const "/"
-
-instance ToQuery ModifyInstanceGroups where
-    toQuery = const mempty
-
-instance ToHeaders ModifyInstanceGroups
-
-instance ToBody ModifyInstanceGroups where
-    toBody = toBody . encode . _migInstanceGroups
-
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +80,15 @@ instance AWSRequest ModifyInstanceGroups where
     type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
 
     request  = post
-    response = nullaryResponse ModifyInstanceGroupsResponse
+    response = nullResponse ModifyInstanceGroupsResponse
+
+instance ToPath ModifyInstanceGroups where
+    toPath = const "/"
+
+instance ToHeaders ModifyInstanceGroups
+
+instance ToQuery ModifyInstanceGroups where
+    toQuery = const mempty
+
+instance ToJSON ModifyInstanceGroups where
+    toJSON = genericToJSON jsonOptions

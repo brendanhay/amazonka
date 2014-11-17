@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CopySnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ csTargetSnapshotName :: Lens' CopySnapshot Text
 csTargetSnapshotName =
     lens _csTargetSnapshotName (\s a -> s { _csTargetSnapshotName = a })
 
-instance ToQuery CopySnapshot
-
-instance ToPath CopySnapshot where
-    toPath = const "/"
-
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest CopySnapshot where
     type Rs CopySnapshot = CopySnapshotResponse
 
     request  = post "CopySnapshot"
-    response = xmlResponse $ \h x -> CopySnapshotResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML CopySnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopySnapshotResponse"
+
+instance ToPath CopySnapshot where
+    toPath = const "/"
+
+instance ToHeaders CopySnapshot
+
+instance ToQuery CopySnapshot

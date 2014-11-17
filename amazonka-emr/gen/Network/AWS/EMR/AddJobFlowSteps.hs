@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.AddJobFlowSteps
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +55,7 @@ module Network.AWS.EMR.AddJobFlowSteps
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -88,17 +88,6 @@ ajfsJobFlowId = lens _ajfsJobFlowId (\s a -> s { _ajfsJobFlowId = a })
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a })
 
-instance ToPath AddJobFlowSteps where
-    toPath = const "/"
-
-instance ToQuery AddJobFlowSteps where
-    toQuery = const mempty
-
-instance ToHeaders AddJobFlowSteps
-
-instance ToBody AddJobFlowSteps where
-    toBody = toBody . encode . _ajfsJobFlowId
-
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -129,5 +118,18 @@ instance AWSRequest AddJobFlowSteps where
     type Rs AddJobFlowSteps = AddJobFlowStepsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddJobFlowStepsResponse
-        <$> o .: "StepIds"
+    response = jsonResponse
+
+instance FromJSON AddJobFlowStepsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddJobFlowSteps where
+    toPath = const "/"
+
+instance ToHeaders AddJobFlowSteps
+
+instance ToQuery AddJobFlowSteps where
+    toQuery = const mempty
+
+instance ToJSON AddJobFlowSteps where
+    toJSON = genericToJSON jsonOptions

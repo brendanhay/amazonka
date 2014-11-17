@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListVirtualMFADevices
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
     . mapping _Nat
 
-instance ToQuery ListVirtualMFADevices
-
-instance ToPath ListVirtualMFADevices where
-    toPath = const "/"
-
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
     , _lvmfadrMarker            :: Maybe Text
@@ -146,13 +141,15 @@ instance AWSRequest ListVirtualMFADevices where
     type Rs ListVirtualMFADevices = ListVirtualMFADevicesResponse
 
     request  = post "ListVirtualMFADevices"
-    response = xmlResponse $ \h x -> ListVirtualMFADevicesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "VirtualMFADevices"
+    response = xmlResponse
 
-instance AWSPager ListVirtualMFADevices where
-    next rq rs
-        | not (more (rs ^. lvmfadrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lvmfadMarker .~ rs ^. lvmfadrMarker
+instance FromXML ListVirtualMFADevicesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListVirtualMFADevicesResponse"
+
+instance ToPath ListVirtualMFADevices where
+    toPath = const "/"
+
+instance ToHeaders ListVirtualMFADevices
+
+instance ToQuery ListVirtualMFADevices

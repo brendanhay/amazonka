@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerListeners
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
 clblLoadBalancerName =
     lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })
 
-instance ToQuery CreateLoadBalancerListeners
-
-instance ToPath CreateLoadBalancerListeners where
-    toPath = const "/"
-
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest CreateLoadBalancerListeners where
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
 
     request  = post "CreateLoadBalancerListeners"
-    response = nullaryResponse CreateLoadBalancerListenersResponse
+    response = nullResponse CreateLoadBalancerListenersResponse
+
+instance ToPath CreateLoadBalancerListeners where
+    toPath = const "/"
+
+instance ToHeaders CreateLoadBalancerListeners
+
+instance ToQuery CreateLoadBalancerListeners

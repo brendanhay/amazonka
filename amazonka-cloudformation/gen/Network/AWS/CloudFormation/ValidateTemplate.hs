@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.ValidateTemplate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
-instance ToQuery ValidateTemplate
-
-instance ToPath ValidateTemplate where
-    toPath = const "/"
-
 data ValidateTemplateResponse = ValidateTemplateResponse
     { _vtrCapabilities       :: [Text]
     , _vtrCapabilitiesReason :: Maybe Text
@@ -139,8 +134,15 @@ instance AWSRequest ValidateTemplate where
     type Rs ValidateTemplate = ValidateTemplateResponse
 
     request  = post "ValidateTemplate"
-    response = xmlResponse $ \h x -> ValidateTemplateResponse
-        <$> x %| "Capabilities"
-        <*> x %| "CapabilitiesReason"
-        <*> x %| "Description"
-        <*> x %| "Parameters"
+    response = xmlResponse
+
+instance FromXML ValidateTemplateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ValidateTemplateResponse"
+
+instance ToPath ValidateTemplate where
+    toPath = const "/"
+
+instance ToHeaders ValidateTemplate
+
+instance ToQuery ValidateTemplate

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -81,17 +81,6 @@ ppdPipelineId = lens _ppdPipelineId (\s a -> s { _ppdPipelineId = a })
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects =
     lens _ppdPipelineObjects (\s a -> s { _ppdPipelineObjects = a })
-
-instance ToPath PutPipelineDefinition where
-    toPath = const "/"
-
-instance ToQuery PutPipelineDefinition where
-    toQuery = const mempty
-
-instance ToHeaders PutPipelineDefinition
-
-instance ToBody PutPipelineDefinition where
-    toBody = toBody . encode . _ppdPipelineId
 
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
     { _ppdrErrored            :: Bool
@@ -140,7 +129,18 @@ instance AWSRequest PutPipelineDefinition where
     type Rs PutPipelineDefinition = PutPipelineDefinitionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PutPipelineDefinitionResponse
-        <$> o .: "errored"
-        <*> o .: "validationErrors"
-        <*> o .: "validationWarnings"
+    response = jsonResponse
+
+instance FromJSON PutPipelineDefinitionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PutPipelineDefinition where
+    toPath = const "/"
+
+instance ToHeaders PutPipelineDefinition
+
+instance ToQuery PutPipelineDefinition where
+    toQuery = const mempty
+
+instance ToJSON PutPipelineDefinition where
+    toJSON = genericToJSON jsonOptions

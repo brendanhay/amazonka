@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.DeleteMessage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ dmQueueUrl = lens _dmQueueUrl (\s a -> s { _dmQueueUrl = a })
 dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
 
-instance ToQuery DeleteMessage
-
-instance ToPath DeleteMessage where
-    toPath = const "/"
-
 data DeleteMessageResponse = DeleteMessageResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest DeleteMessage where
     type Rs DeleteMessage = DeleteMessageResponse
 
     request  = post "DeleteMessage"
-    response = nullaryResponse DeleteMessageResponse
+    response = nullResponse DeleteMessageResponse
+
+instance ToPath DeleteMessage where
+    toPath = const "/"
+
+instance ToHeaders DeleteMessage
+
+instance ToQuery DeleteMessage

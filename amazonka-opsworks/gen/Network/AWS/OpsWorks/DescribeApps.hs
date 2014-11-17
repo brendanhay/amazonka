@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeApps
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeApps
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ daAppIds = lens _daAppIds (\s a -> s { _daAppIds = a })
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\s a -> s { _daStackId = a })
 
-instance ToPath DescribeApps where
-    toPath = const "/"
-
-instance ToQuery DescribeApps where
-    toQuery = const mempty
-
-instance ToHeaders DescribeApps
-
-instance ToBody DescribeApps where
-    toBody = toBody . encode . _daStackId
-
 newtype DescribeAppsResponse = DescribeAppsResponse
     { _darApps :: [App]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -117,5 +106,18 @@ instance AWSRequest DescribeApps where
     type Rs DescribeApps = DescribeAppsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeAppsResponse
-        <$> o .: "Apps"
+    response = jsonResponse
+
+instance FromJSON DescribeAppsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeApps where
+    toPath = const "/"
+
+instance ToHeaders DescribeApps
+
+instance ToQuery DescribeApps where
+    toQuery = const mempty
+
+instance ToJSON DescribeApps where
+    toJSON = genericToJSON jsonOptions

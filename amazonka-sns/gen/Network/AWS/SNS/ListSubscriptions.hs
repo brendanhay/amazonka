@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.ListSubscriptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,11 +64,6 @@ listSubscriptions = ListSubscriptions
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
-instance ToQuery ListSubscriptions
-
-instance ToPath ListSubscriptions where
-    toPath = const "/"
-
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrNextToken     :: Maybe Text
     , _lsrSubscriptions :: [Subscription]
@@ -102,10 +97,15 @@ instance AWSRequest ListSubscriptions where
     type Rs ListSubscriptions = ListSubscriptionsResponse
 
     request  = post "ListSubscriptions"
-    response = xmlResponse $ \h x -> ListSubscriptionsResponse
-        <$> x %| "NextToken"
-        <*> x %| "Subscriptions"
+    response = xmlResponse
 
-instance AWSPager ListSubscriptions where
-    next rq rs = (\x -> rq & lsNextToken ?~ x)
-        <$> (rs ^. lsrNextToken)
+instance FromXML ListSubscriptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSubscriptionsResponse"
+
+instance ToPath ListSubscriptions where
+    toPath = const "/"
+
+instance ToHeaders ListSubscriptions
+
+instance ToQuery ListSubscriptions

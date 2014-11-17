@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.GetEventSource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.Lambda.GetEventSource
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ getEventSource p1 = GetEventSource
 -- | The AWS Lambda assigned ID of the event source mapping.
 gesUUID :: Lens' GetEventSource Text
 gesUUID = lens _gesUUID (\s a -> s { _gesUUID = a })
-
-instance ToPath GetEventSource where
-    toPath GetEventSource{..} = mconcat
-        [ "/2014-11-13/event-source-mappings/"
-        , toText _gesUUID
-        ]
-
-instance ToQuery GetEventSource where
-    toQuery = const mempty
-
-instance ToHeaders GetEventSource
 
 data GetEventSourceResponse = GetEventSourceResponse
     { _gesrBatchSize    :: Maybe Int
@@ -182,13 +171,21 @@ instance AWSRequest GetEventSource where
     type Rs GetEventSource = GetEventSourceResponse
 
     request  = get
-    response = jsonResponse $ \h o -> GetEventSourceResponse
-        <$> o .: "BatchSize"
-        <*> o .: "EventSource"
-        <*> o .: "FunctionName"
-        <*> o .: "IsActive"
-        <*> o .: "LastModified"
-        <*> o .: "Parameters"
-        <*> o .: "Role"
-        <*> o .: "Status"
-        <*> o .: "UUID"
+    response = jsonResponse
+
+instance FromJSON GetEventSourceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetEventSource where
+    toPath GetEventSource{..} = mconcat
+        [ "/2014-11-13/event-source-mappings/"
+        , toText _gesUUID
+        ]
+
+instance ToHeaders GetEventSource
+
+instance ToQuery GetEventSource where
+    toQuery = const mempty
+
+instance ToJSON GetEventSource where
+    toJSON = genericToJSON jsonOptions

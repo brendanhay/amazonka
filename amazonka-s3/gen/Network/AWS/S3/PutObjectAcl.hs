@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutObjectAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.S3.PutObjectAcl
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -141,31 +141,6 @@ poaGrantWriteACP = lens _poaGrantWriteACP (\s a -> s { _poaGrantWriteACP = a })
 poaKey :: Lens' PutObjectAcl Text
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
 
-instance ToPath PutObjectAcl where
-    toPath PutObjectAcl{..} = mconcat
-        [ "/"
-        , toText _poaBucket
-        , "/"
-        , toText _poaKey
-        ]
-
-instance ToQuery PutObjectAcl where
-    toQuery = const "acl"
-
-instance ToHeaders PutObjectAcl where
-    toHeaders PutObjectAcl{..} = mconcat
-        [ "x-amz-acl"                =: _poaACL
-        , "Content-MD5"              =: _poaContentMD5
-        , "x-amz-grant-full-control" =: _poaGrantFullControl
-        , "x-amz-grant-read"         =: _poaGrantRead
-        , "x-amz-grant-read-acp"     =: _poaGrantReadACP
-        , "x-amz-grant-write"        =: _poaGrantWrite
-        , "x-amz-grant-write-acp"    =: _poaGrantWriteACP
-        ]
-
-instance ToBody PutObjectAcl where
-    toBody = toBody . encodeXML . _poaAccessControlPolicy
-
 data PutObjectAclResponse = PutObjectAclResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -178,4 +153,30 @@ instance AWSRequest PutObjectAcl where
     type Rs PutObjectAcl = PutObjectAclResponse
 
     request  = put
-    response = nullaryResponse PutObjectAclResponse
+    response = nullResponse PutObjectAclResponse
+
+instance ToPath PutObjectAcl where
+    toPath PutObjectAcl{..} = mconcat
+        [ "/"
+        , toText _poaBucket
+        , "/"
+        , toText _poaKey
+        ]
+
+instance ToHeaders PutObjectAcl where
+    toHeaders PutObjectAcl{..} = mconcat
+        [ "x-amz-acl"                =: _poaACL
+        , "Content-MD5"              =: _poaContentMD5
+        , "x-amz-grant-full-control" =: _poaGrantFullControl
+        , "x-amz-grant-read"         =: _poaGrantRead
+        , "x-amz-grant-read-acp"     =: _poaGrantReadACP
+        , "x-amz-grant-write"        =: _poaGrantWrite
+        , "x-amz-grant-write-acp"    =: _poaGrantWriteACP
+        ]
+
+instance ToQuery PutObjectAcl where
+    toQuery = const "acl"
+
+instance ToXML PutObjectAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutObjectAcl"

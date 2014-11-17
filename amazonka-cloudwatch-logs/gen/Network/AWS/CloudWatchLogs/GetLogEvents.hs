@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.GetLogEvents
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -131,17 +131,6 @@ gleStartTime :: Lens' GetLogEvents (Maybe Natural)
 gleStartTime = lens _gleStartTime (\s a -> s { _gleStartTime = a })
     . mapping _Nat
 
-instance ToPath GetLogEvents where
-    toPath = const "/"
-
-instance ToQuery GetLogEvents where
-    toQuery = const mempty
-
-instance ToHeaders GetLogEvents
-
-instance ToBody GetLogEvents where
-    toBody = toBody . encode . _gleLogGroupName
-
 data GetLogEventsResponse = GetLogEventsResponse
     { _glerEvents            :: [OutputLogEvent]
     , _glerNextBackwardToken :: Maybe Text
@@ -181,7 +170,18 @@ instance AWSRequest GetLogEvents where
     type Rs GetLogEvents = GetLogEventsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetLogEventsResponse
-        <$> o .: "events"
-        <*> o .: "nextBackwardToken"
-        <*> o .: "nextForwardToken"
+    response = jsonResponse
+
+instance FromJSON GetLogEventsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetLogEvents where
+    toPath = const "/"
+
+instance ToHeaders GetLogEvents
+
+instance ToQuery GetLogEvents where
+    toQuery = const mempty
+
+instance ToJSON GetLogEvents where
+    toJSON = genericToJSON jsonOptions

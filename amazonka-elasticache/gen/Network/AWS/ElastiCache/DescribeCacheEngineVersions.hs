@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheEngineVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -120,11 +120,6 @@ dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
 dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
 dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
 
-instance ToQuery DescribeCacheEngineVersions
-
-instance ToPath DescribeCacheEngineVersions where
-    toPath = const "/"
-
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrCacheEngineVersions :: [CacheEngineVersion]
     , _dcevrMarker              :: Maybe Text
@@ -160,10 +155,15 @@ instance AWSRequest DescribeCacheEngineVersions where
     type Rs DescribeCacheEngineVersions = DescribeCacheEngineVersionsResponse
 
     request  = post "DescribeCacheEngineVersions"
-    response = xmlResponse $ \h x -> DescribeCacheEngineVersionsResponse
-        <$> x %| "CacheEngineVersions"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeCacheEngineVersions where
-    next rq rs = (\x -> rq & dcevMarker ?~ x)
-        <$> (rs ^. dcevrMarker)
+instance FromXML DescribeCacheEngineVersionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCacheEngineVersionsResponse"
+
+instance ToPath DescribeCacheEngineVersions where
+    toPath = const "/"
+
+instance ToHeaders DescribeCacheEngineVersions
+
+instance ToQuery DescribeCacheEngineVersions

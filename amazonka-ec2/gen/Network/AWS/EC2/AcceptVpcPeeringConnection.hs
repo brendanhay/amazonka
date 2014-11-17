@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AcceptVpcPeeringConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
         (\s a -> s { _avpcVpcPeeringConnectionId = a })
 
-instance ToQuery AcceptVpcPeeringConnection
-
-instance ToPath AcceptVpcPeeringConnection where
-    toPath = const "/"
-
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Eq, Show, Generic)
@@ -104,5 +99,15 @@ instance AWSRequest AcceptVpcPeeringConnection where
     type Rs AcceptVpcPeeringConnection = AcceptVpcPeeringConnectionResponse
 
     request  = post "AcceptVpcPeeringConnection"
-    response = xmlResponse $ \h x -> AcceptVpcPeeringConnectionResponse
-        <$> x %| "vpcPeeringConnection"
+    response = xmlResponse
+
+instance FromXML AcceptVpcPeeringConnectionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResponse"
+
+instance ToPath AcceptVpcPeeringConnection where
+    toPath = const "/"
+
+instance ToHeaders AcceptVpcPeeringConnection
+
+instance ToQuery AcceptVpcPeeringConnection

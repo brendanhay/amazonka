@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.ListBuckets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.ListBuckets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -47,14 +47,6 @@ data ListBuckets = ListBuckets
 -- | 'ListBuckets' constructor.
 listBuckets :: ListBuckets
 listBuckets = ListBuckets
-
-instance ToPath ListBuckets where
-    toPath = const "/"
-
-instance ToQuery ListBuckets where
-    toQuery = const mempty
-
-instance ToHeaders ListBuckets
 
 data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: [Bucket]
@@ -86,6 +78,15 @@ instance AWSRequest ListBuckets where
     type Rs ListBuckets = ListBucketsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListBucketsResponse
-        <$> x %| "Buckets"
-        <*> x %| "Owner"
+    response = xmlResponse
+
+instance FromXML ListBucketsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListBucketsResponse"
+
+instance ToPath ListBuckets where
+    toPath = const "/"
+
+instance ToHeaders ListBuckets
+
+instance ToQuery ListBuckets

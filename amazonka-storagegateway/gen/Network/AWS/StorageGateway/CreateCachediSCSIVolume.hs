@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -120,17 +120,6 @@ ccscsivVolumeSizeInBytes =
     lens _ccscsivVolumeSizeInBytes
         (\s a -> s { _ccscsivVolumeSizeInBytes = a })
 
-instance ToPath CreateCachediSCSIVolume where
-    toPath = const "/"
-
-instance ToQuery CreateCachediSCSIVolume where
-    toQuery = const mempty
-
-instance ToHeaders CreateCachediSCSIVolume
-
-instance ToBody CreateCachediSCSIVolume where
-    toBody = toBody . encode . _ccscsivGatewayARN
-
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrTargetARN :: Maybe Text
     , _ccscsivrVolumeARN :: Maybe Text
@@ -163,6 +152,18 @@ instance AWSRequest CreateCachediSCSIVolume where
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateCachediSCSIVolumeResponse
-        <$> o .: "TargetARN"
-        <*> o .: "VolumeARN"
+    response = jsonResponse
+
+instance FromJSON CreateCachediSCSIVolumeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateCachediSCSIVolume where
+    toPath = const "/"
+
+instance ToHeaders CreateCachediSCSIVolume
+
+instance ToQuery CreateCachediSCSIVolume where
+    toQuery = const mempty
+
+instance ToJSON CreateCachediSCSIVolume where
+    toJSON = genericToJSON jsonOptions

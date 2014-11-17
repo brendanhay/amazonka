@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -116,17 +116,6 @@ acoiOwnerAccount = lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
 -- None.
 acoiVlan :: Lens' AllocateConnectionOnInterconnect Int
 acoiVlan = lens _acoiVlan (\s a -> s { _acoiVlan = a })
-
-instance ToPath AllocateConnectionOnInterconnect where
-    toPath = const "/"
-
-instance ToQuery AllocateConnectionOnInterconnect where
-    toQuery = const mempty
-
-instance ToHeaders AllocateConnectionOnInterconnect
-
-instance ToBody AllocateConnectionOnInterconnect where
-    toBody = toBody . encode . _acoiBandwidth
 
 data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
     { _acoirBandwidth       :: Maybe Text
@@ -213,13 +202,18 @@ instance AWSRequest AllocateConnectionOnInterconnect where
     type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AllocateConnectionOnInterconnectResponse
-        <$> o .: "bandwidth"
-        <*> o .: "connectionId"
-        <*> o .: "connectionName"
-        <*> o .: "connectionState"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "partnerName"
-        <*> o .: "region"
-        <*> o .: "vlan"
+    response = jsonResponse
+
+instance FromJSON AllocateConnectionOnInterconnectResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AllocateConnectionOnInterconnect where
+    toPath = const "/"
+
+instance ToHeaders AllocateConnectionOnInterconnect
+
+instance ToQuery AllocateConnectionOnInterconnect where
+    toQuery = const mempty
+
+instance ToJSON AllocateConnectionOnInterconnect where
+    toJSON = genericToJSON jsonOptions

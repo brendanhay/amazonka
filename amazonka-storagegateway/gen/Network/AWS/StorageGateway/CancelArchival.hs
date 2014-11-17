@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelArchival
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.CancelArchival
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ caGatewayARN = lens _caGatewayARN (\s a -> s { _caGatewayARN = a })
 caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\s a -> s { _caTapeARN = a })
 
-instance ToPath CancelArchival where
-    toPath = const "/"
-
-instance ToQuery CancelArchival where
-    toQuery = const mempty
-
-instance ToHeaders CancelArchival
-
-instance ToBody CancelArchival where
-    toBody = toBody . encode . _caGatewayARN
-
 newtype CancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -108,5 +97,18 @@ instance AWSRequest CancelArchival where
     type Rs CancelArchival = CancelArchivalResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CancelArchivalResponse
-        <$> o .: "TapeARN"
+    response = jsonResponse
+
+instance FromJSON CancelArchivalResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CancelArchival where
+    toPath = const "/"
+
+instance ToHeaders CancelArchival
+
+instance ToQuery CancelArchival where
+    toQuery = const mempty
+
+instance ToJSON CancelArchival where
+    toJSON = genericToJSON jsonOptions

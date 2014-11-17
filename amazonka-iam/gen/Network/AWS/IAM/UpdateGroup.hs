@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
 
-instance ToQuery UpdateGroup
-
-instance ToPath UpdateGroup where
-    toPath = const "/"
-
 data UpdateGroupResponse = UpdateGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest UpdateGroup where
     type Rs UpdateGroup = UpdateGroupResponse
 
     request  = post "UpdateGroup"
-    response = nullaryResponse UpdateGroupResponse
+    response = nullResponse UpdateGroupResponse
+
+instance ToPath UpdateGroup where
+    toPath = const "/"
+
+instance ToHeaders UpdateGroup
+
+instance ToQuery UpdateGroup

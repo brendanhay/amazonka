@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.StartInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.OpsWorks.StartInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ startInstance p1 = StartInstance
 si1InstanceId :: Lens' StartInstance Text
 si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
 
-instance ToPath StartInstance where
-    toPath = const "/"
-
-instance ToQuery StartInstance where
-    toQuery = const mempty
-
-instance ToHeaders StartInstance
-
-instance ToBody StartInstance where
-    toBody = toBody . encode . _si1InstanceId
-
 data StartInstanceResponse = StartInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest StartInstance where
     type Rs StartInstance = StartInstanceResponse
 
     request  = post
-    response = nullaryResponse StartInstanceResponse
+    response = nullResponse StartInstanceResponse
+
+instance ToPath StartInstance where
+    toPath = const "/"
+
+instance ToHeaders StartInstance
+
+instance ToQuery StartInstance where
+    toQuery = const mempty
+
+instance ToJSON StartInstance where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.CreateStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,7 +62,7 @@ module Network.AWS.Kinesis.CreateStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -105,17 +105,6 @@ csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
 csStreamName :: Lens' CreateStream Text
 csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
 
-instance ToPath CreateStream where
-    toPath = const "/"
-
-instance ToQuery CreateStream where
-    toQuery = const mempty
-
-instance ToHeaders CreateStream
-
-instance ToBody CreateStream where
-    toBody = toBody . encode . _csStreamName
-
 data CreateStreamResponse = CreateStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -128,4 +117,15 @@ instance AWSRequest CreateStream where
     type Rs CreateStream = CreateStreamResponse
 
     request  = post
-    response = nullaryResponse CreateStreamResponse
+    response = nullResponse CreateStreamResponse
+
+instance ToPath CreateStream where
+    toPath = const "/"
+
+instance ToHeaders CreateStream
+
+instance ToQuery CreateStream where
+    toQuery = const mempty
+
+instance ToJSON CreateStream where
+    toJSON = genericToJSON jsonOptions

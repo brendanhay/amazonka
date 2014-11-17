@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ describeChapCredentials p1 = DescribeChapCredentials
 -- for specified VolumeARN.
 dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
-
-instance ToPath DescribeChapCredentials where
-    toPath = const "/"
-
-instance ToQuery DescribeChapCredentials where
-    toQuery = const mempty
-
-instance ToHeaders DescribeChapCredentials
-
-instance ToBody DescribeChapCredentials where
-    toBody = toBody . encode . _dccTargetARN
 
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrChapCredentials :: [ChapInfo]
@@ -117,5 +106,18 @@ instance AWSRequest DescribeChapCredentials where
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeChapCredentialsResponse
-        <$> o .: "ChapCredentials"
+    response = jsonResponse
+
+instance FromJSON DescribeChapCredentialsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeChapCredentials where
+    toPath = const "/"
+
+instance ToHeaders DescribeChapCredentials
+
+instance ToQuery DescribeChapCredentials where
+    toQuery = const mempty
+
+instance ToJSON DescribeChapCredentials where
+    toJSON = genericToJSON jsonOptions

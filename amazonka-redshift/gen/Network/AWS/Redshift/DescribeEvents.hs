@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeEvents
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -152,11 +152,6 @@ deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeEvents
-
-instance ToPath DescribeEvents where
-    toPath = const "/"
-
 data DescribeEventsResponse = DescribeEventsResponse
     { _derEvents :: [Event]
     , _derMarker :: Maybe Text
@@ -194,10 +189,15 @@ instance AWSRequest DescribeEvents where
     type Rs DescribeEvents = DescribeEventsResponse
 
     request  = post "DescribeEvents"
-    response = xmlResponse $ \h x -> DescribeEventsResponse
-        <$> x %| "Events"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeEvents where
-    next rq rs = (\x -> rq & deMarker ?~ x)
-        <$> (rs ^. derMarker)
+instance FromXML DescribeEventsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEventsResponse"
+
+instance ToPath DescribeEvents where
+    toPath = const "/"
+
+instance ToHeaders DescribeEvents
+
+instance ToQuery DescribeEvents

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformEndpoint
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -112,11 +112,6 @@ cpePlatformApplicationArn =
 cpeToken :: Lens' CreatePlatformEndpoint Text
 cpeToken = lens _cpeToken (\s a -> s { _cpeToken = a })
 
-instance ToQuery CreatePlatformEndpoint
-
-instance ToPath CreatePlatformEndpoint where
-    toPath = const "/"
-
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -141,5 +136,15 @@ instance AWSRequest CreatePlatformEndpoint where
     type Rs CreatePlatformEndpoint = CreatePlatformEndpointResponse
 
     request  = post "CreatePlatformEndpoint"
-    response = xmlResponse $ \h x -> CreatePlatformEndpointResponse
-        <$> x %| "EndpointArn"
+    response = xmlResponse
+
+instance FromXML CreatePlatformEndpointResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreatePlatformEndpointResponse"
+
+instance ToPath CreatePlatformEndpoint where
+    toPath = const "/"
+
+instance ToHeaders CreatePlatformEndpoint
+
+instance ToQuery CreatePlatformEndpoint

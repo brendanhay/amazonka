@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.ListTagsForStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.Kinesis.ListTagsForStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -88,17 +88,6 @@ ltfsLimit = lens _ltfsLimit (\s a -> s { _ltfsLimit = a })
 ltfsStreamName :: Lens' ListTagsForStream Text
 ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 
-instance ToPath ListTagsForStream where
-    toPath = const "/"
-
-instance ToQuery ListTagsForStream where
-    toQuery = const mempty
-
-instance ToHeaders ListTagsForStream
-
-instance ToBody ListTagsForStream where
-    toBody = toBody . encode . _ltfsStreamName
-
 data ListTagsForStreamResponse = ListTagsForStreamResponse
     { _ltfsrHasMoreTags :: Bool
     , _ltfsrTags        :: [Tag]
@@ -134,6 +123,18 @@ instance AWSRequest ListTagsForStream where
     type Rs ListTagsForStream = ListTagsForStreamResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListTagsForStreamResponse
-        <$> o .: "HasMoreTags"
-        <*> o .: "Tags"
+    response = jsonResponse
+
+instance FromJSON ListTagsForStreamResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListTagsForStream where
+    toPath = const "/"
+
+instance ToHeaders ListTagsForStream
+
+instance ToQuery ListTagsForStream where
+    toQuery = const mempty
+
+instance ToJSON ListTagsForStream where
+    toJSON = genericToJSON jsonOptions

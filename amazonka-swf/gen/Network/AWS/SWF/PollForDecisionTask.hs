@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.PollForDecisionTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,7 +75,7 @@ module Network.AWS.SWF.PollForDecisionTask
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -158,17 +158,6 @@ pfdtReverseOrder = lens _pfdtReverseOrder (\s a -> s { _pfdtReverseOrder = a })
 -- &quot;arn&quot;.
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\s a -> s { _pfdtTaskList = a })
-
-instance ToPath PollForDecisionTask where
-    toPath = const "/"
-
-instance ToQuery PollForDecisionTask where
-    toQuery = const mempty
-
-instance ToHeaders PollForDecisionTask
-
-instance ToBody PollForDecisionTask where
-    toBody = toBody . encode . _pfdtDomain
 
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse
     { _pfdtrEvents                 :: [HistoryEvent]
@@ -261,11 +250,18 @@ instance AWSRequest PollForDecisionTask where
     type Rs PollForDecisionTask = PollForDecisionTaskResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PollForDecisionTaskResponse
-        <$> o .: "events"
-        <*> o .: "nextPageToken"
-        <*> o .: "previousStartedEventId"
-        <*> o .: "startedEventId"
-        <*> o .: "taskToken"
-        <*> o .: "workflowExecution"
-        <*> o .: "workflowType"
+    response = jsonResponse
+
+instance FromJSON PollForDecisionTaskResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PollForDecisionTask where
+    toPath = const "/"
+
+instance ToHeaders PollForDecisionTask
+
+instance ToQuery PollForDecisionTask where
+    toQuery = const mempty
+
+instance ToJSON PollForDecisionTask where
+    toJSON = genericToJSON jsonOptions

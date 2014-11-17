@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.SetIdentityPoolConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -73,21 +73,6 @@ sipcIdentityPoolId =
 -- | Configuration options to be applied to the identity pool.
 sipcPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
 sipcPushSync = lens _sipcPushSync (\s a -> s { _sipcPushSync = a })
-
-instance ToPath SetIdentityPoolConfiguration where
-    toPath SetIdentityPoolConfiguration{..} = mconcat
-        [ "/identitypools/"
-        , toText _sipcIdentityPoolId
-        , "/configuration"
-        ]
-
-instance ToQuery SetIdentityPoolConfiguration where
-    toQuery = const mempty
-
-instance ToHeaders SetIdentityPoolConfiguration
-
-instance ToBody SetIdentityPoolConfiguration where
-    toBody = toBody . encode . _sipcPushSync
 
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     { _sipcrIdentityPoolId :: Maybe Text
@@ -124,6 +109,22 @@ instance AWSRequest SetIdentityPoolConfiguration where
     type Rs SetIdentityPoolConfiguration = SetIdentityPoolConfigurationResponse
 
     request  = post
-    response = jsonResponse $ \h o -> SetIdentityPoolConfigurationResponse
-        <$> o .: "IdentityPoolId"
-        <*> o .: "PushSync"
+    response = jsonResponse
+
+instance FromJSON SetIdentityPoolConfigurationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath SetIdentityPoolConfiguration where
+    toPath SetIdentityPoolConfiguration{..} = mconcat
+        [ "/identitypools/"
+        , toText _sipcIdentityPoolId
+        , "/configuration"
+        ]
+
+instance ToHeaders SetIdentityPoolConfiguration
+
+instance ToQuery SetIdentityPoolConfiguration where
+    toQuery = const mempty
+
+instance ToJSON SetIdentityPoolConfiguration where
+    toJSON = genericToJSON jsonOptions

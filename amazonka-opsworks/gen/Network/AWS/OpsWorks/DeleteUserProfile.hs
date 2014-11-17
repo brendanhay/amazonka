@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ deleteUserProfile p1 = DeleteUserProfile
 dupIamUserArn :: Lens' DeleteUserProfile Text
 dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
 
-instance ToPath DeleteUserProfile where
-    toPath = const "/"
-
-instance ToQuery DeleteUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders DeleteUserProfile
-
-instance ToBody DeleteUserProfile where
-    toBody = toBody . encode . _dupIamUserArn
-
 data DeleteUserProfileResponse = DeleteUserProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,15 @@ instance AWSRequest DeleteUserProfile where
     type Rs DeleteUserProfile = DeleteUserProfileResponse
 
     request  = post
-    response = nullaryResponse DeleteUserProfileResponse
+    response = nullResponse DeleteUserProfileResponse
+
+instance ToPath DeleteUserProfile where
+    toPath = const "/"
+
+instance ToHeaders DeleteUserProfile
+
+instance ToQuery DeleteUserProfile where
+    toQuery = const mempty
+
+instance ToJSON DeleteUserProfile where
+    toJSON = genericToJSON jsonOptions

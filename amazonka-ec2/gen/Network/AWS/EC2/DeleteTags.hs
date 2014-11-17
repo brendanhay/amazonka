@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a })
 dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a })
 
-instance ToQuery DeleteTags
-
-instance ToPath DeleteTags where
-    toPath = const "/"
-
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +94,11 @@ instance AWSRequest DeleteTags where
     type Rs DeleteTags = DeleteTagsResponse
 
     request  = post "DeleteTags"
-    response = nullaryResponse DeleteTagsResponse
+    response = nullResponse DeleteTagsResponse
+
+instance ToPath DeleteTags where
+    toPath = const "/"
+
+instance ToHeaders DeleteTags
+
+instance ToQuery DeleteTags

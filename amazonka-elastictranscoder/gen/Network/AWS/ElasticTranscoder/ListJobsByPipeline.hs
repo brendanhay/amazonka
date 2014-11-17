@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -87,20 +87,6 @@ ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
 ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
 
-instance ToPath ListJobsByPipeline where
-    toPath ListJobsByPipeline{..} = mconcat
-        [ "/2012-09-25/jobsByPipeline/"
-        , toText _ljbpPipelineId
-        ]
-
-instance ToQuery ListJobsByPipeline where
-    toQuery ListJobsByPipeline{..} = mconcat
-        [ "Ascending" =? _ljbpAscending
-        , "PageToken" =? _ljbpPageToken
-        ]
-
-instance ToHeaders ListJobsByPipeline
-
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs          :: [Job']
     , _ljbprNextPageToken :: Maybe Job'
@@ -137,6 +123,24 @@ instance AWSRequest ListJobsByPipeline where
     type Rs ListJobsByPipeline = ListJobsByPipelineResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListJobsByPipelineResponse
-        <$> o .: "Jobs"
-        <*> o .: "NextPageToken"
+    response = jsonResponse
+
+instance FromJSON ListJobsByPipelineResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListJobsByPipeline where
+    toPath ListJobsByPipeline{..} = mconcat
+        [ "/2012-09-25/jobsByPipeline/"
+        , toText _ljbpPipelineId
+        ]
+
+instance ToHeaders ListJobsByPipeline
+
+instance ToQuery ListJobsByPipeline where
+    toQuery ListJobsByPipeline{..} = mconcat
+        [ "Ascending" =? _ljbpAscending
+        , "PageToken" =? _ljbpPageToken
+        ]
+
+instance ToJSON ListJobsByPipeline where
+    toJSON = genericToJSON jsonOptions

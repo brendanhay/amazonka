@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
 asaSnapshotIdentifier =
     lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })
 
-instance ToQuery AuthorizeSnapshotAccess
-
-instance ToPath AuthorizeSnapshotAccess where
-    toPath = const "/"
-
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -119,5 +114,15 @@ instance AWSRequest AuthorizeSnapshotAccess where
     type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse
 
     request  = post "AuthorizeSnapshotAccess"
-    response = xmlResponse $ \h x -> AuthorizeSnapshotAccessResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML AuthorizeSnapshotAccessResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResponse"
+
+instance ToPath AuthorizeSnapshotAccess where
+    toPath = const "/"
+
+instance ToHeaders AuthorizeSnapshotAccess
+
+instance ToQuery AuthorizeSnapshotAccess

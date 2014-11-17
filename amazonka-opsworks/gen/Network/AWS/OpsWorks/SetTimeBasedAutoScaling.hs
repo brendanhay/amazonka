@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -75,17 +75,6 @@ stbasAutoScalingSchedule =
 stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
 
-instance ToPath SetTimeBasedAutoScaling where
-    toPath = const "/"
-
-instance ToQuery SetTimeBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToHeaders SetTimeBasedAutoScaling
-
-instance ToBody SetTimeBasedAutoScaling where
-    toBody = toBody . encode . _stbasInstanceId
-
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -98,4 +87,15 @@ instance AWSRequest SetTimeBasedAutoScaling where
     type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
 
     request  = post
-    response = nullaryResponse SetTimeBasedAutoScalingResponse
+    response = nullResponse SetTimeBasedAutoScalingResponse
+
+instance ToPath SetTimeBasedAutoScaling where
+    toPath = const "/"
+
+instance ToHeaders SetTimeBasedAutoScaling
+
+instance ToQuery SetTimeBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToJSON SetTimeBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions

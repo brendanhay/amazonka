@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
 -- | The unique identifier for the Trusted Advisor check.
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
-
-instance ToPath RefreshTrustedAdvisorCheck where
-    toPath = const "/"
-
-instance ToQuery RefreshTrustedAdvisorCheck where
-    toQuery = const mempty
-
-instance ToHeaders RefreshTrustedAdvisorCheck
-
-instance ToBody RefreshTrustedAdvisorCheck where
-    toBody = toBody . encode . _rtacCheckId
 
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
@@ -105,5 +94,18 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RefreshTrustedAdvisorCheckResponse
-        <$> o .: "status"
+    response = jsonResponse
+
+instance FromJSON RefreshTrustedAdvisorCheckResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RefreshTrustedAdvisorCheck where
+    toPath = const "/"
+
+instance ToHeaders RefreshTrustedAdvisorCheck
+
+instance ToQuery RefreshTrustedAdvisorCheck where
+    toQuery = const mempty
+
+instance ToJSON RefreshTrustedAdvisorCheck where
+    toJSON = genericToJSON jsonOptions

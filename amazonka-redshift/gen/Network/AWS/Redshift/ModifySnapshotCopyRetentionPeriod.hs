@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Int
 mscrpRetentionPeriod =
     lens _mscrpRetentionPeriod (\s a -> s { _mscrpRetentionPeriod = a })
 
-instance ToQuery ModifySnapshotCopyRetentionPeriod
-
-instance ToPath ModifySnapshotCopyRetentionPeriod where
-    toPath = const "/"
-
 newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -110,5 +105,15 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod where
     type Rs ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriodResponse
 
     request  = post "ModifySnapshotCopyRetentionPeriod"
-    response = xmlResponse $ \h x -> ModifySnapshotCopyRetentionPeriodResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifySnapshotCopyRetentionPeriodResponse"
+
+instance ToPath ModifySnapshotCopyRetentionPeriod where
+    toPath = const "/"
+
+instance ToHeaders ModifySnapshotCopyRetentionPeriod
+
+instance ToQuery ModifySnapshotCopyRetentionPeriod

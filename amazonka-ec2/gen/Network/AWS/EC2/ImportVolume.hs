@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ImportVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ ivImage = lens _ivImage (\s a -> s { _ivImage = a })
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
 
-instance ToQuery ImportVolume
-
-instance ToPath ImportVolume where
-    toPath = const "/"
-
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
     } deriving (Eq, Show, Generic)
@@ -130,5 +125,15 @@ instance AWSRequest ImportVolume where
     type Rs ImportVolume = ImportVolumeResponse
 
     request  = post "ImportVolume"
-    response = xmlResponse $ \h x -> ImportVolumeResponse
-        <$> x %| "conversionTask"
+    response = xmlResponse
+
+instance FromXML ImportVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImportVolumeResponse"
+
+instance ToPath ImportVolume where
+    toPath = const "/"
+
+instance ToHeaders ImportVolume
+
+instance ToQuery ImportVolume

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.GetTemplateSummary
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
-instance ToQuery GetTemplateSummary
-
-instance ToPath GetTemplateSummary where
-    toPath = const "/"
-
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse
     { _gtsrCapabilities       :: [Text]
     , _gtsrCapabilitiesReason :: Maybe Text
@@ -170,9 +165,15 @@ instance AWSRequest GetTemplateSummary where
     type Rs GetTemplateSummary = GetTemplateSummaryResponse
 
     request  = post "GetTemplateSummary"
-    response = xmlResponse $ \h x -> GetTemplateSummaryResponse
-        <$> x %| "Capabilities"
-        <*> x %| "CapabilitiesReason"
-        <*> x %| "Description"
-        <*> x %| "Parameters"
-        <*> x %| "Version"
+    response = xmlResponse
+
+instance FromXML GetTemplateSummaryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetTemplateSummaryResponse"
+
+instance ToPath GetTemplateSummary where
+    toPath = const "/"
+
+instance ToHeaders GetTemplateSummary
+
+instance ToQuery GetTemplateSummary

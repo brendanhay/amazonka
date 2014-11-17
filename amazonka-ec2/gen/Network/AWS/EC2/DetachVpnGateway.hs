@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DetachVpnGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ dvg1VpcId = lens _dvg1VpcId (\s a -> s { _dvg1VpcId = a })
 dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
 
-instance ToQuery DetachVpnGateway
-
-instance ToPath DetachVpnGateway where
-    toPath = const "/"
-
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +95,11 @@ instance AWSRequest DetachVpnGateway where
     type Rs DetachVpnGateway = DetachVpnGatewayResponse
 
     request  = post "DetachVpnGateway"
-    response = nullaryResponse DetachVpnGatewayResponse
+    response = nullResponse DetachVpnGatewayResponse
+
+instance ToPath DetachVpnGateway where
+    toPath = const "/"
+
+instance ToHeaders DetachVpnGateway
+
+instance ToQuery DetachVpnGateway

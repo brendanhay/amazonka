@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DisableGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.DisableGateway
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ disableGateway p1 = DisableGateway
 
 dg1GatewayARN :: Lens' DisableGateway Text
 dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
-
-instance ToPath DisableGateway where
-    toPath = const "/"
-
-instance ToQuery DisableGateway where
-    toQuery = const mempty
-
-instance ToHeaders DisableGateway
-
-instance ToBody DisableGateway where
-    toBody = toBody . encode . _dg1GatewayARN
 
 newtype DisableGatewayResponse = DisableGatewayResponse
     { _dgr1GatewayARN :: Maybe Text
@@ -99,5 +88,18 @@ instance AWSRequest DisableGateway where
     type Rs DisableGateway = DisableGatewayResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DisableGatewayResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON DisableGatewayResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DisableGateway where
+    toPath = const "/"
+
+instance ToHeaders DisableGateway
+
+instance ToQuery DisableGateway where
+    toQuery = const mempty
+
+instance ToJSON DisableGateway where
+    toJSON = genericToJSON jsonOptions

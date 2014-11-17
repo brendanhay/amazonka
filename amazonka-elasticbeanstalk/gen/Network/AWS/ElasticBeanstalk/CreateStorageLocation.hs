@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,11 +47,6 @@ data CreateStorageLocation = CreateStorageLocation
 createStorageLocation :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation
 
-instance ToQuery CreateStorageLocation
-
-instance ToPath CreateStorageLocation where
-    toPath = const "/"
-
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -76,5 +71,15 @@ instance AWSRequest CreateStorageLocation where
     type Rs CreateStorageLocation = CreateStorageLocationResponse
 
     request  = post "CreateStorageLocation"
-    response = xmlResponse $ \h x -> CreateStorageLocationResponse
-        <$> x %| "S3Bucket"
+    response = xmlResponse
+
+instance FromXML CreateStorageLocationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateStorageLocationResponse"
+
+instance ToPath CreateStorageLocation where
+    toPath = const "/"
+
+instance ToHeaders CreateStorageLocation
+
+instance ToQuery CreateStorageLocation

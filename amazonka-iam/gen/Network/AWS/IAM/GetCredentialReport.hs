@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetCredentialReport
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,11 +49,6 @@ data GetCredentialReport = GetCredentialReport
 -- | 'GetCredentialReport' constructor.
 getCredentialReport :: GetCredentialReport
 getCredentialReport = GetCredentialReport
-
-instance ToQuery GetCredentialReport
-
-instance ToPath GetCredentialReport where
-    toPath = const "/"
 
 data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
@@ -98,7 +93,15 @@ instance AWSRequest GetCredentialReport where
     type Rs GetCredentialReport = GetCredentialReportResponse
 
     request  = post "GetCredentialReport"
-    response = xmlResponse $ \h x -> GetCredentialReportResponse
-        <$> x %| "Content"
-        <*> x %| "GeneratedTime"
-        <*> x %| "ReportFormat"
+    response = xmlResponse
+
+instance FromXML GetCredentialReportResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetCredentialReportResponse"
+
+instance ToPath GetCredentialReport where
+    toPath = const "/"
+
+instance ToHeaders GetCredentialReport
+
+instance ToQuery GetCredentialReport

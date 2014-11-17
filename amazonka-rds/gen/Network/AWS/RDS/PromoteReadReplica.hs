@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.PromoteReadReplica
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ prrPreferredBackupWindow =
     lens _prrPreferredBackupWindow
         (\s a -> s { _prrPreferredBackupWindow = a })
 
-instance ToQuery PromoteReadReplica
-
-instance ToPath PromoteReadReplica where
-    toPath = const "/"
-
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -125,5 +120,15 @@ instance AWSRequest PromoteReadReplica where
     type Rs PromoteReadReplica = PromoteReadReplicaResponse
 
     request  = post "PromoteReadReplica"
-    response = xmlResponse $ \h x -> PromoteReadReplicaResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML PromoteReadReplicaResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PromoteReadReplicaResponse"
+
+instance ToPath PromoteReadReplica where
+    toPath = const "/"
+
+instance ToHeaders PromoteReadReplica
+
+instance ToQuery PromoteReadReplica

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketNotification
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.S3.GetBucketNotification
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ getBucketNotification p1 = GetBucketNotification
 
 gbnBucket :: Lens' GetBucketNotification Text
 gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
-
-instance ToPath GetBucketNotification where
-    toPath GetBucketNotification{..} = mconcat
-        [ "/"
-        , toText _gbnBucket
-        ]
-
-instance ToQuery GetBucketNotification where
-    toQuery = const "notification"
-
-instance ToHeaders GetBucketNotification
 
 data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
@@ -114,7 +103,23 @@ instance AWSRequest GetBucketNotification where
     type Rs GetBucketNotification = GetBucketNotificationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketNotificationResponse
-        <$> x %| "CloudFunctionConfiguration"
-        <*> x %| "QueueConfiguration"
-        <*> x %| "TopicConfiguration"
+    response = xmlResponse
+
+instance FromXML GetBucketNotificationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketNotificationResponse"
+
+instance ToPath GetBucketNotification where
+    toPath GetBucketNotification{..} = mconcat
+        [ "/"
+        , toText _gbnBucket
+        ]
+
+instance ToHeaders GetBucketNotification
+
+instance ToQuery GetBucketNotification where
+    toQuery = const "notification"
+
+instance ToXML GetBucketNotification where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketNotification"

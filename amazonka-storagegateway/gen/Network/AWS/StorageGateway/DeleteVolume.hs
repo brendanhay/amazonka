@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.DeleteVolume
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ deleteVolume p1 = DeleteVolume
 -- operation to return a list of gateway volumes.
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })
-
-instance ToPath DeleteVolume where
-    toPath = const "/"
-
-instance ToQuery DeleteVolume where
-    toQuery = const mempty
-
-instance ToHeaders DeleteVolume
-
-instance ToBody DeleteVolume where
-    toBody = toBody . encode . _dvVolumeARN
 
 newtype DeleteVolumeResponse = DeleteVolumeResponse
     { _dvrVolumeARN :: Maybe Text
@@ -108,5 +97,18 @@ instance AWSRequest DeleteVolume where
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteVolumeResponse
-        <$> o .: "VolumeARN"
+    response = jsonResponse
+
+instance FromJSON DeleteVolumeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteVolume where
+    toPath = const "/"
+
+instance ToHeaders DeleteVolume
+
+instance ToQuery DeleteVolume where
+    toQuery = const mempty
+
+instance ToJSON DeleteVolume where
+    toJSON = genericToJSON jsonOptions

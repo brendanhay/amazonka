@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,11 +47,6 @@ data ListAvailableSolutionStacks = ListAvailableSolutionStacks
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks
 
-instance ToQuery ListAvailableSolutionStacks
-
-instance ToPath ListAvailableSolutionStacks where
-    toPath = const "/"
-
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     { _lassrSolutionStackDetails :: [SolutionStackDescription]
     , _lassrSolutionStacks       :: [Text]
@@ -87,6 +82,15 @@ instance AWSRequest ListAvailableSolutionStacks where
     type Rs ListAvailableSolutionStacks = ListAvailableSolutionStacksResponse
 
     request  = post "ListAvailableSolutionStacks"
-    response = xmlResponse $ \h x -> ListAvailableSolutionStacksResponse
-        <$> x %| "SolutionStackDetails"
-        <*> x %| "SolutionStacks"
+    response = xmlResponse
+
+instance FromXML ListAvailableSolutionStacksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResponse"
+
+instance ToPath ListAvailableSolutionStacks where
+    toPath = const "/"
+
+instance ToHeaders ListAvailableSolutionStacks
+
+instance ToQuery ListAvailableSolutionStacks

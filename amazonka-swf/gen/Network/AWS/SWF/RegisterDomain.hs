@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RegisterDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.SWF.RegisterDomain
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -98,17 +98,6 @@ rdWorkflowExecutionRetentionPeriodInDays =
     lens _rdWorkflowExecutionRetentionPeriodInDays
         (\s a -> s { _rdWorkflowExecutionRetentionPeriodInDays = a })
 
-instance ToPath RegisterDomain where
-    toPath = const "/"
-
-instance ToQuery RegisterDomain where
-    toQuery = const mempty
-
-instance ToHeaders RegisterDomain
-
-instance ToBody RegisterDomain where
-    toBody = toBody . encode . _rdName
-
 data RegisterDomainResponse = RegisterDomainResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -121,4 +110,15 @@ instance AWSRequest RegisterDomain where
     type Rs RegisterDomain = RegisterDomainResponse
 
     request  = post
-    response = nullaryResponse RegisterDomainResponse
+    response = nullResponse RegisterDomainResponse
+
+instance ToPath RegisterDomain where
+    toPath = const "/"
+
+instance ToHeaders RegisterDomain
+
+instance ToQuery RegisterDomain where
+    toQuery = const mempty
+
+instance ToJSON RegisterDomain where
+    toJSON = genericToJSON jsonOptions

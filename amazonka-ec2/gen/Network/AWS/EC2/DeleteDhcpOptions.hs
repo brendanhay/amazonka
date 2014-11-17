@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteDhcpOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ ddo1DhcpOptionsId =
 ddo1DryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
 ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 
-instance ToQuery DeleteDhcpOptions
-
-instance ToPath DeleteDhcpOptions where
-    toPath = const "/"
-
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest DeleteDhcpOptions where
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
 
     request  = post "DeleteDhcpOptions"
-    response = nullaryResponse DeleteDhcpOptionsResponse
+    response = nullResponse DeleteDhcpOptionsResponse
+
+instance ToPath DeleteDhcpOptions where
+    toPath = const "/"
+
+instance ToHeaders DeleteDhcpOptions
+
+instance ToQuery DeleteDhcpOptions

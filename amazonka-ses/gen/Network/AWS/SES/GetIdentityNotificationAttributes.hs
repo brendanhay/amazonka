@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.GetIdentityNotificationAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a })
 
-instance ToQuery GetIdentityNotificationAttributes
-
-instance ToPath GetIdentityNotificationAttributes where
-    toPath = const "/"
-
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -101,5 +96,15 @@ instance AWSRequest GetIdentityNotificationAttributes where
     type Rs GetIdentityNotificationAttributes = GetIdentityNotificationAttributesResponse
 
     request  = post "GetIdentityNotificationAttributes"
-    response = xmlResponse $ \h x -> GetIdentityNotificationAttributesResponse
-        <$> x %| "NotificationAttributes"
+    response = xmlResponse
+
+instance FromXML GetIdentityNotificationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetIdentityNotificationAttributesResponse"
+
+instance ToPath GetIdentityNotificationAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetIdentityNotificationAttributes
+
+instance ToQuery GetIdentityNotificationAttributes

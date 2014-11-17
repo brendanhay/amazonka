@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.DeletePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ deletePipeline p1 = DeletePipeline
 dp1Id :: Lens' DeletePipeline Text
 dp1Id = lens _dp1Id (\s a -> s { _dp1Id = a })
 
-instance ToPath DeletePipeline where
-    toPath DeletePipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _dp1Id
-        ]
-
-instance ToQuery DeletePipeline where
-    toQuery = const mempty
-
-instance ToHeaders DeletePipeline
-
 data DeletePipelineResponse = DeletePipelineResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -85,4 +74,18 @@ instance AWSRequest DeletePipeline where
     type Rs DeletePipeline = DeletePipelineResponse
 
     request  = delete
-    response = nullaryResponse DeletePipelineResponse
+    response = nullResponse DeletePipelineResponse
+
+instance ToPath DeletePipeline where
+    toPath DeletePipeline{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _dp1Id
+        ]
+
+instance ToHeaders DeletePipeline
+
+instance ToQuery DeletePipeline where
+    toQuery = const mempty
+
+instance ToJSON DeletePipeline where
+    toJSON = genericToJSON jsonOptions

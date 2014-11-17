@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.GetFunctionConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -75,18 +75,6 @@ getFunctionConfiguration p1 = GetFunctionConfiguration
 -- configuration information.
 gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\s a -> s { _gfcFunctionName = a })
-
-instance ToPath GetFunctionConfiguration where
-    toPath GetFunctionConfiguration{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _gfcFunctionName
-        , "/configuration"
-        ]
-
-instance ToQuery GetFunctionConfiguration where
-    toQuery = const mempty
-
-instance ToHeaders GetFunctionConfiguration
 
 data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     { _gfcrCodeSize        :: Maybe Integer
@@ -211,16 +199,22 @@ instance AWSRequest GetFunctionConfiguration where
     type Rs GetFunctionConfiguration = GetFunctionConfigurationResponse
 
     request  = get
-    response = jsonResponse $ \h o -> GetFunctionConfigurationResponse
-        <$> o .: "CodeSize"
-        <*> o .: "ConfigurationId"
-        <*> o .: "Description"
-        <*> o .: "FunctionARN"
-        <*> o .: "FunctionName"
-        <*> o .: "Handler"
-        <*> o .: "LastModified"
-        <*> o .: "MemorySize"
-        <*> o .: "Mode"
-        <*> o .: "Role"
-        <*> o .: "Runtime"
-        <*> o .: "Timeout"
+    response = jsonResponse
+
+instance FromJSON GetFunctionConfigurationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetFunctionConfiguration where
+    toPath GetFunctionConfiguration{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _gfcFunctionName
+        , "/configuration"
+        ]
+
+instance ToHeaders GetFunctionConfiguration
+
+instance ToQuery GetFunctionConfiguration where
+    toQuery = const mempty
+
+instance ToJSON GetFunctionConfiguration where
+    toJSON = genericToJSON jsonOptions

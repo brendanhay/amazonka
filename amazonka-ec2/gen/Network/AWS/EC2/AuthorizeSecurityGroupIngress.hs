@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -163,11 +163,6 @@ asgiSourceSecurityGroupOwnerId =
 asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiToPort = lens _asgiToPort (\s a -> s { _asgiToPort = a })
 
-instance ToQuery AuthorizeSecurityGroupIngress
-
-instance ToPath AuthorizeSecurityGroupIngress where
-    toPath = const "/"
-
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -180,4 +175,11 @@ instance AWSRequest AuthorizeSecurityGroupIngress where
     type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
 
     request  = post "AuthorizeSecurityGroupIngress"
-    response = nullaryResponse AuthorizeSecurityGroupIngressResponse
+    response = nullResponse AuthorizeSecurityGroupIngressResponse
+
+instance ToPath AuthorizeSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders AuthorizeSecurityGroupIngress
+
+instance ToQuery AuthorizeSecurityGroupIngress

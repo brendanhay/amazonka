@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.EnableDomainAutoRenew
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ enableDomainAutoRenew p1 = EnableDomainAutoRenew
 edarDomainName :: Lens' EnableDomainAutoRenew Text
 edarDomainName = lens _edarDomainName (\s a -> s { _edarDomainName = a })
 
-instance ToPath EnableDomainAutoRenew where
-    toPath = const "/"
-
-instance ToQuery EnableDomainAutoRenew where
-    toQuery = const mempty
-
-instance ToHeaders EnableDomainAutoRenew
-
-instance ToBody EnableDomainAutoRenew where
-    toBody = toBody . encode . _edarDomainName
-
 data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +78,15 @@ instance AWSRequest EnableDomainAutoRenew where
     type Rs EnableDomainAutoRenew = EnableDomainAutoRenewResponse
 
     request  = post
-    response = nullaryResponse EnableDomainAutoRenewResponse
+    response = nullResponse EnableDomainAutoRenewResponse
+
+instance ToPath EnableDomainAutoRenew where
+    toPath = const "/"
+
+instance ToHeaders EnableDomainAutoRenew
+
+instance ToQuery EnableDomainAutoRenew where
+    toQuery = const mempty
+
+instance ToJSON EnableDomainAutoRenew where
+    toJSON = genericToJSON jsonOptions

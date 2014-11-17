@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -433,11 +433,6 @@ mdbiVpcSecurityGroupIds :: Lens' ModifyDBInstance [Text]
 mdbiVpcSecurityGroupIds =
     lens _mdbiVpcSecurityGroupIds (\s a -> s { _mdbiVpcSecurityGroupIds = a })
 
-instance ToQuery ModifyDBInstance
-
-instance ToPath ModifyDBInstance where
-    toPath = const "/"
-
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -461,5 +456,15 @@ instance AWSRequest ModifyDBInstance where
     type Rs ModifyDBInstance = ModifyDBInstanceResponse
 
     request  = post "ModifyDBInstance"
-    response = xmlResponse $ \h x -> ModifyDBInstanceResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML ModifyDBInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyDBInstanceResponse"
+
+instance ToPath ModifyDBInstance where
+    toPath = const "/"
+
+instance ToHeaders ModifyDBInstance
+
+instance ToQuery ModifyDBInstance

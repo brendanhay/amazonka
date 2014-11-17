@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.StorageGateway.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.StorageGateway.Types
       StorageGateway
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * ChapInfo
     , ChapInfo
@@ -160,6 +164,7 @@ module Network.AWS.StorageGateway.Types
     , giGatewayType
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -181,6 +186,11 @@ instance AWSService StorageGateway where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data ChapInfo = ChapInfo
     { _ciInitiatorName                 :: Maybe Text
@@ -232,9 +242,11 @@ ciSecretToAuthenticateTarget =
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
 
-instance FromJSON ChapInfo
+instance FromJSON ChapInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChapInfo
+instance ToJSON ChapInfo where
+    toJSON = genericToJSON jsonOptions
 
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes
     { _vscsiaChapEnabled          :: Maybe Bool
@@ -293,9 +305,11 @@ vscsiaNetworkInterfacePort =
 vscsiaTargetARN :: Lens' VolumeiSCSIAttributes (Maybe Text)
 vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
 
-instance FromJSON VolumeiSCSIAttributes
+instance FromJSON VolumeiSCSIAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VolumeiSCSIAttributes
+instance ToJSON VolumeiSCSIAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes
     { _dscsiaChapEnabled          :: Maybe Bool
@@ -346,9 +360,11 @@ dscsiaNetworkInterfacePort =
 dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
 dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
 
-instance FromJSON DeviceiSCSIAttributes
+instance FromJSON DeviceiSCSIAttributes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeviceiSCSIAttributes
+instance ToJSON DeviceiSCSIAttributes where
+    toJSON = genericToJSON jsonOptions
 
 data Error' = Error'
     { _eErrorCode    :: Maybe Text
@@ -378,9 +394,11 @@ eErrorDetails :: Lens' Error' (HashMap Text Text)
 eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a })
     . _Map
 
-instance FromJSON Error'
+instance FromJSON Error' where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Error'
+instance ToJSON Error' where
+    toJSON = genericToJSON jsonOptions
 
 data Disk = Disk
     { _dDiskAllocationResource :: Maybe Text
@@ -437,9 +455,11 @@ dDiskPath = lens _dDiskPath (\s a -> s { _dDiskPath = a })
 dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
 dDiskSizeInBytes = lens _dDiskSizeInBytes (\s a -> s { _dDiskSizeInBytes = a })
 
-instance FromJSON Disk
+instance FromJSON Disk where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Disk
+instance ToJSON Disk where
+    toJSON = genericToJSON jsonOptions
 
 data Tape = Tape
     { _tProgress        :: Maybe Double
@@ -504,9 +524,11 @@ tTapeStatus = lens _tTapeStatus (\s a -> s { _tTapeStatus = a })
 tVTLDevice :: Lens' Tape (Maybe Text)
 tVTLDevice = lens _tVTLDevice (\s a -> s { _tVTLDevice = a })
 
-instance FromJSON Tape
+instance FromJSON Tape where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Tape
+instance ToJSON Tape where
+    toJSON = genericToJSON jsonOptions
 
 data NetworkInterface = NetworkInterface
     { _niIpv4Address :: Maybe Text
@@ -544,9 +566,11 @@ niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 niMacAddress :: Lens' NetworkInterface (Maybe Text)
 niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
 
-instance FromJSON NetworkInterface
+instance FromJSON NetworkInterface where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON NetworkInterface
+instance ToJSON NetworkInterface where
+    toJSON = genericToJSON jsonOptions
 
 data VTLDevice = VTLDevice
     { _vtldDeviceiSCSIAttributes      :: Maybe DeviceiSCSIAttributes
@@ -603,9 +627,11 @@ vtldVTLDeviceVendor :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceVendor =
     lens _vtldVTLDeviceVendor (\s a -> s { _vtldVTLDeviceVendor = a })
 
-instance FromJSON VTLDevice
+instance FromJSON VTLDevice where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VTLDevice
+instance ToJSON VTLDevice where
+    toJSON = genericToJSON jsonOptions
 
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN               :: Maybe Text
@@ -656,9 +682,11 @@ trpiTapeSizeInBytes =
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\s a -> s { _trpiTapeStatus = a })
 
-instance FromJSON TapeRecoveryPointInfo
+instance FromJSON TapeRecoveryPointInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TapeRecoveryPointInfo
+instance ToJSON TapeRecoveryPointInfo where
+    toJSON = genericToJSON jsonOptions
 
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     { _vrpiVolumeARN               :: Maybe Text
@@ -703,9 +731,11 @@ vrpiVolumeUsageInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
 vrpiVolumeUsageInBytes =
     lens _vrpiVolumeUsageInBytes (\s a -> s { _vrpiVolumeUsageInBytes = a })
 
-instance FromJSON VolumeRecoveryPointInfo
+instance FromJSON VolumeRecoveryPointInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VolumeRecoveryPointInfo
+instance ToJSON VolumeRecoveryPointInfo where
+    toJSON = genericToJSON jsonOptions
 
 data TapeArchive = TapeArchive
     { _taCompletionTime  :: Maybe RFC822
@@ -773,9 +803,11 @@ taTapeSizeInBytes =
 taTapeStatus :: Lens' TapeArchive (Maybe Text)
 taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
 
-instance FromJSON TapeArchive
+instance FromJSON TapeArchive where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TapeArchive
+instance ToJSON TapeArchive where
+    toJSON = genericToJSON jsonOptions
 
 data ErrorCode
     = ActivationKeyExpired              -- ^ ActivationKeyExpired
@@ -970,9 +1002,11 @@ instance ToText ErrorCode where
         VolumeNotFound                    -> "VolumeNotFound"
         VolumeNotReady                    -> "VolumeNotReady"
 
-instance FromJSON ErrorCode
+instance FromJSON ErrorCode where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ErrorCode
+instance ToJSON ErrorCode where
+    toJSON = genericToJSON jsonOptions
 
 data StorediSCSIVolume = StorediSCSIVolume
     { _sscsivPreservedExistingData :: Maybe Bool
@@ -1064,9 +1098,11 @@ sscsivVolumeiSCSIAttributes =
     lens _sscsivVolumeiSCSIAttributes
         (\s a -> s { _sscsivVolumeiSCSIAttributes = a })
 
-instance FromJSON StorediSCSIVolume
+instance FromJSON StorediSCSIVolume where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StorediSCSIVolume
+instance ToJSON StorediSCSIVolume where
+    toJSON = genericToJSON jsonOptions
 
 data CachediSCSIVolume = CachediSCSIVolume
     { _cscsivSourceSnapshotId      :: Maybe Text
@@ -1141,9 +1177,11 @@ cscsivVolumeiSCSIAttributes =
     lens _cscsivVolumeiSCSIAttributes
         (\s a -> s { _cscsivVolumeiSCSIAttributes = a })
 
-instance FromJSON CachediSCSIVolume
+instance FromJSON CachediSCSIVolume where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CachediSCSIVolume
+instance ToJSON CachediSCSIVolume where
+    toJSON = genericToJSON jsonOptions
 
 data VolumeInfo = VolumeInfo
     { _viVolumeARN  :: Maybe Text
@@ -1170,9 +1208,11 @@ viVolumeARN = lens _viVolumeARN (\s a -> s { _viVolumeARN = a })
 viVolumeType :: Lens' VolumeInfo (Maybe Text)
 viVolumeType = lens _viVolumeType (\s a -> s { _viVolumeType = a })
 
-instance FromJSON VolumeInfo
+instance FromJSON VolumeInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VolumeInfo
+instance ToJSON VolumeInfo where
+    toJSON = genericToJSON jsonOptions
 
 data GatewayInfo = GatewayInfo
     { _giGatewayARN              :: Maybe Text
@@ -1208,6 +1248,8 @@ giGatewayOperationalState =
 giGatewayType :: Lens' GatewayInfo (Maybe Text)
 giGatewayType = lens _giGatewayType (\s a -> s { _giGatewayType = a })
 
-instance FromJSON GatewayInfo
+instance FromJSON GatewayInfo where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GatewayInfo
+instance ToJSON GatewayInfo where
+    toJSON = genericToJSON jsonOptions

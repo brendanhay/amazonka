@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.RebootInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 ri2InstanceIds :: Lens' RebootInstances [Text]
 ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a })
 
-instance ToQuery RebootInstances
-
-instance ToPath RebootInstances where
-    toPath = const "/"
-
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +84,11 @@ instance AWSRequest RebootInstances where
     type Rs RebootInstances = RebootInstancesResponse
 
     request  = post "RebootInstances"
-    response = nullaryResponse RebootInstancesResponse
+    response = nullResponse RebootInstancesResponse
+
+instance ToPath RebootInstances where
+    toPath = const "/"
+
+instance ToHeaders RebootInstances
+
+instance ToQuery RebootInstances

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteNotificationConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ dncAutoScalingGroupName =
 dncTopicARN :: Lens' DeleteNotificationConfiguration Text
 dncTopicARN = lens _dncTopicARN (\s a -> s { _dncTopicARN = a })
 
-instance ToQuery DeleteNotificationConfiguration
-
-instance ToPath DeleteNotificationConfiguration where
-    toPath = const "/"
-
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest DeleteNotificationConfiguration where
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
 
     request  = post "DeleteNotificationConfiguration"
-    response = nullaryResponse DeleteNotificationConfigurationResponse
+    response = nullResponse DeleteNotificationConfigurationResponse
+
+instance ToPath DeleteNotificationConfiguration where
+    toPath = const "/"
+
+instance ToHeaders DeleteNotificationConfiguration
+
+instance ToQuery DeleteNotificationConfiguration

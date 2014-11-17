@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CopyOptionGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -103,11 +103,6 @@ cog1TargetOptionGroupIdentifier =
     lens _cog1TargetOptionGroupIdentifier
         (\s a -> s { _cog1TargetOptionGroupIdentifier = a })
 
-instance ToQuery CopyOptionGroup
-
-instance ToPath CopyOptionGroup where
-    toPath = const "/"
-
 newtype CopyOptionGroupResponse = CopyOptionGroupResponse
     { _cogrOptionGroup :: Maybe OptionGroup
     } deriving (Eq, Show, Generic)
@@ -131,5 +126,15 @@ instance AWSRequest CopyOptionGroup where
     type Rs CopyOptionGroup = CopyOptionGroupResponse
 
     request  = post "CopyOptionGroup"
-    response = xmlResponse $ \h x -> CopyOptionGroupResponse
-        <$> x %| "OptionGroup"
+    response = xmlResponse
+
+instance FromXML CopyOptionGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyOptionGroupResponse"
+
+instance ToPath CopyOptionGroup where
+    toPath = const "/"
+
+instance ToHeaders CopyOptionGroup
+
+instance ToQuery CopyOptionGroup

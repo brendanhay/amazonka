@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.ListInstanceGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.EMR.ListInstanceGroups
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ ligClusterId = lens _ligClusterId (\s a -> s { _ligClusterId = a })
 -- | The pagination token that indicates the next set of results to retrieve.
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
 ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
-
-instance ToPath ListInstanceGroups where
-    toPath = const "/"
-
-instance ToQuery ListInstanceGroups where
-    toQuery = const mempty
-
-instance ToHeaders ListInstanceGroups
-
-instance ToBody ListInstanceGroups where
-    toBody = toBody . encode . _ligClusterId
 
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
     { _ligrInstanceGroups :: [InstanceGroup]
@@ -115,6 +104,18 @@ instance AWSRequest ListInstanceGroups where
     type Rs ListInstanceGroups = ListInstanceGroupsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListInstanceGroupsResponse
-        <$> o .: "InstanceGroups"
-        <*> o .: "Marker"
+    response = jsonResponse
+
+instance FromJSON ListInstanceGroupsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListInstanceGroups where
+    toPath = const "/"
+
+instance ToHeaders ListInstanceGroups
+
+instance ToQuery ListInstanceGroups where
+    toQuery = const mempty
+
+instance ToJSON ListInstanceGroups where
+    toJSON = genericToJSON jsonOptions

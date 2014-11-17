@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
 
-instance ToQuery DeleteSAMLProvider
-
-instance ToPath DeleteSAMLProvider where
-    toPath = const "/"
-
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest DeleteSAMLProvider where
     type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
 
     request  = post "DeleteSAMLProvider"
-    response = nullaryResponse DeleteSAMLProviderResponse
+    response = nullResponse DeleteSAMLProviderResponse
+
+instance ToPath DeleteSAMLProvider where
+    toPath = const "/"
+
+instance ToHeaders DeleteSAMLProvider
+
+instance ToQuery DeleteSAMLProvider

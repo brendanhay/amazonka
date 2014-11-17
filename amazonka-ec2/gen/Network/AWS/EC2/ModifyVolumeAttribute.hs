@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ mvaDryRun = lens _mvaDryRun (\s a -> s { _mvaDryRun = a })
 mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\s a -> s { _mvaVolumeId = a })
 
-instance ToQuery ModifyVolumeAttribute
-
-instance ToPath ModifyVolumeAttribute where
-    toPath = const "/"
-
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +94,11 @@ instance AWSRequest ModifyVolumeAttribute where
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse
 
     request  = post "ModifyVolumeAttribute"
-    response = nullaryResponse ModifyVolumeAttributeResponse
+    response = nullResponse ModifyVolumeAttributeResponse
+
+instance ToPath ModifyVolumeAttribute where
+    toPath = const "/"
+
+instance ToHeaders ModifyVolumeAttribute
+
+instance ToQuery ModifyVolumeAttribute

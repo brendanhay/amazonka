@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateDBInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -435,11 +435,6 @@ cdbiVpcSecurityGroupIds :: Lens' CreateDBInstance [Text]
 cdbiVpcSecurityGroupIds =
     lens _cdbiVpcSecurityGroupIds (\s a -> s { _cdbiVpcSecurityGroupIds = a })
 
-instance ToQuery CreateDBInstance
-
-instance ToPath CreateDBInstance where
-    toPath = const "/"
-
 newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -463,5 +458,15 @@ instance AWSRequest CreateDBInstance where
     type Rs CreateDBInstance = CreateDBInstanceResponse
 
     request  = post "CreateDBInstance"
-    response = xmlResponse $ \h x -> CreateDBInstanceResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML CreateDBInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBInstanceResponse"
+
+instance ToPath CreateDBInstance where
+    toPath = const "/"
+
+instance ToHeaders CreateDBInstance
+
+instance ToQuery CreateDBInstance

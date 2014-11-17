@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -135,11 +135,6 @@ drcnoReservedCacheNodesOfferingId =
     lens _drcnoReservedCacheNodesOfferingId
         (\s a -> s { _drcnoReservedCacheNodesOfferingId = a })
 
-instance ToQuery DescribeReservedCacheNodesOfferings
-
-instance ToPath DescribeReservedCacheNodesOfferings where
-    toPath = const "/"
-
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
     { _drcnorMarker                      :: Maybe Text
     , _drcnorReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
@@ -175,10 +170,15 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
     type Rs DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferingsResponse
 
     request  = post "DescribeReservedCacheNodesOfferings"
-    response = xmlResponse $ \h x -> DescribeReservedCacheNodesOfferingsResponse
-        <$> x %| "Marker"
-        <*> x %| "ReservedCacheNodesOfferings"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedCacheNodesOfferings where
-    next rq rs = (\x -> rq & drcnoMarker ?~ x)
-        <$> (rs ^. drcnorMarker)
+instance FromXML DescribeReservedCacheNodesOfferingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedCacheNodesOfferingsResponse"
+
+instance ToPath DescribeReservedCacheNodesOfferings where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedCacheNodesOfferings
+
+instance ToQuery DescribeReservedCacheNodesOfferings

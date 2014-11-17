@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshots
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -140,11 +140,6 @@ ds1RestorableByUserIds =
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a })
 
-instance ToQuery DescribeSnapshots
-
-instance ToPath DescribeSnapshots where
-    toPath = const "/"
-
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -174,5 +169,15 @@ instance AWSRequest DescribeSnapshots where
     type Rs DescribeSnapshots = DescribeSnapshotsResponse
 
     request  = post "DescribeSnapshots"
-    response = xmlResponse $ \h x -> DescribeSnapshotsResponse
-        <$> x %| "snapshotSet"
+    response = xmlResponse
+
+instance FromXML DescribeSnapshotsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
+
+instance ToPath DescribeSnapshots where
+    toPath = const "/"
+
+instance ToHeaders DescribeSnapshots
+
+instance ToQuery DescribeSnapshots

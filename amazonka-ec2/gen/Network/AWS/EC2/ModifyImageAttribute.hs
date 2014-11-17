@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -146,11 +146,6 @@ miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\s a -> s { _miaValue = a })
 
-instance ToQuery ModifyImageAttribute
-
-instance ToPath ModifyImageAttribute where
-    toPath = const "/"
-
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -163,4 +158,11 @@ instance AWSRequest ModifyImageAttribute where
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse
 
     request  = post "ModifyImageAttribute"
-    response = nullaryResponse ModifyImageAttributeResponse
+    response = nullResponse ModifyImageAttributeResponse
+
+instance ToPath ModifyImageAttribute where
+    toPath = const "/"
+
+instance ToHeaders ModifyImageAttribute
+
+instance ToQuery ModifyImageAttribute

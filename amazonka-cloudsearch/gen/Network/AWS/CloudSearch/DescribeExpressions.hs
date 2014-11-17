@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -87,11 +87,6 @@ deExpressionNames :: Lens' DescribeExpressions [Text]
 deExpressionNames =
     lens _deExpressionNames (\s a -> s { _deExpressionNames = a })
 
-instance ToQuery DescribeExpressions
-
-instance ToPath DescribeExpressions where
-    toPath = const "/"
-
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _derExpressions :: [ExpressionStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -122,5 +117,15 @@ instance AWSRequest DescribeExpressions where
     type Rs DescribeExpressions = DescribeExpressionsResponse
 
     request  = post "DescribeExpressions"
-    response = xmlResponse $ \h x -> DescribeExpressionsResponse
-        <$> x %| "Expressions"
+    response = xmlResponse
+
+instance FromXML DescribeExpressionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeExpressionsResponse"
+
+instance ToPath DescribeExpressions where
+    toPath = const "/"
+
+instance ToHeaders DescribeExpressions
+
+instance ToQuery DescribeExpressions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfi
 mriTargetConfigurations =
     lens _mriTargetConfigurations (\s a -> s { _mriTargetConfigurations = a })
 
-instance ToQuery ModifyReservedInstances
-
-instance ToPath ModifyReservedInstances where
-    toPath = const "/"
-
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -116,5 +111,15 @@ instance AWSRequest ModifyReservedInstances where
     type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
 
     request  = post "ModifyReservedInstances"
-    response = xmlResponse $ \h x -> ModifyReservedInstancesResponse
-        <$> x %| "reservedInstancesModificationId"
+    response = xmlResponse
+
+instance FromXML ModifyReservedInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyReservedInstancesResponse"
+
+instance ToPath ModifyReservedInstances where
+    toPath = const "/"
+
+instance ToHeaders ModifyReservedInstances
+
+instance ToQuery ModifyReservedInstances

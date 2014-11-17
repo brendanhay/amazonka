@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.SetPermission
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.SetPermission
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -103,17 +103,6 @@ spLevel = lens _spLevel (\s a -> s { _spLevel = a })
 spStackId :: Lens' SetPermission Text
 spStackId = lens _spStackId (\s a -> s { _spStackId = a })
 
-instance ToPath SetPermission where
-    toPath = const "/"
-
-instance ToQuery SetPermission where
-    toQuery = const mempty
-
-instance ToHeaders SetPermission
-
-instance ToBody SetPermission where
-    toBody = toBody . encode . _spStackId
-
 data SetPermissionResponse = SetPermissionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -126,4 +115,15 @@ instance AWSRequest SetPermission where
     type Rs SetPermission = SetPermissionResponse
 
     request  = post
-    response = nullaryResponse SetPermissionResponse
+    response = nullResponse SetPermissionResponse
+
+instance ToPath SetPermission where
+    toPath = const "/"
+
+instance ToHeaders SetPermission
+
+instance ToQuery SetPermission where
+    toQuery = const mempty
+
+instance ToJSON SetPermission where
+    toJSON = genericToJSON jsonOptions

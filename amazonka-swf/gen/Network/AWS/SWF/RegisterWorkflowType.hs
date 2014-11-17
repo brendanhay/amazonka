@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RegisterWorkflowType
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -58,7 +58,7 @@ module Network.AWS.SWF.RegisterWorkflowType
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -179,17 +179,6 @@ rwtName = lens _rwtName (\s a -> s { _rwtName = a })
 rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\s a -> s { _rwtVersion = a })
 
-instance ToPath RegisterWorkflowType where
-    toPath = const "/"
-
-instance ToQuery RegisterWorkflowType where
-    toQuery = const mempty
-
-instance ToHeaders RegisterWorkflowType
-
-instance ToBody RegisterWorkflowType where
-    toBody = toBody . encode . _rwtDomain
-
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -202,4 +191,15 @@ instance AWSRequest RegisterWorkflowType where
     type Rs RegisterWorkflowType = RegisterWorkflowTypeResponse
 
     request  = post
-    response = nullaryResponse RegisterWorkflowTypeResponse
+    response = nullResponse RegisterWorkflowTypeResponse
+
+instance ToPath RegisterWorkflowType where
+    toPath = const "/"
+
+instance ToHeaders RegisterWorkflowType
+
+instance ToQuery RegisterWorkflowType where
+    toQuery = const mempty
+
+instance ToJSON RegisterWorkflowType where
+    toJSON = genericToJSON jsonOptions

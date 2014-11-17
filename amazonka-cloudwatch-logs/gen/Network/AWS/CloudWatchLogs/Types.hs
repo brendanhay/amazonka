@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.CloudWatchLogs.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.CloudWatchLogs.Types
       CloudWatchLogs
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * MetricFilter
     , MetricFilter
@@ -82,6 +86,7 @@ module Network.AWS.CloudWatchLogs.Types
     , oleTimestamp
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -103,6 +108,11 @@ instance AWSService CloudWatchLogs where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data MetricFilter = MetricFilter
     { _mfCreationTime          :: Maybe Nat
@@ -147,9 +157,11 @@ mfMetricTransformations =
     lens _mfMetricTransformations (\s a -> s { _mfMetricTransformations = a })
         . _List1
 
-instance FromJSON MetricFilter
+instance FromJSON MetricFilter where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON MetricFilter
+instance ToJSON MetricFilter where
+    toJSON = genericToJSON jsonOptions
 
 data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventMessage    :: Maybe Text
@@ -185,9 +197,11 @@ mfmrExtractedValues =
     lens _mfmrExtractedValues (\s a -> s { _mfmrExtractedValues = a })
         . _Map
 
-instance FromJSON MetricFilterMatchRecord
+instance FromJSON MetricFilterMatchRecord where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON MetricFilterMatchRecord
+instance ToJSON MetricFilterMatchRecord where
+    toJSON = genericToJSON jsonOptions
 
 data MetricTransformation = MetricTransformation
     { _mtMetricName      :: Text
@@ -225,9 +239,11 @@ mtMetricNamespace =
 mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\s a -> s { _mtMetricValue = a })
 
-instance FromJSON MetricTransformation
+instance FromJSON MetricTransformation where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON MetricTransformation
+instance ToJSON MetricTransformation where
+    toJSON = genericToJSON jsonOptions
 
 data LogStream = LogStream
     { _lsArn                 :: Maybe Text
@@ -305,9 +321,11 @@ lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken =
     lens _lsUploadSequenceToken (\s a -> s { _lsUploadSequenceToken = a })
 
-instance FromJSON LogStream
+instance FromJSON LogStream where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LogStream
+instance ToJSON LogStream where
+    toJSON = genericToJSON jsonOptions
 
 data LogGroup = LogGroup
     { _lgArn               :: Maybe Text
@@ -366,9 +384,11 @@ lgStoredBytes :: Lens' LogGroup (Maybe Natural)
 lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
     . mapping _Nat
 
-instance FromJSON LogGroup
+instance FromJSON LogGroup where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LogGroup
+instance ToJSON LogGroup where
+    toJSON = genericToJSON jsonOptions
 
 data InputLogEvent = InputLogEvent
     { _ileMessage   :: Text
@@ -398,9 +418,11 @@ ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a })
     . _Nat
 
-instance FromJSON InputLogEvent
+instance FromJSON InputLogEvent where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON InputLogEvent
+instance ToJSON InputLogEvent where
+    toJSON = genericToJSON jsonOptions
 
 data OutputLogEvent = OutputLogEvent
     { _oleIngestionTime :: Maybe Nat
@@ -436,6 +458,8 @@ oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
     . mapping _Nat
 
-instance FromJSON OutputLogEvent
+instance FromJSON OutputLogEvent where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON OutputLogEvent
+instance ToJSON OutputLogEvent where
+    toJSON = genericToJSON jsonOptions

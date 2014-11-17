@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListRoles
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
 
-instance ToQuery ListRoles
-
-instance ToPath ListRoles where
-    toPath = const "/"
-
 data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
     , _lrrMarker      :: Maybe Text
@@ -143,13 +138,15 @@ instance AWSRequest ListRoles where
     type Rs ListRoles = ListRolesResponse
 
     request  = post "ListRoles"
-    response = xmlResponse $ \h x -> ListRolesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "Roles"
+    response = xmlResponse
 
-instance AWSPager ListRoles where
-    next rq rs
-        | not (more (rs ^. lrrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lrMarker .~ rs ^. lrrMarker
+instance FromXML ListRolesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListRolesResponse"
+
+instance ToPath ListRoles where
+    toPath = const "/"
+
+instance ToHeaders ListRoles
+
+instance ToQuery ListRoles

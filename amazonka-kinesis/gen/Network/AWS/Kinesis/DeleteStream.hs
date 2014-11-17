@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.DeleteStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.Kinesis.DeleteStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ deleteStream p1 = DeleteStream
 dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\s a -> s { _dsStreamName = a })
 
-instance ToPath DeleteStream where
-    toPath = const "/"
-
-instance ToQuery DeleteStream where
-    toQuery = const mempty
-
-instance ToHeaders DeleteStream
-
-instance ToBody DeleteStream where
-    toBody = toBody . encode . _dsStreamName
-
 data DeleteStreamResponse = DeleteStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +83,15 @@ instance AWSRequest DeleteStream where
     type Rs DeleteStream = DeleteStreamResponse
 
     request  = post
-    response = nullaryResponse DeleteStreamResponse
+    response = nullResponse DeleteStreamResponse
+
+instance ToPath DeleteStream where
+    toPath = const "/"
+
+instance ToHeaders DeleteStream
+
+instance ToQuery DeleteStream where
+    toQuery = const mempty
+
+instance ToJSON DeleteStream where
+    toJSON = genericToJSON jsonOptions

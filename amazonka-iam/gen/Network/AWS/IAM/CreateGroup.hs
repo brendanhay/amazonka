@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\s a -> s { _cgPath = a })
 
-instance ToQuery CreateGroup
-
-instance ToPath CreateGroup where
-    toPath = const "/"
-
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest CreateGroup where
     type Rs CreateGroup = CreateGroupResponse
 
     request  = post "CreateGroup"
-    response = xmlResponse $ \h x -> CreateGroupResponse
-        <$> x %| "Group"
+    response = xmlResponse
+
+instance FromXML CreateGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateGroupResponse"
+
+instance ToPath CreateGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateGroup
+
+instance ToQuery CreateGroup

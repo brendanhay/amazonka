@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ describeCachediSCSIVolumes = DescribeCachediSCSIVolumes
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
 dcscsivVolumeARNs =
     lens _dcscsivVolumeARNs (\s a -> s { _dcscsivVolumeARNs = a })
-
-instance ToPath DescribeCachediSCSIVolumes where
-    toPath = const "/"
-
-instance ToQuery DescribeCachediSCSIVolumes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCachediSCSIVolumes
-
-instance ToBody DescribeCachediSCSIVolumes where
-    toBody = toBody . encode . _dcscsivVolumeARNs
 
 newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
     { _dcscsivrCachediSCSIVolumes :: [CachediSCSIVolume]
@@ -114,5 +103,18 @@ instance AWSRequest DescribeCachediSCSIVolumes where
     type Rs DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeCachediSCSIVolumesResponse
-        <$> o .: "CachediSCSIVolumes"
+    response = jsonResponse
+
+instance FromJSON DescribeCachediSCSIVolumesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeCachediSCSIVolumes where
+    toPath = const "/"
+
+instance ToHeaders DescribeCachediSCSIVolumes
+
+instance ToQuery DescribeCachediSCSIVolumes where
+    toQuery = const mempty
+
+instance ToJSON DescribeCachediSCSIVolumes where
+    toJSON = genericToJSON jsonOptions

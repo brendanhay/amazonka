@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.AddTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.EMR.AddTags
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -75,17 +75,6 @@ atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\s a -> s { _atTags = a })
 
-instance ToPath AddTags where
-    toPath = const "/"
-
-instance ToQuery AddTags where
-    toQuery = const mempty
-
-instance ToHeaders AddTags
-
-instance ToBody AddTags where
-    toBody = toBody . encode . _atResourceId
-
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -98,4 +87,15 @@ instance AWSRequest AddTags where
     type Rs AddTags = AddTagsResponse
 
     request  = post
-    response = nullaryResponse AddTagsResponse
+    response = nullResponse AddTagsResponse
+
+instance ToPath AddTags where
+    toPath = const "/"
+
+instance ToHeaders AddTags
+
+instance ToQuery AddTags where
+    toQuery = const mempty
+
+instance ToJSON AddTags where
+    toJSON = genericToJSON jsonOptions

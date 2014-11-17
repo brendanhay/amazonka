@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.Select
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ sSelectExpression :: Lens' Select Text
 sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
 
-instance ToQuery Select
-
-instance ToPath Select where
-    toPath = const "/"
-
 data SelectResponse = SelectResponse
     { _srItems     :: [Item]
     , _srNextToken :: Maybe Text
@@ -133,10 +128,15 @@ instance AWSRequest Select where
     type Rs Select = SelectResponse
 
     request  = post "Select"
-    response = xmlResponse $ \h x -> SelectResponse
-        <$> x %| "Items"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager Select where
-    next rq rs = (\x -> rq & sNextToken ?~ x)
-        <$> (rs ^. srNextToken)
+instance FromXML SelectResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SelectResponse"
+
+instance ToPath Select where
+    toPath = const "/"
+
+instance ToHeaders Select
+
+instance ToQuery Select

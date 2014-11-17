@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AssociateRouteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
 artSubnetId :: Lens' AssociateRouteTable Text
 artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
 
-instance ToQuery AssociateRouteTable
-
-instance ToPath AssociateRouteTable where
-    toPath = const "/"
-
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -115,5 +110,15 @@ instance AWSRequest AssociateRouteTable where
     type Rs AssociateRouteTable = AssociateRouteTableResponse
 
     request  = post "AssociateRouteTable"
-    response = xmlResponse $ \h x -> AssociateRouteTableResponse
-        <$> x %| "associationId"
+    response = xmlResponse
+
+instance FromXML AssociateRouteTableResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateRouteTableResponse"
+
+instance ToPath AssociateRouteTable where
+    toPath = const "/"
+
+instance ToHeaders AssociateRouteTable
+
+instance ToQuery AssociateRouteTable

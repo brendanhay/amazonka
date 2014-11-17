@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.SignalResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -101,11 +101,6 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 srUniqueId :: Lens' SignalResource Text
 srUniqueId = lens _srUniqueId (\s a -> s { _srUniqueId = a })
 
-instance ToQuery SignalResource
-
-instance ToPath SignalResource where
-    toPath = const "/"
-
 data SignalResourceResponse = SignalResourceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -118,4 +113,11 @@ instance AWSRequest SignalResource where
     type Rs SignalResource = SignalResourceResponse
 
     request  = post "SignalResource"
-    response = nullaryResponse SignalResourceResponse
+    response = nullResponse SignalResourceResponse
+
+instance ToPath SignalResource where
+    toPath = const "/"
+
+instance ToHeaders SignalResource
+
+instance ToQuery SignalResource

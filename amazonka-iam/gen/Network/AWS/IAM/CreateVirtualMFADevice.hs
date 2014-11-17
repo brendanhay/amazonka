@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ cvmfadVirtualMFADeviceName =
     lens _cvmfadVirtualMFADeviceName
         (\s a -> s { _cvmfadVirtualMFADeviceName = a })
 
-instance ToQuery CreateVirtualMFADevice
-
-instance ToPath CreateVirtualMFADevice where
-    toPath = const "/"
-
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice :: VirtualMFADevice
     } deriving (Eq, Show, Generic)
@@ -115,5 +110,15 @@ instance AWSRequest CreateVirtualMFADevice where
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
 
     request  = post "CreateVirtualMFADevice"
-    response = xmlResponse $ \h x -> CreateVirtualMFADeviceResponse
-        <$> x %| "VirtualMFADevice"
+    response = xmlResponse
+
+instance FromXML CreateVirtualMFADeviceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVirtualMFADeviceResponse"
+
+instance ToPath CreateVirtualMFADevice where
+    toPath = const "/"
+
+instance ToHeaders CreateVirtualMFADevice
+
+instance ToQuery CreateVirtualMFADevice

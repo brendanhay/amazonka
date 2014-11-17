@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.ListOperations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.Route53Domains.ListOperations
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ loMarker = lens _loMarker (\s a -> s { _loMarker = a })
 -- A value between 1 and 100. Required: No.
 loMaxItems :: Lens' ListOperations (Maybe Int)
 loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
-
-instance ToPath ListOperations where
-    toPath = const "/"
-
-instance ToQuery ListOperations where
-    toQuery = const mempty
-
-instance ToHeaders ListOperations
-
-instance ToBody ListOperations where
-    toBody = toBody . encode . _loMarker
 
 data ListOperationsResponse = ListOperationsResponse
     { _lorNextPageMarker :: Maybe Text
@@ -126,6 +115,18 @@ instance AWSRequest ListOperations where
     type Rs ListOperations = ListOperationsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListOperationsResponse
-        <$> o .: "NextPageMarker"
-        <*> o .: "Operations"
+    response = jsonResponse
+
+instance FromJSON ListOperationsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListOperations where
+    toPath = const "/"
+
+instance ToHeaders ListOperations
+
+instance ToQuery ListOperations where
+    toQuery = const mempty
+
+instance ToJSON ListOperations where
+    toJSON = genericToJSON jsonOptions

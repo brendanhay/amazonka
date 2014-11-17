@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.CheckDomainAvailability
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ cdaDomainName = lens _cdaDomainName (\s a -> s { _cdaDomainName = a })
 cdaIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
 
-instance ToPath CheckDomainAvailability where
-    toPath = const "/"
-
-instance ToQuery CheckDomainAvailability where
-    toQuery = const mempty
-
-instance ToHeaders CheckDomainAvailability
-
-instance ToBody CheckDomainAvailability where
-    toBody = toBody . encode . _cdaDomainName
-
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdarAvailability :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -119,5 +108,18 @@ instance AWSRequest CheckDomainAvailability where
     type Rs CheckDomainAvailability = CheckDomainAvailabilityResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CheckDomainAvailabilityResponse
-        <$> o .: "Availability"
+    response = jsonResponse
+
+instance FromJSON CheckDomainAvailabilityResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CheckDomainAvailability where
+    toPath = const "/"
+
+instance ToHeaders CheckDomainAvailability
+
+instance ToQuery CheckDomainAvailability where
+    toQuery = const mempty
+
+instance ToJSON CheckDomainAvailability where
+    toJSON = genericToJSON jsonOptions

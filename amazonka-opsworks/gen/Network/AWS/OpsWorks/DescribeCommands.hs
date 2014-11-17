@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeCommands
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeCommands
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -87,17 +87,6 @@ dcDeploymentId = lens _dcDeploymentId (\s a -> s { _dcDeploymentId = a })
 dcInstanceId :: Lens' DescribeCommands (Maybe Text)
 dcInstanceId = lens _dcInstanceId (\s a -> s { _dcInstanceId = a })
 
-instance ToPath DescribeCommands where
-    toPath = const "/"
-
-instance ToQuery DescribeCommands where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCommands
-
-instance ToBody DescribeCommands where
-    toBody = toBody . encode . _dcDeploymentId
-
 newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands :: [Command]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -128,5 +117,18 @@ instance AWSRequest DescribeCommands where
     type Rs DescribeCommands = DescribeCommandsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeCommandsResponse
-        <$> o .: "Commands"
+    response = jsonResponse
+
+instance FromJSON DescribeCommandsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeCommands where
+    toPath = const "/"
+
+instance ToHeaders DescribeCommands
+
+instance ToQuery DescribeCommands where
+    toQuery = const mempty
+
+instance ToJSON DescribeCommands where
+    toJSON = genericToJSON jsonOptions

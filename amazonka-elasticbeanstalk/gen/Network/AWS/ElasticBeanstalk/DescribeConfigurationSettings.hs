@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -96,11 +96,6 @@ dcsEnvironmentName =
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
 
-instance ToQuery DescribeConfigurationSettings
-
-instance ToPath DescribeConfigurationSettings where
-    toPath = const "/"
-
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -133,5 +128,15 @@ instance AWSRequest DescribeConfigurationSettings where
     type Rs DescribeConfigurationSettings = DescribeConfigurationSettingsResponse
 
     request  = post "DescribeConfigurationSettings"
-    response = xmlResponse $ \h x -> DescribeConfigurationSettingsResponse
-        <$> x %| "ConfigurationSettings"
+    response = xmlResponse
+
+instance FromXML DescribeConfigurationSettingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeConfigurationSettingsResponse"
+
+instance ToPath DescribeConfigurationSettings where
+    toPath = const "/"
+
+instance ToHeaders DescribeConfigurationSettings
+
+instance ToQuery DescribeConfigurationSettings

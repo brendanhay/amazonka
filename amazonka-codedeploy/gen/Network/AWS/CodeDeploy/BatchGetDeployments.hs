@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ batchGetDeployments = BatchGetDeployments
 -- spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
 bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s { _bgdDeploymentIds = a })
-
-instance ToPath BatchGetDeployments where
-    toPath = const "/"
-
-instance ToQuery BatchGetDeployments where
-    toQuery = const mempty
-
-instance ToHeaders BatchGetDeployments
-
-instance ToBody BatchGetDeployments where
-    toBody = toBody . encode . _bgdDeploymentIds
 
 newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse
     { _bgdrDeploymentsInfo :: [DeploymentInfo]
@@ -109,5 +98,18 @@ instance AWSRequest BatchGetDeployments where
     type Rs BatchGetDeployments = BatchGetDeploymentsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> BatchGetDeploymentsResponse
-        <$> o .: "deploymentsInfo"
+    response = jsonResponse
+
+instance FromJSON BatchGetDeploymentsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath BatchGetDeployments where
+    toPath = const "/"
+
+instance ToHeaders BatchGetDeployments
+
+instance ToQuery BatchGetDeployments where
+    toQuery = const mempty
+
+instance ToJSON BatchGetDeployments where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.CreateHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.Route53.CreateHealthCheck
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -84,17 +84,6 @@ chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig =
     lens _chcHealthCheckConfig (\s a -> s { _chcHealthCheckConfig = a })
 
-instance ToPath CreateHealthCheck where
-    toPath = const "/2013-04-01/healthcheck"
-
-instance ToQuery CreateHealthCheck where
-    toQuery = const mempty
-
-instance ToHeaders CreateHealthCheck
-
-instance ToBody CreateHealthCheck where
-    toBody = toBody . encodeXML . _chcCallerReference
-
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
     , _chcrLocation    :: Text
@@ -130,6 +119,18 @@ instance AWSRequest CreateHealthCheck where
     type Rs CreateHealthCheck = CreateHealthCheckResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateHealthCheckResponse
+    response = xmlHeaderResponse $ \h x -> CreateHealthCheckResponse
         <$> x %| "HealthCheck"
         <*> h ~: "Location"
+
+instance ToPath CreateHealthCheck where
+    toPath = const "/2013-04-01/healthcheck"
+
+instance ToHeaders CreateHealthCheck
+
+instance ToQuery CreateHealthCheck where
+    toQuery = const mempty
+
+instance ToXML CreateHealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateHealthCheck"

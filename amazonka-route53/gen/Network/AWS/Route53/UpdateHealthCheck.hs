@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.UpdateHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,7 +49,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -155,20 +155,6 @@ uhcResourcePath = lens _uhcResourcePath (\s a -> s { _uhcResourcePath = a })
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 
-instance ToPath UpdateHealthCheck where
-    toPath UpdateHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _uhcHealthCheckId
-        ]
-
-instance ToQuery UpdateHealthCheck where
-    toQuery = const mempty
-
-instance ToHeaders UpdateHealthCheck
-
-instance ToBody UpdateHealthCheck where
-    toBody = toBody . encodeXML . _uhcHealthCheckVersion
-
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck
     } deriving (Eq, Show, Generic)
@@ -193,5 +179,23 @@ instance AWSRequest UpdateHealthCheck where
     type Rs UpdateHealthCheck = UpdateHealthCheckResponse
 
     request  = post
-    response = xmlResponse $ \h x -> UpdateHealthCheckResponse
-        <$> x %| "HealthCheck"
+    response = xmlResponse
+
+instance FromXML UpdateHealthCheckResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateHealthCheckResponse"
+
+instance ToPath UpdateHealthCheck where
+    toPath UpdateHealthCheck{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _uhcHealthCheckId
+        ]
+
+instance ToHeaders UpdateHealthCheck
+
+instance ToQuery UpdateHealthCheck where
+    toQuery = const mempty
+
+instance ToXML UpdateHealthCheck where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateHealthCheck"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,11 +46,6 @@ data ListDomainNames = ListDomainNames
 listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
 
-instance ToQuery ListDomainNames
-
-instance ToPath ListDomainNames where
-    toPath = const "/"
-
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -76,5 +71,15 @@ instance AWSRequest ListDomainNames where
     type Rs ListDomainNames = ListDomainNamesResponse
 
     request  = post "ListDomainNames"
-    response = xmlResponse $ \h x -> ListDomainNamesResponse
-        <$> x %| "DomainNames"
+    response = xmlResponse
+
+instance FromXML ListDomainNamesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDomainNamesResponse"
+
+instance ToPath ListDomainNames where
+    toPath = const "/"
+
+instance ToHeaders ListDomainNames
+
+instance ToQuery ListDomainNames

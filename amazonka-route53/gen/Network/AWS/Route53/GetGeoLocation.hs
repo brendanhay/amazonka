@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetGeoLocation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.Route53.GetGeoLocation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -90,18 +90,6 @@ gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode =
     lens _gglSubdivisionCode (\s a -> s { _gglSubdivisionCode = a })
 
-instance ToPath GetGeoLocation where
-    toPath = const "/2013-04-01/geolocation"
-
-instance ToQuery GetGeoLocation where
-    toQuery GetGeoLocation{..} = mconcat
-        [ "continentcode"   =? _gglContinentCode
-        , "countrycode"     =? _gglCountryCode
-        , "subdivisioncode" =? _gglSubdivisionCode
-        ]
-
-instance ToHeaders GetGeoLocation
-
 newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglrGeoLocationDetails :: GeoLocationDetails
     } deriving (Eq, Show, Generic)
@@ -129,5 +117,15 @@ instance AWSRequest GetGeoLocation where
     type Rs GetGeoLocation = GetGeoLocationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetGeoLocationResponse
-        <$> x %| "GeoLocationDetails"
+    response = xmlResponse
+
+instance FromXML GetGeoLocationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetGeoLocationResponse"
+
+instance ToPath GetGeoLocation where
+    toPath = const "/2013-04-01/geolocation"
+
+instance ToHeaders GetGeoLocation
+
+instance ToQuery GetGeoLocation

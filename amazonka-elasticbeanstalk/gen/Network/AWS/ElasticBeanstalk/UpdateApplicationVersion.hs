@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ uavDescription = lens _uavDescription (\s a -> s { _uavDescription = a })
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
 
-instance ToQuery UpdateApplicationVersion
-
-instance ToPath UpdateApplicationVersion where
-    toPath = const "/"
-
 newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Eq, Show, Generic)
@@ -115,5 +110,15 @@ instance AWSRequest UpdateApplicationVersion where
     type Rs UpdateApplicationVersion = UpdateApplicationVersionResponse
 
     request  = post "UpdateApplicationVersion"
-    response = xmlResponse $ \h x -> UpdateApplicationVersionResponse
-        <$> x %| "ApplicationVersion"
+    response = xmlResponse
+
+instance FromXML UpdateApplicationVersionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateApplicationVersionResponse"
+
+instance ToPath UpdateApplicationVersion where
+    toPath = const "/"
+
+instance ToHeaders UpdateApplicationVersion
+
+instance ToQuery UpdateApplicationVersion

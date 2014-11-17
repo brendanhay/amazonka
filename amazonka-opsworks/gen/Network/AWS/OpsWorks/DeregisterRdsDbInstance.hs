@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterRdsDbInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ drdiRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance Text
 drdiRdsDbInstanceArn =
     lens _drdiRdsDbInstanceArn (\s a -> s { _drdiRdsDbInstanceArn = a })
 
-instance ToPath DeregisterRdsDbInstance where
-    toPath = const "/"
-
-instance ToQuery DeregisterRdsDbInstance where
-    toQuery = const mempty
-
-instance ToHeaders DeregisterRdsDbInstance
-
-instance ToBody DeregisterRdsDbInstance where
-    toBody = toBody . encode . _drdiRdsDbInstanceArn
-
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +72,15 @@ instance AWSRequest DeregisterRdsDbInstance where
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse
 
     request  = post
-    response = nullaryResponse DeregisterRdsDbInstanceResponse
+    response = nullResponse DeregisterRdsDbInstanceResponse
+
+instance ToPath DeregisterRdsDbInstance where
+    toPath = const "/"
+
+instance ToHeaders DeregisterRdsDbInstance
+
+instance ToQuery DeregisterRdsDbInstance where
+    toQuery = const mempty
+
+instance ToJSON DeregisterRdsDbInstance where
+    toJSON = genericToJSON jsonOptions

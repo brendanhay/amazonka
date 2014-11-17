@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ cancelUpdateStack p1 = CancelUpdateStack
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 
-instance ToQuery CancelUpdateStack
-
-instance ToPath CancelUpdateStack where
-    toPath = const "/"
-
 data CancelUpdateStackResponse = CancelUpdateStackResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -79,4 +74,11 @@ instance AWSRequest CancelUpdateStack where
     type Rs CancelUpdateStack = CancelUpdateStackResponse
 
     request  = post "CancelUpdateStack"
-    response = nullaryResponse CancelUpdateStackResponse
+    response = nullResponse CancelUpdateStackResponse
+
+instance ToPath CancelUpdateStack where
+    toPath = const "/"
+
+instance ToHeaders CancelUpdateStack
+
+instance ToQuery CancelUpdateStack

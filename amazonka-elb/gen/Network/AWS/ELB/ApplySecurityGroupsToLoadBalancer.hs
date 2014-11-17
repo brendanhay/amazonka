@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups =
     lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
 
-instance ToQuery ApplySecurityGroupsToLoadBalancer
-
-instance ToPath ApplySecurityGroupsToLoadBalancer where
-    toPath = const "/"
-
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -115,5 +110,15 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
 
     request  = post "ApplySecurityGroupsToLoadBalancer"
-    response = xmlResponse $ \h x -> ApplySecurityGroupsToLoadBalancerResponse
-        <$> x %| "SecurityGroups"
+    response = xmlResponse
+
+instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerResponse"
+
+instance ToPath ApplySecurityGroupsToLoadBalancer where
+    toPath = const "/"
+
+instance ToHeaders ApplySecurityGroupsToLoadBalancer
+
+instance ToQuery ApplySecurityGroupsToLoadBalancer

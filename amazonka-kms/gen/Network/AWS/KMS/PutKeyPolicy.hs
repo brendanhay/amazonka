@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.PutKeyPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.KMS.PutKeyPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -81,17 +81,6 @@ pkpPolicy = lens _pkpPolicy (\s a -> s { _pkpPolicy = a })
 pkpPolicyName :: Lens' PutKeyPolicy Text
 pkpPolicyName = lens _pkpPolicyName (\s a -> s { _pkpPolicyName = a })
 
-instance ToPath PutKeyPolicy where
-    toPath = const "/"
-
-instance ToQuery PutKeyPolicy where
-    toQuery = const mempty
-
-instance ToHeaders PutKeyPolicy
-
-instance ToBody PutKeyPolicy where
-    toBody = toBody . encode . _pkpKeyId
-
 data PutKeyPolicyResponse = PutKeyPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -104,4 +93,15 @@ instance AWSRequest PutKeyPolicy where
     type Rs PutKeyPolicy = PutKeyPolicyResponse
 
     request  = post
-    response = nullaryResponse PutKeyPolicyResponse
+    response = nullResponse PutKeyPolicyResponse
+
+instance ToPath PutKeyPolicy where
+    toPath = const "/"
+
+instance ToHeaders PutKeyPolicy
+
+instance ToQuery PutKeyPolicy where
+    toQuery = const mempty
+
+instance ToJSON PutKeyPolicy where
+    toJSON = genericToJSON jsonOptions

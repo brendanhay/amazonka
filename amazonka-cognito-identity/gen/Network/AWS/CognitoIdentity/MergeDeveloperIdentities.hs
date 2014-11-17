@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -111,17 +111,6 @@ mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiSourceUserIdentifier =
     lens _mdiSourceUserIdentifier (\s a -> s { _mdiSourceUserIdentifier = a })
 
-instance ToPath MergeDeveloperIdentities where
-    toPath = const "/"
-
-instance ToQuery MergeDeveloperIdentities where
-    toQuery = const mempty
-
-instance ToHeaders MergeDeveloperIdentities
-
-instance ToBody MergeDeveloperIdentities where
-    toBody = toBody . encode . _mdiSourceUserIdentifier
-
 newtype MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse
     { _mdirIdentityId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -146,5 +135,18 @@ instance AWSRequest MergeDeveloperIdentities where
     type Rs MergeDeveloperIdentities = MergeDeveloperIdentitiesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> MergeDeveloperIdentitiesResponse
-        <$> o .: "IdentityId"
+    response = jsonResponse
+
+instance FromJSON MergeDeveloperIdentitiesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath MergeDeveloperIdentities where
+    toPath = const "/"
+
+instance ToHeaders MergeDeveloperIdentities
+
+instance ToQuery MergeDeveloperIdentities where
+    toQuery = const mempty
+
+instance ToJSON MergeDeveloperIdentities where
+    toJSON = genericToJSON jsonOptions

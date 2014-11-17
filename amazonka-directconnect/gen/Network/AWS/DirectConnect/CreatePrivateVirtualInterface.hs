@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,7 +54,7 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -89,17 +89,6 @@ cpvi1NewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivat
 cpvi1NewPrivateVirtualInterface =
     lens _cpvi1NewPrivateVirtualInterface
         (\s a -> s { _cpvi1NewPrivateVirtualInterface = a })
-
-instance ToPath CreatePrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToQuery CreatePrivateVirtualInterface where
-    toQuery = const mempty
-
-instance ToHeaders CreatePrivateVirtualInterface
-
-instance ToBody CreatePrivateVirtualInterface where
-    toBody = toBody . encode . _cpvi1ConnectionId
 
 data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceResponse
     { _cpvir2AmazonAddress         :: Maybe Text
@@ -240,19 +229,18 @@ instance AWSRequest CreatePrivateVirtualInterface where
     type Rs CreatePrivateVirtualInterface = CreatePrivateVirtualInterfaceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreatePrivateVirtualInterfaceResponse
-        <$> o .: "amazonAddress"
-        <*> o .: "asn"
-        <*> o .: "authKey"
-        <*> o .: "connectionId"
-        <*> o .: "customerAddress"
-        <*> o .: "customerRouterConfig"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
-        <*> o .: "virtualGatewayId"
-        <*> o .: "virtualInterfaceId"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "virtualInterfaceState"
-        <*> o .: "virtualInterfaceType"
-        <*> o .: "vlan"
+    response = jsonResponse
+
+instance FromJSON CreatePrivateVirtualInterfaceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreatePrivateVirtualInterface where
+    toPath = const "/"
+
+instance ToHeaders CreatePrivateVirtualInterface
+
+instance ToQuery CreatePrivateVirtualInterface where
+    toQuery = const mempty
+
+instance ToJSON CreatePrivateVirtualInterface where
+    toJSON = genericToJSON jsonOptions

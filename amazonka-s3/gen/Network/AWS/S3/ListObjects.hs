@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.ListObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.S3.ListObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -115,23 +115,6 @@ loMaxKeys = lens _loMaxKeys (\s a -> s { _loMaxKeys = a })
 -- | Limits the response to keys that begin with the specified prefix.
 loPrefix :: Lens' ListObjects (Maybe Text)
 loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
-
-instance ToPath ListObjects where
-    toPath ListObjects{..} = mconcat
-        [ "/"
-        , toText _loBucket
-        ]
-
-instance ToQuery ListObjects where
-    toQuery ListObjects{..} = mconcat
-        [ "delimiter"     =? _loDelimiter
-        , "encoding-type" =? _loEncodingType
-        , "marker"        =? _loMarker
-        , "max-keys"      =? _loMaxKeys
-        , "prefix"        =? _loPrefix
-        ]
-
-instance ToHeaders ListObjects
 
 data ListObjectsResponse = ListObjectsResponse
     { _lorCommonPrefixes :: [CommonPrefix]
@@ -231,14 +214,29 @@ instance AWSRequest ListObjects where
     type Rs ListObjects = ListObjectsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListObjectsResponse
-        <$> x %| "CommonPrefixes"
-        <*> x %| "Contents"
-        <*> x %| "Delimiter"
-        <*> x %| "EncodingType"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "MaxKeys"
-        <*> x %| "Name"
-        <*> x %| "NextMarker"
-        <*> x %| "Prefix"
+    response = xmlResponse
+
+instance FromXML ListObjectsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListObjectsResponse"
+
+instance ToPath ListObjects where
+    toPath ListObjects{..} = mconcat
+        [ "/"
+        , toText _loBucket
+        ]
+
+instance ToHeaders ListObjects
+
+instance ToQuery ListObjects where
+    toQuery ListObjects{..} = mconcat
+        [ "delimiter"     =? _loDelimiter
+        , "encoding-type" =? _loEncodingType
+        , "marker"        =? _loMarker
+        , "max-keys"      =? _loMaxKeys
+        , "prefix"        =? _loPrefix
+        ]
+
+instance ToXML ListObjects where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListObjects"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SDB.CreateDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,11 +66,6 @@ createDomain p1 = CreateDomain
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
 
-instance ToQuery CreateDomain
-
-instance ToPath CreateDomain where
-    toPath = const "/"
-
 data CreateDomainResponse = CreateDomainResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -83,4 +78,11 @@ instance AWSRequest CreateDomain where
     type Rs CreateDomain = CreateDomainResponse
 
     request  = post "CreateDomain"
-    response = nullaryResponse CreateDomainResponse
+    response = nullResponse CreateDomainResponse
+
+instance ToPath CreateDomain where
+    toPath = const "/"
+
+instance ToHeaders CreateDomain
+
+instance ToQuery CreateDomain

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeOptionGroupOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -106,11 +106,6 @@ dogoMarker = lens _dogoMarker (\s a -> s { _dogoMarker = a })
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
 dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
 
-instance ToQuery DescribeOptionGroupOptions
-
-instance ToPath DescribeOptionGroupOptions where
-    toPath = const "/"
-
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorMarker             :: Maybe Text
     , _dogorOptionGroupOptions :: [OptionGroupOption]
@@ -145,10 +140,15 @@ instance AWSRequest DescribeOptionGroupOptions where
     type Rs DescribeOptionGroupOptions = DescribeOptionGroupOptionsResponse
 
     request  = post "DescribeOptionGroupOptions"
-    response = xmlResponse $ \h x -> DescribeOptionGroupOptionsResponse
-        <$> x %| "Marker"
-        <*> x %| "OptionGroupOptions"
+    response = xmlResponse
 
-instance AWSPager DescribeOptionGroupOptions where
-    next rq rs = (\x -> rq & dogoMarker ?~ x)
-        <$> (rs ^. dogorMarker)
+instance FromXML DescribeOptionGroupOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeOptionGroupOptionsResponse"
+
+instance ToPath DescribeOptionGroupOptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeOptionGroupOptions
+
+instance ToQuery DescribeOptionGroupOptions

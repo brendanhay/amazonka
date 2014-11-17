@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.AddEventSource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -59,7 +59,7 @@ module Network.AWS.Lambda.AddEventSource
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -127,17 +127,6 @@ aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a })
 -- read from the stream and invoke the function.
 aesRole :: Lens' AddEventSource Text
 aesRole = lens _aesRole (\s a -> s { _aesRole = a })
-
-instance ToPath AddEventSource where
-    toPath = const "/2014-11-13/event-source-mappings/"
-
-instance ToQuery AddEventSource where
-    toQuery = const mempty
-
-instance ToHeaders AddEventSource
-
-instance ToBody AddEventSource where
-    toBody = toBody . encode . _aesEventSource
 
 data AddEventSourceResponse = AddEventSourceResponse
     { _aesrBatchSize    :: Maybe Int
@@ -239,13 +228,18 @@ instance AWSRequest AddEventSource where
     type Rs AddEventSource = AddEventSourceResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddEventSourceResponse
-        <$> o .: "BatchSize"
-        <*> o .: "EventSource"
-        <*> o .: "FunctionName"
-        <*> o .: "IsActive"
-        <*> o .: "LastModified"
-        <*> o .: "Parameters"
-        <*> o .: "Role"
-        <*> o .: "Status"
-        <*> o .: "UUID"
+    response = jsonResponse
+
+instance FromJSON AddEventSourceResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddEventSource where
+    toPath = const "/2014-11-13/event-source-mappings/"
+
+instance ToHeaders AddEventSource
+
+instance ToQuery AddEventSource where
+    toQuery = const mempty
+
+instance ToJSON AddEventSource where
+    toJSON = genericToJSON jsonOptions

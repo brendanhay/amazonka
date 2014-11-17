@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.ListAliases
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.KMS.ListAliases
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ laLimit = lens _laLimit (\s a -> s { _laLimit = a })
 -- received.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\s a -> s { _laMarker = a })
-
-instance ToPath ListAliases where
-    toPath = const "/"
-
-instance ToQuery ListAliases where
-    toQuery = const mempty
-
-instance ToHeaders ListAliases
-
-instance ToBody ListAliases where
-    toBody = toBody . encode . _laLimit
 
 data ListAliasesResponse = ListAliasesResponse
     { _larAliases    :: [AliasListEntry]
@@ -132,7 +121,18 @@ instance AWSRequest ListAliases where
     type Rs ListAliases = ListAliasesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListAliasesResponse
-        <$> o .: "Aliases"
-        <*> o .: "NextMarker"
-        <*> o .: "Truncated"
+    response = jsonResponse
+
+instance FromJSON ListAliasesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListAliases where
+    toPath = const "/"
+
+instance ToHeaders ListAliases
+
+instance ToQuery ListAliases where
+    toQuery = const mempty
+
+instance ToJSON ListAliases where
+    toJSON = genericToJSON jsonOptions

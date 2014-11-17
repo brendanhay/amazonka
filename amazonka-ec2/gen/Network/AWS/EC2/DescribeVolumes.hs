@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -136,11 +136,6 @@ dv2NextToken = lens _dv2NextToken (\s a -> s { _dv2NextToken = a })
 dv2VolumeIds :: Lens' DescribeVolumes [Text]
 dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
 
-instance ToQuery DescribeVolumes
-
-instance ToPath DescribeVolumes where
-    toPath = const "/"
-
 data DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrNextToken :: Maybe Text
     , _dvrVolumes   :: [Volume]
@@ -175,6 +170,15 @@ instance AWSRequest DescribeVolumes where
     type Rs DescribeVolumes = DescribeVolumesResponse
 
     request  = post "DescribeVolumes"
-    response = xmlResponse $ \h x -> DescribeVolumesResponse
-        <$> x %| "nextToken"
-        <*> x %| "volumeSet"
+    response = xmlResponse
+
+instance FromXML DescribeVolumesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVolumesResponse"
+
+instance ToPath DescribeVolumes where
+    toPath = const "/"
+
+instance ToHeaders DescribeVolumes
+
+instance ToQuery DescribeVolumes

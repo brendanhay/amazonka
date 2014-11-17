@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.PutLifecycleHook
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -168,11 +168,6 @@ plhNotificationTargetARN =
 plhRoleARN :: Lens' PutLifecycleHook (Maybe Text)
 plhRoleARN = lens _plhRoleARN (\s a -> s { _plhRoleARN = a })
 
-instance ToQuery PutLifecycleHook
-
-instance ToPath PutLifecycleHook where
-    toPath = const "/"
-
 data PutLifecycleHookResponse = PutLifecycleHookResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -185,4 +180,11 @@ instance AWSRequest PutLifecycleHook where
     type Rs PutLifecycleHook = PutLifecycleHookResponse
 
     request  = post "PutLifecycleHook"
-    response = nullaryResponse PutLifecycleHookResponse
+    response = nullResponse PutLifecycleHookResponse
+
+instance ToPath PutLifecycleHook where
+    toPath = const "/"
+
+instance ToHeaders PutLifecycleHook
+
+instance ToQuery PutLifecycleHook

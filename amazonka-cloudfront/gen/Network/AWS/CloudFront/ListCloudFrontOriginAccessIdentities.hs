@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ lcfoaiMarker = lens _lcfoaiMarker (\s a -> s { _lcfoaiMarker = a })
 lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
-instance ToPath ListCloudFrontOriginAccessIdentities where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
-
-instance ToQuery ListCloudFrontOriginAccessIdentities where
-    toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
-        [ "Marker"   =? _lcfoaiMarker
-        , "MaxItems" =? _lcfoaiMaxItems
-        ]
-
-instance ToHeaders ListCloudFrontOriginAccessIdentities
-
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
     } deriving (Eq, Show, Generic)
@@ -111,5 +100,15 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListCloudFrontOriginAccessIdentitiesResponse
-        <$> x %| "CloudFrontOriginAccessIdentityList"
+    response = xmlResponse
+
+instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentitiesResponse"
+
+instance ToPath ListCloudFrontOriginAccessIdentities where
+    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+
+instance ToHeaders ListCloudFrontOriginAccessIdentities
+
+instance ToQuery ListCloudFrontOriginAccessIdentities

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ createLogGroup p1 = CreateLogGroup
 clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\s a -> s { _clgLogGroupName = a })
 
-instance ToPath CreateLogGroup where
-    toPath = const "/"
-
-instance ToQuery CreateLogGroup where
-    toQuery = const mempty
-
-instance ToHeaders CreateLogGroup
-
-instance ToBody CreateLogGroup where
-    toBody = toBody . encode . _clgLogGroupName
-
 data CreateLogGroupResponse = CreateLogGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +75,15 @@ instance AWSRequest CreateLogGroup where
     type Rs CreateLogGroup = CreateLogGroupResponse
 
     request  = post
-    response = nullaryResponse CreateLogGroupResponse
+    response = nullResponse CreateLogGroupResponse
+
+instance ToPath CreateLogGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateLogGroup
+
+instance ToQuery CreateLogGroup where
+    toQuery = const mempty
+
+instance ToJSON CreateLogGroup where
+    toJSON = genericToJSON jsonOptions

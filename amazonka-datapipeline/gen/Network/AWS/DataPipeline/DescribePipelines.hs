@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.DataPipeline.DescribePipelines
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ describePipelines = DescribePipelines
 -- pipeline identifiers by calling ListPipelines.
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a })
-
-instance ToPath DescribePipelines where
-    toPath = const "/"
-
-instance ToQuery DescribePipelines where
-    toQuery = const mempty
-
-instance ToHeaders DescribePipelines
-
-instance ToBody DescribePipelines where
-    toBody = toBody . encode . _dpPipelineIds
 
 newtype DescribePipelinesResponse = DescribePipelinesResponse
     { _dprPipelineDescriptionList :: [PipelineDescription]
@@ -118,5 +107,18 @@ instance AWSRequest DescribePipelines where
     type Rs DescribePipelines = DescribePipelinesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribePipelinesResponse
-        <$> o .: "pipelineDescriptionList"
+    response = jsonResponse
+
+instance FromJSON DescribePipelinesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribePipelines where
+    toPath = const "/"
+
+instance ToHeaders DescribePipelines
+
+instance ToQuery DescribePipelines where
+    toQuery = const mempty
+
+instance ToJSON DescribePipelines where
+    toJSON = genericToJSON jsonOptions

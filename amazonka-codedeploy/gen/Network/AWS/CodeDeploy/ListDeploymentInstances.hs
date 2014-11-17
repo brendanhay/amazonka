@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -91,17 +91,6 @@ ldiInstanceStatusFilter =
 ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
-instance ToPath ListDeploymentInstances where
-    toPath = const "/"
-
-instance ToQuery ListDeploymentInstances where
-    toQuery = const mempty
-
-instance ToHeaders ListDeploymentInstances
-
-instance ToBody ListDeploymentInstances where
-    toBody = toBody . encode . _ldiDeploymentId
-
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse
     { _ldirInstancesList :: [Text]
     , _ldirNextToken     :: Maybe Text
@@ -138,6 +127,18 @@ instance AWSRequest ListDeploymentInstances where
     type Rs ListDeploymentInstances = ListDeploymentInstancesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListDeploymentInstancesResponse
-        <$> o .: "instancesList"
-        <*> o .: "nextToken"
+    response = jsonResponse
+
+instance FromJSON ListDeploymentInstancesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListDeploymentInstances where
+    toPath = const "/"
+
+instance ToHeaders ListDeploymentInstances
+
+instance ToQuery ListDeploymentInstances where
+    toQuery = const mempty
+
+instance ToJSON ListDeploymentInstances where
+    toJSON = genericToJSON jsonOptions

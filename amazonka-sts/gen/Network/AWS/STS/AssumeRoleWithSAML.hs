@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.STS.AssumeRoleWithSAML
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -160,11 +160,6 @@ arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion =
     lens _arwsamlSAMLAssertion (\s a -> s { _arwsamlSAMLAssertion = a })
 
-instance ToQuery AssumeRoleWithSAML
-
-instance ToPath AssumeRoleWithSAML where
-    toPath = const "/"
-
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     { _arwsamlrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arwsamlrAudience         :: Maybe Text
@@ -265,12 +260,15 @@ instance AWSRequest AssumeRoleWithSAML where
     type Rs AssumeRoleWithSAML = AssumeRoleWithSAMLResponse
 
     request  = post "AssumeRoleWithSAML"
-    response = xmlResponse $ \h x -> AssumeRoleWithSAMLResponse
-        <$> x %| "AssumedRoleUser"
-        <*> x %| "Audience"
-        <*> x %| "Credentials"
-        <*> x %| "Issuer"
-        <*> x %| "NameQualifier"
-        <*> x %| "PackedPolicySize"
-        <*> x %| "Subject"
-        <*> x %| "SubjectType"
+    response = xmlResponse
+
+instance FromXML AssumeRoleWithSAMLResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssumeRoleWithSAMLResponse"
+
+instance ToPath AssumeRoleWithSAML where
+    toPath = const "/"
+
+instance ToHeaders AssumeRoleWithSAML
+
+instance ToQuery AssumeRoleWithSAML

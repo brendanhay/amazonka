@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.VerifyDomainDkim
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ verifyDomainDkim p1 = VerifyDomainDkim
 vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
 
-instance ToQuery VerifyDomainDkim
-
-instance ToPath VerifyDomainDkim where
-    toPath = const "/"
-
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -113,5 +108,15 @@ instance AWSRequest VerifyDomainDkim where
     type Rs VerifyDomainDkim = VerifyDomainDkimResponse
 
     request  = post "VerifyDomainDkim"
-    response = xmlResponse $ \h x -> VerifyDomainDkimResponse
-        <$> x %| "DkimTokens"
+    response = xmlResponse
+
+instance FromXML VerifyDomainDkimResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VerifyDomainDkimResponse"
+
+instance ToPath VerifyDomainDkim where
+    toPath = const "/"
+
+instance ToHeaders VerifyDomainDkim
+
+instance ToQuery VerifyDomainDkim

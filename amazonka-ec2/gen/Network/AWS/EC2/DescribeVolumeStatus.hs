@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -136,11 +136,6 @@ dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
 
-instance ToQuery DescribeVolumeStatus
-
-instance ToPath DescribeVolumeStatus where
-    toPath = const "/"
-
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrNextToken      :: Maybe Text
     , _dvsrVolumeStatuses :: [VolumeStatusItem]
@@ -174,10 +169,15 @@ instance AWSRequest DescribeVolumeStatus where
     type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse
 
     request  = post "DescribeVolumeStatus"
-    response = xmlResponse $ \h x -> DescribeVolumeStatusResponse
-        <$> x %| "nextToken"
-        <*> x %| "volumeStatusSet"
+    response = xmlResponse
 
-instance AWSPager DescribeVolumeStatus where
-    next rq rs = (\x -> rq & dvsNextToken ?~ x)
-        <$> (rs ^. dvsrNextToken)
+instance FromXML DescribeVolumeStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVolumeStatusResponse"
+
+instance ToPath DescribeVolumeStatus where
+    toPath = const "/"
+
+instance ToHeaders DescribeVolumeStatus
+
+instance ToQuery DescribeVolumeStatus

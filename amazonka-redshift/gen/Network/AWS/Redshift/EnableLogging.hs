@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.EnableLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ elClusterIdentifier =
 elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
 elS3KeyPrefix = lens _elS3KeyPrefix (\s a -> s { _elS3KeyPrefix = a })
 
-instance ToQuery EnableLogging
-
-instance ToPath EnableLogging where
-    toPath = const "/"
-
 data EnableLoggingResponse = EnableLoggingResponse
     { _elrBucketName                 :: Maybe Text
     , _elrLastFailureMessage         :: Maybe Text
@@ -169,10 +164,15 @@ instance AWSRequest EnableLogging where
     type Rs EnableLogging = EnableLoggingResponse
 
     request  = post "EnableLogging"
-    response = xmlResponse $ \h x -> EnableLoggingResponse
-        <$> x %| "BucketName"
-        <*> x %| "LastFailureMessage"
-        <*> x %| "LastFailureTime"
-        <*> x %| "LastSuccessfulDeliveryTime"
-        <*> x %| "LoggingEnabled"
-        <*> x %| "S3KeyPrefix"
+    response = xmlResponse
+
+instance FromXML EnableLoggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableLoggingResponse"
+
+instance ToPath EnableLogging where
+    toPath = const "/"
+
+instance ToHeaders EnableLogging
+
+instance ToQuery EnableLogging

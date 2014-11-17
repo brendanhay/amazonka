@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeServices
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.Support.DescribeServices
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -81,17 +81,6 @@ dsServiceCodeList :: Lens' DescribeServices [Text]
 dsServiceCodeList =
     lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
 
-instance ToPath DescribeServices where
-    toPath = const "/"
-
-instance ToQuery DescribeServices where
-    toQuery = const mempty
-
-instance ToHeaders DescribeServices
-
-instance ToBody DescribeServices where
-    toBody = toBody . encode . _dsServiceCodeList
-
 newtype DescribeServicesResponse = DescribeServicesResponse
     { _dsrServices :: [Service]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -122,5 +111,18 @@ instance AWSRequest DescribeServices where
     type Rs DescribeServices = DescribeServicesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeServicesResponse
-        <$> o .: "services"
+    response = jsonResponse
+
+instance FromJSON DescribeServicesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeServices where
+    toPath = const "/"
+
+instance ToHeaders DescribeServices
+
+instance ToQuery DescribeServices where
+    toQuery = const mempty
+
+instance ToJSON DescribeServices where
+    toJSON = genericToJSON jsonOptions

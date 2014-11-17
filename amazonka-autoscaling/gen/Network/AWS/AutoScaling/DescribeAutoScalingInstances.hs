@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 
-instance ToQuery DescribeAutoScalingInstances
-
-instance ToPath DescribeAutoScalingInstances where
-    toPath = const "/"
-
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
     , _dasirNextToken            :: Maybe Text
@@ -128,10 +123,15 @@ instance AWSRequest DescribeAutoScalingInstances where
     type Rs DescribeAutoScalingInstances = DescribeAutoScalingInstancesResponse
 
     request  = post "DescribeAutoScalingInstances"
-    response = xmlResponse $ \h x -> DescribeAutoScalingInstancesResponse
-        <$> x %| "AutoScalingInstances"
-        <*> x %| "NextToken"
+    response = xmlResponse
 
-instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq & dasiNextToken ?~ x)
-        <$> (rs ^. dasirNextToken)
+instance FromXML DescribeAutoScalingInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAutoScalingInstancesResponse"
+
+instance ToPath DescribeAutoScalingInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeAutoScalingInstances
+
+instance ToQuery DescribeAutoScalingInstances

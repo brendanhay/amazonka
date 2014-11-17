@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ModifySnapshotAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -119,11 +119,6 @@ msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
 msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
 
-instance ToQuery ModifySnapshotAttribute
-
-instance ToPath ModifySnapshotAttribute where
-    toPath = const "/"
-
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -136,4 +131,11 @@ instance AWSRequest ModifySnapshotAttribute where
     type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
 
     request  = post "ModifySnapshotAttribute"
-    response = nullaryResponse ModifySnapshotAttributeResponse
+    response = nullResponse ModifySnapshotAttributeResponse
+
+instance ToPath ModifySnapshotAttribute where
+    toPath = const "/"
+
+instance ToHeaders ModifySnapshotAttribute
+
+instance ToQuery ModifySnapshotAttribute

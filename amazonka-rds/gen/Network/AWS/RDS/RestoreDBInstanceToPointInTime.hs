@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.RestoreDBInstanceToPointInTime
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -311,11 +311,6 @@ rdbitpitUseLatestRestorableTime =
     lens _rdbitpitUseLatestRestorableTime
         (\s a -> s { _rdbitpitUseLatestRestorableTime = a })
 
-instance ToQuery RestoreDBInstanceToPointInTime
-
-instance ToPath RestoreDBInstanceToPointInTime where
-    toPath = const "/"
-
 newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
@@ -340,5 +335,15 @@ instance AWSRequest RestoreDBInstanceToPointInTime where
     type Rs RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTimeResponse
 
     request  = post "RestoreDBInstanceToPointInTime"
-    response = xmlResponse $ \h x -> RestoreDBInstanceToPointInTimeResponse
-        <$> x %| "DBInstance"
+    response = xmlResponse
+
+instance FromXML RestoreDBInstanceToPointInTimeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestoreDBInstanceToPointInTimeResponse"
+
+instance ToPath RestoreDBInstanceToPointInTime where
+    toPath = const "/"
+
+instance ToHeaders RestoreDBInstanceToPointInTime
+
+instance ToQuery RestoreDBInstanceToPointInTime

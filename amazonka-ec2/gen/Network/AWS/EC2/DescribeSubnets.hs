@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSubnets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a })
 dsSubnetIds :: Lens' DescribeSubnets [Text]
 dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a })
 
-instance ToQuery DescribeSubnets
-
-instance ToPath DescribeSubnets where
-    toPath = const "/"
-
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets :: [Subnet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -132,5 +127,15 @@ instance AWSRequest DescribeSubnets where
     type Rs DescribeSubnets = DescribeSubnetsResponse
 
     request  = post "DescribeSubnets"
-    response = xmlResponse $ \h x -> DescribeSubnetsResponse
-        <$> x %| "subnetSet"
+    response = xmlResponse
+
+instance FromXML DescribeSubnetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSubnetsResponse"
+
+instance ToPath DescribeSubnets where
+    toPath = const "/"
+
+instance ToHeaders DescribeSubnets
+
+instance ToQuery DescribeSubnets

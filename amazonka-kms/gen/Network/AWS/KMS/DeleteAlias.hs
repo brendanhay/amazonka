@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.DeleteAlias
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.KMS.DeleteAlias
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ deleteAlias p1 = DeleteAlias
 daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\s a -> s { _daAliasName = a })
 
-instance ToPath DeleteAlias where
-    toPath = const "/"
-
-instance ToQuery DeleteAlias where
-    toQuery = const mempty
-
-instance ToHeaders DeleteAlias
-
-instance ToBody DeleteAlias where
-    toBody = toBody . encode . _daAliasName
-
 data DeleteAliasResponse = DeleteAliasResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +71,15 @@ instance AWSRequest DeleteAlias where
     type Rs DeleteAlias = DeleteAliasResponse
 
     request  = post
-    response = nullaryResponse DeleteAliasResponse
+    response = nullResponse DeleteAliasResponse
+
+instance ToPath DeleteAlias where
+    toPath = const "/"
+
+instance ToHeaders DeleteAlias
+
+instance ToQuery DeleteAlias where
+    toQuery = const mempty
+
+instance ToJSON DeleteAlias where
+    toJSON = genericToJSON jsonOptions

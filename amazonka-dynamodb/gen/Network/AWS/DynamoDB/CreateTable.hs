@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.CreateTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,7 +52,7 @@ module Network.AWS.DynamoDB.CreateTable
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -174,17 +174,6 @@ ctProvisionedThroughput =
 ctTableName :: Lens' CreateTable Text
 ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 
-instance ToPath CreateTable where
-    toPath = const "/"
-
-instance ToQuery CreateTable where
-    toQuery = const mempty
-
-instance ToHeaders CreateTable
-
-instance ToBody CreateTable where
-    toBody = toBody . encode . _ctAttributeDefinitions
-
 newtype CreateTableResponse = CreateTableResponse
     { _ctrTableDescription :: Maybe TableDescription
     } deriving (Eq, Show, Generic)
@@ -209,5 +198,18 @@ instance AWSRequest CreateTable where
     type Rs CreateTable = CreateTableResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateTableResponse
-        <$> o .: "TableDescription"
+    response = jsonResponse
+
+instance FromJSON CreateTableResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateTable where
+    toPath = const "/"
+
+instance ToHeaders CreateTable
+
+instance ToQuery CreateTable where
+    toQuery = const mempty
+
+instance ToJSON CreateTable where
+    toJSON = genericToJSON jsonOptions

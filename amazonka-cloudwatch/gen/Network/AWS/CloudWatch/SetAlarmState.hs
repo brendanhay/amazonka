@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -95,11 +95,6 @@ sasStateReasonData =
 sasStateValue :: Lens' SetAlarmState Text
 sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
 
-instance ToQuery SetAlarmState
-
-instance ToPath SetAlarmState where
-    toPath = const "/"
-
 data SetAlarmStateResponse = SetAlarmStateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -112,4 +107,11 @@ instance AWSRequest SetAlarmState where
     type Rs SetAlarmState = SetAlarmStateResponse
 
     request  = post "SetAlarmState"
-    response = nullaryResponse SetAlarmStateResponse
+    response = nullResponse SetAlarmStateResponse
+
+instance ToPath SetAlarmState where
+    toPath = const "/"
+
+instance ToHeaders SetAlarmState
+
+instance ToQuery SetAlarmState

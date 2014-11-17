@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.GetHostnameSuggestion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ getHostnameSuggestion p1 = GetHostnameSuggestion
 -- | The layer ID.
 ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\s a -> s { _ghsLayerId = a })
-
-instance ToPath GetHostnameSuggestion where
-    toPath = const "/"
-
-instance ToQuery GetHostnameSuggestion where
-    toQuery = const mempty
-
-instance ToHeaders GetHostnameSuggestion
-
-instance ToBody GetHostnameSuggestion where
-    toBody = toBody . encode . _ghsLayerId
 
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
     { _ghsrHostname :: Maybe Text
@@ -109,6 +98,18 @@ instance AWSRequest GetHostnameSuggestion where
     type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetHostnameSuggestionResponse
-        <$> o .: "Hostname"
-        <*> o .: "LayerId"
+    response = jsonResponse
+
+instance FromJSON GetHostnameSuggestionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetHostnameSuggestion where
+    toPath = const "/"
+
+instance ToHeaders GetHostnameSuggestion
+
+instance ToQuery GetHostnameSuggestion where
+    toQuery = const mempty
+
+instance ToJSON GetHostnameSuggestion where
+    toJSON = genericToJSON jsonOptions

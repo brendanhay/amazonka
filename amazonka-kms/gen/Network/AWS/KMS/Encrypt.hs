@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.Encrypt
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.KMS.Encrypt
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -96,17 +96,6 @@ eKeyId = lens _eKeyId (\s a -> s { _eKeyId = a })
 ePlaintext :: Lens' Encrypt Base64
 ePlaintext = lens _ePlaintext (\s a -> s { _ePlaintext = a })
 
-instance ToPath Encrypt where
-    toPath = const "/"
-
-instance ToQuery Encrypt where
-    toQuery = const mempty
-
-instance ToHeaders Encrypt
-
-instance ToBody Encrypt where
-    toBody = toBody . encode . _eKeyId
-
 data EncryptResponse = EncryptResponse
     { _erCiphertextBlob :: Maybe Base64
     , _erKeyId          :: Maybe Text
@@ -139,6 +128,18 @@ instance AWSRequest Encrypt where
     type Rs Encrypt = EncryptResponse
 
     request  = post
-    response = jsonResponse $ \h o -> EncryptResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
+    response = jsonResponse
+
+instance FromJSON EncryptResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath Encrypt where
+    toPath = const "/"
+
+instance ToHeaders Encrypt
+
+instance ToQuery Encrypt where
+    toQuery = const mempty
+
+instance ToJSON Encrypt where
+    toJSON = genericToJSON jsonOptions

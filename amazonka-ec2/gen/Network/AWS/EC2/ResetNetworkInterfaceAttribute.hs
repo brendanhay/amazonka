@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
 
-instance ToQuery ResetNetworkInterfaceAttribute
-
-instance ToPath ResetNetworkInterfaceAttribute where
-    toPath = const "/"
-
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -96,4 +91,11 @@ instance AWSRequest ResetNetworkInterfaceAttribute where
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
 
     request  = post "ResetNetworkInterfaceAttribute"
-    response = nullaryResponse ResetNetworkInterfaceAttributeResponse
+    response = nullResponse ResetNetworkInterfaceAttributeResponse
+
+instance ToPath ResetNetworkInterfaceAttribute where
+    toPath = const "/"
+
+instance ToHeaders ResetNetworkInterfaceAttribute
+
+instance ToQuery ResetNetworkInterfaceAttribute

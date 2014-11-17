@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.BundleInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\s a -> s { _biStorage = a })
 
-instance ToQuery BundleInstance
-
-instance ToPath BundleInstance where
-    toPath = const "/"
-
 newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
     } deriving (Eq, Show, Generic)
@@ -114,5 +109,15 @@ instance AWSRequest BundleInstance where
     type Rs BundleInstance = BundleInstanceResponse
 
     request  = post "BundleInstance"
-    response = xmlResponse $ \h x -> BundleInstanceResponse
-        <$> x %| "bundleInstanceTask"
+    response = xmlResponse
+
+instance FromXML BundleInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "BundleInstanceResponse"
+
+instance ToPath BundleInstance where
+    toPath = const "/"
+
+instance ToHeaders BundleInstance
+
+instance ToQuery BundleInstance

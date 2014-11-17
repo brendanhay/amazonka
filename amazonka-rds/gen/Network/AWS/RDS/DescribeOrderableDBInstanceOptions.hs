@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -138,11 +138,6 @@ dodbioMaxRecords = lens _dodbioMaxRecords (\s a -> s { _dodbioMaxRecords = a })
 dodbioVpc :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
 dodbioVpc = lens _dodbioVpc (\s a -> s { _dodbioVpc = a })
 
-instance ToQuery DescribeOrderableDBInstanceOptions
-
-instance ToPath DescribeOrderableDBInstanceOptions where
-    toPath = const "/"
-
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
     { _dodbiorMarker                     :: Maybe Text
     , _dodbiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
@@ -181,10 +176,15 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
     type Rs DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptionsResponse
 
     request  = post "DescribeOrderableDBInstanceOptions"
-    response = xmlResponse $ \h x -> DescribeOrderableDBInstanceOptionsResponse
-        <$> x %| "Marker"
-        <*> x %| "OrderableDBInstanceOptions"
+    response = xmlResponse
 
-instance AWSPager DescribeOrderableDBInstanceOptions where
-    next rq rs = (\x -> rq & dodbioMarker ?~ x)
-        <$> (rs ^. dodbiorMarker)
+instance FromXML DescribeOrderableDBInstanceOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeOrderableDBInstanceOptionsResponse"
+
+instance ToPath DescribeOrderableDBInstanceOptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeOrderableDBInstanceOptions
+
+instance ToQuery DescribeOrderableDBInstanceOptions

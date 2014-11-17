@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.S3.PutBucketAcl
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -131,29 +131,6 @@ pbaGrantWrite = lens _pbaGrantWrite (\s a -> s { _pbaGrantWrite = a })
 pbaGrantWriteACP :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantWriteACP = lens _pbaGrantWriteACP (\s a -> s { _pbaGrantWriteACP = a })
 
-instance ToPath PutBucketAcl where
-    toPath PutBucketAcl{..} = mconcat
-        [ "/"
-        , toText _pbaBucket
-        ]
-
-instance ToQuery PutBucketAcl where
-    toQuery = const "acl"
-
-instance ToHeaders PutBucketAcl where
-    toHeaders PutBucketAcl{..} = mconcat
-        [ "x-amz-acl"                =: _pbaACL
-        , "Content-MD5"              =: _pbaContentMD5
-        , "x-amz-grant-full-control" =: _pbaGrantFullControl
-        , "x-amz-grant-read"         =: _pbaGrantRead
-        , "x-amz-grant-read-acp"     =: _pbaGrantReadACP
-        , "x-amz-grant-write"        =: _pbaGrantWrite
-        , "x-amz-grant-write-acp"    =: _pbaGrantWriteACP
-        ]
-
-instance ToBody PutBucketAcl where
-    toBody = toBody . encodeXML . _pbaAccessControlPolicy
-
 data PutBucketAclResponse = PutBucketAclResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -166,4 +143,28 @@ instance AWSRequest PutBucketAcl where
     type Rs PutBucketAcl = PutBucketAclResponse
 
     request  = put
-    response = nullaryResponse PutBucketAclResponse
+    response = nullResponse PutBucketAclResponse
+
+instance ToPath PutBucketAcl where
+    toPath PutBucketAcl{..} = mconcat
+        [ "/"
+        , toText _pbaBucket
+        ]
+
+instance ToHeaders PutBucketAcl where
+    toHeaders PutBucketAcl{..} = mconcat
+        [ "x-amz-acl"                =: _pbaACL
+        , "Content-MD5"              =: _pbaContentMD5
+        , "x-amz-grant-full-control" =: _pbaGrantFullControl
+        , "x-amz-grant-read"         =: _pbaGrantRead
+        , "x-amz-grant-read-acp"     =: _pbaGrantReadACP
+        , "x-amz-grant-write"        =: _pbaGrantWrite
+        , "x-amz-grant-write-acp"    =: _pbaGrantWriteACP
+        ]
+
+instance ToQuery PutBucketAcl where
+    toQuery = const "acl"
+
+instance ToXML PutBucketAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketAcl"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketVersioning
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.S3.PutBucketVersioning
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -88,24 +88,6 @@ pbvVersioningConfiguration =
     lens _pbvVersioningConfiguration
         (\s a -> s { _pbvVersioningConfiguration = a })
 
-instance ToPath PutBucketVersioning where
-    toPath PutBucketVersioning{..} = mconcat
-        [ "/"
-        , toText _pbvBucket
-        ]
-
-instance ToQuery PutBucketVersioning where
-    toQuery = const "versioning"
-
-instance ToHeaders PutBucketVersioning where
-    toHeaders PutBucketVersioning{..} = mconcat
-        [ "Content-MD5" =: _pbvContentMD5
-        , "x-amz-mfa"   =: _pbvMFA
-        ]
-
-instance ToBody PutBucketVersioning where
-    toBody = toBody . encodeXML . _pbvVersioningConfiguration
-
 data PutBucketVersioningResponse = PutBucketVersioningResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -118,4 +100,23 @@ instance AWSRequest PutBucketVersioning where
     type Rs PutBucketVersioning = PutBucketVersioningResponse
 
     request  = put
-    response = nullaryResponse PutBucketVersioningResponse
+    response = nullResponse PutBucketVersioningResponse
+
+instance ToPath PutBucketVersioning where
+    toPath PutBucketVersioning{..} = mconcat
+        [ "/"
+        , toText _pbvBucket
+        ]
+
+instance ToHeaders PutBucketVersioning where
+    toHeaders PutBucketVersioning{..} = mconcat
+        [ "Content-MD5" =: _pbvContentMD5
+        , "x-amz-mfa"   =: _pbvMFA
+        ]
+
+instance ToQuery PutBucketVersioning where
+    toQuery = const "versioning"
+
+instance ToXML PutBucketVersioning where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketVersioning"

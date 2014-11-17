@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -97,11 +97,6 @@ clbcspLoadBalancerName =
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName = lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
 
-instance ToQuery CreateLBCookieStickinessPolicy
-
-instance ToPath CreateLBCookieStickinessPolicy where
-    toPath = const "/"
-
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -114,4 +109,11 @@ instance AWSRequest CreateLBCookieStickinessPolicy where
     type Rs CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicyResponse
 
     request  = post "CreateLBCookieStickinessPolicy"
-    response = nullaryResponse CreateLBCookieStickinessPolicyResponse
+    response = nullResponse CreateLBCookieStickinessPolicyResponse
+
+instance ToPath CreateLBCookieStickinessPolicy where
+    toPath = const "/"
+
+instance ToHeaders CreateLBCookieStickinessPolicy
+
+instance ToQuery CreateLBCookieStickinessPolicy

@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.KMS.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.KMS.Types
       KMS
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * KeyUsageType
     , KeyUsageType (..)
@@ -74,6 +78,7 @@ module Network.AWS.KMS.Types
     , kleKeyId
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -96,6 +101,11 @@ instance AWSService KMS where
 
     handle = jsonError alwaysFail
 
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
+
 data KeyUsageType
     = EncryptDecrypt -- ^ ENCRYPT_DECRYPT
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -108,9 +118,11 @@ instance FromText KeyUsageType where
 instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
 
-instance FromJSON KeyUsageType
+instance FromJSON KeyUsageType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON KeyUsageType
+instance ToJSON KeyUsageType where
+    toJSON = genericToJSON jsonOptions
 
 data KeyMetadata = KeyMetadata
     { _kmAWSAccountId :: Maybe Text
@@ -181,9 +193,11 @@ kmKeyId = lens _kmKeyId (\s a -> s { _kmKeyId = a })
 kmKeyUsage :: Lens' KeyMetadata (Maybe Text)
 kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
 
-instance FromJSON KeyMetadata
+instance FromJSON KeyMetadata where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON KeyMetadata
+instance ToJSON KeyMetadata where
+    toJSON = genericToJSON jsonOptions
 
 data DataKeySpec
     = AES128 -- ^ AES_128
@@ -201,9 +215,11 @@ instance ToText DataKeySpec where
         AES128 -> "AES_128"
         AES256 -> "AES_256"
 
-instance FromJSON DataKeySpec
+instance FromJSON DataKeySpec where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DataKeySpec
+instance ToJSON DataKeySpec where
+    toJSON = genericToJSON jsonOptions
 
 data GrantConstraints = GrantConstraints
     { _gcEncryptionContextEquals :: Map Text Text
@@ -239,9 +255,11 @@ gcEncryptionContextSubset =
         (\s a -> s { _gcEncryptionContextSubset = a })
             . _Map
 
-instance FromJSON GrantConstraints
+instance FromJSON GrantConstraints where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GrantConstraints
+instance ToJSON GrantConstraints where
+    toJSON = genericToJSON jsonOptions
 
 data AliasListEntry = AliasListEntry
     { _aleAliasArn    :: Maybe Text
@@ -278,9 +296,11 @@ aleAliasName = lens _aleAliasName (\s a -> s { _aleAliasName = a })
 aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
 aleTargetKeyId = lens _aleTargetKeyId (\s a -> s { _aleTargetKeyId = a })
 
-instance FromJSON AliasListEntry
+instance FromJSON AliasListEntry where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AliasListEntry
+instance ToJSON AliasListEntry where
+    toJSON = genericToJSON jsonOptions
 
 data GrantListEntry = GrantListEntry
     { _gleConstraints       :: Maybe GrantConstraints
@@ -347,9 +367,11 @@ gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
 gleRetiringPrincipal =
     lens _gleRetiringPrincipal (\s a -> s { _gleRetiringPrincipal = a })
 
-instance FromJSON GrantListEntry
+instance FromJSON GrantListEntry where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GrantListEntry
+instance ToJSON GrantListEntry where
+    toJSON = genericToJSON jsonOptions
 
 data GrantOperation
     = GOCreateGrant                     -- ^ CreateGrant
@@ -385,9 +407,11 @@ instance ToText GrantOperation where
         GOReEncryptTo                     -> "ReEncryptTo"
         GORetireGrant                     -> "RetireGrant"
 
-instance FromJSON GrantOperation
+instance FromJSON GrantOperation where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON GrantOperation
+instance ToJSON GrantOperation where
+    toJSON = genericToJSON jsonOptions
 
 data KeyListEntry = KeyListEntry
     { _kleKeyArn :: Maybe Text
@@ -416,6 +440,8 @@ kleKeyArn = lens _kleKeyArn (\s a -> s { _kleKeyArn = a })
 kleKeyId :: Lens' KeyListEntry (Maybe Text)
 kleKeyId = lens _kleKeyId (\s a -> s { _kleKeyId = a })
 
-instance FromJSON KeyListEntry
+instance FromJSON KeyListEntry where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON KeyListEntry
+instance ToJSON KeyListEntry where
+    toJSON = genericToJSON jsonOptions

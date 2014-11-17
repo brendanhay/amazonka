@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.ListInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.EMR.ListInstances
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -95,17 +95,6 @@ liInstanceGroupTypes =
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 
-instance ToPath ListInstances where
-    toPath = const "/"
-
-instance ToQuery ListInstances where
-    toQuery = const mempty
-
-instance ToHeaders ListInstances
-
-instance ToBody ListInstances where
-    toBody = toBody . encode . _liClusterId
-
 data ListInstancesResponse = ListInstancesResponse
     { _lirInstances :: [Instance]
     , _lirMarker    :: Maybe Text
@@ -138,6 +127,18 @@ instance AWSRequest ListInstances where
     type Rs ListInstances = ListInstancesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListInstancesResponse
-        <$> o .: "Instances"
-        <*> o .: "Marker"
+    response = jsonResponse
+
+instance FromJSON ListInstancesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListInstances where
+    toPath = const "/"
+
+instance ToHeaders ListInstances
+
+instance ToQuery ListInstances where
+    toQuery = const mempty
+
+instance ToJSON ListInstances where
+    toJSON = genericToJSON jsonOptions

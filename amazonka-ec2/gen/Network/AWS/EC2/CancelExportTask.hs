@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CancelExportTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ cancelExportTask p1 = CancelExportTask
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
 
-instance ToQuery CancelExportTask
-
-instance ToPath CancelExportTask where
-    toPath = const "/"
-
 data CancelExportTaskResponse = CancelExportTaskResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest CancelExportTask where
     type Rs CancelExportTask = CancelExportTaskResponse
 
     request  = post "CancelExportTask"
-    response = nullaryResponse CancelExportTaskResponse
+    response = nullResponse CancelExportTaskResponse
+
+instance ToPath CancelExportTask where
+    toPath = const "/"
+
+instance ToHeaders CancelExportTask
+
+instance ToQuery CancelExportTask

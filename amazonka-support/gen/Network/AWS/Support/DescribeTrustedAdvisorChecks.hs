@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorChecks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -65,17 +65,6 @@ describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
 -- parameters must be passed explicitly for operations that take them.
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
 dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
-
-instance ToPath DescribeTrustedAdvisorChecks where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorChecks where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorChecks
-
-instance ToBody DescribeTrustedAdvisorChecks where
-    toBody = toBody . encode . _dtacLanguage
 
 newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
     { _dtacrChecks :: [TrustedAdvisorCheckDescription]
@@ -107,5 +96,18 @@ instance AWSRequest DescribeTrustedAdvisorChecks where
     type Rs DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecksResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTrustedAdvisorChecksResponse
-        <$> o .: "checks"
+    response = jsonResponse
+
+instance FromJSON DescribeTrustedAdvisorChecksResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTrustedAdvisorChecks where
+    toPath = const "/"
+
+instance ToHeaders DescribeTrustedAdvisorChecks
+
+instance ToQuery DescribeTrustedAdvisorChecks where
+    toQuery = const mempty
+
+instance ToJSON DescribeTrustedAdvisorChecks where
+    toJSON = genericToJSON jsonOptions

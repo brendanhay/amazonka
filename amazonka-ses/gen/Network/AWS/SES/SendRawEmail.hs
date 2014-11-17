@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.SendRawEmail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -109,11 +109,6 @@ sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
 
-instance ToQuery SendRawEmail
-
-instance ToPath SendRawEmail where
-    toPath = const "/"
-
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -139,5 +134,15 @@ instance AWSRequest SendRawEmail where
     type Rs SendRawEmail = SendRawEmailResponse
 
     request  = post "SendRawEmail"
-    response = xmlResponse $ \h x -> SendRawEmailResponse
-        <$> x %| "MessageId"
+    response = xmlResponse
+
+instance FromXML SendRawEmailResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendRawEmailResponse"
+
+instance ToPath SendRawEmail where
+    toPath = const "/"
+
+instance ToHeaders SendRawEmail
+
+instance ToQuery SendRawEmail

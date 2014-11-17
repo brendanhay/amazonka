@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
 
-instance ToQuery RemoveUserFromGroup
-
-instance ToPath RemoveUserFromGroup where
-    toPath = const "/"
-
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest RemoveUserFromGroup where
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
 
     request  = post "RemoveUserFromGroup"
-    response = nullaryResponse RemoveUserFromGroupResponse
+    response = nullResponse RemoveUserFromGroupResponse
+
+instance ToPath RemoveUserFromGroup where
+    toPath = const "/"
+
+instance ToHeaders RemoveUserFromGroup
+
+instance ToQuery RemoveUserFromGroup

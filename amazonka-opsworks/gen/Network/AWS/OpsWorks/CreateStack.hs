@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,7 +57,7 @@ module Network.AWS.OpsWorks.CreateStack
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -298,17 +298,6 @@ csUseOpsworksSecurityGroups =
 csVpcId :: Lens' CreateStack (Maybe Text)
 csVpcId = lens _csVpcId (\s a -> s { _csVpcId = a })
 
-instance ToPath CreateStack where
-    toPath = const "/"
-
-instance ToQuery CreateStack where
-    toQuery = const mempty
-
-instance ToHeaders CreateStack
-
-instance ToBody CreateStack where
-    toBody = toBody . encode . _csName
-
 newtype CreateStackResponse = CreateStackResponse
     { _csr1StackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -334,5 +323,18 @@ instance AWSRequest CreateStack where
     type Rs CreateStack = CreateStackResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateStackResponse
-        <$> o .: "StackId"
+    response = jsonResponse
+
+instance FromJSON CreateStackResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateStack where
+    toPath = const "/"
+
+instance ToHeaders CreateStack
+
+instance ToQuery CreateStack where
+    toQuery = const mempty
+
+instance ToJSON CreateStack where
+    toJSON = genericToJSON jsonOptions

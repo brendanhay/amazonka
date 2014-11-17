@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.ShutdownGateway
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ shutdownGateway p1 = ShutdownGateway
 
 sg1GatewayARN :: Lens' ShutdownGateway Text
 sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
-
-instance ToPath ShutdownGateway where
-    toPath = const "/"
-
-instance ToQuery ShutdownGateway where
-    toQuery = const mempty
-
-instance ToHeaders ShutdownGateway
-
-instance ToBody ShutdownGateway where
-    toBody = toBody . encode . _sg1GatewayARN
 
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
     { _sgr1GatewayARN :: Maybe Text
@@ -104,5 +93,18 @@ instance AWSRequest ShutdownGateway where
     type Rs ShutdownGateway = ShutdownGatewayResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ShutdownGatewayResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON ShutdownGatewayResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ShutdownGateway where
+    toPath = const "/"
+
+instance ToHeaders ShutdownGateway
+
+instance ToQuery ShutdownGateway where
+    toQuery = const mempty
+
+instance ToJSON ShutdownGateway where
+    toJSON = genericToJSON jsonOptions

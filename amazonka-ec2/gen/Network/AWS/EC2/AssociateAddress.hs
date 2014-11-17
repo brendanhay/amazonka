@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AssociateAddress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -136,11 +136,6 @@ aa1PrivateIpAddress =
 aa1PublicIp :: Lens' AssociateAddress (Maybe Text)
 aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
 
-instance ToQuery AssociateAddress
-
-instance ToPath AssociateAddress where
-    toPath = const "/"
-
 newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarAssociationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -166,5 +161,15 @@ instance AWSRequest AssociateAddress where
     type Rs AssociateAddress = AssociateAddressResponse
 
     request  = post "AssociateAddress"
-    response = xmlResponse $ \h x -> AssociateAddressResponse
-        <$> x %| "associationId"
+    response = xmlResponse
+
+instance FromXML AssociateAddressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateAddressResponse"
+
+instance ToPath AssociateAddress where
+    toPath = const "/"
+
+instance ToHeaders AssociateAddress
+
+instance ToQuery AssociateAddress

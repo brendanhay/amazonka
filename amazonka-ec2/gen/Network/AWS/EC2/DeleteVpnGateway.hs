@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteVpnGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ dvgDryRun = lens _dvgDryRun (\s a -> s { _dvgDryRun = a })
 dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
 
-instance ToQuery DeleteVpnGateway
-
-instance ToPath DeleteVpnGateway where
-    toPath = const "/"
-
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest DeleteVpnGateway where
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
 
     request  = post "DeleteVpnGateway"
-    response = nullaryResponse DeleteVpnGatewayResponse
+    response = nullResponse DeleteVpnGatewayResponse
+
+instance ToPath DeleteVpnGateway where
+    toPath = const "/"
+
+instance ToHeaders DeleteVpnGateway
+
+instance ToQuery DeleteVpnGateway

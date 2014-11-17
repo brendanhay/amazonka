@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ deleteRole p1 = DeleteRole
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
 
-instance ToQuery DeleteRole
-
-instance ToPath DeleteRole where
-    toPath = const "/"
-
 data DeleteRoleResponse = DeleteRoleResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest DeleteRole where
     type Rs DeleteRole = DeleteRoleResponse
 
     request  = post "DeleteRole"
-    response = nullaryResponse DeleteRoleResponse
+    response = nullResponse DeleteRoleResponse
+
+instance ToPath DeleteRole where
+    toPath = const "/"
+
+instance ToHeaders DeleteRole
+
+instance ToQuery DeleteRole

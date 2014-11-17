@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.ListSubscriptionsByTopic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ lsbtNextToken = lens _lsbtNextToken (\s a -> s { _lsbtNextToken = a })
 lsbtTopicArn :: Lens' ListSubscriptionsByTopic Text
 lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
 
-instance ToQuery ListSubscriptionsByTopic
-
-instance ToPath ListSubscriptionsByTopic where
-    toPath = const "/"
-
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
     , _lsbtrSubscriptions :: [Subscription]
@@ -113,10 +108,15 @@ instance AWSRequest ListSubscriptionsByTopic where
     type Rs ListSubscriptionsByTopic = ListSubscriptionsByTopicResponse
 
     request  = post "ListSubscriptionsByTopic"
-    response = xmlResponse $ \h x -> ListSubscriptionsByTopicResponse
-        <$> x %| "NextToken"
-        <*> x %| "Subscriptions"
+    response = xmlResponse
 
-instance AWSPager ListSubscriptionsByTopic where
-    next rq rs = (\x -> rq & lsbtNextToken ?~ x)
-        <$> (rs ^. lsbtrNextToken)
+instance FromXML ListSubscriptionsByTopicResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSubscriptionsByTopicResponse"
+
+instance ToPath ListSubscriptionsByTopic where
+    toPath = const "/"
+
+instance ToHeaders ListSubscriptionsByTopic
+
+instance ToQuery ListSubscriptionsByTopic

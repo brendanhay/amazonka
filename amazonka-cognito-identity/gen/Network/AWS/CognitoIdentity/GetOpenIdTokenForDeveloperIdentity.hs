@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -122,17 +122,6 @@ goitfdiTokenDuration =
     lens _goitfdiTokenDuration (\s a -> s { _goitfdiTokenDuration = a })
         . mapping _Nat
 
-instance ToPath GetOpenIdTokenForDeveloperIdentity where
-    toPath = const "/"
-
-instance ToQuery GetOpenIdTokenForDeveloperIdentity where
-    toQuery = const mempty
-
-instance ToHeaders GetOpenIdTokenForDeveloperIdentity
-
-instance ToBody GetOpenIdTokenForDeveloperIdentity where
-    toBody = toBody . encode . _goitfdiIdentityPoolId
-
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse
     { _goitfdirIdentityId :: Maybe Text
     , _goitfdirToken      :: Maybe Text
@@ -166,6 +155,18 @@ instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     type Rs GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentityResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetOpenIdTokenForDeveloperIdentityResponse
-        <$> o .: "IdentityId"
-        <*> o .: "Token"
+    response = jsonResponse
+
+instance FromJSON GetOpenIdTokenForDeveloperIdentityResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetOpenIdTokenForDeveloperIdentity where
+    toPath = const "/"
+
+instance ToHeaders GetOpenIdTokenForDeveloperIdentity
+
+instance ToQuery GetOpenIdTokenForDeveloperIdentity where
+    toQuery = const mempty
+
+instance ToJSON GetOpenIdTokenForDeveloperIdentity where
+    toJSON = genericToJSON jsonOptions

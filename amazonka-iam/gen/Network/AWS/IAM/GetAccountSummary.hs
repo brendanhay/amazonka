@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetAccountSummary
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,11 +47,6 @@ data GetAccountSummary = GetAccountSummary
 -- | 'GetAccountSummary' constructor.
 getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary
-
-instance ToQuery GetAccountSummary
-
-instance ToPath GetAccountSummary where
-    toPath = const "/"
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map Text Int
@@ -99,5 +94,15 @@ instance AWSRequest GetAccountSummary where
     type Rs GetAccountSummary = GetAccountSummaryResponse
 
     request  = post "GetAccountSummary"
-    response = xmlResponse $ \h x -> GetAccountSummaryResponse
-        <$> x %| "SummaryMap"
+    response = xmlResponse
+
+instance FromXML GetAccountSummaryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetAccountSummaryResponse"
+
+instance ToPath GetAccountSummary where
+    toPath = const "/"
+
+instance ToHeaders GetAccountSummary
+
+instance ToQuery GetAccountSummary

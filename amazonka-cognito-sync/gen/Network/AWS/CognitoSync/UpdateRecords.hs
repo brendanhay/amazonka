@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.CognitoSync.UpdateRecords
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -131,27 +131,6 @@ urSyncSessionToken :: Lens' UpdateRecords Text
 urSyncSessionToken =
     lens _urSyncSessionToken (\s a -> s { _urSyncSessionToken = a })
 
-instance ToPath UpdateRecords where
-    toPath UpdateRecords{..} = mconcat
-        [ "/identitypools/"
-        , toText _urIdentityPoolId
-        , "/identities/"
-        , toText _urIdentityId
-        , "/datasets/"
-        , toText _urDatasetName
-        ]
-
-instance ToQuery UpdateRecords where
-    toQuery = const mempty
-
-instance ToHeaders UpdateRecords where
-    toHeaders UpdateRecords{..} = mconcat
-        [ "x-amz-Client-Context" =: _urClientContext
-        ]
-
-instance ToBody UpdateRecords where
-    toBody = toBody . encode . _urDeviceId
-
 newtype UpdateRecordsResponse = UpdateRecordsResponse
     { _urrRecords :: [Record]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -182,5 +161,28 @@ instance AWSRequest UpdateRecords where
     type Rs UpdateRecords = UpdateRecordsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateRecordsResponse
-        <$> o .: "Records"
+    response = jsonResponse
+
+instance FromJSON UpdateRecordsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateRecords where
+    toPath UpdateRecords{..} = mconcat
+        [ "/identitypools/"
+        , toText _urIdentityPoolId
+        , "/identities/"
+        , toText _urIdentityId
+        , "/datasets/"
+        , toText _urDatasetName
+        ]
+
+instance ToHeaders UpdateRecords where
+    toHeaders UpdateRecords{..} = mconcat
+        [ "x-amz-Client-Context" =: _urClientContext
+        ]
+
+instance ToQuery UpdateRecords where
+    toQuery = const mempty
+
+instance ToJSON UpdateRecords where
+    toJSON = genericToJSON jsonOptions

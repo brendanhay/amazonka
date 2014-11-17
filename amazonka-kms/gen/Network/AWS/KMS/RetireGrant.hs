@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.RetireGrant
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.KMS.RetireGrant
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ retireGrant p1 = RetireGrant
 rgGrantToken :: Lens' RetireGrant Text
 rgGrantToken = lens _rgGrantToken (\s a -> s { _rgGrantToken = a })
 
-instance ToPath RetireGrant where
-    toPath = const "/"
-
-instance ToQuery RetireGrant where
-    toQuery = const mempty
-
-instance ToHeaders RetireGrant
-
-instance ToBody RetireGrant where
-    toBody = toBody . encode . _rgGrantToken
-
 data RetireGrantResponse = RetireGrantResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,15 @@ instance AWSRequest RetireGrant where
     type Rs RetireGrant = RetireGrantResponse
 
     request  = post
-    response = nullaryResponse RetireGrantResponse
+    response = nullResponse RetireGrantResponse
+
+instance ToPath RetireGrant where
+    toPath = const "/"
+
+instance ToHeaders RetireGrant
+
+instance ToQuery RetireGrant where
+    toQuery = const mempty
+
+instance ToJSON RetireGrant where
+    toJSON = genericToJSON jsonOptions

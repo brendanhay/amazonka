@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
 chcLoadBalancerName =
     lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
 
-instance ToQuery ConfigureHealthCheck
-
-instance ToPath ConfigureHealthCheck where
-    toPath = const "/"
-
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck :: Maybe HealthCheck
     } deriving (Eq, Show, Generic)
@@ -105,5 +100,15 @@ instance AWSRequest ConfigureHealthCheck where
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
 
     request  = post "ConfigureHealthCheck"
-    response = xmlResponse $ \h x -> ConfigureHealthCheckResponse
-        <$> x %| "HealthCheck"
+    response = xmlResponse
+
+instance FromXML ConfigureHealthCheckResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigureHealthCheckResponse"
+
+instance ToPath ConfigureHealthCheck where
+    toPath = const "/"
+
+instance ToHeaders ConfigureHealthCheck
+
+instance ToQuery ConfigureHealthCheck

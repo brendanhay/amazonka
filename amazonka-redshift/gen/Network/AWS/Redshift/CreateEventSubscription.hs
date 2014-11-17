@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.CreateEventSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -157,11 +157,6 @@ cesSubscriptionName :: Lens' CreateEventSubscription Text
 cesSubscriptionName =
     lens _cesSubscriptionName (\s a -> s { _cesSubscriptionName = a })
 
-instance ToQuery CreateEventSubscription
-
-instance ToPath CreateEventSubscription where
-    toPath = const "/"
-
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
@@ -186,5 +181,15 @@ instance AWSRequest CreateEventSubscription where
     type Rs CreateEventSubscription = CreateEventSubscriptionResponse
 
     request  = post "CreateEventSubscription"
-    response = xmlResponse $ \h x -> CreateEventSubscriptionResponse
-        <$> x %| "EventSubscription"
+    response = xmlResponse
+
+instance FromXML CreateEventSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateEventSubscriptionResponse"
+
+instance ToPath CreateEventSubscription where
+    toPath = const "/"
+
+instance ToHeaders CreateEventSubscription
+
+instance ToQuery CreateEventSubscription

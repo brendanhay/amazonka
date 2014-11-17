@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateVolume
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -143,11 +143,6 @@ cv1SnapshotId = lens _cv1SnapshotId (\s a -> s { _cv1SnapshotId = a })
 cv1VolumeType :: Lens' CreateVolume (Maybe Text)
 cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
-instance ToQuery CreateVolume
-
-instance ToPath CreateVolume where
-    toPath = const "/"
-
 data CreateVolumeResponse = CreateVolumeResponse
     { _cvrAttachments      :: [VolumeAttachment]
     , _cvrAvailabilityZone :: Maybe Text
@@ -264,15 +259,15 @@ instance AWSRequest CreateVolume where
     type Rs CreateVolume = CreateVolumeResponse
 
     request  = post "CreateVolume"
-    response = xmlResponse $ \h x -> CreateVolumeResponse
-        <$> x %| "attachmentSet"
-        <*> x %| "availabilityZone"
-        <*> x %| "createTime"
-        <*> x %| "encrypted"
-        <*> x %| "iops"
-        <*> x %| "size"
-        <*> x %| "snapshotId"
-        <*> x %| "status"
-        <*> x %| "tagSet"
-        <*> x %| "volumeId"
-        <*> x %| "volumeType"
+    response = xmlResponse
+
+instance FromXML CreateVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVolumeResponse"
+
+instance ToPath CreateVolume where
+    toPath = const "/"
+
+instance ToHeaders CreateVolume
+
+instance ToQuery CreateVolume

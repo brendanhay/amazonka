@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ dasgAutoScalingGroupName =
 dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
 dasgForceDelete = lens _dasgForceDelete (\s a -> s { _dasgForceDelete = a })
 
-instance ToQuery DeleteAutoScalingGroup
-
-instance ToPath DeleteAutoScalingGroup where
-    toPath = const "/"
-
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest DeleteAutoScalingGroup where
     type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
 
     request  = post "DeleteAutoScalingGroup"
-    response = nullaryResponse DeleteAutoScalingGroupResponse
+    response = nullResponse DeleteAutoScalingGroupResponse
+
+instance ToPath DeleteAutoScalingGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteAutoScalingGroup
+
+instance ToQuery DeleteAutoScalingGroup

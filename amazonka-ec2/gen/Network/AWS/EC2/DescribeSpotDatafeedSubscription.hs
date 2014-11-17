@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,11 +60,6 @@ describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
 dsdsDryRun = lens _dsdsDryRun (\s a -> s { _dsdsDryRun = a })
 
-instance ToQuery DescribeSpotDatafeedSubscription
-
-instance ToPath DescribeSpotDatafeedSubscription where
-    toPath = const "/"
-
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Eq, Show, Generic)
@@ -91,5 +86,15 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
     type Rs DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionResponse
 
     request  = post "DescribeSpotDatafeedSubscription"
-    response = xmlResponse $ \h x -> DescribeSpotDatafeedSubscriptionResponse
-        <$> x %| "spotDatafeedSubscription"
+    response = xmlResponse
+
+instance FromXML DescribeSpotDatafeedSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResponse"
+
+instance ToPath DescribeSpotDatafeedSubscription where
+    toPath = const "/"
+
+instance ToHeaders DescribeSpotDatafeedSubscription
+
+instance ToQuery DescribeSpotDatafeedSubscription

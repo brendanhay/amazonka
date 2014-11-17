@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketLocation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketLocation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -59,17 +59,6 @@ getBucketLocation p1 = GetBucketLocation
 
 gblBucket :: Lens' GetBucketLocation Text
 gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
-
-instance ToPath GetBucketLocation where
-    toPath GetBucketLocation{..} = mconcat
-        [ "/"
-        , toText _gblBucket
-        ]
-
-instance ToQuery GetBucketLocation where
-    toQuery = const "location"
-
-instance ToHeaders GetBucketLocation
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
     { _gblrLocationConstraint :: Maybe Text
@@ -95,5 +84,23 @@ instance AWSRequest GetBucketLocation where
     type Rs GetBucketLocation = GetBucketLocationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketLocationResponse
-        <$> x %| "LocationConstraint"
+    response = xmlResponse
+
+instance FromXML GetBucketLocationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketLocationResponse"
+
+instance ToPath GetBucketLocation where
+    toPath GetBucketLocation{..} = mconcat
+        [ "/"
+        , toText _gblBucket
+        ]
+
+instance ToHeaders GetBucketLocation
+
+instance ToQuery GetBucketLocation where
+    toQuery = const "location"
+
+instance ToXML GetBucketLocation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketLocation"

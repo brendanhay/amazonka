@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ dmfadSerialNumber =
 dmfadUserName :: Lens' DeactivateMFADevice Text
 dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
 
-instance ToQuery DeactivateMFADevice
-
-instance ToPath DeactivateMFADevice where
-    toPath = const "/"
-
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest DeactivateMFADevice where
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
 
     request  = post "DeactivateMFADevice"
-    response = nullaryResponse DeactivateMFADeviceResponse
+    response = nullResponse DeactivateMFADeviceResponse
+
+instance ToPath DeactivateMFADevice where
+    toPath = const "/"
+
+instance ToHeaders DeactivateMFADevice
+
+instance ToQuery DeactivateMFADevice

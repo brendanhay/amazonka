@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.CreateAlias
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.KMS.CreateAlias
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ caAliasName = lens _caAliasName (\s a -> s { _caAliasName = a })
 caTargetKeyId :: Lens' CreateAlias Text
 caTargetKeyId = lens _caTargetKeyId (\s a -> s { _caTargetKeyId = a })
 
-instance ToPath CreateAlias where
-    toPath = const "/"
-
-instance ToQuery CreateAlias where
-    toQuery = const mempty
-
-instance ToHeaders CreateAlias
-
-instance ToBody CreateAlias where
-    toBody = toBody . encode . _caAliasName
-
 data CreateAliasResponse = CreateAliasResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +89,15 @@ instance AWSRequest CreateAlias where
     type Rs CreateAlias = CreateAliasResponse
 
     request  = post
-    response = nullaryResponse CreateAliasResponse
+    response = nullResponse CreateAliasResponse
+
+instance ToPath CreateAlias where
+    toPath = const "/"
+
+instance ToHeaders CreateAlias
+
+instance ToQuery CreateAlias where
+    toQuery = const mempty
+
+instance ToJSON CreateAlias where
+    toJSON = genericToJSON jsonOptions

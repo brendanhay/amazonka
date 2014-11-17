@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CopyImage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -113,11 +113,6 @@ ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
 ciSourceRegion :: Lens' CopyImage Text
 ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
 
-instance ToQuery CopyImage
-
-instance ToPath CopyImage where
-    toPath = const "/"
-
 newtype CopyImageResponse = CopyImageResponse
     { _cir1ImageId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -142,5 +137,15 @@ instance AWSRequest CopyImage where
     type Rs CopyImage = CopyImageResponse
 
     request  = post "CopyImage"
-    response = xmlResponse $ \h x -> CopyImageResponse
-        <$> x %| "imageId"
+    response = xmlResponse
+
+instance FromXML CopyImageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyImageResponse"
+
+instance ToPath CopyImage where
+    toPath = const "/"
+
+instance ToHeaders CopyImage
+
+instance ToQuery CopyImage

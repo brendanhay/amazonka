@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.PutBucketLifecycle
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -77,23 +77,6 @@ pbl1LifecycleConfiguration =
     lens _pbl1LifecycleConfiguration
         (\s a -> s { _pbl1LifecycleConfiguration = a })
 
-instance ToPath PutBucketLifecycle where
-    toPath PutBucketLifecycle{..} = mconcat
-        [ "/"
-        , toText _pbl1Bucket
-        ]
-
-instance ToQuery PutBucketLifecycle where
-    toQuery = const "lifecycle"
-
-instance ToHeaders PutBucketLifecycle where
-    toHeaders PutBucketLifecycle{..} = mconcat
-        [ "Content-MD5" =: _pbl1ContentMD5
-        ]
-
-instance ToBody PutBucketLifecycle where
-    toBody = toBody . encodeXML . _pbl1LifecycleConfiguration
-
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -106,4 +89,22 @@ instance AWSRequest PutBucketLifecycle where
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
     request  = put
-    response = nullaryResponse PutBucketLifecycleResponse
+    response = nullResponse PutBucketLifecycleResponse
+
+instance ToPath PutBucketLifecycle where
+    toPath PutBucketLifecycle{..} = mconcat
+        [ "/"
+        , toText _pbl1Bucket
+        ]
+
+instance ToHeaders PutBucketLifecycle where
+    toHeaders PutBucketLifecycle{..} = mconcat
+        [ "Content-MD5" =: _pbl1ContentMD5
+        ]
+
+instance ToQuery PutBucketLifecycle where
+    toQuery = const "lifecycle"
+
+instance ToXML PutBucketLifecycle where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "PutBucketLifecycle"

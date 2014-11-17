@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,11 +81,6 @@ mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
 mlbaLoadBalancerName =
     lens _mlbaLoadBalancerName (\s a -> s { _mlbaLoadBalancerName = a })
 
-instance ToQuery ModifyLoadBalancerAttributes
-
-instance ToPath ModifyLoadBalancerAttributes where
-    toPath = const "/"
-
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     , _mlbarLoadBalancerName       :: Maybe Text
@@ -120,6 +115,15 @@ instance AWSRequest ModifyLoadBalancerAttributes where
     type Rs ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributesResponse
 
     request  = post "ModifyLoadBalancerAttributes"
-    response = xmlResponse $ \h x -> ModifyLoadBalancerAttributesResponse
-        <$> x %| "LoadBalancerAttributes"
-        <*> x %| "LoadBalancerName"
+    response = xmlResponse
+
+instance FromXML ModifyLoadBalancerAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesResponse"
+
+instance ToPath ModifyLoadBalancerAttributes where
+    toPath = const "/"
+
+instance ToHeaders ModifyLoadBalancerAttributes
+
+instance ToQuery ModifyLoadBalancerAttributes

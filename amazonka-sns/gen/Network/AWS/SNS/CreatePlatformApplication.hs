@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ cpaName = lens _cpaName (\s a -> s { _cpaName = a })
 cpaPlatform :: Lens' CreatePlatformApplication Text
 cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
 
-instance ToQuery CreatePlatformApplication
-
-instance ToPath CreatePlatformApplication where
-    toPath = const "/"
-
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -129,5 +124,15 @@ instance AWSRequest CreatePlatformApplication where
     type Rs CreatePlatformApplication = CreatePlatformApplicationResponse
 
     request  = post "CreatePlatformApplication"
-    response = xmlResponse $ \h x -> CreatePlatformApplicationResponse
-        <$> x %| "PlatformApplicationArn"
+    response = xmlResponse
+
+instance FromXML CreatePlatformApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreatePlatformApplicationResponse"
+
+instance ToPath CreatePlatformApplication where
+    toPath = const "/"
+
+instance ToHeaders CreatePlatformApplication
+
+instance ToQuery CreatePlatformApplication

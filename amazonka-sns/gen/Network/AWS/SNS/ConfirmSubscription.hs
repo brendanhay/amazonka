@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.ConfirmSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ csToken = lens _csToken (\s a -> s { _csToken = a })
 csTopicArn :: Lens' ConfirmSubscription Text
 csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
 
-instance ToQuery ConfirmSubscription
-
-instance ToPath ConfirmSubscription where
-    toPath = const "/"
-
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -119,5 +114,15 @@ instance AWSRequest ConfirmSubscription where
     type Rs ConfirmSubscription = ConfirmSubscriptionResponse
 
     request  = post "ConfirmSubscription"
-    response = xmlResponse $ \h x -> ConfirmSubscriptionResponse
-        <$> x %| "SubscriptionArn"
+    response = xmlResponse
+
+instance FromXML ConfirmSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"
+
+instance ToPath ConfirmSubscription where
+    toPath = const "/"
+
+instance ToHeaders ConfirmSubscription
+
+instance ToQuery ConfirmSubscription

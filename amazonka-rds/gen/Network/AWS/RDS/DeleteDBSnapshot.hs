@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ ddbs1DBSnapshotIdentifier =
     lens _ddbs1DBSnapshotIdentifier
         (\s a -> s { _ddbs1DBSnapshotIdentifier = a })
 
-instance ToQuery DeleteDBSnapshot
-
-instance ToPath DeleteDBSnapshot where
-    toPath = const "/"
-
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
     } deriving (Eq, Show, Generic)
@@ -93,5 +88,15 @@ instance AWSRequest DeleteDBSnapshot where
     type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
 
     request  = post "DeleteDBSnapshot"
-    response = xmlResponse $ \h x -> DeleteDBSnapshotResponse
-        <$> x %| "DBSnapshot"
+    response = xmlResponse
+
+instance FromXML DeleteDBSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBSnapshotResponse"
+
+instance ToPath DeleteDBSnapshot where
+    toPath = const "/"
+
+instance ToHeaders DeleteDBSnapshot
+
+instance ToQuery DeleteDBSnapshot

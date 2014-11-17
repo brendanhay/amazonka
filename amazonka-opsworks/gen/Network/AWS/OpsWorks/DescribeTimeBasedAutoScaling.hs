@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
 dtbasInstanceIds = lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a })
-
-instance ToPath DescribeTimeBasedAutoScaling where
-    toPath = const "/"
-
-instance ToQuery DescribeTimeBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTimeBasedAutoScaling
-
-instance ToBody DescribeTimeBasedAutoScaling where
-    toBody = toBody . encode . _dtbasInstanceIds
 
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
@@ -114,5 +103,18 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
     type Rs DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScalingResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTimeBasedAutoScalingResponse
-        <$> o .: "TimeBasedAutoScalingConfigurations"
+    response = jsonResponse
+
+instance FromJSON DescribeTimeBasedAutoScalingResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTimeBasedAutoScaling where
+    toPath = const "/"
+
+instance ToHeaders DescribeTimeBasedAutoScaling
+
+instance ToQuery DescribeTimeBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToJSON DescribeTimeBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions

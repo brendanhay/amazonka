@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.QueryObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.DataPipeline.QueryObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -113,17 +113,6 @@ qoQuery = lens _qoQuery (\s a -> s { _qoQuery = a })
 qoSphere :: Lens' QueryObjects Text
 qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
 
-instance ToPath QueryObjects where
-    toPath = const "/"
-
-instance ToQuery QueryObjects where
-    toQuery = const mempty
-
-instance ToHeaders QueryObjects
-
-instance ToBody QueryObjects where
-    toBody = toBody . encode . _qoPipelineId
-
 data QueryObjectsResponse = QueryObjectsResponse
     { _qorHasMoreResults :: Maybe Bool
     , _qorIds            :: [Text]
@@ -168,7 +157,18 @@ instance AWSRequest QueryObjects where
     type Rs QueryObjects = QueryObjectsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> QueryObjectsResponse
-        <$> o .: "hasMoreResults"
-        <*> o .: "ids"
-        <*> o .: "marker"
+    response = jsonResponse
+
+instance FromJSON QueryObjectsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath QueryObjects where
+    toPath = const "/"
+
+instance ToHeaders QueryObjects
+
+instance ToQuery QueryObjects where
+    toQuery = const mempty
+
+instance ToJSON QueryObjects where
+    toJSON = genericToJSON jsonOptions

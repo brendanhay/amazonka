@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.DeleteGateway
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ deleteGateway p1 = DeleteGateway
 
 dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\s a -> s { _dgGatewayARN = a })
-
-instance ToPath DeleteGateway where
-    toPath = const "/"
-
-instance ToQuery DeleteGateway where
-    toQuery = const mempty
-
-instance ToHeaders DeleteGateway
-
-instance ToBody DeleteGateway where
-    toBody = toBody . encode . _dgGatewayARN
 
 newtype DeleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN :: Maybe Text
@@ -107,5 +96,18 @@ instance AWSRequest DeleteGateway where
     type Rs DeleteGateway = DeleteGatewayResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteGatewayResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON DeleteGatewayResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteGateway where
+    toPath = const "/"
+
+instance ToHeaders DeleteGateway
+
+instance ToQuery DeleteGateway where
+    toQuery = const mempty
+
+instance ToJSON DeleteGateway where
+    toJSON = genericToJSON jsonOptions

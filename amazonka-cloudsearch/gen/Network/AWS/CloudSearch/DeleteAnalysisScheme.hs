@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteAnalysisScheme
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ dasAnalysisSchemeName =
 dasDomainName :: Lens' DeleteAnalysisScheme Text
 dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
 
-instance ToQuery DeleteAnalysisScheme
-
-instance ToPath DeleteAnalysisScheme where
-    toPath = const "/"
-
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest DeleteAnalysisScheme where
     type Rs DeleteAnalysisScheme = DeleteAnalysisSchemeResponse
 
     request  = post "DeleteAnalysisScheme"
-    response = xmlResponse $ \h x -> DeleteAnalysisSchemeResponse
-        <$> x %| "AnalysisScheme"
+    response = xmlResponse
+
+instance FromXML DeleteAnalysisSchemeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAnalysisSchemeResponse"
+
+instance ToPath DeleteAnalysisScheme where
+    toPath = const "/"
+
+instance ToHeaders DeleteAnalysisScheme
+
+instance ToQuery DeleteAnalysisScheme

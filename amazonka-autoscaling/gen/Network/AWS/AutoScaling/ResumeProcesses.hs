@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses =
     lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
 
-instance ToQuery ResumeProcesses
-
-instance ToPath ResumeProcesses where
-    toPath = const "/"
-
 data ResumeProcessesResponse = ResumeProcessesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -92,4 +87,11 @@ instance AWSRequest ResumeProcesses where
     type Rs ResumeProcesses = ResumeProcessesResponse
 
     request  = post "ResumeProcesses"
-    response = nullaryResponse ResumeProcessesResponse
+    response = nullResponse ResumeProcessesResponse
+
+instance ToPath ResumeProcesses where
+    toPath = const "/"
+
+instance ToHeaders ResumeProcesses
+
+instance ToQuery ResumeProcesses

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -58,17 +58,6 @@ deleteBucketWebsite p1 = DeleteBucketWebsite
 dbwBucket :: Lens' DeleteBucketWebsite Text
 dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
 
-instance ToPath DeleteBucketWebsite where
-    toPath DeleteBucketWebsite{..} = mconcat
-        [ "/"
-        , toText _dbwBucket
-        ]
-
-instance ToQuery DeleteBucketWebsite where
-    toQuery = const "website"
-
-instance ToHeaders DeleteBucketWebsite
-
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -81,4 +70,19 @@ instance AWSRequest DeleteBucketWebsite where
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
     request  = delete
-    response = nullaryResponse DeleteBucketWebsiteResponse
+    response = nullResponse DeleteBucketWebsiteResponse
+
+instance ToPath DeleteBucketWebsite where
+    toPath DeleteBucketWebsite{..} = mconcat
+        [ "/"
+        , toText _dbwBucket
+        ]
+
+instance ToHeaders DeleteBucketWebsite
+
+instance ToQuery DeleteBucketWebsite where
+    toQuery = const "website"
+
+instance ToXML DeleteBucketWebsite where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteBucketWebsite"

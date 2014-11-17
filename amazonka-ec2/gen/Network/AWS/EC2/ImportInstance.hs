@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ImportInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -100,11 +100,6 @@ iiLaunchSpecification =
 iiPlatform :: Lens' ImportInstance Text
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 
-instance ToQuery ImportInstance
-
-instance ToPath ImportInstance where
-    toPath = const "/"
-
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
     } deriving (Eq, Show, Generic)
@@ -129,5 +124,15 @@ instance AWSRequest ImportInstance where
     type Rs ImportInstance = ImportInstanceResponse
 
     request  = post "ImportInstance"
-    response = xmlResponse $ \h x -> ImportInstanceResponse
-        <$> x %| "conversionTask"
+    response = xmlResponse
+
+instance FromXML ImportInstanceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImportInstanceResponse"
+
+instance ToPath ImportInstance where
+    toPath = const "/"
+
+instance ToHeaders ImportInstance
+
+instance ToQuery ImportInstance

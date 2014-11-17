@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateChapCredentials
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -45,7 +45,7 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -103,17 +103,6 @@ uccSecretToAuthenticateTarget =
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\s a -> s { _uccTargetARN = a })
 
-instance ToPath UpdateChapCredentials where
-    toPath = const "/"
-
-instance ToQuery UpdateChapCredentials where
-    toQuery = const mempty
-
-instance ToHeaders UpdateChapCredentials
-
-instance ToBody UpdateChapCredentials where
-    toBody = toBody . encode . _uccTargetARN
-
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrInitiatorName :: Maybe Text
     , _uccrTargetARN     :: Maybe Text
@@ -149,6 +138,18 @@ instance AWSRequest UpdateChapCredentials where
     type Rs UpdateChapCredentials = UpdateChapCredentialsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateChapCredentialsResponse
-        <$> o .: "InitiatorName"
-        <*> o .: "TargetARN"
+    response = jsonResponse
+
+instance FromJSON UpdateChapCredentialsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateChapCredentials where
+    toPath = const "/"
+
+instance ToHeaders UpdateChapCredentials
+
+instance ToQuery UpdateChapCredentials where
+    toQuery = const mempty
+
+instance ToJSON UpdateChapCredentials where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
@@ -90,17 +90,6 @@ pmfMetricTransformations =
         (\s a -> s { _pmfMetricTransformations = a })
             . _List1
 
-instance ToPath PutMetricFilter where
-    toPath = const "/"
-
-instance ToQuery PutMetricFilter where
-    toQuery = const mempty
-
-instance ToHeaders PutMetricFilter
-
-instance ToBody PutMetricFilter where
-    toBody = toBody . encode . _pmfLogGroupName
-
 data PutMetricFilterResponse = PutMetricFilterResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -113,4 +102,15 @@ instance AWSRequest PutMetricFilter where
     type Rs PutMetricFilter = PutMetricFilterResponse
 
     request  = post
-    response = nullaryResponse PutMetricFilterResponse
+    response = nullResponse PutMetricFilterResponse
+
+instance ToPath PutMetricFilter where
+    toPath = const "/"
+
+instance ToHeaders PutMetricFilter
+
+instance ToQuery PutMetricFilter where
+    toQuery = const mempty
+
+instance ToJSON PutMetricFilter where
+    toJSON = genericToJSON jsonOptions

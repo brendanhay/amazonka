@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
 ds2Suggester :: Lens' DefineSuggester Suggester
 ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
 
-instance ToQuery DefineSuggester
-
-instance ToPath DefineSuggester where
-    toPath = const "/"
-
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest DefineSuggester where
     type Rs DefineSuggester = DefineSuggesterResponse
 
     request  = post "DefineSuggester"
-    response = xmlResponse $ \h x -> DefineSuggesterResponse
-        <$> x %| "Suggester"
+    response = xmlResponse
+
+instance FromXML DefineSuggesterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineSuggesterResponse"
+
+instance ToPath DefineSuggester where
+    toPath = const "/"
+
+instance ToHeaders DefineSuggester
+
+instance ToQuery DefineSuggester

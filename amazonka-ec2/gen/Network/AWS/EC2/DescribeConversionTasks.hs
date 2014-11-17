@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ dctDryRun = lens _dctDryRun (\s a -> s { _dctDryRun = a })
 dctFilters :: Lens' DescribeConversionTasks [Filter]
 dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a })
 
-instance ToQuery DescribeConversionTasks
-
-instance ToPath DescribeConversionTasks where
-    toPath = const "/"
-
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -114,5 +109,15 @@ instance AWSRequest DescribeConversionTasks where
     type Rs DescribeConversionTasks = DescribeConversionTasksResponse
 
     request  = post "DescribeConversionTasks"
-    response = xmlResponse $ \h x -> DescribeConversionTasksResponse
-        <$> x %| "conversionTasks"
+    response = xmlResponse
+
+instance FromXML DescribeConversionTasksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeConversionTasksResponse"
+
+instance ToPath DescribeConversionTasks where
+    toPath = const "/"
+
+instance ToHeaders DescribeConversionTasks
+
+instance ToQuery DescribeConversionTasks

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -114,11 +114,6 @@ dcc1ShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 dcc1ShowCacheNodeInfo =
     lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
 
-instance ToQuery DescribeCacheClusters
-
-instance ToPath DescribeCacheClusters where
-    toPath = const "/"
-
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrCacheClusters :: [CacheCluster]
     , _dccrMarker        :: Maybe Text
@@ -153,10 +148,15 @@ instance AWSRequest DescribeCacheClusters where
     type Rs DescribeCacheClusters = DescribeCacheClustersResponse
 
     request  = post "DescribeCacheClusters"
-    response = xmlResponse $ \h x -> DescribeCacheClustersResponse
-        <$> x %| "CacheClusters"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeCacheClusters where
-    next rq rs = (\x -> rq & dcc1Marker ?~ x)
-        <$> (rs ^. dccrMarker)
+instance FromXML DescribeCacheClustersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCacheClustersResponse"
+
+instance ToPath DescribeCacheClusters where
+    toPath = const "/"
+
+instance ToHeaders DescribeCacheClusters
+
+instance ToQuery DescribeCacheClusters

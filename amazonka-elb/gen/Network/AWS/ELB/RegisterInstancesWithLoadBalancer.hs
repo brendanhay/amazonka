@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -92,11 +92,6 @@ riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
 riwlbLoadBalancerName =
     lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
 
-instance ToQuery RegisterInstancesWithLoadBalancer
-
-instance ToPath RegisterInstancesWithLoadBalancer where
-    toPath = const "/"
-
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -127,5 +122,15 @@ instance AWSRequest RegisterInstancesWithLoadBalancer where
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
 
     request  = post "RegisterInstancesWithLoadBalancer"
-    response = xmlResponse $ \h x -> RegisterInstancesWithLoadBalancerResponse
-        <$> x %| "Instances"
+    response = xmlResponse
+
+instance FromXML RegisterInstancesWithLoadBalancerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RegisterInstancesWithLoadBalancerResponse"
+
+instance ToPath RegisterInstancesWithLoadBalancer where
+    toPath = const "/"
+
+instance ToHeaders RegisterInstancesWithLoadBalancer
+
+instance ToQuery RegisterInstancesWithLoadBalancer

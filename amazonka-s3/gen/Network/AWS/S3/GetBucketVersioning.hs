@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.GetBucketVersioning
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.S3.GetBucketVersioning
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ getBucketVersioning p1 = GetBucketVersioning
 
 gbvBucket :: Lens' GetBucketVersioning Text
 gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
-
-instance ToPath GetBucketVersioning where
-    toPath GetBucketVersioning{..} = mconcat
-        [ "/"
-        , toText _gbvBucket
-        ]
-
-instance ToQuery GetBucketVersioning where
-    toQuery = const "versioning"
-
-instance ToHeaders GetBucketVersioning
 
 data GetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrMFADelete :: Maybe Text
@@ -107,6 +96,23 @@ instance AWSRequest GetBucketVersioning where
     type Rs GetBucketVersioning = GetBucketVersioningResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketVersioningResponse
-        <$> x %| "MfaDelete"
-        <*> x %| "Status"
+    response = xmlResponse
+
+instance FromXML GetBucketVersioningResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketVersioningResponse"
+
+instance ToPath GetBucketVersioning where
+    toPath GetBucketVersioning{..} = mconcat
+        [ "/"
+        , toText _gbvBucket
+        ]
+
+instance ToHeaders GetBucketVersioning
+
+instance ToQuery GetBucketVersioning where
+    toQuery = const "versioning"
+
+instance ToXML GetBucketVersioning where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetBucketVersioning"

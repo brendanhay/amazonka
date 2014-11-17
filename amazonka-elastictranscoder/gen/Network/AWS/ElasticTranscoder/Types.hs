@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.ElasticTranscoder.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.ElasticTranscoder.Types
       ElasticTranscoder
     -- ** Error
     , RESTError
+    -- ** JSON
+    , jsonOptions
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -258,6 +262,7 @@ module Network.AWS.ElasticTranscoder.Types
     , jiResolution
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -279,6 +284,11 @@ instance AWSService ElasticTranscoder where
         }
 
     handle = restError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text
@@ -339,9 +349,11 @@ pocPermissions = lens _pocPermissions (\s a -> s { _pocPermissions = a })
 pocStorageClass :: Lens' PipelineOutputConfig (Maybe Text)
 pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 
-instance FromJSON PipelineOutputConfig
+instance FromJSON PipelineOutputConfig where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON PipelineOutputConfig
+instance ToJSON PipelineOutputConfig where
+    toJSON = genericToJSON jsonOptions
 
 data CreateJobPlaylist = CreateJobPlaylist
     { _cjpFormat     :: Maybe Text
@@ -408,9 +420,11 @@ cjpName = lens _cjpName (\s a -> s { _cjpName = a })
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
 cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
 
-instance FromJSON CreateJobPlaylist
+instance FromJSON CreateJobPlaylist where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CreateJobPlaylist
+instance ToJSON CreateJobPlaylist where
+    toJSON = genericToJSON jsonOptions
 
 data Captions = Captions
     { _cCaptionFormats :: [CaptionFormat]
@@ -461,9 +475,11 @@ cCaptionSources = lens _cCaptionSources (\s a -> s { _cCaptionSources = a })
 cMergePolicy :: Lens' Captions (Maybe Text)
 cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
-instance FromJSON Captions
+instance FromJSON Captions where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Captions
+instance ToJSON Captions where
+    toJSON = genericToJSON jsonOptions
 
 newtype AudioCodecOptions = AudioCodecOptions
     { _acoProfile :: Maybe Text
@@ -493,9 +509,11 @@ audioCodecOptions = AudioCodecOptions
 acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 
-instance FromJSON AudioCodecOptions
+instance FromJSON AudioCodecOptions where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AudioCodecOptions
+instance ToJSON AudioCodecOptions where
+    toJSON = genericToJSON jsonOptions
 
 data JobOutput = JobOutput
     { _joAlbumArt         :: Maybe JobAlbumArt
@@ -731,9 +749,11 @@ joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a })
 joWidth :: Lens' JobOutput (Maybe Int)
 joWidth = lens _joWidth (\s a -> s { _joWidth = a })
 
-instance FromJSON JobOutput
+instance FromJSON JobOutput where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON JobOutput
+instance ToJSON JobOutput where
+    toJSON = genericToJSON jsonOptions
 
 data Job' = Job'
     { _jArn             :: Maybe Text
@@ -843,9 +863,11 @@ jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a })
 jStatus :: Lens' Job' (Maybe Text)
 jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
-instance FromJSON Job'
+instance FromJSON Job' where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Job'
+instance ToJSON Job' where
+    toJSON = genericToJSON jsonOptions
 
 data CaptionSource = CaptionSource
     { _csKey        :: Maybe Text
@@ -899,9 +921,11 @@ csLanguage = lens _csLanguage (\s a -> s { _csLanguage = a })
 csTimeOffset :: Lens' CaptionSource (Maybe Text)
 csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
 
-instance FromJSON CaptionSource
+instance FromJSON CaptionSource where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CaptionSource
+instance ToJSON CaptionSource where
+    toJSON = genericToJSON jsonOptions
 
 data Artwork = Artwork
     { _aAlbumArtFormat :: Maybe Text
@@ -995,9 +1019,11 @@ aPaddingPolicy = lens _aPaddingPolicy (\s a -> s { _aPaddingPolicy = a })
 aSizingPolicy :: Lens' Artwork (Maybe Text)
 aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
 
-instance FromJSON Artwork
+instance FromJSON Artwork where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Artwork
+instance ToJSON Artwork where
+    toJSON = genericToJSON jsonOptions
 
 data TimeSpan = TimeSpan
     { _tsDuration  :: Maybe Text
@@ -1035,9 +1061,11 @@ tsDuration = lens _tsDuration (\s a -> s { _tsDuration = a })
 tsStartTime :: Lens' TimeSpan (Maybe Text)
 tsStartTime = lens _tsStartTime (\s a -> s { _tsStartTime = a })
 
-instance FromJSON TimeSpan
+instance FromJSON TimeSpan where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TimeSpan
+instance ToJSON TimeSpan where
+    toJSON = genericToJSON jsonOptions
 
 data CreateJobOutput = CreateJobOutput
     { _cjoAlbumArt         :: Maybe JobAlbumArt
@@ -1203,9 +1231,11 @@ cjoThumbnailPattern =
 cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
 cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a })
 
-instance FromJSON CreateJobOutput
+instance FromJSON CreateJobOutput where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CreateJobOutput
+instance ToJSON CreateJobOutput where
+    toJSON = genericToJSON jsonOptions
 
 data AudioParameters = AudioParameters
     { _apBitRate      :: Maybe Text
@@ -1267,9 +1297,11 @@ apCodecOptions = lens _apCodecOptions (\s a -> s { _apCodecOptions = a })
 apSampleRate :: Lens' AudioParameters (Maybe Text)
 apSampleRate = lens _apSampleRate (\s a -> s { _apSampleRate = a })
 
-instance FromJSON AudioParameters
+instance FromJSON AudioParameters where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AudioParameters
+instance ToJSON AudioParameters where
+    toJSON = genericToJSON jsonOptions
 
 data Thumbnails = Thumbnails
     { _tAspectRatio   :: Maybe Text
@@ -1389,9 +1421,11 @@ tResolution = lens _tResolution (\s a -> s { _tResolution = a })
 tSizingPolicy :: Lens' Thumbnails (Maybe Text)
 tSizingPolicy = lens _tSizingPolicy (\s a -> s { _tSizingPolicy = a })
 
-instance FromJSON Thumbnails
+instance FromJSON Thumbnails where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Thumbnails
+instance ToJSON Thumbnails where
+    toJSON = genericToJSON jsonOptions
 
 data JobAlbumArt = JobAlbumArt
     { _jaaArtwork     :: [Artwork]
@@ -1429,9 +1463,11 @@ jaaArtwork = lens _jaaArtwork (\s a -> s { _jaaArtwork = a })
 jaaMergePolicy :: Lens' JobAlbumArt (Maybe Text)
 jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
-instance FromJSON JobAlbumArt
+instance FromJSON JobAlbumArt where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON JobAlbumArt
+instance ToJSON JobAlbumArt where
+    toJSON = genericToJSON jsonOptions
 
 data JobWatermark = JobWatermark
     { _jwInputKey          :: Maybe Text
@@ -1470,9 +1506,11 @@ jwPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
 jwPresetWatermarkId =
     lens _jwPresetWatermarkId (\s a -> s { _jwPresetWatermarkId = a })
 
-instance FromJSON JobWatermark
+instance FromJSON JobWatermark where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON JobWatermark
+instance ToJSON JobWatermark where
+    toJSON = genericToJSON jsonOptions
 
 data Pipeline = Pipeline
     { _pArn             :: Maybe Text
@@ -1633,9 +1671,11 @@ pStatus = lens _pStatus (\s a -> s { _pStatus = a })
 pThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 pThumbnailConfig = lens _pThumbnailConfig (\s a -> s { _pThumbnailConfig = a })
 
-instance FromJSON Pipeline
+instance FromJSON Pipeline where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Pipeline
+instance ToJSON Pipeline where
+    toJSON = genericToJSON jsonOptions
 
 data Preset = Preset
     { _p1Arn         :: Maybe Text
@@ -1726,9 +1766,11 @@ p1Type = lens _p1Type (\s a -> s { _p1Type = a })
 p1Video :: Lens' Preset (Maybe VideoParameters)
 p1Video = lens _p1Video (\s a -> s { _p1Video = a })
 
-instance FromJSON Preset
+instance FromJSON Preset where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Preset
+instance ToJSON Preset where
+    toJSON = genericToJSON jsonOptions
 
 data CaptionFormat = CaptionFormat
     { _cfFormat  :: Maybe Text
@@ -1774,9 +1816,11 @@ cfFormat = lens _cfFormat (\s a -> s { _cfFormat = a })
 cfPattern :: Lens' CaptionFormat (Maybe Text)
 cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
 
-instance FromJSON CaptionFormat
+instance FromJSON CaptionFormat where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON CaptionFormat
+instance ToJSON CaptionFormat where
+    toJSON = genericToJSON jsonOptions
 
 data PresetWatermark = PresetWatermark
     { _pwHorizontalAlign  :: Maybe Text
@@ -1947,9 +1991,11 @@ pwVerticalAlign = lens _pwVerticalAlign (\s a -> s { _pwVerticalAlign = a })
 pwVerticalOffset :: Lens' PresetWatermark (Maybe Text)
 pwVerticalOffset = lens _pwVerticalOffset (\s a -> s { _pwVerticalOffset = a })
 
-instance FromJSON PresetWatermark
+instance FromJSON PresetWatermark where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON PresetWatermark
+instance ToJSON PresetWatermark where
+    toJSON = genericToJSON jsonOptions
 
 data Permission = Permission
     { _pAccess      :: [Text]
@@ -2003,9 +2049,11 @@ pGrantee = lens _pGrantee (\s a -> s { _pGrantee = a })
 pGranteeType :: Lens' Permission (Maybe Text)
 pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 
-instance FromJSON Permission
+instance FromJSON Permission where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Permission
+instance ToJSON Permission where
+    toJSON = genericToJSON jsonOptions
 
 data VideoParameters = VideoParameters
     { _vpAspectRatio        :: Maybe Text
@@ -2284,9 +2332,11 @@ vpSizingPolicy = lens _vpSizingPolicy (\s a -> s { _vpSizingPolicy = a })
 vpWatermarks :: Lens' VideoParameters [PresetWatermark]
 vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a })
 
-instance FromJSON VideoParameters
+instance FromJSON VideoParameters where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VideoParameters
+instance ToJSON VideoParameters where
+    toJSON = genericToJSON jsonOptions
 
 data Playlist = Playlist
     { _p2Format       :: Maybe Text
@@ -2369,9 +2419,11 @@ p2Status = lens _p2Status (\s a -> s { _p2Status = a })
 p2StatusDetail :: Lens' Playlist (Maybe Text)
 p2StatusDetail = lens _p2StatusDetail (\s a -> s { _p2StatusDetail = a })
 
-instance FromJSON Playlist
+instance FromJSON Playlist where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Playlist
+instance ToJSON Playlist where
+    toJSON = genericToJSON jsonOptions
 
 data Notifications = Notifications
     { _nCompleted   :: Maybe Text
@@ -2420,9 +2472,11 @@ nProgressing = lens _nProgressing (\s a -> s { _nProgressing = a })
 nWarning :: Lens' Notifications (Maybe Text)
 nWarning = lens _nWarning (\s a -> s { _nWarning = a })
 
-instance FromJSON Notifications
+instance FromJSON Notifications where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Notifications
+instance ToJSON Notifications where
+    toJSON = genericToJSON jsonOptions
 
 newtype Clip = Clip
     { _cTimeSpan :: Maybe TimeSpan
@@ -2443,9 +2497,11 @@ clip = Clip
 cTimeSpan :: Lens' Clip (Maybe TimeSpan)
 cTimeSpan = lens _cTimeSpan (\s a -> s { _cTimeSpan = a })
 
-instance FromJSON Clip
+instance FromJSON Clip where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Clip
+instance ToJSON Clip where
+    toJSON = genericToJSON jsonOptions
 
 data JobInput = JobInput
     { _jiAspectRatio :: Maybe Text
@@ -2530,6 +2586,8 @@ jiKey = lens _jiKey (\s a -> s { _jiKey = a })
 jiResolution :: Lens' JobInput (Maybe Text)
 jiResolution = lens _jiResolution (\s a -> s { _jiResolution = a })
 
-instance FromJSON JobInput
+instance FromJSON JobInput where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON JobInput
+instance ToJSON JobInput where
+    toJSON = genericToJSON jsonOptions

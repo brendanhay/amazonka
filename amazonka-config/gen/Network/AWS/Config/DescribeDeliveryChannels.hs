@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.DescribeDeliveryChannels
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Config.DescribeDeliveryChannels
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ describeDeliveryChannels = DescribeDeliveryChannels
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
 ddcDeliveryChannelNames =
     lens _ddcDeliveryChannelNames (\s a -> s { _ddcDeliveryChannelNames = a })
-
-instance ToPath DescribeDeliveryChannels where
-    toPath = const "/"
-
-instance ToQuery DescribeDeliveryChannels where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDeliveryChannels
-
-instance ToBody DescribeDeliveryChannels where
-    toBody = toBody . encode . _ddcDeliveryChannelNames
 
 newtype DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse
     { _ddcrDeliveryChannels :: [DeliveryChannel]
@@ -111,5 +100,18 @@ instance AWSRequest DescribeDeliveryChannels where
     type Rs DescribeDeliveryChannels = DescribeDeliveryChannelsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeDeliveryChannelsResponse
-        <$> o .: "DeliveryChannels"
+    response = jsonResponse
+
+instance FromJSON DescribeDeliveryChannelsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeDeliveryChannels where
+    toPath = const "/"
+
+instance ToHeaders DescribeDeliveryChannels
+
+instance ToQuery DescribeDeliveryChannels where
+    toQuery = const mempty
+
+instance ToJSON DescribeDeliveryChannels where
+    toJSON = genericToJSON jsonOptions

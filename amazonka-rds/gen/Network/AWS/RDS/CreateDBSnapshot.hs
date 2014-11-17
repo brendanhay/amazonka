@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ cdbs1DBSnapshotIdentifier =
 cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
 cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a })
 
-instance ToQuery CreateDBSnapshot
-
-instance ToPath CreateDBSnapshot where
-    toPath = const "/"
-
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsr1DBSnapshot :: Maybe DBSnapshot
     } deriving (Eq, Show, Generic)
@@ -117,5 +112,15 @@ instance AWSRequest CreateDBSnapshot where
     type Rs CreateDBSnapshot = CreateDBSnapshotResponse
 
     request  = post "CreateDBSnapshot"
-    response = xmlResponse $ \h x -> CreateDBSnapshotResponse
-        <$> x %| "DBSnapshot"
+    response = xmlResponse
+
+instance FromXML CreateDBSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBSnapshotResponse"
+
+instance ToPath CreateDBSnapshot where
+    toPath = const "/"
+
+instance ToHeaders CreateDBSnapshot
+
+instance ToQuery CreateDBSnapshot

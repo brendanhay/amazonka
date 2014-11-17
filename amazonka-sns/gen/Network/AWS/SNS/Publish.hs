@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.Publish
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -151,11 +151,6 @@ pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
 pTopicArn :: Lens' Publish (Maybe Text)
 pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
 
-instance ToQuery Publish
-
-instance ToPath Publish where
-    toPath = const "/"
-
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -181,5 +176,15 @@ instance AWSRequest Publish where
     type Rs Publish = PublishResponse
 
     request  = post "Publish"
-    response = xmlResponse $ \h x -> PublishResponse
-        <$> x %| "MessageId"
+    response = xmlResponse
+
+instance FromXML PublishResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PublishResponse"
+
+instance ToPath Publish where
+    toPath = const "/"
+
+instance ToHeaders Publish
+
+instance ToQuery Publish

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.PollForTask
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -51,7 +51,7 @@ module Network.AWS.DataPipeline.PollForTask
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -103,17 +103,6 @@ pftInstanceIdentity =
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })
 
-instance ToPath PollForTask where
-    toPath = const "/"
-
-instance ToQuery PollForTask where
-    toQuery = const mempty
-
-instance ToHeaders PollForTask
-
-instance ToBody PollForTask where
-    toBody = toBody . encode . _pftWorkerGroup
-
 newtype PollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject :: Maybe TaskObject
     } deriving (Eq, Show, Generic)
@@ -143,5 +132,18 @@ instance AWSRequest PollForTask where
     type Rs PollForTask = PollForTaskResponse
 
     request  = post
-    response = jsonResponse $ \h o -> PollForTaskResponse
-        <$> o .: "taskObject"
+    response = jsonResponse
+
+instance FromJSON PollForTaskResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath PollForTask where
+    toPath = const "/"
+
+instance ToHeaders PollForTask
+
+instance ToQuery PollForTask where
+    toQuery = const mempty
+
+instance ToJSON PollForTask where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAccountLimits
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,11 +52,6 @@ data DescribeAccountLimits = DescribeAccountLimits
 describeAccountLimits :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits
 
-instance ToQuery DescribeAccountLimits
-
-instance ToPath DescribeAccountLimits where
-    toPath = const "/"
-
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups    :: Maybe Int
     , _dalrMaxNumberOfLaunchConfigurations :: Maybe Int
@@ -93,6 +88,15 @@ instance AWSRequest DescribeAccountLimits where
     type Rs DescribeAccountLimits = DescribeAccountLimitsResponse
 
     request  = post "DescribeAccountLimits"
-    response = xmlResponse $ \h x -> DescribeAccountLimitsResponse
-        <$> x %| "MaxNumberOfAutoScalingGroups"
-        <*> x %| "MaxNumberOfLaunchConfigurations"
+    response = xmlResponse
+
+instance FromXML DescribeAccountLimitsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAccountLimitsResponse"
+
+instance ToPath DescribeAccountLimits where
+    toPath = const "/"
+
+instance ToHeaders DescribeAccountLimits
+
+instance ToQuery DescribeAccountLimits

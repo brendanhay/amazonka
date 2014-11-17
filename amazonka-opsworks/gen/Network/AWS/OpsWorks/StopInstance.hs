@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.StopInstance
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.StopInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ stopInstance p1 = StopInstance
 siInstanceId :: Lens' StopInstance Text
 siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
 
-instance ToPath StopInstance where
-    toPath = const "/"
-
-instance ToQuery StopInstance where
-    toQuery = const mempty
-
-instance ToHeaders StopInstance
-
-instance ToBody StopInstance where
-    toBody = toBody . encode . _siInstanceId
-
 data StopInstanceResponse = StopInstanceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -89,4 +78,15 @@ instance AWSRequest StopInstance where
     type Rs StopInstance = StopInstanceResponse
 
     request  = post
-    response = nullaryResponse StopInstanceResponse
+    response = nullResponse StopInstanceResponse
+
+instance ToPath StopInstance where
+    toPath = const "/"
+
+instance ToHeaders StopInstance
+
+instance ToQuery StopInstance where
+    toQuery = const mempty
+
+instance ToJSON StopInstance where
+    toJSON = genericToJSON jsonOptions

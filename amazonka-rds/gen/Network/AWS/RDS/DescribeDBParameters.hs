@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -109,11 +109,6 @@ ddbpMaxRecords = lens _ddbpMaxRecords (\s a -> s { _ddbpMaxRecords = a })
 ddbpSource :: Lens' DescribeDBParameters (Maybe Text)
 ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
 
-instance ToQuery DescribeDBParameters
-
-instance ToPath DescribeDBParameters where
-    toPath = const "/"
-
 data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprMarker     :: Maybe Text
     , _ddbprParameters :: [Parameter]
@@ -148,10 +143,15 @@ instance AWSRequest DescribeDBParameters where
     type Rs DescribeDBParameters = DescribeDBParametersResponse
 
     request  = post "DescribeDBParameters"
-    response = xmlResponse $ \h x -> DescribeDBParametersResponse
-        <$> x %| "Marker"
-        <*> x %| "Parameters"
+    response = xmlResponse
 
-instance AWSPager DescribeDBParameters where
-    next rq rs = (\x -> rq & ddbpMarker ?~ x)
-        <$> (rs ^. ddbprMarker)
+instance FromXML DescribeDBParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBParametersResponse"
+
+instance ToPath DescribeDBParameters where
+    toPath = const "/"
+
+instance ToHeaders DescribeDBParameters
+
+instance ToQuery DescribeDBParameters

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -81,17 +81,6 @@ rarDescription = lens _rarDescription (\s a -> s { _rarDescription = a })
 rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = lens _rarRevision (\s a -> s { _rarRevision = a })
 
-instance ToPath RegisterApplicationRevision where
-    toPath = const "/"
-
-instance ToQuery RegisterApplicationRevision where
-    toQuery = const mempty
-
-instance ToHeaders RegisterApplicationRevision
-
-instance ToBody RegisterApplicationRevision where
-    toBody = toBody . encode . _rarApplicationName
-
 data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -104,4 +93,15 @@ instance AWSRequest RegisterApplicationRevision where
     type Rs RegisterApplicationRevision = RegisterApplicationRevisionResponse
 
     request  = post
-    response = nullaryResponse RegisterApplicationRevisionResponse
+    response = nullResponse RegisterApplicationRevisionResponse
+
+instance ToPath RegisterApplicationRevision where
+    toPath = const "/"
+
+instance ToHeaders RegisterApplicationRevision
+
+instance ToQuery RegisterApplicationRevision where
+    toQuery = const mempty
+
+instance ToJSON RegisterApplicationRevision where
+    toJSON = genericToJSON jsonOptions

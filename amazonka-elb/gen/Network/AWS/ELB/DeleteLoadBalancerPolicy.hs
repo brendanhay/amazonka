@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -71,11 +71,6 @@ dlbp1LoadBalancerName =
 dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
 dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
 
-instance ToQuery DeleteLoadBalancerPolicy
-
-instance ToPath DeleteLoadBalancerPolicy where
-    toPath = const "/"
-
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -88,4 +83,11 @@ instance AWSRequest DeleteLoadBalancerPolicy where
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
 
     request  = post "DeleteLoadBalancerPolicy"
-    response = nullaryResponse DeleteLoadBalancerPolicyResponse
+    response = nullResponse DeleteLoadBalancerPolicyResponse
+
+instance ToPath DeleteLoadBalancerPolicy where
+    toPath = const "/"
+
+instance ToHeaders DeleteLoadBalancerPolicy
+
+instance ToQuery DeleteLoadBalancerPolicy

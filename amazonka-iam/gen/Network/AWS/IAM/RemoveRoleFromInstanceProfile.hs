@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.RemoveRoleFromInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ rrfipInstanceProfileName =
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
 
-instance ToQuery RemoveRoleFromInstanceProfile
-
-instance ToPath RemoveRoleFromInstanceProfile where
-    toPath = const "/"
-
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +89,11 @@ instance AWSRequest RemoveRoleFromInstanceProfile where
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
 
     request  = post "RemoveRoleFromInstanceProfile"
-    response = nullaryResponse RemoveRoleFromInstanceProfileResponse
+    response = nullResponse RemoveRoleFromInstanceProfileResponse
+
+instance ToPath RemoveRoleFromInstanceProfile where
+    toPath = const "/"
+
+instance ToHeaders RemoveRoleFromInstanceProfile
+
+instance ToQuery RemoveRoleFromInstanceProfile

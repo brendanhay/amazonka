@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -84,11 +84,6 @@ dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
 dazflbLoadBalancerName =
     lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
 
-instance ToQuery DisableAvailabilityZonesForLoadBalancer
-
-instance ToPath DisableAvailabilityZonesForLoadBalancer where
-    toPath = const "/"
-
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { _dazflbrAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -121,5 +116,15 @@ instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
 
     request  = post "DisableAvailabilityZonesForLoadBalancer"
-    response = xmlResponse $ \h x -> DisableAvailabilityZonesForLoadBalancerResponse
-        <$> x %| "AvailabilityZones"
+    response = xmlResponse
+
+instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableAvailabilityZonesForLoadBalancerResponse"
+
+instance ToPath DisableAvailabilityZonesForLoadBalancer where
+    toPath = const "/"
+
+instance ToHeaders DisableAvailabilityZonesForLoadBalancer
+
+instance ToQuery DisableAvailabilityZonesForLoadBalancer

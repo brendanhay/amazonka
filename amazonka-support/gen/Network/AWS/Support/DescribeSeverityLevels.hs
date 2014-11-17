@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Support.DescribeSeverityLevels
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ describeSeverityLevels = DescribeSeverityLevels
 -- parameters must be passed explicitly for operations that take them.
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
-
-instance ToPath DescribeSeverityLevels where
-    toPath = const "/"
-
-instance ToQuery DescribeSeverityLevels where
-    toQuery = const mempty
-
-instance ToHeaders DescribeSeverityLevels
-
-instance ToBody DescribeSeverityLevels where
-    toBody = toBody . encode . _dslLanguage
 
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels :: [SeverityLevel]
@@ -107,5 +96,18 @@ instance AWSRequest DescribeSeverityLevels where
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeSeverityLevelsResponse
-        <$> o .: "severityLevels"
+    response = jsonResponse
+
+instance FromJSON DescribeSeverityLevelsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeSeverityLevels where
+    toPath = const "/"
+
+instance ToHeaders DescribeSeverityLevels
+
+instance ToQuery DescribeSeverityLevels where
+    toQuery = const mempty
+
+instance ToJSON DescribeSeverityLevels where
+    toJSON = genericToJSON jsonOptions

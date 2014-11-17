@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetChange
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.Route53.GetChange
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ getChange p1 = GetChange
 -- you submitted the request.
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\s a -> s { _gcId = a })
-
-instance ToPath GetChange where
-    toPath GetChange{..} = mconcat
-        [ "/2013-04-01/change/"
-        , toText _gcId
-        ]
-
-instance ToQuery GetChange where
-    toQuery = const mempty
-
-instance ToHeaders GetChange
 
 newtype GetChangeResponse = GetChangeResponse
     { _gcrChangeInfo :: ChangeInfo
@@ -105,5 +94,23 @@ instance AWSRequest GetChange where
     type Rs GetChange = GetChangeResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetChangeResponse
-        <$> x %| "ChangeInfo"
+    response = xmlResponse
+
+instance FromXML GetChangeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetChangeResponse"
+
+instance ToPath GetChange where
+    toPath GetChange{..} = mconcat
+        [ "/2013-04-01/change/"
+        , toText _gcId
+        ]
+
+instance ToHeaders GetChange
+
+instance ToQuery GetChange where
+    toQuery = const mempty
+
+instance ToXML GetChange where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetChange"

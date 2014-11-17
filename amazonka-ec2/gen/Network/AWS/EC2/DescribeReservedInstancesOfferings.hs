@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -212,11 +212,6 @@ drioReservedInstancesOfferingIds =
     lens _drioReservedInstancesOfferingIds
         (\s a -> s { _drioReservedInstancesOfferingIds = a })
 
-instance ToQuery DescribeReservedInstancesOfferings
-
-instance ToPath DescribeReservedInstancesOfferings where
-    toPath = const "/"
-
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorNextToken                  :: Maybe Text
     , _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
@@ -251,10 +246,15 @@ instance AWSRequest DescribeReservedInstancesOfferings where
     type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResponse
 
     request  = post "DescribeReservedInstancesOfferings"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesOfferingsResponse
-        <$> x %| "nextToken"
-        <*> x %| "reservedInstancesOfferingsSet"
+    response = xmlResponse
 
-instance AWSPager DescribeReservedInstancesOfferings where
-    next rq rs = (\x -> rq & drioNextToken ?~ x)
-        <$> (rs ^. driorNextToken)
+instance FromXML DescribeReservedInstancesOfferingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResponse"
+
+instance ToPath DescribeReservedInstancesOfferings where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedInstancesOfferings
+
+instance ToQuery DescribeReservedInstancesOfferings

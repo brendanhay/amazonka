@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskCanceled
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +55,7 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -90,17 +90,6 @@ ratc1Details = lens _ratc1Details (\s a -> s { _ratc1Details = a })
 ratc1TaskToken :: Lens' RespondActivityTaskCanceled Text
 ratc1TaskToken = lens _ratc1TaskToken (\s a -> s { _ratc1TaskToken = a })
 
-instance ToPath RespondActivityTaskCanceled where
-    toPath = const "/"
-
-instance ToQuery RespondActivityTaskCanceled where
-    toQuery = const mempty
-
-instance ToHeaders RespondActivityTaskCanceled
-
-instance ToBody RespondActivityTaskCanceled where
-    toBody = toBody . encode . _ratc1TaskToken
-
 data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -113,4 +102,15 @@ instance AWSRequest RespondActivityTaskCanceled where
     type Rs RespondActivityTaskCanceled = RespondActivityTaskCanceledResponse
 
     request  = post
-    response = nullaryResponse RespondActivityTaskCanceledResponse
+    response = nullResponse RespondActivityTaskCanceledResponse
+
+instance ToPath RespondActivityTaskCanceled where
+    toPath = const "/"
+
+instance ToHeaders RespondActivityTaskCanceled
+
+instance ToQuery RespondActivityTaskCanceled where
+    toQuery = const mempty
+
+instance ToJSON RespondActivityTaskCanceled where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.CreateDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,11 +64,6 @@ createDomain p1 = CreateDomain
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
 
-instance ToQuery CreateDomain
-
-instance ToPath CreateDomain where
-    toPath = const "/"
-
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
     } deriving (Eq, Show, Generic)
@@ -92,5 +87,15 @@ instance AWSRequest CreateDomain where
     type Rs CreateDomain = CreateDomainResponse
 
     request  = post "CreateDomain"
-    response = xmlResponse $ \h x -> CreateDomainResponse
-        <$> x %| "DomainStatus"
+    response = xmlResponse
+
+instance FromXML CreateDomainResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDomainResponse"
+
+instance ToPath CreateDomain where
+    toPath = const "/"
+
+instance ToHeaders CreateDomain
+
+instance ToQuery CreateDomain

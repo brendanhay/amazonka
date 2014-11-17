@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
 
-instance ToQuery ResetCacheParameterGroup
-
-instance ToPath ResetCacheParameterGroup where
-    toPath = const "/"
-
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -122,5 +117,15 @@ instance AWSRequest ResetCacheParameterGroup where
     type Rs ResetCacheParameterGroup = ResetCacheParameterGroupResponse
 
     request  = post "ResetCacheParameterGroup"
-    response = xmlResponse $ \h x -> ResetCacheParameterGroupResponse
-        <$> x %| "CacheParameterGroupName"
+    response = xmlResponse
+
+instance FromXML ResetCacheParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetCacheParameterGroupResponse"
+
+instance ToPath ResetCacheParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders ResetCacheParameterGroup
+
+instance ToQuery ResetCacheParameterGroup

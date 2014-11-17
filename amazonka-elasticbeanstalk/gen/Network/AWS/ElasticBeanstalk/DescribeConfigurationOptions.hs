@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -109,11 +109,6 @@ dcoSolutionStackName =
 dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
 
-instance ToQuery DescribeConfigurationOptions
-
-instance ToPath DescribeConfigurationOptions where
-    toPath = const "/"
-
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorOptions           :: [ConfigurationOptionDescription]
     , _dcorSolutionStackName :: Maybe Text
@@ -147,6 +142,15 @@ instance AWSRequest DescribeConfigurationOptions where
     type Rs DescribeConfigurationOptions = DescribeConfigurationOptionsResponse
 
     request  = post "DescribeConfigurationOptions"
-    response = xmlResponse $ \h x -> DescribeConfigurationOptionsResponse
-        <$> x %| "Options"
-        <*> x %| "SolutionStackName"
+    response = xmlResponse
+
+instance FromXML DescribeConfigurationOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeConfigurationOptionsResponse"
+
+instance ToPath DescribeConfigurationOptions where
+    toPath = const "/"
+
+instance ToHeaders DescribeConfigurationOptions
+
+instance ToQuery DescribeConfigurationOptions

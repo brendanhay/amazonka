@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.DescribeDeliveryChannelStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
 ddcsDeliveryChannelNames =
     lens _ddcsDeliveryChannelNames
         (\s a -> s { _ddcsDeliveryChannelNames = a })
-
-instance ToPath DescribeDeliveryChannelStatus where
-    toPath = const "/"
-
-instance ToQuery DescribeDeliveryChannelStatus where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDeliveryChannelStatus
-
-instance ToBody DescribeDeliveryChannelStatus where
-    toBody = toBody . encode . _ddcsDeliveryChannelNames
 
 newtype DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse
     { _ddcsrDeliveryChannelsStatus :: [DeliveryChannelStatus]
@@ -113,5 +102,18 @@ instance AWSRequest DescribeDeliveryChannelStatus where
     type Rs DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatusResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeDeliveryChannelStatusResponse
-        <$> o .: "DeliveryChannelsStatus"
+    response = jsonResponse
+
+instance FromJSON DescribeDeliveryChannelStatusResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeDeliveryChannelStatus where
+    toPath = const "/"
+
+instance ToHeaders DescribeDeliveryChannelStatus
+
+instance ToQuery DescribeDeliveryChannelStatus where
+    toQuery = const mempty
+
+instance ToJSON DescribeDeliveryChannelStatus where
+    toJSON = genericToJSON jsonOptions

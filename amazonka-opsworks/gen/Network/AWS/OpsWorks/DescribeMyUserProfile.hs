@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -48,16 +48,6 @@ data DescribeMyUserProfile = DescribeMyUserProfile
 -- | 'DescribeMyUserProfile' constructor.
 describeMyUserProfile :: DescribeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile
-
-instance ToPath DescribeMyUserProfile where
-    toPath = const "/"
-
-instance ToQuery DescribeMyUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders DescribeMyUserProfile
-
-instance ToBody DescribeMyUserProfile
 
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile :: Maybe SelfUserProfile
@@ -83,5 +73,14 @@ instance AWSRequest DescribeMyUserProfile where
     type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeMyUserProfileResponse
-        <$> o .: "UserProfile"
+    response = jsonResponse
+
+instance FromJSON DescribeMyUserProfileResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeMyUserProfile where
+    toPath = const "/"
+
+instance ToHeaders DescribeMyUserProfile
+
+instance ToQuery DescribeMyUserProfile

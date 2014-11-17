@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.Lambda.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.Lambda.Types
       Lambda
     -- ** Error
     , RESTError
+    -- ** JSON
+    , jsonOptions
 
     -- * Runtime
     , Runtime (..)
@@ -66,6 +70,7 @@ module Network.AWS.Lambda.Types
     , escUUID
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -88,6 +93,11 @@ instance AWSService Lambda where
 
     handle = restError alwaysFail
 
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
+
 data Runtime
     = Nodejs -- ^ nodejs
       deriving (Eq, Ord, Show, Generic, Enum)
@@ -100,9 +110,11 @@ instance FromText Runtime where
 instance ToText Runtime where
     toText Nodejs = "nodejs"
 
-instance FromJSON Runtime
+instance FromJSON Runtime where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Runtime
+instance ToJSON Runtime where
+    toJSON = genericToJSON jsonOptions
 
 data Mode
     = Event -- ^ event
@@ -116,9 +128,11 @@ instance FromText Mode where
 instance ToText Mode where
     toText Event = "event"
 
-instance FromJSON Mode
+instance FromJSON Mode where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Mode
+instance ToJSON Mode where
+    toJSON = genericToJSON jsonOptions
 
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text
@@ -149,9 +163,11 @@ fclRepositoryType :: Lens' FunctionCodeLocation (Maybe Text)
 fclRepositoryType =
     lens _fclRepositoryType (\s a -> s { _fclRepositoryType = a })
 
-instance FromJSON FunctionCodeLocation
+instance FromJSON FunctionCodeLocation where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON FunctionCodeLocation
+instance ToJSON FunctionCodeLocation where
+    toJSON = genericToJSON jsonOptions
 
 data FunctionConfiguration = FunctionConfiguration
     { _fcCodeSize        :: Maybe Integer
@@ -271,9 +287,11 @@ fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
 fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a })
     . mapping _Nat
 
-instance FromJSON FunctionConfiguration
+instance FromJSON FunctionConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON FunctionConfiguration
+instance ToJSON FunctionConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data EventSourceConfiguration = EventSourceConfiguration
     { _escBatchSize    :: Maybe Int
@@ -370,6 +388,8 @@ escStatus = lens _escStatus (\s a -> s { _escStatus = a })
 escUUID :: Lens' EventSourceConfiguration (Maybe Text)
 escUUID = lens _escUUID (\s a -> s { _escUUID = a })
 
-instance FromJSON EventSourceConfiguration
+instance FromJSON EventSourceConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON EventSourceConfiguration
+instance ToJSON EventSourceConfiguration where
+    toJSON = genericToJSON jsonOptions

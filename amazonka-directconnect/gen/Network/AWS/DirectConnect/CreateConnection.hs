@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.CreateConnection
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,7 +55,7 @@ module Network.AWS.DirectConnect.CreateConnection
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -93,17 +93,6 @@ ccConnectionName = lens _ccConnectionName (\s a -> s { _ccConnectionName = a })
 
 ccLocation :: Lens' CreateConnection Text
 ccLocation = lens _ccLocation (\s a -> s { _ccLocation = a })
-
-instance ToPath CreateConnection where
-    toPath = const "/"
-
-instance ToQuery CreateConnection where
-    toQuery = const mempty
-
-instance ToHeaders CreateConnection
-
-instance ToBody CreateConnection where
-    toBody = toBody . encode . _ccLocation
 
 data CreateConnectionResponse = CreateConnectionResponse
     { _ccrBandwidth       :: Maybe Text
@@ -188,13 +177,18 @@ instance AWSRequest CreateConnection where
     type Rs CreateConnection = CreateConnectionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CreateConnectionResponse
-        <$> o .: "bandwidth"
-        <*> o .: "connectionId"
-        <*> o .: "connectionName"
-        <*> o .: "connectionState"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "partnerName"
-        <*> o .: "region"
-        <*> o .: "vlan"
+    response = jsonResponse
+
+instance FromJSON CreateConnectionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CreateConnection where
+    toPath = const "/"
+
+instance ToHeaders CreateConnection
+
+instance ToQuery CreateConnection where
+    toQuery = const mempty
+
+instance ToJSON CreateConnection where
+    toJSON = genericToJSON jsonOptions

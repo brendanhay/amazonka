@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.CreateDBParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -116,11 +116,6 @@ cdbpg1Description =
 cdbpg1Tags :: Lens' CreateDBParameterGroup [Tag]
 cdbpg1Tags = lens _cdbpg1Tags (\s a -> s { _cdbpg1Tags = a })
 
-instance ToQuery CreateDBParameterGroup
-
-instance ToPath CreateDBParameterGroup where
-    toPath = const "/"
-
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
     } deriving (Eq, Show, Generic)
@@ -145,5 +140,15 @@ instance AWSRequest CreateDBParameterGroup where
     type Rs CreateDBParameterGroup = CreateDBParameterGroupResponse
 
     request  = post "CreateDBParameterGroup"
-    response = xmlResponse $ \h x -> CreateDBParameterGroupResponse
-        <$> x %| "DBParameterGroup"
+    response = xmlResponse
+
+instance FromXML CreateDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBParameterGroupResponse"
+
+instance ToPath CreateDBParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateDBParameterGroup
+
+instance ToQuery CreateDBParameterGroup

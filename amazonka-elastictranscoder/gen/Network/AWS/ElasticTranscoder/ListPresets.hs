@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListPresets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.ElasticTranscoder.ListPresets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ lp1Ascending = lens _lp1Ascending (\s a -> s { _lp1Ascending = a })
 -- results.
 lp1PageToken :: Lens' ListPresets (Maybe Text)
 lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
-
-instance ToPath ListPresets where
-    toPath = const "/2012-09-25/presets"
-
-instance ToQuery ListPresets where
-    toQuery ListPresets{..} = mconcat
-        [ "Ascending" =? _lp1Ascending
-        , "PageToken" =? _lp1PageToken
-        ]
-
-instance ToHeaders ListPresets
 
 data ListPresetsResponse = ListPresetsResponse
     { _lpr1NextPageToken :: Maybe Text
@@ -121,6 +110,14 @@ instance AWSRequest ListPresets where
     type Rs ListPresets = ListPresetsResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ListPresetsResponse
-        <$> o .: "NextPageToken"
-        <*> o .: "Presets"
+    response = jsonResponse
+
+instance FromJSON ListPresetsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListPresets where
+    toPath = const "/2012-09-25/presets"
+
+instance ToHeaders ListPresets
+
+instance ToQuery ListPresets

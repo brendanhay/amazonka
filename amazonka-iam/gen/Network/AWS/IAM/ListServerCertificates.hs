@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListServerCertificates
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
 
-instance ToQuery ListServerCertificates
-
-instance ToPath ListServerCertificates where
-    toPath = const "/"
-
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
     , _lscrMarker                        :: Maybe Text
@@ -144,13 +139,15 @@ instance AWSRequest ListServerCertificates where
     type Rs ListServerCertificates = ListServerCertificatesResponse
 
     request  = post "ListServerCertificates"
-    response = xmlResponse $ \h x -> ListServerCertificatesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "ServerCertificateMetadataList"
+    response = xmlResponse
 
-instance AWSPager ListServerCertificates where
-    next rq rs
-        | not (more (rs ^. lscrIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lscMarker .~ rs ^. lscrMarker
+instance FromXML ListServerCertificatesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListServerCertificatesResponse"
+
+instance ToPath ListServerCertificates where
+    toPath = const "/"
+
+instance ToHeaders ListServerCertificates
+
+instance ToQuery ListServerCertificates

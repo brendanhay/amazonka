@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelRetrieval
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.StorageGateway.CancelRetrieval
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ crGatewayARN = lens _crGatewayARN (\s a -> s { _crGatewayARN = a })
 crTapeARN :: Lens' CancelRetrieval Text
 crTapeARN = lens _crTapeARN (\s a -> s { _crTapeARN = a })
 
-instance ToPath CancelRetrieval where
-    toPath = const "/"
-
-instance ToQuery CancelRetrieval where
-    toQuery = const mempty
-
-instance ToHeaders CancelRetrieval
-
-instance ToBody CancelRetrieval where
-    toBody = toBody . encode . _crGatewayARN
-
 newtype CancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -109,5 +98,18 @@ instance AWSRequest CancelRetrieval where
     type Rs CancelRetrieval = CancelRetrievalResponse
 
     request  = post
-    response = jsonResponse $ \h o -> CancelRetrievalResponse
-        <$> o .: "TapeARN"
+    response = jsonResponse
+
+instance FromJSON CancelRetrievalResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath CancelRetrieval where
+    toPath = const "/"
+
+instance ToHeaders CancelRetrieval
+
+instance ToQuery CancelRetrieval where
+    toQuery = const mempty
+
+instance ToJSON CancelRetrieval where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateAutoScalingGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -253,11 +253,6 @@ casgVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgVPCZoneIdentifier =
     lens _casgVPCZoneIdentifier (\s a -> s { _casgVPCZoneIdentifier = a })
 
-instance ToQuery CreateAutoScalingGroup
-
-instance ToPath CreateAutoScalingGroup where
-    toPath = const "/"
-
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -270,4 +265,11 @@ instance AWSRequest CreateAutoScalingGroup where
     type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
 
     request  = post "CreateAutoScalingGroup"
-    response = nullaryResponse CreateAutoScalingGroupResponse
+    response = nullResponse CreateAutoScalingGroupResponse
+
+instance ToPath CreateAutoScalingGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateAutoScalingGroup
+
+instance ToQuery CreateAutoScalingGroup

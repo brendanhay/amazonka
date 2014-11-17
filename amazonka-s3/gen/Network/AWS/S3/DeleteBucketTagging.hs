@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -58,17 +58,6 @@ deleteBucketTagging p1 = DeleteBucketTagging
 dbtBucket :: Lens' DeleteBucketTagging Text
 dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
 
-instance ToPath DeleteBucketTagging where
-    toPath DeleteBucketTagging{..} = mconcat
-        [ "/"
-        , toText _dbtBucket
-        ]
-
-instance ToQuery DeleteBucketTagging where
-    toQuery = const "tagging"
-
-instance ToHeaders DeleteBucketTagging
-
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -81,4 +70,19 @@ instance AWSRequest DeleteBucketTagging where
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
     request  = delete
-    response = nullaryResponse DeleteBucketTaggingResponse
+    response = nullResponse DeleteBucketTaggingResponse
+
+instance ToPath DeleteBucketTagging where
+    toPath DeleteBucketTagging{..} = mconcat
+        [ "/"
+        , toText _dbtBucket
+        ]
+
+instance ToHeaders DeleteBucketTagging
+
+instance ToQuery DeleteBucketTagging where
+    toQuery = const "tagging"
+
+instance ToXML DeleteBucketTagging where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteBucketTagging"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DetachInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ diShouldDecrementDesiredCapacity =
     lens _diShouldDecrementDesiredCapacity
         (\s a -> s { _diShouldDecrementDesiredCapacity = a })
 
-instance ToQuery DetachInstances
-
-instance ToPath DetachInstances where
-    toPath = const "/"
-
 newtype DetachInstancesResponse = DetachInstancesResponse
     { _dirActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -126,5 +121,15 @@ instance AWSRequest DetachInstances where
     type Rs DetachInstances = DetachInstancesResponse
 
     request  = post "DetachInstances"
-    response = xmlResponse $ \h x -> DetachInstancesResponse
-        <$> x %| "Activities"
+    response = xmlResponse
+
+instance FromXML DetachInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachInstancesResponse"
+
+instance ToPath DetachInstances where
+    toPath = const "/"
+
+instance ToHeaders DetachInstances
+
+instance ToQuery DetachInstances

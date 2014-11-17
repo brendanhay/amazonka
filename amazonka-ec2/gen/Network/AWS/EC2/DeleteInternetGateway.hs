@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DeleteInternetGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dig2InternetGatewayId :: Lens' DeleteInternetGateway Text
 dig2InternetGatewayId =
     lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })
 
-instance ToQuery DeleteInternetGateway
-
-instance ToPath DeleteInternetGateway where
-    toPath = const "/"
-
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteInternetGateway where
     type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
 
     request  = post "DeleteInternetGateway"
-    response = nullaryResponse DeleteInternetGatewayResponse
+    response = nullResponse DeleteInternetGatewayResponse
+
+instance ToPath DeleteInternetGateway where
+    toPath = const "/"
+
+instance ToHeaders DeleteInternetGateway
+
+instance ToQuery DeleteInternetGateway

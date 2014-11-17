@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.EnterStandby
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ esShouldDecrementDesiredCapacity =
     lens _esShouldDecrementDesiredCapacity
         (\s a -> s { _esShouldDecrementDesiredCapacity = a })
 
-instance ToQuery EnterStandby
-
-instance ToPath EnterStandby where
-    toPath = const "/"
-
 newtype EnterStandbyResponse = EnterStandbyResponse
     { _esr1Activities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -126,5 +121,15 @@ instance AWSRequest EnterStandby where
     type Rs EnterStandby = EnterStandbyResponse
 
     request  = post "EnterStandby"
-    response = xmlResponse $ \h x -> EnterStandbyResponse
-        <$> x %| "Activities"
+    response = xmlResponse
+
+instance FromXML EnterStandbyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnterStandbyResponse"
+
+instance ToPath EnterStandby where
+    toPath = const "/"
+
+instance ToHeaders EnterStandby
+
+instance ToQuery EnterStandby

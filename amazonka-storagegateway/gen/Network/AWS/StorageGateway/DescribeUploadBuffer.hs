@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ describeUploadBuffer p1 = DescribeUploadBuffer
 
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
 dubGatewayARN = lens _dubGatewayARN (\s a -> s { _dubGatewayARN = a })
-
-instance ToPath DescribeUploadBuffer where
-    toPath = const "/"
-
-instance ToQuery DescribeUploadBuffer where
-    toQuery = const mempty
-
-instance ToHeaders DescribeUploadBuffer
-
-instance ToBody DescribeUploadBuffer where
-    toBody = toBody . encode . _dubGatewayARN
 
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     { _dubrDiskIds                      :: [Text]
@@ -126,8 +115,18 @@ instance AWSRequest DescribeUploadBuffer where
     type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeUploadBufferResponse
-        <$> o .: "DiskIds"
-        <*> o .: "GatewayARN"
-        <*> o .: "UploadBufferAllocatedInBytes"
-        <*> o .: "UploadBufferUsedInBytes"
+    response = jsonResponse
+
+instance FromJSON DescribeUploadBufferResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeUploadBuffer where
+    toPath = const "/"
+
+instance ToHeaders DescribeUploadBuffer
+
+instance ToQuery DescribeUploadBuffer where
+    toQuery = const mempty
+
+instance ToJSON DescribeUploadBuffer where
+    toJSON = genericToJSON jsonOptions

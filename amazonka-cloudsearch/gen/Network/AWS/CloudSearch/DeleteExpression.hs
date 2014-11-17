@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ de2ExpressionName :: Lens' DeleteExpression Text
 de2ExpressionName =
     lens _de2ExpressionName (\s a -> s { _de2ExpressionName = a })
 
-instance ToQuery DeleteExpression
-
-instance ToPath DeleteExpression where
-    toPath = const "/"
-
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _der1Expression :: ExpressionStatus
     } deriving (Eq, Show, Generic)
@@ -102,5 +97,15 @@ instance AWSRequest DeleteExpression where
     type Rs DeleteExpression = DeleteExpressionResponse
 
     request  = post "DeleteExpression"
-    response = xmlResponse $ \h x -> DeleteExpressionResponse
-        <$> x %| "Expression"
+    response = xmlResponse
+
+instance FromXML DeleteExpressionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteExpressionResponse"
+
+instance ToPath DeleteExpression where
+    toPath = const "/"
+
+instance ToHeaders DeleteExpression
+
+instance ToQuery DeleteExpression

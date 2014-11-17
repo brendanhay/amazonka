@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.ListUserPolicies
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\s a -> s { _lupUserName = a })
 
-instance ToQuery ListUserPolicies
-
-instance ToPath ListUserPolicies where
-    toPath = const "/"
-
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
     , _luprMarker      :: Maybe Text
@@ -139,13 +134,15 @@ instance AWSRequest ListUserPolicies where
     type Rs ListUserPolicies = ListUserPoliciesResponse
 
     request  = post "ListUserPolicies"
-    response = xmlResponse $ \h x -> ListUserPoliciesResponse
-        <$> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "PolicyNames"
+    response = xmlResponse
 
-instance AWSPager ListUserPolicies where
-    next rq rs
-        | not (more (rs ^. luprIsTruncated)) = Nothing
-        | otherwise = Just $ rq
-            & lupMarker .~ rs ^. luprMarker
+instance FromXML ListUserPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListUserPoliciesResponse"
+
+instance ToPath ListUserPolicies where
+    toPath = const "/"
+
+instance ToHeaders ListUserPolicies
+
+instance ToQuery ListUserPolicies

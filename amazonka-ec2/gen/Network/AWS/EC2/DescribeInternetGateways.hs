@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeInternetGateways
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 dig1InternetGatewayIds =
     lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
 
-instance ToQuery DescribeInternetGateways
-
-instance ToPath DescribeInternetGateways where
-    toPath = const "/"
-
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -127,5 +122,15 @@ instance AWSRequest DescribeInternetGateways where
     type Rs DescribeInternetGateways = DescribeInternetGatewaysResponse
 
     request  = post "DescribeInternetGateways"
-    response = xmlResponse $ \h x -> DescribeInternetGatewaysResponse
-        <$> x %| "internetGatewaySet"
+    response = xmlResponse
+
+instance FromXML DescribeInternetGatewaysResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInternetGatewaysResponse"
+
+instance ToPath DescribeInternetGateways where
+    toPath = const "/"
+
+instance ToHeaders DescribeInternetGateways
+
+instance ToQuery DescribeInternetGateways

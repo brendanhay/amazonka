@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.ResetClusterParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
 
-instance ToQuery ResetClusterParameterGroup
-
-instance ToPath ResetClusterParameterGroup where
-    toPath = const "/"
-
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName   :: Maybe Text
     , _rcpgrParameterGroupStatus :: Maybe Text
@@ -131,6 +126,15 @@ instance AWSRequest ResetClusterParameterGroup where
     type Rs ResetClusterParameterGroup = ResetClusterParameterGroupResponse
 
     request  = post "ResetClusterParameterGroup"
-    response = xmlResponse $ \h x -> ResetClusterParameterGroupResponse
-        <$> x %| "ParameterGroupName"
-        <*> x %| "ParameterGroupStatus"
+    response = xmlResponse
+
+instance FromXML ResetClusterParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetClusterParameterGroupResponse"
+
+instance ToPath ResetClusterParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders ResetClusterParameterGroup
+
+instance ToQuery ResetClusterParameterGroup

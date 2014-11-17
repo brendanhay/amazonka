@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSubnetGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,11 +93,6 @@ dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 dcsg1MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
-instance ToQuery DescribeClusterSubnetGroups
-
-instance ToPath DescribeClusterSubnetGroups where
-    toPath = const "/"
-
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrClusterSubnetGroups :: [ClusterSubnetGroup]
     , _dcsgrMarker              :: Maybe Text
@@ -137,10 +132,15 @@ instance AWSRequest DescribeClusterSubnetGroups where
     type Rs DescribeClusterSubnetGroups = DescribeClusterSubnetGroupsResponse
 
     request  = post "DescribeClusterSubnetGroups"
-    response = xmlResponse $ \h x -> DescribeClusterSubnetGroupsResponse
-        <$> x %| "ClusterSubnetGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq & dcsg1Marker ?~ x)
-        <$> (rs ^. dcsgrMarker)
+instance FromXML DescribeClusterSubnetGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeClusterSubnetGroupsResponse"
+
+instance ToPath DescribeClusterSubnetGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeClusterSubnetGroups
+
+instance ToQuery DescribeClusterSubnetGroups

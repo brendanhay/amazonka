@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ davDeleteSourceBundle =
 davVersionLabel :: Lens' DeleteApplicationVersion Text
 davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
 
-instance ToQuery DeleteApplicationVersion
-
-instance ToPath DeleteApplicationVersion where
-    toPath = const "/"
-
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +95,11 @@ instance AWSRequest DeleteApplicationVersion where
     type Rs DeleteApplicationVersion = DeleteApplicationVersionResponse
 
     request  = post "DeleteApplicationVersion"
-    response = nullaryResponse DeleteApplicationVersionResponse
+    response = nullResponse DeleteApplicationVersionResponse
+
+instance ToPath DeleteApplicationVersion where
+    toPath = const "/"
+
+instance ToHeaders DeleteApplicationVersion
+
+instance ToQuery DeleteApplicationVersion

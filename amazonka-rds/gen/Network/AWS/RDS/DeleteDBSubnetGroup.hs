@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ ddbsg1DBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsg1DBSubnetGroupName =
     lens _ddbsg1DBSubnetGroupName (\s a -> s { _ddbsg1DBSubnetGroupName = a })
 
-instance ToQuery DeleteDBSubnetGroup
-
-instance ToPath DeleteDBSubnetGroup where
-    toPath = const "/"
-
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -79,4 +74,11 @@ instance AWSRequest DeleteDBSubnetGroup where
     type Rs DeleteDBSubnetGroup = DeleteDBSubnetGroupResponse
 
     request  = post "DeleteDBSubnetGroup"
-    response = nullaryResponse DeleteDBSubnetGroupResponse
+    response = nullResponse DeleteDBSubnetGroupResponse
+
+instance ToPath DeleteDBSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteDBSubnetGroup
+
+instance ToQuery DeleteDBSubnetGroup

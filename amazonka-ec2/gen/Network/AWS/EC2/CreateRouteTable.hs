@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateRouteTable
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -72,11 +72,6 @@ crtDryRun = lens _crtDryRun (\s a -> s { _crtDryRun = a })
 crtVpcId :: Lens' CreateRouteTable Text
 crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
 
-instance ToQuery CreateRouteTable
-
-instance ToPath CreateRouteTable where
-    toPath = const "/"
-
 newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
     } deriving (Eq, Show, Generic)
@@ -101,5 +96,15 @@ instance AWSRequest CreateRouteTable where
     type Rs CreateRouteTable = CreateRouteTableResponse
 
     request  = post "CreateRouteTable"
-    response = xmlResponse $ \h x -> CreateRouteTableResponse
-        <$> x %| "routeTable"
+    response = xmlResponse
+
+instance FromXML CreateRouteTableResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateRouteTableResponse"
+
+instance ToPath CreateRouteTable where
+    toPath = const "/"
+
+instance ToHeaders CreateRouteTable
+
+instance ToQuery CreateRouteTable

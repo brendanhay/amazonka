@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -82,11 +82,6 @@ csdsDryRun = lens _csdsDryRun (\s a -> s { _csdsDryRun = a })
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
 
-instance ToQuery CreateSpotDatafeedSubscription
-
-instance ToPath CreateSpotDatafeedSubscription where
-    toPath = const "/"
-
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Eq, Show, Generic)
@@ -113,5 +108,15 @@ instance AWSRequest CreateSpotDatafeedSubscription where
     type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse
 
     request  = post "CreateSpotDatafeedSubscription"
-    response = xmlResponse $ \h x -> CreateSpotDatafeedSubscriptionResponse
-        <$> x %| "spotDatafeedSubscription"
+    response = xmlResponse
+
+instance FromXML CreateSpotDatafeedSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResponse"
+
+instance ToPath CreateSpotDatafeedSubscription where
+    toPath = const "/"
+
+instance ToHeaders CreateSpotDatafeedSubscription
+
+instance ToQuery CreateSpotDatafeedSubscription

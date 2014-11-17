@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.AddTagsToResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\s a -> s { _attrTags = a })
 
-instance ToQuery AddTagsToResource
-
-instance ToPath AddTagsToResource where
-    toPath = const "/"
-
 data AddTagsToResourceResponse = AddTagsToResourceResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -91,4 +86,11 @@ instance AWSRequest AddTagsToResource where
     type Rs AddTagsToResource = AddTagsToResourceResponse
 
     request  = post "AddTagsToResource"
-    response = nullaryResponse AddTagsToResourceResponse
+    response = nullResponse AddTagsToResourceResponse
+
+instance ToPath AddTagsToResource where
+    toPath = const "/"
+
+instance ToHeaders AddTagsToResource
+
+instance ToQuery AddTagsToResource

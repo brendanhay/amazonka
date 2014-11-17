@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -91,17 +91,6 @@ ubrlAverageUploadRateLimitInBitsPerSec =
 ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
 ubrlGatewayARN = lens _ubrlGatewayARN (\s a -> s { _ubrlGatewayARN = a })
 
-instance ToPath UpdateBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToQuery UpdateBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToHeaders UpdateBandwidthRateLimit
-
-instance ToBody UpdateBandwidthRateLimit where
-    toBody = toBody . encode . _ubrlGatewayARN
-
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -125,5 +114,18 @@ instance AWSRequest UpdateBandwidthRateLimit where
     type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateBandwidthRateLimitResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON UpdateBandwidthRateLimitResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateBandwidthRateLimit where
+    toPath = const "/"
+
+instance ToHeaders UpdateBandwidthRateLimit
+
+instance ToQuery UpdateBandwidthRateLimit where
+    toQuery = const mempty
+
+instance ToJSON UpdateBandwidthRateLimit where
+    toJSON = genericToJSON jsonOptions

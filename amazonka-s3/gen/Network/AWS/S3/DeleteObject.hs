@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.S3.DeleteObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -91,22 +91,6 @@ doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 doVersionId :: Lens' DeleteObject (Maybe Text)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 
-instance ToPath DeleteObject where
-    toPath DeleteObject{..} = mconcat
-        [ "/"
-        , toText _doBucket
-        , "/"
-        , toText _doKey
-        ]
-
-instance ToQuery DeleteObject where
-    toQuery rq = "versionId" =? _doVersionId rq
-
-instance ToHeaders DeleteObject where
-    toHeaders DeleteObject{..} = mconcat
-        [ "x-amz-mfa" =: _doMFA
-        ]
-
 data DeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker :: Maybe Bool
     , _dorVersionId    :: Maybe Text
@@ -141,6 +125,26 @@ instance AWSRequest DeleteObject where
     type Rs DeleteObject = DeleteObjectResponse
 
     request  = delete
-    response = xmlResponse $ \h x -> DeleteObjectResponse
-        <$> h ~:? "x-amz-delete-marker"
+    response = xmlHeaderResponse $ \h x -> DeleteObjectResponse
+        <*> h ~:? "x-amz-delete-marker"
         <*> h ~:? "x-amz-version-id"
+
+instance ToPath DeleteObject where
+    toPath DeleteObject{..} = mconcat
+        [ "/"
+        , toText _doBucket
+        , "/"
+        , toText _doKey
+        ]
+
+instance ToHeaders DeleteObject where
+    toHeaders DeleteObject{..} = mconcat
+        [ "x-amz-mfa" =: _doMFA
+        ]
+
+instance ToQuery DeleteObject where
+    toQuery rq = "versionId" =? _doVersionId rq
+
+instance ToXML DeleteObject where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteObject"

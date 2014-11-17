@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
 
-instance ToQuery ResetSnapshotAttribute
-
-instance ToPath ResetSnapshotAttribute where
-    toPath = const "/"
-
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest ResetSnapshotAttribute where
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
 
     request  = post "ResetSnapshotAttribute"
-    response = nullaryResponse ResetSnapshotAttributeResponse
+    response = nullResponse ResetSnapshotAttributeResponse
+
+instance ToPath ResetSnapshotAttribute where
+    toPath = const "/"
+
+instance ToHeaders ResetSnapshotAttribute
+
+instance ToQuery ResetSnapshotAttribute

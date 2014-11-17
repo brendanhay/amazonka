@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreatePlacementGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
 cpgStrategy :: Lens' CreatePlacementGroup Text
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
 
-instance ToQuery CreatePlacementGroup
-
-instance ToPath CreatePlacementGroup where
-    toPath = const "/"
-
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -97,4 +92,11 @@ instance AWSRequest CreatePlacementGroup where
     type Rs CreatePlacementGroup = CreatePlacementGroupResponse
 
     request  = post "CreatePlacementGroup"
-    response = nullaryResponse CreatePlacementGroupResponse
+    response = nullResponse CreatePlacementGroupResponse
+
+instance ToPath CreatePlacementGroup where
+    toPath = const "/"
+
+instance ToHeaders CreatePlacementGroup
+
+instance ToQuery CreatePlacementGroup

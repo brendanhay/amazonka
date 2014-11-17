@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
 dvaVolumeId :: Lens' DescribeVolumeAttribute Text
 dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
 
-instance ToQuery DescribeVolumeAttribute
-
-instance ToPath DescribeVolumeAttribute where
-    toPath = const "/"
-
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
@@ -128,7 +123,15 @@ instance AWSRequest DescribeVolumeAttribute where
     type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse
 
     request  = post "DescribeVolumeAttribute"
-    response = xmlResponse $ \h x -> DescribeVolumeAttributeResponse
-        <$> x %| "autoEnableIO"
-        <*> x %| "productCodes"
-        <*> x %| "volumeId"
+    response = xmlResponse
+
+instance FromXML DescribeVolumeAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVolumeAttributeResponse"
+
+instance ToPath DescribeVolumeAttribute where
+    toPath = const "/"
+
+instance ToHeaders DescribeVolumeAttribute
+
+instance ToQuery DescribeVolumeAttribute

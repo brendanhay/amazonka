@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.DeprecateDomain
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.SWF.DeprecateDomain
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ deprecateDomain p1 = DeprecateDomain
 dd1Name :: Lens' DeprecateDomain Text
 dd1Name = lens _dd1Name (\s a -> s { _dd1Name = a })
 
-instance ToPath DeprecateDomain where
-    toPath = const "/"
-
-instance ToQuery DeprecateDomain where
-    toQuery = const mempty
-
-instance ToHeaders DeprecateDomain
-
-instance ToBody DeprecateDomain where
-    toBody = toBody . encode . _dd1Name
-
 data DeprecateDomainResponse = DeprecateDomainResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +84,15 @@ instance AWSRequest DeprecateDomain where
     type Rs DeprecateDomain = DeprecateDomainResponse
 
     request  = post
-    response = nullaryResponse DeprecateDomainResponse
+    response = nullResponse DeprecateDomainResponse
+
+instance ToPath DeprecateDomain where
+    toPath = const "/"
+
+instance ToHeaders DeprecateDomain
+
+instance ToQuery DeprecateDomain where
+    toQuery = const mempty
+
+instance ToJSON DeprecateDomain where
+    toJSON = genericToJSON jsonOptions

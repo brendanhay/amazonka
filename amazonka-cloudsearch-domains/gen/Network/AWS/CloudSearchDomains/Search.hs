@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Search
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,7 +66,7 @@ module Network.AWS.CloudSearchDomains.Search
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CloudSearchDomains.Types
 import qualified GHC.Exts
 
@@ -377,29 +377,6 @@ s1Sort = lens _s1Sort (\s a -> s { _s1Sort = a })
 s1Start :: Lens' Search (Maybe Integer)
 s1Start = lens _s1Start (\s a -> s { _s1Start = a })
 
-instance ToPath Search where
-    toPath = const "/2013-01-01/search"
-
-instance ToQuery Search where
-    toQuery Search{..} = mconcat
-        [ "format=sdk&pretty=true"
-        , "cursor"    =? _s1Cursor
-        , "expr"      =? _s1Expr
-        , "facet"     =? _s1Facet
-        , "fq"        =? _s1FilterQuery
-        , "highlight" =? _s1Highlight
-        , "partial"   =? _s1Partial
-        , "q"         =? _s1Query
-        , "q.options" =? _s1QueryOptions
-        , "q.parser"  =? _s1QueryParser
-        , "return"    =? _s1Return
-        , "size"      =? _s1Size
-        , "sort"      =? _s1Sort
-        , "start"     =? _s1Start
-        ]
-
-instance ToHeaders Search
-
 data SearchResponse = SearchResponse
     { _sr1Facets :: Map Text BucketInfo
     , _sr1Hits   :: Maybe Hits
@@ -441,7 +418,14 @@ instance AWSRequest Search where
     type Rs Search = SearchResponse
 
     request  = get
-    response = jsonResponse $ \h o -> SearchResponse
-        <$> o .: "facets"
-        <*> o .: "hits"
-        <*> o .: "status"
+    response = jsonResponse
+
+instance FromJSON SearchResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath Search where
+    toPath = const "/2013-01-01/search"
+
+instance ToHeaders Search
+
+instance ToQuery Search

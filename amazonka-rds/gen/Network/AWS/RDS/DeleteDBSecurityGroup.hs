@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,11 +64,6 @@ ddbsgDBSecurityGroupName =
     lens _ddbsgDBSecurityGroupName
         (\s a -> s { _ddbsgDBSecurityGroupName = a })
 
-instance ToQuery DeleteDBSecurityGroup
-
-instance ToPath DeleteDBSecurityGroup where
-    toPath = const "/"
-
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -81,4 +76,11 @@ instance AWSRequest DeleteDBSecurityGroup where
     type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse
 
     request  = post "DeleteDBSecurityGroup"
-    response = nullaryResponse DeleteDBSecurityGroupResponse
+    response = nullResponse DeleteDBSecurityGroupResponse
+
+instance ToPath DeleteDBSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteDBSecurityGroup
+
+instance ToQuery DeleteDBSecurityGroup

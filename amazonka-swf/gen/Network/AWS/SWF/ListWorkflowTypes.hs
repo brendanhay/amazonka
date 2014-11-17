@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.ListWorkflowTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.SWF.ListWorkflowTypes
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -130,17 +130,6 @@ lwtRegistrationStatus =
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtReverseOrder = lens _lwtReverseOrder (\s a -> s { _lwtReverseOrder = a })
 
-instance ToPath ListWorkflowTypes where
-    toPath = const "/"
-
-instance ToQuery ListWorkflowTypes where
-    toQuery = const mempty
-
-instance ToHeaders ListWorkflowTypes
-
-instance ToBody ListWorkflowTypes where
-    toBody = toBody . encode . _lwtDomain
-
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     { _lwtrNextPageToken :: Maybe Text
     , _lwtrTypeInfos     :: [WorkflowTypeInfo]
@@ -177,6 +166,18 @@ instance AWSRequest ListWorkflowTypes where
     type Rs ListWorkflowTypes = ListWorkflowTypesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListWorkflowTypesResponse
-        <$> o .: "nextPageToken"
-        <*> o .: "typeInfos"
+    response = jsonResponse
+
+instance FromJSON ListWorkflowTypesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListWorkflowTypes where
+    toPath = const "/"
+
+instance ToHeaders ListWorkflowTypes
+
+instance ToQuery ListWorkflowTypes where
+    toQuery = const mempty
+
+instance ToJSON ListWorkflowTypes where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.PutRolePolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -83,11 +83,6 @@ prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
 
-instance ToQuery PutRolePolicy
-
-instance ToPath PutRolePolicy where
-    toPath = const "/"
-
 data PutRolePolicyResponse = PutRolePolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -100,4 +95,11 @@ instance AWSRequest PutRolePolicy where
     type Rs PutRolePolicy = PutRolePolicyResponse
 
     request  = post "PutRolePolicy"
-    response = nullaryResponse PutRolePolicyResponse
+    response = nullResponse PutRolePolicyResponse
+
+instance ToPath PutRolePolicy where
+    toPath = const "/"
+
+instance ToHeaders PutRolePolicy
+
+instance ToQuery PutRolePolicy

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.GetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ gpaaPlatformApplicationArn =
     lens _gpaaPlatformApplicationArn
         (\s a -> s { _gpaaPlatformApplicationArn = a })
 
-instance ToQuery GetPlatformApplicationAttributes
-
-instance ToPath GetPlatformApplicationAttributes where
-    toPath = const "/"
-
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -102,5 +97,15 @@ instance AWSRequest GetPlatformApplicationAttributes where
     type Rs GetPlatformApplicationAttributes = GetPlatformApplicationAttributesResponse
 
     request  = post "GetPlatformApplicationAttributes"
-    response = xmlResponse $ \h x -> GetPlatformApplicationAttributesResponse
-        <$> x %| "Attributes"
+    response = xmlResponse
+
+instance FromXML GetPlatformApplicationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetPlatformApplicationAttributesResponse"
+
+instance ToPath GetPlatformApplicationAttributes where
+    toPath = const "/"
+
+instance ToHeaders GetPlatformApplicationAttributes
+
+instance ToQuery GetPlatformApplicationAttributes

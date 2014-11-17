@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -69,20 +69,6 @@ dsdId = lens _dsdId (\s a -> s { _dsdId = a })
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
 
-instance ToPath DeleteStreamingDistribution where
-    toPath DeleteStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toText _dsdId
-        ]
-
-instance ToQuery DeleteStreamingDistribution where
-    toQuery = const mempty
-
-instance ToHeaders DeleteStreamingDistribution where
-    toHeaders DeleteStreamingDistribution{..} = mconcat
-        [ "If-Match" =: _dsdIfMatch
-        ]
-
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +81,22 @@ instance AWSRequest DeleteStreamingDistribution where
     type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
 
     request  = delete
-    response = nullaryResponse DeleteStreamingDistributionResponse
+    response = nullResponse DeleteStreamingDistributionResponse
+
+instance ToPath DeleteStreamingDistribution where
+    toPath DeleteStreamingDistribution{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _dsdId
+        ]
+
+instance ToHeaders DeleteStreamingDistribution where
+    toHeaders DeleteStreamingDistribution{..} = mconcat
+        [ "If-Match" =: _dsdIfMatch
+        ]
+
+instance ToQuery DeleteStreamingDistribution where
+    toQuery = const mempty
+
+instance ToXML DeleteStreamingDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteStreamingDistribution"

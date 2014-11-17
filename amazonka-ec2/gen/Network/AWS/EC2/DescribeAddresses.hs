@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -100,11 +100,6 @@ daFilters = lens _daFilters (\s a -> s { _daFilters = a })
 daPublicIps :: Lens' DescribeAddresses [Text]
 daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
 
-instance ToQuery DescribeAddresses
-
-instance ToPath DescribeAddresses where
-    toPath = const "/"
-
 newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: [Address]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -135,5 +130,15 @@ instance AWSRequest DescribeAddresses where
     type Rs DescribeAddresses = DescribeAddressesResponse
 
     request  = post "DescribeAddresses"
-    response = xmlResponse $ \h x -> DescribeAddressesResponse
-        <$> x %| "addressesSet"
+    response = xmlResponse
+
+instance FromXML DescribeAddressesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAddressesResponse"
+
+instance ToPath DescribeAddresses where
+    toPath = const "/"
+
+instance ToHeaders DescribeAddresses
+
+instance ToQuery DescribeAddresses

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -76,11 +76,6 @@ derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentName =
     lens _derEnvironmentName (\s a -> s { _derEnvironmentName = a })
 
-instance ToQuery DescribeEnvironmentResources
-
-instance ToPath DescribeEnvironmentResources where
-    toPath = const "/"
-
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
     } deriving (Eq, Show, Generic)
@@ -107,5 +102,15 @@ instance AWSRequest DescribeEnvironmentResources where
     type Rs DescribeEnvironmentResources = DescribeEnvironmentResourcesResponse
 
     request  = post "DescribeEnvironmentResources"
-    response = xmlResponse $ \h x -> DescribeEnvironmentResourcesResponse
-        <$> x %| "EnvironmentResources"
+    response = xmlResponse
+
+instance FromXML DescribeEnvironmentResourcesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEnvironmentResourcesResponse"
+
+instance ToPath DescribeEnvironmentResources where
+    toPath = const "/"
+
+instance ToHeaders DescribeEnvironmentResources
+
+instance ToQuery DescribeEnvironmentResources

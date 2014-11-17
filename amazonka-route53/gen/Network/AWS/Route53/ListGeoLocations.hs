@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListGeoLocations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -56,7 +56,7 @@ module Network.AWS.Route53.ListGeoLocations
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -115,19 +115,6 @@ lglStartCountryCode =
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode =
     lens _lglStartSubdivisionCode (\s a -> s { _lglStartSubdivisionCode = a })
-
-instance ToPath ListGeoLocations where
-    toPath = const "/2013-04-01/geolocations"
-
-instance ToQuery ListGeoLocations where
-    toQuery ListGeoLocations{..} = mconcat
-        [ "startcontinentcode"   =? _lglStartContinentCode
-        , "startcountrycode"     =? _lglStartCountryCode
-        , "startsubdivisioncode" =? _lglStartSubdivisionCode
-        , "maxitems"             =? _lglMaxItems
-        ]
-
-instance ToHeaders ListGeoLocations
 
 data ListGeoLocationsResponse = ListGeoLocationsResponse
     { _lglrGeoLocationDetailsList :: [GeoLocationDetails]
@@ -217,10 +204,15 @@ instance AWSRequest ListGeoLocations where
     type Rs ListGeoLocations = ListGeoLocationsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListGeoLocationsResponse
-        <$> x %| "GeoLocationDetailsList"
-        <*> x %| "IsTruncated"
-        <*> x %| "MaxItems"
-        <*> x %| "NextContinentCode"
-        <*> x %| "NextCountryCode"
-        <*> x %| "NextSubdivisionCode"
+    response = xmlResponse
+
+instance FromXML ListGeoLocationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGeoLocationsResponse"
+
+instance ToPath ListGeoLocations where
+    toPath = const "/2013-04-01/geolocations"
+
+instance ToHeaders ListGeoLocations
+
+instance ToQuery ListGeoLocations

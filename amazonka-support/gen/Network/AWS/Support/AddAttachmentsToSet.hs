@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.Support.AddAttachmentsToSet
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -82,17 +82,6 @@ aatsAttachmentSetId =
 -- set, and the size limit is 5 MB per attachment.
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a })
-
-instance ToPath AddAttachmentsToSet where
-    toPath = const "/"
-
-instance ToQuery AddAttachmentsToSet where
-    toQuery = const mempty
-
-instance ToHeaders AddAttachmentsToSet
-
-instance ToBody AddAttachmentsToSet where
-    toBody = toBody . encode . _aatsAttachmentSetId
 
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId :: Maybe Text
@@ -130,6 +119,18 @@ instance AWSRequest AddAttachmentsToSet where
     type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
 
     request  = post
-    response = jsonResponse $ \h o -> AddAttachmentsToSetResponse
-        <$> o .: "attachmentSetId"
-        <*> o .: "expiryTime"
+    response = jsonResponse
+
+instance FromJSON AddAttachmentsToSetResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath AddAttachmentsToSet where
+    toPath = const "/"
+
+instance ToHeaders AddAttachmentsToSet
+
+instance ToQuery AddAttachmentsToSet where
+    toQuery = const mempty
+
+instance ToJSON AddAttachmentsToSet where
+    toJSON = genericToJSON jsonOptions

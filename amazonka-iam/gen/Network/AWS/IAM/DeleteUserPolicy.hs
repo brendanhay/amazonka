@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteUserPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
 
-instance ToQuery DeleteUserPolicy
-
-instance ToPath DeleteUserPolicy where
-    toPath = const "/"
-
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteUserPolicy where
     type Rs DeleteUserPolicy = DeleteUserPolicyResponse
 
     request  = post "DeleteUserPolicy"
-    response = nullaryResponse DeleteUserPolicyResponse
+    response = nullResponse DeleteUserPolicyResponse
+
+instance ToPath DeleteUserPolicy where
+    toPath = const "/"
+
+instance ToHeaders DeleteUserPolicy
+
+instance ToQuery DeleteUserPolicy

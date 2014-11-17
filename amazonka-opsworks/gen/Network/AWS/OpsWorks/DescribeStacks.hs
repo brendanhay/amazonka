@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStacks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeStacks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -70,17 +70,6 @@ describeStacks = DescribeStacks
 -- omit this parameter, DescribeStacks returns a description of every stack.
 dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a })
-
-instance ToPath DescribeStacks where
-    toPath = const "/"
-
-instance ToQuery DescribeStacks where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStacks
-
-instance ToBody DescribeStacks where
-    toBody = toBody . encode . _dsStackIds
 
 newtype DescribeStacksResponse = DescribeStacksResponse
     { _dsrStacks :: [Stack]
@@ -112,5 +101,18 @@ instance AWSRequest DescribeStacks where
     type Rs DescribeStacks = DescribeStacksResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeStacksResponse
-        <$> o .: "Stacks"
+    response = jsonResponse
+
+instance FromJSON DescribeStacksResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeStacks where
+    toPath = const "/"
+
+instance ToHeaders DescribeStacks
+
+instance ToQuery DescribeStacks where
+    toQuery = const mempty
+
+instance ToJSON DescribeStacks where
+    toJSON = genericToJSON jsonOptions

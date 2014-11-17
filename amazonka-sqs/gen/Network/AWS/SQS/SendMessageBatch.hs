@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SQS.SendMessageBatch
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -85,11 +85,6 @@ smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
 smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 
-instance ToQuery SendMessageBatch
-
-instance ToPath SendMessageBatch where
-    toPath = const "/"
-
 data SendMessageBatchResponse = SendMessageBatchResponse
     { _smbrFailed     :: [BatchResultErrorEntry]
     , _smbrSuccessful :: [SendMessageBatchResultEntry]
@@ -123,6 +118,15 @@ instance AWSRequest SendMessageBatch where
     type Rs SendMessageBatch = SendMessageBatchResponse
 
     request  = post "SendMessageBatch"
-    response = xmlResponse $ \h x -> SendMessageBatchResponse
-        <$> x %| "Failed"
-        <*> x %| "Successful"
+    response = xmlResponse
+
+instance FromXML SendMessageBatchResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendMessageBatchResponse"
+
+instance ToPath SendMessageBatch where
+    toPath = const "/"
+
+instance ToHeaders SendMessageBatch
+
+instance ToQuery SendMessageBatch

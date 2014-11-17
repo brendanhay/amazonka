@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.DeleteObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.S3.DeleteObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -81,23 +81,6 @@ do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
 do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
-instance ToPath DeleteObjects where
-    toPath DeleteObjects{..} = mconcat
-        [ "/"
-        , toText _do1Bucket
-        ]
-
-instance ToQuery DeleteObjects where
-    toQuery = const "delete"
-
-instance ToHeaders DeleteObjects where
-    toHeaders DeleteObjects{..} = mconcat
-        [ "x-amz-mfa" =: _do1MFA
-        ]
-
-instance ToBody DeleteObjects where
-    toBody = toBody . encodeXML . _do1Delete
-
 data DeleteObjectsResponse = DeleteObjectsResponse
     { _dorDeleted :: [S3ServiceError]
     , _dorErrors  :: [S3ServiceError]
@@ -128,6 +111,26 @@ instance AWSRequest DeleteObjects where
     type Rs DeleteObjects = DeleteObjectsResponse
 
     request  = post
-    response = xmlResponse $ \h x -> DeleteObjectsResponse
-        <$> x %| "Deleted"
-        <*> x %| "Error"
+    response = xmlResponse
+
+instance FromXML DeleteObjectsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteObjectsResponse"
+
+instance ToPath DeleteObjects where
+    toPath DeleteObjects{..} = mconcat
+        [ "/"
+        , toText _do1Bucket
+        ]
+
+instance ToHeaders DeleteObjects where
+    toHeaders DeleteObjects{..} = mconcat
+        [ "x-amz-mfa" =: _do1MFA
+        ]
+
+instance ToQuery DeleteObjects where
+    toQuery = const "delete"
+
+instance ToXML DeleteObjects where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteObjects"

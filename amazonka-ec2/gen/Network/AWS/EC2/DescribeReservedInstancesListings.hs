@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -100,11 +100,6 @@ drilReservedInstancesListingId =
     lens _drilReservedInstancesListingId
         (\s a -> s { _drilReservedInstancesListingId = a })
 
-instance ToQuery DescribeReservedInstancesListings
-
-instance ToPath DescribeReservedInstancesListings where
-    toPath = const "/"
-
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -137,5 +132,15 @@ instance AWSRequest DescribeReservedInstancesListings where
     type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResponse
 
     request  = post "DescribeReservedInstancesListings"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesListingsResponse
-        <$> x %| "reservedInstancesListingsSet"
+    response = xmlResponse
+
+instance FromXML DescribeReservedInstancesListingsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesListingsResponse"
+
+instance ToPath DescribeReservedInstancesListings where
+    toPath = const "/"
+
+instance ToHeaders DescribeReservedInstancesListings
+
+instance ToQuery DescribeReservedInstancesListings

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.AssignPrivateIpAddresses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,11 +107,6 @@ apiaSecondaryPrivateIpAddressCount =
     lens _apiaSecondaryPrivateIpAddressCount
         (\s a -> s { _apiaSecondaryPrivateIpAddressCount = a })
 
-instance ToQuery AssignPrivateIpAddresses
-
-instance ToPath AssignPrivateIpAddresses where
-    toPath = const "/"
-
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -124,4 +119,11 @@ instance AWSRequest AssignPrivateIpAddresses where
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
 
     request  = post "AssignPrivateIpAddresses"
-    response = nullaryResponse AssignPrivateIpAddressesResponse
+    response = nullResponse AssignPrivateIpAddressesResponse
+
+instance ToPath AssignPrivateIpAddresses where
+    toPath = const "/"
+
+instance ToHeaders AssignPrivateIpAddresses
+
+instance ToQuery AssignPrivateIpAddresses

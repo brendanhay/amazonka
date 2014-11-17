@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
-instance ToQuery DescribeCacheSecurityGroups
-
-instance ToPath DescribeCacheSecurityGroups where
-    toPath = const "/"
-
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgr1CacheSecurityGroups :: [CacheSecurityGroup]
     , _dcsgr1Marker              :: Maybe Text
@@ -129,10 +124,15 @@ instance AWSRequest DescribeCacheSecurityGroups where
     type Rs DescribeCacheSecurityGroups = DescribeCacheSecurityGroupsResponse
 
     request  = post "DescribeCacheSecurityGroups"
-    response = xmlResponse $ \h x -> DescribeCacheSecurityGroupsResponse
-        <$> x %| "CacheSecurityGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeCacheSecurityGroups where
-    next rq rs = (\x -> rq & dcsg1Marker ?~ x)
-        <$> (rs ^. dcsgr1Marker)
+instance FromXML DescribeCacheSecurityGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCacheSecurityGroupsResponse"
+
+instance ToPath DescribeCacheSecurityGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeCacheSecurityGroups
+
+instance ToQuery DescribeCacheSecurityGroups

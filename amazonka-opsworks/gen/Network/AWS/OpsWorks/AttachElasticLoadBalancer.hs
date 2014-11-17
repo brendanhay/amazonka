@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -76,17 +76,6 @@ aelbElasticLoadBalancerName =
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\s a -> s { _aelbLayerId = a })
 
-instance ToPath AttachElasticLoadBalancer where
-    toPath = const "/"
-
-instance ToQuery AttachElasticLoadBalancer where
-    toQuery = const mempty
-
-instance ToHeaders AttachElasticLoadBalancer
-
-instance ToBody AttachElasticLoadBalancer where
-    toBody = toBody . encode . _aelbElasticLoadBalancerName
-
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -99,4 +88,15 @@ instance AWSRequest AttachElasticLoadBalancer where
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
 
     request  = post
-    response = nullaryResponse AttachElasticLoadBalancerResponse
+    response = nullResponse AttachElasticLoadBalancerResponse
+
+instance ToPath AttachElasticLoadBalancer where
+    toPath = const "/"
+
+instance ToHeaders AttachElasticLoadBalancer
+
+instance ToQuery AttachElasticLoadBalancer where
+    toQuery = const mempty
+
+instance ToJSON AttachElasticLoadBalancer where
+    toJSON = genericToJSON jsonOptions

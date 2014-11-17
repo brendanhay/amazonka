@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeIndexFields
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -86,11 +86,6 @@ difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 difFieldNames :: Lens' DescribeIndexFields [Text]
 difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a })
 
-instance ToQuery DescribeIndexFields
-
-instance ToPath DescribeIndexFields where
-    toPath = const "/"
-
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difrIndexFields :: [IndexFieldStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -121,5 +116,15 @@ instance AWSRequest DescribeIndexFields where
     type Rs DescribeIndexFields = DescribeIndexFieldsResponse
 
     request  = post "DescribeIndexFields"
-    response = xmlResponse $ \h x -> DescribeIndexFieldsResponse
-        <$> x %| "IndexFields"
+    response = xmlResponse
+
+instance FromXML DescribeIndexFieldsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeIndexFieldsResponse"
+
+instance ToPath DescribeIndexFields where
+    toPath = const "/"
+
+instance ToHeaders DescribeIndexFields
+
+instance ToQuery DescribeIndexFields

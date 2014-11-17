@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ crPath = lens _crPath (\s a -> s { _crPath = a })
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
 
-instance ToQuery CreateRole
-
-instance ToPath CreateRole where
-    toPath = const "/"
-
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
     } deriving (Eq, Show, Generic)
@@ -120,5 +115,15 @@ instance AWSRequest CreateRole where
     type Rs CreateRole = CreateRoleResponse
 
     request  = post "CreateRole"
-    response = xmlResponse $ \h x -> CreateRoleResponse
-        <$> x %| "Role"
+    response = xmlResponse
+
+instance FromXML CreateRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateRoleResponse"
+
+instance ToPath CreateRole where
+    toPath = const "/"
+
+instance ToHeaders CreateRole
+
+instance ToQuery CreateRole

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetServerCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,11 +64,6 @@ gscServerCertificateName =
     lens _gscServerCertificateName
         (\s a -> s { _gscServerCertificateName = a })
 
-instance ToQuery GetServerCertificate
-
-instance ToPath GetServerCertificate where
-    toPath = const "/"
-
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
     } deriving (Eq, Show, Generic)
@@ -95,5 +90,15 @@ instance AWSRequest GetServerCertificate where
     type Rs GetServerCertificate = GetServerCertificateResponse
 
     request  = post "GetServerCertificate"
-    response = xmlResponse $ \h x -> GetServerCertificateResponse
-        <$> x %| "ServerCertificate"
+    response = xmlResponse
+
+instance FromXML GetServerCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetServerCertificateResponse"
+
+instance ToPath GetServerCertificate where
+    toPath = const "/"
+
+instance ToHeaders GetServerCertificate
+
+instance ToQuery GetServerCertificate

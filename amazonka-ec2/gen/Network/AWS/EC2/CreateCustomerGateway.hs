@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateCustomerGateway
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -102,11 +102,6 @@ ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 ccgType :: Lens' CreateCustomerGateway Text
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
-instance ToQuery CreateCustomerGateway
-
-instance ToPath CreateCustomerGateway where
-    toPath = const "/"
-
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
     } deriving (Eq, Show, Generic)
@@ -132,5 +127,15 @@ instance AWSRequest CreateCustomerGateway where
     type Rs CreateCustomerGateway = CreateCustomerGatewayResponse
 
     request  = post "CreateCustomerGateway"
-    response = xmlResponse $ \h x -> CreateCustomerGatewayResponse
-        <$> x %| "customerGateway"
+    response = xmlResponse
+
+instance FromXML CreateCustomerGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCustomerGatewayResponse"
+
+instance ToPath CreateCustomerGateway where
+    toPath = const "/"
+
+instance ToHeaders CreateCustomerGateway
+
+instance ToQuery CreateCustomerGateway

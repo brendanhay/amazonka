@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
 
-instance ToQuery DeleteEventSubscription
-
-instance ToPath DeleteEventSubscription where
-    toPath = const "/"
-
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
@@ -91,5 +86,15 @@ instance AWSRequest DeleteEventSubscription where
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
     request  = post "DeleteEventSubscription"
-    response = xmlResponse $ \h x -> DeleteEventSubscriptionResponse
-        <$> x %| "EventSubscription"
+    response = xmlResponse
+
+instance FromXML DeleteEventSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
+
+instance ToPath DeleteEventSubscription where
+    toPath = const "/"
+
+instance ToHeaders DeleteEventSubscription
+
+instance ToQuery DeleteEventSubscription

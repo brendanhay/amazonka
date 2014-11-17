@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityUsage
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoSync.Types
 import qualified GHC.Exts
 
@@ -77,19 +77,6 @@ diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
 diuIdentityPoolId =
     lens _diuIdentityPoolId (\s a -> s { _diuIdentityPoolId = a })
 
-instance ToPath DescribeIdentityUsage where
-    toPath DescribeIdentityUsage{..} = mconcat
-        [ "/identitypools/"
-        , toText _diuIdentityPoolId
-        , "/identities/"
-        , toText _diuIdentityId
-        ]
-
-instance ToQuery DescribeIdentityUsage where
-    toQuery = const mempty
-
-instance ToHeaders DescribeIdentityUsage
-
 newtype DescribeIdentityUsageResponse = DescribeIdentityUsageResponse
     { _diurIdentityUsage :: Maybe IdentityUsage
     } deriving (Eq, Show, Generic)
@@ -115,5 +102,23 @@ instance AWSRequest DescribeIdentityUsage where
     type Rs DescribeIdentityUsage = DescribeIdentityUsageResponse
 
     request  = get
-    response = jsonResponse $ \h o -> DescribeIdentityUsageResponse
-        <$> o .: "IdentityUsage"
+    response = jsonResponse
+
+instance FromJSON DescribeIdentityUsageResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeIdentityUsage where
+    toPath DescribeIdentityUsage{..} = mconcat
+        [ "/identitypools/"
+        , toText _diuIdentityPoolId
+        , "/identities/"
+        , toText _diuIdentityId
+        ]
+
+instance ToHeaders DescribeIdentityUsage
+
+instance ToQuery DescribeIdentityUsage where
+    toQuery = const mempty
+
+instance ToJSON DescribeIdentityUsage where
+    toJSON = genericToJSON jsonOptions

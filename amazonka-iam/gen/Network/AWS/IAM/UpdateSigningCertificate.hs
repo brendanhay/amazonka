@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -88,11 +88,6 @@ uscStatus = lens _uscStatus (\s a -> s { _uscStatus = a })
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\s a -> s { _uscUserName = a })
 
-instance ToQuery UpdateSigningCertificate
-
-instance ToPath UpdateSigningCertificate where
-    toPath = const "/"
-
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -105,4 +100,11 @@ instance AWSRequest UpdateSigningCertificate where
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
 
     request  = post "UpdateSigningCertificate"
-    response = nullaryResponse UpdateSigningCertificateResponse
+    response = nullResponse UpdateSigningCertificateResponse
+
+instance ToPath UpdateSigningCertificate where
+    toPath = const "/"
+
+instance ToHeaders UpdateSigningCertificate
+
+instance ToQuery UpdateSigningCertificate

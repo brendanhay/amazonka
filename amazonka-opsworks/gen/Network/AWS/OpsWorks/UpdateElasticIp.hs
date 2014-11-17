@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.OpsWorks.UpdateElasticIp
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ ueiElasticIp = lens _ueiElasticIp (\s a -> s { _ueiElasticIp = a })
 ueiName :: Lens' UpdateElasticIp (Maybe Text)
 ueiName = lens _ueiName (\s a -> s { _ueiName = a })
 
-instance ToPath UpdateElasticIp where
-    toPath = const "/"
-
-instance ToQuery UpdateElasticIp where
-    toQuery = const mempty
-
-instance ToHeaders UpdateElasticIp
-
-instance ToBody UpdateElasticIp where
-    toBody = toBody . encode . _ueiElasticIp
-
 data UpdateElasticIpResponse = UpdateElasticIpResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +84,15 @@ instance AWSRequest UpdateElasticIp where
     type Rs UpdateElasticIp = UpdateElasticIpResponse
 
     request  = post
-    response = nullaryResponse UpdateElasticIpResponse
+    response = nullResponse UpdateElasticIpResponse
+
+instance ToPath UpdateElasticIp where
+    toPath = const "/"
+
+instance ToHeaders UpdateElasticIp
+
+instance ToQuery UpdateElasticIp where
+    toQuery = const mempty
+
+instance ToJSON UpdateElasticIp where
+    toJSON = genericToJSON jsonOptions

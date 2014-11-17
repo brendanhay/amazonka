@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -112,17 +112,6 @@ udcpRegistrantPrivacy =
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
 
-instance ToPath UpdateDomainContactPrivacy where
-    toPath = const "/"
-
-instance ToQuery UpdateDomainContactPrivacy where
-    toQuery = const mempty
-
-instance ToHeaders UpdateDomainContactPrivacy
-
-instance ToBody UpdateDomainContactPrivacy where
-    toBody = toBody . encode . _udcpDomainName
-
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
     { _udcprOperationId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
@@ -150,5 +139,18 @@ instance AWSRequest UpdateDomainContactPrivacy where
     type Rs UpdateDomainContactPrivacy = UpdateDomainContactPrivacyResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateDomainContactPrivacyResponse
-        <$> o .: "OperationId"
+    response = jsonResponse
+
+instance FromJSON UpdateDomainContactPrivacyResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateDomainContactPrivacy where
+    toPath = const "/"
+
+instance ToHeaders UpdateDomainContactPrivacy
+
+instance ToQuery UpdateDomainContactPrivacy where
+    toQuery = const mempty
+
+instance ToJSON UpdateDomainContactPrivacy where
+    toJSON = genericToJSON jsonOptions

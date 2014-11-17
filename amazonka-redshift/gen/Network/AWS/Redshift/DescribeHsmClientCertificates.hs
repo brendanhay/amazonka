@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DescribeHsmClientCertificates
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,11 +94,6 @@ dhccMarker = lens _dhccMarker (\s a -> s { _dhccMarker = a })
 dhccMaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Int)
 dhccMaxRecords = lens _dhccMaxRecords (\s a -> s { _dhccMaxRecords = a })
 
-instance ToQuery DescribeHsmClientCertificates
-
-instance ToPath DescribeHsmClientCertificates where
-    toPath = const "/"
-
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrHsmClientCertificates :: [HsmClientCertificate]
     , _dhccrMarker                :: Maybe Text
@@ -140,10 +135,15 @@ instance AWSRequest DescribeHsmClientCertificates where
     type Rs DescribeHsmClientCertificates = DescribeHsmClientCertificatesResponse
 
     request  = post "DescribeHsmClientCertificates"
-    response = xmlResponse $ \h x -> DescribeHsmClientCertificatesResponse
-        <$> x %| "HsmClientCertificates"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeHsmClientCertificates where
-    next rq rs = (\x -> rq & dhccMarker ?~ x)
-        <$> (rs ^. dhccrMarker)
+instance FromXML DescribeHsmClientCertificatesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeHsmClientCertificatesResponse"
+
+instance ToPath DescribeHsmClientCertificates where
+    toPath = const "/"
+
+instance ToHeaders DescribeHsmClientCertificates
+
+instance ToQuery DescribeHsmClientCertificates

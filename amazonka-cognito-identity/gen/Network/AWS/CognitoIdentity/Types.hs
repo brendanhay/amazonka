@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.CognitoIdentity.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.CognitoIdentity.Types
       CognitoIdentity
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * IdentityDescription
     , IdentityDescription
@@ -47,6 +51,7 @@ module Network.AWS.CognitoIdentity.Types
     , ipsdIdentityPoolName
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -68,6 +73,11 @@ instance AWSService CognitoIdentity where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text
@@ -97,9 +107,11 @@ idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
 idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a })
 
-instance FromJSON IdentityDescription
+instance FromJSON IdentityDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON IdentityDescription
+instance ToJSON IdentityDescription where
+    toJSON = genericToJSON jsonOptions
 
 data IdentityPool = IdentityPool
     { _ipAllowUnauthenticatedIdentities :: Bool
@@ -171,9 +183,11 @@ ipSupportedLoginProviders =
         (\s a -> s { _ipSupportedLoginProviders = a })
             . _Map
 
-instance FromJSON IdentityPool
+instance FromJSON IdentityPool where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON IdentityPool
+instance ToJSON IdentityPool where
+    toJSON = genericToJSON jsonOptions
 
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId   :: Maybe Text
@@ -204,6 +218,8 @@ ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolName =
     lens _ipsdIdentityPoolName (\s a -> s { _ipsdIdentityPoolName = a })
 
-instance FromJSON IdentityPoolShortDescription
+instance FromJSON IdentityPoolShortDescription where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON IdentityPoolShortDescription
+instance ToJSON IdentityPoolShortDescription where
+    toJSON = genericToJSON jsonOptions

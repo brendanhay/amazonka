@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.ListTopics
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -64,11 +64,6 @@ listTopics = ListTopics
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
-instance ToQuery ListTopics
-
-instance ToPath ListTopics where
-    toPath = const "/"
-
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
     , _ltrTopics    :: [Topic]
@@ -102,10 +97,15 @@ instance AWSRequest ListTopics where
     type Rs ListTopics = ListTopicsResponse
 
     request  = post "ListTopics"
-    response = xmlResponse $ \h x -> ListTopicsResponse
-        <$> x %| "NextToken"
-        <*> x %| "Topics"
+    response = xmlResponse
 
-instance AWSPager ListTopics where
-    next rq rs = (\x -> rq & ltNextToken ?~ x)
-        <$> (rs ^. ltrNextToken)
+instance FromXML ListTopicsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListTopicsResponse"
+
+instance ToPath ListTopics where
+    toPath = const "/"
+
+instance ToHeaders ListTopics
+
+instance ToQuery ListTopics

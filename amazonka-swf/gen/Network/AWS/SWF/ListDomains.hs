@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.ListDomains
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -53,7 +53,7 @@ module Network.AWS.SWF.ListDomains
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -113,17 +113,6 @@ ldRegistrationStatus =
 ldReverseOrder :: Lens' ListDomains (Maybe Bool)
 ldReverseOrder = lens _ldReverseOrder (\s a -> s { _ldReverseOrder = a })
 
-instance ToPath ListDomains where
-    toPath = const "/"
-
-instance ToQuery ListDomains where
-    toQuery = const mempty
-
-instance ToHeaders ListDomains
-
-instance ToBody ListDomains where
-    toBody = toBody . encode . _ldNextPageToken
-
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainInfos   :: [DomainInfo]
     , _ldrNextPageToken :: Maybe Text
@@ -158,6 +147,18 @@ instance AWSRequest ListDomains where
     type Rs ListDomains = ListDomainsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListDomainsResponse
-        <$> o .: "domainInfos"
-        <*> o .: "nextPageToken"
+    response = jsonResponse
+
+instance FromJSON ListDomainsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListDomains where
+    toPath = const "/"
+
+instance ToHeaders ListDomains
+
+instance ToQuery ListDomains where
+    toQuery = const mempty
+
+instance ToJSON ListDomains where
+    toJSON = genericToJSON jsonOptions

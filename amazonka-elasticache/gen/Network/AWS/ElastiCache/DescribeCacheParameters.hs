@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -100,11 +100,6 @@ dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
 dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 
-instance ToQuery DescribeCacheParameters
-
-instance ToPath DescribeCacheParameters where
-    toPath = const "/"
-
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     , _dcprMarker                          :: Maybe Text
@@ -148,11 +143,15 @@ instance AWSRequest DescribeCacheParameters where
     type Rs DescribeCacheParameters = DescribeCacheParametersResponse
 
     request  = post "DescribeCacheParameters"
-    response = xmlResponse $ \h x -> DescribeCacheParametersResponse
-        <$> x %| "CacheNodeTypeSpecificParameters"
-        <*> x %| "Marker"
-        <*> x %| "Parameters"
+    response = xmlResponse
 
-instance AWSPager DescribeCacheParameters where
-    next rq rs = (\x -> rq & dcpMarker ?~ x)
-        <$> (rs ^. dcprMarker)
+instance FromXML DescribeCacheParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCacheParametersResponse"
+
+instance ToPath DescribeCacheParameters where
+    toPath = const "/"
+
+instance ToHeaders DescribeCacheParameters
+
+instance ToQuery DescribeCacheParameters

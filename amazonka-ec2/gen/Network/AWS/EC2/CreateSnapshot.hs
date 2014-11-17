@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.CreateSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,11 +107,6 @@ cs2DryRun = lens _cs2DryRun (\s a -> s { _cs2DryRun = a })
 -- | The ID of the Amazon EBS volume.
 cs2VolumeId :: Lens' CreateSnapshot Text
 cs2VolumeId = lens _cs2VolumeId (\s a -> s { _cs2VolumeId = a })
-
-instance ToQuery CreateSnapshot
-
-instance ToPath CreateSnapshot where
-    toPath = const "/"
 
 data CreateSnapshotResponse = CreateSnapshotResponse
     { _csr1Description :: Maybe Text
@@ -219,15 +214,15 @@ instance AWSRequest CreateSnapshot where
     type Rs CreateSnapshot = CreateSnapshotResponse
 
     request  = post "CreateSnapshot"
-    response = xmlResponse $ \h x -> CreateSnapshotResponse
-        <$> x %| "description"
-        <*> x %| "encrypted"
-        <*> x %| "ownerAlias"
-        <*> x %| "ownerId"
-        <*> x %| "progress"
-        <*> x %| "snapshotId"
-        <*> x %| "startTime"
-        <*> x %| "status"
-        <*> x %| "tagSet"
-        <*> x %| "volumeId"
-        <*> x %| "volumeSize"
+    response = xmlResponse
+
+instance FromXML CreateSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
+
+instance ToPath CreateSnapshot where
+    toPath = const "/"
+
+instance ToHeaders CreateSnapshot
+
+instance ToQuery CreateSnapshot

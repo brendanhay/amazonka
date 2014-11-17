@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.RDS.ModifyEventSubscription
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -113,11 +113,6 @@ mesSubscriptionName :: Lens' ModifyEventSubscription Text
 mesSubscriptionName =
     lens _mesSubscriptionName (\s a -> s { _mesSubscriptionName = a })
 
-instance ToQuery ModifyEventSubscription
-
-instance ToPath ModifyEventSubscription where
-    toPath = const "/"
-
 newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
@@ -142,5 +137,15 @@ instance AWSRequest ModifyEventSubscription where
     type Rs ModifyEventSubscription = ModifyEventSubscriptionResponse
 
     request  = post "ModifyEventSubscription"
-    response = xmlResponse $ \h x -> ModifyEventSubscriptionResponse
-        <$> x %| "EventSubscription"
+    response = xmlResponse
+
+instance FromXML ModifyEventSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyEventSubscriptionResponse"
+
+instance ToPath ModifyEventSubscription where
+    toPath = const "/"
+
+instance ToHeaders ModifyEventSubscription
+
+instance ToQuery ModifyEventSubscription

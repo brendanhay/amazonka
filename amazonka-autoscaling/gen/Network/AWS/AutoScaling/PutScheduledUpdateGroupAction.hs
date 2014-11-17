@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -155,11 +155,6 @@ psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a })
     . mapping _Time
 
-instance ToQuery PutScheduledUpdateGroupAction
-
-instance ToPath PutScheduledUpdateGroupAction where
-    toPath = const "/"
-
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -172,4 +167,11 @@ instance AWSRequest PutScheduledUpdateGroupAction where
     type Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse
 
     request  = post "PutScheduledUpdateGroupAction"
-    response = nullaryResponse PutScheduledUpdateGroupActionResponse
+    response = nullResponse PutScheduledUpdateGroupActionResponse
+
+instance ToPath PutScheduledUpdateGroupAction where
+    toPath = const "/"
+
+instance ToHeaders PutScheduledUpdateGroupAction
+
+instance ToQuery PutScheduledUpdateGroupAction

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -75,11 +75,6 @@ tiiasgShouldDecrementDesiredCapacity =
     lens _tiiasgShouldDecrementDesiredCapacity
         (\s a -> s { _tiiasgShouldDecrementDesiredCapacity = a })
 
-instance ToQuery TerminateInstanceInAutoScalingGroup
-
-instance ToPath TerminateInstanceInAutoScalingGroup where
-    toPath = const "/"
-
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
     } deriving (Eq, Show, Generic)
@@ -104,5 +99,15 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
     type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
 
     request  = post "TerminateInstanceInAutoScalingGroup"
-    response = xmlResponse $ \h x -> TerminateInstanceInAutoScalingGroupResponse
-        <$> x %| "Activity"
+    response = xmlResponse
+
+instance FromXML TerminateInstanceInAutoScalingGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TerminateInstanceInAutoScalingGroupResponse"
+
+instance ToPath TerminateInstanceInAutoScalingGroup where
+    toPath = const "/"
+
+instance ToHeaders TerminateInstanceInAutoScalingGroup
+
+instance ToQuery TerminateInstanceInAutoScalingGroup

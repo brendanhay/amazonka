@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.RebootCacheCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,11 +81,6 @@ rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot =
     lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })
 
-instance ToQuery RebootCacheCluster
-
-instance ToPath RebootCacheCluster where
-    toPath = const "/"
-
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
@@ -109,5 +104,15 @@ instance AWSRequest RebootCacheCluster where
     type Rs RebootCacheCluster = RebootCacheClusterResponse
 
     request  = post "RebootCacheCluster"
-    response = xmlResponse $ \h x -> RebootCacheClusterResponse
-        <$> x %| "CacheCluster"
+    response = xmlResponse
+
+instance FromXML RebootCacheClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootCacheClusterResponse"
+
+instance ToPath RebootCacheCluster where
+    toPath = const "/"
+
+instance ToHeaders RebootCacheCluster
+
+instance ToQuery RebootCacheCluster

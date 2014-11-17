@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ dcsg1CacheSubnetGroupName =
     lens _dcsg1CacheSubnetGroupName
         (\s a -> s { _dcsg1CacheSubnetGroupName = a })
 
-instance ToQuery DeleteCacheSubnetGroup
-
-instance ToPath DeleteCacheSubnetGroup where
-    toPath = const "/"
-
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -79,4 +74,11 @@ instance AWSRequest DeleteCacheSubnetGroup where
     type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse
 
     request  = post "DeleteCacheSubnetGroup"
-    response = nullaryResponse DeleteCacheSubnetGroupResponse
+    response = nullResponse DeleteCacheSubnetGroupResponse
+
+instance ToPath DeleteCacheSubnetGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteCacheSubnetGroup
+
+instance ToQuery DeleteCacheSubnetGroup

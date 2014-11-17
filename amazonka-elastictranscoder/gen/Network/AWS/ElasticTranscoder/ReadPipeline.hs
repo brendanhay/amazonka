@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -60,17 +60,6 @@ readPipeline p1 = ReadPipeline
 -- | The identifier of the pipeline to read.
 rp1Id :: Lens' ReadPipeline Text
 rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
-
-instance ToPath ReadPipeline where
-    toPath ReadPipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _rp1Id
-        ]
-
-instance ToQuery ReadPipeline where
-    toQuery = const mempty
-
-instance ToHeaders ReadPipeline
 
 newtype ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
@@ -97,5 +86,21 @@ instance AWSRequest ReadPipeline where
     type Rs ReadPipeline = ReadPipelineResponse
 
     request  = get
-    response = jsonResponse $ \h o -> ReadPipelineResponse
-        <$> o .: "Pipeline"
+    response = jsonResponse
+
+instance FromJSON ReadPipelineResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ReadPipeline where
+    toPath ReadPipeline{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _rp1Id
+        ]
+
+instance ToHeaders ReadPipeline
+
+instance ToQuery ReadPipeline where
+    toQuery = const mempty
+
+instance ToJSON ReadPipeline where
+    toJSON = genericToJSON jsonOptions

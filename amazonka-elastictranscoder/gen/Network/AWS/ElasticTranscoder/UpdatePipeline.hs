@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipeline
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -47,7 +47,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
@@ -200,20 +200,6 @@ upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig =
     lens _upThumbnailConfig (\s a -> s { _upThumbnailConfig = a })
 
-instance ToPath UpdatePipeline where
-    toPath UpdatePipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _upId
-        ]
-
-instance ToQuery UpdatePipeline where
-    toQuery = const mempty
-
-instance ToHeaders UpdatePipeline
-
-instance ToBody UpdatePipeline where
-    toBody = toBody . encode . _upName
-
 newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Maybe Pipeline
     } deriving (Eq, Show, Generic)
@@ -237,5 +223,21 @@ instance AWSRequest UpdatePipeline where
     type Rs UpdatePipeline = UpdatePipelineResponse
 
     request  = put
-    response = jsonResponse $ \h o -> UpdatePipelineResponse
-        <$> o .: "Pipeline"
+    response = jsonResponse
+
+instance FromJSON UpdatePipelineResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdatePipeline where
+    toPath UpdatePipeline{..} = mconcat
+        [ "/2012-09-25/pipelines/"
+        , toText _upId
+        ]
+
+instance ToHeaders UpdatePipeline
+
+instance ToQuery UpdatePipeline where
+    toQuery = const mempty
+
+instance ToJSON UpdatePipeline where
+    toJSON = genericToJSON jsonOptions

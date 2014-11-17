@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.RestoreFromClusterSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -274,11 +274,6 @@ rfcsVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsVpcSecurityGroupIds =
     lens _rfcsVpcSecurityGroupIds (\s a -> s { _rfcsVpcSecurityGroupIds = a })
 
-instance ToQuery RestoreFromClusterSnapshot
-
-instance ToPath RestoreFromClusterSnapshot where
-    toPath = const "/"
-
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -302,5 +297,15 @@ instance AWSRequest RestoreFromClusterSnapshot where
     type Rs RestoreFromClusterSnapshot = RestoreFromClusterSnapshotResponse
 
     request  = post "RestoreFromClusterSnapshot"
-    response = xmlResponse $ \h x -> RestoreFromClusterSnapshotResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML RestoreFromClusterSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestoreFromClusterSnapshotResponse"
+
+instance ToPath RestoreFromClusterSnapshot where
+    toPath = const "/"
+
+instance ToHeaders RestoreFromClusterSnapshot
+
+instance ToQuery RestoreFromClusterSnapshot

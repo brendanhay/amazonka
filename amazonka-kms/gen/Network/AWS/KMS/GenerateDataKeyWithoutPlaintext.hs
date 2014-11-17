@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -108,17 +108,6 @@ gdkwpNumberOfBytes =
     lens _gdkwpNumberOfBytes (\s a -> s { _gdkwpNumberOfBytes = a })
         . mapping _Nat
 
-instance ToPath GenerateDataKeyWithoutPlaintext where
-    toPath = const "/"
-
-instance ToQuery GenerateDataKeyWithoutPlaintext where
-    toQuery = const mempty
-
-instance ToHeaders GenerateDataKeyWithoutPlaintext
-
-instance ToBody GenerateDataKeyWithoutPlaintext where
-    toBody = toBody . encode . _gdkwpKeyId
-
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse
     { _gdkwprCiphertextBlob :: Maybe Base64
     , _gdkwprKeyId          :: Maybe Text
@@ -153,6 +142,18 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext where
     type Rs GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintextResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GenerateDataKeyWithoutPlaintextResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
+    response = jsonResponse
+
+instance FromJSON GenerateDataKeyWithoutPlaintextResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GenerateDataKeyWithoutPlaintext where
+    toPath = const "/"
+
+instance ToHeaders GenerateDataKeyWithoutPlaintext
+
+instance ToQuery GenerateDataKeyWithoutPlaintext where
+    toQuery = const mempty
+
+instance ToJSON GenerateDataKeyWithoutPlaintext where
+    toJSON = genericToJSON jsonOptions

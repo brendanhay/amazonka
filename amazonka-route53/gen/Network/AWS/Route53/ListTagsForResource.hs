@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.ListTagsForResource
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.Route53.ListTagsForResource
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -72,19 +72,6 @@ ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
 ltfrResourceType :: Lens' ListTagsForResource Text
 ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
-instance ToPath ListTagsForResource where
-    toPath ListTagsForResource{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toText _ltfrResourceType
-        , "/"
-        , toText _ltfrResourceId
-        ]
-
-instance ToQuery ListTagsForResource where
-    toQuery = const mempty
-
-instance ToHeaders ListTagsForResource
-
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrResourceTagSet :: ResourceTagSet
     } deriving (Eq, Show, Generic)
@@ -111,5 +98,25 @@ instance AWSRequest ListTagsForResource where
     type Rs ListTagsForResource = ListTagsForResourceResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListTagsForResourceResponse
-        <$> x %| "ResourceTagSet"
+    response = xmlResponse
+
+instance FromXML ListTagsForResourceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListTagsForResourceResponse"
+
+instance ToPath ListTagsForResource where
+    toPath ListTagsForResource{..} = mconcat
+        [ "/2013-04-01/tags/"
+        , toText _ltfrResourceType
+        , "/"
+        , toText _ltfrResourceId
+        ]
+
+instance ToHeaders ListTagsForResource
+
+instance ToQuery ListTagsForResource where
+    toQuery = const mempty
+
+instance ToXML ListTagsForResource where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListTagsForResource"

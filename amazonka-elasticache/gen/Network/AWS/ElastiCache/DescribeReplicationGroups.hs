@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReplicationGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -90,11 +90,6 @@ drg1ReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
 drg1ReplicationGroupId =
     lens _drg1ReplicationGroupId (\s a -> s { _drg1ReplicationGroupId = a })
 
-instance ToQuery DescribeReplicationGroups
-
-instance ToPath DescribeReplicationGroups where
-    toPath = const "/"
-
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrMarker            :: Maybe Text
     , _drgrReplicationGroups :: [ReplicationGroup]
@@ -129,10 +124,15 @@ instance AWSRequest DescribeReplicationGroups where
     type Rs DescribeReplicationGroups = DescribeReplicationGroupsResponse
 
     request  = post "DescribeReplicationGroups"
-    response = xmlResponse $ \h x -> DescribeReplicationGroupsResponse
-        <$> x %| "Marker"
-        <*> x %| "ReplicationGroups"
+    response = xmlResponse
 
-instance AWSPager DescribeReplicationGroups where
-    next rq rs = (\x -> rq & drg1Marker ?~ x)
-        <$> (rs ^. drgrMarker)
+instance FromXML DescribeReplicationGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReplicationGroupsResponse"
+
+instance ToPath DescribeReplicationGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeReplicationGroups
+
+instance ToQuery DescribeReplicationGroups

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ albtsLoadBalancerName =
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
 albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a })
 
-instance ToQuery AttachLoadBalancerToSubnets
-
-instance ToPath AttachLoadBalancerToSubnets where
-    toPath = const "/"
-
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
@@ -112,5 +107,15 @@ instance AWSRequest AttachLoadBalancerToSubnets where
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
 
     request  = post "AttachLoadBalancerToSubnets"
-    response = xmlResponse $ \h x -> AttachLoadBalancerToSubnetsResponse
-        <$> x %| "Subnets"
+    response = xmlResponse
+
+instance FromXML AttachLoadBalancerToSubnetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsResponse"
+
+instance ToPath AttachLoadBalancerToSubnets where
+    toPath = const "/"
+
+instance ToHeaders AttachLoadBalancerToSubnets
+
+instance ToQuery AttachLoadBalancerToSubnets

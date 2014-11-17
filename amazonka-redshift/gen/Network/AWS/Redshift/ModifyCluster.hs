@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.ModifyCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -282,11 +282,6 @@ mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
 mcVpcSecurityGroupIds =
     lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })
 
-instance ToQuery ModifyCluster
-
-instance ToPath ModifyCluster where
-    toPath = const "/"
-
 newtype ModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
@@ -310,5 +305,15 @@ instance AWSRequest ModifyCluster where
     type Rs ModifyCluster = ModifyClusterResponse
 
     request  = post "ModifyCluster"
-    response = xmlResponse $ \h x -> ModifyClusterResponse
-        <$> x %| "Cluster"
+    response = xmlResponse
+
+instance FromXML ModifyClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyClusterResponse"
+
+instance ToPath ModifyCluster where
+    toPath = const "/"
+
+instance ToHeaders ModifyCluster
+
+instance ToQuery ModifyCluster

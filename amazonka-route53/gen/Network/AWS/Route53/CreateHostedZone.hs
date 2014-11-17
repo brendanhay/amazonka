@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.CreateHostedZone
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,7 +60,7 @@ module Network.AWS.Route53.CreateHostedZone
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -137,17 +137,6 @@ chzName = lens _chzName (\s a -> s { _chzName = a })
 chzVPC :: Lens' CreateHostedZone (Maybe VPC)
 chzVPC = lens _chzVPC (\s a -> s { _chzVPC = a })
 
-instance ToPath CreateHostedZone where
-    toPath = const "/2013-04-01/hostedzone"
-
-instance ToQuery CreateHostedZone where
-    toQuery = const mempty
-
-instance ToHeaders CreateHostedZone
-
-instance ToBody CreateHostedZone where
-    toBody = toBody . encodeXML . _chzName
-
 data CreateHostedZoneResponse = CreateHostedZoneResponse
     { _chzrChangeInfo    :: ChangeInfo
     , _chzrDelegationSet :: DelegationSet
@@ -211,9 +200,21 @@ instance AWSRequest CreateHostedZone where
     type Rs CreateHostedZone = CreateHostedZoneResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateHostedZoneResponse
+    response = xmlHeaderResponse $ \h x -> CreateHostedZoneResponse
         <$> x %| "ChangeInfo"
         <*> x %| "DelegationSet"
         <*> x %| "HostedZone"
         <*> h ~: "Location"
         <*> x %| "VPC"
+
+instance ToPath CreateHostedZone where
+    toPath = const "/2013-04-01/hostedzone"
+
+instance ToHeaders CreateHostedZone
+
+instance ToQuery CreateHostedZone where
+    toQuery = const mempty
+
+instance ToXML CreateHostedZone where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateHostedZone"

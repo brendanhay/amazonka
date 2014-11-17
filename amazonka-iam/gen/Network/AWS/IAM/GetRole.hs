@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.GetRole
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,11 +66,6 @@ getRole p1 = GetRole
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
 
-instance ToQuery GetRole
-
-instance ToPath GetRole where
-    toPath = const "/"
-
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
     } deriving (Eq, Show, Generic)
@@ -96,5 +91,15 @@ instance AWSRequest GetRole where
     type Rs GetRole = GetRoleResponse
 
     request  = post "GetRole"
-    response = xmlResponse $ \h x -> GetRoleResponse
-        <$> x %| "Role"
+    response = xmlResponse
+
+instance FromXML GetRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetRoleResponse"
+
+instance ToPath GetRole where
+    toPath = const "/"
+
+instance ToHeaders GetRole
+
+instance ToQuery GetRole

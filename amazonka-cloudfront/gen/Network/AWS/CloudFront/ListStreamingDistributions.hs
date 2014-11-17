@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ lsdMarker = lens _lsdMarker (\s a -> s { _lsdMarker = a })
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
-instance ToPath ListStreamingDistributions where
-    toPath = const "/2014-05-31/streaming-distribution"
-
-instance ToQuery ListStreamingDistributions where
-    toQuery ListStreamingDistributions{..} = mconcat
-        [ "Marker"   =? _lsdMarker
-        , "MaxItems" =? _lsdMaxItems
-        ]
-
-instance ToHeaders ListStreamingDistributions
-
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList :: Maybe StreamingDistributionList
     } deriving (Eq, Show, Generic)
@@ -111,5 +100,15 @@ instance AWSRequest ListStreamingDistributions where
     type Rs ListStreamingDistributions = ListStreamingDistributionsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListStreamingDistributionsResponse
-        <$> x %| "StreamingDistributionList"
+    response = xmlResponse
+
+instance FromXML ListStreamingDistributionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListStreamingDistributionsResponse"
+
+instance ToPath ListStreamingDistributions where
+    toPath = const "/2014-05-31/streaming-distribution"
+
+instance ToHeaders ListStreamingDistributions
+
+instance ToQuery ListStreamingDistributions

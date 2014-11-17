@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterElasticIp
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.RegisterElasticIp
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -77,17 +77,6 @@ reiElasticIp = lens _reiElasticIp (\s a -> s { _reiElasticIp = a })
 reiStackId :: Lens' RegisterElasticIp Text
 reiStackId = lens _reiStackId (\s a -> s { _reiStackId = a })
 
-instance ToPath RegisterElasticIp where
-    toPath = const "/"
-
-instance ToQuery RegisterElasticIp where
-    toQuery = const mempty
-
-instance ToHeaders RegisterElasticIp
-
-instance ToBody RegisterElasticIp where
-    toBody = toBody . encode . _reiElasticIp
-
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
     { _reirElasticIp :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -112,5 +101,18 @@ instance AWSRequest RegisterElasticIp where
     type Rs RegisterElasticIp = RegisterElasticIpResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RegisterElasticIpResponse
-        <$> o .: "ElasticIp"
+    response = jsonResponse
+
+instance FromJSON RegisterElasticIpResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RegisterElasticIp where
+    toPath = const "/"
+
+instance ToHeaders RegisterElasticIp
+
+instance ToQuery RegisterElasticIp where
+    toQuery = const mempty
+
+instance ToJSON RegisterElasticIp where
+    toJSON = genericToJSON jsonOptions

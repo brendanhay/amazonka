@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheCluster
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -344,11 +344,6 @@ cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotWindow =
     lens _cccSnapshotWindow (\s a -> s { _cccSnapshotWindow = a })
 
-instance ToQuery CreateCacheCluster
-
-instance ToPath CreateCacheCluster where
-    toPath = const "/"
-
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
@@ -372,5 +367,15 @@ instance AWSRequest CreateCacheCluster where
     type Rs CreateCacheCluster = CreateCacheClusterResponse
 
     request  = post "CreateCacheCluster"
-    response = xmlResponse $ \h x -> CreateCacheClusterResponse
-        <$> x %| "CacheCluster"
+    response = xmlResponse
+
+instance FromXML CreateCacheClusterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheClusterResponse"
+
+instance ToPath CreateCacheCluster where
+    toPath = const "/"
+
+instance ToHeaders CreateCacheCluster
+
+instance ToQuery CreateCacheCluster

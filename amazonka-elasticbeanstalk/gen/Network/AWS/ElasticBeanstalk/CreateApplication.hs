@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -74,11 +74,6 @@ caApplicationName =
 caDescription :: Lens' CreateApplication (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
-instance ToQuery CreateApplication
-
-instance ToPath CreateApplication where
-    toPath = const "/"
-
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplication :: Maybe ApplicationDescription
     } deriving (Eq, Show, Generic)
@@ -103,5 +98,15 @@ instance AWSRequest CreateApplication where
     type Rs CreateApplication = CreateApplicationResponse
 
     request  = post "CreateApplication"
-    response = xmlResponse $ \h x -> CreateApplicationResponse
-        <$> x %| "Application"
+    response = xmlResponse
+
+instance FromXML CreateApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateApplicationResponse"
+
+instance ToPath CreateApplication where
+    toPath = const "/"
+
+instance ToHeaders CreateApplication
+
+instance ToQuery CreateApplication

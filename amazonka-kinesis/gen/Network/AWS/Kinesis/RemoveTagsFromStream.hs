@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,7 +37,7 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a })
     . _List1
 
-instance ToPath RemoveTagsFromStream where
-    toPath = const "/"
-
-instance ToQuery RemoveTagsFromStream where
-    toQuery = const mempty
-
-instance ToHeaders RemoveTagsFromStream
-
-instance ToBody RemoveTagsFromStream where
-    toBody = toBody . encode . _rtfsStreamName
-
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +83,15 @@ instance AWSRequest RemoveTagsFromStream where
     type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse
 
     request  = post
-    response = nullaryResponse RemoveTagsFromStreamResponse
+    response = nullResponse RemoveTagsFromStreamResponse
+
+instance ToPath RemoveTagsFromStream where
+    toPath = const "/"
+
+instance ToHeaders RemoveTagsFromStream
+
+instance ToQuery RemoveTagsFromStream where
+    toQuery = const mempty
+
+instance ToJSON RemoveTagsFromStream where
+    toJSON = genericToJSON jsonOptions

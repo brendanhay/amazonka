@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.CreateOpenIDConnectProvider
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -117,11 +117,6 @@ coidcpThumbprintList =
 coidcpUrl :: Lens' CreateOpenIDConnectProvider Text
 coidcpUrl = lens _coidcpUrl (\s a -> s { _coidcpUrl = a })
 
-instance ToQuery CreateOpenIDConnectProvider
-
-instance ToPath CreateOpenIDConnectProvider where
-    toPath = const "/"
-
 newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     { _coidcprOpenIDConnectProviderArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -149,5 +144,15 @@ instance AWSRequest CreateOpenIDConnectProvider where
     type Rs CreateOpenIDConnectProvider = CreateOpenIDConnectProviderResponse
 
     request  = post "CreateOpenIDConnectProvider"
-    response = xmlResponse $ \h x -> CreateOpenIDConnectProviderResponse
-        <$> x %| "OpenIDConnectProviderArn"
+    response = xmlResponse
+
+instance FromXML CreateOpenIDConnectProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateOpenIDConnectProviderResponse"
+
+instance ToPath CreateOpenIDConnectProvider where
+    toPath = const "/"
+
+instance ToHeaders CreateOpenIDConnectProvider
+
+instance ToQuery CreateOpenIDConnectProvider

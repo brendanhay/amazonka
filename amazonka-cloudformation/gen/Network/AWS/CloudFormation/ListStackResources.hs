@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFormation.ListStackResources
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -77,11 +77,6 @@ lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
 
-instance ToQuery ListStackResources
-
-instance ToPath ListStackResources where
-    toPath = const "/"
-
 data ListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrNextToken              :: Maybe Text
     , _lsrrStackResourceSummaries :: [StackResourceSummary]
@@ -117,10 +112,15 @@ instance AWSRequest ListStackResources where
     type Rs ListStackResources = ListStackResourcesResponse
 
     request  = post "ListStackResources"
-    response = xmlResponse $ \h x -> ListStackResourcesResponse
-        <$> x %| "NextToken"
-        <*> x %| "StackResourceSummaries"
+    response = xmlResponse
 
-instance AWSPager ListStackResources where
-    next rq rs = (\x -> rq & lsrNextToken ?~ x)
-        <$> (rs ^. lsrrNextToken)
+instance FromXML ListStackResourcesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListStackResourcesResponse"
+
+instance ToPath ListStackResources where
+    toPath = const "/"
+
+instance ToHeaders ListStackResources
+
+instance ToQuery ListStackResources

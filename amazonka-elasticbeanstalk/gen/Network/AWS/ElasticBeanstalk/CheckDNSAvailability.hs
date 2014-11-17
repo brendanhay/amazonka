@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ checkDNSAvailability p1 = CheckDNSAvailability
 cdnsaCNAMEPrefix :: Lens' CheckDNSAvailability Text
 cdnsaCNAMEPrefix = lens _cdnsaCNAMEPrefix (\s a -> s { _cdnsaCNAMEPrefix = a })
 
-instance ToQuery CheckDNSAvailability
-
-instance ToPath CheckDNSAvailability where
-    toPath = const "/"
-
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable           :: Maybe Bool
     , _cdnsarFullyQualifiedCNAME :: Maybe Text
@@ -104,6 +99,15 @@ instance AWSRequest CheckDNSAvailability where
     type Rs CheckDNSAvailability = CheckDNSAvailabilityResponse
 
     request  = post "CheckDNSAvailability"
-    response = xmlResponse $ \h x -> CheckDNSAvailabilityResponse
-        <$> x %| "Available"
-        <*> x %| "FullyQualifiedCNAME"
+    response = xmlResponse
+
+instance FromXML CheckDNSAvailabilityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CheckDNSAvailabilityResponse"
+
+instance ToPath CheckDNSAvailability where
+    toPath = const "/"
+
+instance ToHeaders CheckDNSAvailability
+
+instance ToQuery CheckDNSAvailability

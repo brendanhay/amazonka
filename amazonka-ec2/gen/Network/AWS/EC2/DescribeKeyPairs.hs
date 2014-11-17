@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeKeyPairs
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -79,11 +79,6 @@ dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
 dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
 dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a })
 
-instance ToQuery DescribeKeyPairs
-
-instance ToPath DescribeKeyPairs where
-    toPath = const "/"
-
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -114,5 +109,15 @@ instance AWSRequest DescribeKeyPairs where
     type Rs DescribeKeyPairs = DescribeKeyPairsResponse
 
     request  = post "DescribeKeyPairs"
-    response = xmlResponse $ \h x -> DescribeKeyPairsResponse
-        <$> x %| "keySet"
+    response = xmlResponse
+
+instance FromXML DescribeKeyPairsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeKeyPairsResponse"
+
+instance ToPath DescribeKeyPairs where
+    toPath = const "/"
+
+instance ToHeaders DescribeKeyPairs
+
+instance ToQuery DescribeKeyPairs

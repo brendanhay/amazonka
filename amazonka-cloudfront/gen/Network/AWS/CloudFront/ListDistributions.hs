@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.ListDistributions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.ListDistributions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
-instance ToPath ListDistributions where
-    toPath = const "/2014-05-31/distribution"
-
-instance ToQuery ListDistributions where
-    toQuery ListDistributions{..} = mconcat
-        [ "Marker"   =? _ldMarker
-        , "MaxItems" =? _ldMaxItems
-        ]
-
-instance ToHeaders ListDistributions
-
 newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: Maybe DistributionList
     } deriving (Eq, Show, Generic)
@@ -109,5 +98,15 @@ instance AWSRequest ListDistributions where
     type Rs ListDistributions = ListDistributionsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListDistributionsResponse
-        <$> x %| "DistributionList"
+    response = xmlResponse
+
+instance FromXML ListDistributionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDistributionsResponse"
+
+instance ToPath ListDistributions where
+    toPath = const "/2014-05-31/distribution"
+
+instance ToHeaders ListDistributions
+
+instance ToQuery ListDistributions

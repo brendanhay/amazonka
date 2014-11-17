@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.CreateReusableDelegationSet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -46,7 +46,7 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -87,17 +87,6 @@ crdsCallerReference =
 crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
 crdsHostedZoneId = lens _crdsHostedZoneId (\s a -> s { _crdsHostedZoneId = a })
 
-instance ToPath CreateReusableDelegationSet where
-    toPath = const "/2013-04-01/delegationset"
-
-instance ToQuery CreateReusableDelegationSet where
-    toQuery = const mempty
-
-instance ToHeaders CreateReusableDelegationSet
-
-instance ToBody CreateReusableDelegationSet where
-    toBody = toBody . encodeXML . _crdsCallerReference
-
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse
     { _crdsrDelegationSet :: DelegationSet
     , _crdsrLocation      :: Text
@@ -133,6 +122,18 @@ instance AWSRequest CreateReusableDelegationSet where
     type Rs CreateReusableDelegationSet = CreateReusableDelegationSetResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateReusableDelegationSetResponse
+    response = xmlHeaderResponse $ \h x -> CreateReusableDelegationSetResponse
         <$> x %| "DelegationSet"
         <*> h ~: "Location"
+
+instance ToPath CreateReusableDelegationSet where
+    toPath = const "/2013-04-01/delegationset"
+
+instance ToHeaders CreateReusableDelegationSet
+
+instance ToQuery CreateReusableDelegationSet where
+    toQuery = const mempty
+
+instance ToXML CreateReusableDelegationSet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateReusableDelegationSet"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Config.DeliverConfigSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.Config.DeliverConfigSnapshot
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Config.Types
 import qualified GHC.Exts
 
@@ -66,17 +66,6 @@ deliverConfigSnapshot p1 = DeliverConfigSnapshot
 dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
 dcsDeliveryChannelName =
     lens _dcsDeliveryChannelName (\s a -> s { _dcsDeliveryChannelName = a })
-
-instance ToPath DeliverConfigSnapshot where
-    toPath = const "/"
-
-instance ToQuery DeliverConfigSnapshot where
-    toQuery = const mempty
-
-instance ToHeaders DeliverConfigSnapshot
-
-instance ToBody DeliverConfigSnapshot where
-    toBody = toBody . encode . _dcsDeliveryChannelName
 
 newtype DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse
     { _dcsrConfigSnapshotId :: Maybe Text
@@ -103,5 +92,18 @@ instance AWSRequest DeliverConfigSnapshot where
     type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeliverConfigSnapshotResponse
-        <$> o .: "configSnapshotId"
+    response = jsonResponse
+
+instance FromJSON DeliverConfigSnapshotResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeliverConfigSnapshot where
+    toPath = const "/"
+
+instance ToHeaders DeliverConfigSnapshot
+
+instance ToQuery DeliverConfigSnapshot where
+    toQuery = const mempty
+
+instance ToJSON DeliverConfigSnapshot where
+    toJSON = genericToJSON jsonOptions

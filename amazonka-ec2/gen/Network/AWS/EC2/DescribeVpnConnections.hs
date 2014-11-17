@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpnConnections
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -100,11 +100,6 @@ dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvc1VpnConnectionIds =
     lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
 
-instance ToQuery DescribeVpnConnections
-
-instance ToPath DescribeVpnConnections where
-    toPath = const "/"
-
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections :: [VpnConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -136,5 +131,15 @@ instance AWSRequest DescribeVpnConnections where
     type Rs DescribeVpnConnections = DescribeVpnConnectionsResponse
 
     request  = post "DescribeVpnConnections"
-    response = xmlResponse $ \h x -> DescribeVpnConnectionsResponse
-        <$> x %| "vpnConnectionSet"
+    response = xmlResponse
+
+instance FromXML DescribeVpnConnectionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpnConnectionsResponse"
+
+instance ToPath DescribeVpnConnections where
+    toPath = const "/"
+
+instance ToHeaders DescribeVpnConnections
+
+instance ToQuery DescribeVpnConnections

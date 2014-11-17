@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -119,11 +119,6 @@ de1IncludedDeletedBackTo =
 de1VersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
 
-instance ToQuery DescribeEnvironments
-
-instance ToPath DescribeEnvironments where
-    toPath = const "/"
-
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _derEnvironments :: [EnvironmentDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -154,5 +149,15 @@ instance AWSRequest DescribeEnvironments where
     type Rs DescribeEnvironments = DescribeEnvironmentsResponse
 
     request  = post "DescribeEnvironments"
-    response = xmlResponse $ \h x -> DescribeEnvironmentsResponse
-        <$> x %| "Environments"
+    response = xmlResponse
+
+instance FromXML DescribeEnvironmentsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEnvironmentsResponse"
+
+instance ToPath DescribeEnvironments where
+    toPath = const "/"
+
+instance ToHeaders DescribeEnvironments
+
+instance ToQuery DescribeEnvironments

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.Unsubscribe
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,11 +65,6 @@ unsubscribe p1 = Unsubscribe
 uSubscriptionArn :: Lens' Unsubscribe Text
 uSubscriptionArn = lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
 
-instance ToQuery Unsubscribe
-
-instance ToPath Unsubscribe where
-    toPath = const "/"
-
 data UnsubscribeResponse = UnsubscribeResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -82,4 +77,11 @@ instance AWSRequest Unsubscribe where
     type Rs Unsubscribe = UnsubscribeResponse
 
     request  = post "Unsubscribe"
-    response = nullaryResponse UnsubscribeResponse
+    response = nullResponse UnsubscribeResponse
+
+instance ToPath Unsubscribe where
+    toPath = const "/"
+
+instance ToHeaders Unsubscribe
+
+instance ToQuery Unsubscribe

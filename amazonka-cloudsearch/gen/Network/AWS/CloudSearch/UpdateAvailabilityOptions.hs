@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateAvailabilityOptions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,11 +78,6 @@ uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
 
-instance ToQuery UpdateAvailabilityOptions
-
-instance ToPath UpdateAvailabilityOptions where
-    toPath = const "/"
-
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
     } deriving (Eq, Show, Generic)
@@ -109,5 +104,15 @@ instance AWSRequest UpdateAvailabilityOptions where
     type Rs UpdateAvailabilityOptions = UpdateAvailabilityOptionsResponse
 
     request  = post "UpdateAvailabilityOptions"
-    response = xmlResponse $ \h x -> UpdateAvailabilityOptionsResponse
-        <$> x %| "AvailabilityOptions"
+    response = xmlResponse
+
+instance FromXML UpdateAvailabilityOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateAvailabilityOptionsResponse"
+
+instance ToPath UpdateAvailabilityOptions where
+    toPath = const "/"
+
+instance ToHeaders UpdateAvailabilityOptions
+
+instance ToQuery UpdateAvailabilityOptions

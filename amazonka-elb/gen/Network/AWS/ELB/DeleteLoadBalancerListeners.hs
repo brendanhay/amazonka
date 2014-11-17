@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerListeners
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -70,11 +70,6 @@ dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts =
     lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })
 
-instance ToQuery DeleteLoadBalancerListeners
-
-instance ToPath DeleteLoadBalancerListeners where
-    toPath = const "/"
-
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -87,4 +82,11 @@ instance AWSRequest DeleteLoadBalancerListeners where
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
 
     request  = post "DeleteLoadBalancerListeners"
-    response = nullaryResponse DeleteLoadBalancerListenersResponse
+    response = nullResponse DeleteLoadBalancerListenersResponse
+
+instance ToPath DeleteLoadBalancerListeners where
+    toPath = const "/"
+
+instance ToHeaders DeleteLoadBalancerListeners
+
+instance ToQuery DeleteLoadBalancerListeners

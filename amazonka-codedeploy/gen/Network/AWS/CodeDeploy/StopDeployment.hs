@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CodeDeploy.StopDeployment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.StopDeployment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ stopDeployment p1 = StopDeployment
 -- | The unique ID of a deployment.
 sdDeploymentId :: Lens' StopDeployment Text
 sdDeploymentId = lens _sdDeploymentId (\s a -> s { _sdDeploymentId = a })
-
-instance ToPath StopDeployment where
-    toPath = const "/"
-
-instance ToQuery StopDeployment where
-    toQuery = const mempty
-
-instance ToHeaders StopDeployment
-
-instance ToBody StopDeployment where
-    toBody = toBody . encode . _sdDeploymentId
 
 data StopDeploymentResponse = StopDeploymentResponse
     { _sdrStatus        :: Maybe Text
@@ -106,6 +95,18 @@ instance AWSRequest StopDeployment where
     type Rs StopDeployment = StopDeploymentResponse
 
     request  = post
-    response = jsonResponse $ \h o -> StopDeploymentResponse
-        <$> o .: "status"
-        <*> o .: "statusMessage"
+    response = jsonResponse
+
+instance FromJSON StopDeploymentResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath StopDeployment where
+    toPath = const "/"
+
+instance ToHeaders StopDeployment
+
+instance ToQuery StopDeployment where
+    toQuery = const mempty
+
+instance ToJSON StopDeployment where
+    toJSON = genericToJSON jsonOptions

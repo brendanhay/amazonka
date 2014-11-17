@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.ListClosedWorkflowExecutions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,7 +62,7 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -184,17 +184,6 @@ lcweTagFilter = lens _lcweTagFilter (\s a -> s { _lcweTagFilter = a })
 lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
 lcweTypeFilter = lens _lcweTypeFilter (\s a -> s { _lcweTypeFilter = a })
 
-instance ToPath ListClosedWorkflowExecutions where
-    toPath = const "/"
-
-instance ToQuery ListClosedWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToHeaders ListClosedWorkflowExecutions
-
-instance ToBody ListClosedWorkflowExecutions where
-    toBody = toBody . encode . _lcweDomain
-
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos :: [WorkflowExecutionInfo]
     , _lcwerNextPageToken  :: Maybe Text
@@ -231,6 +220,18 @@ instance AWSRequest ListClosedWorkflowExecutions where
     type Rs ListClosedWorkflowExecutions = ListClosedWorkflowExecutionsResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ListClosedWorkflowExecutionsResponse
-        <$> o .: "executionInfos"
-        <*> o .: "nextPageToken"
+    response = jsonResponse
+
+instance FromJSON ListClosedWorkflowExecutionsResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ListClosedWorkflowExecutions where
+    toPath = const "/"
+
+instance ToHeaders ListClosedWorkflowExecutions
+
+instance ToQuery ListClosedWorkflowExecutions where
+    toQuery = const mempty
+
+instance ToJSON ListClosedWorkflowExecutions where
+    toJSON = genericToJSON jsonOptions

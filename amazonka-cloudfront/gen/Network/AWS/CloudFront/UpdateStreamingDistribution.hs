@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -84,24 +84,6 @@ usdStreamingDistributionConfig =
     lens _usdStreamingDistributionConfig
         (\s a -> s { _usdStreamingDistributionConfig = a })
 
-instance ToPath UpdateStreamingDistribution where
-    toPath UpdateStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toText _usdId
-        , "/config"
-        ]
-
-instance ToQuery UpdateStreamingDistribution where
-    toQuery = const mempty
-
-instance ToHeaders UpdateStreamingDistribution where
-    toHeaders UpdateStreamingDistribution{..} = mconcat
-        [ "If-Match" =: _usdIfMatch
-        ]
-
-instance ToBody UpdateStreamingDistribution where
-    toBody = toBody . encodeXML . _usdStreamingDistributionConfig
-
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrETag                  :: Maybe Text
     , _usdrStreamingDistribution :: Maybe StreamingDistribution
@@ -136,6 +118,25 @@ instance AWSRequest UpdateStreamingDistribution where
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UpdateStreamingDistributionResponse
-        <$> h ~:? "ETag"
+    response = xmlHeaderResponse $ \h x -> UpdateStreamingDistributionResponse
+        <*> h ~:? "ETag"
         <*> x %| "StreamingDistribution"
+
+instance ToPath UpdateStreamingDistribution where
+    toPath UpdateStreamingDistribution{..} = mconcat
+        [ "/2014-05-31/streaming-distribution/"
+        , toText _usdId
+        , "/config"
+        ]
+
+instance ToHeaders UpdateStreamingDistribution where
+    toHeaders UpdateStreamingDistribution{..} = mconcat
+        [ "If-Match" =: _usdIfMatch
+        ]
+
+instance ToQuery UpdateStreamingDistribution where
+    toQuery = const mempty
+
+instance ToXML UpdateStreamingDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UpdateStreamingDistribution"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.DeleteDistribution
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -69,20 +69,6 @@ ddId = lens _ddId (\s a -> s { _ddId = a })
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
 
-instance ToPath DeleteDistribution where
-    toPath DeleteDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _ddId
-        ]
-
-instance ToQuery DeleteDistribution where
-    toQuery = const mempty
-
-instance ToHeaders DeleteDistribution where
-    toHeaders DeleteDistribution{..} = mconcat
-        [ "If-Match" =: _ddIfMatch
-        ]
-
 data DeleteDistributionResponse = DeleteDistributionResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -95,4 +81,22 @@ instance AWSRequest DeleteDistribution where
     type Rs DeleteDistribution = DeleteDistributionResponse
 
     request  = delete
-    response = nullaryResponse DeleteDistributionResponse
+    response = nullResponse DeleteDistributionResponse
+
+instance ToPath DeleteDistribution where
+    toPath DeleteDistribution{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _ddId
+        ]
+
+instance ToHeaders DeleteDistribution where
+    toHeaders DeleteDistribution{..} = mconcat
+        [ "If-Match" =: _ddIfMatch
+        ]
+
+instance ToQuery DeleteDistribution where
+    toQuery = const mempty
+
+instance ToXML DeleteDistribution where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteDistribution"

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteServerCertificate
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -69,11 +69,6 @@ dscServerCertificateName =
     lens _dscServerCertificateName
         (\s a -> s { _dscServerCertificateName = a })
 
-instance ToQuery DeleteServerCertificate
-
-instance ToPath DeleteServerCertificate where
-    toPath = const "/"
-
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -86,4 +81,11 @@ instance AWSRequest DeleteServerCertificate where
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse
 
     request  = post "DeleteServerCertificate"
-    response = nullaryResponse DeleteServerCertificateResponse
+    response = nullResponse DeleteServerCertificateResponse
+
+instance ToPath DeleteServerCertificate where
+    toPath = const "/"
+
+instance ToHeaders DeleteServerCertificate
+
+instance ToQuery DeleteServerCertificate

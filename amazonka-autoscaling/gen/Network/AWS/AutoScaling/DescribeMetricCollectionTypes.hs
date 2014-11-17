@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,11 +48,6 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes
 
-instance ToQuery DescribeMetricCollectionTypes
-
-instance ToPath DescribeMetricCollectionTypes where
-    toPath = const "/"
-
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { _dmctrGranularities :: [MetricGranularityType]
     , _dmctrMetrics       :: [MetricCollectionType]
@@ -89,6 +84,15 @@ instance AWSRequest DescribeMetricCollectionTypes where
     type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
 
     request  = post "DescribeMetricCollectionTypes"
-    response = xmlResponse $ \h x -> DescribeMetricCollectionTypesResponse
-        <$> x %| "Granularities"
-        <*> x %| "Metrics"
+    response = xmlResponse
+
+instance FromXML DescribeMetricCollectionTypesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesResponse"
+
+instance ToPath DescribeMetricCollectionTypes where
+    toPath = const "/"
+
+instance ToHeaders DescribeMetricCollectionTypes
+
+instance ToQuery DescribeMetricCollectionTypes

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteItem
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,7 +57,7 @@ module Network.AWS.DynamoDB.DeleteItem
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -329,17 +329,6 @@ diReturnValues = lens _diReturnValues (\s a -> s { _diReturnValues = a })
 diTableName :: Lens' DeleteItem Text
 diTableName = lens _diTableName (\s a -> s { _diTableName = a })
 
-instance ToPath DeleteItem where
-    toPath = const "/"
-
-instance ToQuery DeleteItem where
-    toQuery = const mempty
-
-instance ToHeaders DeleteItem
-
-instance ToBody DeleteItem where
-    toBody = toBody . encode . _diTableName
-
 data DeleteItemResponse = DeleteItemResponse
     { _dirAttributes            :: Map Text AttributeValue
     , _dirConsumedCapacity      :: Maybe ConsumedCapacity
@@ -398,7 +387,18 @@ instance AWSRequest DeleteItem where
     type Rs DeleteItem = DeleteItemResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DeleteItemResponse
-        <$> o .: "Attributes"
-        <*> o .: "ConsumedCapacity"
-        <*> o .: "ItemCollectionMetrics"
+    response = jsonResponse
+
+instance FromJSON DeleteItemResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DeleteItem where
+    toPath = const "/"
+
+instance ToHeaders DeleteItem
+
+instance ToQuery DeleteItem where
+    toQuery = const mempty
+
+instance ToJSON DeleteItem where
+    toJSON = genericToJSON jsonOptions

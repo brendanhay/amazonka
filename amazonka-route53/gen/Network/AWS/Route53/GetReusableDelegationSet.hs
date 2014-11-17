@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetReusableDelegationSet
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.Route53.GetReusableDelegationSet
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -62,17 +62,6 @@ getReusableDelegationSet p1 = GetReusableDelegationSet
 -- the name server.
 grdsId :: Lens' GetReusableDelegationSet Text
 grdsId = lens _grdsId (\s a -> s { _grdsId = a })
-
-instance ToPath GetReusableDelegationSet where
-    toPath GetReusableDelegationSet{..} = mconcat
-        [ "/2013-04-01/delegationset/"
-        , toText _grdsId
-        ]
-
-instance ToQuery GetReusableDelegationSet where
-    toQuery = const mempty
-
-instance ToHeaders GetReusableDelegationSet
 
 newtype GetReusableDelegationSetResponse = GetReusableDelegationSetResponse
     { _grdsrDelegationSet :: DelegationSet
@@ -101,5 +90,23 @@ instance AWSRequest GetReusableDelegationSet where
     type Rs GetReusableDelegationSet = GetReusableDelegationSetResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetReusableDelegationSetResponse
-        <$> x %| "DelegationSet"
+    response = xmlResponse
+
+instance FromXML GetReusableDelegationSetResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetReusableDelegationSetResponse"
+
+instance ToPath GetReusableDelegationSet where
+    toPath GetReusableDelegationSet{..} = mconcat
+        [ "/2013-04-01/delegationset/"
+        , toText _grdsId
+        ]
+
+instance ToHeaders GetReusableDelegationSet
+
+instance ToQuery GetReusableDelegationSet where
+    toQuery = const mempty
+
+instance ToXML GetReusableDelegationSet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetReusableDelegationSet"

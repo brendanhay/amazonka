@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Support.Types
 import qualified GHC.Exts
 
@@ -67,17 +67,6 @@ describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshS
 -- | The IDs of the Trusted Advisor checks.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a })
-
-instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorCheckRefreshStatuses where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorCheckRefreshStatuses
-
-instance ToBody DescribeTrustedAdvisorCheckRefreshStatuses where
-    toBody = toBody . encode . _dtacrsCheckIds
 
 newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
     { _dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]
@@ -109,5 +98,18 @@ instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
     type Rs DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatusesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-        <$> o .: "statuses"
+    response = jsonResponse
+
+instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses where
+    toPath = const "/"
+
+instance ToHeaders DescribeTrustedAdvisorCheckRefreshStatuses
+
+instance ToQuery DescribeTrustedAdvisorCheckRefreshStatuses where
+    toQuery = const mempty
+
+instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses where
+    toJSON = genericToJSON jsonOptions

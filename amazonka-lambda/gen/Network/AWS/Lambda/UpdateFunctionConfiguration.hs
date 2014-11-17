@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.UpdateFunctionConfiguration
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -57,7 +57,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
@@ -133,26 +133,6 @@ ufcRole = lens _ufcRole (\s a -> s { _ufcRole = a })
 ufcTimeout :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcTimeout = lens _ufcTimeout (\s a -> s { _ufcTimeout = a })
     . mapping _Nat
-
-instance ToPath UpdateFunctionConfiguration where
-    toPath UpdateFunctionConfiguration{..} = mconcat
-        [ "/2014-11-13/functions/"
-        , toText _ufcFunctionName
-        , "/configuration"
-        ]
-
-instance ToQuery UpdateFunctionConfiguration where
-    toQuery UpdateFunctionConfiguration{..} = mconcat
-        [ "Role"        =? _ufcRole
-        , "Handler"     =? _ufcHandler
-        , "Description" =? _ufcDescription
-        , "Timeout"     =? _ufcTimeout
-        , "MemorySize"  =? _ufcMemorySize
-        ]
-
-instance ToHeaders UpdateFunctionConfiguration
-
-instance ToBody UpdateFunctionConfiguration
 
 data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     { _ufcrCodeSize        :: Maybe Integer
@@ -277,16 +257,28 @@ instance AWSRequest UpdateFunctionConfiguration where
     type Rs UpdateFunctionConfiguration = UpdateFunctionConfigurationResponse
 
     request  = put
-    response = jsonResponse $ \h o -> UpdateFunctionConfigurationResponse
-        <$> o .: "CodeSize"
-        <*> o .: "ConfigurationId"
-        <*> o .: "Description"
-        <*> o .: "FunctionARN"
-        <*> o .: "FunctionName"
-        <*> o .: "Handler"
-        <*> o .: "LastModified"
-        <*> o .: "MemorySize"
-        <*> o .: "Mode"
-        <*> o .: "Role"
-        <*> o .: "Runtime"
-        <*> o .: "Timeout"
+    response = jsonResponse
+
+instance FromJSON UpdateFunctionConfigurationResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateFunctionConfiguration where
+    toPath UpdateFunctionConfiguration{..} = mconcat
+        [ "/2014-11-13/functions/"
+        , toText _ufcFunctionName
+        , "/configuration"
+        ]
+
+instance ToHeaders UpdateFunctionConfiguration
+
+instance ToQuery UpdateFunctionConfiguration where
+    toQuery UpdateFunctionConfiguration{..} = mconcat
+        [ "Role"        =? _ufcRole
+        , "Handler"     =? _ufcHandler
+        , "Description" =? _ufcDescription
+        , "Timeout"     =? _ufcTimeout
+        , "MemorySize"  =? _ufcMemorySize
+        ]
+
+instance ToJSON UpdateFunctionConfiguration where
+    toJSON = genericToJSON jsonOptions

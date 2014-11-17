@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeRegions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
 dr1RegionNames :: Lens' DescribeRegions [Text]
 dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
 
-instance ToQuery DescribeRegions
-
-instance ToPath DescribeRegions where
-    toPath = const "/"
-
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -115,5 +110,15 @@ instance AWSRequest DescribeRegions where
     type Rs DescribeRegions = DescribeRegionsResponse
 
     request  = post "DescribeRegions"
-    response = xmlResponse $ \h x -> DescribeRegionsResponse
-        <$> x %| "regionInfo"
+    response = xmlResponse
+
+instance FromXML DescribeRegionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeRegionsResponse"
+
+instance ToPath DescribeRegions where
+    toPath = const "/"
+
+instance ToHeaders DescribeRegions
+
+instance ToQuery DescribeRegions

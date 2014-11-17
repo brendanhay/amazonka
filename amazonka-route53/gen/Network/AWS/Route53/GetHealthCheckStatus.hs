@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckStatus
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.Route53.GetHealthCheckStatus
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
@@ -64,18 +64,6 @@ getHealthCheckStatus p1 = GetHealthCheckStatus
 ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
 ghcsHealthCheckId =
     lens _ghcsHealthCheckId (\s a -> s { _ghcsHealthCheckId = a })
-
-instance ToPath GetHealthCheckStatus where
-    toPath GetHealthCheckStatus{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _ghcsHealthCheckId
-        , "/status"
-        ]
-
-instance ToQuery GetHealthCheckStatus where
-    toQuery = const mempty
-
-instance ToHeaders GetHealthCheckStatus
 
 newtype GetHealthCheckStatusResponse = GetHealthCheckStatusResponse
     { _ghcsrHealthCheckObservations :: [HealthCheckObservation]
@@ -110,5 +98,24 @@ instance AWSRequest GetHealthCheckStatus where
     type Rs GetHealthCheckStatus = GetHealthCheckStatusResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetHealthCheckStatusResponse
-        <$> x %| "HealthCheckObservations"
+    response = xmlResponse
+
+instance FromXML GetHealthCheckStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetHealthCheckStatusResponse"
+
+instance ToPath GetHealthCheckStatus where
+    toPath GetHealthCheckStatus{..} = mconcat
+        [ "/2013-04-01/healthcheck/"
+        , toText _ghcsHealthCheckId
+        , "/status"
+        ]
+
+instance ToHeaders GetHealthCheckStatus
+
+instance ToQuery GetHealthCheckStatus where
+    toQuery = const mempty
+
+instance ToXML GetHealthCheckStatus where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHealthCheckStatus"

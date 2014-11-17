@@ -7,6 +7,8 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE TypeFamilies                #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Module      : Network.AWS.OpsWorks.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -23,6 +25,8 @@ module Network.AWS.OpsWorks.Types
       OpsWorks
     -- ** Error
     , JSONError
+    -- ** JSON
+    , jsonOptions
 
     -- * SslConfiguration
     , SslConfiguration
@@ -89,6 +93,16 @@ module Network.AWS.OpsWorks.Types
 
     -- * AppAttributesKeys
     , AppAttributesKeys (..)
+
+    -- * ServiceError'
+    , ServiceError'
+    , serviceError'
+    , seCreatedAt
+    , seInstanceId
+    , seMessage
+    , seServiceErrorId
+    , seStackId
+    , seType
 
     -- * StackSummary
     , StackSummary
@@ -213,16 +227,6 @@ module Network.AWS.OpsWorks.Types
     , stackConfigurationManager
     , scmName
     , scmVersion
-
-    -- * ServiceError
-    , ServiceError
-    , serviceError
-    , seCreatedAt
-    , seInstanceId
-    , seMessage
-    , seServiceErrorId
-    , seStackId
-    , seType
 
     -- * LayerAttributesKeys
     , LayerAttributesKeys (..)
@@ -412,6 +416,7 @@ module Network.AWS.OpsWorks.Types
     , AppType (..)
     ) where
 
+import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
@@ -433,6 +438,11 @@ instance AWSService OpsWorks where
         }
 
     handle = jsonError alwaysFail
+
+jsonOptions :: Options
+jsonOptions = defaultOptions
+    { fieldLabelModifier = dropWhile (not . isUpper)
+    }
 
 data SslConfiguration = SslConfiguration
     { _scCertificate :: Text
@@ -472,9 +482,11 @@ scChain = lens _scChain (\s a -> s { _scChain = a })
 scPrivateKey :: Lens' SslConfiguration Text
 scPrivateKey = lens _scPrivateKey (\s a -> s { _scPrivateKey = a })
 
-instance FromJSON SslConfiguration
+instance FromJSON SslConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SslConfiguration
+instance ToJSON SslConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data Command = Command
     { _cAcknowledgedAt :: Maybe Text
@@ -569,9 +581,11 @@ cStatus = lens _cStatus (\s a -> s { _cStatus = a })
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\s a -> s { _cType = a })
 
-instance FromJSON Command
+instance FromJSON Command where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Command
+instance ToJSON Command where
+    toJSON = genericToJSON jsonOptions
 
 data RaidArray = RaidArray
     { _raAvailabilityZone :: Maybe Text
@@ -682,9 +696,11 @@ raSize = lens _raSize (\s a -> s { _raSize = a })
 raVolumeType :: Lens' RaidArray (Maybe Text)
 raVolumeType = lens _raVolumeType (\s a -> s { _raVolumeType = a })
 
-instance FromJSON RaidArray
+instance FromJSON RaidArray where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RaidArray
+instance ToJSON RaidArray where
+    toJSON = genericToJSON jsonOptions
 
 data ElasticLoadBalancer = ElasticLoadBalancer
     { _elbAvailabilityZones       :: [Text]
@@ -774,9 +790,11 @@ elbSubnetIds = lens _elbSubnetIds (\s a -> s { _elbSubnetIds = a })
 elbVpcId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbVpcId = lens _elbVpcId (\s a -> s { _elbVpcId = a })
 
-instance FromJSON ElasticLoadBalancer
+instance FromJSON ElasticLoadBalancer where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ElasticLoadBalancer
+instance ToJSON ElasticLoadBalancer where
+    toJSON = genericToJSON jsonOptions
 
 data RdsDbInstance = RdsDbInstance
     { _rdiAddress              :: Maybe Text
@@ -866,9 +884,11 @@ rdiRegion = lens _rdiRegion (\s a -> s { _rdiRegion = a })
 rdiStackId :: Lens' RdsDbInstance (Maybe Text)
 rdiStackId = lens _rdiStackId (\s a -> s { _rdiStackId = a })
 
-instance FromJSON RdsDbInstance
+instance FromJSON RdsDbInstance where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RdsDbInstance
+instance ToJSON RdsDbInstance where
+    toJSON = genericToJSON jsonOptions
 
 data AppAttributesKeys
     = AutoBundleOnDeploy -- ^ AutoBundleOnDeploy
@@ -889,9 +909,76 @@ instance ToText AppAttributesKeys where
         DocumentRoot       -> "DocumentRoot"
         RailsEnv           -> "RailsEnv"
 
-instance FromJSON AppAttributesKeys
+instance FromJSON AppAttributesKeys where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AppAttributesKeys
+instance ToJSON AppAttributesKeys where
+    toJSON = genericToJSON jsonOptions
+
+data ServiceError' = ServiceError'
+    { _seCreatedAt      :: Maybe Text
+    , _seInstanceId     :: Maybe Text
+    , _seMessage        :: Maybe Text
+    , _seServiceErrorId :: Maybe Text
+    , _seStackId        :: Maybe Text
+    , _seType           :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ServiceError'' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'seCreatedAt' @::@ 'Maybe' 'Text'
+--
+-- * 'seInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'seMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'seServiceErrorId' @::@ 'Maybe' 'Text'
+--
+-- * 'seStackId' @::@ 'Maybe' 'Text'
+--
+-- * 'seType' @::@ 'Maybe' 'Text'
+--
+serviceError' :: ServiceError'
+serviceError' = ServiceError'
+    { _seServiceErrorId = Nothing
+    , _seStackId        = Nothing
+    , _seInstanceId     = Nothing
+    , _seType           = Nothing
+    , _seMessage        = Nothing
+    , _seCreatedAt      = Nothing
+    }
+
+-- | When the error occurred.
+seCreatedAt :: Lens' ServiceError' (Maybe Text)
+seCreatedAt = lens _seCreatedAt (\s a -> s { _seCreatedAt = a })
+
+-- | The instance ID.
+seInstanceId :: Lens' ServiceError' (Maybe Text)
+seInstanceId = lens _seInstanceId (\s a -> s { _seInstanceId = a })
+
+-- | A message that describes the error.
+seMessage :: Lens' ServiceError' (Maybe Text)
+seMessage = lens _seMessage (\s a -> s { _seMessage = a })
+
+-- | The error ID.
+seServiceErrorId :: Lens' ServiceError' (Maybe Text)
+seServiceErrorId = lens _seServiceErrorId (\s a -> s { _seServiceErrorId = a })
+
+-- | The stack ID.
+seStackId :: Lens' ServiceError' (Maybe Text)
+seStackId = lens _seStackId (\s a -> s { _seStackId = a })
+
+-- | The error type.
+seType :: Lens' ServiceError' (Maybe Text)
+seType = lens _seType (\s a -> s { _seType = a })
+
+instance FromJSON ServiceError' where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToJSON ServiceError' where
+    toJSON = genericToJSON jsonOptions
 
 data StackSummary = StackSummary
     { _ssAppsCount      :: Maybe Int
@@ -952,9 +1039,11 @@ ssName = lens _ssName (\s a -> s { _ssName = a })
 ssStackId :: Lens' StackSummary (Maybe Text)
 ssStackId = lens _ssStackId (\s a -> s { _ssStackId = a })
 
-instance FromJSON StackSummary
+instance FromJSON StackSummary where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StackSummary
+instance ToJSON StackSummary where
+    toJSON = genericToJSON jsonOptions
 
 data StackAttributesKeys
     = Color -- ^ Color
@@ -968,9 +1057,11 @@ instance FromText StackAttributesKeys where
 instance ToText StackAttributesKeys where
     toText Color = "Color"
 
-instance FromJSON StackAttributesKeys
+instance FromJSON StackAttributesKeys where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StackAttributesKeys
+instance ToJSON StackAttributesKeys where
+    toJSON = genericToJSON jsonOptions
 
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     { _lbascDownScaling :: Maybe AutoScalingThresholds
@@ -1019,9 +1110,11 @@ lbascLayerId = lens _lbascLayerId (\s a -> s { _lbascLayerId = a })
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascUpScaling = lens _lbascUpScaling (\s a -> s { _lbascUpScaling = a })
 
-instance FromJSON LoadBasedAutoScalingConfiguration
+instance FromJSON LoadBasedAutoScalingConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LoadBasedAutoScalingConfiguration
+instance ToJSON LoadBasedAutoScalingConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data SourceType
     = Archive -- ^ archive
@@ -1045,9 +1138,11 @@ instance ToText SourceType where
         S3      -> "s3"
         Svn     -> "svn"
 
-instance FromJSON SourceType
+instance FromJSON SourceType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SourceType
+instance ToJSON SourceType where
+    toJSON = genericToJSON jsonOptions
 
 data Volume = Volume
     { _vAvailabilityZone :: Maybe Text
@@ -1167,9 +1262,11 @@ vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
 vVolumeType :: Lens' Volume (Maybe Text)
 vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
-instance FromJSON Volume
+instance FromJSON Volume where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Volume
+instance ToJSON Volume where
+    toJSON = genericToJSON jsonOptions
 
 data ChefConfiguration = ChefConfiguration
     { _ccBerkshelfVersion :: Maybe Text
@@ -1200,9 +1297,11 @@ ccManageBerkshelf :: Lens' ChefConfiguration (Maybe Bool)
 ccManageBerkshelf =
     lens _ccManageBerkshelf (\s a -> s { _ccManageBerkshelf = a })
 
-instance FromJSON ChefConfiguration
+instance FromJSON ChefConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ChefConfiguration
+instance ToJSON ChefConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data LayerType
     = Custom           -- ^ custom
@@ -1241,9 +1340,11 @@ instance ToText LayerType where
         RailsApp         -> "rails-app"
         Web              -> "web"
 
-instance FromJSON LayerType
+instance FromJSON LayerType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LayerType
+instance ToJSON LayerType where
+    toJSON = genericToJSON jsonOptions
 
 data AutoScalingThresholds = AutoScalingThresholds
     { _astCpuThreshold       :: Maybe Double
@@ -1319,9 +1420,11 @@ astThresholdsWaitTime =
     lens _astThresholdsWaitTime (\s a -> s { _astThresholdsWaitTime = a })
         . mapping _Nat
 
-instance FromJSON AutoScalingThresholds
+instance FromJSON AutoScalingThresholds where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AutoScalingThresholds
+instance ToJSON AutoScalingThresholds where
+    toJSON = genericToJSON jsonOptions
 
 data App = App
     { _appAppId            :: Maybe Text
@@ -1441,9 +1544,11 @@ appStackId = lens _appStackId (\s a -> s { _appStackId = a })
 appType :: Lens' App (Maybe Text)
 appType = lens _appType (\s a -> s { _appType = a })
 
-instance FromJSON App
+instance FromJSON App where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON App
+instance ToJSON App where
+    toJSON = genericToJSON jsonOptions
 
 data ElasticIp = ElasticIp
     { _eiDomain     :: Maybe Text
@@ -1496,9 +1601,11 @@ eiName = lens _eiName (\s a -> s { _eiName = a })
 eiRegion :: Lens' ElasticIp (Maybe Text)
 eiRegion = lens _eiRegion (\s a -> s { _eiRegion = a })
 
-instance FromJSON ElasticIp
+instance FromJSON ElasticIp where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON ElasticIp
+instance ToJSON ElasticIp where
+    toJSON = genericToJSON jsonOptions
 
 data UserProfile = UserProfile
     { _upAllowSelfManagement :: Maybe Bool
@@ -1553,9 +1660,11 @@ upSshPublicKey = lens _upSshPublicKey (\s a -> s { _upSshPublicKey = a })
 upSshUsername :: Lens' UserProfile (Maybe Text)
 upSshUsername = lens _upSshUsername (\s a -> s { _upSshUsername = a })
 
-instance FromJSON UserProfile
+instance FromJSON UserProfile where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON UserProfile
+instance ToJSON UserProfile where
+    toJSON = genericToJSON jsonOptions
 
 data AutoScalingType
     = Load  -- ^ load
@@ -1573,9 +1682,11 @@ instance ToText AutoScalingType where
         Load  -> "load"
         Timer -> "timer"
 
-instance FromJSON AutoScalingType
+instance FromJSON AutoScalingType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AutoScalingType
+instance ToJSON AutoScalingType where
+    toJSON = genericToJSON jsonOptions
 
 data Source = Source
     { _sPassword :: Maybe Text
@@ -1644,9 +1755,11 @@ sUrl = lens _sUrl (\s a -> s { _sUrl = a })
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\s a -> s { _sUsername = a })
 
-instance FromJSON Source
+instance FromJSON Source where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Source
+instance ToJSON Source where
+    toJSON = genericToJSON jsonOptions
 
 data DataSource = DataSource
     { _dsArn          :: Maybe Text
@@ -1684,9 +1797,11 @@ dsDatabaseName = lens _dsDatabaseName (\s a -> s { _dsDatabaseName = a })
 dsType :: Lens' DataSource (Maybe Text)
 dsType = lens _dsType (\s a -> s { _dsType = a })
 
-instance FromJSON DataSource
+instance FromJSON DataSource where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DataSource
+instance ToJSON DataSource where
+    toJSON = genericToJSON jsonOptions
 
 data Architecture
     = I386  -- ^ i386
@@ -1704,9 +1819,11 @@ instance ToText Architecture where
         I386  -> "i386"
         X8664 -> "x86_64"
 
-instance FromJSON Architecture
+instance FromJSON Architecture where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Architecture
+instance ToJSON Architecture where
+    toJSON = genericToJSON jsonOptions
 
 data StackConfigurationManager = StackConfigurationManager
     { _scmName    :: Maybe Text
@@ -1736,72 +1853,11 @@ scmName = lens _scmName (\s a -> s { _scmName = a })
 scmVersion :: Lens' StackConfigurationManager (Maybe Text)
 scmVersion = lens _scmVersion (\s a -> s { _scmVersion = a })
 
-instance FromJSON StackConfigurationManager
+instance FromJSON StackConfigurationManager where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON StackConfigurationManager
-
-data ServiceError = ServiceError
-    { _seCreatedAt      :: Maybe Text
-    , _seInstanceId     :: Maybe Text
-    , _seMessage        :: Maybe Text
-    , _seServiceErrorId :: Maybe Text
-    , _seStackId        :: Maybe Text
-    , _seType           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'ServiceError' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'seCreatedAt' @::@ 'Maybe' 'Text'
---
--- * 'seInstanceId' @::@ 'Maybe' 'Text'
---
--- * 'seMessage' @::@ 'Maybe' 'Text'
---
--- * 'seServiceErrorId' @::@ 'Maybe' 'Text'
---
--- * 'seStackId' @::@ 'Maybe' 'Text'
---
--- * 'seType' @::@ 'Maybe' 'Text'
---
-serviceError :: ServiceError
-serviceError = ServiceError
-    { _seServiceErrorId = Nothing
-    , _seStackId        = Nothing
-    , _seInstanceId     = Nothing
-    , _seType           = Nothing
-    , _seMessage        = Nothing
-    , _seCreatedAt      = Nothing
-    }
-
--- | When the error occurred.
-seCreatedAt :: Lens' ServiceError (Maybe Text)
-seCreatedAt = lens _seCreatedAt (\s a -> s { _seCreatedAt = a })
-
--- | The instance ID.
-seInstanceId :: Lens' ServiceError (Maybe Text)
-seInstanceId = lens _seInstanceId (\s a -> s { _seInstanceId = a })
-
--- | A message that describes the error.
-seMessage :: Lens' ServiceError (Maybe Text)
-seMessage = lens _seMessage (\s a -> s { _seMessage = a })
-
--- | The error ID.
-seServiceErrorId :: Lens' ServiceError (Maybe Text)
-seServiceErrorId = lens _seServiceErrorId (\s a -> s { _seServiceErrorId = a })
-
--- | The stack ID.
-seStackId :: Lens' ServiceError (Maybe Text)
-seStackId = lens _seStackId (\s a -> s { _seStackId = a })
-
--- | The error type.
-seType :: Lens' ServiceError (Maybe Text)
-seType = lens _seType (\s a -> s { _seType = a })
-
-instance FromJSON ServiceError
-
-instance ToJSON ServiceError
+instance ToJSON StackConfigurationManager where
+    toJSON = genericToJSON jsonOptions
 
 data LayerAttributesKeys
     = BundlerVersion              -- ^ BundlerVersion
@@ -1885,9 +1941,11 @@ instance ToText LayerAttributesKeys where
         RubyVersion                 -> "RubyVersion"
         RubygemsVersion             -> "RubygemsVersion"
 
-instance FromJSON LayerAttributesKeys
+instance FromJSON LayerAttributesKeys where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON LayerAttributesKeys
+instance ToJSON LayerAttributesKeys where
+    toJSON = genericToJSON jsonOptions
 
 data VolumeConfiguration = VolumeConfiguration
     { _vcIops          :: Maybe Int
@@ -1951,9 +2009,11 @@ vcSize = lens _vcSize (\s a -> s { _vcSize = a })
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
 
-instance FromJSON VolumeConfiguration
+instance FromJSON VolumeConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON VolumeConfiguration
+instance ToJSON VolumeConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data Permission = Permission
     { _pAllowSsh   :: Maybe Bool
@@ -2009,9 +2069,11 @@ pLevel = lens _pLevel (\s a -> s { _pLevel = a })
 pStackId :: Lens' Permission (Maybe Text)
 pStackId = lens _pStackId (\s a -> s { _pStackId = a })
 
-instance FromJSON Permission
+instance FromJSON Permission where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Permission
+instance ToJSON Permission where
+    toJSON = genericToJSON jsonOptions
 
 data Layer = Layer
     { _lAttributes                :: Map Text Text
@@ -2199,9 +2261,11 @@ lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations =
     lens _lVolumeConfigurations (\s a -> s { _lVolumeConfigurations = a })
 
-instance FromJSON Layer
+instance FromJSON Layer where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Layer
+instance ToJSON Layer where
+    toJSON = genericToJSON jsonOptions
 
 data Recipes = Recipes
     { _rConfigure :: [Text]
@@ -2254,9 +2318,11 @@ rShutdown = lens _rShutdown (\s a -> s { _rShutdown = a })
 rUndeploy :: Lens' Recipes [Text]
 rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a })
 
-instance FromJSON Recipes
+instance FromJSON Recipes where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Recipes
+instance ToJSON Recipes where
+    toJSON = genericToJSON jsonOptions
 
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
@@ -2287,9 +2353,11 @@ tbascAutoScalingSchedule =
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
 tbascInstanceId = lens _tbascInstanceId (\s a -> s { _tbascInstanceId = a })
 
-instance FromJSON TimeBasedAutoScalingConfiguration
+instance FromJSON TimeBasedAutoScalingConfiguration where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON TimeBasedAutoScalingConfiguration
+instance ToJSON TimeBasedAutoScalingConfiguration where
+    toJSON = genericToJSON jsonOptions
 
 data SelfUserProfile = SelfUserProfile
     { _supIamUserArn   :: Maybe Text
@@ -2334,9 +2402,11 @@ supSshPublicKey = lens _supSshPublicKey (\s a -> s { _supSshPublicKey = a })
 supSshUsername :: Lens' SelfUserProfile (Maybe Text)
 supSshUsername = lens _supSshUsername (\s a -> s { _supSshUsername = a })
 
-instance FromJSON SelfUserProfile
+instance FromJSON SelfUserProfile where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON SelfUserProfile
+instance ToJSON SelfUserProfile where
+    toJSON = genericToJSON jsonOptions
 
 data RootDeviceType
     = Ebs           -- ^ ebs
@@ -2354,9 +2424,11 @@ instance ToText RootDeviceType where
         Ebs           -> "ebs"
         InstanceStore -> "instance-store"
 
-instance FromJSON RootDeviceType
+instance FromJSON RootDeviceType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON RootDeviceType
+instance ToJSON RootDeviceType where
+    toJSON = genericToJSON jsonOptions
 
 data Stack = Stack
     { _sArn                       :: Maybe Text
@@ -2564,9 +2636,11 @@ sUseOpsworksSecurityGroups =
 sVpcId :: Lens' Stack (Maybe Text)
 sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
-instance FromJSON Stack
+instance FromJSON Stack where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Stack
+instance ToJSON Stack where
+    toJSON = genericToJSON jsonOptions
 
 data DeploymentCommand = DeploymentCommand
     { _dcArgs :: Map Text [Text]
@@ -2616,9 +2690,11 @@ dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a })
 dcName :: Lens' DeploymentCommand Text
 dcName = lens _dcName (\s a -> s { _dcName = a })
 
-instance FromJSON DeploymentCommand
+instance FromJSON DeploymentCommand where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeploymentCommand
+instance ToJSON DeploymentCommand where
+    toJSON = genericToJSON jsonOptions
 
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     { _wassFriday    :: Map Text Text
@@ -2694,9 +2770,11 @@ wassWednesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a })
     . _Map
 
-instance FromJSON WeeklyAutoScalingSchedule
+instance FromJSON WeeklyAutoScalingSchedule where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON WeeklyAutoScalingSchedule
+instance ToJSON WeeklyAutoScalingSchedule where
+    toJSON = genericToJSON jsonOptions
 
 data DeploymentCommandName
     = Deploy                -- ^ deploy
@@ -2738,9 +2816,11 @@ instance ToText DeploymentCommandName where
         UpdateCustomCookbooks -> "update_custom_cookbooks"
         UpdateDependencies    -> "update_dependencies"
 
-instance FromJSON DeploymentCommandName
+instance FromJSON DeploymentCommandName where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON DeploymentCommandName
+instance ToJSON DeploymentCommandName where
+    toJSON = genericToJSON jsonOptions
 
 data Instance = Instance
     { _iAmiId                    :: Maybe Text
@@ -3024,9 +3104,11 @@ iVirtualizationType :: Lens' Instance (Maybe Text)
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
 
-instance FromJSON Instance
+instance FromJSON Instance where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Instance
+instance ToJSON Instance where
+    toJSON = genericToJSON jsonOptions
 
 data Deployment = Deployment
     { _dAppId        :: Maybe Text
@@ -3139,9 +3221,11 @@ dStackId = lens _dStackId (\s a -> s { _dStackId = a })
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\s a -> s { _dStatus = a })
 
-instance FromJSON Deployment
+instance FromJSON Deployment where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON Deployment
+instance ToJSON Deployment where
+    toJSON = genericToJSON jsonOptions
 
 data InstancesCount = InstancesCount
     { _icBooting        :: Maybe Int
@@ -3266,9 +3350,11 @@ icTerminated = lens _icTerminated (\s a -> s { _icTerminated = a })
 icTerminating :: Lens' InstancesCount (Maybe Int)
 icTerminating = lens _icTerminating (\s a -> s { _icTerminating = a })
 
-instance FromJSON InstancesCount
+instance FromJSON InstancesCount where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON InstancesCount
+instance ToJSON InstancesCount where
+    toJSON = genericToJSON jsonOptions
 
 data AppType
     = Nodejs -- ^ nodejs
@@ -3295,6 +3381,8 @@ instance ToText AppType where
         Rails  -> "rails"
         Static -> "static"
 
-instance FromJSON AppType
+instance FromJSON AppType where
+    parseJSON = genericParseJSON jsonOptions
 
-instance ToJSON AppType
+instance ToJSON AppType where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -99,17 +99,6 @@ umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
 umstMinuteOfHour = lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a })
     . _Nat
 
-instance ToPath UpdateMaintenanceStartTime where
-    toPath = const "/"
-
-instance ToQuery UpdateMaintenanceStartTime where
-    toQuery = const mempty
-
-instance ToHeaders UpdateMaintenanceStartTime
-
-instance ToBody UpdateMaintenanceStartTime where
-    toBody = toBody . encode . _umstGatewayARN
-
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -133,5 +122,18 @@ instance AWSRequest UpdateMaintenanceStartTime where
     type Rs UpdateMaintenanceStartTime = UpdateMaintenanceStartTimeResponse
 
     request  = post
-    response = jsonResponse $ \h o -> UpdateMaintenanceStartTimeResponse
-        <$> o .: "GatewayARN"
+    response = jsonResponse
+
+instance FromJSON UpdateMaintenanceStartTimeResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath UpdateMaintenanceStartTime where
+    toPath = const "/"
+
+instance ToHeaders UpdateMaintenanceStartTime
+
+instance ToQuery UpdateMaintenanceStartTime where
+    toQuery = const mempty
+
+instance ToJSON UpdateMaintenanceStartTime where
+    toJSON = genericToJSON jsonOptions

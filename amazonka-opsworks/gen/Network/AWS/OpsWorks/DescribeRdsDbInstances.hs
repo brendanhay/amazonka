@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRdsDbInstances
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -72,17 +72,6 @@ drdiRdsDbInstanceArns =
 drdiStackId :: Lens' DescribeRdsDbInstances Text
 drdiStackId = lens _drdiStackId (\s a -> s { _drdiStackId = a })
 
-instance ToPath DescribeRdsDbInstances where
-    toPath = const "/"
-
-instance ToQuery DescribeRdsDbInstances where
-    toQuery = const mempty
-
-instance ToHeaders DescribeRdsDbInstances
-
-instance ToBody DescribeRdsDbInstances where
-    toBody = toBody . encode . _drdiStackId
-
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances :: [RdsDbInstance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -114,5 +103,18 @@ instance AWSRequest DescribeRdsDbInstances where
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeRdsDbInstancesResponse
-        <$> o .: "RdsDbInstances"
+    response = jsonResponse
+
+instance FromJSON DescribeRdsDbInstancesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeRdsDbInstances where
+    toPath = const "/"
+
+instance ToHeaders DescribeRdsDbInstances
+
+instance ToQuery DescribeRdsDbInstances where
+    toQuery = const mempty
+
+instance ToJSON DescribeRdsDbInstances where
+    toJSON = genericToJSON jsonOptions

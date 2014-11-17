@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -91,11 +91,6 @@ rcsgiEC2SecurityGroupOwnerId =
     lens _rcsgiEC2SecurityGroupOwnerId
         (\s a -> s { _rcsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery RevokeCacheSecurityGroupIngress
-
-instance ToPath RevokeCacheSecurityGroupIngress where
-    toPath = const "/"
-
 newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -121,5 +116,15 @@ instance AWSRequest RevokeCacheSecurityGroupIngress where
     type Rs RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngressResponse
 
     request  = post "RevokeCacheSecurityGroupIngress"
-    response = xmlResponse $ \h x -> RevokeCacheSecurityGroupIngressResponse
-        <$> x %| "CacheSecurityGroup"
+    response = xmlResponse
+
+instance FromXML RevokeCacheSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResponse"
+
+instance ToPath RevokeCacheSecurityGroupIngress where
+    toPath = const "/"
+
+instance ToHeaders RevokeCacheSecurityGroupIngress
+
+instance ToQuery RevokeCacheSecurityGroupIngress

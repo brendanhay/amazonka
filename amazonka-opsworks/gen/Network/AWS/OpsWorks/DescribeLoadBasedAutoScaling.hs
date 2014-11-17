@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -69,17 +69,6 @@ describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
 dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a })
-
-instance ToPath DescribeLoadBasedAutoScaling where
-    toPath = const "/"
-
-instance ToQuery DescribeLoadBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLoadBasedAutoScaling
-
-instance ToBody DescribeLoadBasedAutoScaling where
-    toBody = toBody . encode . _dlbasLayerIds
 
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
@@ -114,5 +103,18 @@ instance AWSRequest DescribeLoadBasedAutoScaling where
     type Rs DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScalingResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeLoadBasedAutoScalingResponse
-        <$> o .: "LoadBasedAutoScalingConfigurations"
+    response = jsonResponse
+
+instance FromJSON DescribeLoadBasedAutoScalingResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeLoadBasedAutoScaling where
+    toPath = const "/"
+
+instance ToHeaders DescribeLoadBasedAutoScaling
+
+instance ToQuery DescribeLoadBasedAutoScaling where
+    toQuery = const mempty
+
+instance ToJSON DescribeLoadBasedAutoScaling where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
@@ -63,17 +63,6 @@ describeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
 dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
 dcoiInterconnectId =
     lens _dcoiInterconnectId (\s a -> s { _dcoiInterconnectId = a })
-
-instance ToPath DescribeConnectionsOnInterconnect where
-    toPath = const "/"
-
-instance ToQuery DescribeConnectionsOnInterconnect where
-    toQuery = const mempty
-
-instance ToHeaders DescribeConnectionsOnInterconnect
-
-instance ToBody DescribeConnectionsOnInterconnect where
-    toBody = toBody . encode . _dcoiInterconnectId
 
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections :: [Connection]
@@ -105,5 +94,18 @@ instance AWSRequest DescribeConnectionsOnInterconnect where
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeConnectionsOnInterconnectResponse
-        <$> o .: "connections"
+    response = jsonResponse
+
+instance FromJSON DescribeConnectionsOnInterconnectResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeConnectionsOnInterconnect where
+    toPath = const "/"
+
+instance ToHeaders DescribeConnectionsOnInterconnect
+
+instance ToQuery DescribeConnectionsOnInterconnect where
+    toQuery = const mempty
+
+instance ToJSON DescribeConnectionsOnInterconnect where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -40,7 +40,7 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -75,17 +75,6 @@ gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
-instance ToPath GetPipelineDefinition where
-    toPath = const "/"
-
-instance ToQuery GetPipelineDefinition where
-    toQuery = const mempty
-
-instance ToHeaders GetPipelineDefinition
-
-instance ToBody GetPipelineDefinition where
-    toBody = toBody . encode . _gpdPipelineId
-
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects :: [PipelineObject]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -117,5 +106,18 @@ instance AWSRequest GetPipelineDefinition where
     type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetPipelineDefinitionResponse
-        <$> o .: "pipelineObjects"
+    response = jsonResponse
+
+instance FromJSON GetPipelineDefinitionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetPipelineDefinition where
+    toPath = const "/"
+
+instance ToHeaders GetPipelineDefinition
+
+instance ToQuery GetPipelineDefinition where
+    toQuery = const mempty
+
+instance ToJSON GetPipelineDefinition where
+    toJSON = genericToJSON jsonOptions

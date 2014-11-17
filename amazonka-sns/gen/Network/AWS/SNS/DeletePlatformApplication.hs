@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ dpaPlatformApplicationArn =
     lens _dpaPlatformApplicationArn
         (\s a -> s { _dpaPlatformApplicationArn = a })
 
-instance ToQuery DeletePlatformApplication
-
-instance ToPath DeletePlatformApplication where
-    toPath = const "/"
-
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -80,4 +75,11 @@ instance AWSRequest DeletePlatformApplication where
     type Rs DeletePlatformApplication = DeletePlatformApplicationResponse
 
     request  = post "DeletePlatformApplication"
-    response = nullaryResponse DeletePlatformApplicationResponse
+    response = nullResponse DeletePlatformApplicationResponse
+
+instance ToPath DeletePlatformApplication where
+    toPath = const "/"
+
+instance ToHeaders DeletePlatformApplication
+
+instance ToQuery DeletePlatformApplication

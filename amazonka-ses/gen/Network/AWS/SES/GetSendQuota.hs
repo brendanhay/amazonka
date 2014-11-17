@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SES.GetSendQuota
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,11 +48,6 @@ data GetSendQuota = GetSendQuota
 -- | 'GetSendQuota' constructor.
 getSendQuota :: GetSendQuota
 getSendQuota = GetSendQuota
-
-instance ToQuery GetSendQuota
-
-instance ToPath GetSendQuota where
-    toPath = const "/"
 
 data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend   :: Maybe Double
@@ -97,7 +92,15 @@ instance AWSRequest GetSendQuota where
     type Rs GetSendQuota = GetSendQuotaResponse
 
     request  = post "GetSendQuota"
-    response = xmlResponse $ \h x -> GetSendQuotaResponse
-        <$> x %| "Max24HourSend"
-        <*> x %| "MaxSendRate"
-        <*> x %| "SentLast24Hours"
+    response = xmlResponse
+
+instance FromXML GetSendQuotaResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSendQuotaResponse"
+
+instance ToPath GetSendQuota where
+    toPath = const "/"
+
+instance ToHeaders GetSendQuota
+
+instance ToQuery GetSendQuota

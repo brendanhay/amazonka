@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.GetKeyPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.KMS.GetKeyPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
@@ -73,17 +73,6 @@ gkpKeyId = lens _gkpKeyId (\s a -> s { _gkpKeyId = a })
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\s a -> s { _gkpPolicyName = a })
 
-instance ToPath GetKeyPolicy where
-    toPath = const "/"
-
-instance ToQuery GetKeyPolicy where
-    toQuery = const mempty
-
-instance ToHeaders GetKeyPolicy
-
-instance ToBody GetKeyPolicy where
-    toBody = toBody . encode . _gkpKeyId
-
 newtype GetKeyPolicyResponse = GetKeyPolicyResponse
     { _gkprPolicy :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -108,5 +97,18 @@ instance AWSRequest GetKeyPolicy where
     type Rs GetKeyPolicy = GetKeyPolicyResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetKeyPolicyResponse
-        <$> o .: "Policy"
+    response = jsonResponse
+
+instance FromJSON GetKeyPolicyResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetKeyPolicy where
+    toPath = const "/"
+
+instance ToHeaders GetKeyPolicy
+
+instance ToQuery GetKeyPolicy where
+    toQuery = const mempty
+
+instance ToJSON GetKeyPolicy where
+    toJSON = genericToJSON jsonOptions

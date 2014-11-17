@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.S3.PutObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -66,13 +66,13 @@ module Network.AWS.S3.PutObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data PutObject = PutObject
     { _poACL                     :: Maybe Text
-    , _poBody                    :: RqBody
+    , _poBody                    :: Maybe Base64
     , _poBucket                  :: Text
     , _poCacheControl            :: Maybe Text
     , _poContentDisposition      :: Maybe Text
@@ -95,7 +95,7 @@ data PutObject = PutObject
     , _poServerSideEncryption    :: Maybe Text
     , _poStorageClass            :: Maybe Text
     , _poWebsiteRedirectLocation :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutObject' constructor.
 --
@@ -103,7 +103,7 @@ data PutObject = PutObject
 --
 -- * 'poACL' @::@ 'Maybe' 'Text'
 --
--- * 'poBody' @::@ 'RqBody'
+-- * 'poBody' @::@ 'Maybe' 'Base64'
 --
 -- * 'poBucket' @::@ 'Text'
 --
@@ -149,15 +149,14 @@ data PutObject = PutObject
 --
 -- * 'poWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-putObject :: RqBody -- ^ 'poBody'
-          -> Text -- ^ 'poBucket'
+putObject :: Text -- ^ 'poBucket'
           -> Text -- ^ 'poKey'
           -> PutObject
-putObject p1 p2 p3 = PutObject
-    { _poBody                    = p1
-    , _poBucket                  = p2
-    , _poKey                     = p3
+putObject p1 p2 = PutObject
+    { _poBucket                  = p1
+    , _poKey                     = p2
     , _poACL                     = Nothing
+    , _poBody                    = Nothing
     , _poCacheControl            = Nothing
     , _poContentDisposition      = Nothing
     , _poContentEncoding         = Nothing
@@ -185,7 +184,7 @@ poACL :: Lens' PutObject (Maybe Text)
 poACL = lens _poACL (\s a -> s { _poACL = a })
 
 -- | Object data.
-poBody :: Lens' PutObject RqBody
+poBody :: Lens' PutObject (Maybe Base64)
 poBody = lens _poBody (\s a -> s { _poBody = a })
 
 poBucket :: Lens' PutObject Text
@@ -300,45 +299,6 @@ poWebsiteRedirectLocation =
     lens _poWebsiteRedirectLocation
         (\s a -> s { _poWebsiteRedirectLocation = a })
 
-instance ToPath PutObject where
-    toPath PutObject{..} = mconcat
-        [ "/"
-        , toText _poBucket
-        , "/"
-        , toText _poKey
-        ]
-
-instance ToQuery PutObject where
-    toQuery = const mempty
-
-instance ToHeaders PutObject where
-    toHeaders PutObject{..} = mconcat
-        [ "x-amz-acl"                                       =: _poACL
-        , "Cache-Control"                                   =: _poCacheControl
-        , "Content-Disposition"                             =: _poContentDisposition
-        , "Content-Encoding"                                =: _poContentEncoding
-        , "Content-Language"                                =: _poContentLanguage
-        , "Content-Length"                                  =: _poContentLength
-        , "Content-MD5"                                     =: _poContentMD5
-        , "Content-Type"                                    =: _poContentType
-        , "Expires"                                         =: _poExpires
-        , "x-amz-grant-full-control"                        =: _poGrantFullControl
-        , "x-amz-grant-read"                                =: _poGrantRead
-        , "x-amz-grant-read-acp"                            =: _poGrantReadACP
-        , "x-amz-grant-write-acp"                           =: _poGrantWriteACP
-        , "x-amz-meta-"                                     =: _poMetadata
-        , "x-amz-server-side-encryption"                    =: _poServerSideEncryption
-        , "x-amz-storage-class"                             =: _poStorageClass
-        , "x-amz-website-redirect-location"                 =: _poWebsiteRedirectLocation
-        , "x-amz-server-side-encryption-customer-algorithm" =: _poSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _poSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _poSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _poSSEKMSKeyId
-        ]
-
-instance ToBody PutObject where
-    toBody = toBody . _poBody
-
 data PutObjectResponse = PutObjectResponse
     { _porETag                 :: Maybe Text
     , _porExpiration           :: Maybe RFC822
@@ -423,11 +383,50 @@ instance AWSRequest PutObject where
     type Rs PutObject = PutObjectResponse
 
     request  = put
-    response = xmlResponse $ \h x -> PutObjectResponse
-        <$> h ~:? "ETag"
+    response = xmlHeaderResponse $ \h x -> PutObjectResponse
+        <*> h ~:? "ETag"
         <*> h ~:? "x-amz-expiration"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
+
+instance ToPath PutObject where
+    toPath PutObject{..} = mconcat
+        [ "/"
+        , toText _poBucket
+        , "/"
+        , toText _poKey
+        ]
+
+instance ToHeaders PutObject where
+    toHeaders PutObject{..} = mconcat
+        [ "x-amz-acl"                                       =: _poACL
+        , "Cache-Control"                                   =: _poCacheControl
+        , "Content-Disposition"                             =: _poContentDisposition
+        , "Content-Encoding"                                =: _poContentEncoding
+        , "Content-Language"                                =: _poContentLanguage
+        , "Content-Length"                                  =: _poContentLength
+        , "Content-MD5"                                     =: _poContentMD5
+        , "Content-Type"                                    =: _poContentType
+        , "Expires"                                         =: _poExpires
+        , "x-amz-grant-full-control"                        =: _poGrantFullControl
+        , "x-amz-grant-read"                                =: _poGrantRead
+        , "x-amz-grant-read-acp"                            =: _poGrantReadACP
+        , "x-amz-grant-write-acp"                           =: _poGrantWriteACP
+        , "x-amz-meta-"                                     =: _poMetadata
+        , "x-amz-server-side-encryption"                    =: _poServerSideEncryption
+        , "x-amz-storage-class"                             =: _poStorageClass
+        , "x-amz-website-redirect-location"                 =: _poWebsiteRedirectLocation
+        , "x-amz-server-side-encryption-customer-algorithm" =: _poSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _poSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _poSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _poSSEKMSKeyId
+        ]
+
+instance ToQuery PutObject where
+    toQuery = const mempty
+
+instance ToBody PutObject where
+

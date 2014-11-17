@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,11 +44,6 @@ data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 
-instance ToQuery DeleteAccountPasswordPolicy
-
-instance ToPath DeleteAccountPasswordPolicy where
-    toPath = const "/"
-
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -61,4 +56,11 @@ instance AWSRequest DeleteAccountPasswordPolicy where
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
 
     request  = post "DeleteAccountPasswordPolicy"
-    response = nullaryResponse DeleteAccountPasswordPolicyResponse
+    response = nullResponse DeleteAccountPasswordPolicyResponse
+
+instance ToPath DeleteAccountPasswordPolicy where
+    toPath = const "/"
+
+instance ToHeaders DeleteAccountPasswordPolicy
+
+instance ToQuery DeleteAccountPasswordPolicy

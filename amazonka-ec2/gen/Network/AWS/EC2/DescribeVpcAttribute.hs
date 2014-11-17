@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeVpcAttribute
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -81,11 +81,6 @@ dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
 dva1VpcId :: Lens' DescribeVpcAttribute Text
 dva1VpcId = lens _dva1VpcId (\s a -> s { _dva1VpcId = a })
 
-instance ToQuery DescribeVpcAttribute
-
-instance ToPath DescribeVpcAttribute where
-    toPath = const "/"
-
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _dvarEnableDnsSupport   :: Maybe AttributeBooleanValue
@@ -132,7 +127,15 @@ instance AWSRequest DescribeVpcAttribute where
     type Rs DescribeVpcAttribute = DescribeVpcAttributeResponse
 
     request  = post "DescribeVpcAttribute"
-    response = xmlResponse $ \h x -> DescribeVpcAttributeResponse
-        <$> x %| "enableDnsHostnames"
-        <*> x %| "enableDnsSupport"
-        <*> x %| "vpcId"
+    response = xmlResponse
+
+instance FromXML DescribeVpcAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpcAttributeResponse"
+
+instance ToPath DescribeVpcAttribute where
+    toPath = const "/"
+
+instance ToHeaders DescribeVpcAttribute
+
+instance ToQuery DescribeVpcAttribute

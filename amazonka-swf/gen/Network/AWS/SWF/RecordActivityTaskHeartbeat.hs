@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.SWF.RecordActivityTaskHeartbeat
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,7 +62,7 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
@@ -97,17 +97,6 @@ rathDetails = lens _rathDetails (\s a -> s { _rathDetails = a })
 rathTaskToken :: Lens' RecordActivityTaskHeartbeat Text
 rathTaskToken = lens _rathTaskToken (\s a -> s { _rathTaskToken = a })
 
-instance ToPath RecordActivityTaskHeartbeat where
-    toPath = const "/"
-
-instance ToQuery RecordActivityTaskHeartbeat where
-    toQuery = const mempty
-
-instance ToHeaders RecordActivityTaskHeartbeat
-
-instance ToBody RecordActivityTaskHeartbeat where
-    toBody = toBody . encode . _rathTaskToken
-
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested :: Bool
     } deriving (Eq, Ord, Show, Generic, Enum)
@@ -134,5 +123,18 @@ instance AWSRequest RecordActivityTaskHeartbeat where
     type Rs RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeatResponse
 
     request  = post
-    response = jsonResponse $ \h o -> RecordActivityTaskHeartbeatResponse
-        <$> o .: "cancelRequested"
+    response = jsonResponse
+
+instance FromJSON RecordActivityTaskHeartbeatResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath RecordActivityTaskHeartbeat where
+    toPath = const "/"
+
+instance ToHeaders RecordActivityTaskHeartbeat
+
+instance ToQuery RecordActivityTaskHeartbeat where
+    toQuery = const mempty
+
+instance ToJSON RecordActivityTaskHeartbeat where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,7 +36,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
@@ -61,17 +61,6 @@ dip1IdentityPoolId :: Lens' DeleteIdentityPool Text
 dip1IdentityPoolId =
     lens _dip1IdentityPoolId (\s a -> s { _dip1IdentityPoolId = a })
 
-instance ToPath DeleteIdentityPool where
-    toPath = const "/"
-
-instance ToQuery DeleteIdentityPool where
-    toQuery = const mempty
-
-instance ToHeaders DeleteIdentityPool
-
-instance ToBody DeleteIdentityPool where
-    toBody = toBody . encode . _dip1IdentityPoolId
-
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -84,4 +73,15 @@ instance AWSRequest DeleteIdentityPool where
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
 
     request  = post
-    response = nullaryResponse DeleteIdentityPoolResponse
+    response = nullResponse DeleteIdentityPoolResponse
+
+instance ToPath DeleteIdentityPool where
+    toPath = const "/"
+
+instance ToHeaders DeleteIdentityPool
+
+instance ToQuery DeleteIdentityPool where
+    toQuery = const mempty
+
+instance ToJSON DeleteIdentityPool where
+    toJSON = genericToJSON jsonOptions

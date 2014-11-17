@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.Scan
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -65,7 +65,7 @@ module Network.AWS.DynamoDB.Scan
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
@@ -319,17 +319,6 @@ sTotalSegments :: Lens' Scan (Maybe Natural)
 sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a })
     . mapping _Nat
 
-instance ToPath Scan where
-    toPath = const "/"
-
-instance ToQuery Scan where
-    toQuery = const mempty
-
-instance ToHeaders Scan
-
-instance ToBody Scan where
-    toBody = toBody . encode . _sTableName
-
 data ScanResponse = ScanResponse
     { _srConsumedCapacity :: Maybe ConsumedCapacity
     , _srCount            :: Maybe Int
@@ -405,9 +394,18 @@ instance AWSRequest Scan where
     type Rs Scan = ScanResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ScanResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Count"
-        <*> o .: "Items"
-        <*> o .: "LastEvaluatedKey"
-        <*> o .: "ScannedCount"
+    response = jsonResponse
+
+instance FromJSON ScanResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath Scan where
+    toPath = const "/"
+
+instance ToHeaders Scan
+
+instance ToQuery Scan where
+    toQuery = const mempty
+
+instance ToJSON Scan where
+    toJSON = genericToJSON jsonOptions

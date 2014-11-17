@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterParameterGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -62,11 +62,6 @@ dcpg1ParameterGroupName :: Lens' DeleteClusterParameterGroup Text
 dcpg1ParameterGroupName =
     lens _dcpg1ParameterGroupName (\s a -> s { _dcpg1ParameterGroupName = a })
 
-instance ToQuery DeleteClusterParameterGroup
-
-instance ToPath DeleteClusterParameterGroup where
-    toPath = const "/"
-
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -79,4 +74,11 @@ instance AWSRequest DeleteClusterParameterGroup where
     type Rs DeleteClusterParameterGroup = DeleteClusterParameterGroupResponse
 
     request  = post "DeleteClusterParameterGroup"
-    response = nullaryResponse DeleteClusterParameterGroupResponse
+    response = nullResponse DeleteClusterParameterGroupResponse
+
+instance ToPath DeleteClusterParameterGroup where
+    toPath = const "/"
+
+instance ToHeaders DeleteClusterParameterGroup
+
+instance ToQuery DeleteClusterParameterGroup

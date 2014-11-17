@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EC2.DescribeTags
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -98,11 +98,6 @@ dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
-instance ToQuery DescribeTags
-
-instance ToPath DescribeTags where
-    toPath = const "/"
-
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
     , _dtrTags      :: [TagDescription]
@@ -136,10 +131,15 @@ instance AWSRequest DescribeTags where
     type Rs DescribeTags = DescribeTagsResponse
 
     request  = post "DescribeTags"
-    response = xmlResponse $ \h x -> DescribeTagsResponse
-        <$> x %| "nextToken"
-        <*> x %| "tagSet"
+    response = xmlResponse
 
-instance AWSPager DescribeTags where
-    next rq rs = (\x -> rq & dtNextToken ?~ x)
-        <$> (rs ^. dtrNextToken)
+instance FromXML DescribeTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeTagsResponse"
+
+instance ToPath DescribeTags where
+    toPath = const "/"
+
+instance ToHeaders DescribeTags
+
+instance ToQuery DescribeTags

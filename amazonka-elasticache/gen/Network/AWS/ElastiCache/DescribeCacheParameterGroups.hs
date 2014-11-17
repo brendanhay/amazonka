@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameterGroups
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -89,11 +89,6 @@ dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
-instance ToQuery DescribeCacheParameterGroups
-
-instance ToPath DescribeCacheParameterGroups where
-    toPath = const "/"
-
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrCacheParameterGroups :: [CacheParameterGroup]
     , _dcpgrMarker               :: Maybe Text
@@ -129,10 +124,15 @@ instance AWSRequest DescribeCacheParameterGroups where
     type Rs DescribeCacheParameterGroups = DescribeCacheParameterGroupsResponse
 
     request  = post "DescribeCacheParameterGroups"
-    response = xmlResponse $ \h x -> DescribeCacheParameterGroupsResponse
-        <$> x %| "CacheParameterGroups"
-        <*> x %| "Marker"
+    response = xmlResponse
 
-instance AWSPager DescribeCacheParameterGroups where
-    next rq rs = (\x -> rq & dcpgMarker ?~ x)
-        <$> (rs ^. dcpgrMarker)
+instance FromXML DescribeCacheParameterGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCacheParameterGroupsResponse"
+
+instance ToPath DescribeCacheParameterGroups where
+    toPath = const "/"
+
+instance ToHeaders DescribeCacheParameterGroups
+
+instance ToQuery DescribeCacheParameterGroups

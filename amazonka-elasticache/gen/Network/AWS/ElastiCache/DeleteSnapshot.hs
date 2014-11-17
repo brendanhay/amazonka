@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,11 +63,6 @@ deleteSnapshot p1 = DeleteSnapshot
 ds1SnapshotName :: Lens' DeleteSnapshot Text
 ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
 
-instance ToQuery DeleteSnapshot
-
-instance ToPath DeleteSnapshot where
-    toPath = const "/"
-
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
@@ -91,5 +86,15 @@ instance AWSRequest DeleteSnapshot where
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request  = post "DeleteSnapshot"
-    response = xmlResponse $ \h x -> DeleteSnapshotResponse
-        <$> x %| "Snapshot"
+    response = xmlResponse
+
+instance FromXML DeleteSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSnapshotResponse"
+
+instance ToPath DeleteSnapshot where
+    toPath = const "/"
+
+instance ToHeaders DeleteSnapshot
+
+instance ToQuery DeleteSnapshot

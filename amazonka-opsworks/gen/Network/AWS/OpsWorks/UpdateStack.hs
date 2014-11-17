@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateStack
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -54,7 +54,7 @@ module Network.AWS.OpsWorks.UpdateStack
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
@@ -266,17 +266,6 @@ usUseOpsworksSecurityGroups =
     lens _usUseOpsworksSecurityGroups
         (\s a -> s { _usUseOpsworksSecurityGroups = a })
 
-instance ToPath UpdateStack where
-    toPath = const "/"
-
-instance ToQuery UpdateStack where
-    toQuery = const mempty
-
-instance ToHeaders UpdateStack
-
-instance ToBody UpdateStack where
-    toBody = toBody . encode . _usStackId
-
 data UpdateStackResponse = UpdateStackResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -289,4 +278,15 @@ instance AWSRequest UpdateStack where
     type Rs UpdateStack = UpdateStackResponse
 
     request  = post
-    response = nullaryResponse UpdateStackResponse
+    response = nullResponse UpdateStackResponse
+
+instance ToPath UpdateStack where
+    toPath = const "/"
+
+instance ToHeaders UpdateStack
+
+instance ToQuery UpdateStack where
+    toQuery = const mempty
+
+instance ToJSON UpdateStack where
+    toJSON = genericToJSON jsonOptions

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DataPipeline.ValidatePipelineDefinition
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
@@ -74,17 +74,6 @@ vpdPipelineId = lens _vpdPipelineId (\s a -> s { _vpdPipelineId = a })
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects =
     lens _vpdPipelineObjects (\s a -> s { _vpdPipelineObjects = a })
-
-instance ToPath ValidatePipelineDefinition where
-    toPath = const "/"
-
-instance ToQuery ValidatePipelineDefinition where
-    toQuery = const mempty
-
-instance ToHeaders ValidatePipelineDefinition
-
-instance ToBody ValidatePipelineDefinition where
-    toBody = toBody . encode . _vpdPipelineId
 
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     { _vpdrErrored            :: Bool
@@ -131,7 +120,18 @@ instance AWSRequest ValidatePipelineDefinition where
     type Rs ValidatePipelineDefinition = ValidatePipelineDefinitionResponse
 
     request  = post
-    response = jsonResponse $ \h o -> ValidatePipelineDefinitionResponse
-        <$> o .: "errored"
-        <*> o .: "validationErrors"
-        <*> o .: "validationWarnings"
+    response = jsonResponse
+
+instance FromJSON ValidatePipelineDefinitionResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath ValidatePipelineDefinition where
+    toPath = const "/"
+
+instance ToHeaders ValidatePipelineDefinition
+
+instance ToQuery ValidatePipelineDefinition where
+    toQuery = const mempty
+
+instance ToJSON ValidatePipelineDefinition where
+    toJSON = genericToJSON jsonOptions

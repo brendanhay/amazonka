@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.IAM.AddRoleToInstanceProfile
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ artipInstanceProfileName =
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
 
-instance ToQuery AddRoleToInstanceProfile
-
-instance ToPath AddRoleToInstanceProfile where
-    toPath = const "/"
-
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -90,4 +85,11 @@ instance AWSRequest AddRoleToInstanceProfile where
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
 
     request  = post "AddRoleToInstanceProfile"
-    response = nullaryResponse AddRoleToInstanceProfileResponse
+    response = nullResponse AddRoleToInstanceProfileResponse
+
+instance ToPath AddRoleToInstanceProfile where
+    toPath = const "/"
+
+instance ToHeaders AddRoleToInstanceProfile
+
+instance ToQuery AddRoleToInstanceProfile

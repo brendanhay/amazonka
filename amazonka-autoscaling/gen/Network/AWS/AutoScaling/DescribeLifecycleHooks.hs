@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -73,11 +73,6 @@ dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
 dlhLifecycleHookNames =
     lens _dlhLifecycleHookNames (\s a -> s { _dlhLifecycleHookNames = a })
 
-instance ToQuery DescribeLifecycleHooks
-
-instance ToPath DescribeLifecycleHooks where
-    toPath = const "/"
-
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     { _dlhrLifecycleHooks :: [LifecycleHook]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
@@ -110,5 +105,15 @@ instance AWSRequest DescribeLifecycleHooks where
     type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse
 
     request  = post "DescribeLifecycleHooks"
-    response = xmlResponse $ \h x -> DescribeLifecycleHooksResponse
-        <$> x %| "LifecycleHooks"
+    response = xmlResponse
+
+instance FromXML DescribeLifecycleHooksResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLifecycleHooksResponse"
+
+instance ToPath DescribeLifecycleHooks where
+    toPath = const "/"
+
+instance ToHeaders DescribeLifecycleHooks
+
+instance ToQuery DescribeLifecycleHooks

@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -219,11 +219,6 @@ pmaThreshold = lens _pmaThreshold (\s a -> s { _pmaThreshold = a })
 pmaUnit :: Lens' PutMetricAlarm (Maybe Text)
 pmaUnit = lens _pmaUnit (\s a -> s { _pmaUnit = a })
 
-instance ToQuery PutMetricAlarm
-
-instance ToPath PutMetricAlarm where
-    toPath = const "/"
-
 data PutMetricAlarmResponse = PutMetricAlarmResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -236,4 +231,11 @@ instance AWSRequest PutMetricAlarm where
     type Rs PutMetricAlarm = PutMetricAlarmResponse
 
     request  = post "PutMetricAlarm"
-    response = nullaryResponse PutMetricAlarmResponse
+    response = nullResponse PutMetricAlarmResponse
+
+instance ToPath PutMetricAlarm where
+    toPath = const "/"
+
+instance ToHeaders PutMetricAlarm
+
+instance ToQuery PutMetricAlarm

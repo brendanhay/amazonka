@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.Route53Domains.GetOperationDetail
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.Route53Domains.Types
 import qualified GHC.Exts
 
@@ -68,17 +68,6 @@ getOperationDetail p1 = GetOperationDetail
 -- request. Type: String Default: None Required: Yes.
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\s a -> s { _godOperationId = a })
-
-instance ToPath GetOperationDetail where
-    toPath = const "/"
-
-instance ToQuery GetOperationDetail where
-    toQuery = const mempty
-
-instance ToHeaders GetOperationDetail
-
-instance ToBody GetOperationDetail where
-    toBody = toBody . encode . _godOperationId
 
 data GetOperationDetailResponse = GetOperationDetailResponse
     { _godrDomainName    :: Maybe Text
@@ -148,10 +137,18 @@ instance AWSRequest GetOperationDetail where
     type Rs GetOperationDetail = GetOperationDetailResponse
 
     request  = post
-    response = jsonResponse $ \h o -> GetOperationDetailResponse
-        <$> o .: "DomainName"
-        <*> o .: "Message"
-        <*> o .: "OperationId"
-        <*> o .: "Status"
-        <*> o .: "SubmittedDate"
-        <*> o .: "Type"
+    response = jsonResponse
+
+instance FromJSON GetOperationDetailResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath GetOperationDetail where
+    toPath = const "/"
+
+instance ToHeaders GetOperationDetail
+
+instance ToQuery GetOperationDetail where
+    toQuery = const mempty
+
+instance ToJSON GetOperationDetail where
+    toJSON = genericToJSON jsonOptions

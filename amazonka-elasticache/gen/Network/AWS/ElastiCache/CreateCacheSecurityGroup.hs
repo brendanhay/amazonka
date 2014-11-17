@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSecurityGroup
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -80,11 +80,6 @@ ccsgCacheSecurityGroupName =
 ccsgDescription :: Lens' CreateCacheSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 
-instance ToQuery CreateCacheSecurityGroup
-
-instance ToPath CreateCacheSecurityGroup where
-    toPath = const "/"
-
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Eq, Show, Generic)
@@ -109,5 +104,15 @@ instance AWSRequest CreateCacheSecurityGroup where
     type Rs CreateCacheSecurityGroup = CreateCacheSecurityGroupResponse
 
     request  = post "CreateCacheSecurityGroup"
-    response = xmlResponse $ \h x -> CreateCacheSecurityGroupResponse
-        <$> x %| "CacheSecurityGroup"
+    response = xmlResponse
+
+instance FromXML CreateCacheSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheSecurityGroupResponse"
+
+instance ToPath CreateCacheSecurityGroup where
+    toPath = const "/"
+
+instance ToHeaders CreateCacheSecurityGroup
+
+instance ToQuery CreateCacheSecurityGroup

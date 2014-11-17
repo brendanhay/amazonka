@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.EMR.TerminateJobFlows
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +42,7 @@ module Network.AWS.EMR.TerminateJobFlows
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
@@ -71,17 +71,6 @@ terminateJobFlows = TerminateJobFlows
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
 tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a })
 
-instance ToPath TerminateJobFlows where
-    toPath = const "/"
-
-instance ToQuery TerminateJobFlows where
-    toQuery = const mempty
-
-instance ToHeaders TerminateJobFlows
-
-instance ToBody TerminateJobFlows where
-    toBody = toBody . encode . _tjfJobFlowIds
-
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse
     deriving (Eq, Ord, Show, Generic)
 
@@ -94,4 +83,15 @@ instance AWSRequest TerminateJobFlows where
     type Rs TerminateJobFlows = TerminateJobFlowsResponse
 
     request  = post
-    response = nullaryResponse TerminateJobFlowsResponse
+    response = nullResponse TerminateJobFlowsResponse
+
+instance ToPath TerminateJobFlows where
+    toPath = const "/"
+
+instance ToHeaders TerminateJobFlows
+
+instance ToQuery TerminateJobFlows where
+    toQuery = const mempty
+
+instance ToJSON TerminateJobFlows where
+    toJSON = genericToJSON jsonOptions

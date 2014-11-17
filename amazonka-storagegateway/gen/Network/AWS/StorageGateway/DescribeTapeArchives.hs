@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapeArchives
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
@@ -86,17 +86,6 @@ dtaMarker = lens _dtaMarker (\s a -> s { _dtaMarker = a })
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
 dtaTapeARNs = lens _dtaTapeARNs (\s a -> s { _dtaTapeARNs = a })
 
-instance ToPath DescribeTapeArchives where
-    toPath = const "/"
-
-instance ToQuery DescribeTapeArchives where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTapeArchives
-
-instance ToBody DescribeTapeArchives where
-    toBody = toBody . encode . _dtaTapeARNs
-
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarMarker       :: Maybe Text
     , _dtarTapeArchives :: [TapeArchive]
@@ -137,6 +126,18 @@ instance AWSRequest DescribeTapeArchives where
     type Rs DescribeTapeArchives = DescribeTapeArchivesResponse
 
     request  = post
-    response = jsonResponse $ \h o -> DescribeTapeArchivesResponse
-        <$> o .: "Marker"
-        <*> o .: "TapeArchives"
+    response = jsonResponse
+
+instance FromJSON DescribeTapeArchivesResponse where
+    parseJSON = genericParseJSON jsonOptions
+
+instance ToPath DescribeTapeArchives where
+    toPath = const "/"
+
+instance ToHeaders DescribeTapeArchives
+
+instance ToQuery DescribeTapeArchives where
+    toQuery = const mempty
+
+instance ToJSON DescribeTapeArchives where
+    toJSON = genericToJSON jsonOptions

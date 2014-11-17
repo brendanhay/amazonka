@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -39,7 +39,7 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -64,17 +64,6 @@ ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccess
 ccfoaiCloudFrontOriginAccessIdentityConfig =
     lens _ccfoaiCloudFrontOriginAccessIdentityConfig
         (\s a -> s { _ccfoaiCloudFrontOriginAccessIdentityConfig = a })
-
-instance ToPath CreateCloudFrontOriginAccessIdentity where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
-
-instance ToQuery CreateCloudFrontOriginAccessIdentity where
-    toQuery = const mempty
-
-instance ToHeaders CreateCloudFrontOriginAccessIdentity
-
-instance ToBody CreateCloudFrontOriginAccessIdentity where
-    toBody = toBody . encodeXML . _ccfoaiCloudFrontOriginAccessIdentityConfig
 
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
@@ -121,7 +110,19 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
 
     request  = post
-    response = xmlResponse $ \h x -> CreateCloudFrontOriginAccessIdentityResponse
+    response = xmlHeaderResponse $ \h x -> CreateCloudFrontOriginAccessIdentityResponse
         <$> x %| "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"
+
+instance ToPath CreateCloudFrontOriginAccessIdentity where
+    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+
+instance ToHeaders CreateCloudFrontOriginAccessIdentity
+
+instance ToQuery CreateCloudFrontOriginAccessIdentity where
+    toQuery = const mempty
+
+instance ToXML CreateCloudFrontOriginAccessIdentity where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentity"

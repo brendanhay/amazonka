@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.AutoScaling.PutScalingPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -130,11 +130,6 @@ pspScalingAdjustment :: Lens' PutScalingPolicy Int
 pspScalingAdjustment =
     lens _pspScalingAdjustment (\s a -> s { _pspScalingAdjustment = a })
 
-instance ToQuery PutScalingPolicy
-
-instance ToPath PutScalingPolicy where
-    toPath = const "/"
-
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -159,5 +154,15 @@ instance AWSRequest PutScalingPolicy where
     type Rs PutScalingPolicy = PutScalingPolicyResponse
 
     request  = post "PutScalingPolicy"
-    response = xmlResponse $ \h x -> PutScalingPolicyResponse
-        <$> x %| "PolicyARN"
+    response = xmlResponse
+
+instance FromXML PutScalingPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutScalingPolicyResponse"
+
+instance ToPath PutScalingPolicy where
+    toPath = const "/"
+
+instance ToHeaders PutScalingPolicy
+
+instance ToQuery PutScalingPolicy

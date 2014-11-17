@@ -1,12 +1,12 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE RecordWildCards             #-}
+{-# LANGUAGE TypeFamilies                #-}
 
-{-# OPTIONS_GHC -w                      #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistributionConfig
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,7 +38,7 @@ module Network.AWS.CloudFront.GetDistributionConfig
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.CloudFront.Types
 import qualified GHC.Exts
 
@@ -61,18 +61,6 @@ getDistributionConfig p1 = GetDistributionConfig
 -- | The distribution's id.
 gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\s a -> s { _gdcId = a })
-
-instance ToPath GetDistributionConfig where
-    toPath GetDistributionConfig{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toText _gdcId
-        , "/config"
-        ]
-
-instance ToQuery GetDistributionConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetDistributionConfig
 
 data GetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig :: Maybe DistributionConfig
@@ -107,6 +95,22 @@ instance AWSRequest GetDistributionConfig where
     type Rs GetDistributionConfig = GetDistributionConfigResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetDistributionConfigResponse
+    response = xmlHeaderResponse $ \h x -> GetDistributionConfigResponse
         <$> x %| "DistributionConfig"
         <*> h ~:? "ETag"
+
+instance ToPath GetDistributionConfig where
+    toPath GetDistributionConfig{..} = mconcat
+        [ "/2014-05-31/distribution/"
+        , toText _gdcId
+        , "/config"
+        ]
+
+instance ToHeaders GetDistributionConfig
+
+instance ToQuery GetDistributionConfig where
+    toQuery = const mempty
+
+instance ToXML GetDistributionConfig where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetDistributionConfig"

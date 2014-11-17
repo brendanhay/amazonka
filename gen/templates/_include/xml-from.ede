@@ -6,6 +6,6 @@ instance FromXML {{ type.name }} where
 {% else %}
     parseXML c = {{ type.name }}
   {% for field in type.fields %}
-        {% include "applicative.ede" %} c .: "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} c {% include "operator.ede" %} "{{ field.value.locationName }}"
   {% endfor %}
 {% endcase %}

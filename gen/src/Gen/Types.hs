@@ -421,6 +421,8 @@ instance FromJSON Override where
 data Overrides = Overrides
     { _oLibrary           :: !Library
     , _oVersion           :: !Version
+    , _oUrl               :: !Text
+    , _oOperationUrl      :: !Text
     , _oOperationsModules :: [NS]
     , _oTypesModules      :: [NS]
     , _oOverrides         :: HashMap Text Override
@@ -432,8 +434,10 @@ instance FromJSON Overrides where
     parseJSON = withObject "overrides" $ \o -> Overrides
         <$> o .:  "library"
         <*> o .:? "version"           .!= initial
-        <*> o .:? "operationsModules" .!= mempty
-        <*> o .:? "typesModules"      .!= mempty
+        <*> o .:  "url"
+        <*> o .:  "operationUrl"
+        <*> o .:? "operationModules" .!= mempty
+        <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "overrides"         .!= mempty
 
 data Model = Model

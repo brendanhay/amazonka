@@ -37,7 +37,6 @@ import           Data.Monoid                hiding (Product)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.Names
 import qualified Gen.Stage1                 as S1
 import           Gen.Stage1                 hiding (Operation)
@@ -49,6 +48,8 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
   where
     cabal = Cabal
         { _cName         = name
+
+        , _cUrl          = url
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = overrides ^. oVersion
         , _cDescription  = help
@@ -61,6 +62,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     service = Service
         { _svName           = name
+        , _svUrl            = url
         , _svAbbrev         = abbrev
         , _svNamespace      = namespace [unAbbrev abbrev]
         , _svImports        = sort (typesNamespace : operationNamespaces)
@@ -87,6 +89,8 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
     operationNamespaces = sort (map (view opNamespace) ops)
 
     name = "Amazon " <> stripAWS (s1 ^. mServiceFullName)
+
+    url = overrides ^. oUrl
 
     abbrev   = s1 ^. mServiceAbbreviation
     protocol = s1 ^. mProtocol
@@ -117,16 +121,18 @@ dataTypes :: Overrides
 dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
   where
     run = Map.traverseWithKey
-        (operation a proto (o ^. oOperationsModules) ss (s1 ^. s1Pagination))
+        (operation a proto url (o ^. oOperationsModules) ss (s1 ^. s1Pagination))
         (s1' ^. s1Operations)
 
     (s1', prefixed -> ds) = runState (requests s1 ss) datas
 
     ss = evalState (shared s1) datas
 
-    datas = overriden (o ^. oOverrides) (shapes proto (s1 ^. s1Shapes))
+    datas = overriden overrides (shapes proto (s1 ^. s1Shapes))
 
-    proto = s1 ^. mProtocol
+    proto     = s1 ^. mProtocol
+    url       = o ^. oOperationUrl
+    overrides = o ^. oOverrides
 
 -- | Insert a new request datatype for any shared input, and update
 -- the operations accordingly.
@@ -170,19 +176,21 @@ requests s1 ss = do
 
 operation :: Abbrev
           -> Protocol
+          -> Text
           -> [NS]
           -> HashSet Text
           -> HashMap Text Pager
           -> Text
           -> S1.Operation
           -> State (HashMap Text Data) Operation
-operation a proto ns ss pgs n o = do
+operation a proto base ns ss pgs n o = do
     inp <- request  (o ^. oInput)
     out <- response (o ^. oOutput)
     op inp out <$> pager inp out (Map.lookup n pgs)
   where
     op rq rs pg = Operation
         { _opName             = n
+        , _opUrl              = stripText "/" base <> "/" <> n <> ".html"
         , _opService          = a
         , _opProtocol         = proto
         , _opNamespace        = operationNS a n

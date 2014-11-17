@@ -635,6 +635,7 @@ operationJSON p s n d = y <> x
 
 data Operation = Operation
     { _opName             :: !Text
+    , _opUrl              :: !Text
     , _opService          :: !Abbrev
     , _opProtocol         :: !Protocol
     , _opNamespace        :: !NS
@@ -665,6 +666,7 @@ instance ToJSON Endpoint where
 
 data Service = Service
     { _svName           :: !Text
+    , _svUrl            :: !Text
     , _svAbbrev         :: !Abbrev
     , _svNamespace      :: !NS
     , _svImports        :: [NS]
@@ -687,6 +689,7 @@ instance ToFilePath Service where
 
 data Cabal = Cabal
     { _cName         :: !Text
+    , _cUrl          :: !Text
     , _cLibrary      :: !Library
     , _cVersion      :: !Version
     , _cProtocol     :: !Protocol

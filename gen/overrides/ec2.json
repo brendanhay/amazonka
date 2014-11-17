@@ -4,7 +4,7 @@
     "metadata": {
         "serviceAbbreviation": "EC2"
     },
-    "typesModules": [
+    "typeModules": [
         "Network.AWS.EC2.Internal"
     ],
     "overrides": {

@@ -12,6 +12,10 @@
 
 {% if documentation %}
 {{ documentation | above(76, 0) }}
+--
+-- <{{ url }}>
+{% else %}
+-- | <{{ url }}>
 {% endif %}
 module {{ namespace }}
     (

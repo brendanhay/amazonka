@@ -195,10 +195,10 @@ instance ToText Platform where
         Gcm         -> "GCM"
 
 instance FromJSON Platform where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "Platform"
 
 instance ToJSON Platform where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Dataset = Dataset
     { _dCreationDate     :: Maybe RFC822
@@ -296,10 +296,10 @@ instance ToText Operation where
         Replace -> "replace"
 
 instance FromJSON Operation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "Operation"
 
 instance ToJSON Operation where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Record = Record
     { _rDeviceLastModifiedDate :: Maybe RFC822

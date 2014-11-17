@@ -911,10 +911,10 @@ instance ToText AppAttributesKeys where
         RailsEnv           -> "RailsEnv"
 
 instance FromJSON AppAttributesKeys where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "AppAttributesKeys"
 
 instance ToJSON AppAttributesKeys where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ServiceError' = ServiceError'
     { _seCreatedAt      :: Maybe Text
@@ -1059,10 +1059,10 @@ instance ToText StackAttributesKeys where
     toText Color = "Color"
 
 instance FromJSON StackAttributesKeys where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StackAttributesKeys"
 
 instance ToJSON StackAttributesKeys where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     { _lbascDownScaling :: Maybe AutoScalingThresholds
@@ -1140,10 +1140,10 @@ instance ToText SourceType where
         Svn     -> "svn"
 
 instance FromJSON SourceType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "SourceType"
 
 instance ToJSON SourceType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Volume = Volume
     { _vAvailabilityZone :: Maybe Text
@@ -1342,10 +1342,10 @@ instance ToText LayerType where
         Web              -> "web"
 
 instance FromJSON LayerType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "LayerType"
 
 instance ToJSON LayerType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data AutoScalingThresholds = AutoScalingThresholds
     { _astCpuThreshold       :: Maybe Double
@@ -1684,10 +1684,10 @@ instance ToText AutoScalingType where
         Timer -> "timer"
 
 instance FromJSON AutoScalingType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "AutoScalingType"
 
 instance ToJSON AutoScalingType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Source = Source
     { _sPassword :: Maybe Text
@@ -1821,10 +1821,10 @@ instance ToText Architecture where
         X8664 -> "x86_64"
 
 instance FromJSON Architecture where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "Architecture"
 
 instance ToJSON Architecture where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StackConfigurationManager = StackConfigurationManager
     { _scmName    :: Maybe Text
@@ -1943,10 +1943,10 @@ instance ToText LayerAttributesKeys where
         RubygemsVersion             -> "RubygemsVersion"
 
 instance FromJSON LayerAttributesKeys where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "LayerAttributesKeys"
 
 instance ToJSON LayerAttributesKeys where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data VolumeConfiguration = VolumeConfiguration
     { _vcIops          :: Maybe Int
@@ -2426,10 +2426,10 @@ instance ToText RootDeviceType where
         InstanceStore -> "instance-store"
 
 instance FromJSON RootDeviceType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RootDeviceType"
 
 instance ToJSON RootDeviceType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Stack = Stack
     { _sArn                       :: Maybe Text
@@ -2818,10 +2818,10 @@ instance ToText DeploymentCommandName where
         UpdateDependencies    -> "update_dependencies"
 
 instance FromJSON DeploymentCommandName where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DeploymentCommandName"
 
 instance ToJSON DeploymentCommandName where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Instance = Instance
     { _iAmiId                    :: Maybe Text
@@ -3383,7 +3383,7 @@ instance ToText AppType where
         Static -> "static"
 
 instance FromJSON AppType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "AppType"
 
 instance ToJSON AppType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText

@@ -454,10 +454,10 @@ instance ToText MarketType where
         Spot     -> "SPOT"
 
 instance FromJSON MarketType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "MarketType"
 
 instance ToJSON MarketType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data InstanceGroupConfig = InstanceGroupConfig
     { _igcBidPrice      :: Maybe Text
@@ -834,10 +834,10 @@ instance ToText StepExecutionState where
         Running     -> "RUNNING"
 
 instance FromJSON StepExecutionState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StepExecutionState"
 
 instance ToJSON StepExecutionState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ActionOnFailure
     = AOFCancelAndWait    -- ^ CANCEL_AND_WAIT
@@ -862,10 +862,10 @@ instance ToText ActionOnFailure where
         AOFTerminateJobFlow -> "TERMINATE_JOB_FLOW"
 
 instance FromJSON ActionOnFailure where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ActionOnFailure"
 
 instance ToJSON ActionOnFailure where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode    :: Maybe Text
@@ -1360,10 +1360,10 @@ instance ToText StepStateChangeReasonCode where
     toText None = "NONE"
 
 instance FromJSON StepStateChangeReasonCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StepStateChangeReasonCode"
 
 instance ToJSON StepStateChangeReasonCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ClusterState
     = CSBootstrapping        -- ^ BOOTSTRAPPING
@@ -1397,10 +1397,10 @@ instance ToText ClusterState where
         CSWaiting              -> "WAITING"
 
 instance FromJSON ClusterState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ClusterState"
 
 instance ToJSON ClusterState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data HadoopStepConfig = HadoopStepConfig
     { _hscArgs       :: [Text]
@@ -1490,10 +1490,10 @@ instance ToText JobFlowExecutionState where
         JFESWaiting       -> "WAITING"
 
 instance FromJSON JobFlowExecutionState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "JobFlowExecutionState"
 
 instance ToJSON JobFlowExecutionState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StepDetail = StepDetail
     { _sdExecutionStatusDetail :: StepExecutionStatusDetail
@@ -1584,10 +1584,10 @@ instance ToText InstanceGroupType where
         Task   -> "TASK"
 
 instance FromJSON InstanceGroupType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceGroupType"
 
 instance ToJSON InstanceGroupType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data InstanceGroupStateChangeReasonCode
     = ClusterTerminated -- ^ CLUSTER_TERMINATED
@@ -1612,10 +1612,10 @@ instance ToText InstanceGroupStateChangeReasonCode where
         ValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceGroupStateChangeReasonCode"
 
 instance ToJSON InstanceGroupStateChangeReasonCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StepStatus = StepStatus
     { _ssState             :: Maybe Text
@@ -1741,10 +1741,10 @@ instance ToText InstanceGroupState where
         IGSTerminating   -> "TERMINATING"
 
 instance FromJSON InstanceGroupState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceGroupState"
 
 instance ToJSON InstanceGroupState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StepTimeline = StepTimeline
     { _stCreationDateTime :: Maybe RFC822
@@ -2132,10 +2132,10 @@ instance ToText ClusterStateChangeReasonCode where
         CSCRCValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON ClusterStateChangeReasonCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ClusterStateChangeReasonCode"
 
 instance ToJSON ClusterStateChangeReasonCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Step = Step
     { _sActionOnFailure :: Maybe Text
@@ -2224,10 +2224,10 @@ instance ToText StepState where
         SSRunning     -> "RUNNING"
 
 instance FromJSON StepState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StepState"
 
 instance ToJSON StepState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data InstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime :: Maybe RFC822
@@ -2429,10 +2429,10 @@ instance ToText InstanceRoleType where
         IRTTask   -> "TASK"
 
 instance FromJSON InstanceRoleType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceRoleType"
 
 instance ToJSON InstanceRoleType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data JobFlowInstancesConfig = JobFlowInstancesConfig
     { _jficEc2KeyName                  :: Maybe Text
@@ -2990,10 +2990,10 @@ instance ToText InstanceState where
         ISTerminated          -> "TERMINATED"
 
 instance FromJSON InstanceState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceState"
 
 instance ToJSON InstanceState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ClusterTimeline = ClusterTimeline
     { _ctCreationDateTime :: Maybe RFC822
@@ -3066,10 +3066,10 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON InstanceStateChangeReasonCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceStateChangeReasonCode"
 
 instance ToJSON InstanceStateChangeReasonCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Instance = Instance
     { _iEc2InstanceId    :: Maybe Text

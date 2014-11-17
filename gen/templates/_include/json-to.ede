@@ -1,2 +1,7 @@
 instance ToJSON {{ type.name }} where
+{% case type.type %}
+{% when "nullary" %}
+    toJSON = toJSON . toText
+{% else %}
     toJSON = genericToJSON jsonOptions
+{% endcase %}

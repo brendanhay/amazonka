@@ -177,10 +177,10 @@ instance ToText QueryParser where
         Structured -> "structured"
 
 instance FromJSON QueryParser where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "QueryParser"
 
 instance ToJSON QueryParser where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Hit = Hit
     { _hitFields     :: Map Text [Text]
@@ -497,7 +497,7 @@ instance ToText ContentType where
         ApplicationXml  -> "application/xml"
 
 instance FromJSON ContentType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ContentType"
 
 instance ToJSON ContentType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText

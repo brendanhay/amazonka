@@ -468,10 +468,10 @@ instance ToText VirtualInterfaceState where
         Verifying  -> "verifying"
 
 instance FromJSON VirtualInterfaceState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "VirtualInterfaceState"
 
 instance ToJSON VirtualInterfaceState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Connection = Connection
     { _cBandwidth       :: Maybe Text
@@ -721,10 +721,10 @@ instance ToText InterconnectState where
         ISRequested -> "requested"
 
 instance FromJSON InterconnectState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InterconnectState"
 
 instance ToJSON InterconnectState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     { _npvi1AmazonAddress        :: Maybe Text
@@ -913,10 +913,10 @@ instance ToText ConnectionState where
         CSRequested -> "requested"
 
 instance FromJSON ConnectionState where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ConnectionState"
 
 instance ToJSON ConnectionState where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId    :: Maybe Text

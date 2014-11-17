@@ -535,10 +535,10 @@ instance ToText OperatorType where
         OperatorRefEq   -> "REF_EQ"
 
 instance FromJSON OperatorType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "OperatorType"
 
 instance ToJSON OperatorType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data PipelineIdName = PipelineIdName
     { _pinId   :: Maybe Text
@@ -594,10 +594,10 @@ instance ToText TaskStatus where
         Finished -> "FINISHED"
 
 instance FromJSON TaskStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "TaskStatus"
 
 instance ToJSON TaskStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ValidationWarning = ValidationWarning
     { _vwId       :: Maybe Text

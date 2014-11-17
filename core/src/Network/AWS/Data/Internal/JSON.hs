@@ -19,6 +19,7 @@ module Network.AWS.Data.Internal.JSON
     -- * Re-exported
     , FromJSON     (..)
     , genericParseJSON
+    , withFromText
 
     , ToJSON       (..)
     , genericToJSON
@@ -33,13 +34,17 @@ module Network.AWS.Data.Internal.JSON
     , sumEncoding
     ) where
 
-import           Data.Aeson          (encode)
-import           Data.Aeson.Types    hiding ((.:), (.:?))
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import           Data.Text           (Text)
+import           Data.Aeson                     (encode, withText)
+import           Data.Aeson.Types               hiding ((.:), (.:?))
+import           Data.HashMap.Strict            (HashMap)
+import qualified Data.HashMap.Strict            as Map
+import           Data.Text                      (Text)
+import           Network.AWS.Data.Internal.Text
 
 type AesonOptions = Options
+
+withFromText :: FromText a => String -> Value -> Parser a
+withFromText n = withText n (either fail fromText)
 
 (.:) :: FromJSON a => Object -> Text -> Either String a
 o .: k =

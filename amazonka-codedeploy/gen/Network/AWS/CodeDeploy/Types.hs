@@ -376,10 +376,10 @@ instance ToText BundleType where
         Zip -> "zip"
 
 instance FromJSON BundleType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "BundleType"
 
 instance ToJSON BundleType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data TimeRange = TimeRange
     { _trEnd   :: Maybe RFC822
@@ -435,10 +435,10 @@ instance ToText DeploymentCreator where
         User        -> "user"
 
 instance FromJSON DeploymentCreator where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DeploymentCreator"
 
 instance ToJSON DeploymentCreator where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data InstanceSummary = InstanceSummary
     { _isDeploymentId    :: Maybe Text
@@ -646,10 +646,10 @@ instance ToText ApplicationRevisionSortBy where
         RegisterTime  -> "registerTime"
 
 instance FromJSON ApplicationRevisionSortBy where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ApplicationRevisionSortBy"
 
 instance ToJSON ApplicationRevisionSortBy where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data MinimumHealthyHosts = MinimumHealthyHosts
     { _mhhType  :: Maybe Text
@@ -717,10 +717,10 @@ instance ToText ListStateFilterAction where
         Include -> "include"
 
 instance FromJSON ListStateFilterAction where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ListStateFilterAction"
 
 instance ToJSON ListStateFilterAction where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data LifecycleErrorCode
     = ScriptFailed        -- ^ ScriptFailed
@@ -751,10 +751,10 @@ instance ToText LifecycleErrorCode where
         UnknownError        -> "UnknownError"
 
 instance FromJSON LifecycleErrorCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "LifecycleErrorCode"
 
 instance ToJSON LifecycleErrorCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data RevisionLocation = RevisionLocation
     { _rlGitHubLocation :: Maybe GitHubLocation
@@ -825,10 +825,10 @@ instance ToText LifecycleEventStatus where
         Unknown    -> "Unknown"
 
 instance FromJSON LifecycleEventStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "LifecycleEventStatus"
 
 instance ToJSON LifecycleEventStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data EC2TagFilter = EC2TagFilter
     { _ectfKey   :: Maybe Text
@@ -944,10 +944,10 @@ instance ToText StopStatus where
         SSSucceeded -> "Succeeded"
 
 instance FromJSON StopStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StopStatus"
 
 instance ToJSON StopStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ErrorInformation = ErrorInformation
     { _eiCode    :: Maybe Text
@@ -1016,10 +1016,10 @@ instance ToText SortOrder where
         Descending -> "descending"
 
 instance FromJSON SortOrder where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "SortOrder"
 
 instance ToJSON SortOrder where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DeploymentInfo = DeploymentInfo
     { _diApplicationName               :: Maybe Text
@@ -1340,10 +1340,10 @@ instance ToText ErrorCode where
         Timeout                  -> "TIMEOUT"
 
 instance FromJSON ErrorCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ErrorCode"
 
 instance ToJSON ErrorCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DeploymentConfigInfo = DeploymentConfigInfo
     { _dciCreateTime           :: Maybe RFC822
@@ -1427,10 +1427,10 @@ instance ToText InstanceStatus where
         ISUnknown    -> "Unknown"
 
 instance FromJSON InstanceStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "InstanceStatus"
 
 instance ToJSON InstanceStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DeploymentStatus
     = DSCreated    -- ^ Created
@@ -1461,10 +1461,10 @@ instance ToText DeploymentStatus where
         DSSucceeded  -> "Succeeded"
 
 instance FromJSON DeploymentStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DeploymentStatus"
 
 instance ToJSON DeploymentStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data S3Location = S3Location
     { _slBucket     :: Maybe Text
@@ -1548,10 +1548,10 @@ instance ToText MinimumHealthyHostsType where
         HostCount    -> "HOST_COUNT"
 
 instance FromJSON MinimumHealthyHostsType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "MinimumHealthyHostsType"
 
 instance ToJSON MinimumHealthyHostsType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data GitHubLocation = GitHubLocation
     { _ghlCommitId   :: Maybe Text
@@ -1606,10 +1606,10 @@ instance ToText RevisionLocationType where
         S3     -> "S3"
 
 instance FromJSON RevisionLocationType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RevisionLocationType"
 
 instance ToJSON RevisionLocationType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data EC2TagFilterType
     = KeyAndValue -- ^ KEY_AND_VALUE
@@ -1631,7 +1631,7 @@ instance ToText EC2TagFilterType where
         ValueOnly   -> "VALUE_ONLY"
 
 instance FromJSON EC2TagFilterType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "EC2TagFilterType"
 
 instance ToJSON EC2TagFilterType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText

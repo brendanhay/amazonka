@@ -120,10 +120,10 @@ instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
 
 instance FromJSON KeyUsageType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "KeyUsageType"
 
 instance ToJSON KeyUsageType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data KeyMetadata = KeyMetadata
     { _kmAWSAccountId :: Maybe Text
@@ -217,10 +217,10 @@ instance ToText DataKeySpec where
         AES256 -> "AES_256"
 
 instance FromJSON DataKeySpec where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DataKeySpec"
 
 instance ToJSON DataKeySpec where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data GrantConstraints = GrantConstraints
     { _gcEncryptionContextEquals :: Map Text Text
@@ -409,10 +409,10 @@ instance ToText GrantOperation where
         GORetireGrant                     -> "RetireGrant"
 
 instance FromJSON GrantOperation where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "GrantOperation"
 
 instance ToJSON GrantOperation where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data KeyListEntry = KeyListEntry
     { _kleKeyArn :: Maybe Text

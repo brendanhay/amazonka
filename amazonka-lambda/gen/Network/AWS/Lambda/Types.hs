@@ -112,10 +112,10 @@ instance ToText Runtime where
     toText Nodejs = "nodejs"
 
 instance FromJSON Runtime where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "Runtime"
 
 instance ToJSON Runtime where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Mode
     = Event -- ^ event
@@ -130,10 +130,10 @@ instance ToText Mode where
     toText Event = "event"
 
 instance FromJSON Mode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "Mode"
 
 instance ToJSON Mode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text

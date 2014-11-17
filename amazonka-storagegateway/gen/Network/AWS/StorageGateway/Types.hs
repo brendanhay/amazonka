@@ -1004,10 +1004,10 @@ instance ToText ErrorCode where
         VolumeNotReady                    -> "VolumeNotReady"
 
 instance FromJSON ErrorCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ErrorCode"
 
 instance ToJSON ErrorCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StorediSCSIVolume = StorediSCSIVolume
     { _sscsivPreservedExistingData :: Maybe Bool

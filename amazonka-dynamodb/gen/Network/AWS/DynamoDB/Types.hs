@@ -393,10 +393,10 @@ instance ToText KeyType where
         Range -> "RANGE"
 
 instance FromJSON KeyType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "KeyType"
 
 instance ToJSON KeyType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data AttributeValue = AttributeValue
     { _avB    :: Maybe Base64
@@ -519,10 +519,10 @@ instance ToText IndexStatus where
         Updating -> "UPDATING"
 
 instance FromJSON IndexStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "IndexStatus"
 
 instance ToJSON IndexStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits  :: Nat
@@ -591,10 +591,10 @@ instance ToText TableStatus where
         TSUpdating -> "UPDATING"
 
 instance FromJSON TableStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "TableStatus"
 
 instance ToJSON TableStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ProjectionType
     = All      -- ^ ALL
@@ -616,10 +616,10 @@ instance ToText ProjectionType where
         KeysOnly -> "KEYS_ONLY"
 
 instance FromJSON ProjectionType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ProjectionType"
 
 instance ToJSON ProjectionType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data TableDescription = TableDescription
     { _tdAttributeDefinitions   :: [AttributeDefinition]
@@ -908,10 +908,10 @@ instance ToText ReturnConsumedCapacity where
         Total   -> "TOTAL"
 
 instance FromJSON ReturnConsumedCapacity where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ReturnConsumedCapacity"
 
 instance ToJSON ReturnConsumedCapacity where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ReturnItemCollectionMetrics
     = RICMNone -- ^ NONE
@@ -930,10 +930,10 @@ instance ToText ReturnItemCollectionMetrics where
         RICMSize -> "SIZE"
 
 instance FromJSON ReturnItemCollectionMetrics where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ReturnItemCollectionMetrics"
 
 instance ToJSON ReturnItemCollectionMetrics where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuAction :: Maybe Text
@@ -1239,10 +1239,10 @@ instance ToText ComparisonOperator where
         Null        -> "NULL"
 
 instance FromJSON ComparisonOperator where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ComparisonOperator"
 
 instance ToJSON ComparisonOperator where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ReturnValue
     = RVAllNew     -- ^ ALL_NEW
@@ -1270,10 +1270,10 @@ instance ToText ReturnValue where
         RVUpdatedOld -> "UPDATED_OLD"
 
 instance FromJSON ReturnValue where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ReturnValue"
 
 instance ToJSON ReturnValue where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName  :: Text
@@ -1679,10 +1679,10 @@ instance ToText AttributeAction where
         Put     -> "PUT"
 
 instance FromJSON AttributeAction where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "AttributeAction"
 
 instance ToJSON AttributeAction where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ScalarAttributeType
     = B -- ^ B
@@ -1704,10 +1704,10 @@ instance ToText ScalarAttributeType where
         S -> "S"
 
 instance FromJSON ScalarAttributeType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ScalarAttributeType"
 
 instance ToJSON ScalarAttributeType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Projection = Projection
     { _pNonKeyAttributes :: List1 Text
@@ -1776,10 +1776,10 @@ instance ToText Select where
         SpecificAttributes     -> "SPECIFIC_ATTRIBUTES"
 
 instance FromJSON Select where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "Select"
 
 instance ToJSON Select where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
@@ -2055,10 +2055,10 @@ instance ToText ConditionalOperator where
         Or  -> "OR"
 
 instance FromJSON ConditionalOperator where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ConditionalOperator"
 
 instance ToJSON ConditionalOperator where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction

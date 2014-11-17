@@ -1374,10 +1374,10 @@ instance ToText WorkflowExecutionTimeoutType where
     toText StartToClose = "START_TO_CLOSE"
 
 instance FromJSON WorkflowExecutionTimeoutType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "WorkflowExecutionTimeoutType"
 
 instance ToJSON WorkflowExecutionTimeoutType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes
     { _satdaActivityId             :: Text
@@ -1855,10 +1855,10 @@ instance ToText RequestCancelActivityTaskFailedCause where
         OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
 instance FromJSON RequestCancelActivityTaskFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RequestCancelActivityTaskFailedCause"
 
 instance ToJSON RequestCancelActivityTaskFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEventAttributes
     { _satfeaActivityId                   :: Text
@@ -2052,10 +2052,10 @@ instance ToText WorkflowExecutionTerminatedCause where
         OperatorInitiated  -> "OPERATOR_INITIATED"
 
 instance FromJSON WorkflowExecutionTerminatedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "WorkflowExecutionTerminatedCause"
 
 instance ToJSON WorkflowExecutionTerminatedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data CancelWorkflowExecutionFailedCause
     = CWEFCOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -2074,10 +2074,10 @@ instance ToText CancelWorkflowExecutionFailedCause where
         CWEFCUnhandledDecision     -> "UNHANDLED_DECISION"
 
 instance FromJSON CancelWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "CancelWorkflowExecutionFailedCause"
 
 instance ToJSON CancelWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data SignalExternalWorkflowExecutionFailedCause
     = SEWEFCOperationNotPermitted                       -- ^ OPERATION_NOT_PERMITTED
@@ -2099,10 +2099,10 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
         SEWEFCUnknownExternalWorkflowExecution            -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
 instance FromJSON SignalExternalWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "SignalExternalWorkflowExecutionFailedCause"
 
 instance ToJSON SignalExternalWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
     { _rmdaDetails    :: Maybe Text
@@ -2277,10 +2277,10 @@ instance ToText DecisionType where
         StartTimer                             -> "StartTimer"
 
 instance FromJSON DecisionType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DecisionType"
 
 instance ToJSON DecisionType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes
     { _rcewefeaCause                        :: Text
@@ -2725,10 +2725,10 @@ instance ToText ActivityTaskTimeoutType where
         ATTTStartToClose    -> "START_TO_CLOSE"
 
 instance FromJSON ActivityTaskTimeoutType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ActivityTaskTimeoutType"
 
 instance ToJSON ActivityTaskTimeoutType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data WorkflowType = WorkflowType
     { _wtName    :: Text
@@ -2832,10 +2832,10 @@ instance ToText ExecutionStatus where
         Open   -> "OPEN"
 
 instance FromJSON ExecutionStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ExecutionStatus"
 
 instance ToJSON ExecutionStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DecisionTaskTimeoutType
     = DTTTStartToClose -- ^ START_TO_CLOSE
@@ -2850,10 +2850,10 @@ instance ToText DecisionTaskTimeoutType where
     toText DTTTStartToClose = "START_TO_CLOSE"
 
 instance FromJSON DecisionTaskTimeoutType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DecisionTaskTimeoutType"
 
 instance ToJSON DecisionTaskTimeoutType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data WorkflowExecutionCancelRequestedCause
     = WECRCChildPolicyApplied -- ^ CHILD_POLICY_APPLIED
@@ -2868,10 +2868,10 @@ instance ToText WorkflowExecutionCancelRequestedCause where
     toText WECRCChildPolicyApplied = "CHILD_POLICY_APPLIED"
 
 instance FromJSON WorkflowExecutionCancelRequestedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "WorkflowExecutionCancelRequestedCause"
 
 instance ToJSON WorkflowExecutionCancelRequestedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StartChildWorkflowExecutionFailedCause
     = SCWEFCChildCreationRateExceeded                    -- ^ CHILD_CREATION_RATE_EXCEEDED
@@ -2917,10 +2917,10 @@ instance ToText StartChildWorkflowExecutionFailedCause where
         SCWEFCWorkflowTypeDoesNotExist                     -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
 instance FromJSON StartChildWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StartChildWorkflowExecutionFailedCause"
 
 instance ToJSON StartChildWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
     { _dttoeaScheduledEventId :: Integer
@@ -3092,10 +3092,10 @@ instance ToText FailWorkflowExecutionFailedCause where
         FWEFCUnhandledDecision     -> "UNHANDLED_DECISION"
 
 instance FromJSON FailWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "FailWorkflowExecutionFailedCause"
 
 instance ToJSON FailWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter
     { _wefWorkflowId :: Text
@@ -3386,10 +3386,10 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
         CANWEFCWorkflowTypeDoesNotExist                     -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
 instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ContinueAsNewWorkflowExecutionFailedCause"
 
 instance ToJSON ContinueAsNewWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes
     { _fwedaDetails :: Maybe Text
@@ -3576,10 +3576,10 @@ instance ToText EventType where
         WorkflowExecutionTimedOut                       -> "WorkflowExecutionTimedOut"
 
 instance FromJSON EventType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "EventType"
 
 instance ToJSON EventType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
     { _attoeaDetails          :: Maybe Text
@@ -4136,10 +4136,10 @@ instance ToText ScheduleActivityTaskFailedCause where
         SATFCOperationNotPermitted                  -> "OPERATION_NOT_PERMITTED"
 
 instance FromJSON ScheduleActivityTaskFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ScheduleActivityTaskFailedCause"
 
 instance ToJSON ScheduleActivityTaskFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes
     { _cwecea1Details           :: Maybe Text
@@ -4452,10 +4452,10 @@ instance ToText ChildPolicy where
         Terminate     -> "TERMINATE"
 
 instance FromJSON ChildPolicy where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ChildPolicy"
 
 instance ToJSON ChildPolicy where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
     { _atseaIdentity         :: Maybe Text
@@ -4525,10 +4525,10 @@ instance ToText CloseStatus where
         CSTimedOut       -> "TIMED_OUT"
 
 instance FromJSON CloseStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "CloseStatus"
 
 instance ToJSON CloseStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data CompleteWorkflowExecutionFailedCause
     = CompleteWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
@@ -4547,10 +4547,10 @@ instance ToText CompleteWorkflowExecutionFailedCause where
         CompleteWorkflowExecutionFailedCauseUnhandledDecision     -> "UNHANDLED_DECISION"
 
 instance FromJSON CompleteWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "CompleteWorkflowExecutionFailedCause"
 
 instance ToJSON CompleteWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data StartTimerFailedCause
     = STFCOpenTimersLimitExceeded   -- ^ OPEN_TIMERS_LIMIT_EXCEEDED
@@ -4575,10 +4575,10 @@ instance ToText StartTimerFailedCause where
         STFCTimerIdAlreadyInUse       -> "TIMER_ID_ALREADY_IN_USE"
 
 instance FromJSON StartTimerFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StartTimerFailedCause"
 
 instance ToJSON StartTimerFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes
     { _atcreaActivityId                   :: Text
@@ -4842,10 +4842,10 @@ instance ToText RecordMarkerFailedCause where
     toText RMFCOperationNotPermitted = "OPERATION_NOT_PERMITTED"
 
 instance FromJSON RecordMarkerFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RecordMarkerFailedCause"
 
 instance ToJSON RecordMarkerFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data RegistrationStatus
     = Deprecated -- ^ DEPRECATED
@@ -4864,10 +4864,10 @@ instance ToText RegistrationStatus where
         Registered -> "REGISTERED"
 
 instance FromJSON RegistrationStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RegistrationStatus"
 
 instance ToJSON RegistrationStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data TimerStartedEventAttributes = TimerStartedEventAttributes
     { _tseaControl                      :: Maybe Text
@@ -5477,10 +5477,10 @@ instance ToText CancelTimerFailedCause where
         CTFCTimerIdUnknown        -> "TIMER_ID_UNKNOWN"
 
 instance FromJSON CancelTimerFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "CancelTimerFailedCause"
 
 instance ToJSON CancelTimerFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
     { _dtceaExecutionContext :: Maybe Text
@@ -6586,10 +6586,10 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
         RCEWEFCUnknownExternalWorkflowExecution                   -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RequestCancelExternalWorkflowExecutionFailedCause"
 
 instance ToJSON RequestCancelExternalWorkflowExecutionFailedCause where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes
     { _canwedaChildPolicy                  :: Maybe Text

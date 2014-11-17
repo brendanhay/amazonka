@@ -238,10 +238,10 @@ instance ToText ExtraParamName where
         VatNumber           -> "VAT_NUMBER"
 
 instance FromJSON ExtraParamName where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ExtraParamName"
 
 instance ToJSON ExtraParamName where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data Nameserver = Nameserver
     { _nGlueIps :: [Text]
@@ -309,10 +309,10 @@ instance ToText OperationStatus where
         Successful -> "SUCCESSFUL"
 
 instance FromJSON OperationStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "OperationStatus"
 
 instance ToJSON OperationStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DomainAvailability
     = Available             -- ^ AVAILABLE
@@ -346,10 +346,10 @@ instance ToText DomainAvailability where
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
 instance FromJSON DomainAvailability where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DomainAvailability"
 
 instance ToJSON DomainAvailability where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data OperationType
     = OTChangePrivacyProtection -- ^ CHANGE_PRIVACY_PROTECTION
@@ -383,10 +383,10 @@ instance ToText OperationType where
         OTUpdateNameserver        -> "UPDATE_NAMESERVER"
 
 instance FromJSON OperationType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "OperationType"
 
 instance ToJSON OperationType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data CountryCode
     = Ad  -- ^ AD
@@ -1086,10 +1086,10 @@ instance ToText CountryCode where
         Zw  -> "ZW"
 
 instance FromJSON CountryCode where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "CountryCode"
 
 instance ToJSON CountryCode where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ExtraParam = ExtraParam
     { _epName  :: Text
@@ -1160,10 +1160,10 @@ instance ToText ContactType where
         CTReseller    -> "RESELLER"
 
 instance FromJSON ContactType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ContactType"
 
 instance ToJSON ContactType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ContactDetail = ContactDetail
     { _cdAddressLine1     :: Maybe Text

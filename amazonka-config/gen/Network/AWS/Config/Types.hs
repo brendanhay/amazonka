@@ -379,10 +379,10 @@ instance ToText ChronologicalOrder where
         Reverse -> "Reverse"
 
 instance FromJSON ChronologicalOrder where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ChronologicalOrder"
 
 instance ToJSON ChronologicalOrder where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ResourceType
     = AWSCloudTrailTrail     -- ^ AWS::CloudTrail::Trail
@@ -437,10 +437,10 @@ instance ToText ResourceType where
         AWSEC2Volume           -> "AWS::EC2::Volume"
 
 instance FromJSON ResourceType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ResourceType"
 
 instance ToJSON ResourceType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ConfigurationItem = ConfigurationItem
     { _ciAccountId                    :: Maybe Text
@@ -615,10 +615,10 @@ instance ToText DeliveryStatus where
         Success -> "Success"
 
 instance FromJSON DeliveryStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "DeliveryStatus"
 
 instance ToJSON DeliveryStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data DeliveryChannelStatus = DeliveryChannelStatus
     { _dcsConfigHistoryDeliveryInfo  :: Maybe ConfigExportDeliveryInfo
@@ -787,10 +787,10 @@ instance ToText ConfigurationItemStatus where
         Ok         -> "Ok"
 
 instance FromJSON ConfigurationItemStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ConfigurationItemStatus"
 
 instance ToJSON ConfigurationItemStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data ConfigurationRecorder = ConfigurationRecorder
     { _crName    :: Maybe Text
@@ -848,7 +848,7 @@ instance ToText RecorderStatus where
         RSSuccess -> "Success"
 
 instance FromJSON RecorderStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "RecorderStatus"
 
 instance ToJSON RecorderStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText

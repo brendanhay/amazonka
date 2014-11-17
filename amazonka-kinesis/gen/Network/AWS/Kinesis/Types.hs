@@ -299,10 +299,10 @@ instance ToText StreamStatus where
         Updating -> "UPDATING"
 
 instance FromJSON StreamStatus where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "StreamStatus"
 
 instance ToJSON StreamStatus where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText
 
 data HashKeyRange = HashKeyRange
     { _hkrEndingHashKey   :: Text
@@ -448,7 +448,7 @@ instance ToText ShardIteratorType where
         TrimHorizon         -> "TRIM_HORIZON"
 
 instance FromJSON ShardIteratorType where
-    parseJSON = genericParseJSON jsonOptions
+    parseJSON = withFromText "ShardIteratorType"
 
 instance ToJSON ShardIteratorType where
-    toJSON = genericToJSON jsonOptions
+    toJSON = toJSON . toText

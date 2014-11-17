@@ -479,7 +479,7 @@ scPrivateKey = lens _scPrivateKey (\s a -> s { _scPrivateKey = a })
 instance FromJSON SslConfiguration where
     parseJSON = withObject "SslConfiguration" $ \o -> SslConfiguration
         <$> o .: "Certificate"
-        <*> o .: "Chain"
+        <*> o .:? "Chain"
         <*> o .: "PrivateKey"
 
 instance ToJSON SslConfiguration where
@@ -584,16 +584,16 @@ cType = lens _cType (\s a -> s { _cType = a })
 
 instance FromJSON Command where
     parseJSON = withObject "Command" $ \o -> Command
-        <$> o .: "AcknowledgedAt"
-        <*> o .: "CommandId"
-        <*> o .: "CompletedAt"
-        <*> o .: "CreatedAt"
-        <*> o .: "DeploymentId"
-        <*> o .: "ExitCode"
-        <*> o .: "InstanceId"
-        <*> o .: "LogUrl"
-        <*> o .: "Status"
-        <*> o .: "Type"
+        <$> o .:? "AcknowledgedAt"
+        <*> o .:? "CommandId"
+        <*> o .:? "CompletedAt"
+        <*> o .:? "CreatedAt"
+        <*> o .:? "DeploymentId"
+        <*> o .:? "ExitCode"
+        <*> o .:? "InstanceId"
+        <*> o .:? "LogUrl"
+        <*> o .:? "Status"
+        <*> o .:? "Type"
 
 instance ToJSON Command where
     toJSON Command{..} = object
@@ -720,18 +720,18 @@ raVolumeType = lens _raVolumeType (\s a -> s { _raVolumeType = a })
 
 instance FromJSON RaidArray where
     parseJSON = withObject "RaidArray" $ \o -> RaidArray
-        <$> o .: "AvailabilityZone"
-        <*> o .: "CreatedAt"
-        <*> o .: "Device"
-        <*> o .: "InstanceId"
-        <*> o .: "Iops"
-        <*> o .: "MountPoint"
-        <*> o .: "Name"
-        <*> o .: "NumberOfDisks"
-        <*> o .: "RaidArrayId"
-        <*> o .: "RaidLevel"
-        <*> o .: "Size"
-        <*> o .: "VolumeType"
+        <$> o .:? "AvailabilityZone"
+        <*> o .:? "CreatedAt"
+        <*> o .:? "Device"
+        <*> o .:? "InstanceId"
+        <*> o .:? "Iops"
+        <*> o .:? "MountPoint"
+        <*> o .:? "Name"
+        <*> o .:? "NumberOfDisks"
+        <*> o .:? "RaidArrayId"
+        <*> o .:? "RaidLevel"
+        <*> o .:? "Size"
+        <*> o .:? "VolumeType"
 
 instance ToJSON RaidArray where
     toJSON RaidArray{..} = object
@@ -840,14 +840,14 @@ elbVpcId = lens _elbVpcId (\s a -> s { _elbVpcId = a })
 instance FromJSON ElasticLoadBalancer where
     parseJSON = withObject "ElasticLoadBalancer" $ \o -> ElasticLoadBalancer
         <$> o .: "AvailabilityZones"
-        <*> o .: "DnsName"
+        <*> o .:? "DnsName"
         <*> o .: "Ec2InstanceIds"
-        <*> o .: "ElasticLoadBalancerName"
-        <*> o .: "LayerId"
-        <*> o .: "Region"
-        <*> o .: "StackId"
+        <*> o .:? "ElasticLoadBalancerName"
+        <*> o .:? "LayerId"
+        <*> o .:? "Region"
+        <*> o .:? "StackId"
         <*> o .: "SubnetIds"
-        <*> o .: "VpcId"
+        <*> o .:? "VpcId"
 
 instance ToJSON ElasticLoadBalancer where
     toJSON ElasticLoadBalancer{..} = object
@@ -952,15 +952,15 @@ rdiStackId = lens _rdiStackId (\s a -> s { _rdiStackId = a })
 
 instance FromJSON RdsDbInstance where
     parseJSON = withObject "RdsDbInstance" $ \o -> RdsDbInstance
-        <$> o .: "Address"
-        <*> o .: "DbInstanceIdentifier"
-        <*> o .: "DbPassword"
-        <*> o .: "DbUser"
-        <*> o .: "Engine"
-        <*> o .: "MissingOnRds"
-        <*> o .: "RdsDbInstanceArn"
-        <*> o .: "Region"
-        <*> o .: "StackId"
+        <$> o .:? "Address"
+        <*> o .:? "DbInstanceIdentifier"
+        <*> o .:? "DbPassword"
+        <*> o .:? "DbUser"
+        <*> o .:? "Engine"
+        <*> o .:? "MissingOnRds"
+        <*> o .:? "RdsDbInstanceArn"
+        <*> o .:? "Region"
+        <*> o .:? "StackId"
 
 instance ToJSON RdsDbInstance where
     toJSON RdsDbInstance{..} = object
@@ -1061,12 +1061,12 @@ seType = lens _seType (\s a -> s { _seType = a })
 
 instance FromJSON ServiceError' where
     parseJSON = withObject "ServiceError'" $ \o -> ServiceError'
-        <$> o .: "CreatedAt"
-        <*> o .: "InstanceId"
-        <*> o .: "Message"
-        <*> o .: "ServiceErrorId"
-        <*> o .: "StackId"
-        <*> o .: "Type"
+        <$> o .:? "CreatedAt"
+        <*> o .:? "InstanceId"
+        <*> o .:? "Message"
+        <*> o .:? "ServiceErrorId"
+        <*> o .:? "StackId"
+        <*> o .:? "Type"
 
 instance ToJSON ServiceError' where
     toJSON ServiceError'{..} = object
@@ -1139,12 +1139,12 @@ ssStackId = lens _ssStackId (\s a -> s { _ssStackId = a })
 
 instance FromJSON StackSummary where
     parseJSON = withObject "StackSummary" $ \o -> StackSummary
-        <$> o .: "AppsCount"
-        <*> o .: "Arn"
-        <*> o .: "InstancesCount"
-        <*> o .: "LayersCount"
-        <*> o .: "Name"
-        <*> o .: "StackId"
+        <$> o .:? "AppsCount"
+        <*> o .:? "Arn"
+        <*> o .:? "InstancesCount"
+        <*> o .:? "LayersCount"
+        <*> o .:? "Name"
+        <*> o .:? "StackId"
 
 instance ToJSON StackSummary where
     toJSON StackSummary{..} = object
@@ -1223,10 +1223,10 @@ lbascUpScaling = lens _lbascUpScaling (\s a -> s { _lbascUpScaling = a })
 
 instance FromJSON LoadBasedAutoScalingConfiguration where
     parseJSON = withObject "LoadBasedAutoScalingConfiguration" $ \o -> LoadBasedAutoScalingConfiguration
-        <$> o .: "DownScaling"
-        <*> o .: "Enable"
-        <*> o .: "LayerId"
-        <*> o .: "UpScaling"
+        <$> o .:? "DownScaling"
+        <*> o .:? "Enable"
+        <*> o .:? "LayerId"
+        <*> o .:? "UpScaling"
 
 instance ToJSON LoadBasedAutoScalingConfiguration where
     toJSON LoadBasedAutoScalingConfiguration{..} = object
@@ -1384,19 +1384,19 @@ vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
 instance FromJSON Volume where
     parseJSON = withObject "Volume" $ \o -> Volume
-        <$> o .: "AvailabilityZone"
-        <*> o .: "Device"
-        <*> o .: "Ec2VolumeId"
-        <*> o .: "InstanceId"
-        <*> o .: "Iops"
-        <*> o .: "MountPoint"
-        <*> o .: "Name"
-        <*> o .: "RaidArrayId"
-        <*> o .: "Region"
-        <*> o .: "Size"
-        <*> o .: "Status"
-        <*> o .: "VolumeId"
-        <*> o .: "VolumeType"
+        <$> o .:? "AvailabilityZone"
+        <*> o .:? "Device"
+        <*> o .:? "Ec2VolumeId"
+        <*> o .:? "InstanceId"
+        <*> o .:? "Iops"
+        <*> o .:? "MountPoint"
+        <*> o .:? "Name"
+        <*> o .:? "RaidArrayId"
+        <*> o .:? "Region"
+        <*> o .:? "Size"
+        <*> o .:? "Status"
+        <*> o .:? "VolumeId"
+        <*> o .:? "VolumeType"
 
 instance ToJSON Volume where
     toJSON Volume{..} = object
@@ -1446,8 +1446,8 @@ ccManageBerkshelf =
 
 instance FromJSON ChefConfiguration where
     parseJSON = withObject "ChefConfiguration" $ \o -> ChefConfiguration
-        <$> o .: "BerkshelfVersion"
-        <*> o .: "ManageBerkshelf"
+        <$> o .:? "BerkshelfVersion"
+        <*> o .:? "ManageBerkshelf"
 
 instance ToJSON ChefConfiguration where
     toJSON ChefConfiguration{..} = object
@@ -1574,12 +1574,12 @@ astThresholdsWaitTime =
 
 instance FromJSON AutoScalingThresholds where
     parseJSON = withObject "AutoScalingThresholds" $ \o -> AutoScalingThresholds
-        <$> o .: "CpuThreshold"
-        <*> o .: "IgnoreMetricsTime"
-        <*> o .: "InstanceCount"
-        <*> o .: "LoadThreshold"
-        <*> o .: "MemoryThreshold"
-        <*> o .: "ThresholdsWaitTime"
+        <$> o .:? "CpuThreshold"
+        <*> o .:? "IgnoreMetricsTime"
+        <*> o .:? "InstanceCount"
+        <*> o .:? "LoadThreshold"
+        <*> o .:? "MemoryThreshold"
+        <*> o .:? "ThresholdsWaitTime"
 
 instance ToJSON AutoScalingThresholds where
     toJSON AutoScalingThresholds{..} = object
@@ -1711,19 +1711,19 @@ appType = lens _appType (\s a -> s { _appType = a })
 
 instance FromJSON App where
     parseJSON = withObject "App" $ \o -> App
-        <$> o .: "AppId"
-        <*> o .: "AppSource"
+        <$> o .:? "AppId"
+        <*> o .:? "AppSource"
         <*> o .: "Attributes"
-        <*> o .: "CreatedAt"
+        <*> o .:? "CreatedAt"
         <*> o .: "DataSources"
-        <*> o .: "Description"
+        <*> o .:? "Description"
         <*> o .: "Domains"
-        <*> o .: "EnableSsl"
-        <*> o .: "Name"
-        <*> o .: "Shortname"
-        <*> o .: "SslConfiguration"
-        <*> o .: "StackId"
-        <*> o .: "Type"
+        <*> o .:? "EnableSsl"
+        <*> o .:? "Name"
+        <*> o .:? "Shortname"
+        <*> o .:? "SslConfiguration"
+        <*> o .:? "StackId"
+        <*> o .:? "Type"
 
 instance ToJSON App where
     toJSON App{..} = object
@@ -1795,11 +1795,11 @@ eiRegion = lens _eiRegion (\s a -> s { _eiRegion = a })
 
 instance FromJSON ElasticIp where
     parseJSON = withObject "ElasticIp" $ \o -> ElasticIp
-        <$> o .: "Domain"
-        <*> o .: "InstanceId"
-        <*> o .: "Ip"
-        <*> o .: "Name"
-        <*> o .: "Region"
+        <$> o .:? "Domain"
+        <*> o .:? "InstanceId"
+        <*> o .:? "Ip"
+        <*> o .:? "Name"
+        <*> o .:? "Region"
 
 instance ToJSON ElasticIp where
     toJSON ElasticIp{..} = object
@@ -1865,11 +1865,11 @@ upSshUsername = lens _upSshUsername (\s a -> s { _upSshUsername = a })
 
 instance FromJSON UserProfile where
     parseJSON = withObject "UserProfile" $ \o -> UserProfile
-        <$> o .: "AllowSelfManagement"
-        <*> o .: "IamUserArn"
-        <*> o .: "Name"
-        <*> o .: "SshPublicKey"
-        <*> o .: "SshUsername"
+        <$> o .:? "AllowSelfManagement"
+        <*> o .:? "IamUserArn"
+        <*> o .:? "Name"
+        <*> o .:? "SshPublicKey"
+        <*> o .:? "SshUsername"
 
 instance ToJSON UserProfile where
     toJSON UserProfile{..} = object
@@ -1971,12 +1971,12 @@ sUsername = lens _sUsername (\s a -> s { _sUsername = a })
 
 instance FromJSON Source where
     parseJSON = withObject "Source" $ \o -> Source
-        <$> o .: "Password"
-        <*> o .: "Revision"
-        <*> o .: "SshKey"
-        <*> o .: "Type"
-        <*> o .: "Url"
-        <*> o .: "Username"
+        <$> o .:? "Password"
+        <*> o .:? "Revision"
+        <*> o .:? "SshKey"
+        <*> o .:? "Type"
+        <*> o .:? "Url"
+        <*> o .:? "Username"
 
 instance ToJSON Source where
     toJSON Source{..} = object
@@ -2026,9 +2026,9 @@ dsType = lens _dsType (\s a -> s { _dsType = a })
 
 instance FromJSON DataSource where
     parseJSON = withObject "DataSource" $ \o -> DataSource
-        <$> o .: "Arn"
-        <*> o .: "DatabaseName"
-        <*> o .: "Type"
+        <$> o .:? "Arn"
+        <*> o .:? "DatabaseName"
+        <*> o .:? "Type"
 
 instance ToJSON DataSource where
     toJSON DataSource{..} = object
@@ -2089,8 +2089,8 @@ scmVersion = lens _scmVersion (\s a -> s { _scmVersion = a })
 
 instance FromJSON StackConfigurationManager where
     parseJSON = withObject "StackConfigurationManager" $ \o -> StackConfigurationManager
-        <$> o .: "Name"
-        <*> o .: "Version"
+        <$> o .:? "Name"
+        <*> o .:? "Version"
 
 instance ToJSON StackConfigurationManager where
     toJSON StackConfigurationManager{..} = object
@@ -2250,12 +2250,12 @@ vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
 
 instance FromJSON VolumeConfiguration where
     parseJSON = withObject "VolumeConfiguration" $ \o -> VolumeConfiguration
-        <$> o .: "Iops"
+        <$> o .:? "Iops"
         <*> o .: "MountPoint"
         <*> o .: "NumberOfDisks"
-        <*> o .: "RaidLevel"
+        <*> o .:? "RaidLevel"
         <*> o .: "Size"
-        <*> o .: "VolumeType"
+        <*> o .:? "VolumeType"
 
 instance ToJSON VolumeConfiguration where
     toJSON VolumeConfiguration{..} = object
@@ -2323,11 +2323,11 @@ pStackId = lens _pStackId (\s a -> s { _pStackId = a })
 
 instance FromJSON Permission where
     parseJSON = withObject "Permission" $ \o -> Permission
-        <$> o .: "AllowSsh"
-        <*> o .: "AllowSudo"
-        <*> o .: "IamUserArn"
-        <*> o .: "Level"
-        <*> o .: "StackId"
+        <$> o .:? "AllowSsh"
+        <*> o .:? "AllowSudo"
+        <*> o .:? "IamUserArn"
+        <*> o .:? "Level"
+        <*> o .:? "StackId"
 
 instance ToJSON Permission where
     toJSON Permission{..} = object
@@ -2527,23 +2527,23 @@ lVolumeConfigurations =
 instance FromJSON Layer where
     parseJSON = withObject "Layer" $ \o -> Layer
         <$> o .: "Attributes"
-        <*> o .: "AutoAssignElasticIps"
-        <*> o .: "AutoAssignPublicIps"
-        <*> o .: "CreatedAt"
-        <*> o .: "CustomInstanceProfileArn"
-        <*> o .: "CustomRecipes"
+        <*> o .:? "AutoAssignElasticIps"
+        <*> o .:? "AutoAssignPublicIps"
+        <*> o .:? "CreatedAt"
+        <*> o .:? "CustomInstanceProfileArn"
+        <*> o .:? "CustomRecipes"
         <*> o .: "CustomSecurityGroupIds"
-        <*> o .: "DefaultRecipes"
+        <*> o .:? "DefaultRecipes"
         <*> o .: "DefaultSecurityGroupNames"
-        <*> o .: "EnableAutoHealing"
-        <*> o .: "InstallUpdatesOnBoot"
-        <*> o .: "LayerId"
-        <*> o .: "Name"
+        <*> o .:? "EnableAutoHealing"
+        <*> o .:? "InstallUpdatesOnBoot"
+        <*> o .:? "LayerId"
+        <*> o .:? "Name"
         <*> o .: "Packages"
-        <*> o .: "Shortname"
-        <*> o .: "StackId"
-        <*> o .: "Type"
-        <*> o .: "UseEbsOptimizedInstances"
+        <*> o .:? "Shortname"
+        <*> o .:? "StackId"
+        <*> o .:? "Type"
+        <*> o .:? "UseEbsOptimizedInstances"
         <*> o .: "VolumeConfigurations"
 
 instance ToJSON Layer where
@@ -2668,8 +2668,8 @@ tbascInstanceId = lens _tbascInstanceId (\s a -> s { _tbascInstanceId = a })
 
 instance FromJSON TimeBasedAutoScalingConfiguration where
     parseJSON = withObject "TimeBasedAutoScalingConfiguration" $ \o -> TimeBasedAutoScalingConfiguration
-        <$> o .: "AutoScalingSchedule"
-        <*> o .: "InstanceId"
+        <$> o .:? "AutoScalingSchedule"
+        <*> o .:? "InstanceId"
 
 instance ToJSON TimeBasedAutoScalingConfiguration where
     toJSON TimeBasedAutoScalingConfiguration{..} = object
@@ -2722,10 +2722,10 @@ supSshUsername = lens _supSshUsername (\s a -> s { _supSshUsername = a })
 
 instance FromJSON SelfUserProfile where
     parseJSON = withObject "SelfUserProfile" $ \o -> SelfUserProfile
-        <$> o .: "IamUserArn"
-        <*> o .: "Name"
-        <*> o .: "SshPublicKey"
-        <*> o .: "SshUsername"
+        <$> o .:? "IamUserArn"
+        <*> o .:? "Name"
+        <*> o .:? "SshPublicKey"
+        <*> o .:? "SshUsername"
 
 instance ToJSON SelfUserProfile where
     toJSON SelfUserProfile{..} = object
@@ -2965,27 +2965,27 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
 instance FromJSON Stack where
     parseJSON = withObject "Stack" $ \o -> Stack
-        <$> o .: "Arn"
+        <$> o .:? "Arn"
         <*> o .: "Attributes"
-        <*> o .: "ChefConfiguration"
-        <*> o .: "ConfigurationManager"
-        <*> o .: "CreatedAt"
-        <*> o .: "CustomCookbooksSource"
-        <*> o .: "CustomJson"
-        <*> o .: "DefaultAvailabilityZone"
-        <*> o .: "DefaultInstanceProfileArn"
-        <*> o .: "DefaultOs"
-        <*> o .: "DefaultRootDeviceType"
-        <*> o .: "DefaultSshKeyName"
-        <*> o .: "DefaultSubnetId"
-        <*> o .: "HostnameTheme"
-        <*> o .: "Name"
-        <*> o .: "Region"
-        <*> o .: "ServiceRoleArn"
-        <*> o .: "StackId"
-        <*> o .: "UseCustomCookbooks"
-        <*> o .: "UseOpsworksSecurityGroups"
-        <*> o .: "VpcId"
+        <*> o .:? "ChefConfiguration"
+        <*> o .:? "ConfigurationManager"
+        <*> o .:? "CreatedAt"
+        <*> o .:? "CustomCookbooksSource"
+        <*> o .:? "CustomJson"
+        <*> o .:? "DefaultAvailabilityZone"
+        <*> o .:? "DefaultInstanceProfileArn"
+        <*> o .:? "DefaultOs"
+        <*> o .:? "DefaultRootDeviceType"
+        <*> o .:? "DefaultSshKeyName"
+        <*> o .:? "DefaultSubnetId"
+        <*> o .:? "HostnameTheme"
+        <*> o .:? "Name"
+        <*> o .:? "Region"
+        <*> o .:? "ServiceRoleArn"
+        <*> o .:? "StackId"
+        <*> o .:? "UseCustomCookbooks"
+        <*> o .:? "UseOpsworksSecurityGroups"
+        <*> o .:? "VpcId"
 
 instance ToJSON Stack where
     toJSON Stack{..} = object
@@ -3496,36 +3496,36 @@ iVirtualizationType =
 
 instance FromJSON Instance where
     parseJSON = withObject "Instance" $ \o -> Instance
-        <$> o .: "AmiId"
-        <*> o .: "Architecture"
-        <*> o .: "AutoScalingType"
-        <*> o .: "AvailabilityZone"
-        <*> o .: "CreatedAt"
-        <*> o .: "EbsOptimized"
-        <*> o .: "Ec2InstanceId"
-        <*> o .: "ElasticIp"
-        <*> o .: "Hostname"
-        <*> o .: "InstallUpdatesOnBoot"
-        <*> o .: "InstanceId"
-        <*> o .: "InstanceProfileArn"
-        <*> o .: "InstanceType"
-        <*> o .: "LastServiceErrorId"
+        <$> o .:? "AmiId"
+        <*> o .:? "Architecture"
+        <*> o .:? "AutoScalingType"
+        <*> o .:? "AvailabilityZone"
+        <*> o .:? "CreatedAt"
+        <*> o .:? "EbsOptimized"
+        <*> o .:? "Ec2InstanceId"
+        <*> o .:? "ElasticIp"
+        <*> o .:? "Hostname"
+        <*> o .:? "InstallUpdatesOnBoot"
+        <*> o .:? "InstanceId"
+        <*> o .:? "InstanceProfileArn"
+        <*> o .:? "InstanceType"
+        <*> o .:? "LastServiceErrorId"
         <*> o .: "LayerIds"
-        <*> o .: "Os"
-        <*> o .: "PrivateDns"
-        <*> o .: "PrivateIp"
-        <*> o .: "PublicDns"
-        <*> o .: "PublicIp"
-        <*> o .: "RootDeviceType"
-        <*> o .: "RootDeviceVolumeId"
+        <*> o .:? "Os"
+        <*> o .:? "PrivateDns"
+        <*> o .:? "PrivateIp"
+        <*> o .:? "PublicDns"
+        <*> o .:? "PublicIp"
+        <*> o .:? "RootDeviceType"
+        <*> o .:? "RootDeviceVolumeId"
         <*> o .: "SecurityGroupIds"
-        <*> o .: "SshHostDsaKeyFingerprint"
-        <*> o .: "SshHostRsaKeyFingerprint"
-        <*> o .: "SshKeyName"
-        <*> o .: "StackId"
-        <*> o .: "Status"
-        <*> o .: "SubnetId"
-        <*> o .: "VirtualizationType"
+        <*> o .:? "SshHostDsaKeyFingerprint"
+        <*> o .:? "SshHostRsaKeyFingerprint"
+        <*> o .:? "SshKeyName"
+        <*> o .:? "StackId"
+        <*> o .:? "Status"
+        <*> o .:? "SubnetId"
+        <*> o .:? "VirtualizationType"
 
 instance ToJSON Instance where
     toJSON Instance{..} = object
@@ -3674,18 +3674,18 @@ dStatus = lens _dStatus (\s a -> s { _dStatus = a })
 
 instance FromJSON Deployment where
     parseJSON = withObject "Deployment" $ \o -> Deployment
-        <$> o .: "AppId"
-        <*> o .: "Command"
-        <*> o .: "Comment"
-        <*> o .: "CompletedAt"
-        <*> o .: "CreatedAt"
-        <*> o .: "CustomJson"
-        <*> o .: "DeploymentId"
-        <*> o .: "Duration"
-        <*> o .: "IamUserArn"
+        <$> o .:? "AppId"
+        <*> o .:? "Command"
+        <*> o .:? "Comment"
+        <*> o .:? "CompletedAt"
+        <*> o .:? "CreatedAt"
+        <*> o .:? "CustomJson"
+        <*> o .:? "DeploymentId"
+        <*> o .:? "Duration"
+        <*> o .:? "IamUserArn"
         <*> o .: "InstanceIds"
-        <*> o .: "StackId"
-        <*> o .: "Status"
+        <*> o .:? "StackId"
+        <*> o .:? "Status"
 
 instance ToJSON Deployment where
     toJSON Deployment{..} = object
@@ -3828,20 +3828,20 @@ icTerminating = lens _icTerminating (\s a -> s { _icTerminating = a })
 
 instance FromJSON InstancesCount where
     parseJSON = withObject "InstancesCount" $ \o -> InstancesCount
-        <$> o .: "Booting"
-        <*> o .: "ConnectionLost"
-        <*> o .: "Online"
-        <*> o .: "Pending"
-        <*> o .: "Rebooting"
-        <*> o .: "Requested"
-        <*> o .: "RunningSetup"
-        <*> o .: "SetupFailed"
-        <*> o .: "ShuttingDown"
-        <*> o .: "StartFailed"
-        <*> o .: "Stopped"
-        <*> o .: "Stopping"
-        <*> o .: "Terminated"
-        <*> o .: "Terminating"
+        <$> o .:? "Booting"
+        <*> o .:? "ConnectionLost"
+        <*> o .:? "Online"
+        <*> o .:? "Pending"
+        <*> o .:? "Rebooting"
+        <*> o .:? "Requested"
+        <*> o .:? "RunningSetup"
+        <*> o .:? "SetupFailed"
+        <*> o .:? "ShuttingDown"
+        <*> o .:? "StartFailed"
+        <*> o .:? "Stopped"
+        <*> o .:? "Stopping"
+        <*> o .:? "Terminated"
+        <*> o .:? "Terminating"
 
 instance ToJSON InstancesCount where
     toJSON InstancesCount{..} = object

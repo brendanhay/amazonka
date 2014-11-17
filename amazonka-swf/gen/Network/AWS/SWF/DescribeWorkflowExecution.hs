@@ -181,6 +181,6 @@ instance FromJSON DescribeWorkflowExecutionResponse where
     parseJSON = withObject "DescribeWorkflowExecutionResponse" $ \o -> DescribeWorkflowExecutionResponse
         <$> o .: "executionConfiguration"
         <*> o .: "executionInfo"
-        <*> o .: "latestActivityTaskTimestamp"
-        <*> o .: "latestExecutionContext"
+        <*> o .:? "latestActivityTaskTimestamp"
+        <*> o .:? "latestExecutionContext"
         <*> o .: "openCounts"

@@ -110,4 +110,4 @@ instance AWSRequest DescribeIdentityPoolUsage where
 
 instance FromJSON DescribeIdentityPoolUsageResponse where
     parseJSON = withObject "DescribeIdentityPoolUsageResponse" $ \o -> DescribeIdentityPoolUsageResponse
-        <$> o .: "IdentityPoolUsage"
+        <$> o .:? "IdentityPoolUsage"

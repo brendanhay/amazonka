@@ -183,9 +183,9 @@ instance AWSRequest CreateInterconnect where
 
 instance FromJSON CreateInterconnectResponse where
     parseJSON = withObject "CreateInterconnectResponse" $ \o -> CreateInterconnectResponse
-        <$> o .: "bandwidth"
-        <*> o .: "interconnectId"
-        <*> o .: "interconnectName"
-        <*> o .: "interconnectState"
-        <*> o .: "location"
-        <*> o .: "region"
+        <$> o .:? "bandwidth"
+        <*> o .:? "interconnectId"
+        <*> o .:? "interconnectName"
+        <*> o .:? "interconnectState"
+        <*> o .:? "location"
+        <*> o .:? "region"

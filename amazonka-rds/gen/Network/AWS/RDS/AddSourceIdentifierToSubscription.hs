@@ -120,4 +120,4 @@ instance AWSRequest AddSourceIdentifierToSubscription where
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
     parseXML c = AddSourceIdentifierToSubscriptionResponse
-        <$> c .: "EventSubscription"
+        <$> c .:? "EventSubscription"

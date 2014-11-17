@@ -107,4 +107,4 @@ instance AWSRequest GetKeyRotationStatus where
 
 instance FromJSON GetKeyRotationStatusResponse where
     parseJSON = withObject "GetKeyRotationStatusResponse" $ \o -> GetKeyRotationStatusResponse
-        <$> o .: "KeyRotationEnabled"
+        <$> o .:? "KeyRotationEnabled"

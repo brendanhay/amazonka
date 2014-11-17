@@ -145,5 +145,5 @@ instance AWSRequest CreateSnapshot where
 
 instance FromJSON CreateSnapshotResponse where
     parseJSON = withObject "CreateSnapshotResponse" $ \o -> CreateSnapshotResponse
-        <$> o .: "SnapshotId"
-        <*> o .: "VolumeARN"
+        <$> o .:? "SnapshotId"
+        <*> o .:? "VolumeARN"

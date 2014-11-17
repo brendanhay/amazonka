@@ -259,5 +259,5 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     parseXML c = DescribeReservedInstancesOfferingsResponse
-        <$> c .: "nextToken"
+        <$> c .:? "nextToken"
         <*> c .: "reservedInstancesOfferingsSet"

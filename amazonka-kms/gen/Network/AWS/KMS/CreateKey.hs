@@ -131,4 +131,4 @@ instance AWSRequest CreateKey where
 
 instance FromJSON CreateKeyResponse where
     parseJSON = withObject "CreateKeyResponse" $ \o -> CreateKeyResponse
-        <$> o .: "KeyMetadata"
+        <$> o .:? "KeyMetadata"

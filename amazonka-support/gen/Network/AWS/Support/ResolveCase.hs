@@ -117,5 +117,5 @@ instance AWSRequest ResolveCase where
 
 instance FromJSON ResolveCaseResponse where
     parseJSON = withObject "ResolveCaseResponse" $ \o -> ResolveCaseResponse
-        <$> o .: "finalCaseStatus"
-        <*> o .: "initialCaseStatus"
+        <$> o .:? "finalCaseStatus"
+        <*> o .:? "initialCaseStatus"

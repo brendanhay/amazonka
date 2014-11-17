@@ -169,4 +169,4 @@ instance AWSRequest CreateNetworkInterface where
 
 instance FromXML CreateNetworkInterfaceResponse where
     parseXML c = CreateNetworkInterfaceResponse
-        <$> c .: "networkInterface"
+        <$> c .:? "networkInterface"

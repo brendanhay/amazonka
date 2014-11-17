@@ -105,4 +105,4 @@ instance AWSRequest GetTemplate where
 
 instance FromXML GetTemplateResponse where
     parseXML c = GetTemplateResponse
-        <$> c .: "TemplateBody"
+        <$> c .:? "TemplateBody"

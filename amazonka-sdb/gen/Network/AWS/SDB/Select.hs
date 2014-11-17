@@ -142,4 +142,4 @@ instance AWSRequest Select where
 instance FromXML SelectResponse where
     parseXML c = SelectResponse
         <$> c .: "Items"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

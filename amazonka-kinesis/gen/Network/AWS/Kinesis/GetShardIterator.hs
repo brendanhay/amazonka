@@ -180,4 +180,4 @@ instance AWSRequest GetShardIterator where
 
 instance FromJSON GetShardIteratorResponse where
     parseJSON = withObject "GetShardIteratorResponse" $ \o -> GetShardIteratorResponse
-        <$> o .: "ShardIterator"
+        <$> o .:? "ShardIterator"

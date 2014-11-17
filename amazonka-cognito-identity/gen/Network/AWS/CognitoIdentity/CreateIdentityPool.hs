@@ -220,7 +220,7 @@ instance AWSRequest CreateIdentityPool where
 instance FromJSON CreateIdentityPoolResponse where
     parseJSON = withObject "CreateIdentityPoolResponse" $ \o -> CreateIdentityPoolResponse
         <$> o .: "AllowUnauthenticatedIdentities"
-        <*> o .: "DeveloperProviderName"
+        <*> o .:? "DeveloperProviderName"
         <*> o .: "IdentityPoolId"
         <*> o .: "IdentityPoolName"
         <*> o .: "OpenIdConnectProviderARNs"

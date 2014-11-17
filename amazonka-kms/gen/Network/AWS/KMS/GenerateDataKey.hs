@@ -177,6 +177,6 @@ instance AWSRequest GenerateDataKey where
 
 instance FromJSON GenerateDataKeyResponse where
     parseJSON = withObject "GenerateDataKeyResponse" $ \o -> GenerateDataKeyResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
-        <*> o .: "Plaintext"
+        <$> o .:? "CiphertextBlob"
+        <*> o .:? "KeyId"
+        <*> o .:? "Plaintext"

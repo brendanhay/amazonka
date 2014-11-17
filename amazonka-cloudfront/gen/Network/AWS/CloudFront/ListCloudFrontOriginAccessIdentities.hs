@@ -116,4 +116,4 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     parseXML c = ListCloudFrontOriginAccessIdentitiesResponse
-        <$> c .: "CloudFrontOriginAccessIdentityList"
+        <$> c .:? "CloudFrontOriginAccessIdentityList"

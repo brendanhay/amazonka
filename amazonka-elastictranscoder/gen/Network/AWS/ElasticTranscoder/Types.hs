@@ -345,9 +345,9 @@ pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 
 instance FromJSON PipelineOutputConfig where
     parseJSON = withObject "PipelineOutputConfig" $ \o -> PipelineOutputConfig
-        <$> o .: "Bucket"
+        <$> o .:? "Bucket"
         <*> o .: "Permissions"
-        <*> o .: "StorageClass"
+        <*> o .:? "StorageClass"
 
 instance ToJSON PipelineOutputConfig where
     toJSON PipelineOutputConfig{..} = object
@@ -423,8 +423,8 @@ cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
 
 instance FromJSON CreateJobPlaylist where
     parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
-        <$> o .: "Format"
-        <*> o .: "Name"
+        <$> o .:? "Format"
+        <*> o .:? "Name"
         <*> o .: "OutputKeys"
 
 instance ToJSON CreateJobPlaylist where
@@ -487,7 +487,7 @@ instance FromJSON Captions where
     parseJSON = withObject "Captions" $ \o -> Captions
         <$> o .: "CaptionFormats"
         <*> o .: "CaptionSources"
-        <*> o .: "MergePolicy"
+        <*> o .:? "MergePolicy"
 
 instance ToJSON Captions where
     toJSON Captions{..} = object
@@ -526,7 +526,7 @@ acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 
 instance FromJSON AudioCodecOptions where
     parseJSON = withObject "AudioCodecOptions" $ \o -> AudioCodecOptions
-        <$> o .: "Profile"
+        <$> o .:? "Profile"
 
 instance ToJSON AudioCodecOptions where
     toJSON AudioCodecOptions{..} = object
@@ -769,21 +769,21 @@ joWidth = lens _joWidth (\s a -> s { _joWidth = a })
 
 instance FromJSON JobOutput where
     parseJSON = withObject "JobOutput" $ \o -> JobOutput
-        <$> o .: "AlbumArt"
-        <*> o .: "Captions"
+        <$> o .:? "AlbumArt"
+        <*> o .:? "Captions"
         <*> o .: "Composition"
-        <*> o .: "Duration"
-        <*> o .: "Height"
-        <*> o .: "Id"
-        <*> o .: "Key"
-        <*> o .: "PresetId"
-        <*> o .: "Rotate"
-        <*> o .: "SegmentDuration"
-        <*> o .: "Status"
-        <*> o .: "StatusDetail"
-        <*> o .: "ThumbnailPattern"
+        <*> o .:? "Duration"
+        <*> o .:? "Height"
+        <*> o .:? "Id"
+        <*> o .:? "Key"
+        <*> o .:? "PresetId"
+        <*> o .:? "Rotate"
+        <*> o .:? "SegmentDuration"
+        <*> o .:? "Status"
+        <*> o .:? "StatusDetail"
+        <*> o .:? "ThumbnailPattern"
         <*> o .: "Watermarks"
-        <*> o .: "Width"
+        <*> o .:? "Width"
 
 instance ToJSON JobOutput where
     toJSON JobOutput{..} = object
@@ -914,15 +914,15 @@ jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
 instance FromJSON Job' where
     parseJSON = withObject "Job'" $ \o -> Job'
-        <$> o .: "Arn"
-        <*> o .: "Id"
-        <*> o .: "Input"
-        <*> o .: "Output"
-        <*> o .: "OutputKeyPrefix"
+        <$> o .:? "Arn"
+        <*> o .:? "Id"
+        <*> o .:? "Input"
+        <*> o .:? "Output"
+        <*> o .:? "OutputKeyPrefix"
         <*> o .: "Outputs"
-        <*> o .: "PipelineId"
+        <*> o .:? "PipelineId"
         <*> o .: "Playlists"
-        <*> o .: "Status"
+        <*> o .:? "Status"
 
 instance ToJSON Job' where
     toJSON Job'{..} = object
@@ -991,10 +991,10 @@ csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
 
 instance FromJSON CaptionSource where
     parseJSON = withObject "CaptionSource" $ \o -> CaptionSource
-        <$> o .: "Key"
-        <*> o .: "Label"
-        <*> o .: "Language"
-        <*> o .: "TimeOffset"
+        <$> o .:? "Key"
+        <*> o .:? "Label"
+        <*> o .:? "Language"
+        <*> o .:? "TimeOffset"
 
 instance ToJSON CaptionSource where
     toJSON CaptionSource{..} = object
@@ -1098,12 +1098,12 @@ aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
 
 instance FromJSON Artwork where
     parseJSON = withObject "Artwork" $ \o -> Artwork
-        <$> o .: "AlbumArtFormat"
-        <*> o .: "InputKey"
-        <*> o .: "MaxHeight"
-        <*> o .: "MaxWidth"
-        <*> o .: "PaddingPolicy"
-        <*> o .: "SizingPolicy"
+        <$> o .:? "AlbumArtFormat"
+        <*> o .:? "InputKey"
+        <*> o .:? "MaxHeight"
+        <*> o .:? "MaxWidth"
+        <*> o .:? "PaddingPolicy"
+        <*> o .:? "SizingPolicy"
 
 instance ToJSON Artwork where
     toJSON Artwork{..} = object
@@ -1153,8 +1153,8 @@ tsStartTime = lens _tsStartTime (\s a -> s { _tsStartTime = a })
 
 instance FromJSON TimeSpan where
     parseJSON = withObject "TimeSpan" $ \o -> TimeSpan
-        <$> o .: "Duration"
-        <*> o .: "StartTime"
+        <$> o .:? "Duration"
+        <*> o .:? "StartTime"
 
 instance ToJSON TimeSpan where
     toJSON TimeSpan{..} = object
@@ -1328,14 +1328,14 @@ cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a })
 
 instance FromJSON CreateJobOutput where
     parseJSON = withObject "CreateJobOutput" $ \o -> CreateJobOutput
-        <$> o .: "AlbumArt"
-        <*> o .: "Captions"
+        <$> o .:? "AlbumArt"
+        <*> o .:? "Captions"
         <*> o .: "Composition"
-        <*> o .: "Key"
-        <*> o .: "PresetId"
-        <*> o .: "Rotate"
-        <*> o .: "SegmentDuration"
-        <*> o .: "ThumbnailPattern"
+        <*> o .:? "Key"
+        <*> o .:? "PresetId"
+        <*> o .:? "Rotate"
+        <*> o .:? "SegmentDuration"
+        <*> o .:? "ThumbnailPattern"
         <*> o .: "Watermarks"
 
 instance ToJSON CreateJobOutput where
@@ -1413,11 +1413,11 @@ apSampleRate = lens _apSampleRate (\s a -> s { _apSampleRate = a })
 
 instance FromJSON AudioParameters where
     parseJSON = withObject "AudioParameters" $ \o -> AudioParameters
-        <$> o .: "BitRate"
-        <*> o .: "Channels"
-        <*> o .: "Codec"
-        <*> o .: "CodecOptions"
-        <*> o .: "SampleRate"
+        <$> o .:? "BitRate"
+        <*> o .:? "Channels"
+        <*> o .:? "Codec"
+        <*> o .:? "CodecOptions"
+        <*> o .:? "SampleRate"
 
 instance ToJSON AudioParameters where
     toJSON AudioParameters{..} = object
@@ -1548,14 +1548,14 @@ tSizingPolicy = lens _tSizingPolicy (\s a -> s { _tSizingPolicy = a })
 
 instance FromJSON Thumbnails where
     parseJSON = withObject "Thumbnails" $ \o -> Thumbnails
-        <$> o .: "AspectRatio"
-        <*> o .: "Format"
-        <*> o .: "Interval"
-        <*> o .: "MaxHeight"
-        <*> o .: "MaxWidth"
-        <*> o .: "PaddingPolicy"
-        <*> o .: "Resolution"
-        <*> o .: "SizingPolicy"
+        <$> o .:? "AspectRatio"
+        <*> o .:? "Format"
+        <*> o .:? "Interval"
+        <*> o .:? "MaxHeight"
+        <*> o .:? "MaxWidth"
+        <*> o .:? "PaddingPolicy"
+        <*> o .:? "Resolution"
+        <*> o .:? "SizingPolicy"
 
 instance ToJSON Thumbnails where
     toJSON Thumbnails{..} = object
@@ -1608,7 +1608,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 instance FromJSON JobAlbumArt where
     parseJSON = withObject "JobAlbumArt" $ \o -> JobAlbumArt
         <$> o .: "Artwork"
-        <*> o .: "MergePolicy"
+        <*> o .:? "MergePolicy"
 
 instance ToJSON JobAlbumArt where
     toJSON JobAlbumArt{..} = object
@@ -1655,8 +1655,8 @@ jwPresetWatermarkId =
 
 instance FromJSON JobWatermark where
     parseJSON = withObject "JobWatermark" $ \o -> JobWatermark
-        <$> o .: "InputKey"
-        <*> o .: "PresetWatermarkId"
+        <$> o .:? "InputKey"
+        <*> o .:? "PresetWatermarkId"
 
 instance ToJSON JobWatermark where
     toJSON JobWatermark{..} = object
@@ -1825,16 +1825,16 @@ pThumbnailConfig = lens _pThumbnailConfig (\s a -> s { _pThumbnailConfig = a })
 
 instance FromJSON Pipeline where
     parseJSON = withObject "Pipeline" $ \o -> Pipeline
-        <$> o .: "Arn"
-        <*> o .: "ContentConfig"
-        <*> o .: "Id"
-        <*> o .: "InputBucket"
-        <*> o .: "Name"
-        <*> o .: "Notifications"
-        <*> o .: "OutputBucket"
-        <*> o .: "Role"
-        <*> o .: "Status"
-        <*> o .: "ThumbnailConfig"
+        <$> o .:? "Arn"
+        <*> o .:? "ContentConfig"
+        <*> o .:? "Id"
+        <*> o .:? "InputBucket"
+        <*> o .:? "Name"
+        <*> o .:? "Notifications"
+        <*> o .:? "OutputBucket"
+        <*> o .:? "Role"
+        <*> o .:? "Status"
+        <*> o .:? "ThumbnailConfig"
 
 instance ToJSON Pipeline where
     toJSON Pipeline{..} = object
@@ -1941,15 +1941,15 @@ p1Video = lens _p1Video (\s a -> s { _p1Video = a })
 
 instance FromJSON Preset where
     parseJSON = withObject "Preset" $ \o -> Preset
-        <$> o .: "Arn"
-        <*> o .: "Audio"
-        <*> o .: "Container"
-        <*> o .: "Description"
-        <*> o .: "Id"
-        <*> o .: "Name"
-        <*> o .: "Thumbnails"
-        <*> o .: "Type"
-        <*> o .: "Video"
+        <$> o .:? "Arn"
+        <*> o .:? "Audio"
+        <*> o .:? "Container"
+        <*> o .:? "Description"
+        <*> o .:? "Id"
+        <*> o .:? "Name"
+        <*> o .:? "Thumbnails"
+        <*> o .:? "Type"
+        <*> o .:? "Video"
 
 instance ToJSON Preset where
     toJSON Preset{..} = object
@@ -2010,8 +2010,8 @@ cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
 
 instance FromJSON CaptionFormat where
     parseJSON = withObject "CaptionFormat" $ \o -> CaptionFormat
-        <$> o .: "Format"
-        <*> o .: "Pattern"
+        <$> o .:? "Format"
+        <*> o .:? "Pattern"
 
 instance ToJSON CaptionFormat where
     toJSON CaptionFormat{..} = object
@@ -2190,16 +2190,16 @@ pwVerticalOffset = lens _pwVerticalOffset (\s a -> s { _pwVerticalOffset = a })
 
 instance FromJSON PresetWatermark where
     parseJSON = withObject "PresetWatermark" $ \o -> PresetWatermark
-        <$> o .: "HorizontalAlign"
-        <*> o .: "HorizontalOffset"
-        <*> o .: "Id"
-        <*> o .: "MaxHeight"
-        <*> o .: "MaxWidth"
-        <*> o .: "Opacity"
-        <*> o .: "SizingPolicy"
-        <*> o .: "Target"
-        <*> o .: "VerticalAlign"
-        <*> o .: "VerticalOffset"
+        <$> o .:? "HorizontalAlign"
+        <*> o .:? "HorizontalOffset"
+        <*> o .:? "Id"
+        <*> o .:? "MaxHeight"
+        <*> o .:? "MaxWidth"
+        <*> o .:? "Opacity"
+        <*> o .:? "SizingPolicy"
+        <*> o .:? "Target"
+        <*> o .:? "VerticalAlign"
+        <*> o .:? "VerticalOffset"
 
 instance ToJSON PresetWatermark where
     toJSON PresetWatermark{..} = object
@@ -2270,8 +2270,8 @@ pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 instance FromJSON Permission where
     parseJSON = withObject "Permission" $ \o -> Permission
         <$> o .: "Access"
-        <*> o .: "Grantee"
-        <*> o .: "GranteeType"
+        <*> o .:? "Grantee"
+        <*> o .:? "GranteeType"
 
 instance ToJSON Permission where
     toJSON Permission{..} = object
@@ -2559,20 +2559,20 @@ vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a })
 
 instance FromJSON VideoParameters where
     parseJSON = withObject "VideoParameters" $ \o -> VideoParameters
-        <$> o .: "AspectRatio"
-        <*> o .: "BitRate"
-        <*> o .: "Codec"
+        <$> o .:? "AspectRatio"
+        <*> o .:? "BitRate"
+        <*> o .:? "Codec"
         <*> o .: "CodecOptions"
-        <*> o .: "DisplayAspectRatio"
-        <*> o .: "FixedGOP"
-        <*> o .: "FrameRate"
-        <*> o .: "KeyframesMaxDist"
-        <*> o .: "MaxFrameRate"
-        <*> o .: "MaxHeight"
-        <*> o .: "MaxWidth"
-        <*> o .: "PaddingPolicy"
-        <*> o .: "Resolution"
-        <*> o .: "SizingPolicy"
+        <*> o .:? "DisplayAspectRatio"
+        <*> o .:? "FixedGOP"
+        <*> o .:? "FrameRate"
+        <*> o .:? "KeyframesMaxDist"
+        <*> o .:? "MaxFrameRate"
+        <*> o .:? "MaxHeight"
+        <*> o .:? "MaxWidth"
+        <*> o .:? "PaddingPolicy"
+        <*> o .:? "Resolution"
+        <*> o .:? "SizingPolicy"
         <*> o .: "Watermarks"
 
 instance ToJSON VideoParameters where
@@ -2677,11 +2677,11 @@ p2StatusDetail = lens _p2StatusDetail (\s a -> s { _p2StatusDetail = a })
 
 instance FromJSON Playlist where
     parseJSON = withObject "Playlist" $ \o -> Playlist
-        <$> o .: "Format"
-        <*> o .: "Name"
+        <$> o .:? "Format"
+        <*> o .:? "Name"
         <*> o .: "OutputKeys"
-        <*> o .: "Status"
-        <*> o .: "StatusDetail"
+        <*> o .:? "Status"
+        <*> o .:? "StatusDetail"
 
 instance ToJSON Playlist where
     toJSON Playlist{..} = object
@@ -2741,10 +2741,10 @@ nWarning = lens _nWarning (\s a -> s { _nWarning = a })
 
 instance FromJSON Notifications where
     parseJSON = withObject "Notifications" $ \o -> Notifications
-        <$> o .: "Completed"
-        <*> o .: "Error"
-        <*> o .: "Progressing"
-        <*> o .: "Warning"
+        <$> o .:? "Completed"
+        <*> o .:? "Error"
+        <*> o .:? "Progressing"
+        <*> o .:? "Warning"
 
 instance ToJSON Notifications where
     toJSON Notifications{..} = object
@@ -2775,7 +2775,7 @@ cTimeSpan = lens _cTimeSpan (\s a -> s { _cTimeSpan = a })
 
 instance FromJSON Clip where
     parseJSON = withObject "Clip" $ \o -> Clip
-        <$> o .: "TimeSpan"
+        <$> o .:? "TimeSpan"
 
 instance ToJSON Clip where
     toJSON Clip{..} = object
@@ -2867,12 +2867,12 @@ jiResolution = lens _jiResolution (\s a -> s { _jiResolution = a })
 
 instance FromJSON JobInput where
     parseJSON = withObject "JobInput" $ \o -> JobInput
-        <$> o .: "AspectRatio"
-        <*> o .: "Container"
-        <*> o .: "FrameRate"
-        <*> o .: "Interlaced"
-        <*> o .: "Key"
-        <*> o .: "Resolution"
+        <$> o .:? "AspectRatio"
+        <*> o .:? "Container"
+        <*> o .:? "FrameRate"
+        <*> o .:? "Interlaced"
+        <*> o .:? "Key"
+        <*> o .:? "Resolution"
 
 instance ToJSON JobInput where
     toJSON JobInput{..} = object

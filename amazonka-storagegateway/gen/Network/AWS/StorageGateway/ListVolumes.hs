@@ -150,6 +150,6 @@ instance AWSRequest ListVolumes where
 
 instance FromJSON ListVolumesResponse where
     parseJSON = withObject "ListVolumesResponse" $ \o -> ListVolumesResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "Marker"
+        <$> o .:? "GatewayARN"
+        <*> o .:? "Marker"
         <*> o .: "VolumeInfos"

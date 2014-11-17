@@ -134,4 +134,4 @@ instance AWSRequest ListInvalidations where
 
 instance FromXML ListInvalidationsResponse where
     parseXML c = ListInvalidationsResponse
-        <$> c .: "InvalidationList"
+        <$> c .:? "InvalidationList"

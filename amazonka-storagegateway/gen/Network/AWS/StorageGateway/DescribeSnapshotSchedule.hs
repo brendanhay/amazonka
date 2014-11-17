@@ -141,8 +141,8 @@ instance AWSRequest DescribeSnapshotSchedule where
 
 instance FromJSON DescribeSnapshotScheduleResponse where
     parseJSON = withObject "DescribeSnapshotScheduleResponse" $ \o -> DescribeSnapshotScheduleResponse
-        <$> o .: "Description"
-        <*> o .: "RecurrenceInHours"
-        <*> o .: "StartAt"
-        <*> o .: "Timezone"
-        <*> o .: "VolumeARN"
+        <$> o .:? "Description"
+        <*> o .:? "RecurrenceInHours"
+        <*> o .:? "StartAt"
+        <*> o .:? "Timezone"
+        <*> o .:? "VolumeARN"

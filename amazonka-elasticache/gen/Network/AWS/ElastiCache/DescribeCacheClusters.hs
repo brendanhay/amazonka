@@ -162,4 +162,4 @@ instance AWSRequest DescribeCacheClusters where
 instance FromXML DescribeCacheClustersResponse where
     parseXML c = DescribeCacheClustersResponse
         <$> c .: "CacheClusters"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

@@ -221,4 +221,4 @@ instance AWSRequest CreateCase where
 
 instance FromJSON CreateCaseResponse where
     parseJSON = withObject "CreateCaseResponse" $ \o -> CreateCaseResponse
-        <$> o .: "caseId"
+        <$> o .:? "caseId"

@@ -160,5 +160,5 @@ instance AWSRequest UpdateChapCredentials where
 
 instance FromJSON UpdateChapCredentialsResponse where
     parseJSON = withObject "UpdateChapCredentialsResponse" $ \o -> UpdateChapCredentialsResponse
-        <$> o .: "InitiatorName"
-        <*> o .: "TargetARN"
+        <$> o .:? "InitiatorName"
+        <*> o .:? "TargetARN"

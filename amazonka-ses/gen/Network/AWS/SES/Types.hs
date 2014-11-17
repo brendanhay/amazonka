@@ -252,8 +252,8 @@ bText = lens _bText (\s a -> s { _bText = a })
 
 instance FromXML Body where
     parseXML c = Body
-        <$> c .: "Html"
-        <*> c .: "Text"
+        <$> c .:? "Html"
+        <*> c .:? "Text"
 
 instance ToQuery Body
 
@@ -292,7 +292,7 @@ ivaVerificationToken =
 instance FromXML IdentityVerificationAttributes where
     parseXML c = IdentityVerificationAttributes
         <$> c .: "VerificationStatus"
-        <*> c .: "VerificationToken"
+        <*> c .:? "VerificationToken"
 
 instance ToQuery IdentityVerificationAttributes
 
@@ -351,11 +351,11 @@ sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
 
 instance FromXML SendDataPoint where
     parseXML c = SendDataPoint
-        <$> c .: "Bounces"
-        <*> c .: "Complaints"
-        <*> c .: "DeliveryAttempts"
-        <*> c .: "Rejects"
-        <*> c .: "Timestamp"
+        <$> c .:? "Bounces"
+        <*> c .:? "Complaints"
+        <*> c .:? "DeliveryAttempts"
+        <*> c .:? "Rejects"
+        <*> c .:? "Timestamp"
 
 instance ToQuery SendDataPoint
 
@@ -410,7 +410,7 @@ cData = lens _cData (\s a -> s { _cData = a })
 
 instance FromXML Content where
     parseXML c = Content
-        <$> c .: "Charset"
+        <$> c .:? "Charset"
         <*> c .: "Data"
 
 instance ToQuery Content

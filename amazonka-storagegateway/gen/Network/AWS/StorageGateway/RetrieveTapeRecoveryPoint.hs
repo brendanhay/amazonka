@@ -119,4 +119,4 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
 
 instance FromJSON RetrieveTapeRecoveryPointResponse where
     parseJSON = withObject "RetrieveTapeRecoveryPointResponse" $ \o -> RetrieveTapeRecoveryPointResponse
-        <$> o .: "TapeARN"
+        <$> o .:? "TapeARN"

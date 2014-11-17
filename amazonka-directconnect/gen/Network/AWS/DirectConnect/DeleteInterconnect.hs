@@ -104,4 +104,4 @@ instance AWSRequest DeleteInterconnect where
 
 instance FromJSON DeleteInterconnectResponse where
     parseJSON = withObject "DeleteInterconnectResponse" $ \o -> DeleteInterconnectResponse
-        <$> o .: "interconnectState"
+        <$> o .:? "interconnectState"

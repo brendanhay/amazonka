@@ -165,7 +165,7 @@ instance AWSRequest DescribeIdentityPool where
 instance FromJSON DescribeIdentityPoolResponse where
     parseJSON = withObject "DescribeIdentityPoolResponse" $ \o -> DescribeIdentityPoolResponse
         <$> o .: "AllowUnauthenticatedIdentities"
-        <*> o .: "DeveloperProviderName"
+        <*> o .:? "DeveloperProviderName"
         <*> o .: "IdentityPoolId"
         <*> o .: "IdentityPoolName"
         <*> o .: "OpenIdConnectProviderARNs"

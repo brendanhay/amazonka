@@ -166,6 +166,6 @@ instance AWSRequest DescribeObjects where
 
 instance FromJSON DescribeObjectsResponse where
     parseJSON = withObject "DescribeObjectsResponse" $ \o -> DescribeObjectsResponse
-        <$> o .: "hasMoreResults"
-        <*> o .: "marker"
+        <$> o .:? "hasMoreResults"
+        <*> o .:? "marker"
         <*> o .: "pipelineObjects"

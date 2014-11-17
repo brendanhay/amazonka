@@ -250,4 +250,4 @@ instance AWSRequest UpdatePipeline where
 
 instance FromJSON UpdatePipelineResponse where
     parseJSON = withObject "UpdatePipelineResponse" $ \o -> UpdatePipelineResponse
-        <$> o .: "Pipeline"
+        <$> o .:? "Pipeline"

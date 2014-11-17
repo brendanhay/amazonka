@@ -435,5 +435,5 @@ instance AWSRequest Search where
 instance FromJSON SearchResponse where
     parseJSON = withObject "SearchResponse" $ \o -> SearchResponse
         <$> o .: "facets"
-        <*> o .: "hits"
-        <*> o .: "status"
+        <*> o .:? "hits"
+        <*> o .:? "status"

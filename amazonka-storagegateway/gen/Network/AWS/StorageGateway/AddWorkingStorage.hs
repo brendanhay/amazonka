@@ -120,4 +120,4 @@ instance AWSRequest AddWorkingStorage where
 
 instance FromJSON AddWorkingStorageResponse where
     parseJSON = withObject "AddWorkingStorageResponse" $ \o -> AddWorkingStorageResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

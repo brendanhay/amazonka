@@ -152,4 +152,4 @@ instance AWSRequest UploadServerCertificate where
 
 instance FromXML UploadServerCertificateResponse where
     parseXML c = UploadServerCertificateResponse
-        <$> c .: "ServerCertificateMetadata"
+        <$> c .:? "ServerCertificateMetadata"

@@ -189,4 +189,4 @@ instance AWSRequest Publish where
 
 instance FromXML PublishResponse where
     parseXML c = PublishResponse
-        <$> c .: "MessageId"
+        <$> c .:? "MessageId"

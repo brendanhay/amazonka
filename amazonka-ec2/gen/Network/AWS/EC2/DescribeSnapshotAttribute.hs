@@ -141,4 +141,4 @@ instance FromXML DescribeSnapshotAttributeResponse where
     parseXML c = DescribeSnapshotAttributeResponse
         <$> c .: "createVolumePermission"
         <*> c .: "productCodes"
-        <*> c .: "snapshotId"
+        <*> c .:? "snapshotId"

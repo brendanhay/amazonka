@@ -138,4 +138,4 @@ instance AWSRequest ImportVolume where
 
 instance FromXML ImportVolumeResponse where
     parseXML c = ImportVolumeResponse
-        <$> c .: "conversionTask"
+        <$> c .:? "conversionTask"

@@ -165,5 +165,5 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext where
 
 instance FromJSON GenerateDataKeyWithoutPlaintextResponse where
     parseJSON = withObject "GenerateDataKeyWithoutPlaintextResponse" $ \o -> GenerateDataKeyWithoutPlaintextResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
+        <$> o .:? "CiphertextBlob"
+        <*> o .:? "KeyId"

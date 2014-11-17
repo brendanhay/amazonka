@@ -210,7 +210,7 @@ instance FromJSON PollForActivityTaskResponse where
     parseJSON = withObject "PollForActivityTaskResponse" $ \o -> PollForActivityTaskResponse
         <$> o .: "activityId"
         <*> o .: "activityType"
-        <*> o .: "input"
+        <*> o .:? "input"
         <*> o .: "startedEventId"
         <*> o .: "taskToken"
         <*> o .: "workflowExecution"

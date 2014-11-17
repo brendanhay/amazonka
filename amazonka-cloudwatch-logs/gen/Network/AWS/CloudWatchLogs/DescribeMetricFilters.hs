@@ -151,4 +151,4 @@ instance AWSRequest DescribeMetricFilters where
 instance FromJSON DescribeMetricFiltersResponse where
     parseJSON = withObject "DescribeMetricFiltersResponse" $ \o -> DescribeMetricFiltersResponse
         <$> o .: "metricFilters"
-        <*> o .: "nextToken"
+        <*> o .:? "nextToken"

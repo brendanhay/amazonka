@@ -288,9 +288,9 @@ instance AWSRequest AssumeRoleWithWebIdentity where
 
 instance FromXML AssumeRoleWithWebIdentityResponse where
     parseXML c = AssumeRoleWithWebIdentityResponse
-        <$> c .: "AssumedRoleUser"
-        <*> c .: "Audience"
-        <*> c .: "Credentials"
-        <*> c .: "PackedPolicySize"
-        <*> c .: "Provider"
-        <*> c .: "SubjectFromWebIdentityToken"
+        <$> c .:? "AssumedRoleUser"
+        <*> c .:? "Audience"
+        <*> c .:? "Credentials"
+        <*> c .:? "PackedPolicySize"
+        <*> c .:? "Provider"
+        <*> c .:? "SubjectFromWebIdentityToken"

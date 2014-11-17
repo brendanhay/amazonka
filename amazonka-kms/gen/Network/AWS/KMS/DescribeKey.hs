@@ -105,4 +105,4 @@ instance AWSRequest DescribeKey where
 
 instance FromJSON DescribeKeyResponse where
     parseJSON = withObject "DescribeKeyResponse" $ \o -> DescribeKeyResponse
-        <$> o .: "KeyMetadata"
+        <$> o .:? "KeyMetadata"

@@ -153,9 +153,9 @@ mfMetricTransformations =
 
 instance FromJSON MetricFilter where
     parseJSON = withObject "MetricFilter" $ \o -> MetricFilter
-        <$> o .: "creationTime"
-        <*> o .: "filterName"
-        <*> o .: "filterPattern"
+        <$> o .:? "creationTime"
+        <*> o .:? "filterName"
+        <*> o .:? "filterPattern"
         <*> o .: "metricTransformations"
 
 instance ToJSON MetricFilter where
@@ -202,8 +202,8 @@ mfmrExtractedValues =
 
 instance FromJSON MetricFilterMatchRecord where
     parseJSON = withObject "MetricFilterMatchRecord" $ \o -> MetricFilterMatchRecord
-        <$> o .: "eventMessage"
-        <*> o .: "eventNumber"
+        <$> o .:? "eventMessage"
+        <*> o .:? "eventNumber"
         <*> o .: "extractedValues"
 
 instance ToJSON MetricFilterMatchRecord where
@@ -340,14 +340,14 @@ lsUploadSequenceToken =
 
 instance FromJSON LogStream where
     parseJSON = withObject "LogStream" $ \o -> LogStream
-        <$> o .: "arn"
-        <*> o .: "creationTime"
-        <*> o .: "firstEventTimestamp"
-        <*> o .: "lastEventTimestamp"
-        <*> o .: "lastIngestionTime"
-        <*> o .: "logStreamName"
-        <*> o .: "storedBytes"
-        <*> o .: "uploadSequenceToken"
+        <$> o .:? "arn"
+        <*> o .:? "creationTime"
+        <*> o .:? "firstEventTimestamp"
+        <*> o .:? "lastEventTimestamp"
+        <*> o .:? "lastIngestionTime"
+        <*> o .:? "logStreamName"
+        <*> o .:? "storedBytes"
+        <*> o .:? "uploadSequenceToken"
 
 instance ToJSON LogStream where
     toJSON LogStream{..} = object
@@ -420,12 +420,12 @@ lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
 
 instance FromJSON LogGroup where
     parseJSON = withObject "LogGroup" $ \o -> LogGroup
-        <$> o .: "arn"
-        <*> o .: "creationTime"
-        <*> o .: "logGroupName"
-        <*> o .: "metricFilterCount"
-        <*> o .: "retentionInDays"
-        <*> o .: "storedBytes"
+        <$> o .:? "arn"
+        <*> o .:? "creationTime"
+        <*> o .:? "logGroupName"
+        <*> o .:? "metricFilterCount"
+        <*> o .:? "retentionInDays"
+        <*> o .:? "storedBytes"
 
 instance ToJSON LogGroup where
     toJSON LogGroup{..} = object
@@ -512,9 +512,9 @@ oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
 
 instance FromJSON OutputLogEvent where
     parseJSON = withObject "OutputLogEvent" $ \o -> OutputLogEvent
-        <$> o .: "ingestionTime"
-        <*> o .: "message"
-        <*> o .: "timestamp"
+        <$> o .:? "ingestionTime"
+        <*> o .:? "message"
+        <*> o .:? "timestamp"
 
 instance ToJSON OutputLogEvent where
     toJSON OutputLogEvent{..} = object

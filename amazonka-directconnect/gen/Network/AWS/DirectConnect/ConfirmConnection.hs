@@ -106,4 +106,4 @@ instance AWSRequest ConfirmConnection where
 
 instance FromJSON ConfirmConnectionResponse where
     parseJSON = withObject "ConfirmConnectionResponse" $ \o -> ConfirmConnectionResponse
-        <$> o .: "connectionState"
+        <$> o .:? "connectionState"

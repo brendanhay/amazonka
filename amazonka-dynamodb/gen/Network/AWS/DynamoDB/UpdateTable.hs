@@ -139,4 +139,4 @@ instance AWSRequest UpdateTable where
 
 instance FromJSON UpdateTableResponse where
     parseJSON = withObject "UpdateTableResponse" $ \o -> UpdateTableResponse
-        <$> o .: "TableDescription"
+        <$> o .:? "TableDescription"

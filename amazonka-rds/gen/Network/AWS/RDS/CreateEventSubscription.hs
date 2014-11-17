@@ -191,4 +191,4 @@ instance AWSRequest CreateEventSubscription where
 
 instance FromXML CreateEventSubscriptionResponse where
     parseXML c = CreateEventSubscriptionResponse
-        <$> c .: "EventSubscription"
+        <$> c .:? "EventSubscription"

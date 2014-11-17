@@ -107,4 +107,4 @@ instance AWSRequest StartGateway where
 
 instance FromJSON StartGatewayResponse where
     parseJSON = withObject "StartGatewayResponse" $ \o -> StartGatewayResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

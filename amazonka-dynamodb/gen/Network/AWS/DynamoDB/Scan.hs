@@ -426,8 +426,8 @@ instance AWSRequest Scan where
 
 instance FromJSON ScanResponse where
     parseJSON = withObject "ScanResponse" $ \o -> ScanResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Count"
+        <$> o .:? "ConsumedCapacity"
+        <*> o .:? "Count"
         <*> o .: "Items"
         <*> o .: "LastEvaluatedKey"
-        <*> o .: "ScannedCount"
+        <*> o .:? "ScannedCount"

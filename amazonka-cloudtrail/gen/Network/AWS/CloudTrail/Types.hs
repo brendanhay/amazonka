@@ -141,13 +141,13 @@ tSnsTopicName = lens _tSnsTopicName (\s a -> s { _tSnsTopicName = a })
 
 instance FromJSON Trail where
     parseJSON = withObject "Trail" $ \o -> Trail
-        <$> o .: "CloudWatchLogsLogGroupArn"
-        <*> o .: "CloudWatchLogsRoleArn"
-        <*> o .: "IncludeGlobalServiceEvents"
-        <*> o .: "Name"
-        <*> o .: "S3BucketName"
-        <*> o .: "S3KeyPrefix"
-        <*> o .: "SnsTopicName"
+        <$> o .:? "CloudWatchLogsLogGroupArn"
+        <*> o .:? "CloudWatchLogsRoleArn"
+        <*> o .:? "IncludeGlobalServiceEvents"
+        <*> o .:? "Name"
+        <*> o .:? "S3BucketName"
+        <*> o .:? "S3KeyPrefix"
+        <*> o .:? "SnsTopicName"
 
 instance ToJSON Trail where
     toJSON Trail{..} = object

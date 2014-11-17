@@ -144,4 +144,4 @@ instance AWSRequest UpdateMaintenanceStartTime where
 
 instance FromJSON UpdateMaintenanceStartTimeResponse where
     parseJSON = withObject "UpdateMaintenanceStartTimeResponse" $ \o -> UpdateMaintenanceStartTimeResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

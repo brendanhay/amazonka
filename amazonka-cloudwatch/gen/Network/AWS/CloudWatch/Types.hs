@@ -419,27 +419,27 @@ maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
 instance FromXML MetricAlarm where
     parseXML c = MetricAlarm
-        <$> c .: "ActionsEnabled"
+        <$> c .:? "ActionsEnabled"
         <*> c .: "AlarmActions"
-        <*> c .: "AlarmArn"
-        <*> c .: "AlarmConfigurationUpdatedTimestamp"
-        <*> c .: "AlarmDescription"
-        <*> c .: "AlarmName"
-        <*> c .: "ComparisonOperator"
+        <*> c .:? "AlarmArn"
+        <*> c .:? "AlarmConfigurationUpdatedTimestamp"
+        <*> c .:? "AlarmDescription"
+        <*> c .:? "AlarmName"
+        <*> c .:? "ComparisonOperator"
         <*> c .: "Dimensions"
-        <*> c .: "EvaluationPeriods"
+        <*> c .:? "EvaluationPeriods"
         <*> c .: "InsufficientDataActions"
-        <*> c .: "MetricName"
-        <*> c .: "Namespace"
+        <*> c .:? "MetricName"
+        <*> c .:? "Namespace"
         <*> c .: "OKActions"
-        <*> c .: "Period"
-        <*> c .: "StateReason"
-        <*> c .: "StateReasonData"
-        <*> c .: "StateUpdatedTimestamp"
-        <*> c .: "StateValue"
-        <*> c .: "Statistic"
-        <*> c .: "Threshold"
-        <*> c .: "Unit"
+        <*> c .:? "Period"
+        <*> c .:? "StateReason"
+        <*> c .:? "StateReasonData"
+        <*> c .:? "StateUpdatedTimestamp"
+        <*> c .:? "StateValue"
+        <*> c .:? "Statistic"
+        <*> c .:? "Threshold"
+        <*> c .:? "Unit"
 
 instance ToQuery MetricAlarm
 
@@ -543,10 +543,10 @@ instance FromXML MetricDatum where
     parseXML c = MetricDatum
         <$> c .: "Dimensions"
         <*> c .: "MetricName"
-        <*> c .: "StatisticValues"
-        <*> c .: "Timestamp"
-        <*> c .: "Unit"
-        <*> c .: "Value"
+        <*> c .:? "StatisticValues"
+        <*> c .:? "Timestamp"
+        <*> c .:? "Unit"
+        <*> c .:? "Value"
 
 instance ToQuery MetricDatum
 
@@ -768,11 +768,11 @@ ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a })
 
 instance FromXML AlarmHistoryItem where
     parseXML c = AlarmHistoryItem
-        <$> c .: "AlarmName"
-        <*> c .: "HistoryData"
-        <*> c .: "HistoryItemType"
-        <*> c .: "HistorySummary"
-        <*> c .: "Timestamp"
+        <$> c .:? "AlarmName"
+        <*> c .:? "HistoryData"
+        <*> c .:? "HistoryItemType"
+        <*> c .:? "HistorySummary"
+        <*> c .:? "Timestamp"
 
 instance ToQuery AlarmHistoryItem
 
@@ -814,8 +814,8 @@ mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 instance FromXML Metric where
     parseXML c = Metric
         <$> c .: "Dimensions"
-        <*> c .: "MetricName"
-        <*> c .: "Namespace"
+        <*> c .:? "MetricName"
+        <*> c .:? "Namespace"
 
 instance ToQuery Metric
 
@@ -917,13 +917,13 @@ dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
 instance FromXML Datapoint where
     parseXML c = Datapoint
-        <$> c .: "Average"
-        <*> c .: "Maximum"
-        <*> c .: "Minimum"
-        <*> c .: "SampleCount"
-        <*> c .: "Sum"
-        <*> c .: "Timestamp"
-        <*> c .: "Unit"
+        <$> c .:? "Average"
+        <*> c .:? "Maximum"
+        <*> c .:? "Minimum"
+        <*> c .:? "SampleCount"
+        <*> c .:? "Sum"
+        <*> c .:? "Timestamp"
+        <*> c .:? "Unit"
 
 instance ToQuery Datapoint
 
@@ -958,7 +958,7 @@ dfValue = lens _dfValue (\s a -> s { _dfValue = a })
 instance FromXML DimensionFilter where
     parseXML c = DimensionFilter
         <$> c .: "Name"
-        <*> c .: "Value"
+        <*> c .:? "Value"
 
 instance ToQuery DimensionFilter
 

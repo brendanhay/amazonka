@@ -404,6 +404,6 @@ instance FromXML RunInstancesResponse where
     parseXML c = RunInstancesResponse
         <$> c .: "groupSet"
         <*> c .: "instancesSet"
-        <*> c .: "ownerId"
-        <*> c .: "requesterId"
-        <*> c .: "reservationId"
+        <*> c .:? "ownerId"
+        <*> c .:? "requesterId"
+        <*> c .:? "reservationId"

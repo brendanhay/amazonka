@@ -140,4 +140,4 @@ instance AWSRequest CreateCustomerGateway where
 
 instance FromXML CreateCustomerGatewayResponse where
     parseXML c = CreateCustomerGatewayResponse
-        <$> c .: "customerGateway"
+        <$> c .:? "customerGateway"

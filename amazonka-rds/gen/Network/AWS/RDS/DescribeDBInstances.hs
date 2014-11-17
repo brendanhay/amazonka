@@ -148,4 +148,4 @@ instance AWSRequest DescribeDBInstances where
 instance FromXML DescribeDBInstancesResponse where
     parseXML c = DescribeDBInstancesResponse
         <$> c .: "DBInstances"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

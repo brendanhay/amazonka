@@ -110,4 +110,4 @@ instance AWSRequest UpdateApplication where
 
 instance FromXML UpdateApplicationResponse where
     parseXML c = UpdateApplicationResponse
-        <$> c .: "Application"
+        <$> c .:? "Application"

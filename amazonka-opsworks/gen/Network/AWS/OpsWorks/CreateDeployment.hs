@@ -170,4 +170,4 @@ instance AWSRequest CreateDeployment where
 
 instance FromJSON CreateDeploymentResponse where
     parseJSON = withObject "CreateDeploymentResponse" $ \o -> CreateDeploymentResponse
-        <$> o .: "DeploymentId"
+        <$> o .:? "DeploymentId"

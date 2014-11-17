@@ -121,4 +121,4 @@ instance AWSRequest ModifyClusterSubnetGroup where
 
 instance FromXML ModifyClusterSubnetGroupResponse where
     parseXML c = ModifyClusterSubnetGroupResponse
-        <$> c .: "ClusterSubnetGroup"
+        <$> c .:? "ClusterSubnetGroup"

@@ -238,10 +238,10 @@ ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
 
 instance FromJSON ChapInfo where
     parseJSON = withObject "ChapInfo" $ \o -> ChapInfo
-        <$> o .: "InitiatorName"
-        <*> o .: "SecretToAuthenticateInitiator"
-        <*> o .: "SecretToAuthenticateTarget"
-        <*> o .: "TargetARN"
+        <$> o .:? "InitiatorName"
+        <*> o .:? "SecretToAuthenticateInitiator"
+        <*> o .:? "SecretToAuthenticateTarget"
+        <*> o .:? "TargetARN"
 
 instance ToJSON ChapInfo where
     toJSON ChapInfo{..} = object
@@ -310,11 +310,11 @@ vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
 
 instance FromJSON VolumeiSCSIAttributes where
     parseJSON = withObject "VolumeiSCSIAttributes" $ \o -> VolumeiSCSIAttributes
-        <$> o .: "ChapEnabled"
-        <*> o .: "LunNumber"
-        <*> o .: "NetworkInterfaceId"
-        <*> o .: "NetworkInterfacePort"
-        <*> o .: "TargetARN"
+        <$> o .:? "ChapEnabled"
+        <*> o .:? "LunNumber"
+        <*> o .:? "NetworkInterfaceId"
+        <*> o .:? "NetworkInterfacePort"
+        <*> o .:? "TargetARN"
 
 instance ToJSON VolumeiSCSIAttributes where
     toJSON VolumeiSCSIAttributes{..} = object
@@ -376,10 +376,10 @@ dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
 
 instance FromJSON DeviceiSCSIAttributes where
     parseJSON = withObject "DeviceiSCSIAttributes" $ \o -> DeviceiSCSIAttributes
-        <$> o .: "ChapEnabled"
-        <*> o .: "NetworkInterfaceId"
-        <*> o .: "NetworkInterfacePort"
-        <*> o .: "TargetARN"
+        <$> o .:? "ChapEnabled"
+        <*> o .:? "NetworkInterfaceId"
+        <*> o .:? "NetworkInterfacePort"
+        <*> o .:? "TargetARN"
 
 instance ToJSON DeviceiSCSIAttributes where
     toJSON DeviceiSCSIAttributes{..} = object
@@ -419,7 +419,7 @@ eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a })
 
 instance FromJSON Error' where
     parseJSON = withObject "Error'" $ \o -> Error'
-        <$> o .: "errorCode"
+        <$> o .:? "errorCode"
         <*> o .: "errorDetails"
 
 instance ToJSON Error' where
@@ -485,12 +485,12 @@ dDiskSizeInBytes = lens _dDiskSizeInBytes (\s a -> s { _dDiskSizeInBytes = a })
 
 instance FromJSON Disk where
     parseJSON = withObject "Disk" $ \o -> Disk
-        <$> o .: "DiskAllocationResource"
-        <*> o .: "DiskAllocationType"
-        <*> o .: "DiskId"
-        <*> o .: "DiskNode"
-        <*> o .: "DiskPath"
-        <*> o .: "DiskSizeInBytes"
+        <$> o .:? "DiskAllocationResource"
+        <*> o .:? "DiskAllocationType"
+        <*> o .:? "DiskId"
+        <*> o .:? "DiskNode"
+        <*> o .:? "DiskPath"
+        <*> o .:? "DiskSizeInBytes"
 
 instance ToJSON Disk where
     toJSON Disk{..} = object
@@ -567,12 +567,12 @@ tVTLDevice = lens _tVTLDevice (\s a -> s { _tVTLDevice = a })
 
 instance FromJSON Tape where
     parseJSON = withObject "Tape" $ \o -> Tape
-        <$> o .: "Progress"
-        <*> o .: "TapeARN"
-        <*> o .: "TapeBarcode"
-        <*> o .: "TapeSizeInBytes"
-        <*> o .: "TapeStatus"
-        <*> o .: "VTLDevice"
+        <$> o .:? "Progress"
+        <*> o .:? "TapeARN"
+        <*> o .:? "TapeBarcode"
+        <*> o .:? "TapeSizeInBytes"
+        <*> o .:? "TapeStatus"
+        <*> o .:? "VTLDevice"
 
 instance ToJSON Tape where
     toJSON Tape{..} = object
@@ -622,9 +622,9 @@ niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
 
 instance FromJSON NetworkInterface where
     parseJSON = withObject "NetworkInterface" $ \o -> NetworkInterface
-        <$> o .: "Ipv4Address"
-        <*> o .: "Ipv6Address"
-        <*> o .: "MacAddress"
+        <$> o .:? "Ipv4Address"
+        <*> o .:? "Ipv6Address"
+        <*> o .:? "MacAddress"
 
 instance ToJSON NetworkInterface where
     toJSON NetworkInterface{..} = object
@@ -690,11 +690,11 @@ vtldVTLDeviceVendor =
 
 instance FromJSON VTLDevice where
     parseJSON = withObject "VTLDevice" $ \o -> VTLDevice
-        <$> o .: "DeviceiSCSIAttributes"
-        <*> o .: "VTLDeviceARN"
-        <*> o .: "VTLDeviceProductIdentifier"
-        <*> o .: "VTLDeviceType"
-        <*> o .: "VTLDeviceVendor"
+        <$> o .:? "DeviceiSCSIAttributes"
+        <*> o .:? "VTLDeviceARN"
+        <*> o .:? "VTLDeviceProductIdentifier"
+        <*> o .:? "VTLDeviceType"
+        <*> o .:? "VTLDeviceVendor"
 
 instance ToJSON VTLDevice where
     toJSON VTLDevice{..} = object
@@ -756,10 +756,10 @@ trpiTapeStatus = lens _trpiTapeStatus (\s a -> s { _trpiTapeStatus = a })
 
 instance FromJSON TapeRecoveryPointInfo where
     parseJSON = withObject "TapeRecoveryPointInfo" $ \o -> TapeRecoveryPointInfo
-        <$> o .: "TapeARN"
-        <*> o .: "TapeRecoveryPointTime"
-        <*> o .: "TapeSizeInBytes"
-        <*> o .: "TapeStatus"
+        <$> o .:? "TapeARN"
+        <*> o .:? "TapeRecoveryPointTime"
+        <*> o .:? "TapeSizeInBytes"
+        <*> o .:? "TapeStatus"
 
 instance ToJSON TapeRecoveryPointInfo where
     toJSON TapeRecoveryPointInfo{..} = object
@@ -814,10 +814,10 @@ vrpiVolumeUsageInBytes =
 
 instance FromJSON VolumeRecoveryPointInfo where
     parseJSON = withObject "VolumeRecoveryPointInfo" $ \o -> VolumeRecoveryPointInfo
-        <$> o .: "VolumeARN"
-        <*> o .: "VolumeRecoveryPointTime"
-        <*> o .: "VolumeSizeInBytes"
-        <*> o .: "VolumeUsageInBytes"
+        <$> o .:? "VolumeARN"
+        <*> o .:? "VolumeRecoveryPointTime"
+        <*> o .:? "VolumeSizeInBytes"
+        <*> o .:? "VolumeUsageInBytes"
 
 instance ToJSON VolumeRecoveryPointInfo where
     toJSON VolumeRecoveryPointInfo{..} = object
@@ -895,12 +895,12 @@ taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
 
 instance FromJSON TapeArchive where
     parseJSON = withObject "TapeArchive" $ \o -> TapeArchive
-        <$> o .: "CompletionTime"
-        <*> o .: "RetrievedTo"
-        <*> o .: "TapeARN"
-        <*> o .: "TapeBarcode"
-        <*> o .: "TapeSizeInBytes"
-        <*> o .: "TapeStatus"
+        <$> o .:? "CompletionTime"
+        <*> o .:? "RetrievedTo"
+        <*> o .:? "TapeARN"
+        <*> o .:? "TapeBarcode"
+        <*> o .:? "TapeSizeInBytes"
+        <*> o .:? "TapeStatus"
 
 instance ToJSON TapeArchive where
     toJSON TapeArchive{..} = object
@@ -1203,16 +1203,16 @@ sscsivVolumeiSCSIAttributes =
 
 instance FromJSON StorediSCSIVolume where
     parseJSON = withObject "StorediSCSIVolume" $ \o -> StorediSCSIVolume
-        <$> o .: "PreservedExistingData"
-        <*> o .: "SourceSnapshotId"
-        <*> o .: "VolumeARN"
-        <*> o .: "VolumeDiskId"
-        <*> o .: "VolumeId"
-        <*> o .: "VolumeProgress"
-        <*> o .: "VolumeSizeInBytes"
-        <*> o .: "VolumeStatus"
-        <*> o .: "VolumeType"
-        <*> o .: "VolumeiSCSIAttributes"
+        <$> o .:? "PreservedExistingData"
+        <*> o .:? "SourceSnapshotId"
+        <*> o .:? "VolumeARN"
+        <*> o .:? "VolumeDiskId"
+        <*> o .:? "VolumeId"
+        <*> o .:? "VolumeProgress"
+        <*> o .:? "VolumeSizeInBytes"
+        <*> o .:? "VolumeStatus"
+        <*> o .:? "VolumeType"
+        <*> o .:? "VolumeiSCSIAttributes"
 
 instance ToJSON StorediSCSIVolume where
     toJSON StorediSCSIVolume{..} = object
@@ -1303,14 +1303,14 @@ cscsivVolumeiSCSIAttributes =
 
 instance FromJSON CachediSCSIVolume where
     parseJSON = withObject "CachediSCSIVolume" $ \o -> CachediSCSIVolume
-        <$> o .: "SourceSnapshotId"
-        <*> o .: "VolumeARN"
-        <*> o .: "VolumeId"
-        <*> o .: "VolumeProgress"
-        <*> o .: "VolumeSizeInBytes"
-        <*> o .: "VolumeStatus"
-        <*> o .: "VolumeType"
-        <*> o .: "VolumeiSCSIAttributes"
+        <$> o .:? "SourceSnapshotId"
+        <*> o .:? "VolumeARN"
+        <*> o .:? "VolumeId"
+        <*> o .:? "VolumeProgress"
+        <*> o .:? "VolumeSizeInBytes"
+        <*> o .:? "VolumeStatus"
+        <*> o .:? "VolumeType"
+        <*> o .:? "VolumeiSCSIAttributes"
 
 instance ToJSON CachediSCSIVolume where
     toJSON CachediSCSIVolume{..} = object
@@ -1351,8 +1351,8 @@ viVolumeType = lens _viVolumeType (\s a -> s { _viVolumeType = a })
 
 instance FromJSON VolumeInfo where
     parseJSON = withObject "VolumeInfo" $ \o -> VolumeInfo
-        <$> o .: "VolumeARN"
-        <*> o .: "VolumeType"
+        <$> o .:? "VolumeARN"
+        <*> o .:? "VolumeType"
 
 instance ToJSON VolumeInfo where
     toJSON VolumeInfo{..} = object
@@ -1396,9 +1396,9 @@ giGatewayType = lens _giGatewayType (\s a -> s { _giGatewayType = a })
 
 instance FromJSON GatewayInfo where
     parseJSON = withObject "GatewayInfo" $ \o -> GatewayInfo
-        <$> o .: "GatewayARN"
-        <*> o .: "GatewayOperationalState"
-        <*> o .: "GatewayType"
+        <$> o .:? "GatewayARN"
+        <*> o .:? "GatewayOperationalState"
+        <*> o .:? "GatewayType"
 
 instance ToJSON GatewayInfo where
     toJSON GatewayInfo{..} = object

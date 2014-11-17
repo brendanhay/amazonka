@@ -294,10 +294,10 @@ griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a })
 instance FromJSON GenericRevisionInfo where
     parseJSON = withObject "GenericRevisionInfo" $ \o -> GenericRevisionInfo
         <$> o .: "deploymentGroups"
-        <*> o .: "description"
-        <*> o .: "firstUsedTime"
-        <*> o .: "lastUsedTime"
-        <*> o .: "registerTime"
+        <*> o .:? "description"
+        <*> o .:? "firstUsedTime"
+        <*> o .:? "lastUsedTime"
+        <*> o .:? "registerTime"
 
 instance ToJSON GenericRevisionInfo where
     toJSON GenericRevisionInfo{..} = object
@@ -356,10 +356,10 @@ aiLinkedToGitHub = lens _aiLinkedToGitHub (\s a -> s { _aiLinkedToGitHub = a })
 
 instance FromJSON ApplicationInfo where
     parseJSON = withObject "ApplicationInfo" $ \o -> ApplicationInfo
-        <$> o .: "applicationId"
-        <*> o .: "applicationName"
-        <*> o .: "createTime"
-        <*> o .: "linkedToGitHub"
+        <$> o .:? "applicationId"
+        <*> o .:? "applicationName"
+        <*> o .:? "createTime"
+        <*> o .:? "linkedToGitHub"
 
 instance ToJSON ApplicationInfo where
     toJSON ApplicationInfo{..} = object
@@ -427,8 +427,8 @@ trStart = lens _trStart (\s a -> s { _trStart = a })
 
 instance FromJSON TimeRange where
     parseJSON = withObject "TimeRange" $ \o -> TimeRange
-        <$> o .: "end"
-        <*> o .: "start"
+        <$> o .:? "end"
+        <*> o .:? "start"
 
 instance ToJSON TimeRange where
     toJSON TimeRange{..} = object
@@ -518,11 +518,11 @@ isStatus = lens _isStatus (\s a -> s { _isStatus = a })
 
 instance FromJSON InstanceSummary where
     parseJSON = withObject "InstanceSummary" $ \o -> InstanceSummary
-        <$> o .: "deploymentId"
-        <*> o .: "instanceId"
-        <*> o .: "lastUpdatedAt"
+        <$> o .:? "deploymentId"
+        <*> o .:? "instanceId"
+        <*> o .:? "lastUpdatedAt"
         <*> o .: "lifecycleEvents"
-        <*> o .: "status"
+        <*> o .:? "status"
 
 instance ToJSON InstanceSummary where
     toJSON InstanceSummary{..} = object
@@ -562,8 +562,8 @@ asgName = lens _asgName (\s a -> s { _asgName = a })
 
 instance FromJSON AutoScalingGroup where
     parseJSON = withObject "AutoScalingGroup" $ \o -> AutoScalingGroup
-        <$> o .: "hook"
-        <*> o .: "name"
+        <$> o .:? "hook"
+        <*> o .:? "name"
 
 instance ToJSON AutoScalingGroup where
     toJSON AutoScalingGroup{..} = object
@@ -656,14 +656,14 @@ dgiTargetRevision =
 
 instance FromJSON DeploymentGroupInfo where
     parseJSON = withObject "DeploymentGroupInfo" $ \o -> DeploymentGroupInfo
-        <$> o .: "applicationName"
+        <$> o .:? "applicationName"
         <*> o .: "autoScalingGroups"
-        <*> o .: "deploymentConfigName"
-        <*> o .: "deploymentGroupId"
-        <*> o .: "deploymentGroupName"
+        <*> o .:? "deploymentConfigName"
+        <*> o .:? "deploymentGroupId"
+        <*> o .:? "deploymentGroupName"
         <*> o .: "ec2TagFilters"
-        <*> o .: "serviceRoleArn"
-        <*> o .: "targetRevision"
+        <*> o .:? "serviceRoleArn"
+        <*> o .:? "targetRevision"
 
 instance ToJSON DeploymentGroupInfo where
     toJSON DeploymentGroupInfo{..} = object
@@ -744,8 +744,8 @@ mhhValue = lens _mhhValue (\s a -> s { _mhhValue = a })
 
 instance FromJSON MinimumHealthyHosts where
     parseJSON = withObject "MinimumHealthyHosts" $ \o -> MinimumHealthyHosts
-        <$> o .: "type"
-        <*> o .: "value"
+        <$> o .:? "type"
+        <*> o .:? "value"
 
 instance ToJSON MinimumHealthyHosts where
     toJSON MinimumHealthyHosts{..} = object
@@ -848,9 +848,9 @@ rlS3Location = lens _rlS3Location (\s a -> s { _rlS3Location = a })
 
 instance FromJSON RevisionLocation where
     parseJSON = withObject "RevisionLocation" $ \o -> RevisionLocation
-        <$> o .: "gitHubLocation"
-        <*> o .: "revisionType"
-        <*> o .: "s3Location"
+        <$> o .:? "gitHubLocation"
+        <*> o .:? "revisionType"
+        <*> o .:? "s3Location"
 
 instance ToJSON RevisionLocation where
     toJSON RevisionLocation{..} = object
@@ -931,9 +931,9 @@ ectfValue = lens _ectfValue (\s a -> s { _ectfValue = a })
 
 instance FromJSON EC2TagFilter where
     parseJSON = withObject "EC2TagFilter" $ \o -> EC2TagFilter
-        <$> o .: "Key"
-        <*> o .: "Type"
-        <*> o .: "Value"
+        <$> o .:? "Key"
+        <*> o .:? "Type"
+        <*> o .:? "Value"
 
 instance ToJSON EC2TagFilter where
     toJSON EC2TagFilter{..} = object
@@ -993,10 +993,10 @@ dScriptName = lens _dScriptName (\s a -> s { _dScriptName = a })
 
 instance FromJSON Diagnostics where
     parseJSON = withObject "Diagnostics" $ \o -> Diagnostics
-        <$> o .: "errorCode"
-        <*> o .: "logTail"
-        <*> o .: "message"
-        <*> o .: "scriptName"
+        <$> o .:? "errorCode"
+        <*> o .:? "logTail"
+        <*> o .:? "message"
+        <*> o .:? "scriptName"
 
 instance ToJSON Diagnostics where
     toJSON Diagnostics{..} = object
@@ -1074,8 +1074,8 @@ eiMessage = lens _eiMessage (\s a -> s { _eiMessage = a })
 
 instance FromJSON ErrorInformation where
     parseJSON = withObject "ErrorInformation" $ \o -> ErrorInformation
-        <$> o .: "code"
-        <*> o .: "message"
+        <$> o .:? "code"
+        <*> o .:? "message"
 
 instance ToJSON ErrorInformation where
     toJSON ErrorInformation{..} = object
@@ -1253,20 +1253,20 @@ diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
 instance FromJSON DeploymentInfo where
     parseJSON = withObject "DeploymentInfo" $ \o -> DeploymentInfo
-        <$> o .: "applicationName"
-        <*> o .: "completeTime"
-        <*> o .: "createTime"
-        <*> o .: "creator"
-        <*> o .: "deploymentConfigName"
-        <*> o .: "deploymentGroupName"
-        <*> o .: "deploymentId"
-        <*> o .: "deploymentOverview"
-        <*> o .: "description"
-        <*> o .: "errorInformation"
-        <*> o .: "ignoreApplicationStopFailures"
-        <*> o .: "revision"
-        <*> o .: "startTime"
-        <*> o .: "status"
+        <$> o .:? "applicationName"
+        <*> o .:? "completeTime"
+        <*> o .:? "createTime"
+        <*> o .:? "creator"
+        <*> o .:? "deploymentConfigName"
+        <*> o .:? "deploymentGroupName"
+        <*> o .:? "deploymentId"
+        <*> o .:? "deploymentOverview"
+        <*> o .:? "description"
+        <*> o .:? "errorInformation"
+        <*> o .:? "ignoreApplicationStopFailures"
+        <*> o .:? "revision"
+        <*> o .:? "startTime"
+        <*> o .:? "status"
 
 instance ToJSON DeploymentInfo where
     toJSON DeploymentInfo{..} = object
@@ -1348,11 +1348,11 @@ leStatus = lens _leStatus (\s a -> s { _leStatus = a })
 
 instance FromJSON LifecycleEvent where
     parseJSON = withObject "LifecycleEvent" $ \o -> LifecycleEvent
-        <$> o .: "diagnostics"
-        <*> o .: "endTime"
-        <*> o .: "lifecycleEventName"
-        <*> o .: "startTime"
-        <*> o .: "status"
+        <$> o .:? "diagnostics"
+        <*> o .:? "endTime"
+        <*> o .:? "lifecycleEventName"
+        <*> o .:? "startTime"
+        <*> o .:? "status"
 
 instance ToJSON LifecycleEvent where
     toJSON LifecycleEvent{..} = object
@@ -1416,11 +1416,11 @@ doSucceeded = lens _doSucceeded (\s a -> s { _doSucceeded = a })
 
 instance FromJSON DeploymentOverview where
     parseJSON = withObject "DeploymentOverview" $ \o -> DeploymentOverview
-        <$> o .: "Failed"
-        <*> o .: "InProgress"
-        <*> o .: "Pending"
-        <*> o .: "Skipped"
-        <*> o .: "Succeeded"
+        <$> o .:? "Failed"
+        <*> o .:? "InProgress"
+        <*> o .:? "Pending"
+        <*> o .:? "Skipped"
+        <*> o .:? "Succeeded"
 
 instance ToJSON DeploymentOverview where
     toJSON DeploymentOverview{..} = object
@@ -1529,10 +1529,10 @@ dciMinimumHealthyHosts =
 
 instance FromJSON DeploymentConfigInfo where
     parseJSON = withObject "DeploymentConfigInfo" $ \o -> DeploymentConfigInfo
-        <$> o .: "createTime"
-        <*> o .: "deploymentConfigId"
-        <*> o .: "deploymentConfigName"
-        <*> o .: "minimumHealthyHosts"
+        <$> o .:? "createTime"
+        <*> o .:? "deploymentConfigId"
+        <*> o .:? "deploymentConfigName"
+        <*> o .:? "minimumHealthyHosts"
 
 instance ToJSON DeploymentConfigInfo where
     toJSON DeploymentConfigInfo{..} = object
@@ -1671,11 +1671,11 @@ slVersion = lens _slVersion (\s a -> s { _slVersion = a })
 
 instance FromJSON S3Location where
     parseJSON = withObject "S3Location" $ \o -> S3Location
-        <$> o .: "bucket"
-        <*> o .: "bundleType"
-        <*> o .: "eTag"
-        <*> o .: "key"
-        <*> o .: "version"
+        <$> o .:? "bucket"
+        <*> o .:? "bundleType"
+        <*> o .:? "eTag"
+        <*> o .:? "key"
+        <*> o .:? "version"
 
 instance ToJSON S3Location where
     toJSON S3Location{..} = object
@@ -1740,8 +1740,8 @@ ghlRepository = lens _ghlRepository (\s a -> s { _ghlRepository = a })
 
 instance FromJSON GitHubLocation where
     parseJSON = withObject "GitHubLocation" $ \o -> GitHubLocation
-        <$> o .: "commitId"
-        <*> o .: "repository"
+        <$> o .:? "commitId"
+        <*> o .:? "repository"
 
 instance ToJSON GitHubLocation where
     toJSON GitHubLocation{..} = object

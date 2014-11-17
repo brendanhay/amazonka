@@ -147,4 +147,4 @@ instance AWSRequest CreateSecurityGroup where
 
 instance FromXML CreateSecurityGroupResponse where
     parseXML c = CreateSecurityGroupResponse
-        <$> c .: "groupId"
+        <$> c .:? "groupId"

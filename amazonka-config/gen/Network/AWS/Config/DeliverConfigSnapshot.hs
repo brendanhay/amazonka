@@ -111,4 +111,4 @@ instance AWSRequest DeliverConfigSnapshot where
 
 instance FromJSON DeliverConfigSnapshotResponse where
     parseJSON = withObject "DeliverConfigSnapshotResponse" $ \o -> DeliverConfigSnapshotResponse
-        <$> o .: "configSnapshotId"
+        <$> o .:? "configSnapshotId"

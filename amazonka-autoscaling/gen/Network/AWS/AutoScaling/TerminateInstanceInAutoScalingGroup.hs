@@ -112,4 +112,4 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     parseXML c = TerminateInstanceInAutoScalingGroupResponse
-        <$> c .: "Activity"
+        <$> c .:? "Activity"

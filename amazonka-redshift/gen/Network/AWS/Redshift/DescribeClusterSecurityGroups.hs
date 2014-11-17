@@ -152,4 +152,4 @@ instance AWSRequest DescribeClusterSecurityGroups where
 instance FromXML DescribeClusterSecurityGroupsResponse where
     parseXML c = DescribeClusterSecurityGroupsResponse
         <$> c .: "ClusterSecurityGroups"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

@@ -140,5 +140,5 @@ instance AWSRequest DescribeReservedNodes where
 
 instance FromXML DescribeReservedNodesResponse where
     parseXML c = DescribeReservedNodesResponse
-        <$> c .: "Marker"
+        <$> c .:? "Marker"
         <*> c .: "ReservedNodes"

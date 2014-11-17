@@ -141,5 +141,5 @@ instance AWSRequest Decrypt where
 
 instance FromJSON DecryptResponse where
     parseJSON = withObject "DecryptResponse" $ \o -> DecryptResponse
-        <$> o .: "KeyId"
-        <*> o .: "Plaintext"
+        <$> o .:? "KeyId"
+        <*> o .:? "Plaintext"

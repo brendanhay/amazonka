@@ -140,6 +140,6 @@ instance AWSRequest DescribeVpcAttribute where
 
 instance FromXML DescribeVpcAttributeResponse where
     parseXML c = DescribeVpcAttributeResponse
-        <$> c .: "enableDnsHostnames"
-        <*> c .: "enableDnsSupport"
-        <*> c .: "vpcId"
+        <$> c .:? "enableDnsHostnames"
+        <*> c .:? "enableDnsSupport"
+        <*> c .:? "vpcId"

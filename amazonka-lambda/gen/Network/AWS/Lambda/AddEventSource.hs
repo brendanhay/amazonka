@@ -251,12 +251,12 @@ instance AWSRequest AddEventSource where
 
 instance FromJSON AddEventSourceResponse where
     parseJSON = withObject "AddEventSourceResponse" $ \o -> AddEventSourceResponse
-        <$> o .: "BatchSize"
-        <*> o .: "EventSource"
-        <*> o .: "FunctionName"
-        <*> o .: "IsActive"
-        <*> o .: "LastModified"
+        <$> o .:? "BatchSize"
+        <*> o .:? "EventSource"
+        <*> o .:? "FunctionName"
+        <*> o .:? "IsActive"
+        <*> o .:? "LastModified"
         <*> o .: "Parameters"
-        <*> o .: "Role"
-        <*> o .: "Status"
-        <*> o .: "UUID"
+        <*> o .:? "Role"
+        <*> o .:? "Status"
+        <*> o .:? "UUID"

@@ -104,4 +104,4 @@ instance AWSRequest GetBucketPolicy where
 
 instance FromXML GetBucketPolicyResponse where
     parseXML c = GetBucketPolicyResponse
-        <$> c .: "Policy"
+        <$> c .:? "Policy"

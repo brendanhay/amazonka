@@ -168,5 +168,5 @@ instance AWSRequest GetRecords where
 
 instance FromJSON GetRecordsResponse where
     parseJSON = withObject "GetRecordsResponse" $ \o -> GetRecordsResponse
-        <$> o .: "NextShardIterator"
+        <$> o .:? "NextShardIterator"
         <*> o .: "Records"

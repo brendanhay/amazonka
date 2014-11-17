@@ -154,6 +154,6 @@ instance AWSRequest DescribeTapeRecoveryPoints where
 
 instance FromJSON DescribeTapeRecoveryPointsResponse where
     parseJSON = withObject "DescribeTapeRecoveryPointsResponse" $ \o -> DescribeTapeRecoveryPointsResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "Marker"
+        <$> o .:? "GatewayARN"
+        <*> o .:? "Marker"
         <*> o .: "TapeRecoveryPointInfos"

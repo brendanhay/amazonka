@@ -159,8 +159,8 @@ fclRepositoryType =
 
 instance FromJSON FunctionCodeLocation where
     parseJSON = withObject "FunctionCodeLocation" $ \o -> FunctionCodeLocation
-        <$> o .: "Location"
-        <*> o .: "RepositoryType"
+        <$> o .:? "Location"
+        <*> o .:? "RepositoryType"
 
 instance ToJSON FunctionCodeLocation where
     toJSON FunctionCodeLocation{..} = object
@@ -288,18 +288,18 @@ fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a })
 
 instance FromJSON FunctionConfiguration where
     parseJSON = withObject "FunctionConfiguration" $ \o -> FunctionConfiguration
-        <$> o .: "CodeSize"
-        <*> o .: "ConfigurationId"
-        <*> o .: "Description"
-        <*> o .: "FunctionARN"
-        <*> o .: "FunctionName"
-        <*> o .: "Handler"
-        <*> o .: "LastModified"
-        <*> o .: "MemorySize"
-        <*> o .: "Mode"
-        <*> o .: "Role"
-        <*> o .: "Runtime"
-        <*> o .: "Timeout"
+        <$> o .:? "CodeSize"
+        <*> o .:? "ConfigurationId"
+        <*> o .:? "Description"
+        <*> o .:? "FunctionARN"
+        <*> o .:? "FunctionName"
+        <*> o .:? "Handler"
+        <*> o .:? "LastModified"
+        <*> o .:? "MemorySize"
+        <*> o .:? "Mode"
+        <*> o .:? "Role"
+        <*> o .:? "Runtime"
+        <*> o .:? "Timeout"
 
 instance ToJSON FunctionConfiguration where
     toJSON FunctionConfiguration{..} = object
@@ -414,15 +414,15 @@ escUUID = lens _escUUID (\s a -> s { _escUUID = a })
 
 instance FromJSON EventSourceConfiguration where
     parseJSON = withObject "EventSourceConfiguration" $ \o -> EventSourceConfiguration
-        <$> o .: "BatchSize"
-        <*> o .: "EventSource"
-        <*> o .: "FunctionName"
-        <*> o .: "IsActive"
-        <*> o .: "LastModified"
+        <$> o .:? "BatchSize"
+        <*> o .:? "EventSource"
+        <*> o .:? "FunctionName"
+        <*> o .:? "IsActive"
+        <*> o .:? "LastModified"
         <*> o .: "Parameters"
-        <*> o .: "Role"
-        <*> o .: "Status"
-        <*> o .: "UUID"
+        <*> o .:? "Role"
+        <*> o .:? "Status"
+        <*> o .:? "UUID"
 
 instance ToJSON EventSourceConfiguration where
     toJSON EventSourceConfiguration{..} = object

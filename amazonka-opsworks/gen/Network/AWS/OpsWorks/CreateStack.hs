@@ -359,4 +359,4 @@ instance AWSRequest CreateStack where
 
 instance FromJSON CreateStackResponse where
     parseJSON = withObject "CreateStackResponse" $ \o -> CreateStackResponse
-        <$> o .: "StackId"
+        <$> o .:? "StackId"

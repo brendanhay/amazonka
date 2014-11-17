@@ -259,7 +259,7 @@ instance FromXML ListResourceRecordSetsResponse where
     parseXML c = ListResourceRecordSetsResponse
         <$> c .: "IsTruncated"
         <*> c .: "MaxItems"
-        <*> c .: "NextRecordIdentifier"
-        <*> c .: "NextRecordName"
-        <*> c .: "NextRecordType"
+        <*> c .:? "NextRecordIdentifier"
+        <*> c .:? "NextRecordName"
+        <*> c .:? "NextRecordType"
         <*> c .: "ResourceRecordSets"

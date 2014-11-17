@@ -217,4 +217,4 @@ instance AWSRequest CreateApp where
 
 instance FromJSON CreateAppResponse where
     parseJSON = withObject "CreateAppResponse" $ \o -> CreateAppResponse
-        <$> o .: "AppId"
+        <$> o .:? "AppId"

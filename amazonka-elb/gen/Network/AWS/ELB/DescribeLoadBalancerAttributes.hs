@@ -102,4 +102,4 @@ instance AWSRequest DescribeLoadBalancerAttributes where
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
     parseXML c = DescribeLoadBalancerAttributesResponse
-        <$> c .: "LoadBalancerAttributes"
+        <$> c .:? "LoadBalancerAttributes"

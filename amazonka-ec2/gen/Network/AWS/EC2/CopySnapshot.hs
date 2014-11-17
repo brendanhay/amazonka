@@ -165,4 +165,4 @@ instance AWSRequest CopySnapshot where
 
 instance FromXML CopySnapshotResponse where
     parseXML c = CopySnapshotResponse
-        <$> c .: "snapshotId"
+        <$> c .:? "snapshotId"

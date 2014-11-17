@@ -208,4 +208,4 @@ instance AWSRequest RegisterImage where
 
 instance FromXML RegisterImageResponse where
     parseXML c = RegisterImageResponse
-        <$> c .: "imageId"
+        <$> c .:? "imageId"

@@ -137,4 +137,4 @@ instance AWSRequest DescribeAutoScalingInstances where
 instance FromXML DescribeAutoScalingInstancesResponse where
     parseXML c = DescribeAutoScalingInstancesResponse
         <$> c .: "AutoScalingInstances"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

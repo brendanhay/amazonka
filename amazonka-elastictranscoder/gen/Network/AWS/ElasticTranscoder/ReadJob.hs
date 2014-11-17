@@ -105,4 +105,4 @@ instance AWSRequest ReadJob where
 
 instance FromJSON ReadJobResponse where
     parseJSON = withObject "ReadJobResponse" $ \o -> ReadJobResponse
-        <$> o .: "Job"
+        <$> o .:? "Job"

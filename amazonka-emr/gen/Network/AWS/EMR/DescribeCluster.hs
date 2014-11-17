@@ -106,4 +106,4 @@ instance AWSRequest DescribeCluster where
 
 instance FromJSON DescribeClusterResponse where
     parseJSON = withObject "DescribeClusterResponse" $ \o -> DescribeClusterResponse
-        <$> o .: "Cluster"
+        <$> o .:? "Cluster"

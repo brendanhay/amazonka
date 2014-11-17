@@ -174,4 +174,4 @@ instance AWSRequest DescribeDBSnapshots where
 instance FromXML DescribeDBSnapshotsResponse where
     parseXML c = DescribeDBSnapshotsResponse
         <$> c .: "DBSnapshots"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

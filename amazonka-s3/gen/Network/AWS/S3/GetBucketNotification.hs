@@ -123,6 +123,6 @@ instance AWSRequest GetBucketNotification where
 
 instance FromXML GetBucketNotificationResponse where
     parseXML c = GetBucketNotificationResponse
-        <$> c .: "CloudFunctionConfiguration"
-        <*> c .: "QueueConfiguration"
-        <*> c .: "TopicConfiguration"
+        <$> c .:? "CloudFunctionConfiguration"
+        <*> c .:? "QueueConfiguration"
+        <*> c .:? "TopicConfiguration"

@@ -131,4 +131,4 @@ instance AWSRequest AuthorizeCacheSecurityGroupIngress where
 
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
     parseXML c = AuthorizeCacheSecurityGroupIngressResponse
-        <$> c .: "CacheSecurityGroup"
+        <$> c .:? "CacheSecurityGroup"

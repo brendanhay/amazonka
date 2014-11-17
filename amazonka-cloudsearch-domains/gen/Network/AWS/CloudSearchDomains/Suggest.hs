@@ -143,5 +143,5 @@ instance AWSRequest Suggest where
 
 instance FromJSON SuggestResponse where
     parseJSON = withObject "SuggestResponse" $ \o -> SuggestResponse
-        <$> o .: "status"
-        <*> o .: "suggest"
+        <$> o .:? "status"
+        <*> o .:? "suggest"

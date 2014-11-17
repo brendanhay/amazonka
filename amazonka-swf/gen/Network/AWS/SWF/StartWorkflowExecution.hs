@@ -250,4 +250,4 @@ instance AWSRequest StartWorkflowExecution where
 
 instance FromJSON StartWorkflowExecutionResponse where
     parseJSON = withObject "StartWorkflowExecutionResponse" $ \o -> StartWorkflowExecutionResponse
-        <$> o .: "runId"
+        <$> o .:? "runId"

@@ -115,4 +115,4 @@ instance AWSRequest DeleteGateway where
 
 instance FromJSON DeleteGatewayResponse where
     parseJSON = withObject "DeleteGatewayResponse" $ \o -> DeleteGatewayResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

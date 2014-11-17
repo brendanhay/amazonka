@@ -318,4 +318,4 @@ instance AWSRequest ModifyCluster where
 
 instance FromXML ModifyClusterResponse where
     parseXML c = ModifyClusterResponse
-        <$> c .: "Cluster"
+        <$> c .:? "Cluster"

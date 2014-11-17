@@ -121,5 +121,5 @@ instance AWSRequest GetIdentityPoolConfiguration where
 
 instance FromJSON GetIdentityPoolConfigurationResponse where
     parseJSON = withObject "GetIdentityPoolConfigurationResponse" $ \o -> GetIdentityPoolConfigurationResponse
-        <$> o .: "IdentityPoolId"
-        <*> o .: "PushSync"
+        <$> o .:? "IdentityPoolId"
+        <*> o .:? "PushSync"

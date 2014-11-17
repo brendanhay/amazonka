@@ -130,4 +130,4 @@ instance AWSRequest DescribeDefaultClusterParameters where
 
 instance FromXML DescribeDefaultClusterParametersResponse where
     parseXML c = DescribeDefaultClusterParametersResponse
-        <$> c .: "DefaultClusterParameters"
+        <$> c .:? "DefaultClusterParameters"

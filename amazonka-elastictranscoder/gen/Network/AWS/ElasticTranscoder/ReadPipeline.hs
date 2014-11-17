@@ -106,4 +106,4 @@ instance AWSRequest ReadPipeline where
 
 instance FromJSON ReadPipelineResponse where
     parseJSON = withObject "ReadPipelineResponse" $ \o -> ReadPipelineResponse
-        <$> o .: "Pipeline"
+        <$> o .:? "Pipeline"

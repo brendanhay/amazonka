@@ -116,4 +116,4 @@ instance AWSRequest AddCache where
 
 instance FromJSON AddCacheResponse where
     parseJSON = withObject "AddCacheResponse" $ \o -> AddCacheResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

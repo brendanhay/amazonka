@@ -149,5 +149,5 @@ instance AWSRequest DescribeClusterParameterGroups where
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     parseXML c = DescribeClusterParameterGroupsResponse
-        <$> c .: "Marker"
+        <$> c .:? "Marker"
         <*> c .: "ParameterGroups"

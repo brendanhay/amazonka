@@ -290,8 +290,8 @@ sName = lens _sName (\s a -> s { _sName = a })
 instance FromJSON Service where
     parseJSON = withObject "Service" $ \o -> Service
         <$> o .: "categories"
-        <*> o .: "code"
-        <*> o .: "name"
+        <*> o .:? "code"
+        <*> o .:? "name"
 
 instance ToJSON Service where
     toJSON Service{..} = object
@@ -323,7 +323,7 @@ tacssCostOptimizing =
 
 instance FromJSON TrustedAdvisorCategorySpecificSummary where
     parseJSON = withObject "TrustedAdvisorCategorySpecificSummary" $ \o -> TrustedAdvisorCategorySpecificSummary
-        <$> o .: "costOptimizing"
+        <$> o .:? "costOptimizing"
 
 instance ToJSON TrustedAdvisorCategorySpecificSummary where
     toJSON TrustedAdvisorCategorySpecificSummary{..} = object
@@ -386,10 +386,10 @@ cTimeCreated = lens _cTimeCreated (\s a -> s { _cTimeCreated = a })
 instance FromJSON Communication where
     parseJSON = withObject "Communication" $ \o -> Communication
         <$> o .: "attachmentSet"
-        <*> o .: "body"
-        <*> o .: "caseId"
-        <*> o .: "submittedBy"
-        <*> o .: "timeCreated"
+        <*> o .:? "body"
+        <*> o .:? "caseId"
+        <*> o .:? "submittedBy"
+        <*> o .:? "timeCreated"
 
 instance ToJSON Communication where
     toJSON Communication{..} = object
@@ -429,8 +429,8 @@ cName = lens _cName (\s a -> s { _cName = a })
 
 instance FromJSON Category where
     parseJSON = withObject "Category" $ \o -> Category
-        <$> o .: "code"
-        <*> o .: "name"
+        <$> o .:? "code"
+        <*> o .:? "name"
 
 instance ToJSON Category where
     toJSON Category{..} = object
@@ -511,7 +511,7 @@ instance FromJSON TrustedAdvisorCheckSummary where
     parseJSON = withObject "TrustedAdvisorCheckSummary" $ \o -> TrustedAdvisorCheckSummary
         <$> o .: "categorySpecificSummary"
         <*> o .: "checkId"
-        <*> o .: "hasFlaggedResources"
+        <*> o .:? "hasFlaggedResources"
         <*> o .: "resourcesSummary"
         <*> o .: "status"
         <*> o .: "timestamp"
@@ -555,8 +555,8 @@ adFileName = lens _adFileName (\s a -> s { _adFileName = a })
 
 instance FromJSON AttachmentDetails where
     parseJSON = withObject "AttachmentDetails" $ \o -> AttachmentDetails
-        <$> o .: "attachmentId"
-        <*> o .: "fileName"
+        <$> o .:? "attachmentId"
+        <*> o .:? "fileName"
 
 instance ToJSON AttachmentDetails where
     toJSON AttachmentDetails{..} = object
@@ -758,8 +758,8 @@ aFileName = lens _aFileName (\s a -> s { _aFileName = a })
 
 instance FromJSON Attachment where
     parseJSON = withObject "Attachment" $ \o -> Attachment
-        <$> o .: "data"
-        <*> o .: "fileName"
+        <$> o .:? "data"
+        <*> o .:? "fileName"
 
 instance ToJSON Attachment where
     toJSON Attachment{..} = object
@@ -798,7 +798,7 @@ rccNextToken = lens _rccNextToken (\s a -> s { _rccNextToken = a })
 instance FromJSON RecentCaseCommunications where
     parseJSON = withObject "RecentCaseCommunications" $ \o -> RecentCaseCommunications
         <$> o .: "communications"
-        <*> o .: "nextToken"
+        <*> o .:? "nextToken"
 
 instance ToJSON RecentCaseCommunications where
     toJSON RecentCaseCommunications{..} = object
@@ -868,7 +868,7 @@ tardStatus = lens _tardStatus (\s a -> s { _tardStatus = a })
 
 instance FromJSON TrustedAdvisorResourceDetail where
     parseJSON = withObject "TrustedAdvisorResourceDetail" $ \o -> TrustedAdvisorResourceDetail
-        <$> o .: "isSuppressed"
+        <$> o .:? "isSuppressed"
         <*> o .: "metadata"
         <*> o .: "region"
         <*> o .: "resourceId"
@@ -961,8 +961,8 @@ slName = lens _slName (\s a -> s { _slName = a })
 
 instance FromJSON SeverityLevel where
     parseJSON = withObject "SeverityLevel" $ \o -> SeverityLevel
-        <$> o .: "code"
-        <*> o .: "name"
+        <$> o .:? "code"
+        <*> o .:? "name"
 
 instance ToJSON SeverityLevel where
     toJSON SeverityLevel{..} = object
@@ -1089,18 +1089,18 @@ cdTimeCreated = lens _cdTimeCreated (\s a -> s { _cdTimeCreated = a })
 
 instance FromJSON CaseDetails where
     parseJSON = withObject "CaseDetails" $ \o -> CaseDetails
-        <$> o .: "caseId"
-        <*> o .: "categoryCode"
+        <$> o .:? "caseId"
+        <*> o .:? "categoryCode"
         <*> o .: "ccEmailAddresses"
-        <*> o .: "displayId"
-        <*> o .: "language"
-        <*> o .: "recentCommunications"
-        <*> o .: "serviceCode"
-        <*> o .: "severityCode"
-        <*> o .: "status"
-        <*> o .: "subject"
-        <*> o .: "submittedBy"
-        <*> o .: "timeCreated"
+        <*> o .:? "displayId"
+        <*> o .:? "language"
+        <*> o .:? "recentCommunications"
+        <*> o .:? "serviceCode"
+        <*> o .:? "severityCode"
+        <*> o .:? "status"
+        <*> o .:? "subject"
+        <*> o .:? "submittedBy"
+        <*> o .:? "timeCreated"
 
 instance ToJSON CaseDetails where
     toJSON CaseDetails{..} = object

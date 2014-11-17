@@ -262,8 +262,8 @@ ssgOwnerAlias = lens _ssgOwnerAlias (\s a -> s { _ssgOwnerAlias = a })
 
 instance FromXML SourceSecurityGroup where
     parseXML c = SourceSecurityGroup
-        <$> c .: "GroupName"
-        <*> c .: "OwnerAlias"
+        <$> c .:? "GroupName"
+        <*> c .:? "OwnerAlias"
 
 instance ToQuery SourceSecurityGroup
 
@@ -299,7 +299,7 @@ tdTags = lens _tdTags (\s a -> s { _tdTags = a })
 
 instance FromXML TagDescription where
     parseXML c = TagDescription
-        <$> c .: "LoadBalancerName"
+        <$> c .:? "LoadBalancerName"
         <*> c .: "Tags"
 
 instance ToQuery TagDescription
@@ -335,7 +335,7 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 instance FromXML Tag where
     parseXML c = Tag
         <$> c .: "Key"
-        <*> c .: "Value"
+        <*> c .:? "Value"
 
 instance ToQuery Tag
 
@@ -397,11 +397,11 @@ patdDescription = lens _patdDescription (\s a -> s { _patdDescription = a })
 
 instance FromXML PolicyAttributeTypeDescription where
     parseXML c = PolicyAttributeTypeDescription
-        <$> c .: "AttributeName"
-        <*> c .: "AttributeType"
-        <*> c .: "Cardinality"
-        <*> c .: "DefaultValue"
-        <*> c .: "Description"
+        <$> c .:? "AttributeName"
+        <*> c .:? "AttributeType"
+        <*> c .:? "Cardinality"
+        <*> c .:? "DefaultValue"
+        <*> c .:? "Description"
 
 instance ToQuery PolicyAttributeTypeDescription
 
@@ -593,11 +593,11 @@ lbaCrossZoneLoadBalancing =
 
 instance FromXML LoadBalancerAttributes where
     parseXML c = LoadBalancerAttributes
-        <$> c .: "AccessLog"
+        <$> c .:? "AccessLog"
         <*> c .: "AdditionalAttributes"
-        <*> c .: "ConnectionDraining"
-        <*> c .: "ConnectionSettings"
-        <*> c .: "CrossZoneLoadBalancing"
+        <*> c .:? "ConnectionDraining"
+        <*> c .:? "ConnectionSettings"
+        <*> c .:? "CrossZoneLoadBalancing"
 
 instance ToQuery LoadBalancerAttributes
 
@@ -650,10 +650,10 @@ alS3BucketPrefix = lens _alS3BucketPrefix (\s a -> s { _alS3BucketPrefix = a })
 
 instance FromXML AccessLog where
     parseXML c = AccessLog
-        <$> c .: "EmitInterval"
+        <$> c .:? "EmitInterval"
         <*> c .: "Enabled"
-        <*> c .: "S3BucketName"
-        <*> c .: "S3BucketPrefix"
+        <*> c .:? "S3BucketName"
+        <*> c .:? "S3BucketPrefix"
 
 instance ToQuery AccessLog
 
@@ -686,7 +686,7 @@ ldPolicyNames = lens _ldPolicyNames (\s a -> s { _ldPolicyNames = a })
 
 instance FromXML ListenerDescription where
     parseXML c = ListenerDescription
-        <$> c .: "Listener"
+        <$> c .:? "Listener"
         <*> c .: "PolicyNames"
 
 instance ToQuery ListenerDescription
@@ -725,8 +725,8 @@ lbcspPolicyName = lens _lbcspPolicyName (\s a -> s { _lbcspPolicyName = a })
 
 instance FromXML LBCookieStickinessPolicy where
     parseXML c = LBCookieStickinessPolicy
-        <$> c .: "CookieExpirationPeriod"
-        <*> c .: "PolicyName"
+        <$> c .:? "CookieExpirationPeriod"
+        <*> c .:? "PolicyName"
 
 instance ToQuery LBCookieStickinessPolicy
 
@@ -770,8 +770,8 @@ pdPolicyTypeName = lens _pdPolicyTypeName (\s a -> s { _pdPolicyTypeName = a })
 instance FromXML PolicyDescription where
     parseXML c = PolicyDescription
         <$> c .: "PolicyAttributeDescriptions"
-        <*> c .: "PolicyName"
-        <*> c .: "PolicyTypeName"
+        <*> c .:? "PolicyName"
+        <*> c .:? "PolicyTypeName"
 
 instance ToQuery PolicyDescription
 
@@ -805,8 +805,8 @@ acspPolicyName = lens _acspPolicyName (\s a -> s { _acspPolicyName = a })
 
 instance FromXML AppCookieStickinessPolicy where
     parseXML c = AppCookieStickinessPolicy
-        <$> c .: "CookieName"
-        <*> c .: "PolicyName"
+        <$> c .:? "CookieName"
+        <*> c .:? "PolicyName"
 
 instance ToQuery AppCookieStickinessPolicy
 
@@ -839,8 +839,8 @@ paAttributeValue = lens _paAttributeValue (\s a -> s { _paAttributeValue = a })
 
 instance FromXML PolicyAttribute where
     parseXML c = PolicyAttribute
-        <$> c .: "AttributeName"
-        <*> c .: "AttributeValue"
+        <$> c .:? "AttributeName"
+        <*> c .:? "AttributeValue"
 
 instance ToQuery PolicyAttribute
 
@@ -1017,20 +1017,20 @@ instance FromXML LoadBalancerDescription where
     parseXML c = LoadBalancerDescription
         <$> c .: "AvailabilityZones"
         <*> c .: "BackendServerDescriptions"
-        <*> c .: "CanonicalHostedZoneName"
-        <*> c .: "CanonicalHostedZoneNameID"
-        <*> c .: "CreatedTime"
-        <*> c .: "DNSName"
-        <*> c .: "HealthCheck"
+        <*> c .:? "CanonicalHostedZoneName"
+        <*> c .:? "CanonicalHostedZoneNameID"
+        <*> c .:? "CreatedTime"
+        <*> c .:? "DNSName"
+        <*> c .:? "HealthCheck"
         <*> c .: "Instances"
         <*> c .: "ListenerDescriptions"
-        <*> c .: "LoadBalancerName"
-        <*> c .: "Policies"
-        <*> c .: "Scheme"
+        <*> c .:? "LoadBalancerName"
+        <*> c .:? "Policies"
+        <*> c .:? "Scheme"
         <*> c .: "SecurityGroups"
-        <*> c .: "SourceSecurityGroup"
+        <*> c .:? "SourceSecurityGroup"
         <*> c .: "Subnets"
-        <*> c .: "VPCId"
+        <*> c .:? "VPCId"
 
 instance ToQuery LoadBalancerDescription
 
@@ -1064,7 +1064,7 @@ bsdPolicyNames = lens _bsdPolicyNames (\s a -> s { _bsdPolicyNames = a })
 
 instance FromXML BackendServerDescription where
     parseXML c = BackendServerDescription
-        <$> c .: "InstancePort"
+        <$> c .:? "InstancePort"
         <*> c .: "PolicyNames"
 
 instance ToQuery BackendServerDescription
@@ -1099,8 +1099,8 @@ padAttributeValue =
 
 instance FromXML PolicyAttributeDescription where
     parseXML c = PolicyAttributeDescription
-        <$> c .: "AttributeName"
-        <*> c .: "AttributeValue"
+        <$> c .:? "AttributeName"
+        <*> c .:? "AttributeValue"
 
 instance ToQuery PolicyAttributeDescription
 
@@ -1131,8 +1131,8 @@ aaValue = lens _aaValue (\s a -> s { _aaValue = a })
 
 instance FromXML AdditionalAttribute where
     parseXML c = AdditionalAttribute
-        <$> c .: "Key"
-        <*> c .: "Value"
+        <$> c .:? "Key"
+        <*> c .:? "Value"
 
 instance ToQuery AdditionalAttribute
 
@@ -1206,9 +1206,9 @@ ptdPolicyTypeName =
 
 instance FromXML PolicyTypeDescription where
     parseXML c = PolicyTypeDescription
-        <$> c .: "Description"
+        <$> c .:? "Description"
         <*> c .: "PolicyAttributeTypeDescriptions"
-        <*> c .: "PolicyTypeName"
+        <*> c .:? "PolicyTypeName"
 
 instance ToQuery PolicyTypeDescription
 
@@ -1338,10 +1338,10 @@ lSSLCertificateId =
 instance FromXML Listener where
     parseXML c = Listener
         <$> c .: "InstancePort"
-        <*> c .: "InstanceProtocol"
+        <*> c .:? "InstanceProtocol"
         <*> c .: "LoadBalancerPort"
         <*> c .: "Protocol"
-        <*> c .: "SSLCertificateId"
+        <*> c .:? "SSLCertificateId"
 
 instance ToQuery Listener
 
@@ -1377,7 +1377,7 @@ cdTimeout = lens _cdTimeout (\s a -> s { _cdTimeout = a })
 instance FromXML ConnectionDraining where
     parseXML c = ConnectionDraining
         <$> c .: "Enabled"
-        <*> c .: "Timeout"
+        <*> c .:? "Timeout"
 
 instance ToQuery ConnectionDraining
 
@@ -1429,10 +1429,10 @@ isState = lens _isState (\s a -> s { _isState = a })
 
 instance FromXML InstanceState where
     parseXML c = InstanceState
-        <$> c .: "Description"
-        <*> c .: "InstanceId"
-        <*> c .: "ReasonCode"
-        <*> c .: "State"
+        <$> c .:? "Description"
+        <*> c .:? "InstanceId"
+        <*> c .:? "ReasonCode"
+        <*> c .:? "State"
 
 instance ToQuery InstanceState
 
@@ -1457,7 +1457,7 @@ tkoKey = lens _tkoKey (\s a -> s { _tkoKey = a })
 
 instance FromXML TagKeyOnly where
     parseXML c = TagKeyOnly
-        <$> c .: "Key"
+        <$> c .:? "Key"
 
 instance ToQuery TagKeyOnly
 
@@ -1482,6 +1482,6 @@ iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
 
 instance FromXML Instance where
     parseXML c = Instance
-        <$> c .: "InstanceId"
+        <$> c .:? "InstanceId"
 
 instance ToQuery Instance

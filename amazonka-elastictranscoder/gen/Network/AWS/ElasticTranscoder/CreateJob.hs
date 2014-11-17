@@ -173,4 +173,4 @@ instance AWSRequest CreateJob where
 
 instance FromJSON CreateJobResponse where
     parseJSON = withObject "CreateJobResponse" $ \o -> CreateJobResponse
-        <$> o .: "Job"
+        <$> o .:? "Job"

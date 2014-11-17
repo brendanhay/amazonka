@@ -444,19 +444,19 @@ dsSearchService = lens _dsSearchService (\s a -> s { _dsSearchService = a })
 
 instance FromXML DomainStatus where
     parseXML c = DomainStatus
-        <$> c .: "ARN"
-        <*> c .: "Created"
-        <*> c .: "Deleted"
-        <*> c .: "DocService"
+        <$> c .:? "ARN"
+        <*> c .:? "Created"
+        <*> c .:? "Deleted"
+        <*> c .:? "DocService"
         <*> c .: "DomainId"
         <*> c .: "DomainName"
-        <*> c .: "Limits"
-        <*> c .: "Processing"
+        <*> c .:? "Limits"
+        <*> c .:? "Processing"
         <*> c .: "RequiresIndexDocuments"
-        <*> c .: "SearchInstanceCount"
-        <*> c .: "SearchInstanceType"
-        <*> c .: "SearchPartitionCount"
-        <*> c .: "SearchService"
+        <*> c .:? "SearchInstanceCount"
+        <*> c .:? "SearchInstanceType"
+        <*> c .:? "SearchPartitionCount"
+        <*> c .:? "SearchService"
 
 instance ToQuery DomainStatus
 
@@ -510,8 +510,8 @@ dsoSourceField = lens _dsoSourceField (\s a -> s { _dsoSourceField = a })
 
 instance FromXML DocumentSuggesterOptions where
     parseXML c = DocumentSuggesterOptions
-        <$> c .: "FuzzyMatching"
-        <*> c .: "SortExpression"
+        <$> c .:? "FuzzyMatching"
+        <*> c .:? "SortExpression"
         <*> c .: "SourceField"
 
 instance ToQuery DocumentSuggesterOptions
@@ -569,11 +569,11 @@ daoSourceFields = lens _daoSourceFields (\s a -> s { _daoSourceFields = a })
 
 instance FromXML DoubleArrayOptions where
     parseXML c = DoubleArrayOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SourceFields"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SourceFields"
 
 instance ToQuery DoubleArrayOptions
 
@@ -693,19 +693,19 @@ ifTextOptions = lens _ifTextOptions (\s a -> s { _ifTextOptions = a })
 
 instance FromXML IndexField where
     parseXML c = IndexField
-        <$> c .: "DateArrayOptions"
-        <*> c .: "DateOptions"
-        <*> c .: "DoubleArrayOptions"
-        <*> c .: "DoubleOptions"
+        <$> c .:? "DateArrayOptions"
+        <*> c .:? "DateOptions"
+        <*> c .:? "DoubleArrayOptions"
+        <*> c .:? "DoubleOptions"
         <*> c .: "IndexFieldName"
         <*> c .: "IndexFieldType"
-        <*> c .: "IntArrayOptions"
-        <*> c .: "IntOptions"
-        <*> c .: "LatLonOptions"
-        <*> c .: "LiteralArrayOptions"
-        <*> c .: "LiteralOptions"
-        <*> c .: "TextArrayOptions"
-        <*> c .: "TextOptions"
+        <*> c .:? "IntArrayOptions"
+        <*> c .:? "IntOptions"
+        <*> c .:? "LatLonOptions"
+        <*> c .:? "LiteralArrayOptions"
+        <*> c .:? "LiteralOptions"
+        <*> c .:? "TextArrayOptions"
+        <*> c .:? "TextOptions"
 
 instance ToQuery IndexField
 
@@ -769,12 +769,12 @@ doSourceField = lens _doSourceField (\s a -> s { _doSourceField = a })
 
 instance FromXML DateOptions where
     parseXML c = DateOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SortEnabled"
-        <*> c .: "SourceField"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SortEnabled"
+        <*> c .:? "SourceField"
 
 instance ToQuery DateOptions
 
@@ -860,11 +860,11 @@ taoSourceFields = lens _taoSourceFields (\s a -> s { _taoSourceFields = a })
 
 instance FromXML TextArrayOptions where
     parseXML c = TextArrayOptions
-        <$> c .: "AnalysisScheme"
-        <*> c .: "DefaultValue"
-        <*> c .: "HighlightEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SourceFields"
+        <$> c .:? "AnalysisScheme"
+        <*> c .:? "DefaultValue"
+        <*> c .:? "HighlightEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SourceFields"
 
 instance ToQuery TextArrayOptions
 
@@ -935,7 +935,7 @@ asAnalysisSchemeName =
 
 instance FromXML AnalysisScheme where
     parseXML c = AnalysisScheme
-        <$> c .: "AnalysisOptions"
+        <$> c .:? "AnalysisOptions"
         <*> c .: "AnalysisSchemeLanguage"
         <*> c .: "AnalysisSchemeName"
 
@@ -986,9 +986,9 @@ spDesiredReplicationCount =
 
 instance FromXML ScalingParameters where
     parseXML c = ScalingParameters
-        <$> c .: "DesiredInstanceType"
-        <*> c .: "DesiredPartitionCount"
-        <*> c .: "DesiredReplicationCount"
+        <$> c .:? "DesiredInstanceType"
+        <*> c .:? "DesiredPartitionCount"
+        <*> c .:? "DesiredReplicationCount"
 
 instance ToQuery ScalingParameters
 
@@ -1071,11 +1071,11 @@ aoSynonyms = lens _aoSynonyms (\s a -> s { _aoSynonyms = a })
 
 instance FromXML AnalysisOptions where
     parseXML c = AnalysisOptions
-        <$> c .: "AlgorithmicStemming"
-        <*> c .: "JapaneseTokenizationDictionary"
-        <*> c .: "StemmingDictionary"
-        <*> c .: "Stopwords"
-        <*> c .: "Synonyms"
+        <$> c .:? "AlgorithmicStemming"
+        <*> c .:? "JapaneseTokenizationDictionary"
+        <*> c .:? "StemmingDictionary"
+        <*> c .:? "Stopwords"
+        <*> c .:? "Synonyms"
 
 instance ToQuery AnalysisOptions
 
@@ -1142,12 +1142,12 @@ do1SourceField = lens _do1SourceField (\s a -> s { _do1SourceField = a })
 
 instance FromXML DoubleOptions where
     parseXML c = DoubleOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SortEnabled"
-        <*> c .: "SourceField"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SortEnabled"
+        <*> c .:? "SourceField"
 
 instance ToQuery DoubleOptions
 
@@ -1212,12 +1212,12 @@ toSourceField = lens _toSourceField (\s a -> s { _toSourceField = a })
 
 instance FromXML TextOptions where
     parseXML c = TextOptions
-        <$> c .: "AnalysisScheme"
-        <*> c .: "DefaultValue"
-        <*> c .: "HighlightEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SortEnabled"
-        <*> c .: "SourceField"
+        <$> c .:? "AnalysisScheme"
+        <*> c .:? "DefaultValue"
+        <*> c .:? "HighlightEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SortEnabled"
+        <*> c .:? "SourceField"
 
 instance ToQuery TextOptions
 
@@ -1378,7 +1378,7 @@ seEndpoint = lens _seEndpoint (\s a -> s { _seEndpoint = a })
 
 instance FromXML ServiceEndpoint where
     parseXML c = ServiceEndpoint
-        <$> c .: "Endpoint"
+        <$> c .:? "Endpoint"
 
 instance ToQuery ServiceEndpoint
 
@@ -1565,12 +1565,12 @@ lloSourceField = lens _lloSourceField (\s a -> s { _lloSourceField = a })
 
 instance FromXML LatLonOptions where
     parseXML c = LatLonOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SortEnabled"
-        <*> c .: "SourceField"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SortEnabled"
+        <*> c .:? "SourceField"
 
 instance ToQuery LatLonOptions
 
@@ -1676,10 +1676,10 @@ osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a })
 instance FromXML OptionStatus where
     parseXML c = OptionStatus
         <$> c .: "CreationDate"
-        <*> c .: "PendingDeletion"
+        <*> c .:? "PendingDeletion"
         <*> c .: "State"
         <*> c .: "UpdateDate"
-        <*> c .: "UpdateVersion"
+        <*> c .:? "UpdateVersion"
 
 instance ToQuery OptionStatus
 
@@ -1736,11 +1736,11 @@ laoSourceFields = lens _laoSourceFields (\s a -> s { _laoSourceFields = a })
 
 instance FromXML LiteralArrayOptions where
     parseXML c = LiteralArrayOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SourceFields"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SourceFields"
 
 instance ToQuery LiteralArrayOptions
 
@@ -1797,11 +1797,11 @@ iaoSourceFields = lens _iaoSourceFields (\s a -> s { _iaoSourceFields = a })
 
 instance FromXML IntArrayOptions where
     parseXML c = IntArrayOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SourceFields"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SourceFields"
 
 instance ToQuery IntArrayOptions
 
@@ -1918,11 +1918,11 @@ dao1SourceFields = lens _dao1SourceFields (\s a -> s { _dao1SourceFields = a })
 
 instance FromXML DateArrayOptions where
     parseXML c = DateArrayOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SourceFields"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SourceFields"
 
 instance ToQuery DateArrayOptions
 
@@ -2172,12 +2172,12 @@ ioSourceField = lens _ioSourceField (\s a -> s { _ioSourceField = a })
 
 instance FromXML IntOptions where
     parseXML c = IntOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SortEnabled"
-        <*> c .: "SourceField"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SortEnabled"
+        <*> c .:? "SourceField"
 
 instance ToQuery IntOptions
 
@@ -2241,12 +2241,12 @@ loSourceField = lens _loSourceField (\s a -> s { _loSourceField = a })
 
 instance FromXML LiteralOptions where
     parseXML c = LiteralOptions
-        <$> c .: "DefaultValue"
-        <*> c .: "FacetEnabled"
-        <*> c .: "ReturnEnabled"
-        <*> c .: "SearchEnabled"
-        <*> c .: "SortEnabled"
-        <*> c .: "SourceField"
+        <$> c .:? "DefaultValue"
+        <*> c .:? "FacetEnabled"
+        <*> c .:? "ReturnEnabled"
+        <*> c .:? "SearchEnabled"
+        <*> c .:? "SortEnabled"
+        <*> c .:? "SourceField"
 
 instance ToQuery LiteralOptions
 

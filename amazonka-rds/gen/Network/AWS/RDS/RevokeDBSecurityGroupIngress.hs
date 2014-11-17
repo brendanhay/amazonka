@@ -157,4 +157,4 @@ instance AWSRequest RevokeDBSecurityGroupIngress where
 
 instance FromXML RevokeDBSecurityGroupIngressResponse where
     parseXML c = RevokeDBSecurityGroupIngressResponse
-        <$> c .: "DBSecurityGroup"
+        <$> c .:? "DBSecurityGroup"

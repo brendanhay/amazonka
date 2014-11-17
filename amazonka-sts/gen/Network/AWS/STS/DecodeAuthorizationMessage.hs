@@ -117,4 +117,4 @@ instance AWSRequest DecodeAuthorizationMessage where
 
 instance FromXML DecodeAuthorizationMessageResponse where
     parseXML c = DecodeAuthorizationMessageResponse
-        <$> c .: "DecodedMessage"
+        <$> c .:? "DecodedMessage"

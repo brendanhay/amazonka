@@ -213,5 +213,5 @@ instance AWSRequest DescribeReservedDBInstances where
 
 instance FromXML DescribeReservedDBInstancesResponse where
     parseXML c = DescribeReservedDBInstancesResponse
-        <$> c .: "Marker"
+        <$> c .:? "Marker"
         <*> c .: "ReservedDBInstances"

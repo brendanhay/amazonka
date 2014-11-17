@@ -211,6 +211,6 @@ instance AWSRequest CreateStorediSCSIVolume where
 
 instance FromJSON CreateStorediSCSIVolumeResponse where
     parseJSON = withObject "CreateStorediSCSIVolumeResponse" $ \o -> CreateStorediSCSIVolumeResponse
-        <$> o .: "TargetARN"
-        <*> o .: "VolumeARN"
-        <*> o .: "VolumeSizeInBytes"
+        <$> o .:? "TargetARN"
+        <*> o .:? "VolumeARN"
+        <*> o .:? "VolumeSizeInBytes"

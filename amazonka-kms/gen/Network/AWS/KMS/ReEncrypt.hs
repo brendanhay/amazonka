@@ -176,6 +176,6 @@ instance AWSRequest ReEncrypt where
 
 instance FromJSON ReEncryptResponse where
     parseJSON = withObject "ReEncryptResponse" $ \o -> ReEncryptResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
-        <*> o .: "SourceKeyId"
+        <$> o .:? "CiphertextBlob"
+        <*> o .:? "KeyId"
+        <*> o .:? "SourceKeyId"

@@ -103,4 +103,4 @@ instance AWSRequest RebootCluster where
 
 instance FromXML RebootClusterResponse where
     parseXML c = RebootClusterResponse
-        <$> c .: "Cluster"
+        <$> c .:? "Cluster"

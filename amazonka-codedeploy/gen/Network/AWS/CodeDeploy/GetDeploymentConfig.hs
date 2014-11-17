@@ -108,4 +108,4 @@ instance AWSRequest GetDeploymentConfig where
 
 instance FromJSON GetDeploymentConfigResponse where
     parseJSON = withObject "GetDeploymentConfigResponse" $ \o -> GetDeploymentConfigResponse
-        <$> o .: "deploymentConfigInfo"
+        <$> o .:? "deploymentConfigInfo"

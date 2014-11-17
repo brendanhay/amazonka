@@ -105,4 +105,4 @@ instance AWSRequest GenerateRandom where
 
 instance FromJSON GenerateRandomResponse where
     parseJSON = withObject "GenerateRandomResponse" $ \o -> GenerateRandomResponse
-        <$> o .: "Plaintext"
+        <$> o .:? "Plaintext"

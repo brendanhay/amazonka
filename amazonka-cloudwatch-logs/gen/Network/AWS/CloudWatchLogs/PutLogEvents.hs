@@ -145,4 +145,4 @@ instance AWSRequest PutLogEvents where
 
 instance FromJSON PutLogEventsResponse where
     parseJSON = withObject "PutLogEventsResponse" $ \o -> PutLogEventsResponse
-        <$> o .: "nextSequenceToken"
+        <$> o .:? "nextSequenceToken"

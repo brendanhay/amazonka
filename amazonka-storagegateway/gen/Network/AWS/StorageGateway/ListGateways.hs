@@ -131,4 +131,4 @@ instance AWSRequest ListGateways where
 instance FromJSON ListGatewaysResponse where
     parseJSON = withObject "ListGatewaysResponse" $ \o -> ListGatewaysResponse
         <$> o .: "Gateways"
-        <*> o .: "Marker"
+        <*> o .:? "Marker"

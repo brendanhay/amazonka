@@ -126,5 +126,5 @@ instance AWSRequest ListPresets where
 
 instance FromJSON ListPresetsResponse where
     parseJSON = withObject "ListPresetsResponse" $ \o -> ListPresetsResponse
-        <$> o .: "NextPageToken"
+        <$> o .:? "NextPageToken"
         <*> o .: "Presets"

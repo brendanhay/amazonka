@@ -167,4 +167,4 @@ instance AWSRequest DescribeCommunications where
 instance FromJSON DescribeCommunicationsResponse where
     parseJSON = withObject "DescribeCommunicationsResponse" $ \o -> DescribeCommunicationsResponse
         <$> o .: "communications"
-        <*> o .: "nextToken"
+        <*> o .:? "nextToken"

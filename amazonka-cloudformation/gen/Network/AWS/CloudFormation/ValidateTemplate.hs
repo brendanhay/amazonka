@@ -148,6 +148,6 @@ instance AWSRequest ValidateTemplate where
 instance FromXML ValidateTemplateResponse where
     parseXML c = ValidateTemplateResponse
         <$> c .: "Capabilities"
-        <*> c .: "CapabilitiesReason"
-        <*> c .: "Description"
+        <*> c .:? "CapabilitiesReason"
+        <*> c .:? "Description"
         <*> c .: "Parameters"

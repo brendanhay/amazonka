@@ -135,5 +135,5 @@ instance AWSRequest ListOperations where
 
 instance FromJSON ListOperationsResponse where
     parseJSON = withObject "ListOperationsResponse" $ \o -> ListOperationsResponse
-        <$> o .: "NextPageMarker"
+        <$> o .:? "NextPageMarker"
         <*> o .: "Operations"

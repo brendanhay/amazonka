@@ -144,6 +144,6 @@ instance AWSRequest DescribeWorkingStorage where
 instance FromJSON DescribeWorkingStorageResponse where
     parseJSON = withObject "DescribeWorkingStorageResponse" $ \o -> DescribeWorkingStorageResponse
         <$> o .: "DiskIds"
-        <*> o .: "GatewayARN"
-        <*> o .: "WorkingStorageAllocatedInBytes"
-        <*> o .: "WorkingStorageUsedInBytes"
+        <*> o .:? "GatewayARN"
+        <*> o .:? "WorkingStorageAllocatedInBytes"
+        <*> o .:? "WorkingStorageUsedInBytes"

@@ -112,4 +112,4 @@ instance AWSRequest ShutdownGateway where
 
 instance FromJSON ShutdownGatewayResponse where
     parseJSON = withObject "ShutdownGatewayResponse" $ \o -> ShutdownGatewayResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

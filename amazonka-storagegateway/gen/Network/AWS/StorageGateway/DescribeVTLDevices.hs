@@ -161,6 +161,6 @@ instance AWSRequest DescribeVTLDevices where
 
 instance FromJSON DescribeVTLDevicesResponse where
     parseJSON = withObject "DescribeVTLDevicesResponse" $ \o -> DescribeVTLDevicesResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "Marker"
+        <$> o .:? "GatewayARN"
+        <*> o .:? "Marker"
         <*> o .: "VTLDevices"

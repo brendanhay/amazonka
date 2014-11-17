@@ -225,12 +225,12 @@ instance AWSRequest AllocateConnectionOnInterconnect where
 
 instance FromJSON AllocateConnectionOnInterconnectResponse where
     parseJSON = withObject "AllocateConnectionOnInterconnectResponse" $ \o -> AllocateConnectionOnInterconnectResponse
-        <$> o .: "bandwidth"
-        <*> o .: "connectionId"
-        <*> o .: "connectionName"
-        <*> o .: "connectionState"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "partnerName"
-        <*> o .: "region"
-        <*> o .: "vlan"
+        <$> o .:? "bandwidth"
+        <*> o .:? "connectionId"
+        <*> o .:? "connectionName"
+        <*> o .:? "connectionState"
+        <*> o .:? "location"
+        <*> o .:? "ownerAccount"
+        <*> o .:? "partnerName"
+        <*> o .:? "region"
+        <*> o .:? "vlan"

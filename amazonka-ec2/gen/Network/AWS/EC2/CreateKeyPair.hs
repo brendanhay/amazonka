@@ -133,6 +133,6 @@ instance AWSRequest CreateKeyPair where
 
 instance FromXML CreateKeyPairResponse where
     parseXML c = CreateKeyPairResponse
-        <$> c .: "keyFingerprint"
-        <*> c .: "keyMaterial"
-        <*> c .: "keyName"
+        <$> c .:? "keyFingerprint"
+        <*> c .:? "keyMaterial"
+        <*> c .:? "keyName"

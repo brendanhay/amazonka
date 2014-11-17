@@ -120,4 +120,4 @@ instance AWSRequest ConfirmProductInstance where
 
 instance FromXML ConfirmProductInstanceResponse where
     parseXML c = ConfirmProductInstanceResponse
-        <$> c .: "ownerId"
+        <$> c .:? "ownerId"

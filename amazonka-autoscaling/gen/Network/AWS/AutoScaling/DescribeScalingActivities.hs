@@ -149,4 +149,4 @@ instance AWSRequest DescribeScalingActivities where
 instance FromXML DescribeScalingActivitiesResponse where
     parseXML c = DescribeScalingActivitiesResponse
         <$> c .: "Activities"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

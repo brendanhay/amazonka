@@ -140,4 +140,4 @@ instance AWSRequest DescribeLogGroups where
 instance FromJSON DescribeLogGroupsResponse where
     parseJSON = withObject "DescribeLogGroupsResponse" $ \o -> DescribeLogGroupsResponse
         <$> o .: "logGroups"
-        <*> o .: "nextToken"
+        <*> o .:? "nextToken"

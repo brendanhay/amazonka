@@ -261,4 +261,4 @@ instance AWSRequest CreateDBInstanceReadReplica where
 
 instance FromXML CreateDBInstanceReadReplicaResponse where
     parseXML c = CreateDBInstanceReadReplicaResponse
-        <$> c .: "DBInstance"
+        <$> c .:? "DBInstance"

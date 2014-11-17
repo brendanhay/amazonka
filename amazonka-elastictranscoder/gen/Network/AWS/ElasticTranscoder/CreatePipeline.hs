@@ -282,4 +282,4 @@ instance AWSRequest CreatePipeline where
 
 instance FromJSON CreatePipelineResponse where
     parseJSON = withObject "CreatePipelineResponse" $ \o -> CreatePipelineResponse
-        <$> o .: "Pipeline"
+        <$> o .:? "Pipeline"

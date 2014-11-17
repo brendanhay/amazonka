@@ -136,4 +136,4 @@ instance AWSRequest GetObjectAcl where
 instance FromXML GetObjectAclResponse where
     parseXML c = GetObjectAclResponse
         <$> c .: "AccessControlList"
-        <*> c .: "Owner"
+        <*> c .:? "Owner"

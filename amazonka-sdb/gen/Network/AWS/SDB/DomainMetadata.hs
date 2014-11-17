@@ -161,10 +161,10 @@ instance AWSRequest DomainMetadata where
 
 instance FromXML DomainMetadataResponse where
     parseXML c = DomainMetadataResponse
-        <$> c .: "AttributeNameCount"
-        <*> c .: "AttributeNamesSizeBytes"
-        <*> c .: "AttributeValueCount"
-        <*> c .: "AttributeValuesSizeBytes"
-        <*> c .: "ItemCount"
-        <*> c .: "ItemNamesSizeBytes"
-        <*> c .: "Timestamp"
+        <$> c .:? "AttributeNameCount"
+        <*> c .:? "AttributeNamesSizeBytes"
+        <*> c .:? "AttributeValueCount"
+        <*> c .:? "AttributeValuesSizeBytes"
+        <*> c .:? "ItemCount"
+        <*> c .:? "ItemNamesSizeBytes"
+        <*> c .:? "Timestamp"

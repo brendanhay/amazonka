@@ -143,8 +143,8 @@ ssTimems = lens _ssTimems (\s a -> s { _ssTimems = a })
 
 instance FromJSON SearchStatus where
     parseJSON = withObject "SearchStatus" $ \o -> SearchStatus
-        <$> o .: "rid"
-        <*> o .: "timems"
+        <$> o .:? "rid"
+        <*> o .:? "timems"
 
 instance ToJSON SearchStatus where
     toJSON SearchStatus{..} = object
@@ -221,7 +221,7 @@ instance FromJSON Hit where
     parseJSON = withObject "Hit" $ \o -> Hit
         <$> o .: "fields"
         <*> o .: "highlights"
-        <*> o .: "id"
+        <*> o .:? "id"
 
 instance ToJSON Hit where
     toJSON Hit{..} = object
@@ -259,8 +259,8 @@ ss1Timems = lens _ss1Timems (\s a -> s { _ss1Timems = a })
 
 instance FromJSON SuggestStatus where
     parseJSON = withObject "SuggestStatus" $ \o -> SuggestStatus
-        <$> o .: "rid"
-        <*> o .: "timems"
+        <$> o .:? "rid"
+        <*> o .:? "timems"
 
 instance ToJSON SuggestStatus where
     toJSON SuggestStatus{..} = object
@@ -298,8 +298,8 @@ bValue = lens _bValue (\s a -> s { _bValue = a })
 
 instance FromJSON Bucket where
     parseJSON = withObject "Bucket" $ \o -> Bucket
-        <$> o .: "count"
-        <*> o .: "value"
+        <$> o .:? "count"
+        <*> o .:? "value"
 
 instance ToJSON Bucket where
     toJSON Bucket{..} = object
@@ -344,9 +344,9 @@ smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 
 instance FromJSON SuggestionMatch where
     parseJSON = withObject "SuggestionMatch" $ \o -> SuggestionMatch
-        <$> o .: "id"
-        <*> o .: "score"
-        <*> o .: "suggestion"
+        <$> o .:? "id"
+        <*> o .:? "score"
+        <*> o .:? "suggestion"
 
 instance ToJSON SuggestionMatch where
     toJSON SuggestionMatch{..} = object
@@ -410,7 +410,7 @@ dswMessage = lens _dswMessage (\s a -> s { _dswMessage = a })
 
 instance FromJSON DocumentServiceWarning where
     parseJSON = withObject "DocumentServiceWarning" $ \o -> DocumentServiceWarning
-        <$> o .: "message"
+        <$> o .:? "message"
 
 instance ToJSON DocumentServiceWarning where
     toJSON DocumentServiceWarning{..} = object
@@ -454,8 +454,8 @@ smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a })
 
 instance FromJSON SuggestModel where
     parseJSON = withObject "SuggestModel" $ \o -> SuggestModel
-        <$> o .: "found"
-        <*> o .: "query"
+        <$> o .:? "found"
+        <*> o .:? "query"
         <*> o .: "suggestions"
 
 instance ToJSON SuggestModel where
@@ -511,10 +511,10 @@ hStart = lens _hStart (\s a -> s { _hStart = a })
 
 instance FromJSON Hits where
     parseJSON = withObject "Hits" $ \o -> Hits
-        <$> o .: "cursor"
-        <*> o .: "found"
+        <$> o .:? "cursor"
+        <*> o .:? "found"
         <*> o .: "hit"
-        <*> o .: "start"
+        <*> o .:? "start"
 
 instance ToJSON Hits where
     toJSON Hits{..} = object

@@ -120,4 +120,4 @@ instance AWSRequest RegisterVolume where
 
 instance FromJSON RegisterVolumeResponse where
     parseJSON = withObject "RegisterVolumeResponse" $ \o -> RegisterVolumeResponse
-        <$> o .: "VolumeId"
+        <$> o .:? "VolumeId"

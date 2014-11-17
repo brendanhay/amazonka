@@ -106,4 +106,4 @@ instance AWSRequest GetApplication where
 
 instance FromJSON GetApplicationResponse where
     parseJSON = withObject "GetApplicationResponse" $ \o -> GetApplicationResponse
-        <$> o .: "application"
+        <$> o .:? "application"

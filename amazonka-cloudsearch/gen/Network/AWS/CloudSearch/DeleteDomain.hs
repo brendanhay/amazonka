@@ -99,4 +99,4 @@ instance AWSRequest DeleteDomain where
 
 instance FromXML DeleteDomainResponse where
     parseXML c = DeleteDomainResponse
-        <$> c .: "DomainStatus"
+        <$> c .:? "DomainStatus"

@@ -130,4 +130,4 @@ instance AWSRequest ListIdentities where
 instance FromXML ListIdentitiesResponse where
     parseXML c = ListIdentitiesResponse
         <$> c .: "Identities"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

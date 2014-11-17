@@ -180,6 +180,6 @@ instance AWSRequest QueryObjects where
 
 instance FromJSON QueryObjectsResponse where
     parseJSON = withObject "QueryObjectsResponse" $ \o -> QueryObjectsResponse
-        <$> o .: "hasMoreResults"
+        <$> o .:? "hasMoreResults"
         <*> o .: "ids"
-        <*> o .: "marker"
+        <*> o .:? "marker"

@@ -133,6 +133,6 @@ instance AWSRequest ListPipelines where
 
 instance FromJSON ListPipelinesResponse where
     parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
-        <$> o .: "hasMoreResults"
-        <*> o .: "marker"
+        <$> o .:? "hasMoreResults"
+        <*> o .:? "marker"
         <*> o .: "pipelineIdList"

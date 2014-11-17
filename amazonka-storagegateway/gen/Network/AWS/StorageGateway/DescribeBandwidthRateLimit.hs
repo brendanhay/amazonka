@@ -134,6 +134,6 @@ instance AWSRequest DescribeBandwidthRateLimit where
 
 instance FromJSON DescribeBandwidthRateLimitResponse where
     parseJSON = withObject "DescribeBandwidthRateLimitResponse" $ \o -> DescribeBandwidthRateLimitResponse
-        <$> o .: "AverageDownloadRateLimitInBitsPerSec"
-        <*> o .: "AverageUploadRateLimitInBitsPerSec"
-        <*> o .: "GatewayARN"
+        <$> o .:? "AverageDownloadRateLimitInBitsPerSec"
+        <*> o .:? "AverageUploadRateLimitInBitsPerSec"
+        <*> o .:? "GatewayARN"

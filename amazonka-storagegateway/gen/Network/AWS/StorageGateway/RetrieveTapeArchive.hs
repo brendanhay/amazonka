@@ -125,4 +125,4 @@ instance AWSRequest RetrieveTapeArchive where
 
 instance FromJSON RetrieveTapeArchiveResponse where
     parseJSON = withObject "RetrieveTapeArchiveResponse" $ \o -> RetrieveTapeArchiveResponse
-        <$> o .: "TapeARN"
+        <$> o .:? "TapeARN"

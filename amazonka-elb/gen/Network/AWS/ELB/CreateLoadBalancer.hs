@@ -187,4 +187,4 @@ instance AWSRequest CreateLoadBalancer where
 
 instance FromXML CreateLoadBalancerResponse where
     parseXML c = CreateLoadBalancerResponse
-        <$> c .: "DNSName"
+        <$> c .:? "DNSName"

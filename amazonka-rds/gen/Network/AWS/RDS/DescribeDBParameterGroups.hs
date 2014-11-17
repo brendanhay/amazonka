@@ -150,4 +150,4 @@ instance AWSRequest DescribeDBParameterGroups where
 instance FromXML DescribeDBParameterGroupsResponse where
     parseXML c = DescribeDBParameterGroupsResponse
         <$> c .: "DBParameterGroups"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

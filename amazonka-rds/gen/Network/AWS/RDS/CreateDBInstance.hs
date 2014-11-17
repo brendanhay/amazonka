@@ -471,4 +471,4 @@ instance AWSRequest CreateDBInstance where
 
 instance FromXML CreateDBInstanceResponse where
     parseXML c = CreateDBInstanceResponse
-        <$> c .: "DBInstance"
+        <$> c .:? "DBInstance"

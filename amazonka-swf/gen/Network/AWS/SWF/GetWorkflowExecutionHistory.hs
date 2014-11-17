@@ -182,4 +182,4 @@ instance AWSRequest GetWorkflowExecutionHistory where
 instance FromJSON GetWorkflowExecutionHistoryResponse where
     parseJSON = withObject "GetWorkflowExecutionHistoryResponse" $ \o -> GetWorkflowExecutionHistoryResponse
         <$> o .: "events"
-        <*> o .: "nextPageToken"
+        <*> o .:? "nextPageToken"

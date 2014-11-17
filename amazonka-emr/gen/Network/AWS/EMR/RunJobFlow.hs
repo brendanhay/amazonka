@@ -280,4 +280,4 @@ instance AWSRequest RunJobFlow where
 
 instance FromJSON RunJobFlowResponse where
     parseJSON = withObject "RunJobFlowResponse" $ \o -> RunJobFlowResponse
-        <$> o .: "JobFlowId"
+        <$> o .:? "JobFlowId"

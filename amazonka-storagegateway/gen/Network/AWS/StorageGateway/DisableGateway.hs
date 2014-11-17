@@ -107,4 +107,4 @@ instance AWSRequest DisableGateway where
 
 instance FromJSON DisableGatewayResponse where
     parseJSON = withObject "DisableGatewayResponse" $ \o -> DisableGatewayResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

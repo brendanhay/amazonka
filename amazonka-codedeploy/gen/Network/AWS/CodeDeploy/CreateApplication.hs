@@ -106,4 +106,4 @@ instance AWSRequest CreateApplication where
 
 instance FromJSON CreateApplicationResponse where
     parseJSON = withObject "CreateApplicationResponse" $ \o -> CreateApplicationResponse
-        <$> o .: "applicationId"
+        <$> o .:? "applicationId"

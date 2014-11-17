@@ -125,4 +125,4 @@ instance AWSRequest CreateCacheSubnetGroup where
 
 instance FromXML CreateCacheSubnetGroupResponse where
     parseXML c = CreateCacheSubnetGroupResponse
-        <$> c .: "CacheSubnetGroup"
+        <$> c .:? "CacheSubnetGroup"

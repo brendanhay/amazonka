@@ -246,10 +246,10 @@ instance AWSRequest UpdateTrail where
 
 instance FromJSON UpdateTrailResponse where
     parseJSON = withObject "UpdateTrailResponse" $ \o -> UpdateTrailResponse
-        <$> o .: "CloudWatchLogsLogGroupArn"
-        <*> o .: "CloudWatchLogsRoleArn"
-        <*> o .: "IncludeGlobalServiceEvents"
-        <*> o .: "Name"
-        <*> o .: "S3BucketName"
-        <*> o .: "S3KeyPrefix"
-        <*> o .: "SnsTopicName"
+        <$> o .:? "CloudWatchLogsLogGroupArn"
+        <*> o .:? "CloudWatchLogsRoleArn"
+        <*> o .:? "IncludeGlobalServiceEvents"
+        <*> o .:? "Name"
+        <*> o .:? "S3BucketName"
+        <*> o .:? "S3KeyPrefix"
+        <*> o .:? "SnsTopicName"

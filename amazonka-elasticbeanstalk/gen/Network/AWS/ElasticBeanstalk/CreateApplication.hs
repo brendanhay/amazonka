@@ -111,4 +111,4 @@ instance AWSRequest CreateApplication where
 
 instance FromXML CreateApplicationResponse where
     parseXML c = CreateApplicationResponse
-        <$> c .: "Application"
+        <$> c .:? "Application"

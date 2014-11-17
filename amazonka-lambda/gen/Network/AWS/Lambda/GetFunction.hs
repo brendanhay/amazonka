@@ -117,5 +117,5 @@ instance AWSRequest GetFunction where
 
 instance FromJSON GetFunctionResponse where
     parseJSON = withObject "GetFunctionResponse" $ \o -> GetFunctionResponse
-        <$> o .: "Code"
-        <*> o .: "Configuration"
+        <$> o .:? "Code"
+        <*> o .:? "Configuration"

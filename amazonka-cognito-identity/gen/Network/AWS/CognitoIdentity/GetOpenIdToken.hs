@@ -129,5 +129,5 @@ instance AWSRequest GetOpenIdToken where
 
 instance FromJSON GetOpenIdTokenResponse where
     parseJSON = withObject "GetOpenIdTokenResponse" $ \o -> GetOpenIdTokenResponse
-        <$> o .: "IdentityId"
-        <*> o .: "Token"
+        <$> o .:? "IdentityId"
+        <*> o .:? "Token"

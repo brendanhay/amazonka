@@ -147,4 +147,4 @@ instance AWSRequest DescribeClusters where
 instance FromXML DescribeClustersResponse where
     parseXML c = DescribeClustersResponse
         <$> c .: "Clusters"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

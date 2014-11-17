@@ -244,10 +244,10 @@ instance AWSRequest CreateTrail where
 
 instance FromJSON CreateTrailResponse where
     parseJSON = withObject "CreateTrailResponse" $ \o -> CreateTrailResponse
-        <$> o .: "CloudWatchLogsLogGroupArn"
-        <*> o .: "CloudWatchLogsRoleArn"
-        <*> o .: "IncludeGlobalServiceEvents"
-        <*> o .: "Name"
-        <*> o .: "S3BucketName"
-        <*> o .: "S3KeyPrefix"
-        <*> o .: "SnsTopicName"
+        <$> o .:? "CloudWatchLogsLogGroupArn"
+        <*> o .:? "CloudWatchLogsRoleArn"
+        <*> o .:? "IncludeGlobalServiceEvents"
+        <*> o .:? "Name"
+        <*> o .:? "S3BucketName"
+        <*> o .:? "S3KeyPrefix"
+        <*> o .:? "SnsTopicName"

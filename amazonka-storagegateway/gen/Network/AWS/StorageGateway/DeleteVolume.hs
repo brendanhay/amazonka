@@ -116,4 +116,4 @@ instance AWSRequest DeleteVolume where
 
 instance FromJSON DeleteVolumeResponse where
     parseJSON = withObject "DeleteVolumeResponse" $ \o -> DeleteVolumeResponse
-        <$> o .: "VolumeARN"
+        <$> o .:? "VolumeARN"

@@ -139,5 +139,5 @@ instance AWSRequest AddAttachmentsToSet where
 
 instance FromJSON AddAttachmentsToSetResponse where
     parseJSON = withObject "AddAttachmentsToSetResponse" $ \o -> AddAttachmentsToSetResponse
-        <$> o .: "attachmentSetId"
-        <*> o .: "expiryTime"
+        <$> o .:? "attachmentSetId"
+        <*> o .:? "expiryTime"

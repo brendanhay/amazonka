@@ -104,4 +104,4 @@ instance AWSRequest GetBucketLocation where
 
 instance FromXML GetBucketLocationResponse where
     parseXML c = GetBucketLocationResponse
-        <$> c .: "LocationConstraint"
+        <$> c .:? "LocationConstraint"

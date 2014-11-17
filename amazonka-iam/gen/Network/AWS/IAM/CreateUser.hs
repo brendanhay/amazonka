@@ -111,4 +111,4 @@ instance AWSRequest CreateUser where
 
 instance FromXML CreateUserResponse where
     parseXML c = CreateUserResponse
-        <$> c .: "User"
+        <$> c .:? "User"

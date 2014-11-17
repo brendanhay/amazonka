@@ -121,4 +121,4 @@ instance AWSRequest RegisterElasticIp where
 
 instance FromJSON RegisterElasticIpResponse where
     parseJSON = withObject "RegisterElasticIpResponse" $ \o -> RegisterElasticIpResponse
-        <$> o .: "ElasticIp"
+        <$> o .:? "ElasticIp"

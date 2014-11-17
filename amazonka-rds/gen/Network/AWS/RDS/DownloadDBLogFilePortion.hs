@@ -170,6 +170,6 @@ instance AWSRequest DownloadDBLogFilePortion where
 
 instance FromXML DownloadDBLogFilePortionResponse where
     parseXML c = DownloadDBLogFilePortionResponse
-        <$> c .: "AdditionalDataPending"
-        <*> c .: "LogFileData"
-        <*> c .: "Marker"
+        <$> c .:? "AdditionalDataPending"
+        <*> c .:? "LogFileData"
+        <*> c .:? "Marker"

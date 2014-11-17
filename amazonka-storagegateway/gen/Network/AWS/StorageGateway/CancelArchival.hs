@@ -117,4 +117,4 @@ instance AWSRequest CancelArchival where
 
 instance FromJSON CancelArchivalResponse where
     parseJSON = withObject "CancelArchivalResponse" $ \o -> CancelArchivalResponse
-        <$> o .: "TapeARN"
+        <$> o .:? "TapeARN"

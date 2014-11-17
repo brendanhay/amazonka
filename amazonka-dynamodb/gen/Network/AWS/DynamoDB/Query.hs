@@ -536,8 +536,8 @@ instance AWSRequest Query where
 
 instance FromJSON QueryResponse where
     parseJSON = withObject "QueryResponse" $ \o -> QueryResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Count"
+        <$> o .:? "ConsumedCapacity"
+        <*> o .:? "Count"
         <*> o .: "Items"
         <*> o .: "LastEvaluatedKey"
-        <*> o .: "ScannedCount"
+        <*> o .:? "ScannedCount"

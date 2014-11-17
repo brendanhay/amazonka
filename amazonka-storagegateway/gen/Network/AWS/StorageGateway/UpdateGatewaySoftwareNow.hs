@@ -108,4 +108,4 @@ instance AWSRequest UpdateGatewaySoftwareNow where
 
 instance FromJSON UpdateGatewaySoftwareNowResponse where
     parseJSON = withObject "UpdateGatewaySoftwareNowResponse" $ \o -> UpdateGatewaySoftwareNowResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

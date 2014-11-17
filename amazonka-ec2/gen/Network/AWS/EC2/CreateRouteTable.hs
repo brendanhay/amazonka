@@ -109,4 +109,4 @@ instance AWSRequest CreateRouteTable where
 
 instance FromXML CreateRouteTableResponse where
     parseXML c = CreateRouteTableResponse
-        <$> c .: "routeTable"
+        <$> c .:? "routeTable"

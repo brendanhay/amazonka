@@ -217,8 +217,8 @@ fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
 instance FromJSON Field where
     parseJSON = withObject "Field" $ \o -> Field
         <$> o .: "key"
-        <*> o .: "refValue"
-        <*> o .: "stringValue"
+        <*> o .:? "refValue"
+        <*> o .:? "stringValue"
 
 instance ToJSON Field where
     toJSON Field{..} = object
@@ -258,8 +258,8 @@ sOperator = lens _sOperator (\s a -> s { _sOperator = a })
 
 instance FromJSON Selector where
     parseJSON = withObject "Selector" $ \o -> Selector
-        <$> o .: "fieldName"
-        <*> o .: "operator"
+        <$> o .:? "fieldName"
+        <*> o .:? "operator"
 
 instance ToJSON Selector where
     toJSON Selector{..} = object
@@ -310,7 +310,7 @@ oValues = lens _oValues (\s a -> s { _oValues = a })
 
 instance FromJSON Operator where
     parseJSON = withObject "Operator" $ \o -> Operator
-        <$> o .: "type"
+        <$> o .:? "type"
         <*> o .: "values"
 
 instance ToJSON Operator where
@@ -368,10 +368,10 @@ toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 
 instance FromJSON TaskObject where
     parseJSON = withObject "TaskObject" $ \o -> TaskObject
-        <$> o .: "attemptId"
+        <$> o .:? "attemptId"
         <*> o .: "objects"
-        <*> o .: "pipelineId"
-        <*> o .: "taskId"
+        <*> o .:? "pipelineId"
+        <*> o .:? "taskId"
 
 instance ToJSON TaskObject where
     toJSON TaskObject{..} = object
@@ -411,7 +411,7 @@ veId = lens _veId (\s a -> s { _veId = a })
 instance FromJSON ValidationError where
     parseJSON = withObject "ValidationError" $ \o -> ValidationError
         <$> o .: "errors"
-        <*> o .: "id"
+        <*> o .:? "id"
 
 instance ToJSON ValidationError where
     toJSON ValidationError{..} = object
@@ -468,7 +468,7 @@ pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 
 instance FromJSON PipelineDescription where
     parseJSON = withObject "PipelineDescription" $ \o -> PipelineDescription
-        <$> o .: "description"
+        <$> o .:? "description"
         <*> o .: "fields"
         <*> o .: "name"
         <*> o .: "pipelineId"
@@ -513,8 +513,8 @@ iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
 
 instance FromJSON InstanceIdentity where
     parseJSON = withObject "InstanceIdentity" $ \o -> InstanceIdentity
-        <$> o .: "document"
-        <*> o .: "signature"
+        <$> o .:? "document"
+        <*> o .:? "signature"
 
 instance ToJSON InstanceIdentity where
     toJSON InstanceIdentity{..} = object
@@ -618,8 +618,8 @@ pinName = lens _pinName (\s a -> s { _pinName = a })
 
 instance FromJSON PipelineIdName where
     parseJSON = withObject "PipelineIdName" $ \o -> PipelineIdName
-        <$> o .: "id"
-        <*> o .: "name"
+        <$> o .:? "id"
+        <*> o .:? "name"
 
 instance ToJSON PipelineIdName where
     toJSON PipelineIdName{..} = object
@@ -681,7 +681,7 @@ vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a })
 
 instance FromJSON ValidationWarning where
     parseJSON = withObject "ValidationWarning" $ \o -> ValidationWarning
-        <$> o .: "id"
+        <$> o .:? "id"
         <*> o .: "warnings"
 
 instance ToJSON ValidationWarning where

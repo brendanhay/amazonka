@@ -191,12 +191,12 @@ instance AWSRequest GetEventSource where
 
 instance FromJSON GetEventSourceResponse where
     parseJSON = withObject "GetEventSourceResponse" $ \o -> GetEventSourceResponse
-        <$> o .: "BatchSize"
-        <*> o .: "EventSource"
-        <*> o .: "FunctionName"
-        <*> o .: "IsActive"
-        <*> o .: "LastModified"
+        <$> o .:? "BatchSize"
+        <*> o .:? "EventSource"
+        <*> o .:? "FunctionName"
+        <*> o .:? "IsActive"
+        <*> o .:? "LastModified"
         <*> o .: "Parameters"
-        <*> o .: "Role"
-        <*> o .: "Status"
-        <*> o .: "UUID"
+        <*> o .:? "Role"
+        <*> o .:? "Status"
+        <*> o .:? "UUID"

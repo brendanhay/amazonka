@@ -117,4 +117,4 @@ instance AWSRequest GetKeyPolicy where
 
 instance FromJSON GetKeyPolicyResponse where
     parseJSON = withObject "GetKeyPolicyResponse" $ \o -> GetKeyPolicyResponse
-        <$> o .: "Policy"
+        <$> o .:? "Policy"

@@ -151,6 +151,6 @@ instance AWSRequest ListUsers where
 
 instance FromXML ListUsersResponse where
     parseXML c = ListUsersResponse
-        <$> c .: "IsTruncated"
-        <*> c .: "Marker"
+        <$> c .:? "IsTruncated"
+        <*> c .:? "Marker"
         <*> c .: "Users"

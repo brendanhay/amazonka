@@ -176,4 +176,4 @@ instance AWSRequest CountOpenWorkflowExecutions where
 instance FromJSON CountOpenWorkflowExecutionsResponse where
     parseJSON = withObject "CountOpenWorkflowExecutionsResponse" $ \o -> CountOpenWorkflowExecutionsResponse
         <$> o .: "count"
-        <*> o .: "truncated"
+        <*> o .:? "truncated"

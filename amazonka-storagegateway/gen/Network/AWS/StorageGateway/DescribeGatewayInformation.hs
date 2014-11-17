@@ -168,10 +168,10 @@ instance AWSRequest DescribeGatewayInformation where
 
 instance FromJSON DescribeGatewayInformationResponse where
     parseJSON = withObject "DescribeGatewayInformationResponse" $ \o -> DescribeGatewayInformationResponse
-        <$> o .: "GatewayARN"
-        <*> o .: "GatewayId"
+        <$> o .:? "GatewayARN"
+        <*> o .:? "GatewayId"
         <*> o .: "GatewayNetworkInterfaces"
-        <*> o .: "GatewayState"
-        <*> o .: "GatewayTimezone"
-        <*> o .: "GatewayType"
-        <*> o .: "NextUpdateAvailabilityDate"
+        <*> o .:? "GatewayState"
+        <*> o .:? "GatewayTimezone"
+        <*> o .:? "GatewayType"
+        <*> o .:? "NextUpdateAvailabilityDate"

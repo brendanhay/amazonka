@@ -119,5 +119,5 @@ instance AWSRequest ListPlatformApplications where
 
 instance FromXML ListPlatformApplicationsResponse where
     parseXML c = ListPlatformApplicationsResponse
-        <$> c .: "NextToken"
+        <$> c .:? "NextToken"
         <*> c .: "PlatformApplications"

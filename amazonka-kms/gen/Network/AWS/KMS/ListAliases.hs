@@ -142,5 +142,5 @@ instance AWSRequest ListAliases where
 instance FromJSON ListAliasesResponse where
     parseJSON = withObject "ListAliasesResponse" $ \o -> ListAliasesResponse
         <$> o .: "Aliases"
-        <*> o .: "NextMarker"
-        <*> o .: "Truncated"
+        <*> o .:? "NextMarker"
+        <*> o .:? "Truncated"

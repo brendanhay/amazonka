@@ -140,8 +140,8 @@ instance AWSRequest DescribeMaintenanceStartTime where
 
 instance FromJSON DescribeMaintenanceStartTimeResponse where
     parseJSON = withObject "DescribeMaintenanceStartTimeResponse" $ \o -> DescribeMaintenanceStartTimeResponse
-        <$> o .: "DayOfWeek"
-        <*> o .: "GatewayARN"
-        <*> o .: "HourOfDay"
-        <*> o .: "MinuteOfHour"
-        <*> o .: "Timezone"
+        <$> o .:? "DayOfWeek"
+        <*> o .:? "GatewayARN"
+        <*> o .:? "HourOfDay"
+        <*> o .:? "MinuteOfHour"
+        <*> o .:? "Timezone"

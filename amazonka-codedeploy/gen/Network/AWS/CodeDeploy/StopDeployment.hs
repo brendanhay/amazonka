@@ -114,5 +114,5 @@ instance AWSRequest StopDeployment where
 
 instance FromJSON StopDeploymentResponse where
     parseJSON = withObject "StopDeploymentResponse" $ \o -> StopDeploymentResponse
-        <$> o .: "status"
-        <*> o .: "statusMessage"
+        <$> o .:? "status"
+        <*> o .:? "statusMessage"

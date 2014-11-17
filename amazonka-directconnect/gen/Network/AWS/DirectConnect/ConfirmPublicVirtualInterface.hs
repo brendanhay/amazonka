@@ -107,4 +107,4 @@ instance AWSRequest ConfirmPublicVirtualInterface where
 
 instance FromJSON ConfirmPublicVirtualInterfaceResponse where
     parseJSON = withObject "ConfirmPublicVirtualInterfaceResponse" $ \o -> ConfirmPublicVirtualInterfaceResponse
-        <$> o .: "virtualInterfaceState"
+        <$> o .:? "virtualInterfaceState"

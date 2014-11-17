@@ -110,4 +110,4 @@ instance AWSRequest CreateHsmClientCertificate where
 
 instance FromXML CreateHsmClientCertificateResponse where
     parseXML c = CreateHsmClientCertificateResponse
-        <$> c .: "HsmClientCertificate"
+        <$> c .:? "HsmClientCertificate"

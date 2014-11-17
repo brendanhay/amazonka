@@ -106,4 +106,4 @@ instance AWSRequest DeleteSnapshotSchedule where
 
 instance FromJSON DeleteSnapshotScheduleResponse where
     parseJSON = withObject "DeleteSnapshotScheduleResponse" $ \o -> DeleteSnapshotScheduleResponse
-        <$> o .: "VolumeARN"
+        <$> o .:? "VolumeARN"

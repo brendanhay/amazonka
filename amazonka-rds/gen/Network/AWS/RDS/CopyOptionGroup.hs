@@ -139,4 +139,4 @@ instance AWSRequest CopyOptionGroup where
 
 instance FromXML CopyOptionGroupResponse where
     parseXML c = CopyOptionGroupResponse
-        <$> c .: "OptionGroup"
+        <$> c .:? "OptionGroup"

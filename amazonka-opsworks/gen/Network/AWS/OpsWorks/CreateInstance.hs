@@ -284,4 +284,4 @@ instance AWSRequest CreateInstance where
 
 instance FromJSON CreateInstanceResponse where
     parseJSON = withObject "CreateInstanceResponse" $ \o -> CreateInstanceResponse
-        <$> o .: "InstanceId"
+        <$> o .:? "InstanceId"

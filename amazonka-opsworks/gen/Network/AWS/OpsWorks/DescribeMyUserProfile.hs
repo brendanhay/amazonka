@@ -90,4 +90,4 @@ instance AWSRequest DescribeMyUserProfile where
 
 instance FromJSON DescribeMyUserProfileResponse where
     parseJSON = withObject "DescribeMyUserProfileResponse" $ \o -> DescribeMyUserProfileResponse
-        <$> o .: "UserProfile"
+        <$> o .:? "UserProfile"

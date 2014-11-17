@@ -105,4 +105,4 @@ instance AWSRequest DeleteVirtualInterface where
 
 instance FromJSON DeleteVirtualInterfaceResponse where
     parseJSON = withObject "DeleteVirtualInterfaceResponse" $ \o -> DeleteVirtualInterfaceResponse
-        <$> o .: "virtualInterfaceState"
+        <$> o .:? "virtualInterfaceState"

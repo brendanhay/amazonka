@@ -138,4 +138,4 @@ instance AWSRequest DescribeCacheParameterGroups where
 instance FromXML DescribeCacheParameterGroupsResponse where
     parseXML c = DescribeCacheParameterGroupsResponse
         <$> c .: "CacheParameterGroups"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

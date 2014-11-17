@@ -202,5 +202,5 @@ instance AWSRequest DescribeReservedDBInstancesOfferings where
 
 instance FromXML DescribeReservedDBInstancesOfferingsResponse where
     parseXML c = DescribeReservedDBInstancesOfferingsResponse
-        <$> c .: "Marker"
+        <$> c .:? "Marker"
         <*> c .: "ReservedDBInstancesOfferings"

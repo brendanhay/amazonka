@@ -129,5 +129,5 @@ instance AWSRequest ModifyClusterParameterGroup where
 
 instance FromXML ModifyClusterParameterGroupResponse where
     parseXML c = ModifyClusterParameterGroupResponse
-        <$> c .: "ParameterGroupName"
-        <*> c .: "ParameterGroupStatus"
+        <$> c .:? "ParameterGroupName"
+        <*> c .:? "ParameterGroupStatus"

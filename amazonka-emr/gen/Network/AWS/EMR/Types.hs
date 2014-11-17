@@ -517,12 +517,12 @@ igcName = lens _igcName (\s a -> s { _igcName = a })
 
 instance FromJSON InstanceGroupConfig where
     parseJSON = withObject "InstanceGroupConfig" $ \o -> InstanceGroupConfig
-        <$> o .: "BidPrice"
+        <$> o .:? "BidPrice"
         <*> o .: "InstanceCount"
         <*> o .: "InstanceRole"
         <*> o .: "InstanceType"
-        <*> o .: "Market"
-        <*> o .: "Name"
+        <*> o .:? "Market"
+        <*> o .:? "Name"
 
 instance ToJSON InstanceGroupConfig where
     toJSON InstanceGroupConfig{..} = object
@@ -563,8 +563,8 @@ iscrMessage = lens _iscrMessage (\s a -> s { _iscrMessage = a })
 
 instance FromJSON InstanceStateChangeReason where
     parseJSON = withObject "InstanceStateChangeReason" $ \o -> InstanceStateChangeReason
-        <$> o .: "Code"
-        <*> o .: "Message"
+        <$> o .:? "Code"
+        <*> o .:? "Message"
 
 instance ToJSON InstanceStateChangeReason where
     toJSON InstanceStateChangeReason{..} = object
@@ -702,18 +702,18 @@ jfdVisibleToAllUsers =
 
 instance FromJSON JobFlowDetail where
     parseJSON = withObject "JobFlowDetail" $ \o -> JobFlowDetail
-        <$> o .: "AmiVersion"
+        <$> o .:? "AmiVersion"
         <*> o .: "BootstrapActions"
         <*> o .: "ExecutionStatusDetail"
         <*> o .: "Instances"
         <*> o .: "JobFlowId"
-        <*> o .: "JobFlowRole"
-        <*> o .: "LogUri"
+        <*> o .:? "JobFlowRole"
+        <*> o .:? "LogUri"
         <*> o .: "Name"
-        <*> o .: "ServiceRole"
+        <*> o .:? "ServiceRole"
         <*> o .: "Steps"
         <*> o .: "SupportedProducts"
-        <*> o .: "VisibleToAllUsers"
+        <*> o .:? "VisibleToAllUsers"
 
 instance ToJSON JobFlowDetail where
     toJSON JobFlowDetail{..} = object
@@ -760,8 +760,8 @@ kvValue = lens _kvValue (\s a -> s { _kvValue = a })
 
 instance FromJSON KeyValue where
     parseJSON = withObject "KeyValue" $ \o -> KeyValue
-        <$> o .: "Key"
-        <*> o .: "Value"
+        <$> o .:? "Key"
+        <*> o .:? "Value"
 
 instance ToJSON KeyValue where
     toJSON KeyValue{..} = object
@@ -799,7 +799,7 @@ spcName = lens _spcName (\s a -> s { _spcName = a })
 instance FromJSON SupportedProductConfig where
     parseJSON = withObject "SupportedProductConfig" $ \o -> SupportedProductConfig
         <$> o .: "Args"
-        <*> o .: "Name"
+        <*> o .:? "Name"
 
 instance ToJSON SupportedProductConfig where
     toJSON SupportedProductConfig{..} = object
@@ -845,8 +845,8 @@ cScriptPath = lens _cScriptPath (\s a -> s { _cScriptPath = a })
 instance FromJSON Command where
     parseJSON = withObject "Command" $ \o -> Command
         <$> o .: "Args"
-        <*> o .: "Name"
-        <*> o .: "ScriptPath"
+        <*> o .:? "Name"
+        <*> o .:? "ScriptPath"
 
 instance ToJSON Command where
     toJSON Command{..} = object
@@ -949,8 +949,8 @@ cscrMessage = lens _cscrMessage (\s a -> s { _cscrMessage = a })
 
 instance FromJSON ClusterStateChangeReason where
     parseJSON = withObject "ClusterStateChangeReason" $ \o -> ClusterStateChangeReason
-        <$> o .: "Code"
-        <*> o .: "Message"
+        <$> o .:? "Code"
+        <*> o .:? "Message"
 
 instance ToJSON ClusterStateChangeReason where
     toJSON ClusterStateChangeReason{..} = object
@@ -989,8 +989,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromJSON Tag where
     parseJSON = withObject "Tag" $ \o -> Tag
-        <$> o .: "Key"
-        <*> o .: "Value"
+        <$> o .:? "Key"
+        <*> o .:? "Value"
 
 instance ToJSON Tag where
     toJSON Tag{..} = object
@@ -1048,8 +1048,8 @@ instance FromJSON Application where
     parseJSON = withObject "Application" $ \o -> Application
         <$> o .: "AdditionalInfo"
         <*> o .: "Args"
-        <*> o .: "Name"
-        <*> o .: "Version"
+        <*> o .:? "Name"
+        <*> o .:? "Version"
 
 instance ToJSON Application where
     toJSON Application{..} = object
@@ -1133,10 +1133,10 @@ jfesdState = lens _jfesdState (\s a -> s { _jfesdState = a })
 instance FromJSON JobFlowExecutionStatusDetail where
     parseJSON = withObject "JobFlowExecutionStatusDetail" $ \o -> JobFlowExecutionStatusDetail
         <$> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "LastStateChangeReason"
-        <*> o .: "ReadyDateTime"
-        <*> o .: "StartDateTime"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "LastStateChangeReason"
+        <*> o .:? "ReadyDateTime"
+        <*> o .:? "StartDateTime"
         <*> o .: "State"
 
 instance ToJSON JobFlowExecutionStatusDetail where
@@ -1187,9 +1187,9 @@ igsTimeline = lens _igsTimeline (\s a -> s { _igsTimeline = a })
 
 instance FromJSON InstanceGroupStatus where
     parseJSON = withObject "InstanceGroupStatus" $ \o -> InstanceGroupStatus
-        <$> o .: "State"
-        <*> o .: "StateChangeReason"
-        <*> o .: "Timeline"
+        <$> o .:? "State"
+        <*> o .:? "StateChangeReason"
+        <*> o .:? "Timeline"
 
 instance ToJSON InstanceGroupStatus where
     toJSON InstanceGroupStatus{..} = object
@@ -1332,18 +1332,18 @@ c1VisibleToAllUsers =
 instance FromJSON Cluster where
     parseJSON = withObject "Cluster" $ \o -> Cluster
         <$> o .: "Applications"
-        <*> o .: "AutoTerminate"
-        <*> o .: "Ec2InstanceAttributes"
-        <*> o .: "Id"
-        <*> o .: "LogUri"
-        <*> o .: "Name"
-        <*> o .: "RequestedAmiVersion"
-        <*> o .: "RunningAmiVersion"
-        <*> o .: "ServiceRole"
-        <*> o .: "Status"
+        <*> o .:? "AutoTerminate"
+        <*> o .:? "Ec2InstanceAttributes"
+        <*> o .:? "Id"
+        <*> o .:? "LogUri"
+        <*> o .:? "Name"
+        <*> o .:? "RequestedAmiVersion"
+        <*> o .:? "RunningAmiVersion"
+        <*> o .:? "ServiceRole"
+        <*> o .:? "Status"
         <*> o .: "Tags"
-        <*> o .: "TerminationProtected"
-        <*> o .: "VisibleToAllUsers"
+        <*> o .:? "TerminationProtected"
+        <*> o .:? "VisibleToAllUsers"
 
 instance ToJSON Cluster where
     toJSON Cluster{..} = object
@@ -1403,9 +1403,9 @@ itReadyDateTime = lens _itReadyDateTime (\s a -> s { _itReadyDateTime = a })
 
 instance FromJSON InstanceTimeline where
     parseJSON = withObject "InstanceTimeline" $ \o -> InstanceTimeline
-        <$> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "ReadyDateTime"
+        <$> o .:? "CreationDateTime"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "ReadyDateTime"
 
 instance ToJSON InstanceTimeline where
     toJSON InstanceTimeline{..} = object
@@ -1469,10 +1469,10 @@ eiaIamInstanceProfile =
 
 instance FromJSON Ec2InstanceAttributes where
     parseJSON = withObject "Ec2InstanceAttributes" $ \o -> Ec2InstanceAttributes
-        <$> o .: "Ec2AvailabilityZone"
-        <*> o .: "Ec2KeyName"
-        <*> o .: "Ec2SubnetId"
-        <*> o .: "IamInstanceProfile"
+        <$> o .:? "Ec2AvailabilityZone"
+        <*> o .:? "Ec2KeyName"
+        <*> o .:? "Ec2SubnetId"
+        <*> o .:? "IamInstanceProfile"
 
 instance ToJSON Ec2InstanceAttributes where
     toJSON Ec2InstanceAttributes{..} = object
@@ -1587,8 +1587,8 @@ hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a })
 instance FromJSON HadoopStepConfig where
     parseJSON = withObject "HadoopStepConfig" $ \o -> HadoopStepConfig
         <$> o .: "Args"
-        <*> o .: "Jar"
-        <*> o .: "MainClass"
+        <*> o .:? "Jar"
+        <*> o .:? "MainClass"
         <*> o .: "Properties"
 
 instance ToJSON HadoopStepConfig where
@@ -1709,8 +1709,8 @@ igscrMessage = lens _igscrMessage (\s a -> s { _igscrMessage = a })
 
 instance FromJSON InstanceGroupStateChangeReason where
     parseJSON = withObject "InstanceGroupStateChangeReason" $ \o -> InstanceGroupStateChangeReason
-        <$> o .: "Code"
-        <*> o .: "Message"
+        <$> o .:? "Code"
+        <*> o .:? "Message"
 
 instance ToJSON InstanceGroupStateChangeReason where
     toJSON InstanceGroupStateChangeReason{..} = object
@@ -1809,9 +1809,9 @@ ssTimeline = lens _ssTimeline (\s a -> s { _ssTimeline = a })
 
 instance FromJSON StepStatus where
     parseJSON = withObject "StepStatus" $ \o -> StepStatus
-        <$> o .: "State"
-        <*> o .: "StateChangeReason"
-        <*> o .: "Timeline"
+        <$> o .:? "State"
+        <*> o .:? "StateChangeReason"
+        <*> o .:? "Timeline"
 
 instance ToJSON StepStatus where
     toJSON StepStatus{..} = object
@@ -1857,9 +1857,9 @@ ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
 instance FromJSON StepSummary where
     parseJSON = withObject "StepSummary" $ \o -> StepSummary
-        <$> o .: "Id"
-        <*> o .: "Name"
-        <*> o .: "Status"
+        <$> o .:? "Id"
+        <*> o .:? "Name"
+        <*> o .:? "Status"
 
 instance ToJSON StepSummary where
     toJSON StepSummary{..} = object
@@ -1955,9 +1955,9 @@ stStartDateTime = lens _stStartDateTime (\s a -> s { _stStartDateTime = a })
 
 instance FromJSON StepTimeline where
     parseJSON = withObject "StepTimeline" $ \o -> StepTimeline
-        <$> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "StartDateTime"
+        <$> o .:? "CreationDateTime"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "StartDateTime"
 
 instance ToJSON StepTimeline where
     toJSON StepTimeline{..} = object
@@ -2047,7 +2047,7 @@ instance FromJSON HadoopJarStepConfig where
     parseJSON = withObject "HadoopJarStepConfig" $ \o -> HadoopJarStepConfig
         <$> o .: "Args"
         <*> o .: "Jar"
-        <*> o .: "MainClass"
+        <*> o .:? "MainClass"
         <*> o .: "Properties"
 
 instance ToJSON HadoopJarStepConfig where
@@ -2103,7 +2103,7 @@ igmcInstanceGroupId =
 instance FromJSON InstanceGroupModifyConfig where
     parseJSON = withObject "InstanceGroupModifyConfig" $ \o -> InstanceGroupModifyConfig
         <$> o .: "EC2InstanceIdsToTerminate"
-        <*> o .: "InstanceCount"
+        <*> o .:? "InstanceCount"
         <*> o .: "InstanceGroupId"
 
 instance ToJSON InstanceGroupModifyConfig where
@@ -2257,19 +2257,19 @@ igdState = lens _igdState (\s a -> s { _igdState = a })
 
 instance FromJSON InstanceGroupDetail where
     parseJSON = withObject "InstanceGroupDetail" $ \o -> InstanceGroupDetail
-        <$> o .: "BidPrice"
+        <$> o .:? "BidPrice"
         <*> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "InstanceGroupId"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "InstanceGroupId"
         <*> o .: "InstanceRequestCount"
         <*> o .: "InstanceRole"
         <*> o .: "InstanceRunningCount"
         <*> o .: "InstanceType"
-        <*> o .: "LastStateChangeReason"
+        <*> o .:? "LastStateChangeReason"
         <*> o .: "Market"
-        <*> o .: "Name"
-        <*> o .: "ReadyDateTime"
-        <*> o .: "StartDateTime"
+        <*> o .:? "Name"
+        <*> o .:? "ReadyDateTime"
+        <*> o .:? "StartDateTime"
         <*> o .: "State"
 
 instance ToJSON InstanceGroupDetail where
@@ -2319,8 +2319,8 @@ sscrMessage = lens _sscrMessage (\s a -> s { _sscrMessage = a })
 
 instance FromJSON StepStateChangeReason where
     parseJSON = withObject "StepStateChangeReason" $ \o -> StepStateChangeReason
-        <$> o .: "Code"
-        <*> o .: "Message"
+        <$> o .:? "Code"
+        <*> o .:? "Message"
 
 instance ToJSON StepStateChangeReason where
     toJSON StepStateChangeReason{..} = object
@@ -2419,11 +2419,11 @@ sStatus = lens _sStatus (\s a -> s { _sStatus = a })
 
 instance FromJSON Step where
     parseJSON = withObject "Step" $ \o -> Step
-        <$> o .: "ActionOnFailure"
-        <*> o .: "Config"
-        <*> o .: "Id"
-        <*> o .: "Name"
-        <*> o .: "Status"
+        <$> o .:? "ActionOnFailure"
+        <*> o .:? "Config"
+        <*> o .:? "Id"
+        <*> o .:? "Name"
+        <*> o .:? "Status"
 
 instance ToJSON Step where
     toJSON Step{..} = object
@@ -2509,9 +2509,9 @@ igtReadyDateTime = lens _igtReadyDateTime (\s a -> s { _igtReadyDateTime = a })
 
 instance FromJSON InstanceGroupTimeline where
     parseJSON = withObject "InstanceGroupTimeline" $ \o -> InstanceGroupTimeline
-        <$> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "ReadyDateTime"
+        <$> o .:? "CreationDateTime"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "ReadyDateTime"
 
 instance ToJSON InstanceGroupTimeline where
     toJSON InstanceGroupTimeline{..} = object
@@ -2543,7 +2543,7 @@ badBootstrapActionConfig =
 
 instance FromJSON BootstrapActionDetail where
     parseJSON = withObject "BootstrapActionDetail" $ \o -> BootstrapActionDetail
-        <$> o .: "BootstrapActionConfig"
+        <$> o .:? "BootstrapActionConfig"
 
 instance ToJSON BootstrapActionDetail where
     toJSON BootstrapActionDetail{..} = object
@@ -2613,9 +2613,9 @@ sesdState = lens _sesdState (\s a -> s { _sesdState = a })
 instance FromJSON StepExecutionStatusDetail where
     parseJSON = withObject "StepExecutionStatusDetail" $ \o -> StepExecutionStatusDetail
         <$> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "LastStateChangeReason"
-        <*> o .: "StartDateTime"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "LastStateChangeReason"
+        <*> o .:? "StartDateTime"
         <*> o .: "State"
 
 instance ToJSON StepExecutionStatusDetail where
@@ -2665,9 +2665,9 @@ isTimeline = lens _isTimeline (\s a -> s { _isTimeline = a })
 
 instance FromJSON InstanceStatus where
     parseJSON = withObject "InstanceStatus" $ \o -> InstanceStatus
-        <$> o .: "State"
-        <*> o .: "StateChangeReason"
-        <*> o .: "Timeline"
+        <$> o .:? "State"
+        <*> o .:? "StateChangeReason"
+        <*> o .:? "Timeline"
 
 instance ToJSON InstanceStatus where
     toJSON InstanceStatus{..} = object
@@ -2817,16 +2817,16 @@ jficTerminationProtected =
 
 instance FromJSON JobFlowInstancesConfig where
     parseJSON = withObject "JobFlowInstancesConfig" $ \o -> JobFlowInstancesConfig
-        <$> o .: "Ec2KeyName"
-        <*> o .: "Ec2SubnetId"
-        <*> o .: "HadoopVersion"
-        <*> o .: "InstanceCount"
+        <$> o .:? "Ec2KeyName"
+        <*> o .:? "Ec2SubnetId"
+        <*> o .:? "HadoopVersion"
+        <*> o .:? "InstanceCount"
         <*> o .: "InstanceGroups"
-        <*> o .: "KeepJobFlowAliveWhenNoSteps"
-        <*> o .: "MasterInstanceType"
-        <*> o .: "Placement"
-        <*> o .: "SlaveInstanceType"
-        <*> o .: "TerminationProtected"
+        <*> o .:? "KeepJobFlowAliveWhenNoSteps"
+        <*> o .:? "MasterInstanceType"
+        <*> o .:? "Placement"
+        <*> o .:? "SlaveInstanceType"
+        <*> o .:? "TerminationProtected"
 
 instance ToJSON JobFlowInstancesConfig where
     toJSON JobFlowInstancesConfig{..} = object
@@ -2882,7 +2882,7 @@ scName = lens _scName (\s a -> s { _scName = a })
 
 instance FromJSON StepConfig where
     parseJSON = withObject "StepConfig" $ \o -> StepConfig
-        <$> o .: "ActionOnFailure"
+        <$> o .:? "ActionOnFailure"
         <*> o .: "HadoopJarStep"
         <*> o .: "Name"
 
@@ -2984,15 +2984,15 @@ igStatus = lens _igStatus (\s a -> s { _igStatus = a })
 
 instance FromJSON InstanceGroup where
     parseJSON = withObject "InstanceGroup" $ \o -> InstanceGroup
-        <$> o .: "BidPrice"
-        <*> o .: "Id"
-        <*> o .: "InstanceGroupType"
-        <*> o .: "InstanceType"
-        <*> o .: "Market"
-        <*> o .: "Name"
-        <*> o .: "RequestedInstanceCount"
-        <*> o .: "RunningInstanceCount"
-        <*> o .: "Status"
+        <$> o .:? "BidPrice"
+        <*> o .:? "Id"
+        <*> o .:? "InstanceGroupType"
+        <*> o .:? "InstanceType"
+        <*> o .:? "Market"
+        <*> o .:? "Name"
+        <*> o .:? "RequestedInstanceCount"
+        <*> o .:? "RunningInstanceCount"
+        <*> o .:? "Status"
 
 instance ToJSON InstanceGroup where
     toJSON InstanceGroup{..} = object
@@ -3086,9 +3086,9 @@ csStatus = lens _csStatus (\s a -> s { _csStatus = a })
 
 instance FromJSON ClusterSummary where
     parseJSON = withObject "ClusterSummary" $ \o -> ClusterSummary
-        <$> o .: "Id"
-        <*> o .: "Name"
-        <*> o .: "Status"
+        <$> o .:? "Id"
+        <*> o .:? "Name"
+        <*> o .:? "Status"
 
 instance ToJSON ClusterSummary where
     toJSON ClusterSummary{..} = object
@@ -3243,19 +3243,19 @@ jfidTerminationProtected =
 
 instance FromJSON JobFlowInstancesDetail where
     parseJSON = withObject "JobFlowInstancesDetail" $ \o -> JobFlowInstancesDetail
-        <$> o .: "Ec2KeyName"
-        <*> o .: "Ec2SubnetId"
-        <*> o .: "HadoopVersion"
+        <$> o .:? "Ec2KeyName"
+        <*> o .:? "Ec2SubnetId"
+        <*> o .:? "HadoopVersion"
         <*> o .: "InstanceCount"
         <*> o .: "InstanceGroups"
-        <*> o .: "KeepJobFlowAliveWhenNoSteps"
-        <*> o .: "MasterInstanceId"
+        <*> o .:? "KeepJobFlowAliveWhenNoSteps"
+        <*> o .:? "MasterInstanceId"
         <*> o .: "MasterInstanceType"
-        <*> o .: "MasterPublicDnsName"
-        <*> o .: "NormalizedInstanceHours"
-        <*> o .: "Placement"
+        <*> o .:? "MasterPublicDnsName"
+        <*> o .:? "NormalizedInstanceHours"
+        <*> o .:? "Placement"
         <*> o .: "SlaveInstanceType"
-        <*> o .: "TerminationProtected"
+        <*> o .:? "TerminationProtected"
 
 instance ToJSON JobFlowInstancesDetail where
     toJSON JobFlowInstancesDetail{..} = object
@@ -3313,9 +3313,9 @@ csTimeline = lens _csTimeline (\s a -> s { _csTimeline = a })
 
 instance FromJSON ClusterStatus where
     parseJSON = withObject "ClusterStatus" $ \o -> ClusterStatus
-        <$> o .: "State"
-        <*> o .: "StateChangeReason"
-        <*> o .: "Timeline"
+        <$> o .:? "State"
+        <*> o .:? "StateChangeReason"
+        <*> o .:? "Timeline"
 
 instance ToJSON ClusterStatus where
     toJSON ClusterStatus{..} = object
@@ -3396,9 +3396,9 @@ ctReadyDateTime = lens _ctReadyDateTime (\s a -> s { _ctReadyDateTime = a })
 
 instance FromJSON ClusterTimeline where
     parseJSON = withObject "ClusterTimeline" $ \o -> ClusterTimeline
-        <$> o .: "CreationDateTime"
-        <*> o .: "EndDateTime"
-        <*> o .: "ReadyDateTime"
+        <$> o .:? "CreationDateTime"
+        <*> o .:? "EndDateTime"
+        <*> o .:? "ReadyDateTime"
 
 instance ToJSON ClusterTimeline where
     toJSON ClusterTimeline{..} = object
@@ -3508,13 +3508,13 @@ iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
 instance FromJSON Instance where
     parseJSON = withObject "Instance" $ \o -> Instance
-        <$> o .: "Ec2InstanceId"
-        <*> o .: "Id"
-        <*> o .: "PrivateDnsName"
-        <*> o .: "PrivateIpAddress"
-        <*> o .: "PublicDnsName"
-        <*> o .: "PublicIpAddress"
-        <*> o .: "Status"
+        <$> o .:? "Ec2InstanceId"
+        <*> o .:? "Id"
+        <*> o .:? "PrivateDnsName"
+        <*> o .:? "PrivateIpAddress"
+        <*> o .:? "PublicDnsName"
+        <*> o .:? "PublicIpAddress"
+        <*> o .:? "Status"
 
 instance ToJSON Instance where
     toJSON Instance{..} = object

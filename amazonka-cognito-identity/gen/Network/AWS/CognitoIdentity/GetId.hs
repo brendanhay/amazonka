@@ -129,4 +129,4 @@ instance AWSRequest GetId where
 
 instance FromJSON GetIdResponse where
     parseJSON = withObject "GetIdResponse" $ \o -> GetIdResponse
-        <$> o .: "IdentityId"
+        <$> o .:? "IdentityId"

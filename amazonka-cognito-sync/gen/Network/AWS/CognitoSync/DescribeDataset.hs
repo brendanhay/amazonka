@@ -142,4 +142,4 @@ instance AWSRequest DescribeDataset where
 
 instance FromJSON DescribeDatasetResponse where
     parseJSON = withObject "DescribeDatasetResponse" $ \o -> DescribeDatasetResponse
-        <$> o .: "Dataset"
+        <$> o .:? "Dataset"

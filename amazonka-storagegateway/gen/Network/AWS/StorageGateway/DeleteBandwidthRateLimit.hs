@@ -117,4 +117,4 @@ instance AWSRequest DeleteBandwidthRateLimit where
 
 instance FromJSON DeleteBandwidthRateLimitResponse where
     parseJSON = withObject "DeleteBandwidthRateLimitResponse" $ \o -> DeleteBandwidthRateLimitResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

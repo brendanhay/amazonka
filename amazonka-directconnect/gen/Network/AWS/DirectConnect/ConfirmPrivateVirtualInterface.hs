@@ -123,4 +123,4 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
 
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse where
     parseJSON = withObject "ConfirmPrivateVirtualInterfaceResponse" $ \o -> ConfirmPrivateVirtualInterfaceResponse
-        <$> o .: "virtualInterfaceState"
+        <$> o .:? "virtualInterfaceState"

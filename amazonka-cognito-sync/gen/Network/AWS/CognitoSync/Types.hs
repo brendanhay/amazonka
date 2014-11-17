@@ -161,10 +161,10 @@ ipuSyncSessionsCount =
 
 instance FromJSON IdentityPoolUsage where
     parseJSON = withObject "IdentityPoolUsage" $ \o -> IdentityPoolUsage
-        <$> o .: "DataStorage"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "LastModifiedDate"
-        <*> o .: "SyncSessionsCount"
+        <$> o .:? "DataStorage"
+        <*> o .:? "IdentityPoolId"
+        <*> o .:? "LastModifiedDate"
+        <*> o .:? "SyncSessionsCount"
 
 instance ToJSON IdentityPoolUsage where
     toJSON IdentityPoolUsage{..} = object
@@ -277,13 +277,13 @@ dNumRecords = lens _dNumRecords (\s a -> s { _dNumRecords = a })
 
 instance FromJSON Dataset where
     parseJSON = withObject "Dataset" $ \o -> Dataset
-        <$> o .: "CreationDate"
-        <*> o .: "DataStorage"
-        <*> o .: "DatasetName"
-        <*> o .: "IdentityId"
-        <*> o .: "LastModifiedBy"
-        <*> o .: "LastModifiedDate"
-        <*> o .: "NumRecords"
+        <$> o .:? "CreationDate"
+        <*> o .:? "DataStorage"
+        <*> o .:? "DatasetName"
+        <*> o .:? "IdentityId"
+        <*> o .:? "LastModifiedBy"
+        <*> o .:? "LastModifiedDate"
+        <*> o .:? "NumRecords"
 
 instance ToJSON Dataset where
     toJSON Dataset{..} = object
@@ -383,12 +383,12 @@ rValue = lens _rValue (\s a -> s { _rValue = a })
 
 instance FromJSON Record where
     parseJSON = withObject "Record" $ \o -> Record
-        <$> o .: "DeviceLastModifiedDate"
-        <*> o .: "Key"
-        <*> o .: "LastModifiedBy"
-        <*> o .: "LastModifiedDate"
-        <*> o .: "SyncCount"
-        <*> o .: "Value"
+        <$> o .:? "DeviceLastModifiedDate"
+        <*> o .:? "Key"
+        <*> o .:? "LastModifiedBy"
+        <*> o .:? "LastModifiedDate"
+        <*> o .:? "SyncCount"
+        <*> o .:? "Value"
 
 instance ToJSON Record where
     toJSON Record{..} = object
@@ -459,11 +459,11 @@ iuLastModifiedDate =
 
 instance FromJSON IdentityUsage where
     parseJSON = withObject "IdentityUsage" $ \o -> IdentityUsage
-        <$> o .: "DataStorage"
-        <*> o .: "DatasetCount"
-        <*> o .: "IdentityId"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "LastModifiedDate"
+        <$> o .:? "DataStorage"
+        <*> o .:? "DatasetCount"
+        <*> o .:? "IdentityId"
+        <*> o .:? "IdentityPoolId"
+        <*> o .:? "LastModifiedDate"
 
 instance ToJSON IdentityUsage where
     toJSON IdentityUsage{..} = object
@@ -533,11 +533,11 @@ rpValue = lens _rpValue (\s a -> s { _rpValue = a })
 
 instance FromJSON RecordPatch where
     parseJSON = withObject "RecordPatch" $ \o -> RecordPatch
-        <$> o .: "DeviceLastModifiedDate"
+        <$> o .:? "DeviceLastModifiedDate"
         <*> o .: "Key"
         <*> o .: "Op"
         <*> o .: "SyncCount"
-        <*> o .: "Value"
+        <*> o .:? "Value"
 
 instance ToJSON RecordPatch where
     toJSON RecordPatch{..} = object
@@ -580,7 +580,7 @@ psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
 instance FromJSON PushSync where
     parseJSON = withObject "PushSync" $ \o -> PushSync
         <$> o .: "ApplicationArns"
-        <*> o .: "RoleArn"
+        <*> o .:? "RoleArn"
 
 instance ToJSON PushSync where
     toJSON PushSync{..} = object

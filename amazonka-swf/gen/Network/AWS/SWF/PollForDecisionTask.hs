@@ -275,8 +275,8 @@ instance AWSRequest PollForDecisionTask where
 instance FromJSON PollForDecisionTaskResponse where
     parseJSON = withObject "PollForDecisionTaskResponse" $ \o -> PollForDecisionTaskResponse
         <$> o .: "events"
-        <*> o .: "nextPageToken"
-        <*> o .: "previousStartedEventId"
+        <*> o .:? "nextPageToken"
+        <*> o .:? "previousStartedEventId"
         <*> o .: "startedEventId"
         <*> o .: "taskToken"
         <*> o .: "workflowExecution"

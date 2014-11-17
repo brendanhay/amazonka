@@ -156,9 +156,9 @@ instance AWSRequest GetOperationDetail where
 
 instance FromJSON GetOperationDetailResponse where
     parseJSON = withObject "GetOperationDetailResponse" $ \o -> GetOperationDetailResponse
-        <$> o .: "DomainName"
-        <*> o .: "Message"
-        <*> o .: "OperationId"
-        <*> o .: "Status"
-        <*> o .: "SubmittedDate"
-        <*> o .: "Type"
+        <$> o .:? "DomainName"
+        <*> o .:? "Message"
+        <*> o .:? "OperationId"
+        <*> o .:? "Status"
+        <*> o .:? "SubmittedDate"
+        <*> o .:? "Type"

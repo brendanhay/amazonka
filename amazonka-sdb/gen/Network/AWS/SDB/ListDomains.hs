@@ -125,4 +125,4 @@ instance AWSRequest ListDomains where
 instance FromXML ListDomainsResponse where
     parseXML c = ListDomainsResponse
         <$> c .: "DomainNames"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

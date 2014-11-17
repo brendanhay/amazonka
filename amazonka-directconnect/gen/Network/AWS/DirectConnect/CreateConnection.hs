@@ -198,12 +198,12 @@ instance AWSRequest CreateConnection where
 
 instance FromJSON CreateConnectionResponse where
     parseJSON = withObject "CreateConnectionResponse" $ \o -> CreateConnectionResponse
-        <$> o .: "bandwidth"
-        <*> o .: "connectionId"
-        <*> o .: "connectionName"
-        <*> o .: "connectionState"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "partnerName"
-        <*> o .: "region"
-        <*> o .: "vlan"
+        <$> o .:? "bandwidth"
+        <*> o .:? "connectionId"
+        <*> o .:? "connectionName"
+        <*> o .:? "connectionState"
+        <*> o .:? "location"
+        <*> o .:? "ownerAccount"
+        <*> o .:? "partnerName"
+        <*> o .:? "region"
+        <*> o .:? "vlan"

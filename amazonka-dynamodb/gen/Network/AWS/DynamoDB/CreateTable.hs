@@ -222,4 +222,4 @@ instance AWSRequest CreateTable where
 
 instance FromJSON CreateTableResponse where
     parseJSON = withObject "CreateTableResponse" $ \o -> CreateTableResponse
-        <$> o .: "TableDescription"
+        <$> o .:? "TableDescription"

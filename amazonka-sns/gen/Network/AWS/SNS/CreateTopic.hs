@@ -104,4 +104,4 @@ instance AWSRequest CreateTopic where
 
 instance FromXML CreateTopicResponse where
     parseXML c = CreateTopicResponse
-        <$> c .: "TopicArn"
+        <$> c .:? "TopicArn"

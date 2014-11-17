@@ -85,4 +85,4 @@ instance AWSRequest CreateStorageLocation where
 
 instance FromXML CreateStorageLocationResponse where
     parseXML c = CreateStorageLocationResponse
-        <$> c .: "S3Bucket"
+        <$> c .:? "S3Bucket"

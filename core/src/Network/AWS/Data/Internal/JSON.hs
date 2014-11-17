@@ -15,18 +15,22 @@ module Network.AWS.Data.Internal.JSON
     -- * FromJSON
       FromJSON (..)
     , fromJSONText
+    -- ** Parser a
+    , (.:)
+    , (.:?)
     -- ** Either String a
     , (.:>)
     , (.:?>)
-    -- ** Parser a
-      (.:)
-    , (.:?)
 
     -- * ToJSON
     , ToJSON   (..)
     , toJSONText
     , encode
+    , object
     , (.=)
+
+    -- * Types
+    , Value    (Null)
     ) where
 
 import           Data.Aeson                     (encode, withText)

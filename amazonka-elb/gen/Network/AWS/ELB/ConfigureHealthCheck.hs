@@ -113,4 +113,4 @@ instance AWSRequest ConfigureHealthCheck where
 
 instance FromXML ConfigureHealthCheckResponse where
     parseXML c = ConfigureHealthCheckResponse
-        <$> c .: "HealthCheck"
+        <$> c .:? "HealthCheck"

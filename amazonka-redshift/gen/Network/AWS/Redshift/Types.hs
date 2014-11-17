@@ -631,30 +631,30 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 instance FromXML Snapshot where
     parseXML c = Snapshot
         <$> c .: "AccountsWithRestoreAccess"
-        <*> c .: "ActualIncrementalBackupSizeInMegaBytes"
-        <*> c .: "AvailabilityZone"
-        <*> c .: "BackupProgressInMegaBytes"
-        <*> c .: "ClusterCreateTime"
-        <*> c .: "ClusterIdentifier"
-        <*> c .: "ClusterVersion"
-        <*> c .: "CurrentBackupRateInMegaBytesPerSecond"
-        <*> c .: "DBName"
-        <*> c .: "ElapsedTimeInSeconds"
-        <*> c .: "Encrypted"
-        <*> c .: "EncryptedWithHSM"
-        <*> c .: "EstimatedSecondsToCompletion"
-        <*> c .: "MasterUsername"
-        <*> c .: "NodeType"
-        <*> c .: "NumberOfNodes"
-        <*> c .: "OwnerAccount"
-        <*> c .: "Port"
-        <*> c .: "SnapshotCreateTime"
-        <*> c .: "SnapshotIdentifier"
-        <*> c .: "SnapshotType"
-        <*> c .: "SourceRegion"
-        <*> c .: "Status"
-        <*> c .: "TotalBackupSizeInMegaBytes"
-        <*> c .: "VpcId"
+        <*> c .:? "ActualIncrementalBackupSizeInMegaBytes"
+        <*> c .:? "AvailabilityZone"
+        <*> c .:? "BackupProgressInMegaBytes"
+        <*> c .:? "ClusterCreateTime"
+        <*> c .:? "ClusterIdentifier"
+        <*> c .:? "ClusterVersion"
+        <*> c .:? "CurrentBackupRateInMegaBytesPerSecond"
+        <*> c .:? "DBName"
+        <*> c .:? "ElapsedTimeInSeconds"
+        <*> c .:? "Encrypted"
+        <*> c .:? "EncryptedWithHSM"
+        <*> c .:? "EstimatedSecondsToCompletion"
+        <*> c .:? "MasterUsername"
+        <*> c .:? "NodeType"
+        <*> c .:? "NumberOfNodes"
+        <*> c .:? "OwnerAccount"
+        <*> c .:? "Port"
+        <*> c .:? "SnapshotCreateTime"
+        <*> c .:? "SnapshotIdentifier"
+        <*> c .:? "SnapshotType"
+        <*> c .:? "SourceRegion"
+        <*> c .:? "Status"
+        <*> c .:? "TotalBackupSizeInMegaBytes"
+        <*> c .:? "VpcId"
 
 instance ToQuery Snapshot
 
@@ -698,9 +698,9 @@ cpgParameterGroupName =
 
 instance FromXML ClusterParameterGroup where
     parseXML c = ClusterParameterGroup
-        <$> c .: "Description"
-        <*> c .: "ParameterGroupFamily"
-        <*> c .: "ParameterGroupName"
+        <$> c .:? "Description"
+        <*> c .:? "ParameterGroupFamily"
+        <*> c .:? "ParameterGroupName"
 
 instance ToQuery ClusterParameterGroup
 
@@ -777,12 +777,12 @@ rsStatus = lens _rsStatus (\s a -> s { _rsStatus = a })
 
 instance FromXML RestoreStatus where
     parseXML c = RestoreStatus
-        <$> c .: "CurrentRestoreRateInMegaBytesPerSecond"
-        <*> c .: "ElapsedTimeInSeconds"
-        <*> c .: "EstimatedTimeToCompletionInSeconds"
-        <*> c .: "ProgressInMegaBytes"
-        <*> c .: "SnapshotSizeInMegaBytes"
-        <*> c .: "Status"
+        <$> c .:? "CurrentRestoreRateInMegaBytesPerSecond"
+        <*> c .:? "ElapsedTimeInSeconds"
+        <*> c .:? "EstimatedTimeToCompletionInSeconds"
+        <*> c .:? "ProgressInMegaBytes"
+        <*> c .:? "SnapshotSizeInMegaBytes"
+        <*> c .:? "Status"
 
 instance ToQuery RestoreStatus
 
@@ -857,13 +857,13 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
     parseXML c = Event
-        <$> c .: "Date"
+        <$> c .:? "Date"
         <*> c .: "EventCategories"
-        <*> c .: "EventId"
-        <*> c .: "Message"
-        <*> c .: "Severity"
-        <*> c .: "SourceIdentifier"
-        <*> c .: "SourceType"
+        <*> c .:? "EventId"
+        <*> c .:? "Message"
+        <*> c .:? "Severity"
+        <*> c .:? "SourceIdentifier"
+        <*> c .:? "SourceType"
 
 instance ToQuery Event
 
@@ -900,8 +900,8 @@ cscsRetentionPeriod =
 
 instance FromXML ClusterSnapshotCopyStatus where
     parseXML c = ClusterSnapshotCopyStatus
-        <$> c .: "DestinationRegion"
-        <*> c .: "RetentionPeriod"
+        <$> c .:? "DestinationRegion"
+        <*> c .:? "RetentionPeriod"
 
 instance ToQuery ClusterSnapshotCopyStatus
 
@@ -939,8 +939,8 @@ hccHsmClientCertificatePublicKey =
 
 instance FromXML HsmClientCertificate where
     parseXML c = HsmClientCertificate
-        <$> c .: "HsmClientCertificateIdentifier"
-        <*> c .: "HsmClientCertificatePublicKey"
+        <$> c .:? "HsmClientCertificateIdentifier"
+        <*> c .:? "HsmClientCertificatePublicKey"
 
 instance ToQuery HsmClientCertificate
 
@@ -1229,34 +1229,34 @@ cVpcSecurityGroups =
 
 instance FromXML Cluster where
     parseXML c = Cluster
-        <$> c .: "AllowVersionUpgrade"
-        <*> c .: "AutomatedSnapshotRetentionPeriod"
-        <*> c .: "AvailabilityZone"
-        <*> c .: "ClusterCreateTime"
-        <*> c .: "ClusterIdentifier"
+        <$> c .:? "AllowVersionUpgrade"
+        <*> c .:? "AutomatedSnapshotRetentionPeriod"
+        <*> c .:? "AvailabilityZone"
+        <*> c .:? "ClusterCreateTime"
+        <*> c .:? "ClusterIdentifier"
         <*> c .: "ClusterNodes"
         <*> c .: "ClusterParameterGroups"
-        <*> c .: "ClusterPublicKey"
-        <*> c .: "ClusterRevisionNumber"
+        <*> c .:? "ClusterPublicKey"
+        <*> c .:? "ClusterRevisionNumber"
         <*> c .: "ClusterSecurityGroups"
-        <*> c .: "ClusterSnapshotCopyStatus"
-        <*> c .: "ClusterStatus"
-        <*> c .: "ClusterSubnetGroupName"
-        <*> c .: "ClusterVersion"
-        <*> c .: "DBName"
-        <*> c .: "ElasticIpStatus"
-        <*> c .: "Encrypted"
-        <*> c .: "Endpoint"
-        <*> c .: "HsmStatus"
-        <*> c .: "MasterUsername"
-        <*> c .: "ModifyStatus"
-        <*> c .: "NodeType"
-        <*> c .: "NumberOfNodes"
-        <*> c .: "PendingModifiedValues"
-        <*> c .: "PreferredMaintenanceWindow"
-        <*> c .: "PubliclyAccessible"
-        <*> c .: "RestoreStatus"
-        <*> c .: "VpcId"
+        <*> c .:? "ClusterSnapshotCopyStatus"
+        <*> c .:? "ClusterStatus"
+        <*> c .:? "ClusterSubnetGroupName"
+        <*> c .:? "ClusterVersion"
+        <*> c .:? "DBName"
+        <*> c .:? "ElasticIpStatus"
+        <*> c .:? "Encrypted"
+        <*> c .:? "Endpoint"
+        <*> c .:? "HsmStatus"
+        <*> c .:? "MasterUsername"
+        <*> c .:? "ModifyStatus"
+        <*> c .:? "NodeType"
+        <*> c .:? "NumberOfNodes"
+        <*> c .:? "PendingModifiedValues"
+        <*> c .:? "PreferredMaintenanceWindow"
+        <*> c .:? "PubliclyAccessible"
+        <*> c .:? "RestoreStatus"
+        <*> c .:? "VpcId"
         <*> c .: "VpcSecurityGroups"
 
 instance ToQuery Cluster
@@ -1300,9 +1300,9 @@ cnPublicIPAddress =
 
 instance FromXML ClusterNode where
     parseXML c = ClusterNode
-        <$> c .: "NodeRole"
-        <*> c .: "PrivateIPAddress"
-        <*> c .: "PublicIPAddress"
+        <$> c .:? "NodeRole"
+        <*> c .:? "PrivateIPAddress"
+        <*> c .:? "PublicIPAddress"
 
 instance ToQuery ClusterNode
 
@@ -1348,9 +1348,9 @@ ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     parseXML c = EC2SecurityGroup
-        <$> c .: "EC2SecurityGroupName"
-        <*> c .: "EC2SecurityGroupOwnerId"
-        <*> c .: "Status"
+        <$> c .:? "EC2SecurityGroupName"
+        <*> c .:? "EC2SecurityGroupOwnerId"
+        <*> c .:? "Status"
 
 instance ToQuery EC2SecurityGroup
 
@@ -1402,9 +1402,9 @@ ocoNodeType = lens _ocoNodeType (\s a -> s { _ocoNodeType = a })
 instance FromXML OrderableClusterOption where
     parseXML c = OrderableClusterOption
         <$> c .: "AvailabilityZones"
-        <*> c .: "ClusterType"
-        <*> c .: "ClusterVersion"
-        <*> c .: "NodeType"
+        <*> c .:? "ClusterType"
+        <*> c .:? "ClusterVersion"
+        <*> c .:? "NodeType"
 
 instance ToQuery OrderableClusterOption
 
@@ -1467,8 +1467,8 @@ cpgsParameterGroupName =
 
 instance FromXML ClusterParameterGroupStatus where
     parseXML c = ClusterParameterGroupStatus
-        <$> c .: "ParameterApplyStatus"
-        <*> c .: "ParameterGroupName"
+        <$> c .:? "ParameterApplyStatus"
+        <*> c .:? "ParameterGroupName"
 
 instance ToQuery ClusterParameterGroupStatus
 
@@ -1510,9 +1510,9 @@ sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
 
 instance FromXML Subnet where
     parseXML c = Subnet
-        <$> c .: "SubnetAvailabilityZone"
-        <*> c .: "SubnetIdentifier"
-        <*> c .: "SubnetStatus"
+        <$> c .:? "SubnetAvailabilityZone"
+        <*> c .:? "SubnetIdentifier"
+        <*> c .:? "SubnetStatus"
 
 instance ToQuery Subnet
 
@@ -1567,8 +1567,8 @@ csgIPRanges = lens _csgIPRanges (\s a -> s { _csgIPRanges = a })
 
 instance FromXML ClusterSecurityGroup where
     parseXML c = ClusterSecurityGroup
-        <$> c .: "ClusterSecurityGroupName"
-        <*> c .: "Description"
+        <$> c .:? "ClusterSecurityGroupName"
+        <*> c .:? "Description"
         <*> c .: "EC2SecurityGroups"
         <*> c .: "IPRanges"
 
@@ -1618,8 +1618,8 @@ dcpParameters = lens _dcpParameters (\s a -> s { _dcpParameters = a })
 
 instance FromXML DefaultClusterParameters where
     parseXML c = DefaultClusterParameters
-        <$> c .: "Marker"
-        <*> c .: "ParameterGroupFamily"
+        <$> c .:? "Marker"
+        <*> c .:? "ParameterGroupFamily"
         <*> c .: "Parameters"
 
 instance ToQuery DefaultClusterParameters
@@ -1681,11 +1681,11 @@ csg1VpcId = lens _csg1VpcId (\s a -> s { _csg1VpcId = a })
 
 instance FromXML ClusterSubnetGroup where
     parseXML c = ClusterSubnetGroup
-        <$> c .: "ClusterSubnetGroupName"
-        <*> c .: "Description"
-        <*> c .: "SubnetGroupStatus"
+        <$> c .:? "ClusterSubnetGroupName"
+        <*> c .:? "Description"
+        <*> c .:? "SubnetGroupStatus"
         <*> c .: "Subnets"
-        <*> c .: "VpcId"
+        <*> c .:? "VpcId"
 
 instance ToQuery ClusterSubnetGroup
 
@@ -1737,9 +1737,9 @@ eimSeverity = lens _eimSeverity (\s a -> s { _eimSeverity = a })
 instance FromXML EventInfoMap where
     parseXML c = EventInfoMap
         <$> c .: "EventCategories"
-        <*> c .: "EventDescription"
-        <*> c .: "EventId"
-        <*> c .: "Severity"
+        <*> c .:? "EventDescription"
+        <*> c .:? "EventId"
+        <*> c .:? "Severity"
 
 instance ToQuery EventInfoMap
 
@@ -1774,8 +1774,8 @@ csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 
 instance FromXML ClusterSecurityGroupMembership where
     parseXML c = ClusterSecurityGroupMembership
-        <$> c .: "ClusterSecurityGroupName"
-        <*> c .: "Status"
+        <$> c .:? "ClusterSecurityGroupName"
+        <*> c .:? "Status"
 
 instance ToQuery ClusterSecurityGroupMembership
 
@@ -1864,14 +1864,14 @@ rnoUsagePrice = lens _rnoUsagePrice (\s a -> s { _rnoUsagePrice = a })
 
 instance FromXML ReservedNodeOffering where
     parseXML c = ReservedNodeOffering
-        <$> c .: "CurrencyCode"
-        <*> c .: "Duration"
-        <*> c .: "FixedPrice"
-        <*> c .: "NodeType"
-        <*> c .: "OfferingType"
+        <$> c .:? "CurrencyCode"
+        <*> c .:? "Duration"
+        <*> c .:? "FixedPrice"
+        <*> c .:? "NodeType"
+        <*> c .:? "OfferingType"
         <*> c .: "RecurringCharges"
-        <*> c .: "ReservedNodeOfferingId"
-        <*> c .: "UsagePrice"
+        <*> c .:? "ReservedNodeOfferingId"
+        <*> c .:? "UsagePrice"
 
 instance ToQuery ReservedNodeOffering
 
@@ -1994,18 +1994,18 @@ rnUsagePrice = lens _rnUsagePrice (\s a -> s { _rnUsagePrice = a })
 
 instance FromXML ReservedNode where
     parseXML c = ReservedNode
-        <$> c .: "CurrencyCode"
-        <*> c .: "Duration"
-        <*> c .: "FixedPrice"
-        <*> c .: "NodeCount"
-        <*> c .: "NodeType"
-        <*> c .: "OfferingType"
+        <$> c .:? "CurrencyCode"
+        <*> c .:? "Duration"
+        <*> c .:? "FixedPrice"
+        <*> c .:? "NodeCount"
+        <*> c .:? "NodeType"
+        <*> c .:? "OfferingType"
         <*> c .: "RecurringCharges"
-        <*> c .: "ReservedNodeId"
-        <*> c .: "ReservedNodeOfferingId"
-        <*> c .: "StartTime"
-        <*> c .: "State"
-        <*> c .: "UsagePrice"
+        <*> c .:? "ReservedNodeId"
+        <*> c .:? "ReservedNodeOfferingId"
+        <*> c .:? "StartTime"
+        <*> c .:? "State"
+        <*> c .:? "UsagePrice"
 
 instance ToQuery ReservedNode
 
@@ -2076,12 +2076,12 @@ lsS3KeyPrefix = lens _lsS3KeyPrefix (\s a -> s { _lsS3KeyPrefix = a })
 
 instance FromXML LoggingStatus where
     parseXML c = LoggingStatus
-        <$> c .: "BucketName"
-        <*> c .: "LastFailureMessage"
-        <*> c .: "LastFailureTime"
-        <*> c .: "LastSuccessfulDeliveryTime"
-        <*> c .: "LoggingEnabled"
-        <*> c .: "S3KeyPrefix"
+        <$> c .:? "BucketName"
+        <*> c .:? "LastFailureMessage"
+        <*> c .:? "LastFailureTime"
+        <*> c .:? "LastSuccessfulDeliveryTime"
+        <*> c .:? "LoggingEnabled"
+        <*> c .:? "S3KeyPrefix"
 
 instance ToQuery LoggingStatus
 
@@ -2107,7 +2107,7 @@ awraAccountId = lens _awraAccountId (\s a -> s { _awraAccountId = a })
 
 instance FromXML AccountWithRestoreAccess where
     parseXML c = AccountWithRestoreAccess
-        <$> c .: "AccountId"
+        <$> c .:? "AccountId"
 
 instance ToQuery AccountWithRestoreAccess
 
@@ -2132,7 +2132,7 @@ azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
     parseXML c = AvailabilityZone
-        <$> c .: "Name"
+        <$> c .:? "Name"
 
 instance ToQuery AvailabilityZone
 
@@ -2248,16 +2248,16 @@ esSubscriptionCreationTime =
 
 instance FromXML EventSubscription where
     parseXML c = EventSubscription
-        <$> c .: "CustSubscriptionId"
-        <*> c .: "CustomerAwsId"
-        <*> c .: "Enabled"
+        <$> c .:? "CustSubscriptionId"
+        <*> c .:? "CustomerAwsId"
+        <*> c .:? "Enabled"
         <*> c .: "EventCategoriesList"
-        <*> c .: "Severity"
-        <*> c .: "SnsTopicArn"
+        <*> c .:? "Severity"
+        <*> c .:? "SnsTopicArn"
         <*> c .: "SourceIdsList"
-        <*> c .: "SourceType"
-        <*> c .: "Status"
-        <*> c .: "SubscriptionCreationTime"
+        <*> c .:? "SourceType"
+        <*> c .:? "Status"
+        <*> c .:? "SubscriptionCreationTime"
 
 instance ToQuery EventSubscription
 
@@ -2306,9 +2306,9 @@ hsStatus = lens _hsStatus (\s a -> s { _hsStatus = a })
 
 instance FromXML HsmStatus where
     parseXML c = HsmStatus
-        <$> c .: "HsmClientCertificateIdentifier"
-        <*> c .: "HsmConfigurationIdentifier"
-        <*> c .: "Status"
+        <$> c .:? "HsmClientCertificateIdentifier"
+        <*> c .:? "HsmConfigurationIdentifier"
+        <*> c .:? "Status"
 
 instance ToQuery HsmStatus
 
@@ -2346,8 +2346,8 @@ cpgnmParameterGroupStatus =
 
 instance FromXML ClusterParameterGroupNameMessage where
     parseXML c = ClusterParameterGroupNameMessage
-        <$> c .: "ParameterGroupName"
-        <*> c .: "ParameterGroupStatus"
+        <$> c .:? "ParameterGroupName"
+        <*> c .:? "ParameterGroupStatus"
 
 instance ToQuery ClusterParameterGroupNameMessage
 
@@ -2380,8 +2380,8 @@ eisStatus = lens _eisStatus (\s a -> s { _eisStatus = a })
 
 instance FromXML ElasticIpStatus where
     parseXML c = ElasticIpStatus
-        <$> c .: "ElasticIp"
-        <*> c .: "Status"
+        <$> c .:? "ElasticIp"
+        <*> c .:? "Status"
 
 instance ToQuery ElasticIpStatus
 
@@ -2424,9 +2424,9 @@ cvDescription = lens _cvDescription (\s a -> s { _cvDescription = a })
 
 instance FromXML ClusterVersion where
     parseXML c = ClusterVersion
-        <$> c .: "ClusterParameterGroupFamily"
-        <*> c .: "ClusterVersion"
-        <*> c .: "Description"
+        <$> c .:? "ClusterParameterGroupFamily"
+        <*> c .:? "ClusterVersion"
+        <*> c .:? "Description"
 
 instance ToQuery ClusterVersion
 
@@ -2463,8 +2463,8 @@ rcRecurringChargeFrequency =
 
 instance FromXML RecurringCharge where
     parseXML c = RecurringCharge
-        <$> c .: "RecurringChargeAmount"
-        <*> c .: "RecurringChargeFrequency"
+        <$> c .:? "RecurringChargeAmount"
+        <*> c .:? "RecurringChargeFrequency"
 
 instance ToQuery RecurringCharge
 
@@ -2497,8 +2497,8 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
     parseXML c = Endpoint
-        <$> c .: "Address"
-        <*> c .: "Port"
+        <$> c .:? "Address"
+        <*> c .:? "Port"
 
 instance ToQuery Endpoint
 
@@ -2531,8 +2531,8 @@ iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 
 instance FromXML IPRange where
     parseXML c = IPRange
-        <$> c .: "CIDRIP"
-        <*> c .: "Status"
+        <$> c .:? "CIDRIP"
+        <*> c .:? "Status"
 
 instance ToQuery IPRange
 
@@ -2567,7 +2567,7 @@ ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 instance FromXML EventCategoriesMap where
     parseXML c = EventCategoriesMap
         <$> c .: "Events"
-        <*> c .: "SourceType"
+        <*> c .:? "SourceType"
 
 instance ToQuery EventCategoriesMap
 
@@ -2621,10 +2621,10 @@ hcHsmPartitionName =
 
 instance FromXML HsmConfiguration where
     parseXML c = HsmConfiguration
-        <$> c .: "Description"
-        <*> c .: "HsmConfigurationIdentifier"
-        <*> c .: "HsmIpAddress"
-        <*> c .: "HsmPartitionName"
+        <$> c .:? "Description"
+        <*> c .:? "HsmConfigurationIdentifier"
+        <*> c .:? "HsmIpAddress"
+        <*> c .:? "HsmPartitionName"
 
 instance ToQuery HsmConfiguration
 
@@ -2704,13 +2704,13 @@ pmvNumberOfNodes = lens _pmvNumberOfNodes (\s a -> s { _pmvNumberOfNodes = a })
 
 instance FromXML PendingModifiedValues where
     parseXML c = PendingModifiedValues
-        <$> c .: "AutomatedSnapshotRetentionPeriod"
-        <*> c .: "ClusterIdentifier"
-        <*> c .: "ClusterType"
-        <*> c .: "ClusterVersion"
-        <*> c .: "MasterUserPassword"
-        <*> c .: "NodeType"
-        <*> c .: "NumberOfNodes"
+        <$> c .:? "AutomatedSnapshotRetentionPeriod"
+        <*> c .:? "ClusterIdentifier"
+        <*> c .:? "ClusterType"
+        <*> c .:? "ClusterVersion"
+        <*> c .:? "MasterUserPassword"
+        <*> c .:? "NodeType"
+        <*> c .:? "NumberOfNodes"
 
 instance ToQuery PendingModifiedValues
 
@@ -2742,8 +2742,8 @@ vsgmVpcSecurityGroupId =
 
 instance FromXML VpcSecurityGroupMembership where
     parseXML c = VpcSecurityGroupMembership
-        <$> c .: "Status"
-        <*> c .: "VpcSecurityGroupId"
+        <$> c .:? "Status"
+        <*> c .:? "VpcSecurityGroupId"
 
 instance ToQuery VpcSecurityGroupMembership
 
@@ -2826,13 +2826,13 @@ pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     parseXML c = Parameter
-        <$> c .: "AllowedValues"
-        <*> c .: "DataType"
-        <*> c .: "Description"
-        <*> c .: "IsModifiable"
-        <*> c .: "MinimumEngineVersion"
-        <*> c .: "ParameterName"
-        <*> c .: "ParameterValue"
-        <*> c .: "Source"
+        <$> c .:? "AllowedValues"
+        <*> c .:? "DataType"
+        <*> c .:? "Description"
+        <*> c .:? "IsModifiable"
+        <*> c .:? "MinimumEngineVersion"
+        <*> c .:? "ParameterName"
+        <*> c .:? "ParameterValue"
+        <*> c .:? "Source"
 
 instance ToQuery Parameter

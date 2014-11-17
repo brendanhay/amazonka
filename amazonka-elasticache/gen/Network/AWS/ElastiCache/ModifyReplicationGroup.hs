@@ -300,4 +300,4 @@ instance AWSRequest ModifyReplicationGroup where
 
 instance FromXML ModifyReplicationGroupResponse where
     parseXML c = ModifyReplicationGroupResponse
-        <$> c .: "ReplicationGroup"
+        <$> c .:? "ReplicationGroup"

@@ -124,4 +124,4 @@ instance AWSRequest DescribeIdentityUsage where
 
 instance FromJSON DescribeIdentityUsageResponse where
     parseJSON = withObject "DescribeIdentityUsageResponse" $ \o -> DescribeIdentityUsageResponse
-        <$> o .: "IdentityUsage"
+        <$> o .:? "IdentityUsage"

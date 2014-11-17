@@ -105,4 +105,4 @@ instance AWSRequest DescribeTable where
 
 instance FromJSON DescribeTableResponse where
     parseJSON = withObject "DescribeTableResponse" $ \o -> DescribeTableResponse
-        <$> o .: "Table"
+        <$> o .:? "Table"

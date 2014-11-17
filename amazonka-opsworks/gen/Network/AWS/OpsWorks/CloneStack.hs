@@ -392,4 +392,4 @@ instance AWSRequest CloneStack where
 
 instance FromJSON CloneStackResponse where
     parseJSON = withObject "CloneStackResponse" $ \o -> CloneStackResponse
-        <$> o .: "StackId"
+        <$> o .:? "StackId"

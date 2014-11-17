@@ -127,5 +127,5 @@ instance AWSRequest ListStacks where
 
 instance FromXML ListStacksResponse where
     parseXML c = ListStacksResponse
-        <$> c .: "NextToken"
+        <$> c .:? "NextToken"
         <*> c .: "StackSummaries"

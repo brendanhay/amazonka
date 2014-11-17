@@ -490,7 +490,7 @@ instance FromXML CloudFrontOriginAccessIdentityList where
         <*> c .: "Items"
         <*> c .: "Marker"
         <*> c .: "MaxItems"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"
         <*> c .: "Quantity"
 
 instance ToXML CloudFrontOriginAccessIdentityList where
@@ -743,10 +743,10 @@ oS3OriginConfig = lens _oS3OriginConfig (\s a -> s { _oS3OriginConfig = a })
 
 instance FromXML Origin where
     parseXML c = Origin
-        <$> c .: "CustomOriginConfig"
+        <$> c .:? "CustomOriginConfig"
         <*> c .: "DomainName"
         <*> c .: "Id"
-        <*> c .: "S3OriginConfig"
+        <*> c .:? "S3OriginConfig"
 
 instance ToXML Origin where
     toXML Origin{..} = node "Origin"
@@ -857,7 +857,7 @@ instance FromXML StreamingDistributionList where
         <*> c .: "Items"
         <*> c .: "Marker"
         <*> c .: "MaxItems"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"
         <*> c .: "Quantity"
 
 instance ToXML StreamingDistributionList where
@@ -1038,8 +1038,8 @@ sKeyPairIds = lens _sKeyPairIds (\s a -> s { _sKeyPairIds = a })
 
 instance FromXML Signer where
     parseXML c = Signer
-        <$> c .: "AwsAccountNumber"
-        <*> c .: "KeyPairIds"
+        <$> c .:? "AwsAccountNumber"
+        <*> c .:? "KeyPairIds"
 
 instance ToXML Signer where
     toXML Signer{..} = node "Signer"
@@ -1084,7 +1084,7 @@ cpWhitelistedNames =
 instance FromXML CookiePreference where
     parseXML c = CookiePreference
         <$> c .: "Forward"
-        <*> c .: "WhitelistedNames"
+        <*> c .:? "WhitelistedNames"
 
 instance ToXML CookiePreference where
     toXML CookiePreference{..} = node "CookiePreference"
@@ -1786,15 +1786,15 @@ instance FromXML DistributionConfig where
         <*> c .: "CacheBehaviors"
         <*> c .: "CallerReference"
         <*> c .: "Comment"
-        <*> c .: "CustomErrorResponses"
+        <*> c .:? "CustomErrorResponses"
         <*> c .: "DefaultCacheBehavior"
         <*> c .: "DefaultRootObject"
         <*> c .: "Enabled"
         <*> c .: "Logging"
         <*> c .: "Origins"
         <*> c .: "PriceClass"
-        <*> c .: "Restrictions"
-        <*> c .: "ViewerCertificate"
+        <*> c .:? "Restrictions"
+        <*> c .:? "ViewerCertificate"
 
 instance ToXML DistributionConfig where
     toXML DistributionConfig{..} = node "DistributionConfig"
@@ -1931,11 +1931,11 @@ cbViewerProtocolPolicy =
 
 instance FromXML CacheBehavior where
     parseXML c = CacheBehavior
-        <$> c .: "AllowedMethods"
+        <$> c .:? "AllowedMethods"
         <*> c .: "ForwardedValues"
         <*> c .: "MinTTL"
         <*> c .: "PathPattern"
-        <*> c .: "SmoothStreaming"
+        <*> c .:? "SmoothStreaming"
         <*> c .: "TargetOriginId"
         <*> c .: "TrustedSigners"
         <*> c .: "ViewerProtocolPolicy"
@@ -2027,7 +2027,7 @@ instance FromXML DistributionList where
         <*> c .: "Items"
         <*> c .: "Marker"
         <*> c .: "MaxItems"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"
         <*> c .: "Quantity"
 
 instance ToXML DistributionList where
@@ -2399,9 +2399,9 @@ vcSSLSupportMethod =
 
 instance FromXML ViewerCertificate where
     parseXML c = ViewerCertificate
-        <$> c .: "CloudFrontDefaultCertificate"
-        <*> c .: "IAMCertificateId"
-        <*> c .: "SSLSupportMethod"
+        <$> c .:? "CloudFrontDefaultCertificate"
+        <*> c .:? "IAMCertificateId"
+        <*> c .:? "SSLSupportMethod"
 
 instance ToXML ViewerCertificate where
     toXML ViewerCertificate{..} = node "ViewerCertificate"
@@ -2559,7 +2559,7 @@ fvQueryString = lens _fvQueryString (\s a -> s { _fvQueryString = a })
 instance FromXML ForwardedValues where
     parseXML c = ForwardedValues
         <$> c .: "Cookies"
-        <*> c .: "Headers"
+        <*> c .:? "Headers"
         <*> c .: "QueryString"
 
 instance ToXML ForwardedValues where
@@ -2805,10 +2805,10 @@ cerResponsePagePath =
 
 instance FromXML CustomErrorResponse where
     parseXML c = CustomErrorResponse
-        <$> c .: "ErrorCachingMinTTL"
+        <$> c .:? "ErrorCachingMinTTL"
         <*> c .: "ErrorCode"
-        <*> c .: "ResponseCode"
-        <*> c .: "ResponsePagePath"
+        <*> c .:? "ResponseCode"
+        <*> c .:? "ResponsePagePath"
 
 instance ToXML CustomErrorResponse where
     toXML CustomErrorResponse{..} = node "CustomErrorResponse"
@@ -2963,10 +2963,10 @@ dcbViewerProtocolPolicy =
 
 instance FromXML DefaultCacheBehavior where
     parseXML c = DefaultCacheBehavior
-        <$> c .: "AllowedMethods"
+        <$> c .:? "AllowedMethods"
         <*> c .: "ForwardedValues"
         <*> c .: "MinTTL"
-        <*> c .: "SmoothStreaming"
+        <*> c .:? "SmoothStreaming"
         <*> c .: "TargetOriginId"
         <*> c .: "TrustedSigners"
         <*> c .: "ViewerProtocolPolicy"
@@ -3058,7 +3058,7 @@ instance FromXML InvalidationList where
         <*> c .: "Items"
         <*> c .: "Marker"
         <*> c .: "MaxItems"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"
         <*> c .: "Quantity"
 
 instance ToXML InvalidationList where
@@ -3156,7 +3156,7 @@ instance FromXML StreamingDistribution where
         <$> c .: "ActiveTrustedSigners"
         <*> c .: "DomainName"
         <*> c .: "Id"
-        <*> c .: "LastModifiedTime"
+        <*> c .:? "LastModifiedTime"
         <*> c .: "Status"
         <*> c .: "StreamingDistributionConfig"
 
@@ -3254,7 +3254,7 @@ cfoaiS3CanonicalUserId =
 
 instance FromXML CloudFrontOriginAccessIdentity where
     parseXML c = CloudFrontOriginAccessIdentity
-        <$> c .: "CloudFrontOriginAccessIdentityConfig"
+        <$> c .:? "CloudFrontOriginAccessIdentityConfig"
         <*> c .: "Id"
         <*> c .: "S3CanonicalUserId"
 

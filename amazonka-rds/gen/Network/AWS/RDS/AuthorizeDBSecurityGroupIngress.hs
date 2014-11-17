@@ -158,4 +158,4 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress where
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
     parseXML c = AuthorizeDBSecurityGroupIngressResponse
-        <$> c .: "DBSecurityGroup"
+        <$> c .:? "DBSecurityGroup"

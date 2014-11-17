@@ -174,4 +174,4 @@ instance AWSRequest AssociateAddress where
 
 instance FromXML AssociateAddressResponse where
     parseXML c = AssociateAddressResponse
-        <$> c .: "associationId"
+        <$> c .:? "associationId"

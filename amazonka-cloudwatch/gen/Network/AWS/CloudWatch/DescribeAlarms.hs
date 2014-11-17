@@ -158,4 +158,4 @@ instance AWSRequest DescribeAlarms where
 instance FromXML DescribeAlarmsResponse where
     parseXML c = DescribeAlarmsResponse
         <$> c .: "MetricAlarms"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

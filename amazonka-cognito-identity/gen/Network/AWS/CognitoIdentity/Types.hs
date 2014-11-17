@@ -103,7 +103,7 @@ idLogins = lens _idLogins (\s a -> s { _idLogins = a })
 
 instance FromJSON IdentityDescription where
     parseJSON = withObject "IdentityDescription" $ \o -> IdentityDescription
-        <$> o .: "IdentityId"
+        <$> o .:? "IdentityId"
         <*> o .: "Logins"
 
 instance ToJSON IdentityDescription where
@@ -185,7 +185,7 @@ ipSupportedLoginProviders =
 instance FromJSON IdentityPool where
     parseJSON = withObject "IdentityPool" $ \o -> IdentityPool
         <$> o .: "AllowUnauthenticatedIdentities"
-        <*> o .: "DeveloperProviderName"
+        <*> o .:? "DeveloperProviderName"
         <*> o .: "IdentityPoolId"
         <*> o .: "IdentityPoolName"
         <*> o .: "OpenIdConnectProviderARNs"
@@ -232,8 +232,8 @@ ipsdIdentityPoolName =
 
 instance FromJSON IdentityPoolShortDescription where
     parseJSON = withObject "IdentityPoolShortDescription" $ \o -> IdentityPoolShortDescription
-        <$> o .: "IdentityPoolId"
-        <*> o .: "IdentityPoolName"
+        <$> o .:? "IdentityPoolId"
+        <*> o .:? "IdentityPoolName"
 
 instance ToJSON IdentityPoolShortDescription where
     toJSON IdentityPoolShortDescription{..} = object

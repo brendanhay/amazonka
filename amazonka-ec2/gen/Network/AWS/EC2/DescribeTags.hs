@@ -144,5 +144,5 @@ instance AWSRequest DescribeTags where
 
 instance FromXML DescribeTagsResponse where
     parseXML c = DescribeTagsResponse
-        <$> c .: "nextToken"
+        <$> c .:? "nextToken"
         <*> c .: "tagSet"

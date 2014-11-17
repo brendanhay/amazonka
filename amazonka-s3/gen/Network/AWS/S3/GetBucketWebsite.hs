@@ -131,7 +131,7 @@ instance AWSRequest GetBucketWebsite where
 
 instance FromXML GetBucketWebsiteResponse where
     parseXML c = GetBucketWebsiteResponse
-        <$> c .: "ErrorDocument"
-        <*> c .: "IndexDocument"
-        <*> c .: "RedirectAllRequestsTo"
+        <$> c .:? "ErrorDocument"
+        <*> c .:? "IndexDocument"
+        <*> c .:? "RedirectAllRequestsTo"
         <*> c .: "RoutingRules"

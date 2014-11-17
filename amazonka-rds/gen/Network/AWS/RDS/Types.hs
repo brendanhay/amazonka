@@ -514,13 +514,13 @@ ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
 
 instance FromXML OptionGroup where
     parseXML c = OptionGroup
-        <$> c .: "AllowsVpcAndNonVpcInstanceMemberships"
-        <*> c .: "EngineName"
-        <*> c .: "MajorEngineVersion"
-        <*> c .: "OptionGroupDescription"
-        <*> c .: "OptionGroupName"
+        <$> c .:? "AllowsVpcAndNonVpcInstanceMemberships"
+        <*> c .:? "EngineName"
+        <*> c .:? "MajorEngineVersion"
+        <*> c .:? "OptionGroupDescription"
+        <*> c .:? "OptionGroupName"
         <*> c .: "Options"
-        <*> c .: "VpcId"
+        <*> c .:? "VpcId"
 
 instance ToQuery OptionGroup
 
@@ -557,8 +557,8 @@ dbpgsParameterApplyStatus =
 
 instance FromXML DBParameterGroupStatus where
     parseXML c = DBParameterGroupStatus
-        <$> c .: "DBParameterGroupName"
-        <*> c .: "ParameterApplyStatus"
+        <$> c .:? "DBParameterGroupName"
+        <*> c .:? "ParameterApplyStatus"
 
 instance ToQuery DBParameterGroupStatus
 
@@ -617,11 +617,11 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
     parseXML c = Event
-        <$> c .: "Date"
+        <$> c .:? "Date"
         <*> c .: "EventCategories"
-        <*> c .: "Message"
-        <*> c .: "SourceIdentifier"
-        <*> c .: "SourceType"
+        <*> c .:? "Message"
+        <*> c .:? "SourceIdentifier"
+        <*> c .:? "SourceType"
 
 instance ToQuery Event
 
@@ -690,12 +690,12 @@ dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
 
 instance FromXML DBSecurityGroup where
     parseXML c = DBSecurityGroup
-        <$> c .: "DBSecurityGroupDescription"
-        <*> c .: "DBSecurityGroupName"
+        <$> c .:? "DBSecurityGroupDescription"
+        <*> c .:? "DBSecurityGroupName"
         <*> c .: "EC2SecurityGroups"
         <*> c .: "IPRanges"
-        <*> c .: "OwnerId"
-        <*> c .: "VpcId"
+        <*> c .:? "OwnerId"
+        <*> c .:? "VpcId"
 
 instance ToQuery DBSecurityGroup
 
@@ -736,8 +736,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML c = Tag
-        <$> c .: "Key"
-        <*> c .: "Value"
+        <$> c .:? "Key"
+        <*> c .:? "Value"
 
 instance ToQuery Tag
 
@@ -822,12 +822,12 @@ dbevSupportedCharacterSets =
 
 instance FromXML DBEngineVersion where
     parseXML c = DBEngineVersion
-        <$> c .: "DBEngineDescription"
-        <*> c .: "DBEngineVersionDescription"
-        <*> c .: "DBParameterGroupFamily"
-        <*> c .: "DefaultCharacterSet"
-        <*> c .: "Engine"
-        <*> c .: "EngineVersion"
+        <$> c .:? "DBEngineDescription"
+        <*> c .:? "DBEngineVersionDescription"
+        <*> c .:? "DBParameterGroupFamily"
+        <*> c .:? "DefaultCharacterSet"
+        <*> c .:? "Engine"
+        <*> c .:? "EngineVersion"
         <*> c .: "SupportedCharacterSets"
 
 instance ToQuery DBEngineVersion
@@ -1022,26 +1022,26 @@ dbsVpcId = lens _dbsVpcId (\s a -> s { _dbsVpcId = a })
 
 instance FromXML DBSnapshot where
     parseXML c = DBSnapshot
-        <$> c .: "AllocatedStorage"
-        <*> c .: "AvailabilityZone"
-        <*> c .: "DBInstanceIdentifier"
-        <*> c .: "DBSnapshotIdentifier"
-        <*> c .: "Engine"
-        <*> c .: "EngineVersion"
-        <*> c .: "InstanceCreateTime"
-        <*> c .: "Iops"
-        <*> c .: "LicenseModel"
-        <*> c .: "MasterUsername"
-        <*> c .: "OptionGroupName"
-        <*> c .: "PercentProgress"
-        <*> c .: "Port"
-        <*> c .: "SnapshotCreateTime"
-        <*> c .: "SnapshotType"
-        <*> c .: "SourceRegion"
-        <*> c .: "Status"
-        <*> c .: "StorageType"
-        <*> c .: "TdeCredentialArn"
-        <*> c .: "VpcId"
+        <$> c .:? "AllocatedStorage"
+        <*> c .:? "AvailabilityZone"
+        <*> c .:? "DBInstanceIdentifier"
+        <*> c .:? "DBSnapshotIdentifier"
+        <*> c .:? "Engine"
+        <*> c .:? "EngineVersion"
+        <*> c .:? "InstanceCreateTime"
+        <*> c .:? "Iops"
+        <*> c .:? "LicenseModel"
+        <*> c .:? "MasterUsername"
+        <*> c .:? "OptionGroupName"
+        <*> c .:? "PercentProgress"
+        <*> c .:? "Port"
+        <*> c .:? "SnapshotCreateTime"
+        <*> c .:? "SnapshotType"
+        <*> c .:? "SourceRegion"
+        <*> c .:? "Status"
+        <*> c .:? "StorageType"
+        <*> c .:? "TdeCredentialArn"
+        <*> c .:? "VpcId"
 
 instance ToQuery DBSnapshot
 
@@ -1076,8 +1076,8 @@ dbsgmStatus = lens _dbsgmStatus (\s a -> s { _dbsgmStatus = a })
 
 instance FromXML DBSecurityGroupMembership where
     parseXML c = DBSecurityGroupMembership
-        <$> c .: "DBSecurityGroupName"
-        <*> c .: "Status"
+        <$> c .:? "DBSecurityGroupName"
+        <*> c .:? "Status"
 
 instance ToQuery DBSecurityGroupMembership
 
@@ -1133,10 +1133,10 @@ ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     parseXML c = EC2SecurityGroup
-        <$> c .: "EC2SecurityGroupId"
-        <*> c .: "EC2SecurityGroupName"
-        <*> c .: "EC2SecurityGroupOwnerId"
-        <*> c .: "Status"
+        <$> c .:? "EC2SecurityGroupId"
+        <*> c .:? "EC2SecurityGroupName"
+        <*> c .:? "EC2SecurityGroupOwnerId"
+        <*> c .:? "Status"
 
 instance ToQuery EC2SecurityGroup
 
@@ -1209,9 +1209,9 @@ dbpgDescription = lens _dbpgDescription (\s a -> s { _dbpgDescription = a })
 
 instance FromXML DBParameterGroup where
     parseXML c = DBParameterGroup
-        <$> c .: "DBParameterGroupFamily"
-        <*> c .: "DBParameterGroupName"
-        <*> c .: "Description"
+        <$> c .:? "DBParameterGroupFamily"
+        <*> c .:? "DBParameterGroupName"
+        <*> c .:? "Description"
 
 instance ToQuery DBParameterGroup
 
@@ -1315,16 +1315,16 @@ rdbioUsagePrice = lens _rdbioUsagePrice (\s a -> s { _rdbioUsagePrice = a })
 
 instance FromXML ReservedDBInstancesOffering where
     parseXML c = ReservedDBInstancesOffering
-        <$> c .: "CurrencyCode"
-        <*> c .: "DBInstanceClass"
-        <*> c .: "Duration"
-        <*> c .: "FixedPrice"
-        <*> c .: "MultiAZ"
-        <*> c .: "OfferingType"
-        <*> c .: "ProductDescription"
+        <$> c .:? "CurrencyCode"
+        <*> c .:? "DBInstanceClass"
+        <*> c .:? "Duration"
+        <*> c .:? "FixedPrice"
+        <*> c .:? "MultiAZ"
+        <*> c .:? "OfferingType"
+        <*> c .:? "ProductDescription"
         <*> c .: "RecurringCharges"
-        <*> c .: "ReservedDBInstancesOfferingId"
-        <*> c .: "UsagePrice"
+        <*> c .:? "ReservedDBInstancesOfferingId"
+        <*> c .:? "UsagePrice"
 
 instance ToQuery ReservedDBInstancesOffering
 
@@ -1381,8 +1381,8 @@ csCharacterSetName =
 
 instance FromXML CharacterSet where
     parseXML c = CharacterSet
-        <$> c .: "CharacterSetDescription"
-        <*> c .: "CharacterSetName"
+        <$> c .:? "CharacterSetDescription"
+        <*> c .:? "CharacterSetName"
 
 instance ToQuery CharacterSet
 
@@ -1424,9 +1424,9 @@ sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
 
 instance FromXML Subnet where
     parseXML c = Subnet
-        <$> c .: "SubnetAvailabilityZone"
-        <*> c .: "SubnetIdentifier"
-        <*> c .: "SubnetStatus"
+        <$> c .:? "SubnetAvailabilityZone"
+        <*> c .:? "SubnetIdentifier"
+        <*> c .:? "SubnetStatus"
 
 instance ToQuery Subnet
 
@@ -1564,20 +1564,20 @@ rdbiUsagePrice = lens _rdbiUsagePrice (\s a -> s { _rdbiUsagePrice = a })
 
 instance FromXML ReservedDBInstance where
     parseXML c = ReservedDBInstance
-        <$> c .: "CurrencyCode"
-        <*> c .: "DBInstanceClass"
-        <*> c .: "DBInstanceCount"
-        <*> c .: "Duration"
-        <*> c .: "FixedPrice"
-        <*> c .: "MultiAZ"
-        <*> c .: "OfferingType"
-        <*> c .: "ProductDescription"
+        <$> c .:? "CurrencyCode"
+        <*> c .:? "DBInstanceClass"
+        <*> c .:? "DBInstanceCount"
+        <*> c .:? "Duration"
+        <*> c .:? "FixedPrice"
+        <*> c .:? "MultiAZ"
+        <*> c .:? "OfferingType"
+        <*> c .:? "ProductDescription"
         <*> c .: "RecurringCharges"
-        <*> c .: "ReservedDBInstanceId"
-        <*> c .: "ReservedDBInstancesOfferingId"
-        <*> c .: "StartTime"
-        <*> c .: "State"
-        <*> c .: "UsagePrice"
+        <*> c .:? "ReservedDBInstanceId"
+        <*> c .:? "ReservedDBInstancesOfferingId"
+        <*> c .:? "StartTime"
+        <*> c .:? "State"
+        <*> c .:? "UsagePrice"
 
 instance ToQuery ReservedDBInstance
 
@@ -1623,8 +1623,8 @@ edParameters = lens _edParameters (\s a -> s { _edParameters = a })
 
 instance FromXML EngineDefaults where
     parseXML c = EngineDefaults
-        <$> c .: "DBParameterGroupFamily"
-        <*> c .: "Marker"
+        <$> c .:? "DBParameterGroupFamily"
+        <*> c .:? "Marker"
         <*> c .: "Parameters"
 
 instance ToQuery EngineDefaults
@@ -1652,7 +1652,7 @@ dbpgnmDBParameterGroupName =
 
 instance FromXML DBParameterGroupNameMessage where
     parseXML c = DBParameterGroupNameMessage
-        <$> c .: "DBParameterGroupName"
+        <$> c .:? "DBParameterGroupName"
 
 instance ToQuery DBParameterGroupNameMessage
 
@@ -1769,17 +1769,17 @@ ogoPortRequired = lens _ogoPortRequired (\s a -> s { _ogoPortRequired = a })
 
 instance FromXML OptionGroupOption where
     parseXML c = OptionGroupOption
-        <$> c .: "DefaultPort"
-        <*> c .: "Description"
-        <*> c .: "EngineName"
-        <*> c .: "MajorEngineVersion"
-        <*> c .: "MinimumRequiredMinorEngineVersion"
-        <*> c .: "Name"
+        <$> c .:? "DefaultPort"
+        <*> c .:? "Description"
+        <*> c .:? "EngineName"
+        <*> c .:? "MajorEngineVersion"
+        <*> c .:? "MinimumRequiredMinorEngineVersion"
+        <*> c .:? "Name"
         <*> c .: "OptionGroupOptionSettings"
         <*> c .: "OptionsDependedOn"
-        <*> c .: "Permanent"
-        <*> c .: "Persistent"
-        <*> c .: "PortRequired"
+        <*> c .:? "Permanent"
+        <*> c .:? "Persistent"
+        <*> c .:? "PortRequired"
 
 instance ToQuery OptionGroupOption
 
@@ -2133,38 +2133,38 @@ dbiVpcSecurityGroups =
 
 instance FromXML DBInstance where
     parseXML c = DBInstance
-        <$> c .: "AllocatedStorage"
-        <*> c .: "AutoMinorVersionUpgrade"
-        <*> c .: "AvailabilityZone"
-        <*> c .: "BackupRetentionPeriod"
-        <*> c .: "CharacterSetName"
-        <*> c .: "DBInstanceClass"
-        <*> c .: "DBInstanceIdentifier"
-        <*> c .: "DBInstanceStatus"
-        <*> c .: "DBName"
+        <$> c .:? "AllocatedStorage"
+        <*> c .:? "AutoMinorVersionUpgrade"
+        <*> c .:? "AvailabilityZone"
+        <*> c .:? "BackupRetentionPeriod"
+        <*> c .:? "CharacterSetName"
+        <*> c .:? "DBInstanceClass"
+        <*> c .:? "DBInstanceIdentifier"
+        <*> c .:? "DBInstanceStatus"
+        <*> c .:? "DBName"
         <*> c .: "DBParameterGroups"
         <*> c .: "DBSecurityGroups"
-        <*> c .: "DBSubnetGroup"
-        <*> c .: "Endpoint"
-        <*> c .: "Engine"
-        <*> c .: "EngineVersion"
-        <*> c .: "InstanceCreateTime"
-        <*> c .: "Iops"
-        <*> c .: "LatestRestorableTime"
-        <*> c .: "LicenseModel"
-        <*> c .: "MasterUsername"
-        <*> c .: "MultiAZ"
+        <*> c .:? "DBSubnetGroup"
+        <*> c .:? "Endpoint"
+        <*> c .:? "Engine"
+        <*> c .:? "EngineVersion"
+        <*> c .:? "InstanceCreateTime"
+        <*> c .:? "Iops"
+        <*> c .:? "LatestRestorableTime"
+        <*> c .:? "LicenseModel"
+        <*> c .:? "MasterUsername"
+        <*> c .:? "MultiAZ"
         <*> c .: "OptionGroupMemberships"
-        <*> c .: "PendingModifiedValues"
-        <*> c .: "PreferredBackupWindow"
-        <*> c .: "PreferredMaintenanceWindow"
-        <*> c .: "PubliclyAccessible"
+        <*> c .:? "PendingModifiedValues"
+        <*> c .:? "PreferredBackupWindow"
+        <*> c .:? "PreferredMaintenanceWindow"
+        <*> c .:? "PubliclyAccessible"
         <*> c .: "ReadReplicaDBInstanceIdentifiers"
-        <*> c .: "ReadReplicaSourceDBInstanceIdentifier"
-        <*> c .: "SecondaryAvailabilityZone"
+        <*> c .:? "ReadReplicaSourceDBInstanceIdentifier"
+        <*> c .:? "SecondaryAvailabilityZone"
         <*> c .: "StatusInfos"
-        <*> c .: "StorageType"
-        <*> c .: "TdeCredentialArn"
+        <*> c .:? "StorageType"
+        <*> c .:? "TdeCredentialArn"
         <*> c .: "VpcSecurityGroups"
 
 instance ToQuery DBInstance
@@ -2190,7 +2190,7 @@ azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
     parseXML c = AvailabilityZone
-        <$> c .: "Name"
+        <$> c .:? "Name"
 
 instance ToQuery AvailabilityZone
 
@@ -2290,15 +2290,15 @@ esSubscriptionCreationTime =
 
 instance FromXML EventSubscription where
     parseXML c = EventSubscription
-        <$> c .: "CustSubscriptionId"
-        <*> c .: "CustomerAwsId"
-        <*> c .: "Enabled"
+        <$> c .:? "CustSubscriptionId"
+        <*> c .:? "CustomerAwsId"
+        <*> c .:? "Enabled"
         <*> c .: "EventCategoriesList"
-        <*> c .: "SnsTopicArn"
+        <*> c .:? "SnsTopicArn"
         <*> c .: "SourceIdsList"
-        <*> c .: "SourceType"
-        <*> c .: "Status"
-        <*> c .: "SubscriptionCreationTime"
+        <*> c .:? "SourceType"
+        <*> c .:? "Status"
+        <*> c .:? "SubscriptionCreationTime"
 
 instance ToQuery EventSubscription
 
@@ -2359,11 +2359,11 @@ dbsg1VpcId = lens _dbsg1VpcId (\s a -> s { _dbsg1VpcId = a })
 
 instance FromXML DBSubnetGroup where
     parseXML c = DBSubnetGroup
-        <$> c .: "DBSubnetGroupDescription"
-        <*> c .: "DBSubnetGroupName"
-        <*> c .: "SubnetGroupStatus"
+        <$> c .:? "DBSubnetGroupDescription"
+        <*> c .:? "DBSubnetGroupName"
+        <*> c .:? "SubnetGroupStatus"
         <*> c .: "Subnets"
-        <*> c .: "VpcId"
+        <*> c .:? "VpcId"
 
 instance ToQuery DBSubnetGroup
 
@@ -2415,10 +2415,10 @@ dbisiStatusType = lens _dbisiStatusType (\s a -> s { _dbisiStatusType = a })
 
 instance FromXML DBInstanceStatusInfo where
     parseXML c = DBInstanceStatusInfo
-        <$> c .: "Message"
-        <*> c .: "Normal"
-        <*> c .: "Status"
-        <*> c .: "StatusType"
+        <$> c .:? "Message"
+        <*> c .:? "Normal"
+        <*> c .:? "Status"
+        <*> c .:? "StatusType"
 
 instance ToQuery DBInstanceStatusInfo
 
@@ -2508,15 +2508,15 @@ osValue = lens _osValue (\s a -> s { _osValue = a })
 
 instance FromXML OptionSetting where
     parseXML c = OptionSetting
-        <$> c .: "AllowedValues"
-        <*> c .: "ApplyType"
-        <*> c .: "DataType"
-        <*> c .: "DefaultValue"
-        <*> c .: "Description"
-        <*> c .: "IsCollection"
-        <*> c .: "IsModifiable"
-        <*> c .: "Name"
-        <*> c .: "Value"
+        <$> c .:? "AllowedValues"
+        <*> c .:? "ApplyType"
+        <*> c .:? "DataType"
+        <*> c .:? "DefaultValue"
+        <*> c .:? "Description"
+        <*> c .:? "IsCollection"
+        <*> c .:? "IsModifiable"
+        <*> c .:? "Name"
+        <*> c .:? "Value"
 
 instance ToQuery OptionSetting
 
@@ -2559,9 +2559,9 @@ ddblfdSize = lens _ddblfdSize (\s a -> s { _ddblfdSize = a })
 
 instance FromXML DescribeDBLogFilesDetails where
     parseXML c = DescribeDBLogFilesDetails
-        <$> c .: "LastWritten"
-        <*> c .: "LogFileName"
-        <*> c .: "Size"
+        <$> c .:? "LastWritten"
+        <*> c .:? "LogFileName"
+        <*> c .:? "Size"
 
 instance ToQuery DescribeDBLogFilesDetails
 
@@ -2666,15 +2666,15 @@ odbioVpc = lens _odbioVpc (\s a -> s { _odbioVpc = a })
 instance FromXML OrderableDBInstanceOption where
     parseXML c = OrderableDBInstanceOption
         <$> c .: "AvailabilityZones"
-        <*> c .: "DBInstanceClass"
-        <*> c .: "Engine"
-        <*> c .: "EngineVersion"
-        <*> c .: "LicenseModel"
-        <*> c .: "MultiAZCapable"
-        <*> c .: "ReadReplicaCapable"
-        <*> c .: "StorageType"
-        <*> c .: "SupportsIops"
-        <*> c .: "Vpc"
+        <*> c .:? "DBInstanceClass"
+        <*> c .:? "Engine"
+        <*> c .:? "EngineVersion"
+        <*> c .:? "LicenseModel"
+        <*> c .:? "MultiAZCapable"
+        <*> c .:? "ReadReplicaCapable"
+        <*> c .:? "StorageType"
+        <*> c .:? "SupportsIops"
+        <*> c .:? "Vpc"
 
 instance ToQuery OrderableDBInstanceOption
 
@@ -2745,8 +2745,8 @@ rcRecurringChargeFrequency =
 
 instance FromXML RecurringCharge where
     parseXML c = RecurringCharge
-        <$> c .: "RecurringChargeAmount"
-        <*> c .: "RecurringChargeFrequency"
+        <$> c .:? "RecurringChargeAmount"
+        <*> c .:? "RecurringChargeFrequency"
 
 instance ToQuery RecurringCharge
 
@@ -2779,8 +2779,8 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
     parseXML c = Endpoint
-        <$> c .: "Address"
-        <*> c .: "Port"
+        <$> c .:? "Address"
+        <*> c .:? "Port"
 
 instance ToQuery Endpoint
 
@@ -2845,7 +2845,7 @@ instance FromXML OptionConfiguration where
         <$> c .: "DBSecurityGroupMemberships"
         <*> c .: "OptionName"
         <*> c .: "OptionSettings"
-        <*> c .: "Port"
+        <*> c .:? "Port"
         <*> c .: "VpcSecurityGroupMemberships"
 
 instance ToQuery OptionConfiguration
@@ -2935,12 +2935,12 @@ oVpcSecurityGroupMemberships =
 instance FromXML Option where
     parseXML c = Option
         <$> c .: "DBSecurityGroupMemberships"
-        <*> c .: "OptionDescription"
-        <*> c .: "OptionName"
+        <*> c .:? "OptionDescription"
+        <*> c .:? "OptionName"
         <*> c .: "OptionSettings"
-        <*> c .: "Permanent"
-        <*> c .: "Persistent"
-        <*> c .: "Port"
+        <*> c .:? "Permanent"
+        <*> c .:? "Persistent"
+        <*> c .:? "Port"
         <*> c .: "VpcSecurityGroupMemberships"
 
 instance ToQuery Option
@@ -2975,8 +2975,8 @@ iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 
 instance FromXML IPRange where
     parseXML c = IPRange
-        <$> c .: "CIDRIP"
-        <*> c .: "Status"
+        <$> c .:? "CIDRIP"
+        <*> c .:? "Status"
 
 instance ToQuery IPRange
 
@@ -3011,8 +3011,8 @@ ogmStatus = lens _ogmStatus (\s a -> s { _ogmStatus = a })
 
 instance FromXML OptionGroupMembership where
     parseXML c = OptionGroupMembership
-        <$> c .: "OptionGroupName"
-        <*> c .: "Status"
+        <$> c .:? "OptionGroupName"
+        <*> c .:? "Status"
 
 instance ToQuery OptionGroupMembership
 
@@ -3047,7 +3047,7 @@ ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 instance FromXML EventCategoriesMap where
     parseXML c = EventCategoriesMap
         <$> c .: "EventCategories"
-        <*> c .: "SourceType"
+        <*> c .:? "SourceType"
 
 instance ToQuery EventCategoriesMap
 
@@ -3157,16 +3157,16 @@ pmvStorageType = lens _pmvStorageType (\s a -> s { _pmvStorageType = a })
 
 instance FromXML PendingModifiedValues where
     parseXML c = PendingModifiedValues
-        <$> c .: "AllocatedStorage"
-        <*> c .: "BackupRetentionPeriod"
-        <*> c .: "DBInstanceClass"
-        <*> c .: "DBInstanceIdentifier"
-        <*> c .: "EngineVersion"
-        <*> c .: "Iops"
-        <*> c .: "MasterUserPassword"
-        <*> c .: "MultiAZ"
-        <*> c .: "Port"
-        <*> c .: "StorageType"
+        <$> c .:? "AllocatedStorage"
+        <*> c .:? "BackupRetentionPeriod"
+        <*> c .:? "DBInstanceClass"
+        <*> c .:? "DBInstanceIdentifier"
+        <*> c .:? "EngineVersion"
+        <*> c .:? "Iops"
+        <*> c .:? "MasterUserPassword"
+        <*> c .:? "MultiAZ"
+        <*> c .:? "Port"
+        <*> c .:? "StorageType"
 
 instance ToQuery PendingModifiedValues
 
@@ -3200,8 +3200,8 @@ vsgmVpcSecurityGroupId =
 
 instance FromXML VpcSecurityGroupMembership where
     parseXML c = VpcSecurityGroupMembership
-        <$> c .: "Status"
-        <*> c .: "VpcSecurityGroupId"
+        <$> c .:? "Status"
+        <*> c .:? "VpcSecurityGroupId"
 
 instance ToQuery VpcSecurityGroupMembership
 
@@ -3301,16 +3301,16 @@ pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     parseXML c = Parameter
-        <$> c .: "AllowedValues"
-        <*> c .: "ApplyMethod"
-        <*> c .: "ApplyType"
-        <*> c .: "DataType"
-        <*> c .: "Description"
-        <*> c .: "IsModifiable"
-        <*> c .: "MinimumEngineVersion"
-        <*> c .: "ParameterName"
-        <*> c .: "ParameterValue"
-        <*> c .: "Source"
+        <$> c .:? "AllowedValues"
+        <*> c .:? "ApplyMethod"
+        <*> c .:? "ApplyType"
+        <*> c .:? "DataType"
+        <*> c .:? "Description"
+        <*> c .:? "IsModifiable"
+        <*> c .:? "MinimumEngineVersion"
+        <*> c .:? "ParameterName"
+        <*> c .:? "ParameterValue"
+        <*> c .:? "Source"
 
 instance ToQuery Parameter
 
@@ -3378,11 +3378,11 @@ ogosSettingName = lens _ogosSettingName (\s a -> s { _ogosSettingName = a })
 
 instance FromXML OptionGroupOptionSetting where
     parseXML c = OptionGroupOptionSetting
-        <$> c .: "AllowedValues"
-        <*> c .: "ApplyType"
-        <*> c .: "DefaultValue"
-        <*> c .: "IsModifiable"
-        <*> c .: "SettingDescription"
-        <*> c .: "SettingName"
+        <$> c .:? "AllowedValues"
+        <*> c .:? "ApplyType"
+        <*> c .:? "DefaultValue"
+        <*> c .:? "IsModifiable"
+        <*> c .:? "SettingDescription"
+        <*> c .:? "SettingName"
 
 instance ToQuery OptionGroupOptionSetting

@@ -133,4 +133,4 @@ instance AWSRequest PromoteReadReplica where
 
 instance FromXML PromoteReadReplicaResponse where
     parseXML c = PromoteReadReplicaResponse
-        <$> c .: "DBInstance"
+        <$> c .:? "DBInstance"

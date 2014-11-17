@@ -155,8 +155,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute where
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     parseXML c = DescribeNetworkInterfaceAttributeResponse
-        <$> c .: "attachment"
-        <*> c .: "description"
+        <$> c .:? "attachment"
+        <*> c .:? "description"
         <*> c .: "groupSet"
-        <*> c .: "networkInterfaceId"
-        <*> c .: "sourceDestCheck"
+        <*> c .:? "networkInterfaceId"
+        <*> c .:? "sourceDestCheck"

@@ -202,11 +202,11 @@ cediLastSuccessfulTime =
 
 instance FromJSON ConfigExportDeliveryInfo where
     parseJSON = withObject "ConfigExportDeliveryInfo" $ \o -> ConfigExportDeliveryInfo
-        <$> o .: "lastAttemptTime"
-        <*> o .: "lastErrorCode"
-        <*> o .: "lastErrorMessage"
-        <*> o .: "lastStatus"
-        <*> o .: "lastSuccessfulTime"
+        <$> o .:? "lastAttemptTime"
+        <*> o .:? "lastErrorCode"
+        <*> o .:? "lastErrorMessage"
+        <*> o .:? "lastStatus"
+        <*> o .:? "lastSuccessfulTime"
 
 instance ToJSON ConfigExportDeliveryInfo where
     toJSON ConfigExportDeliveryInfo{..} = object
@@ -267,10 +267,10 @@ csdiLastStatusChangeTime =
 
 instance FromJSON ConfigStreamDeliveryInfo where
     parseJSON = withObject "ConfigStreamDeliveryInfo" $ \o -> ConfigStreamDeliveryInfo
-        <$> o .: "lastErrorCode"
-        <*> o .: "lastErrorMessage"
-        <*> o .: "lastStatus"
-        <*> o .: "lastStatusChangeTime"
+        <$> o .:? "lastErrorCode"
+        <*> o .:? "lastErrorMessage"
+        <*> o .:? "lastStatus"
+        <*> o .:? "lastStatusChangeTime"
 
 instance ToJSON ConfigStreamDeliveryInfo where
     toJSON ConfigStreamDeliveryInfo{..} = object
@@ -318,9 +318,9 @@ rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
 
 instance FromJSON Relationship where
     parseJSON = withObject "Relationship" $ \o -> Relationship
-        <$> o .: "relationshipName"
-        <*> o .: "resourceId"
-        <*> o .: "resourceType"
+        <$> o .:? "relationshipName"
+        <*> o .:? "resourceId"
+        <*> o .:? "resourceType"
 
 instance ToJSON Relationship where
     toJSON Relationship{..} = object
@@ -378,10 +378,10 @@ dcSnsTopicARN = lens _dcSnsTopicARN (\s a -> s { _dcSnsTopicARN = a })
 
 instance FromJSON DeliveryChannel where
     parseJSON = withObject "DeliveryChannel" $ \o -> DeliveryChannel
-        <$> o .: "name"
-        <*> o .: "s3BucketName"
-        <*> o .: "s3KeyPrefix"
-        <*> o .: "snsTopicARN"
+        <$> o .:? "name"
+        <*> o .:? "s3BucketName"
+        <*> o .:? "s3KeyPrefix"
+        <*> o .:? "snsTopicARN"
 
 instance ToJSON DeliveryChannel where
     toJSON DeliveryChannel{..} = object
@@ -623,21 +623,21 @@ ciVersion = lens _ciVersion (\s a -> s { _ciVersion = a })
 
 instance FromJSON ConfigurationItem where
     parseJSON = withObject "ConfigurationItem" $ \o -> ConfigurationItem
-        <$> o .: "accountId"
-        <*> o .: "arn"
-        <*> o .: "availabilityZone"
-        <*> o .: "configuration"
-        <*> o .: "configurationItemCaptureTime"
-        <*> o .: "configurationItemMD5Hash"
-        <*> o .: "configurationItemStatus"
-        <*> o .: "configurationStateId"
+        <$> o .:? "accountId"
+        <*> o .:? "arn"
+        <*> o .:? "availabilityZone"
+        <*> o .:? "configuration"
+        <*> o .:? "configurationItemCaptureTime"
+        <*> o .:? "configurationItemMD5Hash"
+        <*> o .:? "configurationItemStatus"
+        <*> o .:? "configurationStateId"
         <*> o .: "relatedEvents"
         <*> o .: "relationships"
-        <*> o .: "resourceCreationTime"
-        <*> o .: "resourceId"
-        <*> o .: "resourceType"
+        <*> o .:? "resourceCreationTime"
+        <*> o .:? "resourceId"
+        <*> o .:? "resourceType"
         <*> o .: "tags"
-        <*> o .: "version"
+        <*> o .:? "version"
 
 instance ToJSON ConfigurationItem where
     toJSON ConfigurationItem{..} = object
@@ -734,10 +734,10 @@ dcsName = lens _dcsName (\s a -> s { _dcsName = a })
 
 instance FromJSON DeliveryChannelStatus where
     parseJSON = withObject "DeliveryChannelStatus" $ \o -> DeliveryChannelStatus
-        <$> o .: "configHistoryDeliveryInfo"
-        <*> o .: "configSnapshotDeliveryInfo"
-        <*> o .: "configStreamDeliveryInfo"
-        <*> o .: "name"
+        <$> o .:? "configHistoryDeliveryInfo"
+        <*> o .:? "configSnapshotDeliveryInfo"
+        <*> o .:? "configStreamDeliveryInfo"
+        <*> o .:? "name"
 
 instance ToJSON DeliveryChannelStatus where
     toJSON DeliveryChannelStatus{..} = object
@@ -829,14 +829,14 @@ crsRecording = lens _crsRecording (\s a -> s { _crsRecording = a })
 
 instance FromJSON ConfigurationRecorderStatus where
     parseJSON = withObject "ConfigurationRecorderStatus" $ \o -> ConfigurationRecorderStatus
-        <$> o .: "lastErrorCode"
-        <*> o .: "lastErrorMessage"
-        <*> o .: "lastStartTime"
-        <*> o .: "lastStatus"
-        <*> o .: "lastStatusChangeTime"
-        <*> o .: "lastStopTime"
-        <*> o .: "name"
-        <*> o .: "recording"
+        <$> o .:? "lastErrorCode"
+        <*> o .:? "lastErrorMessage"
+        <*> o .:? "lastStartTime"
+        <*> o .:? "lastStatus"
+        <*> o .:? "lastStatusChangeTime"
+        <*> o .:? "lastStopTime"
+        <*> o .:? "name"
+        <*> o .:? "recording"
 
 instance ToJSON ConfigurationRecorderStatus where
     toJSON ConfigurationRecorderStatus{..} = object
@@ -910,8 +910,8 @@ crRoleARN = lens _crRoleARN (\s a -> s { _crRoleARN = a })
 
 instance FromJSON ConfigurationRecorder where
     parseJSON = withObject "ConfigurationRecorder" $ \o -> ConfigurationRecorder
-        <$> o .: "name"
-        <*> o .: "roleARN"
+        <$> o .:? "name"
+        <*> o .:? "roleARN"
 
 instance ToJSON ConfigurationRecorder where
     toJSON ConfigurationRecorder{..} = object

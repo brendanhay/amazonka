@@ -104,4 +104,4 @@ instance AWSRequest GetBucketRequestPayment where
 
 instance FromXML GetBucketRequestPaymentResponse where
     parseXML c = GetBucketRequestPaymentResponse
-        <$> c .: "Payer"
+        <$> c .:? "Payer"

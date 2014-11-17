@@ -176,5 +176,5 @@ instance AWSRequest CreateCachediSCSIVolume where
 
 instance FromJSON CreateCachediSCSIVolumeResponse where
     parseJSON = withObject "CreateCachediSCSIVolumeResponse" $ \o -> CreateCachediSCSIVolumeResponse
-        <$> o .: "TargetARN"
-        <*> o .: "VolumeARN"
+        <$> o .:? "TargetARN"
+        <*> o .:? "VolumeARN"

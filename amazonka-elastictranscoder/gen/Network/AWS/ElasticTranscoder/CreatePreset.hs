@@ -185,5 +185,5 @@ instance AWSRequest CreatePreset where
 
 instance FromJSON CreatePresetResponse where
     parseJSON = withObject "CreatePresetResponse" $ \o -> CreatePresetResponse
-        <$> o .: "Preset"
-        <*> o .: "Warning"
+        <$> o .:? "Preset"
+        <*> o .:? "Warning"

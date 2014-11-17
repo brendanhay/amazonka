@@ -137,4 +137,4 @@ instance AWSRequest ImportInstance where
 
 instance FromXML ImportInstanceResponse where
     parseXML c = ImportInstanceResponse
-        <$> c .: "conversionTask"
+        <$> c .:? "conversionTask"

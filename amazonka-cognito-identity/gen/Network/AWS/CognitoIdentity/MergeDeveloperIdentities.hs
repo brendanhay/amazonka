@@ -157,4 +157,4 @@ instance AWSRequest MergeDeveloperIdentities where
 
 instance FromJSON MergeDeveloperIdentitiesResponse where
     parseJSON = withObject "MergeDeveloperIdentitiesResponse" $ \o -> MergeDeveloperIdentitiesResponse
-        <$> o .: "IdentityId"
+        <$> o .:? "IdentityId"

@@ -148,4 +148,4 @@ instance AWSRequest UpdateSnapshotSchedule where
 
 instance FromJSON UpdateSnapshotScheduleResponse where
     parseJSON = withObject "UpdateSnapshotScheduleResponse" $ \o -> UpdateSnapshotScheduleResponse
-        <$> o .: "VolumeARN"
+        <$> o .:? "VolumeARN"

@@ -192,4 +192,4 @@ instance AWSRequest ActivateGateway where
 
 instance FromJSON ActivateGatewayResponse where
     parseJSON = withObject "ActivateGatewayResponse" $ \o -> ActivateGatewayResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

@@ -150,5 +150,5 @@ instance AWSRequest Encrypt where
 
 instance FromJSON EncryptResponse where
     parseJSON = withObject "EncryptResponse" $ \o -> EncryptResponse
-        <$> o .: "CiphertextBlob"
-        <*> o .: "KeyId"
+        <$> o .:? "CiphertextBlob"
+        <*> o .:? "KeyId"

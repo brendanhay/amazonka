@@ -153,5 +153,5 @@ instance AWSRequest DescribeTapes where
 
 instance FromJSON DescribeTapesResponse where
     parseJSON = withObject "DescribeTapesResponse" $ \o -> DescribeTapesResponse
-        <$> o .: "Marker"
+        <$> o .:? "Marker"
         <*> o .: "Tapes"

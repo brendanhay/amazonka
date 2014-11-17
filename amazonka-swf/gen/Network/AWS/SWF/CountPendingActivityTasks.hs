@@ -140,4 +140,4 @@ instance AWSRequest CountPendingActivityTasks where
 instance FromJSON CountPendingActivityTasksResponse where
     parseJSON = withObject "CountPendingActivityTasksResponse" $ \o -> CountPendingActivityTasksResponse
         <$> o .: "count"
-        <*> o .: "truncated"
+        <*> o .:? "truncated"

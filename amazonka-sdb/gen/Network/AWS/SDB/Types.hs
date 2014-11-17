@@ -140,8 +140,8 @@ aValue = lens _aValue (\s a -> s { _aValue = a })
 
 instance FromXML Attribute where
     parseXML c = Attribute
-        <$> c .: "AlternateNameEncoding"
-        <*> c .: "AlternateValueEncoding"
+        <$> c .:? "AlternateNameEncoding"
+        <*> c .:? "AlternateValueEncoding"
         <*> c .: "Name"
         <*> c .: "Value"
 
@@ -257,9 +257,9 @@ ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
 instance FromXML UpdateCondition where
     parseXML c = UpdateCondition
-        <$> c .: "Exists"
-        <*> c .: "Name"
-        <*> c .: "Value"
+        <$> c .:? "Exists"
+        <*> c .:? "Name"
+        <*> c .:? "Value"
 
 instance ToQuery UpdateCondition
 
@@ -304,7 +304,7 @@ raValue = lens _raValue (\s a -> s { _raValue = a })
 instance FromXML ReplaceableAttribute where
     parseXML c = ReplaceableAttribute
         <$> c .: "Name"
-        <*> c .: "Replace"
+        <*> c .:? "Replace"
         <*> c .: "Value"
 
 instance ToQuery ReplaceableAttribute
@@ -348,7 +348,7 @@ iName = lens _iName (\s a -> s { _iName = a })
 
 instance FromXML Item where
     parseXML c = Item
-        <$> c .: "AlternateNameEncoding"
+        <$> c .:? "AlternateNameEncoding"
         <*> c .: "Attributes"
         <*> c .: "Name"
 

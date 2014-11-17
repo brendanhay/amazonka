@@ -164,7 +164,7 @@ instance AWSRequest UploadDocuments where
 
 instance FromJSON UploadDocumentsResponse where
     parseJSON = withObject "UploadDocumentsResponse" $ \o -> UploadDocumentsResponse
-        <$> o .: "adds"
-        <*> o .: "deletes"
-        <*> o .: "status"
+        <$> o .:? "adds"
+        <*> o .:? "deletes"
+        <*> o .:? "status"
         <*> o .: "warnings"

@@ -118,4 +118,4 @@ instance AWSRequest CancelRetrieval where
 
 instance FromJSON CancelRetrievalResponse where
     parseJSON = withObject "CancelRetrievalResponse" $ \o -> CancelRetrievalResponse
-        <$> o .: "TapeARN"
+        <$> o .:? "TapeARN"

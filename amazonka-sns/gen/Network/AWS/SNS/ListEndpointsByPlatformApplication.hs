@@ -132,4 +132,4 @@ instance AWSRequest ListEndpointsByPlatformApplication where
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     parseXML c = ListEndpointsByPlatformApplicationResponse
         <$> c .: "Endpoints"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

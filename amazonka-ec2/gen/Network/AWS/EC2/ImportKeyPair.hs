@@ -134,5 +134,5 @@ instance AWSRequest ImportKeyPair where
 
 instance FromXML ImportKeyPairResponse where
     parseXML c = ImportKeyPairResponse
-        <$> c .: "keyFingerprint"
-        <*> c .: "keyName"
+        <$> c .:? "keyFingerprint"
+        <*> c .:? "keyName"

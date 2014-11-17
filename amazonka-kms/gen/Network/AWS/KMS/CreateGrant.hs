@@ -181,5 +181,5 @@ instance AWSRequest CreateGrant where
 
 instance FromJSON CreateGrantResponse where
     parseJSON = withObject "CreateGrantResponse" $ \o -> CreateGrantResponse
-        <$> o .: "GrantId"
-        <*> o .: "GrantToken"
+        <$> o .:? "GrantId"
+        <*> o .:? "GrantToken"

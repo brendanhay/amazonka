@@ -192,4 +192,4 @@ instance AWSRequest CreateDeploymentGroup where
 
 instance FromJSON CreateDeploymentGroupResponse where
     parseJSON = withObject "CreateDeploymentGroupResponse" $ \o -> CreateDeploymentGroupResponse
-        <$> o .: "deploymentGroupId"
+        <$> o .:? "deploymentGroupId"

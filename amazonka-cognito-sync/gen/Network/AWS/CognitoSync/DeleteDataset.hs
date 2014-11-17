@@ -142,4 +142,4 @@ instance AWSRequest DeleteDataset where
 
 instance FromJSON DeleteDatasetResponse where
     parseJSON = withObject "DeleteDatasetResponse" $ \o -> DeleteDatasetResponse
-        <$> o .: "Dataset"
+        <$> o .:? "Dataset"

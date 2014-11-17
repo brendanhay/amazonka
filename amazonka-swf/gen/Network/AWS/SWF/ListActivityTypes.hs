@@ -192,5 +192,5 @@ instance AWSRequest ListActivityTypes where
 
 instance FromJSON ListActivityTypesResponse where
     parseJSON = withObject "ListActivityTypesResponse" $ \o -> ListActivityTypesResponse
-        <$> o .: "nextPageToken"
+        <$> o .:? "nextPageToken"
         <*> o .: "typeInfos"

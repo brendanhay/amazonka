@@ -159,9 +159,9 @@ sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 
 instance FromJSON Shard where
     parseJSON = withObject "Shard" $ \o -> Shard
-        <$> o .: "AdjacentParentShardId"
+        <$> o .:? "AdjacentParentShardId"
         <*> o .: "HashKeyRange"
-        <*> o .: "ParentShardId"
+        <*> o .:? "ParentShardId"
         <*> o .: "SequenceNumberRange"
         <*> o .: "ShardId"
 
@@ -208,7 +208,7 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 instance FromJSON Tag where
     parseJSON = withObject "Tag" $ \o -> Tag
         <$> o .: "Key"
-        <*> o .: "Value"
+        <*> o .:? "Value"
 
 instance ToJSON Tag where
     toJSON Tag{..} = object
@@ -453,7 +453,7 @@ snrStartingSequenceNumber =
 
 instance FromJSON SequenceNumberRange where
     parseJSON = withObject "SequenceNumberRange" $ \o -> SequenceNumberRange
-        <$> o .: "EndingSequenceNumber"
+        <$> o .:? "EndingSequenceNumber"
         <*> o .: "StartingSequenceNumber"
 
 instance ToJSON SequenceNumberRange where

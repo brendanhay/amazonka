@@ -148,6 +148,6 @@ instance AWSRequest ListRolePolicies where
 
 instance FromXML ListRolePoliciesResponse where
     parseXML c = ListRolePoliciesResponse
-        <$> c .: "IsTruncated"
-        <*> c .: "Marker"
+        <$> c .:? "IsTruncated"
+        <*> c .:? "Marker"
         <*> c .: "PolicyNames"

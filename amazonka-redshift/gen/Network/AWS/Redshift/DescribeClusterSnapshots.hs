@@ -204,5 +204,5 @@ instance AWSRequest DescribeClusterSnapshots where
 
 instance FromXML DescribeClusterSnapshotsResponse where
     parseXML c = DescribeClusterSnapshotsResponse
-        <$> c .: "Marker"
+        <$> c .:? "Marker"
         <*> c .: "Snapshots"

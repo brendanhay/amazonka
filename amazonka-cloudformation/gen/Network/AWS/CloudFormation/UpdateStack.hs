@@ -249,4 +249,4 @@ instance AWSRequest UpdateStack where
 
 instance FromXML UpdateStackResponse where
     parseXML c = UpdateStackResponse
-        <$> c .: "StackId"
+        <$> c .:? "StackId"

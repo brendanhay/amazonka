@@ -260,12 +260,12 @@ instance AWSRequest ListRecords where
 
 instance FromJSON ListRecordsResponse where
     parseJSON = withObject "ListRecordsResponse" $ \o -> ListRecordsResponse
-        <$> o .: "Count"
-        <*> o .: "DatasetDeletedAfterRequestedSyncCount"
-        <*> o .: "DatasetExists"
-        <*> o .: "DatasetSyncCount"
-        <*> o .: "LastModifiedBy"
+        <$> o .:? "Count"
+        <*> o .:? "DatasetDeletedAfterRequestedSyncCount"
+        <*> o .:? "DatasetExists"
+        <*> o .:? "DatasetSyncCount"
+        <*> o .:? "LastModifiedBy"
         <*> o .: "MergedDatasetNames"
-        <*> o .: "NextToken"
+        <*> o .:? "NextToken"
         <*> o .: "Records"
-        <*> o .: "SyncSessionToken"
+        <*> o .:? "SyncSessionToken"

@@ -848,9 +848,9 @@ wecreaExternalWorkflowExecution =
 
 instance FromJSON WorkflowExecutionCancelRequestedEventAttributes where
     parseJSON = withObject "WorkflowExecutionCancelRequestedEventAttributes" $ \o -> WorkflowExecutionCancelRequestedEventAttributes
-        <$> o .: "cause"
-        <*> o .: "externalInitiatedEventId"
-        <*> o .: "externalWorkflowExecution"
+        <$> o .:? "cause"
+        <*> o .:? "externalInitiatedEventId"
+        <*> o .:? "externalWorkflowExecution"
 
 instance ToJSON WorkflowExecutionCancelRequestedEventAttributes where
     toJSON WorkflowExecutionCancelRequestedEventAttributes{..} = object
@@ -900,8 +900,8 @@ rcewedaWorkflowId =
 
 instance FromJSON RequestCancelExternalWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "RequestCancelExternalWorkflowExecutionDecisionAttributes" $ \o -> RequestCancelExternalWorkflowExecutionDecisionAttributes
-        <$> o .: "control"
-        <*> o .: "runId"
+        <$> o .:? "control"
+        <*> o .:? "runId"
         <*> o .: "workflowId"
 
 instance ToJSON RequestCancelExternalWorkflowExecutionDecisionAttributes where
@@ -947,7 +947,7 @@ dtseaTaskList = lens _dtseaTaskList (\s a -> s { _dtseaTaskList = a })
 
 instance FromJSON DecisionTaskScheduledEventAttributes where
     parseJSON = withObject "DecisionTaskScheduledEventAttributes" $ \o -> DecisionTaskScheduledEventAttributes
-        <$> o .: "startToCloseTimeout"
+        <$> o .:? "startToCloseTimeout"
         <*> o .: "taskList"
 
 instance ToJSON DecisionTaskScheduledEventAttributes where
@@ -992,7 +992,7 @@ weceaResult = lens _weceaResult (\s a -> s { _weceaResult = a })
 instance FromJSON WorkflowExecutionCompletedEventAttributes where
     parseJSON = withObject "WorkflowExecutionCompletedEventAttributes" $ \o -> WorkflowExecutionCompletedEventAttributes
         <$> o .: "decisionTaskCompletedEventId"
-        <*> o .: "result"
+        <*> o .:? "result"
 
 instance ToJSON WorkflowExecutionCompletedEventAttributes where
     toJSON WorkflowExecutionCompletedEventAttributes{..} = object
@@ -1032,7 +1032,7 @@ etfOldestDate = lens _etfOldestDate (\s a -> s { _etfOldestDate = a })
 
 instance FromJSON ExecutionTimeFilter where
     parseJSON = withObject "ExecutionTimeFilter" $ \o -> ExecutionTimeFilter
-        <$> o .: "latestDate"
+        <$> o .:? "latestDate"
         <*> o .: "oldestDate"
 
 instance ToJSON ExecutionTimeFilter where
@@ -1152,9 +1152,9 @@ rceweieaWorkflowId =
 
 instance FromJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes where
     parseJSON = withObject "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes" $ \o -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-        <$> o .: "control"
+        <$> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
-        <*> o .: "runId"
+        <*> o .:? "runId"
         <*> o .: "workflowId"
 
 instance ToJSON RequestCancelExternalWorkflowExecutionInitiatedEventAttributes where
@@ -1255,7 +1255,7 @@ wecTruncated = lens _wecTruncated (\s a -> s { _wecTruncated = a })
 instance FromJSON WorkflowExecutionCount where
     parseJSON = withObject "WorkflowExecutionCount" $ \o -> WorkflowExecutionCount
         <$> o .: "count"
-        <*> o .: "truncated"
+        <*> o .:? "truncated"
 
 instance ToJSON WorkflowExecutionCount where
     toJSON WorkflowExecutionCount{..} = object
@@ -1382,13 +1382,13 @@ instance FromJSON ActivityTaskScheduledEventAttributes where
     parseJSON = withObject "ActivityTaskScheduledEventAttributes" $ \o -> ActivityTaskScheduledEventAttributes
         <$> o .: "activityId"
         <*> o .: "activityType"
-        <*> o .: "control"
+        <*> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
-        <*> o .: "heartbeatTimeout"
-        <*> o .: "input"
-        <*> o .: "scheduleToCloseTimeout"
-        <*> o .: "scheduleToStartTimeout"
-        <*> o .: "startToCloseTimeout"
+        <*> o .:? "heartbeatTimeout"
+        <*> o .:? "input"
+        <*> o .:? "scheduleToCloseTimeout"
+        <*> o .:? "scheduleToStartTimeout"
+        <*> o .:? "startToCloseTimeout"
         <*> o .: "taskList"
 
 instance ToJSON ActivityTaskScheduledEventAttributes where
@@ -1581,13 +1581,13 @@ instance FromJSON ScheduleActivityTaskDecisionAttributes where
     parseJSON = withObject "ScheduleActivityTaskDecisionAttributes" $ \o -> ScheduleActivityTaskDecisionAttributes
         <$> o .: "activityId"
         <*> o .: "activityType"
-        <*> o .: "control"
-        <*> o .: "heartbeatTimeout"
-        <*> o .: "input"
-        <*> o .: "scheduleToCloseTimeout"
-        <*> o .: "scheduleToStartTimeout"
-        <*> o .: "startToCloseTimeout"
-        <*> o .: "taskList"
+        <*> o .:? "control"
+        <*> o .:? "heartbeatTimeout"
+        <*> o .:? "input"
+        <*> o .:? "scheduleToCloseTimeout"
+        <*> o .:? "scheduleToStartTimeout"
+        <*> o .:? "startToCloseTimeout"
+        <*> o .:? "taskList"
 
 instance ToJSON ScheduleActivityTaskDecisionAttributes where
     toJSON ScheduleActivityTaskDecisionAttributes{..} = object
@@ -1694,11 +1694,11 @@ atcDefaultTaskStartToCloseTimeout =
 
 instance FromJSON ActivityTypeConfiguration where
     parseJSON = withObject "ActivityTypeConfiguration" $ \o -> ActivityTypeConfiguration
-        <$> o .: "defaultTaskHeartbeatTimeout"
-        <*> o .: "defaultTaskList"
-        <*> o .: "defaultTaskScheduleToCloseTimeout"
-        <*> o .: "defaultTaskScheduleToStartTimeout"
-        <*> o .: "defaultTaskStartToCloseTimeout"
+        <$> o .:? "defaultTaskHeartbeatTimeout"
+        <*> o .:? "defaultTaskList"
+        <*> o .:? "defaultTaskScheduleToCloseTimeout"
+        <*> o .:? "defaultTaskScheduleToStartTimeout"
+        <*> o .:? "defaultTaskStartToCloseTimeout"
 
 instance ToJSON ActivityTypeConfiguration where
     toJSON ActivityTypeConfiguration{..} = object
@@ -1810,8 +1810,8 @@ wtiWorkflowType = lens _wtiWorkflowType (\s a -> s { _wtiWorkflowType = a })
 instance FromJSON WorkflowTypeInfo where
     parseJSON = withObject "WorkflowTypeInfo" $ \o -> WorkflowTypeInfo
         <$> o .: "creationDate"
-        <*> o .: "deprecationDate"
-        <*> o .: "description"
+        <*> o .:? "deprecationDate"
+        <*> o .:? "description"
         <*> o .: "status"
         <*> o .: "workflowType"
 
@@ -1892,7 +1892,7 @@ cweceaWorkflowType =
 instance FromJSON ChildWorkflowExecutionCompletedEventAttributes where
     parseJSON = withObject "ChildWorkflowExecutionCompletedEventAttributes" $ \o -> ChildWorkflowExecutionCompletedEventAttributes
         <$> o .: "initiatedEventId"
-        <*> o .: "result"
+        <*> o .:? "result"
         <*> o .: "startedEventId"
         <*> o .: "workflowExecution"
         <*> o .: "workflowType"
@@ -2115,7 +2115,7 @@ mreaMarkerName = lens _mreaMarkerName (\s a -> s { _mreaMarkerName = a })
 instance FromJSON MarkerRecordedEventAttributes where
     parseJSON = withObject "MarkerRecordedEventAttributes" $ \o -> MarkerRecordedEventAttributes
         <$> o .: "decisionTaskCompletedEventId"
-        <*> o .: "details"
+        <*> o .:? "details"
         <*> o .: "markerName"
 
 instance ToJSON MarkerRecordedEventAttributes where
@@ -2184,9 +2184,9 @@ sewedaWorkflowId = lens _sewedaWorkflowId (\s a -> s { _sewedaWorkflowId = a })
 
 instance FromJSON SignalExternalWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "SignalExternalWorkflowExecutionDecisionAttributes" $ \o -> SignalExternalWorkflowExecutionDecisionAttributes
-        <$> o .: "control"
-        <*> o .: "input"
-        <*> o .: "runId"
+        <$> o .:? "control"
+        <*> o .:? "input"
+        <*> o .:? "runId"
         <*> o .: "signalName"
         <*> o .: "workflowId"
 
@@ -2301,7 +2301,7 @@ rmdaMarkerName = lens _rmdaMarkerName (\s a -> s { _rmdaMarkerName = a })
 
 instance FromJSON RecordMarkerDecisionAttributes where
     parseJSON = withObject "RecordMarkerDecisionAttributes" $ \o -> RecordMarkerDecisionAttributes
-        <$> o .: "details"
+        <$> o .:? "details"
         <*> o .: "markerName"
 
 instance ToJSON RecordMarkerDecisionAttributes where
@@ -2403,7 +2403,7 @@ stdaTimerId = lens _stdaTimerId (\s a -> s { _stdaTimerId = a })
 
 instance FromJSON StartTimerDecisionAttributes where
     parseJSON = withObject "StartTimerDecisionAttributes" $ \o -> StartTimerDecisionAttributes
-        <$> o .: "control"
+        <$> o .:? "control"
         <*> o .: "startToFireTimeout"
         <*> o .: "timerId"
 
@@ -2545,10 +2545,10 @@ rcewefeaWorkflowId =
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes where
     parseJSON = withObject "RequestCancelExternalWorkflowExecutionFailedEventAttributes" $ \o -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
         <$> o .: "cause"
-        <*> o .: "control"
+        <*> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
         <*> o .: "initiatedEventId"
-        <*> o .: "runId"
+        <*> o .:? "runId"
         <*> o .: "workflowId"
 
 instance ToJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes where
@@ -2623,8 +2623,8 @@ instance FromJSON ActivityTypeInfo where
     parseJSON = withObject "ActivityTypeInfo" $ \o -> ActivityTypeInfo
         <$> o .: "activityType"
         <*> o .: "creationDate"
-        <*> o .: "deprecationDate"
-        <*> o .: "description"
+        <*> o .:? "deprecationDate"
+        <*> o .:? "description"
         <*> o .: "status"
 
 instance ToJSON ActivityTypeInfo where
@@ -2829,14 +2829,14 @@ weseaWorkflowType =
 instance FromJSON WorkflowExecutionStartedEventAttributes where
     parseJSON = withObject "WorkflowExecutionStartedEventAttributes" $ \o -> WorkflowExecutionStartedEventAttributes
         <$> o .: "childPolicy"
-        <*> o .: "continuedExecutionRunId"
-        <*> o .: "executionStartToCloseTimeout"
-        <*> o .: "input"
-        <*> o .: "parentInitiatedEventId"
-        <*> o .: "parentWorkflowExecution"
+        <*> o .:? "continuedExecutionRunId"
+        <*> o .:? "executionStartToCloseTimeout"
+        <*> o .:? "input"
+        <*> o .:? "parentInitiatedEventId"
+        <*> o .:? "parentWorkflowExecution"
         <*> o .: "tagList"
         <*> o .: "taskList"
-        <*> o .: "taskStartToCloseTimeout"
+        <*> o .:? "taskStartToCloseTimeout"
         <*> o .: "workflowType"
 
 instance ToJSON WorkflowExecutionStartedEventAttributes where
@@ -2934,10 +2934,10 @@ wtcDefaultTaskStartToCloseTimeout =
 
 instance FromJSON WorkflowTypeConfiguration where
     parseJSON = withObject "WorkflowTypeConfiguration" $ \o -> WorkflowTypeConfiguration
-        <$> o .: "defaultChildPolicy"
-        <*> o .: "defaultExecutionStartToCloseTimeout"
-        <*> o .: "defaultTaskList"
-        <*> o .: "defaultTaskStartToCloseTimeout"
+        <$> o .:? "defaultChildPolicy"
+        <*> o .:? "defaultExecutionStartToCloseTimeout"
+        <*> o .:? "defaultTaskList"
+        <*> o .:? "defaultTaskStartToCloseTimeout"
 
 instance ToJSON WorkflowTypeConfiguration where
     toJSON WorkflowTypeConfiguration{..} = object
@@ -3061,7 +3061,7 @@ atceaStartedEventId =
 
 instance FromJSON ActivityTaskCompletedEventAttributes where
     parseJSON = withObject "ActivityTaskCompletedEventAttributes" $ \o -> ActivityTaskCompletedEventAttributes
-        <$> o .: "result"
+        <$> o .:? "result"
         <*> o .: "scheduledEventId"
         <*> o .: "startedEventId"
 
@@ -3463,8 +3463,8 @@ atcea1StartedEventId =
 
 instance FromJSON ActivityTaskCanceledEventAttributes where
     parseJSON = withObject "ActivityTaskCanceledEventAttributes" $ \o -> ActivityTaskCanceledEventAttributes
-        <$> o .: "details"
-        <*> o .: "latestCancelRequestedEventId"
+        <$> o .:? "details"
+        <*> o .:? "latestCancelRequestedEventId"
         <*> o .: "scheduledEventId"
         <*> o .: "startedEventId"
 
@@ -3509,7 +3509,7 @@ weiNextPageToken = lens _weiNextPageToken (\s a -> s { _weiNextPageToken = a })
 instance FromJSON WorkflowExecutionInfos where
     parseJSON = withObject "WorkflowExecutionInfos" $ \o -> WorkflowExecutionInfos
         <$> o .: "executionInfos"
-        <*> o .: "nextPageToken"
+        <*> o .:? "nextPageToken"
 
 instance ToJSON WorkflowExecutionInfos where
     toJSON WorkflowExecutionInfos{..} = object
@@ -3642,13 +3642,13 @@ scwedaWorkflowType =
 
 instance FromJSON StartChildWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "StartChildWorkflowExecutionDecisionAttributes" $ \o -> StartChildWorkflowExecutionDecisionAttributes
-        <$> o .: "childPolicy"
-        <*> o .: "control"
-        <*> o .: "executionStartToCloseTimeout"
-        <*> o .: "input"
+        <$> o .:? "childPolicy"
+        <*> o .:? "control"
+        <*> o .:? "executionStartToCloseTimeout"
+        <*> o .:? "input"
         <*> o .: "tagList"
-        <*> o .: "taskList"
-        <*> o .: "taskStartToCloseTimeout"
+        <*> o .:? "taskList"
+        <*> o .:? "taskStartToCloseTimeout"
         <*> o .: "workflowId"
         <*> o .: "workflowType"
 
@@ -3734,8 +3734,8 @@ fwedaReason = lens _fwedaReason (\s a -> s { _fwedaReason = a })
 
 instance FromJSON FailWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "FailWorkflowExecutionDecisionAttributes" $ \o -> FailWorkflowExecutionDecisionAttributes
-        <$> o .: "details"
-        <*> o .: "reason"
+        <$> o .:? "details"
+        <*> o .:? "reason"
 
 instance ToJSON FailWorkflowExecutionDecisionAttributes where
     toJSON FailWorkflowExecutionDecisionAttributes{..} = object
@@ -3957,7 +3957,7 @@ attoeaTimeoutType =
 
 instance FromJSON ActivityTaskTimedOutEventAttributes where
     parseJSON = withObject "ActivityTaskTimedOutEventAttributes" $ \o -> ActivityTaskTimedOutEventAttributes
-        <$> o .: "details"
+        <$> o .:? "details"
         <*> o .: "scheduledEventId"
         <*> o .: "startedEventId"
         <*> o .: "timeoutType"
@@ -4051,7 +4051,7 @@ cwedaResult = lens _cwedaResult (\s a -> s { _cwedaResult = a })
 
 instance FromJSON CompleteWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "CompleteWorkflowExecutionDecisionAttributes" $ \o -> CompleteWorkflowExecutionDecisionAttributes
-        <$> o .: "result"
+        <$> o .:? "result"
 
 instance ToJSON CompleteWorkflowExecutionDecisionAttributes where
     toJSON CompleteWorkflowExecutionDecisionAttributes{..} = object
@@ -4093,7 +4093,7 @@ dtseaScheduledEventId =
 
 instance FromJSON DecisionTaskStartedEventAttributes where
     parseJSON = withObject "DecisionTaskStartedEventAttributes" $ \o -> DecisionTaskStartedEventAttributes
-        <$> o .: "identity"
+        <$> o .:? "identity"
         <*> o .: "scheduledEventId"
 
 instance ToJSON DecisionTaskStartedEventAttributes where
@@ -4316,13 +4316,13 @@ scweieaWorkflowType =
 instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes where
     parseJSON = withObject "StartChildWorkflowExecutionInitiatedEventAttributes" $ \o -> StartChildWorkflowExecutionInitiatedEventAttributes
         <$> o .: "childPolicy"
-        <*> o .: "control"
+        <*> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
-        <*> o .: "executionStartToCloseTimeout"
-        <*> o .: "input"
+        <*> o .:? "executionStartToCloseTimeout"
+        <*> o .:? "input"
         <*> o .: "tagList"
         <*> o .: "taskList"
-        <*> o .: "taskStartToCloseTimeout"
+        <*> o .:? "taskStartToCloseTimeout"
         <*> o .: "workflowId"
         <*> o .: "workflowType"
 
@@ -4442,10 +4442,10 @@ weteaReason = lens _weteaReason (\s a -> s { _weteaReason = a })
 
 instance FromJSON WorkflowExecutionTerminatedEventAttributes where
     parseJSON = withObject "WorkflowExecutionTerminatedEventAttributes" $ \o -> WorkflowExecutionTerminatedEventAttributes
-        <$> o .: "cause"
+        <$> o .:? "cause"
         <*> o .: "childPolicy"
-        <*> o .: "details"
-        <*> o .: "reason"
+        <*> o .:? "details"
+        <*> o .:? "reason"
 
 instance ToJSON WorkflowExecutionTerminatedEventAttributes where
     toJSON WorkflowExecutionTerminatedEventAttributes{..} = object
@@ -4601,7 +4601,7 @@ cwecea1WorkflowType =
 
 instance FromJSON ChildWorkflowExecutionCanceledEventAttributes where
     parseJSON = withObject "ChildWorkflowExecutionCanceledEventAttributes" $ \o -> ChildWorkflowExecutionCanceledEventAttributes
-        <$> o .: "details"
+        <$> o .:? "details"
         <*> o .: "initiatedEventId"
         <*> o .: "startedEventId"
         <*> o .: "workflowExecution"
@@ -4723,12 +4723,12 @@ weiWorkflowType = lens _weiWorkflowType (\s a -> s { _weiWorkflowType = a })
 
 instance FromJSON WorkflowExecutionInfo where
     parseJSON = withObject "WorkflowExecutionInfo" $ \o -> WorkflowExecutionInfo
-        <$> o .: "cancelRequested"
-        <*> o .: "closeStatus"
-        <*> o .: "closeTimestamp"
+        <$> o .:? "cancelRequested"
+        <*> o .:? "closeStatus"
+        <*> o .:? "closeTimestamp"
         <*> o .: "execution"
         <*> o .: "executionStatus"
-        <*> o .: "parent"
+        <*> o .:? "parent"
         <*> o .: "startTimestamp"
         <*> o .: "tagList"
         <*> o .: "workflowType"
@@ -4824,10 +4824,10 @@ sewefeaWorkflowId =
 instance FromJSON SignalExternalWorkflowExecutionFailedEventAttributes where
     parseJSON = withObject "SignalExternalWorkflowExecutionFailedEventAttributes" $ \o -> SignalExternalWorkflowExecutionFailedEventAttributes
         <$> o .: "cause"
-        <*> o .: "control"
+        <*> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
         <*> o .: "initiatedEventId"
-        <*> o .: "runId"
+        <*> o .:? "runId"
         <*> o .: "workflowId"
 
 instance ToJSON SignalExternalWorkflowExecutionFailedEventAttributes where
@@ -4930,7 +4930,7 @@ atseaScheduledEventId =
 
 instance FromJSON ActivityTaskStartedEventAttributes where
     parseJSON = withObject "ActivityTaskStartedEventAttributes" $ \o -> ActivityTaskStartedEventAttributes
-        <$> o .: "identity"
+        <$> o .:? "identity"
         <*> o .: "scheduledEventId"
 
 instance ToJSON ActivityTaskStartedEventAttributes where
@@ -5225,7 +5225,7 @@ wecea1Details = lens _wecea1Details (\s a -> s { _wecea1Details = a })
 instance FromJSON WorkflowExecutionCanceledEventAttributes where
     parseJSON = withObject "WorkflowExecutionCanceledEventAttributes" $ \o -> WorkflowExecutionCanceledEventAttributes
         <$> o .: "decisionTaskCompletedEventId"
-        <*> o .: "details"
+        <*> o .:? "details"
 
 instance ToJSON WorkflowExecutionCanceledEventAttributes where
     toJSON WorkflowExecutionCanceledEventAttributes{..} = object
@@ -5292,9 +5292,9 @@ wesea1SignalName = lens _wesea1SignalName (\s a -> s { _wesea1SignalName = a })
 
 instance FromJSON WorkflowExecutionSignaledEventAttributes where
     parseJSON = withObject "WorkflowExecutionSignaledEventAttributes" $ \o -> WorkflowExecutionSignaledEventAttributes
-        <$> o .: "externalInitiatedEventId"
-        <*> o .: "externalWorkflowExecution"
-        <*> o .: "input"
+        <$> o .:? "externalInitiatedEventId"
+        <*> o .:? "externalWorkflowExecution"
+        <*> o .:? "input"
         <*> o .: "signalName"
 
 instance ToJSON WorkflowExecutionSignaledEventAttributes where
@@ -5402,7 +5402,7 @@ tseaTimerId = lens _tseaTimerId (\s a -> s { _tseaTimerId = a })
 
 instance FromJSON TimerStartedEventAttributes where
     parseJSON = withObject "TimerStartedEventAttributes" $ \o -> TimerStartedEventAttributes
-        <$> o .: "control"
+        <$> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
         <*> o .: "startToFireTimeout"
         <*> o .: "timerId"
@@ -5598,19 +5598,19 @@ dStartTimerDecisionAttributes =
 
 instance FromJSON Decision where
     parseJSON = withObject "Decision" $ \o -> Decision
-        <$> o .: "cancelTimerDecisionAttributes"
-        <*> o .: "cancelWorkflowExecutionDecisionAttributes"
-        <*> o .: "completeWorkflowExecutionDecisionAttributes"
-        <*> o .: "continueAsNewWorkflowExecutionDecisionAttributes"
+        <$> o .:? "cancelTimerDecisionAttributes"
+        <*> o .:? "cancelWorkflowExecutionDecisionAttributes"
+        <*> o .:? "completeWorkflowExecutionDecisionAttributes"
+        <*> o .:? "continueAsNewWorkflowExecutionDecisionAttributes"
         <*> o .: "decisionType"
-        <*> o .: "failWorkflowExecutionDecisionAttributes"
-        <*> o .: "recordMarkerDecisionAttributes"
-        <*> o .: "requestCancelActivityTaskDecisionAttributes"
-        <*> o .: "requestCancelExternalWorkflowExecutionDecisionAttributes"
-        <*> o .: "scheduleActivityTaskDecisionAttributes"
-        <*> o .: "signalExternalWorkflowExecutionDecisionAttributes"
-        <*> o .: "startChildWorkflowExecutionDecisionAttributes"
-        <*> o .: "startTimerDecisionAttributes"
+        <*> o .:? "failWorkflowExecutionDecisionAttributes"
+        <*> o .:? "recordMarkerDecisionAttributes"
+        <*> o .:? "requestCancelActivityTaskDecisionAttributes"
+        <*> o .:? "requestCancelExternalWorkflowExecutionDecisionAttributes"
+        <*> o .:? "scheduleActivityTaskDecisionAttributes"
+        <*> o .:? "signalExternalWorkflowExecutionDecisionAttributes"
+        <*> o .:? "startChildWorkflowExecutionDecisionAttributes"
+        <*> o .:? "startTimerDecisionAttributes"
 
 instance ToJSON Decision where
     toJSON Decision{..} = object
@@ -5769,7 +5769,7 @@ cwedaDetails = lens _cwedaDetails (\s a -> s { _cwedaDetails = a })
 
 instance FromJSON CancelWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "CancelWorkflowExecutionDecisionAttributes" $ \o -> CancelWorkflowExecutionDecisionAttributes
-        <$> o .: "details"
+        <$> o .:? "details"
 
 instance ToJSON CancelWorkflowExecutionDecisionAttributes where
     toJSON CancelWorkflowExecutionDecisionAttributes{..} = object
@@ -5830,8 +5830,8 @@ atfeaStartedEventId =
 
 instance FromJSON ActivityTaskFailedEventAttributes where
     parseJSON = withObject "ActivityTaskFailedEventAttributes" $ \o -> ActivityTaskFailedEventAttributes
-        <$> o .: "details"
-        <*> o .: "reason"
+        <$> o .:? "details"
+        <*> o .:? "reason"
         <*> o .: "scheduledEventId"
         <*> o .: "startedEventId"
 
@@ -5968,7 +5968,7 @@ scwefeaWorkflowType =
 instance FromJSON StartChildWorkflowExecutionFailedEventAttributes where
     parseJSON = withObject "StartChildWorkflowExecutionFailedEventAttributes" $ \o -> StartChildWorkflowExecutionFailedEventAttributes
         <$> o .: "cause"
-        <*> o .: "control"
+        <*> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
         <*> o .: "initiatedEventId"
         <*> o .: "workflowId"
@@ -6015,7 +6015,7 @@ wtfVersion = lens _wtfVersion (\s a -> s { _wtfVersion = a })
 instance FromJSON WorkflowTypeFilter where
     parseJSON = withObject "WorkflowTypeFilter" $ \o -> WorkflowTypeFilter
         <$> o .: "name"
-        <*> o .: "version"
+        <*> o .:? "version"
 
 instance ToJSON WorkflowTypeFilter where
     toJSON WorkflowTypeFilter{..} = object
@@ -6092,7 +6092,7 @@ dtceaStartedEventId =
 
 instance FromJSON DecisionTaskCompletedEventAttributes where
     parseJSON = withObject "DecisionTaskCompletedEventAttributes" $ \o -> DecisionTaskCompletedEventAttributes
-        <$> o .: "executionContext"
+        <$> o .:? "executionContext"
         <*> o .: "scheduledEventId"
         <*> o .: "startedEventId"
 
@@ -6178,9 +6178,9 @@ cwefeaWorkflowType =
 
 instance FromJSON ChildWorkflowExecutionFailedEventAttributes where
     parseJSON = withObject "ChildWorkflowExecutionFailedEventAttributes" $ \o -> ChildWorkflowExecutionFailedEventAttributes
-        <$> o .: "details"
+        <$> o .:? "details"
         <*> o .: "initiatedEventId"
-        <*> o .: "reason"
+        <*> o .:? "reason"
         <*> o .: "startedEventId"
         <*> o .: "workflowExecution"
         <*> o .: "workflowType"
@@ -6238,7 +6238,7 @@ diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
 instance FromJSON DomainInfo where
     parseJSON = withObject "DomainInfo" $ \o -> DomainInfo
-        <$> o .: "description"
+        <$> o .:? "description"
         <*> o .: "name"
         <*> o .: "status"
 
@@ -6855,56 +6855,56 @@ heWorkflowExecutionTimedOutEventAttributes =
 
 instance FromJSON HistoryEvent where
     parseJSON = withObject "HistoryEvent" $ \o -> HistoryEvent
-        <$> o .: "activityTaskCancelRequestedEventAttributes"
-        <*> o .: "activityTaskCanceledEventAttributes"
-        <*> o .: "activityTaskCompletedEventAttributes"
-        <*> o .: "activityTaskFailedEventAttributes"
-        <*> o .: "activityTaskScheduledEventAttributes"
-        <*> o .: "activityTaskStartedEventAttributes"
-        <*> o .: "activityTaskTimedOutEventAttributes"
-        <*> o .: "cancelTimerFailedEventAttributes"
-        <*> o .: "cancelWorkflowExecutionFailedEventAttributes"
-        <*> o .: "childWorkflowExecutionCanceledEventAttributes"
-        <*> o .: "childWorkflowExecutionCompletedEventAttributes"
-        <*> o .: "childWorkflowExecutionFailedEventAttributes"
-        <*> o .: "childWorkflowExecutionStartedEventAttributes"
-        <*> o .: "childWorkflowExecutionTerminatedEventAttributes"
-        <*> o .: "childWorkflowExecutionTimedOutEventAttributes"
-        <*> o .: "completeWorkflowExecutionFailedEventAttributes"
-        <*> o .: "continueAsNewWorkflowExecutionFailedEventAttributes"
-        <*> o .: "decisionTaskCompletedEventAttributes"
-        <*> o .: "decisionTaskScheduledEventAttributes"
-        <*> o .: "decisionTaskStartedEventAttributes"
-        <*> o .: "decisionTaskTimedOutEventAttributes"
+        <$> o .:? "activityTaskCancelRequestedEventAttributes"
+        <*> o .:? "activityTaskCanceledEventAttributes"
+        <*> o .:? "activityTaskCompletedEventAttributes"
+        <*> o .:? "activityTaskFailedEventAttributes"
+        <*> o .:? "activityTaskScheduledEventAttributes"
+        <*> o .:? "activityTaskStartedEventAttributes"
+        <*> o .:? "activityTaskTimedOutEventAttributes"
+        <*> o .:? "cancelTimerFailedEventAttributes"
+        <*> o .:? "cancelWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "childWorkflowExecutionCanceledEventAttributes"
+        <*> o .:? "childWorkflowExecutionCompletedEventAttributes"
+        <*> o .:? "childWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "childWorkflowExecutionStartedEventAttributes"
+        <*> o .:? "childWorkflowExecutionTerminatedEventAttributes"
+        <*> o .:? "childWorkflowExecutionTimedOutEventAttributes"
+        <*> o .:? "completeWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "continueAsNewWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "decisionTaskCompletedEventAttributes"
+        <*> o .:? "decisionTaskScheduledEventAttributes"
+        <*> o .:? "decisionTaskStartedEventAttributes"
+        <*> o .:? "decisionTaskTimedOutEventAttributes"
         <*> o .: "eventId"
         <*> o .: "eventTimestamp"
         <*> o .: "eventType"
-        <*> o .: "externalWorkflowExecutionCancelRequestedEventAttributes"
-        <*> o .: "externalWorkflowExecutionSignaledEventAttributes"
-        <*> o .: "failWorkflowExecutionFailedEventAttributes"
-        <*> o .: "markerRecordedEventAttributes"
-        <*> o .: "recordMarkerFailedEventAttributes"
-        <*> o .: "requestCancelActivityTaskFailedEventAttributes"
-        <*> o .: "requestCancelExternalWorkflowExecutionFailedEventAttributes"
-        <*> o .: "requestCancelExternalWorkflowExecutionInitiatedEventAttributes"
-        <*> o .: "scheduleActivityTaskFailedEventAttributes"
-        <*> o .: "signalExternalWorkflowExecutionFailedEventAttributes"
-        <*> o .: "signalExternalWorkflowExecutionInitiatedEventAttributes"
-        <*> o .: "startChildWorkflowExecutionFailedEventAttributes"
-        <*> o .: "startChildWorkflowExecutionInitiatedEventAttributes"
-        <*> o .: "startTimerFailedEventAttributes"
-        <*> o .: "timerCanceledEventAttributes"
-        <*> o .: "timerFiredEventAttributes"
-        <*> o .: "timerStartedEventAttributes"
-        <*> o .: "workflowExecutionCancelRequestedEventAttributes"
-        <*> o .: "workflowExecutionCanceledEventAttributes"
-        <*> o .: "workflowExecutionCompletedEventAttributes"
-        <*> o .: "workflowExecutionContinuedAsNewEventAttributes"
-        <*> o .: "workflowExecutionFailedEventAttributes"
-        <*> o .: "workflowExecutionSignaledEventAttributes"
-        <*> o .: "workflowExecutionStartedEventAttributes"
-        <*> o .: "workflowExecutionTerminatedEventAttributes"
-        <*> o .: "workflowExecutionTimedOutEventAttributes"
+        <*> o .:? "externalWorkflowExecutionCancelRequestedEventAttributes"
+        <*> o .:? "externalWorkflowExecutionSignaledEventAttributes"
+        <*> o .:? "failWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "markerRecordedEventAttributes"
+        <*> o .:? "recordMarkerFailedEventAttributes"
+        <*> o .:? "requestCancelActivityTaskFailedEventAttributes"
+        <*> o .:? "requestCancelExternalWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "requestCancelExternalWorkflowExecutionInitiatedEventAttributes"
+        <*> o .:? "scheduleActivityTaskFailedEventAttributes"
+        <*> o .:? "signalExternalWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "signalExternalWorkflowExecutionInitiatedEventAttributes"
+        <*> o .:? "startChildWorkflowExecutionFailedEventAttributes"
+        <*> o .:? "startChildWorkflowExecutionInitiatedEventAttributes"
+        <*> o .:? "startTimerFailedEventAttributes"
+        <*> o .:? "timerCanceledEventAttributes"
+        <*> o .:? "timerFiredEventAttributes"
+        <*> o .:? "timerStartedEventAttributes"
+        <*> o .:? "workflowExecutionCancelRequestedEventAttributes"
+        <*> o .:? "workflowExecutionCanceledEventAttributes"
+        <*> o .:? "workflowExecutionCompletedEventAttributes"
+        <*> o .:? "workflowExecutionContinuedAsNewEventAttributes"
+        <*> o .:? "workflowExecutionFailedEventAttributes"
+        <*> o .:? "workflowExecutionSignaledEventAttributes"
+        <*> o .:? "workflowExecutionStartedEventAttributes"
+        <*> o .:? "workflowExecutionTerminatedEventAttributes"
+        <*> o .:? "workflowExecutionTimedOutEventAttributes"
 
 instance ToJSON HistoryEvent where
     toJSON HistoryEvent{..} = object
@@ -7078,10 +7078,10 @@ seweieaWorkflowId =
 
 instance FromJSON SignalExternalWorkflowExecutionInitiatedEventAttributes where
     parseJSON = withObject "SignalExternalWorkflowExecutionInitiatedEventAttributes" $ \o -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-        <$> o .: "control"
+        <$> o .:? "control"
         <*> o .: "decisionTaskCompletedEventId"
-        <*> o .: "input"
-        <*> o .: "runId"
+        <*> o .:? "input"
+        <*> o .:? "runId"
         <*> o .: "signalName"
         <*> o .: "workflowId"
 
@@ -7168,8 +7168,8 @@ wefeaReason = lens _wefeaReason (\s a -> s { _wefeaReason = a })
 instance FromJSON WorkflowExecutionFailedEventAttributes where
     parseJSON = withObject "WorkflowExecutionFailedEventAttributes" $ \o -> WorkflowExecutionFailedEventAttributes
         <$> o .: "decisionTaskCompletedEventId"
-        <*> o .: "details"
-        <*> o .: "reason"
+        <*> o .:? "details"
+        <*> o .:? "reason"
 
 instance ToJSON WorkflowExecutionFailedEventAttributes where
     toJSON WorkflowExecutionFailedEventAttributes{..} = object
@@ -7420,13 +7420,13 @@ canwedaWorkflowTypeVersion =
 
 instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
     parseJSON = withObject "ContinueAsNewWorkflowExecutionDecisionAttributes" $ \o -> ContinueAsNewWorkflowExecutionDecisionAttributes
-        <$> o .: "childPolicy"
-        <*> o .: "executionStartToCloseTimeout"
-        <*> o .: "input"
+        <$> o .:? "childPolicy"
+        <*> o .:? "executionStartToCloseTimeout"
+        <*> o .:? "input"
         <*> o .: "tagList"
-        <*> o .: "taskList"
-        <*> o .: "taskStartToCloseTimeout"
-        <*> o .: "workflowTypeVersion"
+        <*> o .:? "taskList"
+        <*> o .:? "taskStartToCloseTimeout"
+        <*> o .:? "workflowTypeVersion"
 
 instance ToJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
     toJSON ContinueAsNewWorkflowExecutionDecisionAttributes{..} = object
@@ -7520,7 +7520,7 @@ ptcTruncated = lens _ptcTruncated (\s a -> s { _ptcTruncated = a })
 instance FromJSON PendingTaskCount where
     parseJSON = withObject "PendingTaskCount" $ \o -> PendingTaskCount
         <$> o .: "count"
-        <*> o .: "truncated"
+        <*> o .:? "truncated"
 
 instance ToJSON PendingTaskCount where
     toJSON PendingTaskCount{..} = object
@@ -7645,12 +7645,12 @@ instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes where
     parseJSON = withObject "WorkflowExecutionContinuedAsNewEventAttributes" $ \o -> WorkflowExecutionContinuedAsNewEventAttributes
         <$> o .: "childPolicy"
         <*> o .: "decisionTaskCompletedEventId"
-        <*> o .: "executionStartToCloseTimeout"
-        <*> o .: "input"
+        <*> o .:? "executionStartToCloseTimeout"
+        <*> o .:? "input"
         <*> o .: "newExecutionRunId"
         <*> o .: "tagList"
         <*> o .: "taskList"
-        <*> o .: "taskStartToCloseTimeout"
+        <*> o .:? "taskStartToCloseTimeout"
         <*> o .: "workflowType"
 
 instance ToJSON WorkflowExecutionContinuedAsNewEventAttributes where

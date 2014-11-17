@@ -159,10 +159,10 @@ instance AWSRequest DescribeCache where
 
 instance FromJSON DescribeCacheResponse where
     parseJSON = withObject "DescribeCacheResponse" $ \o -> DescribeCacheResponse
-        <$> o .: "CacheAllocatedInBytes"
-        <*> o .: "CacheDirtyPercentage"
-        <*> o .: "CacheHitPercentage"
-        <*> o .: "CacheMissPercentage"
-        <*> o .: "CacheUsedPercentage"
+        <$> o .:? "CacheAllocatedInBytes"
+        <*> o .:? "CacheDirtyPercentage"
+        <*> o .:? "CacheHitPercentage"
+        <*> o .:? "CacheMissPercentage"
+        <*> o .:? "CacheUsedPercentage"
         <*> o .: "DiskIds"
-        <*> o .: "GatewayARN"
+        <*> o .:? "GatewayARN"

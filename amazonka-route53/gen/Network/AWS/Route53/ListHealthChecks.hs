@@ -177,4 +177,4 @@ instance FromXML ListHealthChecksResponse where
         <*> c .: "IsTruncated"
         <*> c .: "Marker"
         <*> c .: "MaxItems"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"

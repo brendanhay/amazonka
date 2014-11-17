@@ -133,4 +133,4 @@ instance AWSRequest DescribeAutoScalingGroups where
 instance FromXML DescribeAutoScalingGroupsResponse where
     parseXML c = DescribeAutoScalingGroupsResponse
         <$> c .: "AutoScalingGroups"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

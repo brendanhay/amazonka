@@ -143,4 +143,4 @@ instance AWSRequest CreateUserProfile where
 
 instance FromJSON CreateUserProfileResponse where
     parseJSON = withObject "CreateUserProfileResponse" $ \o -> CreateUserProfileResponse
-        <$> o .: "IamUserArn"
+        <$> o .:? "IamUserArn"

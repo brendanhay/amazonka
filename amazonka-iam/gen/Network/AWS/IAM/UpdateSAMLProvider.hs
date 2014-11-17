@@ -117,4 +117,4 @@ instance AWSRequest UpdateSAMLProvider where
 
 instance FromXML UpdateSAMLProviderResponse where
     parseXML c = UpdateSAMLProviderResponse
-        <$> c .: "SAMLProviderArn"
+        <$> c .:? "SAMLProviderArn"

@@ -145,6 +145,6 @@ instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
 
 instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse where
     parseJSON = withObject "CreateSnapshotFromVolumeRecoveryPointResponse" $ \o -> CreateSnapshotFromVolumeRecoveryPointResponse
-        <$> o .: "SnapshotId"
-        <*> o .: "VolumeARN"
-        <*> o .: "VolumeRecoveryPointTime"
+        <$> o .:? "SnapshotId"
+        <*> o .:? "VolumeARN"
+        <*> o .:? "VolumeRecoveryPointTime"

@@ -310,4 +310,4 @@ instance AWSRequest RestoreFromClusterSnapshot where
 
 instance FromXML RestoreFromClusterSnapshotResponse where
     parseXML c = RestoreFromClusterSnapshotResponse
-        <$> c .: "Cluster"
+        <$> c .:? "Cluster"

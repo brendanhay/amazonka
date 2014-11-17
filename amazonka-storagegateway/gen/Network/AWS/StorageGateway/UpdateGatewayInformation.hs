@@ -123,4 +123,4 @@ instance AWSRequest UpdateGatewayInformation where
 
 instance FromJSON UpdateGatewayInformationResponse where
     parseJSON = withObject "UpdateGatewayInformationResponse" $ \o -> UpdateGatewayInformationResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

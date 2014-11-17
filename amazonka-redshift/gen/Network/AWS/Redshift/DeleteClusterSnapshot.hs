@@ -119,4 +119,4 @@ instance AWSRequest DeleteClusterSnapshot where
 
 instance FromXML DeleteClusterSnapshotResponse where
     parseXML c = DeleteClusterSnapshotResponse
-        <$> c .: "Snapshot"
+        <$> c .:? "Snapshot"

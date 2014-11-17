@@ -97,4 +97,4 @@ instance AWSRequest CancelJob where
 
 instance FromXML CancelJobResponse where
     parseXML c = CancelJobResponse
-        <$> c .: "Success"
+        <$> c .:? "Success"

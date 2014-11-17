@@ -135,6 +135,6 @@ instance AWSRequest DescribeUploadBuffer where
 instance FromJSON DescribeUploadBufferResponse where
     parseJSON = withObject "DescribeUploadBufferResponse" $ \o -> DescribeUploadBufferResponse
         <$> o .: "DiskIds"
-        <*> o .: "GatewayARN"
-        <*> o .: "UploadBufferAllocatedInBytes"
-        <*> o .: "UploadBufferUsedInBytes"
+        <*> o .:? "GatewayARN"
+        <*> o .:? "UploadBufferAllocatedInBytes"
+        <*> o .:? "UploadBufferUsedInBytes"

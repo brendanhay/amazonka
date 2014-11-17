@@ -147,4 +147,4 @@ instance AWSRequest AddCommunicationToCase where
 
 instance FromJSON AddCommunicationToCaseResponse where
     parseJSON = withObject "AddCommunicationToCaseResponse" $ \o -> AddCommunicationToCaseResponse
-        <$> o .: "result"
+        <$> o .:? "result"

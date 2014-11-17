@@ -137,6 +137,6 @@ instance AWSRequest GetApplicationRevision where
 
 instance FromJSON GetApplicationRevisionResponse where
     parseJSON = withObject "GetApplicationRevisionResponse" $ \o -> GetApplicationRevisionResponse
-        <$> o .: "applicationName"
-        <*> o .: "revision"
-        <*> o .: "revisionInfo"
+        <$> o .:? "applicationName"
+        <*> o .:? "revision"
+        <*> o .:? "revisionInfo"

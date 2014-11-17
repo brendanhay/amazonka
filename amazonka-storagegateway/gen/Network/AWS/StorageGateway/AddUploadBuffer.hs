@@ -116,4 +116,4 @@ instance AWSRequest AddUploadBuffer where
 
 instance FromJSON AddUploadBufferResponse where
     parseJSON = withObject "AddUploadBufferResponse" $ \o -> AddUploadBufferResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

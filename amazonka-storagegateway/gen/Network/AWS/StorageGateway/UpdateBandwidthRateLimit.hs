@@ -135,4 +135,4 @@ instance AWSRequest UpdateBandwidthRateLimit where
 
 instance FromJSON UpdateBandwidthRateLimitResponse where
     parseJSON = withObject "UpdateBandwidthRateLimitResponse" $ \o -> UpdateBandwidthRateLimitResponse
-        <$> o .: "GatewayARN"
+        <$> o .:? "GatewayARN"

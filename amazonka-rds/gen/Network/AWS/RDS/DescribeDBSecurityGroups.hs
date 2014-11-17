@@ -147,4 +147,4 @@ instance AWSRequest DescribeDBSecurityGroups where
 instance FromXML DescribeDBSecurityGroupsResponse where
     parseXML c = DescribeDBSecurityGroupsResponse
         <$> c .: "DBSecurityGroups"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

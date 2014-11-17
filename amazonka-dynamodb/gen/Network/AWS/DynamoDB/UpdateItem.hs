@@ -514,5 +514,5 @@ instance AWSRequest UpdateItem where
 instance FromJSON UpdateItemResponse where
     parseJSON = withObject "UpdateItemResponse" $ \o -> UpdateItemResponse
         <$> o .: "Attributes"
-        <*> o .: "ConsumedCapacity"
-        <*> o .: "ItemCollectionMetrics"
+        <*> o .:? "ConsumedCapacity"
+        <*> o .:? "ItemCollectionMetrics"

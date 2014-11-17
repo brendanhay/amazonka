@@ -351,4 +351,4 @@ instance AWSRequest ModifyCacheCluster where
 
 instance FromXML ModifyCacheClusterResponse where
     parseXML c = ModifyCacheClusterResponse
-        <$> c .: "CacheCluster"
+        <$> c .:? "CacheCluster"

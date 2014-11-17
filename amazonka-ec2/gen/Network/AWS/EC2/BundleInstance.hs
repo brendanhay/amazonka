@@ -122,4 +122,4 @@ instance AWSRequest BundleInstance where
 
 instance FromXML BundleInstanceResponse where
     parseXML c = BundleInstanceResponse
-        <$> c .: "bundleInstanceTask"
+        <$> c .:? "bundleInstanceTask"

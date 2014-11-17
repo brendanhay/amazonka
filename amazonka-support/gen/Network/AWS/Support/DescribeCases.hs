@@ -210,4 +210,4 @@ instance AWSRequest DescribeCases where
 instance FromJSON DescribeCasesResponse where
     parseJSON = withObject "DescribeCasesResponse" $ \o -> DescribeCasesResponse
         <$> o .: "cases"
-        <*> o .: "nextToken"
+        <*> o .:? "nextToken"

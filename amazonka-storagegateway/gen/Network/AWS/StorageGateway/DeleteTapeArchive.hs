@@ -106,4 +106,4 @@ instance AWSRequest DeleteTapeArchive where
 
 instance FromJSON DeleteTapeArchiveResponse where
     parseJSON = withObject "DeleteTapeArchiveResponse" $ \o -> DeleteTapeArchiveResponse
-        <$> o .: "TapeARN"
+        <$> o .:? "TapeARN"

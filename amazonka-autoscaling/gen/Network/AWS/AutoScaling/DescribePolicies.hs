@@ -143,5 +143,5 @@ instance AWSRequest DescribePolicies where
 
 instance FromXML DescribePoliciesResponse where
     parseXML c = DescribePoliciesResponse
-        <$> c .: "NextToken"
+        <$> c .:? "NextToken"
         <*> c .: "ScalingPolicies"

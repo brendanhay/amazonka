@@ -116,4 +116,4 @@ instance AWSRequest ListStreamingDistributions where
 
 instance FromXML ListStreamingDistributionsResponse where
     parseXML c = ListStreamingDistributionsResponse
-        <$> c .: "StreamingDistributionList"
+        <$> c .:? "StreamingDistributionList"

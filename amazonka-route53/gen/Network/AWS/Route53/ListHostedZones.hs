@@ -185,4 +185,4 @@ instance FromXML ListHostedZonesResponse where
         <*> c .: "IsTruncated"
         <*> c .: "Marker"
         <*> c .: "MaxItems"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"

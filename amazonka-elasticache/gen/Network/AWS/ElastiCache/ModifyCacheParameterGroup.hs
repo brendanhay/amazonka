@@ -116,4 +116,4 @@ instance AWSRequest ModifyCacheParameterGroup where
 
 instance FromXML ModifyCacheParameterGroupResponse where
     parseXML c = ModifyCacheParameterGroupResponse
-        <$> c .: "CacheParameterGroupName"
+        <$> c .:? "CacheParameterGroupName"

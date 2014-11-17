@@ -146,4 +146,4 @@ instance AWSRequest DescribeClusterSubnetGroups where
 instance FromXML DescribeClusterSubnetGroupsResponse where
     parseXML c = DescribeClusterSubnetGroupsResponse
         <$> c .: "ClusterSubnetGroups"
-        <*> c .: "Marker"
+        <*> c .:? "Marker"

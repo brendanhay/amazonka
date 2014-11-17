@@ -153,4 +153,4 @@ instance AWSRequest PollForTask where
 
 instance FromJSON PollForTaskResponse where
     parseJSON = withObject "PollForTaskResponse" $ \o -> PollForTaskResponse
-        <$> o .: "taskObject"
+        <$> o .:? "taskObject"

@@ -165,10 +165,10 @@ dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
 
 instance FromJSON DomainSummary where
     parseJSON = withObject "DomainSummary" $ \o -> DomainSummary
-        <$> o .: "AutoRenew"
+        <$> o .:? "AutoRenew"
         <*> o .: "DomainName"
-        <*> o .: "Expiry"
-        <*> o .: "TransferLock"
+        <*> o .:? "Expiry"
+        <*> o .:? "TransferLock"
 
 instance ToJSON DomainSummary where
     toJSON DomainSummary{..} = object
@@ -1339,20 +1339,20 @@ cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 
 instance FromJSON ContactDetail where
     parseJSON = withObject "ContactDetail" $ \o -> ContactDetail
-        <$> o .: "AddressLine1"
-        <*> o .: "AddressLine2"
-        <*> o .: "City"
-        <*> o .: "ContactType"
-        <*> o .: "CountryCode"
-        <*> o .: "Email"
+        <$> o .:? "AddressLine1"
+        <*> o .:? "AddressLine2"
+        <*> o .:? "City"
+        <*> o .:? "ContactType"
+        <*> o .:? "CountryCode"
+        <*> o .:? "Email"
         <*> o .: "ExtraParams"
-        <*> o .: "Fax"
-        <*> o .: "FirstName"
-        <*> o .: "LastName"
-        <*> o .: "OrganizationName"
-        <*> o .: "PhoneNumber"
-        <*> o .: "State"
-        <*> o .: "ZipCode"
+        <*> o .:? "Fax"
+        <*> o .:? "FirstName"
+        <*> o .:? "LastName"
+        <*> o .:? "OrganizationName"
+        <*> o .:? "PhoneNumber"
+        <*> o .:? "State"
+        <*> o .:? "ZipCode"
 
 instance ToJSON ContactDetail where
     toJSON ContactDetail{..} = object

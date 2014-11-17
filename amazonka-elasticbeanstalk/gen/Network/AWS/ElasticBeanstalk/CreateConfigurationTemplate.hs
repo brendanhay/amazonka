@@ -280,12 +280,12 @@ instance AWSRequest CreateConfigurationTemplate where
 
 instance FromXML CreateConfigurationTemplateResponse where
     parseXML c = CreateConfigurationTemplateResponse
-        <$> c .: "ApplicationName"
-        <*> c .: "DateCreated"
-        <*> c .: "DateUpdated"
-        <*> c .: "DeploymentStatus"
-        <*> c .: "Description"
-        <*> c .: "EnvironmentName"
+        <$> c .:? "ApplicationName"
+        <*> c .:? "DateCreated"
+        <*> c .:? "DateUpdated"
+        <*> c .:? "DeploymentStatus"
+        <*> c .:? "Description"
+        <*> c .:? "EnvironmentName"
         <*> c .: "OptionSettings"
-        <*> c .: "SolutionStackName"
-        <*> c .: "TemplateName"
+        <*> c .:? "SolutionStackName"
+        <*> c .:? "TemplateName"

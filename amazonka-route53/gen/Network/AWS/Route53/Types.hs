@@ -323,8 +323,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML c = Tag
-        <$> c .: "Key"
-        <*> c .: "Value"
+        <$> c .:? "Key"
+        <*> c .:? "Value"
 
 instance ToXML Tag where
     toXML Tag{..} = node "Tag"
@@ -403,12 +403,12 @@ gldSubdivisionName =
 
 instance FromXML GeoLocationDetails where
     parseXML c = GeoLocationDetails
-        <$> c .: "ContinentCode"
-        <*> c .: "ContinentName"
-        <*> c .: "CountryCode"
-        <*> c .: "CountryName"
-        <*> c .: "SubdivisionCode"
-        <*> c .: "SubdivisionName"
+        <$> c .:? "ContinentCode"
+        <*> c .:? "ContinentName"
+        <*> c .:? "CountryCode"
+        <*> c .:? "CountryName"
+        <*> c .:? "SubdivisionCode"
+        <*> c .:? "SubdivisionName"
 
 instance ToXML GeoLocationDetails where
     toXML GeoLocationDetails{..} = node "GeoLocationDetails"
@@ -676,13 +676,13 @@ hccType = lens _hccType (\s a -> s { _hccType = a })
 
 instance FromXML HealthCheckConfig where
     parseXML c = HealthCheckConfig
-        <$> c .: "FailureThreshold"
-        <*> c .: "FullyQualifiedDomainName"
-        <*> c .: "IPAddress"
-        <*> c .: "Port"
-        <*> c .: "RequestInterval"
-        <*> c .: "ResourcePath"
-        <*> c .: "SearchString"
+        <$> c .:? "FailureThreshold"
+        <*> c .:? "FullyQualifiedDomainName"
+        <*> c .:? "IPAddress"
+        <*> c .:? "Port"
+        <*> c .:? "RequestInterval"
+        <*> c .:? "ResourcePath"
+        <*> c .:? "SearchString"
         <*> c .: "Type"
 
 instance ToXML HealthCheckConfig where
@@ -827,10 +827,10 @@ hzResourceRecordSetCount =
 instance FromXML HostedZone where
     parseXML c = HostedZone
         <$> c .: "CallerReference"
-        <*> c .: "Config"
+        <*> c .:? "Config"
         <*> c .: "Id"
         <*> c .: "Name"
-        <*> c .: "ResourceRecordSetCount"
+        <*> c .:? "ResourceRecordSetCount"
 
 instance ToXML HostedZone where
     toXML HostedZone{..} = node "HostedZone"
@@ -881,8 +881,8 @@ rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
 
 instance FromXML ResourceTagSet where
     parseXML c = ResourceTagSet
-        <$> c .: "ResourceId"
-        <*> c .: "ResourceType"
+        <$> c .:? "ResourceId"
+        <*> c .:? "ResourceType"
         <*> c .: "Tags"
 
 instance ToXML ResourceTagSet where
@@ -947,7 +947,7 @@ cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 instance FromXML ChangeBatch where
     parseXML c = ChangeBatch
         <$> c .: "Changes"
-        <*> c .: "Comment"
+        <*> c .:? "Comment"
 
 instance ToXML ChangeBatch where
     toXML ChangeBatch{..} = node "ChangeBatch"
@@ -989,8 +989,8 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 instance FromXML StatusReport where
     parseXML c = StatusReport
-        <$> c .: "CheckedTime"
-        <*> c .: "Status"
+        <$> c .:? "CheckedTime"
+        <*> c .:? "Status"
 
 instance ToXML StatusReport where
     toXML StatusReport{..} = node "StatusReport"
@@ -1056,8 +1056,8 @@ vpcVPCRegion = lens _vpcVPCRegion (\s a -> s { _vpcVPCRegion = a })
 
 instance FromXML VPC where
     parseXML c = VPC
-        <$> c .: "VPCId"
-        <*> c .: "VPCRegion"
+        <$> c .:? "VPCId"
+        <*> c .:? "VPCRegion"
 
 instance ToXML VPC where
     toXML VPC{..} = node "VPC"
@@ -1095,8 +1095,8 @@ hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
 
 instance FromXML HostedZoneConfig where
     parseXML c = HostedZoneConfig
-        <$> c .: "Comment"
-        <*> c .: "PrivateZone"
+        <$> c .:? "Comment"
+        <*> c .:? "PrivateZone"
 
 instance ToXML HostedZoneConfig where
     toXML HostedZoneConfig{..} = node "HostedZoneConfig"
@@ -1239,17 +1239,17 @@ rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 
 instance FromXML ResourceRecordSet where
     parseXML c = ResourceRecordSet
-        <$> c .: "AliasTarget"
-        <*> c .: "Failover"
-        <*> c .: "GeoLocation"
-        <*> c .: "HealthCheckId"
+        <$> c .:? "AliasTarget"
+        <*> c .:? "Failover"
+        <*> c .:? "GeoLocation"
+        <*> c .:? "HealthCheckId"
         <*> c .: "Name"
-        <*> c .: "Region"
+        <*> c .:? "Region"
         <*> c .: "ResourceRecords"
-        <*> c .: "SetIdentifier"
-        <*> c .: "TTL"
+        <*> c .:? "SetIdentifier"
+        <*> c .:? "TTL"
         <*> c .: "Type"
-        <*> c .: "Weight"
+        <*> c .:? "Weight"
 
 instance ToXML ResourceRecordSet where
     toXML ResourceRecordSet{..} = node "ResourceRecordSet"
@@ -1307,8 +1307,8 @@ dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
 
 instance FromXML DelegationSet where
     parseXML c = DelegationSet
-        <$> c .: "CallerReference"
-        <*> c .: "Id"
+        <$> c .:? "CallerReference"
+        <*> c .:? "Id"
         <*> c .: "NameServers"
 
 instance ToXML DelegationSet where
@@ -1377,7 +1377,7 @@ ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
 
 instance FromXML ChangeInfo where
     parseXML c = ChangeInfo
-        <$> c .: "Comment"
+        <$> c .:? "Comment"
         <*> c .: "Id"
         <*> c .: "Status"
         <*> c .: "SubmittedAt"
@@ -1437,9 +1437,9 @@ glSubdivisionCode =
 
 instance FromXML GeoLocation where
     parseXML c = GeoLocation
-        <$> c .: "ContinentCode"
-        <*> c .: "CountryCode"
-        <*> c .: "SubdivisionCode"
+        <$> c .:? "ContinentCode"
+        <*> c .:? "CountryCode"
+        <*> c .:? "SubdivisionCode"
 
 instance ToXML GeoLocation where
     toXML GeoLocation{..} = node "GeoLocation"
@@ -1479,8 +1479,8 @@ hcoStatusReport = lens _hcoStatusReport (\s a -> s { _hcoStatusReport = a })
 
 instance FromXML HealthCheckObservation where
     parseXML c = HealthCheckObservation
-        <$> c .: "IPAddress"
-        <*> c .: "StatusReport"
+        <$> c .:? "IPAddress"
+        <*> c .:? "StatusReport"
 
 instance ToXML HealthCheckObservation where
     toXML HealthCheckObservation{..} = node "HealthCheckObservation"

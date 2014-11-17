@@ -136,4 +136,4 @@ instance AWSRequest DescribeLoadBalancers where
 instance FromXML DescribeLoadBalancersResponse where
     parseXML c = DescribeLoadBalancersResponse
         <$> c .: "LoadBalancerDescriptions"
-        <*> c .: "NextMarker"
+        <*> c .:? "NextMarker"

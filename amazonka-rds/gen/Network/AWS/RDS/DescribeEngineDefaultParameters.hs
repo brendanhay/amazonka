@@ -134,4 +134,4 @@ instance AWSRequest DescribeEngineDefaultParameters where
 
 instance FromXML DescribeEngineDefaultParametersResponse where
     parseXML c = DescribeEngineDefaultParametersResponse
-        <$> c .: "EngineDefaults"
+        <$> c .:? "EngineDefaults"

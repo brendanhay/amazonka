@@ -283,4 +283,4 @@ instance AWSRequest CreateLayer where
 
 instance FromJSON CreateLayerResponse where
     parseJSON = withObject "CreateLayerResponse" $ \o -> CreateLayerResponse
-        <$> o .: "LayerId"
+        <$> o .:? "LayerId"

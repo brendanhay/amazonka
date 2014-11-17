@@ -117,4 +117,4 @@ instance AWSRequest GetDeploymentInstance where
 
 instance FromJSON GetDeploymentInstanceResponse where
     parseJSON = withObject "GetDeploymentInstanceResponse" $ \o -> GetDeploymentInstanceResponse
-        <$> o .: "instanceSummary"
+        <$> o .:? "instanceSummary"

@@ -173,12 +173,12 @@ instance AWSRequest DeleteConnection where
 
 instance FromJSON DeleteConnectionResponse where
     parseJSON = withObject "DeleteConnectionResponse" $ \o -> DeleteConnectionResponse
-        <$> o .: "bandwidth"
-        <*> o .: "connectionId"
-        <*> o .: "connectionName"
-        <*> o .: "connectionState"
-        <*> o .: "location"
-        <*> o .: "ownerAccount"
-        <*> o .: "partnerName"
-        <*> o .: "region"
-        <*> o .: "vlan"
+        <$> o .:? "bandwidth"
+        <*> o .:? "connectionId"
+        <*> o .:? "connectionName"
+        <*> o .:? "connectionState"
+        <*> o .:? "location"
+        <*> o .:? "ownerAccount"
+        <*> o .:? "partnerName"
+        <*> o .:? "region"
+        <*> o .:? "vlan"

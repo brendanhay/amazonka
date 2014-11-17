@@ -288,8 +288,8 @@ wPutRequest = lens _wPutRequest (\s a -> s { _wPutRequest = a })
 
 instance FromJSON WriteRequest where
     parseJSON = withObject "WriteRequest" $ \o -> WriteRequest
-        <$> o .: "DeleteRequest"
-        <*> o .: "PutRequest"
+        <$> o .:? "DeleteRequest"
+        <*> o .:? "PutRequest"
 
 instance ToJSON WriteRequest where
     toJSON WriteRequest{..} = object
@@ -370,11 +370,11 @@ ptdWriteCapacityUnits =
 
 instance FromJSON ProvisionedThroughputDescription where
     parseJSON = withObject "ProvisionedThroughputDescription" $ \o -> ProvisionedThroughputDescription
-        <$> o .: "LastDecreaseDateTime"
-        <*> o .: "LastIncreaseDateTime"
-        <*> o .: "NumberOfDecreasesToday"
-        <*> o .: "ReadCapacityUnits"
-        <*> o .: "WriteCapacityUnits"
+        <$> o .:? "LastDecreaseDateTime"
+        <*> o .:? "LastIncreaseDateTime"
+        <*> o .:? "NumberOfDecreasesToday"
+        <*> o .:? "ReadCapacityUnits"
+        <*> o .:? "WriteCapacityUnits"
 
 instance ToJSON ProvisionedThroughputDescription where
     toJSON ProvisionedThroughputDescription{..} = object
@@ -501,15 +501,15 @@ avSS = lens _avSS (\s a -> s { _avSS = a })
 
 instance FromJSON AttributeValue where
     parseJSON = withObject "AttributeValue" $ \o -> AttributeValue
-        <$> o .: "B"
-        <*> o .: "BOOL"
+        <$> o .:? "B"
+        <*> o .:? "BOOL"
         <*> o .: "BS"
         <*> o .: "L"
         <*> o .: "M"
-        <*> o .: "N"
+        <*> o .:? "N"
         <*> o .: "NS"
-        <*> o .: "NULL"
-        <*> o .: "S"
+        <*> o .:? "NULL"
+        <*> o .:? "S"
         <*> o .: "SS"
 
 instance ToJSON AttributeValue where
@@ -832,15 +832,15 @@ tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 instance FromJSON TableDescription where
     parseJSON = withObject "TableDescription" $ \o -> TableDescription
         <$> o .: "AttributeDefinitions"
-        <*> o .: "CreationDateTime"
+        <*> o .:? "CreationDateTime"
         <*> o .: "GlobalSecondaryIndexes"
-        <*> o .: "ItemCount"
+        <*> o .:? "ItemCount"
         <*> o .: "KeySchema"
         <*> o .: "LocalSecondaryIndexes"
-        <*> o .: "ProvisionedThroughput"
-        <*> o .: "TableName"
-        <*> o .: "TableSizeBytes"
-        <*> o .: "TableStatus"
+        <*> o .:? "ProvisionedThroughput"
+        <*> o .:? "TableName"
+        <*> o .:? "TableSizeBytes"
+        <*> o .:? "TableStatus"
 
 instance ToJSON TableDescription where
     toJSON TableDescription{..} = object
@@ -941,10 +941,10 @@ kaaProjectionExpression =
 instance FromJSON KeysAndAttributes where
     parseJSON = withObject "KeysAndAttributes" $ \o -> KeysAndAttributes
         <$> o .: "AttributesToGet"
-        <*> o .: "ConsistentRead"
+        <*> o .:? "ConsistentRead"
         <*> o .: "ExpressionAttributeNames"
         <*> o .: "Keys"
-        <*> o .: "ProjectionExpression"
+        <*> o .:? "ProjectionExpression"
 
 instance ToJSON KeysAndAttributes where
     toJSON KeysAndAttributes{..} = object
@@ -1063,8 +1063,8 @@ avuValue = lens _avuValue (\s a -> s { _avuValue = a })
 
 instance FromJSON AttributeValueUpdate where
     parseJSON = withObject "AttributeValueUpdate" $ \o -> AttributeValueUpdate
-        <$> o .: "Action"
-        <*> o .: "Value"
+        <$> o .:? "Action"
+        <*> o .:? "Value"
 
 instance ToJSON AttributeValueUpdate where
     toJSON AttributeValueUpdate{..} = object
@@ -1223,9 +1223,9 @@ eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 instance FromJSON ExpectedAttributeValue where
     parseJSON = withObject "ExpectedAttributeValue" $ \o -> ExpectedAttributeValue
         <$> o .: "AttributeValueList"
-        <*> o .: "ComparisonOperator"
-        <*> o .: "Exists"
-        <*> o .: "Value"
+        <*> o .:? "ComparisonOperator"
+        <*> o .:? "Exists"
+        <*> o .:? "Value"
 
 instance ToJSON ExpectedAttributeValue where
     toJSON ExpectedAttributeValue{..} = object
@@ -1495,13 +1495,13 @@ gsidProvisionedThroughput =
 
 instance FromJSON GlobalSecondaryIndexDescription where
     parseJSON = withObject "GlobalSecondaryIndexDescription" $ \o -> GlobalSecondaryIndexDescription
-        <$> o .: "IndexName"
-        <*> o .: "IndexSizeBytes"
-        <*> o .: "IndexStatus"
-        <*> o .: "ItemCount"
+        <$> o .:? "IndexName"
+        <*> o .:? "IndexSizeBytes"
+        <*> o .:? "IndexStatus"
+        <*> o .:? "ItemCount"
         <*> o .: "KeySchema"
-        <*> o .: "Projection"
-        <*> o .: "ProvisionedThroughput"
+        <*> o .:? "Projection"
+        <*> o .:? "ProvisionedThroughput"
 
 instance ToJSON GlobalSecondaryIndexDescription where
     toJSON GlobalSecondaryIndexDescription{..} = object
@@ -1584,7 +1584,7 @@ cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
 
 instance FromJSON Capacity where
     parseJSON = withObject "Capacity" $ \o -> Capacity
-        <$> o .: "CapacityUnits"
+        <$> o .:? "CapacityUnits"
 
 instance ToJSON Capacity where
     toJSON Capacity{..} = object
@@ -1651,11 +1651,11 @@ ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 
 instance FromJSON ConsumedCapacity where
     parseJSON = withObject "ConsumedCapacity" $ \o -> ConsumedCapacity
-        <$> o .: "CapacityUnits"
+        <$> o .:? "CapacityUnits"
         <*> o .: "GlobalSecondaryIndexes"
         <*> o .: "LocalSecondaryIndexes"
-        <*> o .: "Table"
-        <*> o .: "TableName"
+        <*> o .:? "Table"
+        <*> o .:? "TableName"
 
 instance ToJSON ConsumedCapacity where
     toJSON ConsumedCapacity{..} = object
@@ -1791,11 +1791,11 @@ lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
 
 instance FromJSON LocalSecondaryIndexDescription where
     parseJSON = withObject "LocalSecondaryIndexDescription" $ \o -> LocalSecondaryIndexDescription
-        <$> o .: "IndexName"
-        <*> o .: "IndexSizeBytes"
-        <*> o .: "ItemCount"
+        <$> o .:? "IndexName"
+        <*> o .:? "IndexSizeBytes"
+        <*> o .:? "ItemCount"
         <*> o .: "KeySchema"
-        <*> o .: "Projection"
+        <*> o .:? "Projection"
 
 instance ToJSON LocalSecondaryIndexDescription where
     toJSON LocalSecondaryIndexDescription{..} = object
@@ -1897,7 +1897,7 @@ pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 instance FromJSON Projection where
     parseJSON = withObject "Projection" $ \o -> Projection
         <$> o .: "NonKeyAttributes"
-        <*> o .: "ProjectionType"
+        <*> o .:? "ProjectionType"
 
 instance ToJSON Projection where
     toJSON Projection{..} = object
@@ -2255,7 +2255,7 @@ gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
 
 instance FromJSON GlobalSecondaryIndexUpdate where
     parseJSON = withObject "GlobalSecondaryIndexUpdate" $ \o -> GlobalSecondaryIndexUpdate
-        <$> o .: "Update"
+        <$> o .:? "Update"
 
 instance ToJSON GlobalSecondaryIndexUpdate where
     toJSON GlobalSecondaryIndexUpdate{..} = object

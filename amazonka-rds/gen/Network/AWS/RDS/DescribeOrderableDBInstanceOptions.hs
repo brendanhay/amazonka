@@ -189,5 +189,5 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
 
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
     parseXML c = DescribeOrderableDBInstanceOptionsResponse
-        <$> c .: "Marker"
+        <$> c .:? "Marker"
         <*> c .: "OrderableDBInstanceOptions"

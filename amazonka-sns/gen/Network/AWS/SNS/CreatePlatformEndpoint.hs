@@ -149,4 +149,4 @@ instance AWSRequest CreatePlatformEndpoint where
 
 instance FromXML CreatePlatformEndpointResponse where
     parseXML c = CreatePlatformEndpointResponse
-        <$> c .: "EndpointArn"
+        <$> c .:? "EndpointArn"

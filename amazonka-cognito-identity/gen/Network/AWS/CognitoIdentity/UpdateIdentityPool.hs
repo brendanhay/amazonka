@@ -225,7 +225,7 @@ instance AWSRequest UpdateIdentityPool where
 instance FromJSON UpdateIdentityPoolResponse where
     parseJSON = withObject "UpdateIdentityPoolResponse" $ \o -> UpdateIdentityPoolResponse
         <$> o .: "AllowUnauthenticatedIdentities"
-        <*> o .: "DeveloperProviderName"
+        <*> o .:? "DeveloperProviderName"
         <*> o .: "IdentityPoolId"
         <*> o .: "IdentityPoolName"
         <*> o .: "OpenIdConnectProviderARNs"

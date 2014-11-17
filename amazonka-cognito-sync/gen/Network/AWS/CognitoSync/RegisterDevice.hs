@@ -143,4 +143,4 @@ instance AWSRequest RegisterDevice where
 
 instance FromJSON RegisterDeviceResponse where
     parseJSON = withObject "RegisterDeviceResponse" $ \o -> RegisterDeviceResponse
-        <$> o .: "DeviceId"
+        <$> o .:? "DeviceId"

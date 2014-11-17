@@ -129,5 +129,5 @@ instance AWSRequest DeleteChapCredentials where
 
 instance FromJSON DeleteChapCredentialsResponse where
     parseJSON = withObject "DeleteChapCredentialsResponse" $ \o -> DeleteChapCredentialsResponse
-        <$> o .: "InitiatorName"
-        <*> o .: "TargetARN"
+        <$> o .:? "InitiatorName"
+        <*> o .:? "TargetARN"

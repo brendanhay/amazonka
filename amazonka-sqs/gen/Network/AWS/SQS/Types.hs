@@ -274,10 +274,10 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 instance FromXML MessageAttributeValue where
     parseXML c = MessageAttributeValue
         <$> c .: "BinaryListValue"
-        <*> c .: "BinaryValue"
+        <*> c .:? "BinaryValue"
         <*> c .: "DataType"
         <*> c .: "StringListValue"
-        <*> c .: "StringValue"
+        <*> c .:? "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -354,7 +354,7 @@ instance FromXML ChangeMessageVisibilityBatchRequestEntry where
     parseXML c = ChangeMessageVisibilityBatchRequestEntry
         <$> c .: "Id"
         <*> c .: "ReceiptHandle"
-        <*> c .: "VisibilityTimeout"
+        <*> c .:? "VisibilityTimeout"
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry
 
@@ -469,12 +469,12 @@ mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
 instance FromXML Message where
     parseXML c = Message
         <$> c .: "Attribute"
-        <*> c .: "Body"
-        <*> c .: "MD5OfBody"
-        <*> c .: "MD5OfMessageAttributes"
+        <*> c .:? "Body"
+        <*> c .:? "MD5OfBody"
+        <*> c .:? "MD5OfMessageAttributes"
         <*> c .: "MessageAttribute"
-        <*> c .: "MessageId"
-        <*> c .: "ReceiptHandle"
+        <*> c .:? "MessageId"
+        <*> c .:? "ReceiptHandle"
 
 instance ToQuery Message
 
@@ -531,7 +531,7 @@ smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 
 instance FromXML SendMessageBatchRequestEntry where
     parseXML c = SendMessageBatchRequestEntry
-        <$> c .: "DelaySeconds"
+        <$> c .:? "DelaySeconds"
         <*> c .: "Id"
         <*> c .: "MessageAttribute"
         <*> c .: "MessageBody"
@@ -596,7 +596,7 @@ smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 instance FromXML SendMessageBatchResultEntry where
     parseXML c = SendMessageBatchResultEntry
         <$> c .: "Id"
-        <*> c .: "MD5OfMessageAttributes"
+        <*> c .:? "MD5OfMessageAttributes"
         <*> c .: "MD5OfMessageBody"
         <*> c .: "MessageId"
 
@@ -652,7 +652,7 @@ instance FromXML BatchResultErrorEntry where
     parseXML c = BatchResultErrorEntry
         <$> c .: "Code"
         <*> c .: "Id"
-        <*> c .: "Message"
+        <*> c .:? "Message"
         <*> c .: "SenderFault"
 
 instance ToQuery BatchResultErrorEntry

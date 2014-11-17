@@ -134,6 +134,6 @@ instance AWSRequest GetHostedZone where
 
 instance FromXML GetHostedZoneResponse where
     parseXML c = GetHostedZoneResponse
-        <$> c .: "DelegationSet"
+        <$> c .:? "DelegationSet"
         <*> c .: "HostedZone"
         <*> c .: "VPCs"

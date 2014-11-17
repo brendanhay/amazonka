@@ -109,4 +109,4 @@ instance AWSRequest DescribeAttachment where
 
 instance FromJSON DescribeAttachmentResponse where
     parseJSON = withObject "DescribeAttachmentResponse" $ \o -> DescribeAttachmentResponse
-        <$> o .: "attachment"
+        <$> o .:? "attachment"

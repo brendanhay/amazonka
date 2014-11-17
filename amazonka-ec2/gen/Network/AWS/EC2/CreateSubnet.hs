@@ -145,4 +145,4 @@ instance AWSRequest CreateSubnet where
 
 instance FromXML CreateSubnetResponse where
     parseXML c = CreateSubnetResponse
-        <$> c .: "subnet"
+        <$> c .:? "subnet"

@@ -147,4 +147,4 @@ instance AWSRequest ListJobsByPipeline where
 instance FromJSON ListJobsByPipelineResponse where
     parseJSON = withObject "ListJobsByPipelineResponse" $ \o -> ListJobsByPipelineResponse
         <$> o .: "Jobs"
-        <*> o .: "NextPageToken"
+        <*> o .:? "NextPageToken"

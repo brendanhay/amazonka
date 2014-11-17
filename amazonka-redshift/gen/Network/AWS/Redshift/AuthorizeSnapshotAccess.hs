@@ -127,4 +127,4 @@ instance AWSRequest AuthorizeSnapshotAccess where
 
 instance FromXML AuthorizeSnapshotAccessResponse where
     parseXML c = AuthorizeSnapshotAccessResponse
-        <$> c .: "Snapshot"
+        <$> c .:? "Snapshot"

@@ -115,5 +115,5 @@ instance AWSRequest ListJobs where
 
 instance FromXML ListJobsResponse where
     parseXML c = ListJobsResponse
-        <$> c .: "IsTruncated"
+        <$> c .:? "IsTruncated"
         <*> c .: "Jobs"

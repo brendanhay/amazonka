@@ -112,4 +112,4 @@ instance AWSRequest DeleteTable where
 
 instance FromJSON DeleteTableResponse where
     parseJSON = withObject "DeleteTableResponse" $ \o -> DeleteTableResponse
-        <$> o .: "TableDescription"
+        <$> o .:? "TableDescription"

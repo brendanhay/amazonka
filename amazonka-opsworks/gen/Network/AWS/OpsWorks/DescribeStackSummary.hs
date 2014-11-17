@@ -109,4 +109,4 @@ instance AWSRequest DescribeStackSummary where
 
 instance FromJSON DescribeStackSummaryResponse where
     parseJSON = withObject "DescribeStackSummaryResponse" $ \o -> DescribeStackSummaryResponse
-        <$> o .: "StackSummary"
+        <$> o .:? "StackSummary"

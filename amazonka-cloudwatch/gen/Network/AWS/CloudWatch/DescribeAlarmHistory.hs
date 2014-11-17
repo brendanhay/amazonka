@@ -160,4 +160,4 @@ instance AWSRequest DescribeAlarmHistory where
 instance FromXML DescribeAlarmHistoryResponse where
     parseXML c = DescribeAlarmHistoryResponse
         <$> c .: "AlarmHistoryItems"
-        <*> c .: "NextToken"
+        <*> c .:? "NextToken"

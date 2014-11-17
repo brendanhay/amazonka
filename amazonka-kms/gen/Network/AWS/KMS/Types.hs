@@ -189,13 +189,13 @@ kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
 
 instance FromJSON KeyMetadata where
     parseJSON = withObject "KeyMetadata" $ \o -> KeyMetadata
-        <$> o .: "AWSAccountId"
-        <*> o .: "Arn"
-        <*> o .: "CreationDate"
-        <*> o .: "Description"
-        <*> o .: "Enabled"
+        <$> o .:? "AWSAccountId"
+        <*> o .:? "Arn"
+        <*> o .:? "CreationDate"
+        <*> o .:? "Description"
+        <*> o .:? "Enabled"
         <*> o .: "KeyId"
-        <*> o .: "KeyUsage"
+        <*> o .:? "KeyUsage"
 
 instance ToJSON KeyMetadata where
     toJSON KeyMetadata{..} = object
@@ -312,9 +312,9 @@ aleTargetKeyId = lens _aleTargetKeyId (\s a -> s { _aleTargetKeyId = a })
 
 instance FromJSON AliasListEntry where
     parseJSON = withObject "AliasListEntry" $ \o -> AliasListEntry
-        <$> o .: "AliasArn"
-        <*> o .: "AliasName"
-        <*> o .: "TargetKeyId"
+        <$> o .:? "AliasArn"
+        <*> o .:? "AliasName"
+        <*> o .:? "TargetKeyId"
 
 instance ToJSON AliasListEntry where
     toJSON AliasListEntry{..} = object
@@ -390,12 +390,12 @@ gleRetiringPrincipal =
 
 instance FromJSON GrantListEntry where
     parseJSON = withObject "GrantListEntry" $ \o -> GrantListEntry
-        <$> o .: "Constraints"
-        <*> o .: "GrantId"
-        <*> o .: "GranteePrincipal"
-        <*> o .: "IssuingAccount"
+        <$> o .:? "Constraints"
+        <*> o .:? "GrantId"
+        <*> o .:? "GranteePrincipal"
+        <*> o .:? "IssuingAccount"
         <*> o .: "Operations"
-        <*> o .: "RetiringPrincipal"
+        <*> o .:? "RetiringPrincipal"
 
 instance ToJSON GrantListEntry where
     toJSON GrantListEntry{..} = object
@@ -476,8 +476,8 @@ kleKeyId = lens _kleKeyId (\s a -> s { _kleKeyId = a })
 
 instance FromJSON KeyListEntry where
     parseJSON = withObject "KeyListEntry" $ \o -> KeyListEntry
-        <$> o .: "KeyArn"
-        <*> o .: "KeyId"
+        <$> o .:? "KeyArn"
+        <*> o .:? "KeyId"
 
 instance ToJSON KeyListEntry where
     toJSON KeyListEntry{..} = object

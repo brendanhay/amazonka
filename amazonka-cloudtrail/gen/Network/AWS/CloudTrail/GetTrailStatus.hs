@@ -206,12 +206,12 @@ instance AWSRequest GetTrailStatus where
 
 instance FromJSON GetTrailStatusResponse where
     parseJSON = withObject "GetTrailStatusResponse" $ \o -> GetTrailStatusResponse
-        <$> o .: "IsLogging"
-        <*> o .: "LatestCloudWatchLogsDeliveryError"
-        <*> o .: "LatestCloudWatchLogsDeliveryTime"
-        <*> o .: "LatestDeliveryError"
-        <*> o .: "LatestDeliveryTime"
-        <*> o .: "LatestNotificationError"
-        <*> o .: "LatestNotificationTime"
-        <*> o .: "StartLoggingTime"
-        <*> o .: "StopLoggingTime"
+        <$> o .:? "IsLogging"
+        <*> o .:? "LatestCloudWatchLogsDeliveryError"
+        <*> o .:? "LatestCloudWatchLogsDeliveryTime"
+        <*> o .:? "LatestDeliveryError"
+        <*> o .:? "LatestDeliveryTime"
+        <*> o .:? "LatestNotificationError"
+        <*> o .:? "LatestNotificationTime"
+        <*> o .:? "StartLoggingTime"
+        <*> o .:? "StopLoggingTime"

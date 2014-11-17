@@ -110,5 +110,5 @@ instance AWSRequest ListTopics where
 
 instance FromXML ListTopicsResponse where
     parseXML c = ListTopicsResponse
-        <$> c .: "NextToken"
+        <$> c .:? "NextToken"
         <*> c .: "Topics"

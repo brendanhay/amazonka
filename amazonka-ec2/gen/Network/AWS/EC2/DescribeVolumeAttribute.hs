@@ -136,6 +136,6 @@ instance AWSRequest DescribeVolumeAttribute where
 
 instance FromXML DescribeVolumeAttributeResponse where
     parseXML c = DescribeVolumeAttributeResponse
-        <$> c .: "autoEnableIO"
+        <$> c .:? "autoEnableIO"
         <*> c .: "productCodes"
-        <*> c .: "volumeId"
+        <*> c .:? "volumeId"

@@ -136,5 +136,5 @@ instance AWSRequest UpdateJob where
 
 instance FromXML UpdateJobResponse where
     parseXML c = UpdateJobResponse
-        <$> c .: "Success"
-        <*> c .: "WarningMessage"
+        <$> c .:? "Success"
+        <*> c .:? "WarningMessage"

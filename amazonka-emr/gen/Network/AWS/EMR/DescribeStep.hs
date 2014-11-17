@@ -115,4 +115,4 @@ instance AWSRequest DescribeStep where
 
 instance FromJSON DescribeStepResponse where
     parseJSON = withObject "DescribeStepResponse" $ \o -> DescribeStepResponse
-        <$> o .: "Step"
+        <$> o .:? "Step"

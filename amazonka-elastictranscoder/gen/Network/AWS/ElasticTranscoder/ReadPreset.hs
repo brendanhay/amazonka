@@ -107,4 +107,4 @@ instance AWSRequest ReadPreset where
 
 instance FromJSON ReadPresetResponse where
     parseJSON = withObject "ReadPresetResponse" $ \o -> ReadPresetResponse
-        <$> o .: "Preset"
+        <$> o .:? "Preset"

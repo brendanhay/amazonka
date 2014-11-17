@@ -165,4 +165,4 @@ instance AWSRequest CreateHsmConfiguration where
 
 instance FromXML CreateHsmConfigurationResponse where
     parseXML c = CreateHsmConfigurationResponse
-        <$> c .: "HsmConfiguration"
+        <$> c .:? "HsmConfiguration"

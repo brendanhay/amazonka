@@ -113,4 +113,4 @@ instance AWSRequest RemoveSourceIdentifierFromSubscription where
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     parseXML c = RemoveSourceIdentifierFromSubscriptionResponse
-        <$> c .: "EventSubscription"
+        <$> c .:? "EventSubscription"

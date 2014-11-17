@@ -124,4 +124,4 @@ instance AWSRequest PurchaseReservedCacheNodesOffering where
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     parseXML c = PurchaseReservedCacheNodesOfferingResponse
-        <$> c .: "ReservedCacheNode"
+        <$> c .:? "ReservedCacheNode"

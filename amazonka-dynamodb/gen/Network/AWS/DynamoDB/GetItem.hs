@@ -220,5 +220,5 @@ instance AWSRequest GetItem where
 
 instance FromJSON GetItemResponse where
     parseJSON = withObject "GetItemResponse" $ \o -> GetItemResponse
-        <$> o .: "ConsumedCapacity"
+        <$> o .:? "ConsumedCapacity"
         <*> o .: "Item"

@@ -183,10 +183,10 @@ instance AWSRequest DescribeImageAttribute where
 instance FromXML DescribeImageAttributeResponse where
     parseXML c = DescribeImageAttributeResponse
         <$> c .: "blockDeviceMapping"
-        <*> c .: "description"
-        <*> c .: "imageId"
-        <*> c .: "kernel"
+        <*> c .:? "description"
+        <*> c .:? "imageId"
+        <*> c .:? "kernel"
         <*> c .: "launchPermission"
         <*> c .: "productCodes"
-        <*> c .: "ramdisk"
-        <*> c .: "sriovNetSupport"
+        <*> c .:? "ramdisk"
+        <*> c .:? "sriovNetSupport"

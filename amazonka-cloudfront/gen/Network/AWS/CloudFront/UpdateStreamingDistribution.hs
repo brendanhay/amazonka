@@ -121,7 +121,7 @@ instance AWSRequest UpdateStreamingDistribution where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateStreamingDistributionResponse
-        <*> h ~:? "ETag"
+        <$> h ~:? "ETag"
         <*> x %| "StreamingDistribution"
 
 instance ToPath UpdateStreamingDistribution where

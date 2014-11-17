@@ -1,6 +1,6 @@
 {% for field in response.fields %}
   {% if field.value.location %}
-    {% include "field.ede" with field = field.value %}
+    {% include "field.ede" %}
   {% else %}
         {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
   {% endif %}

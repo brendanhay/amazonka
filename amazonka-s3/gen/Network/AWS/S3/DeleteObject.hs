@@ -128,7 +128,7 @@ instance AWSRequest DeleteObject where
 
     request  = delete
     response = xmlHeaderResponse $ \h x -> DeleteObjectResponse
-        <*> h ~:? "x-amz-delete-marker"
+        <$> h ~:? "x-amz-delete-marker"
         <*> h ~:? "x-amz-version-id"
 
 instance ToPath DeleteObject where

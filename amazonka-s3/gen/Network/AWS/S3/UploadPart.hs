@@ -241,7 +241,7 @@ instance AWSRequest UploadPart where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UploadPartResponse
-        <*> h ~:? "ETag"
+        <$> h ~:? "ETag"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"

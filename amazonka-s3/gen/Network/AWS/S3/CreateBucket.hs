@@ -152,7 +152,7 @@ instance AWSRequest CreateBucket where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> CreateBucketResponse
-        <*> h ~:? "Location"
+        <$> h ~:? "Location"
 
 instance ToPath CreateBucket where
     toPath CreateBucket{..} = mconcat

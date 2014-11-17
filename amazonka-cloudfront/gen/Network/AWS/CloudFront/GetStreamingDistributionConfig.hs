@@ -99,7 +99,7 @@ instance AWSRequest GetStreamingDistributionConfig where
 
     request  = get
     response = xmlHeaderResponse $ \h x -> GetStreamingDistributionConfigResponse
-        <*> h ~:? "ETag"
+        <$> h ~:? "ETag"
         <*> x %| "StreamingDistributionConfig"
 
 instance ToPath GetStreamingDistributionConfig where

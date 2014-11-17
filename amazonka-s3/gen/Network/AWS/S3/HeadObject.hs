@@ -421,7 +421,7 @@ instance AWSRequest HeadObject where
 
     request  = head
     response = xmlHeaderResponse $ \h x -> HeadObjectResponse
-        <*> h ~:? "accept-ranges"
+        <$> h ~:? "accept-ranges"
         <*> h ~:? "Cache-Control"
         <*> h ~:? "Content-Disposition"
         <*> h ~:? "Content-Encoding"

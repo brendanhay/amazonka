@@ -27,7 +27,7 @@ post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a)
      => Action
      -> a
      -> Request a
-post a x = get' x & rqMethod .~ POST & rqQuery <>~ qry
+post a x = defaultRequest x & rqMethod .~ POST & rqQuery <>~ qry
   where
     qry = pair "Version" (_svcVersion svc)
         . pair "Action"  (toBS a)

@@ -10,6 +10,7 @@
 
 module Network.AWS.Request.RestXML
     ( get
+    , head
     , delete
     , post
     , put
@@ -20,18 +21,19 @@ import Network.AWS.Data
 import Network.AWS.Request.Internal
 import Network.AWS.Types
 import Network.HTTP.Types.Method
+import Prelude                      hiding (head)
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get = get'
+get = defaultRequest
 {-# INLINE get #-}
 
--- head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
--- head = head'
--- {-# INLINE head #-}
-
 delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-delete = delete'
+delete x = get x & rqMethod .~ DELETE
 {-# INLINE delete #-}
+
+head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+head x = get x & rqMethod .~ HEAD
+{-# INLINE head #-}
 
 post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
 post x = put x & rqMethod .~ POST

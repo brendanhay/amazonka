@@ -13,9 +13,7 @@
 module Network.AWS.Request.Internal
     (
     -- * Requests
-      get'
-    , delete'
-    , head'
+      defaultRequest
 
     -- * Lenses
     , method
@@ -36,20 +34,12 @@ import qualified Network.HTTP.Client.Internal as HTTP
 import qualified Network.HTTP.Types           as HTTP
 import           Network.HTTP.Types.Method
 
-get' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get' x = def
+defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+defaultRequest x = def
     & rqPath    .~ Text.encodeUtf8 (toPath x)
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
-{-# INLINE get' #-}
-
-delete' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-delete' x = get' x & rqMethod .~ DELETE
-{-# INLINE delete' #-}
-
-head' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-head' x = get' x & rqMethod .~ HEAD
-{-# INLINE head' #-}
+{-# INLINE defaultRequest #-}
 
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }

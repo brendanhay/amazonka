@@ -24,12 +24,16 @@ import Network.AWS.Data
 import Network.AWS.Request.Internal
 import Network.AWS.Types
 import Network.HTTP.Types.Header
+import Network.HTTP.Types.Method
 
 post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
      => Action
      -> a
      -> Request a
-post a x = get' x & rqHeaders <>~ hs & rqBody .~ toBody (toJSON x)
+post a x = defaultRequest x
+    & rqMethod   .~ POST
+    & rqHeaders <>~ hs
+    & rqBody     .~ toBody (toJSON x)
   where
     hs = toHeader hAMZTarget   target
       ++ toHeader hContentType content

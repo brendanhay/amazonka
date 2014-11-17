@@ -1,3 +1,7 @@
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
 -- Module      : Network.AWS.Request.RestJSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -9,34 +13,46 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Request.RestJSON
-    ( post
+    ( get
+    , delete
+    , post
+    , put
     ) where
 
-import Control.Lens
+import Control.Applicative
+import Control.Lens                 hiding (Action)
 import Data.Aeson
+import Data.Monoid
 import Network.AWS.Data
 import Network.AWS.Request.Internal
 import Network.AWS.Types
+import Network.HTTP.Types.Header
+import Network.HTTP.Types.Method
 
--- get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
--- get x = def
---     & rqPath    .~ Text.encodeUtf8 (toPath x)
---     & rqQuery   .~ toQuery x
---     & rqHeaders .~ toHeaders x
--- {-# INLINE get #-}
+get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+get = defaultRequest
+{-# INLINE get #-}
 
--- head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
--- head x = get x & rqMethod .~ HEAD
--- {-# INLINE head #-}
+delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+delete x = get x & rqMethod .~ DELETE
+{-# INLINE delete #-}
 
--- delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
--- delete x = get x & rqMethod .~ DELETE
--- {-# INLINE delete #-}
-
--- post :: ToJSON a => a -> Request a
--- post x = put x & rqMethod .~ POST
--- {-# INLINE post #-}
-
-post :: (ToPath a, ToQuery a, ToHeaders a, ToJSON a) => a -> Request a
-post x = get' x & rqBody .~ toBody (toJSON x)
+post :: (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
+     => a
+     -> Request a
+post x = put x & rqMethod .~ POST
 {-# INLINE post #-}
+
+put :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
+    => a
+    -> Request a
+put x = get x
+    & rqMethod   .~ PUT
+    & rqHeaders <>~ toHeader hContentType content
+    & rqBody     .~ toBody (toJSON x)
+  where
+    content = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc
+
+    svc :: Service (Sv a)
+    svc = service
+{-# INLINE put #-}

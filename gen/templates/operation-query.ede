@@ -12,7 +12,7 @@ instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
 
-    request  = {{ method }}
+    request  = {{ method }} "{{ name }}"
 {% include "_include/response.ede" %}
 
 {% include "_include/request.ede" %}

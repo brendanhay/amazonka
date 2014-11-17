@@ -3,22 +3,22 @@
     response = nullResponse {{ response.name }}
 {% when "body" %}
     response = bodyResponse . const $ \b -> {{ response.name }}
-{% include "response-fields.ede" %}
+{% include "response-body.ede" %}
 {% when "body-headers" %}
     response = bodyResponse $ \h b -> {{ response.name }}
-{% include "response-fields.ede" %}
+{% include "response-body.ede" %}
 {% when "json" %}
     response = jsonResponse
 
 {% include "json-from.ede" with type = response %}
 {% when "json-headers" %}
     response = jsonHeaderResponse $ \h o -> {{ response.name }}
-{% include "response-fields.ede" %}
+{% include "response-json.ede" %}
 {% when "xml" %}
     response = xmlResponse
 
 {% include "xml-from.ede" with type = response %}
 {% when "xml-headers" %}
     response = xmlHeaderResponse $ \h x -> {{ response.name }}
-{% include "response-fields.ede" %}
+{% include "response-xml.ede" %}
 {% endcase %}

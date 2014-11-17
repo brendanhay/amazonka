@@ -16,9 +16,11 @@
 module Network.AWS.Response
     (
     -- * Responses
-      xmlResponse
+      nullResponse
+    , xmlResponse
+    , xmlHeaderResponse
     , jsonResponse
-    , nullaryResponse
+    , jsonHeaderResponse
     , bodyResponse
     ) where
 
@@ -30,26 +32,47 @@ import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Default.Class
-import           Network.AWS.Data             (LazyByteString)
+import           Network.AWS.Data             (LazyByteString, FromXML, decodeXML)
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types
 import qualified Text.XML                     as XML
+import           Text.XML                     (Node)
 import           Text.XML.Cursor
 
-xmlResponse :: (MonadResource m, AWSService (Sv a))
-            => (ResponseHeaders -> Cursor -> Either String (Rs a))
-            -> a
+nullResponse :: (MonadResource m, AWSService (Sv a))
+                => Rs a
+                -> a
+                -> Either HttpException ClientResponse
+                -> m (Response a)
+nullResponse rs = receive $ \_ _ bdy ->
+    liftResourceT (bdy $$+- return (Right rs))
+
+xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
+            => a
             -> Either HttpException ClientResponse
             -> m (Response a)
-xmlResponse = deserialise (bimap show fromDocument . XML.parseLBS def)
+xmlResponse = deserialise decodeXML (const Right)
 
-jsonResponse :: (MonadResource m, AWSService (Sv a))
-             => (ResponseHeaders -> Object -> Either String (Rs a))
-             -> a
+xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
+                  => (ResponseHeaders -> Cursor -> Either String (Rs a))
+                  -> a
+                  -> Either HttpException ClientResponse
+                  -> m (Response a)
+xmlHeaderResponse = deserialise (bimap show fromDocument . XML.parseLBS def)
+
+jsonResponse :: (MonadResource m, AWSService (Sv a), FromJSON (Rs a))
+             => a
              -> Either HttpException ClientResponse
              -> m (Response a)
-jsonResponse = deserialise eitherDecode'
+jsonResponse = deserialise eitherDecode' (const Right)
+
+jsonHeaderResponse :: (MonadResource m, AWSService (Sv a))
+                   => (ResponseHeaders -> Object -> Either String (Rs a))
+                   -> a
+                   -> Either HttpException ClientResponse
+                   -> m (Response a)
+jsonHeaderResponse = deserialise eitherDecode'
 
 bodyResponse :: (MonadResource m, AWSService (Sv a))
              => (ResponseHeaders -> ResponseBody -> Either String (Rs a))
@@ -58,14 +81,6 @@ bodyResponse :: (MonadResource m, AWSService (Sv a))
              -> m (Response a)
 bodyResponse f = receive $ \a hs bdy ->
     return (SerializerError a `first` f hs bdy)
-
-nullaryResponse :: (MonadResource m, AWSService (Sv a))
-                => Rs a
-                -> a
-                -> Either HttpException ClientResponse
-                -> m (Response a)
-nullaryResponse rs = receive $ \_ _ bdy ->
-    liftResourceT (bdy $$+- return (Right rs))
 
 deserialise :: (AWSService (Sv a), MonadResource m)
             => (LazyByteString -> Either String b)

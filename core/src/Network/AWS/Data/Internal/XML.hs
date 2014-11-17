@@ -21,8 +21,9 @@ module Network.AWS.Data.Internal.XML where
 
 import           Control.Applicative
 import           Control.Monad
+import           Data.Bifunctor
 import qualified Data.ByteString                      as BS
-import           Data.ByteString.Lazy.Char8           (ByteString)
+import           Data.ByteString.Lazy                 (ByteString)
 import           Data.Default.Class
 import           Data.Foldable                        (foldr', foldrM)
 import           Data.HashMap.Strict                  (HashMap)
@@ -59,9 +60,6 @@ infixl 6 %|, %|?
   where
     hush (Left  _) = Nothing
     hush (Right x) = Just x
-
-decodeCursor :: FromXML a => Cursor -> Either String a
-decodeCursor = const (Left "not implemented")
 
 decodeXML :: forall a. FromXML a => ByteString -> Either String a
 decodeXML = either failure success . parseLBS def

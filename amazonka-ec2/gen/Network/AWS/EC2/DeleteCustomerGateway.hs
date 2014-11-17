@@ -90,4 +90,12 @@ instance ToPath DeleteCustomerGateway where
 
 instance ToHeaders DeleteCustomerGateway
 
-instance ToQuery DeleteCustomerGateway
+instance ToQuery DeleteCustomerGateway where
+    toQuery DeleteCustomerGateway{..} = mconcat
+        [ "dryRun"            =? _dcg1DryRun
+        , "CustomerGatewayId" =? _dcg1CustomerGatewayId
+        ]
+
+instance ToXML DeleteCustomerGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteCustomerGateway"

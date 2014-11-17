@@ -4107,6 +4107,7 @@
                 "ctor": "attachInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4144,6 +4145,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4241,6 +4243,7 @@
                 "ctor": "completeLifecycleActionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4278,6 +4281,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4440,6 +4444,7 @@
                 "ctor": "createAutoScalingGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4476,6 +4481,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5002,6 +5008,7 @@
                 "ctor": "createLaunchConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5038,6 +5045,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5597,6 +5605,7 @@
                 "ctor": "createOrUpdateTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5650,6 +5659,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5713,6 +5723,7 @@
                 "ctor": "deleteAutoScalingGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5750,6 +5761,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5847,6 +5859,7 @@
                 "ctor": "deleteLaunchConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5901,6 +5914,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5964,6 +5978,7 @@
                 "ctor": "deleteLifecycleHookResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6001,6 +6016,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6097,6 +6113,7 @@
                 "ctor": "deleteNotificationConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6134,6 +6151,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6230,6 +6248,7 @@
                 "ctor": "deletePolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6267,6 +6286,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6364,6 +6384,7 @@
                 "ctor": "deleteScheduledActionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6401,6 +6422,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6498,6 +6520,7 @@
                 "ctor": "deleteTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6551,6 +6574,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6614,6 +6638,7 @@
                 "ctor": "describeAccountLimitsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6710,6 +6735,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6752,6 +6778,7 @@
                     "type": "[AdjustmentType]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6820,6 +6847,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6845,6 +6873,7 @@
                 "ctor": "describeAutoScalingGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6949,6 +6978,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7077,6 +7107,7 @@
                 "ctor": "describeAutoScalingInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7181,6 +7212,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7327,6 +7359,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7395,6 +7428,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7420,6 +7454,7 @@
                 "ctor": "describeLaunchConfigurationsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7524,6 +7559,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7670,6 +7706,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7738,6 +7775,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7780,6 +7818,7 @@
                     "type": "[LifecycleHook]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7848,6 +7887,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7944,6 +7984,7 @@
                 "ctor": "describeMetricCollectionTypesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8040,6 +8081,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8065,6 +8107,7 @@
                 "ctor": "describeNotificationConfigurationsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8169,6 +8212,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8297,6 +8341,7 @@
                 "ctor": "describePoliciesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8401,6 +8446,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8562,6 +8608,7 @@
                 "ctor": "describeScalingActivitiesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8666,6 +8713,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8844,6 +8892,7 @@
                     "type": "[ProcessType]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8912,6 +8961,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8937,6 +8987,7 @@
                 "ctor": "describeScheduledActionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9041,6 +9092,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9268,6 +9320,7 @@
                 "ctor": "describeTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9371,6 +9424,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9517,6 +9571,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9585,6 +9640,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9627,6 +9683,7 @@
                     "type": "[Activity]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9695,6 +9752,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9825,6 +9883,7 @@
                 "ctor": "disableMetricsCollectionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9862,6 +9921,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9959,6 +10019,7 @@
                 "ctor": "enableMetricsCollectionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9996,6 +10057,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10142,6 +10204,7 @@
                     "type": "[Activity]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10210,6 +10273,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10340,6 +10404,7 @@
                 "ctor": "executePolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -10377,6 +10442,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10523,6 +10589,7 @@
                     "type": "[Activity]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10591,6 +10658,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10688,6 +10756,7 @@
                 "ctor": "putLifecycleHookResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -10725,6 +10794,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11020,6 +11090,7 @@
                 "ctor": "putNotificationConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11057,6 +11128,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11203,6 +11275,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11271,6 +11344,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11500,6 +11574,7 @@
                 "ctor": "putScheduledUpdateGroupActionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11537,6 +11612,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11865,6 +11941,7 @@
                 "ctor": "recordLifecycleActionHeartbeatResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11902,6 +11979,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12031,6 +12109,7 @@
                 "ctor": "resumeProcessesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12068,6 +12147,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12165,6 +12245,7 @@
                 "ctor": "setDesiredCapacityResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12202,6 +12283,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12332,6 +12414,7 @@
                 "ctor": "setInstanceHealthResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12369,6 +12452,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12499,6 +12583,7 @@
                 "ctor": "suspendProcessesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12536,6 +12621,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12647,6 +12733,7 @@
                     "type": "Maybe Activity"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12715,6 +12802,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12811,6 +12899,7 @@
                 "ctor": "updateAutoScalingGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12848,6 +12937,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

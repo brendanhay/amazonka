@@ -123,4 +123,13 @@ instance ToPath AssociateRouteTable where
 
 instance ToHeaders AssociateRouteTable
 
-instance ToQuery AssociateRouteTable
+instance ToQuery AssociateRouteTable where
+    toQuery AssociateRouteTable{..} = mconcat
+        [ "dryRun"       =? _artDryRun
+        , "subnetId"     =? _artSubnetId
+        , "routeTableId" =? _artRouteTableId
+        ]
+
+instance ToXML AssociateRouteTable where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AssociateRouteTable"

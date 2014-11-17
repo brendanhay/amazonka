@@ -430,4 +430,23 @@ instance ToPath Search where
 
 instance ToHeaders Search
 
-instance ToQuery Search
+instance ToQuery Search where
+    toQuery Search{..} = mconcat
+        [ "format=sdk&pretty=true"
+        , "cursor"    =? _s1Cursor
+        , "expr"      =? _s1Expr
+        , "facet"     =? _s1Facet
+        , "fq"        =? _s1FilterQuery
+        , "highlight" =? _s1Highlight
+        , "partial"   =? _s1Partial
+        , "q"         =? _s1Query
+        , "q.options" =? _s1QueryOptions
+        , "q.parser"  =? _s1QueryParser
+        , "return"    =? _s1Return
+        , "size"      =? _s1Size
+        , "sort"      =? _s1Sort
+        , "start"     =? _s1Start
+        ]
+
+instance ToJSON Search where
+    toJSON = genericToJSON jsonOptions

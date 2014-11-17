@@ -126,4 +126,12 @@ instance ToPath TerminateInstances where
 
 instance ToHeaders TerminateInstances
 
-instance ToQuery TerminateInstances
+instance ToQuery TerminateInstances where
+    toQuery TerminateInstances{..} = mconcat
+        [ "dryRun"     =? _tiDryRun
+        , "InstanceId" =? _tiInstanceIds
+        ]
+
+instance ToXML TerminateInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "TerminateInstances"

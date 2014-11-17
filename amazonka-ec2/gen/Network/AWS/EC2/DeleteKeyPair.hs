@@ -88,4 +88,12 @@ instance ToPath DeleteKeyPair where
 
 instance ToHeaders DeleteKeyPair
 
-instance ToQuery DeleteKeyPair
+instance ToQuery DeleteKeyPair where
+    toQuery DeleteKeyPair{..} = mconcat
+        [ "dryRun"  =? _dkpDryRun
+        , "KeyName" =? _dkpKeyName
+        ]
+
+instance ToXML DeleteKeyPair where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteKeyPair"

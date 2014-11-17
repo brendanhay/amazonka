@@ -134,4 +134,13 @@ instance ToPath ImportKeyPair where
 
 instance ToHeaders ImportKeyPair
 
-instance ToQuery ImportKeyPair
+instance ToQuery ImportKeyPair where
+    toQuery ImportKeyPair{..} = mconcat
+        [ "dryRun"            =? _ikpDryRun
+        , "keyName"           =? _ikpKeyName
+        , "publicKeyMaterial" =? _ikpPublicKeyMaterial
+        ]
+
+instance ToXML ImportKeyPair where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ImportKeyPair"

@@ -89,4 +89,12 @@ instance ToPath DeleteNetworkAcl where
 
 instance ToHeaders DeleteNetworkAcl
 
-instance ToQuery DeleteNetworkAcl
+instance ToQuery DeleteNetworkAcl where
+    toQuery DeleteNetworkAcl{..} = mconcat
+        [ "dryRun"       =? _dnaDryRun
+        , "networkAclId" =? _dnaNetworkAclId
+        ]
+
+instance ToXML DeleteNetworkAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteNetworkAcl"

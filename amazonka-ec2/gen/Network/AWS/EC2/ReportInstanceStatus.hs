@@ -152,4 +152,17 @@ instance ToPath ReportInstanceStatus where
 
 instance ToHeaders ReportInstanceStatus
 
-instance ToQuery ReportInstanceStatus
+instance ToQuery ReportInstanceStatus where
+    toQuery ReportInstanceStatus{..} = mconcat
+        [ "dryRun"      =? _risDryRun
+        , "instanceId"  =? _risInstances
+        , "status"      =? _risStatus
+        , "startTime"   =? _risStartTime
+        , "endTime"     =? _risEndTime
+        , "reasonCode"  =? _risReasonCodes
+        , "description" =? _risDescription
+        ]
+
+instance ToXML ReportInstanceStatus where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ReportInstanceStatus"

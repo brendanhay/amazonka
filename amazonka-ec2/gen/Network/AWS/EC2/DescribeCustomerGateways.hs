@@ -139,4 +139,13 @@ instance ToPath DescribeCustomerGateways where
 
 instance ToHeaders DescribeCustomerGateways
 
-instance ToQuery DescribeCustomerGateways
+instance ToQuery DescribeCustomerGateways where
+    toQuery DescribeCustomerGateways{..} = mconcat
+        [ "dryRun"            =? _dcgDryRun
+        , "CustomerGatewayId" =? _dcgCustomerGatewayIds
+        , "Filter"            =? _dcgFilters
+        ]
+
+instance ToXML DescribeCustomerGateways where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeCustomerGateways"

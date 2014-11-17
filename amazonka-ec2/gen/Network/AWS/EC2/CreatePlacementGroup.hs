@@ -101,4 +101,13 @@ instance ToPath CreatePlacementGroup where
 
 instance ToHeaders CreatePlacementGroup
 
-instance ToQuery CreatePlacementGroup
+instance ToQuery CreatePlacementGroup where
+    toQuery CreatePlacementGroup{..} = mconcat
+        [ "dryRun"    =? _cpgDryRun
+        , "groupName" =? _cpgGroupName
+        , "strategy"  =? _cpgStrategy
+        ]
+
+instance ToXML CreatePlacementGroup where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreatePlacementGroup"

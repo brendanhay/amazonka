@@ -259,4 +259,24 @@ instance ToPath DescribeReservedInstancesOfferings where
 
 instance ToHeaders DescribeReservedInstancesOfferings
 
-instance ToQuery DescribeReservedInstancesOfferings
+instance ToQuery DescribeReservedInstancesOfferings where
+    toQuery DescribeReservedInstancesOfferings{..} = mconcat
+        [ "dryRun"                      =? _drioDryRun
+        , "ReservedInstancesOfferingId" =? _drioReservedInstancesOfferingIds
+        , "InstanceType"                =? _drioInstanceType
+        , "AvailabilityZone"            =? _drioAvailabilityZone
+        , "ProductDescription"          =? _drioProductDescription
+        , "Filter"                      =? _drioFilters
+        , "instanceTenancy"             =? _drioInstanceTenancy
+        , "offeringType"                =? _drioOfferingType
+        , "nextToken"                   =? _drioNextToken
+        , "maxResults"                  =? _drioMaxResults
+        , "IncludeMarketplace"          =? _drioIncludeMarketplace
+        , "MinDuration"                 =? _drioMinDuration
+        , "MaxDuration"                 =? _drioMaxDuration
+        , "MaxInstanceCount"            =? _drioMaxInstanceCount
+        ]
+
+instance ToXML DescribeReservedInstancesOfferings where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeReservedInstancesOfferings"

@@ -182,4 +182,13 @@ instance ToPath DescribeImageAttribute where
 
 instance ToHeaders DescribeImageAttribute
 
-instance ToQuery DescribeImageAttribute
+instance ToQuery DescribeImageAttribute where
+    toQuery DescribeImageAttribute{..} = mconcat
+        [ "dryRun"    =? _dia1DryRun
+        , "ImageId"   =? _dia1ImageId
+        , "Attribute" =? _dia1Attribute
+        ]
+
+instance ToXML DescribeImageAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeImageAttribute"

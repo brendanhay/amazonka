@@ -808,6 +808,7 @@
                 "ctor": "createAliasResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -838,7 +839,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "createAlias",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -846,6 +846,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -882,7 +883,6 @@
                 "queryPad": 0,
                 "name": "CreateAlias",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -932,6 +932,7 @@
                 "ctor": "createGrantResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1020,7 +1021,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "createGrant",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1028,6 +1028,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1064,7 +1065,6 @@
                 "queryPad": 0,
                 "name": "CreateGrant",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -1241,6 +1241,7 @@
                     "type": "Maybe KeyMetadata"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1302,7 +1303,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "createKey",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1310,6 +1310,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1317,7 +1318,6 @@
                 "queryPad": 0,
                 "name": "CreateKey",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -1423,6 +1423,7 @@
                 "ctor": "decryptResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1511,7 +1512,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "decrypt",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1519,6 +1519,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1541,7 +1542,6 @@
                 "queryPad": 0,
                 "name": "Decrypt",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -1634,6 +1634,7 @@
                 "ctor": "deleteAliasResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1667,7 +1668,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteAlias",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1689,6 +1689,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1711,7 +1712,6 @@
                 "queryPad": 0,
                 "name": "DeleteAlias",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1761,6 +1761,7 @@
                     "type": "Maybe KeyMetadata"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1825,7 +1826,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeKey",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1847,6 +1847,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1869,7 +1870,6 @@
                 "queryPad": 0,
                 "name": "DescribeKey",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1905,6 +1905,7 @@
                 "ctor": "disableKeyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1938,7 +1939,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableKey",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1960,6 +1960,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1982,7 +1983,6 @@
                 "queryPad": 0,
                 "name": "DisableKey",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2018,6 +2018,7 @@
                 "ctor": "disableKeyRotationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2051,7 +2052,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableKeyRotation",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2073,6 +2073,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2095,7 +2096,6 @@
                 "queryPad": 0,
                 "name": "DisableKeyRotation",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2131,6 +2131,7 @@
                 "ctor": "enableKeyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2164,7 +2165,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableKey",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2186,6 +2186,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2208,7 +2209,6 @@
                 "queryPad": 0,
                 "name": "EnableKey",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2244,6 +2244,7 @@
                 "ctor": "enableKeyRotationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2277,7 +2278,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableKeyRotation",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2299,6 +2299,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2321,7 +2322,6 @@
                 "queryPad": 0,
                 "name": "EnableKeyRotation",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2356,6 +2356,7 @@
                 "ctor": "encryptResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2444,7 +2445,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "encrypt",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2452,6 +2452,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2488,7 +2489,6 @@
                 "queryPad": 0,
                 "name": "Encrypt",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -2594,6 +2594,7 @@
                 "ctor": "generateDataKeyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2710,7 +2711,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "generateDataKey",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2718,6 +2718,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2740,7 +2741,6 @@
                 "queryPad": 0,
                 "name": "GenerateDataKey",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -2888,6 +2888,7 @@
                 "ctor": "generateDataKeyWithoutPlaintextResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2976,7 +2977,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "generateDataKeyWithoutPlaintext",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2984,6 +2984,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3006,7 +3007,6 @@
                 "queryPad": 0,
                 "name": "GenerateDataKeyWithoutPlaintext",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -3169,6 +3169,7 @@
                     "type": "Maybe Base64"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3231,7 +3232,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "generateRandom",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3253,6 +3253,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3260,7 +3261,6 @@
                 "queryPad": 0,
                 "name": "GenerateRandom",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -3327,6 +3327,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3388,7 +3389,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "getKeyPolicy",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3396,6 +3396,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3432,7 +3433,6 @@
                 "queryPad": 0,
                 "name": "GetKeyPolicy",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3497,6 +3497,7 @@
                     "type": "Maybe Bool"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3561,7 +3562,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getKeyRotationStatus",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3583,6 +3583,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3605,7 +3606,6 @@
                 "queryPad": 0,
                 "name": "GetKeyRotationStatus",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3640,6 +3640,7 @@
                 "ctor": "listAliasesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3757,7 +3758,6 @@
                 "style": "json",
                 "fieldPad": 9,
                 "ctor": "listAliases",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3765,6 +3765,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3772,7 +3773,6 @@
                 "queryPad": 0,
                 "name": "ListAliases",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3850,6 +3850,7 @@
                 "ctor": "listGrantsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3967,7 +3968,6 @@
                 "style": "json",
                 "fieldPad": 9,
                 "ctor": "listGrants",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3975,6 +3975,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3997,7 +3998,6 @@
                 "queryPad": 0,
                 "name": "ListGrants",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -4090,6 +4090,7 @@
                 "ctor": "listKeyPoliciesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4207,7 +4208,6 @@
                 "style": "json",
                 "fieldPad": 10,
                 "ctor": "listKeyPolicies",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4215,6 +4215,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4237,7 +4238,6 @@
                 "queryPad": 0,
                 "name": "ListKeyPolicies",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -4329,6 +4329,7 @@
                 "ctor": "listKeysResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4446,7 +4447,6 @@
                 "style": "json",
                 "fieldPad": 9,
                 "ctor": "listKeys",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4454,6 +4454,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4461,7 +4462,6 @@
                 "queryPad": 0,
                 "name": "ListKeys",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -4540,6 +4540,7 @@
                 "ctor": "putKeyPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4570,7 +4571,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "putKeyPolicy",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4578,6 +4578,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4628,7 +4629,6 @@
                 "queryPad": 0,
                 "name": "PutKeyPolicy",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4691,6 +4691,7 @@
                 "ctor": "reEncryptResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4807,7 +4808,6 @@
                 "style": "json",
                 "fieldPad": 31,
                 "ctor": "reEncrypt",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4815,6 +4815,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4851,7 +4852,6 @@
                 "queryPad": 0,
                 "name": "ReEncrypt",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -4986,6 +4986,7 @@
                 "ctor": "retireGrantResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5019,7 +5020,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "retireGrant",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -5041,6 +5041,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5063,7 +5064,6 @@
                 "queryPad": 0,
                 "name": "RetireGrant",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5099,6 +5099,7 @@
                 "ctor": "revokeGrantResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5129,7 +5130,6 @@
                 "style": "json",
                 "fieldPad": 10,
                 "ctor": "revokeGrant",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5137,6 +5137,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5173,7 +5174,6 @@
                 "queryPad": 0,
                 "name": "RevokeGrant",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5223,6 +5223,7 @@
                 "ctor": "updateKeyDescriptionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5253,7 +5254,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "updateKeyDescription",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5261,6 +5261,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5297,7 +5298,6 @@
                 "queryPad": 0,
                 "name": "UpdateKeyDescription",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [

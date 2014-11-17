@@ -145,4 +145,13 @@ instance ToPath StopInstances where
 
 instance ToHeaders StopInstances
 
-instance ToQuery StopInstances
+instance ToQuery StopInstances where
+    toQuery StopInstances{..} = mconcat
+        [ "dryRun"     =? _siDryRun
+        , "InstanceId" =? _siInstanceIds
+        , "force"      =? _siForce
+        ]
+
+instance ToXML StopInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "StopInstances"

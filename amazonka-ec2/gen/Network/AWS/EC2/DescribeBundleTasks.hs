@@ -129,4 +129,13 @@ instance ToPath DescribeBundleTasks where
 
 instance ToHeaders DescribeBundleTasks
 
-instance ToQuery DescribeBundleTasks
+instance ToQuery DescribeBundleTasks where
+    toQuery DescribeBundleTasks{..} = mconcat
+        [ "dryRun"   =? _dbtDryRun
+        , "BundleId" =? _dbtBundleIds
+        , "Filter"   =? _dbtFilters
+        ]
+
+instance ToXML DescribeBundleTasks where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeBundleTasks"

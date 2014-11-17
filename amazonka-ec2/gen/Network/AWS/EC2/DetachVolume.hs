@@ -196,4 +196,15 @@ instance ToPath DetachVolume where
 
 instance ToHeaders DetachVolume
 
-instance ToQuery DetachVolume
+instance ToQuery DetachVolume where
+    toQuery DetachVolume{..} = mconcat
+        [ "dryRun"     =? _dvDryRun
+        , "VolumeId"   =? _dvVolumeId
+        , "InstanceId" =? _dvInstanceId
+        , "Device"     =? _dvDevice
+        , "Force"      =? _dvForce
+        ]
+
+instance ToXML DetachVolume where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DetachVolume"

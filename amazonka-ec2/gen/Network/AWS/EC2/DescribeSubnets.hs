@@ -140,4 +140,13 @@ instance ToPath DescribeSubnets where
 
 instance ToHeaders DescribeSubnets
 
-instance ToQuery DescribeSubnets
+instance ToQuery DescribeSubnets where
+    toQuery DescribeSubnets{..} = mconcat
+        [ "dryRun"   =? _dsDryRun
+        , "SubnetId" =? _dsSubnetIds
+        , "Filter"   =? _dsFilters
+        ]
+
+instance ToXML DescribeSubnets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSubnets"

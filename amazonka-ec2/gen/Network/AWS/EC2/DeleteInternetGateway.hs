@@ -90,4 +90,12 @@ instance ToPath DeleteInternetGateway where
 
 instance ToHeaders DeleteInternetGateway
 
-instance ToQuery DeleteInternetGateway
+instance ToQuery DeleteInternetGateway where
+    toQuery DeleteInternetGateway{..} = mconcat
+        [ "dryRun"            =? _dig2DryRun
+        , "internetGatewayId" =? _dig2InternetGatewayId
+        ]
+
+instance ToXML DeleteInternetGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteInternetGateway"

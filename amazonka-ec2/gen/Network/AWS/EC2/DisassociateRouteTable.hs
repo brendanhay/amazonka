@@ -92,4 +92,12 @@ instance ToPath DisassociateRouteTable where
 
 instance ToHeaders DisassociateRouteTable
 
-instance ToQuery DisassociateRouteTable
+instance ToQuery DisassociateRouteTable where
+    toQuery DisassociateRouteTable{..} = mconcat
+        [ "dryRun"        =? _drtDryRun
+        , "associationId" =? _drtAssociationId
+        ]
+
+instance ToXML DisassociateRouteTable where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DisassociateRouteTable"

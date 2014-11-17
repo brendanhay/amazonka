@@ -179,4 +179,20 @@ instance ToPath RevokeSecurityGroupIngress where
 
 instance ToHeaders RevokeSecurityGroupIngress
 
-instance ToQuery RevokeSecurityGroupIngress
+instance ToQuery RevokeSecurityGroupIngress where
+    toQuery RevokeSecurityGroupIngress{..} = mconcat
+        [ "dryRun"                     =? _rsgiDryRun
+        , "GroupName"                  =? _rsgiGroupName
+        , "GroupId"                    =? _rsgiGroupId
+        , "SourceSecurityGroupName"    =? _rsgiSourceSecurityGroupName
+        , "SourceSecurityGroupOwnerId" =? _rsgiSourceSecurityGroupOwnerId
+        , "IpProtocol"                 =? _rsgiIpProtocol
+        , "FromPort"                   =? _rsgiFromPort
+        , "ToPort"                     =? _rsgiToPort
+        , "CidrIp"                     =? _rsgiCidrIp
+        , "IpPermissions"              =? _rsgiIpPermissions
+        ]
+
+instance ToXML RevokeSecurityGroupIngress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RevokeSecurityGroupIngress"

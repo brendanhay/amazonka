@@ -90,4 +90,12 @@ instance ToPath DeleteRouteTable where
 
 instance ToHeaders DeleteRouteTable
 
-instance ToQuery DeleteRouteTable
+instance ToQuery DeleteRouteTable where
+    toQuery DeleteRouteTable{..} = mconcat
+        [ "dryRun"       =? _drt1DryRun
+        , "routeTableId" =? _drt1RouteTableId
+        ]
+
+instance ToXML DeleteRouteTable where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteRouteTable"

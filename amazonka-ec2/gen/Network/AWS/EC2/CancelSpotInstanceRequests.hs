@@ -122,4 +122,12 @@ instance ToPath CancelSpotInstanceRequests where
 
 instance ToHeaders CancelSpotInstanceRequests
 
-instance ToQuery CancelSpotInstanceRequests
+instance ToQuery CancelSpotInstanceRequests where
+    toQuery CancelSpotInstanceRequests{..} = mconcat
+        [ "dryRun"                =? _csirDryRun
+        , "SpotInstanceRequestId" =? _csirSpotInstanceRequestIds
+        ]
+
+instance ToXML CancelSpotInstanceRequests where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CancelSpotInstanceRequests"

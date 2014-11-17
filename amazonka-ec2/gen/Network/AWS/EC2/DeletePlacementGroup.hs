@@ -91,4 +91,12 @@ instance ToPath DeletePlacementGroup where
 
 instance ToHeaders DeletePlacementGroup
 
-instance ToQuery DeletePlacementGroup
+instance ToQuery DeletePlacementGroup where
+    toQuery DeletePlacementGroup{..} = mconcat
+        [ "dryRun"    =? _dpgDryRun
+        , "groupName" =? _dpgGroupName
+        ]
+
+instance ToXML DeletePlacementGroup where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeletePlacementGroup"

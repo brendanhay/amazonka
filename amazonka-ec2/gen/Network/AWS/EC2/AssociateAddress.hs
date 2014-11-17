@@ -174,4 +174,17 @@ instance ToPath AssociateAddress where
 
 instance ToHeaders AssociateAddress
 
-instance ToQuery AssociateAddress
+instance ToQuery AssociateAddress where
+    toQuery AssociateAddress{..} = mconcat
+        [ "dryRun"             =? _aa1DryRun
+        , "InstanceId"         =? _aa1InstanceId
+        , "PublicIp"           =? _aa1PublicIp
+        , "AllocationId"       =? _aa1AllocationId
+        , "networkInterfaceId" =? _aa1NetworkInterfaceId
+        , "privateIpAddress"   =? _aa1PrivateIpAddress
+        , "allowReassociation" =? _aa1AllowReassociation
+        ]
+
+instance ToXML AssociateAddress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AssociateAddress"

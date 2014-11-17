@@ -173,4 +173,19 @@ instance ToPath CreateNetworkAclEntry where
 
 instance ToHeaders CreateNetworkAclEntry
 
-instance ToQuery CreateNetworkAclEntry
+instance ToQuery CreateNetworkAclEntry where
+    toQuery CreateNetworkAclEntry{..} = mconcat
+        [ "dryRun"       =? _cnaeDryRun
+        , "networkAclId" =? _cnaeNetworkAclId
+        , "ruleNumber"   =? _cnaeRuleNumber
+        , "protocol"     =? _cnaeProtocol
+        , "ruleAction"   =? _cnaeRuleAction
+        , "egress"       =? _cnaeEgress
+        , "cidrBlock"    =? _cnaeCidrBlock
+        , "Icmp"         =? _cnaeIcmpTypeCode
+        , "portRange"    =? _cnaePortRange
+        ]
+
+instance ToXML CreateNetworkAclEntry where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateNetworkAclEntry"

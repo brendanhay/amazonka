@@ -12062,6 +12062,7 @@
                 "ctor": "countClosedWorkflowExecutionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12151,7 +12152,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "countClosedWorkflowExecutions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12159,6 +12159,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12181,7 +12182,6 @@
                 "queryPad": 0,
                 "name": "CountClosedWorkflowExecutions",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -12386,6 +12386,7 @@
                 "ctor": "countOpenWorkflowExecutionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12475,7 +12476,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "countOpenWorkflowExecutions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12483,6 +12483,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12519,7 +12520,6 @@
                 "queryPad": 0,
                 "name": "CountOpenWorkflowExecutions",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -12654,6 +12654,7 @@
                 "ctor": "countPendingActivityTasksResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12743,7 +12744,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "countPendingActivityTasks",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12751,6 +12751,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12787,7 +12788,6 @@
                 "queryPad": 0,
                 "name": "CountPendingActivityTasks",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -12837,6 +12837,7 @@
                 "ctor": "countPendingDecisionTasksResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12926,7 +12927,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "countPendingDecisionTasks",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12934,6 +12934,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12970,7 +12971,6 @@
                 "queryPad": 0,
                 "name": "CountPendingDecisionTasks",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -13020,6 +13020,7 @@
                 "ctor": "deprecateActivityTypeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13049,7 +13050,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "deprecateActivityType",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13057,6 +13057,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13093,7 +13094,6 @@
                 "queryPad": 0,
                 "name": "DeprecateActivityType",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -13143,6 +13143,7 @@
                 "ctor": "deprecateDomainResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13176,7 +13177,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deprecateDomain",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -13198,6 +13198,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13220,7 +13221,6 @@
                 "queryPad": 0,
                 "name": "DeprecateDomain",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -13256,6 +13256,7 @@
                 "ctor": "deprecateWorkflowTypeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13285,7 +13286,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "deprecateWorkflowType",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13293,6 +13293,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13329,7 +13330,6 @@
                 "queryPad": 0,
                 "name": "DeprecateWorkflowType",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -13378,6 +13378,7 @@
                 "ctor": "describeActivityTypeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13466,7 +13467,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "describeActivityType",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13474,6 +13474,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13510,7 +13511,6 @@
                 "queryPad": 0,
                 "name": "DescribeActivityType",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -13559,6 +13559,7 @@
                 "ctor": "describeDomainResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13651,7 +13652,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDomain",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -13673,6 +13673,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13695,7 +13696,6 @@
                 "queryPad": 0,
                 "name": "DescribeDomain",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -13730,6 +13730,7 @@
                 "ctor": "describeWorkflowExecutionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13903,7 +13904,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "describeWorkflowExecution",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13911,6 +13911,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -13947,7 +13948,6 @@
                 "queryPad": 0,
                 "name": "DescribeWorkflowExecution",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -13996,6 +13996,7 @@
                 "ctor": "describeWorkflowTypeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14084,7 +14085,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "describeWorkflowType",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14092,6 +14092,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14128,7 +14129,6 @@
                 "queryPad": 0,
                 "name": "DescribeWorkflowType",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -14177,6 +14177,7 @@
                 "ctor": "getWorkflowExecutionHistoryResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14273,7 +14274,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "getWorkflowExecutionHistory",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14281,6 +14281,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14317,7 +14318,6 @@
                 "queryPad": 0,
                 "name": "GetWorkflowExecutionHistory",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -14451,6 +14451,7 @@
                 "ctor": "listActivityTypesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14548,7 +14549,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "listActivityTypes",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14556,6 +14556,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14592,7 +14593,6 @@
                 "queryPad": 0,
                 "name": "ListActivityTypes",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -14754,6 +14754,7 @@
                 "ctor": "listClosedWorkflowExecutionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14850,7 +14851,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "listClosedWorkflowExecutions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14858,6 +14858,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14880,7 +14881,6 @@
                 "queryPad": 0,
                 "name": "ListClosedWorkflowExecutions",
                 "query": [],
-                "fs": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -15168,6 +15168,7 @@
                 "ctor": "listDomainsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15265,7 +15266,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "listDomains",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -15273,6 +15273,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15295,7 +15296,6 @@
                 "queryPad": 0,
                 "name": "ListDomains",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -15415,6 +15415,7 @@
                 "ctor": "listOpenWorkflowExecutionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15511,7 +15512,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "listOpenWorkflowExecutions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -15519,6 +15519,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15555,7 +15556,6 @@
                 "queryPad": 0,
                 "name": "ListOpenWorkflowExecutions",
                 "query": [],
-                "fs": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -15773,6 +15773,7 @@
                 "ctor": "listWorkflowTypesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15870,7 +15871,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "listWorkflowTypes",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -15878,6 +15878,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15914,7 +15915,6 @@
                 "queryPad": 0,
                 "name": "ListWorkflowTypes",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -16076,6 +16076,7 @@
                 "ctor": "pollForActivityTaskResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16277,7 +16278,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "pollForActivityTask",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16285,6 +16285,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16321,7 +16322,6 @@
                 "queryPad": 0,
                 "name": "PollForActivityTask",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -16399,6 +16399,7 @@
                 "ctor": "pollForDecisionTaskResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16636,7 +16637,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "pollForDecisionTask",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16644,6 +16644,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16680,7 +16681,6 @@
                 "queryPad": 0,
                 "name": "PollForDecisionTask",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -16859,6 +16859,7 @@
                     "type": "Bool"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16920,7 +16921,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "recordActivityTaskHeartbeat",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16928,6 +16928,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16950,7 +16951,6 @@
                 "queryPad": 0,
                 "name": "RecordActivityTaskHeartbeat",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -17015,6 +17015,7 @@
                 "ctor": "registerActivityTypeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17044,7 +17045,6 @@
                 "style": "json",
                 "fieldPad": 37,
                 "ctor": "registerActivityType",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17052,6 +17052,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17102,7 +17103,6 @@
                 "queryPad": 0,
                 "name": "RegisterActivityType",
                 "query": [],
-                "fs": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -17335,6 +17335,7 @@
                 "ctor": "registerDomainResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17365,7 +17366,6 @@
                 "style": "json",
                 "fieldPad": 41,
                 "ctor": "registerDomain",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17373,6 +17373,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17409,7 +17410,6 @@
                 "queryPad": 0,
                 "name": "RegisterDomain",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -17488,6 +17488,7 @@
                 "ctor": "registerWorkflowTypeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17517,7 +17518,6 @@
                 "style": "json",
                 "fieldPad": 39,
                 "ctor": "registerWorkflowType",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17525,6 +17525,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17575,7 +17576,6 @@
                 "queryPad": 0,
                 "name": "RegisterWorkflowType",
                 "query": [],
-                "fs": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -17780,6 +17780,7 @@
                 "ctor": "requestCancelWorkflowExecutionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17810,7 +17811,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "requestCancelWorkflowExecution",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17818,6 +17818,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17854,7 +17855,6 @@
                 "queryPad": 0,
                 "name": "RequestCancelWorkflowExecution",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -17933,6 +17933,7 @@
                 "ctor": "respondActivityTaskCanceledResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17963,7 +17964,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "respondActivityTaskCanceled",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17971,6 +17971,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17993,7 +17994,6 @@
                 "queryPad": 0,
                 "name": "RespondActivityTaskCanceled",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -18058,6 +18058,7 @@
                 "ctor": "respondActivityTaskCompletedResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18088,7 +18089,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "respondActivityTaskCompleted",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18096,6 +18096,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18118,7 +18119,6 @@
                 "queryPad": 0,
                 "name": "RespondActivityTaskCompleted",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -18183,6 +18183,7 @@
                 "ctor": "respondActivityTaskFailedResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18213,7 +18214,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "respondActivityTaskFailed",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18221,6 +18221,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18243,7 +18244,6 @@
                 "queryPad": 0,
                 "name": "RespondActivityTaskFailed",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18336,6 +18336,7 @@
                 "ctor": "respondDecisionTaskCompletedResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18365,7 +18366,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "respondDecisionTaskCompleted",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18373,6 +18373,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18395,7 +18396,6 @@
                 "queryPad": 0,
                 "name": "RespondDecisionTaskCompleted",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18488,6 +18488,7 @@
                 "ctor": "signalWorkflowExecutionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18518,7 +18519,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "signalWorkflowExecution",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18526,6 +18526,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18576,7 +18577,6 @@
                 "queryPad": 0,
                 "name": "SignalWorkflowExecution",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -18713,6 +18713,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18773,7 +18774,6 @@
                 "style": "json",
                 "fieldPad": 33,
                 "ctor": "startWorkflowExecution",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18781,6 +18781,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18831,7 +18832,6 @@
                 "queryPad": 0,
                 "name": "StartWorkflowExecution",
                 "query": [],
-                "fs": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -19064,6 +19064,7 @@
                 "ctor": "terminateWorkflowExecutionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -19094,7 +19095,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "terminateWorkflowExecution",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -19102,6 +19102,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -19138,7 +19139,6 @@
                 "queryPad": 0,
                 "name": "TerminateWorkflowExecution",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {

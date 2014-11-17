@@ -120,4 +120,13 @@ instance ToPath CreateVpnGateway where
 
 instance ToHeaders CreateVpnGateway
 
-instance ToQuery CreateVpnGateway
+instance ToQuery CreateVpnGateway where
+    toQuery CreateVpnGateway{..} = mconcat
+        [ "dryRun"           =? _cvgDryRun
+        , "Type"             =? _cvgType
+        , "AvailabilityZone" =? _cvgAvailabilityZone
+        ]
+
+instance ToXML CreateVpnGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateVpnGateway"

@@ -89,4 +89,12 @@ instance ToPath ModifySubnetAttribute where
 
 instance ToHeaders ModifySubnetAttribute
 
-instance ToQuery ModifySubnetAttribute
+instance ToQuery ModifySubnetAttribute where
+    toQuery ModifySubnetAttribute{..} = mconcat
+        [ "subnetId"            =? _msaSubnetId
+        , "MapPublicIpOnLaunch" =? _msaMapPublicIpOnLaunch
+        ]
+
+instance ToXML ModifySubnetAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifySubnetAttribute"

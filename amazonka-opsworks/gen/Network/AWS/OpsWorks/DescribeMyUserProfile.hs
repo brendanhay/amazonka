@@ -85,4 +85,8 @@ instance ToPath DescribeMyUserProfile where
 
 instance ToHeaders DescribeMyUserProfile
 
-instance ToQuery DescribeMyUserProfile
+instance ToQuery DescribeMyUserProfile where
+    toQuery = const mempty
+
+instance ToJSON DescribeMyUserProfile where
+    toJSON = genericToJSON jsonOptions

@@ -341,6 +341,7 @@
                 "ctor": "assumeRoleResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -465,6 +466,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -726,6 +728,7 @@
                 "ctor": "assumeRoleWithSAMLResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -990,6 +993,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1185,6 +1189,7 @@
                 "ctor": "assumeRoleWithWebIdentityResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1393,6 +1398,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1638,6 +1644,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1723,6 +1730,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1785,6 +1793,7 @@
                 "ctor": "getFederationTokenResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1909,6 +1918,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2053,6 +2063,7 @@
                     "type": "Maybe Credentials"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2121,6 +2132,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,

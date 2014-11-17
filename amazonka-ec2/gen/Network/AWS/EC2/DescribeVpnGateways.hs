@@ -140,4 +140,13 @@ instance ToPath DescribeVpnGateways where
 
 instance ToHeaders DescribeVpnGateways
 
-instance ToQuery DescribeVpnGateways
+instance ToQuery DescribeVpnGateways where
+    toQuery DescribeVpnGateways{..} = mconcat
+        [ "dryRun"       =? _dvg2DryRun
+        , "VpnGatewayId" =? _dvg2VpnGatewayIds
+        , "Filter"       =? _dvg2Filters
+        ]
+
+instance ToXML DescribeVpnGateways where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVpnGateways"

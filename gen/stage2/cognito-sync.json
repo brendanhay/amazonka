@@ -1049,6 +1049,7 @@
                     "type": "Maybe Dataset"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1110,7 +1111,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "deleteDataset",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1138,6 +1138,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1188,7 +1189,6 @@
                 "queryPad": 0,
                 "name": "DeleteDataset",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1266,6 +1266,7 @@
                     "type": "Maybe Dataset"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1327,7 +1328,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "describeDataset",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1355,6 +1355,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1405,7 +1406,6 @@
                 "queryPad": 0,
                 "name": "DescribeDataset",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1483,6 +1483,7 @@
                     "type": "Maybe IdentityPoolUsage"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1547,7 +1548,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeIdentityPoolUsage",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1573,6 +1573,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1595,7 +1596,6 @@
                 "queryPad": 0,
                 "name": "DescribeIdentityPoolUsage",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1645,6 +1645,7 @@
                     "type": "Maybe IdentityUsage"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1706,7 +1707,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "describeIdentityUsage",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1726,6 +1726,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1762,7 +1763,6 @@
                 "queryPad": 0,
                 "name": "DescribeIdentityUsage",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1811,6 +1811,7 @@
                 "ctor": "getIdentityPoolConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1903,7 +1904,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getIdentityPoolConfiguration",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1933,6 +1933,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1955,7 +1956,6 @@
                 "queryPad": 0,
                 "name": "GetIdentityPoolConfiguration",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1990,6 +1990,7 @@
                 "ctor": "listDatasetsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2107,7 +2108,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "listDatasets",
-                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2131,6 +2131,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -2178,7 +2179,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -2284,6 +2284,7 @@
                 "ctor": "listIdentityPoolUsageResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2426,7 +2427,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "listIdentityPoolUsage",
                 "headerPad": 0,
@@ -2436,6 +2437,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2531,6 +2533,7 @@
                 "ctor": "listRecordsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2816,7 +2819,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "listRecords",
-                "qs": 4,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2848,6 +2850,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -2919,7 +2922,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -3112,6 +3114,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3173,7 +3176,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "registerDevice",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3197,6 +3199,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -3261,7 +3264,6 @@
                 "queryPad": 0,
                 "name": "RegisterDevice",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3338,6 +3340,7 @@
                 "ctor": "setIdentityPoolConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3426,7 +3429,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "setIdentityPoolConfiguration",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3442,6 +3444,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -3464,7 +3467,6 @@
                 "queryPad": 0,
                 "name": "SetIdentityPoolConfiguration",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3529,6 +3531,7 @@
                 "ctor": "subscribeToDatasetResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3559,7 +3562,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "subscribeToDataset",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3595,6 +3597,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -3659,7 +3662,6 @@
                 "queryPad": 0,
                 "name": "SubscribeToDataset",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3737,6 +3739,7 @@
                 "ctor": "unsubscribeFromDatasetResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3767,7 +3770,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "unsubscribeFromDataset",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3803,6 +3805,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -3867,7 +3870,6 @@
                 "queryPad": 0,
                 "name": "UnsubscribeFromDataset",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3961,6 +3963,7 @@
                     "type": "[Record]"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4021,7 +4024,6 @@
                 "style": "json-headers",
                 "fieldPad": 19,
                 "ctor": "updateRecords",
-                "qs": 0,
                 "headerPad": 21,
                 "path": [
                     {
@@ -4049,6 +4051,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -4119,7 +4122,6 @@
                 "queryPad": 0,
                 "name": "UpdateRecords",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {

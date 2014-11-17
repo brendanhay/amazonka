@@ -101,4 +101,13 @@ instance ToPath ResetSnapshotAttribute where
 
 instance ToHeaders ResetSnapshotAttribute
 
-instance ToQuery ResetSnapshotAttribute
+instance ToQuery ResetSnapshotAttribute where
+    toQuery ResetSnapshotAttribute{..} = mconcat
+        [ "dryRun"     =? _rsaDryRun
+        , "SnapshotId" =? _rsaSnapshotId
+        , "Attribute"  =? _rsaAttribute
+        ]
+
+instance ToXML ResetSnapshotAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResetSnapshotAttribute"

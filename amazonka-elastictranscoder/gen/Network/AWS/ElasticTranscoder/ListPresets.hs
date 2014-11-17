@@ -122,4 +122,11 @@ instance ToPath ListPresets where
 
 instance ToHeaders ListPresets
 
-instance ToQuery ListPresets
+instance ToQuery ListPresets where
+    toQuery ListPresets{..} = mconcat
+        [ "Ascending" =? _lp1Ascending
+        , "PageToken" =? _lp1PageToken
+        ]
+
+instance ToJSON ListPresets where
+    toJSON = genericToJSON jsonOptions

@@ -138,4 +138,15 @@ instance ToPath ImportVolume where
 
 instance ToHeaders ImportVolume
 
-instance ToQuery ImportVolume
+instance ToQuery ImportVolume where
+    toQuery ImportVolume{..} = mconcat
+        [ "dryRun"           =? _ivDryRun
+        , "availabilityZone" =? _ivAvailabilityZone
+        , "image"            =? _ivImage
+        , "description"      =? _ivDescription
+        , "volume"           =? _ivVolume
+        ]
+
+instance ToXML ImportVolume where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ImportVolume"

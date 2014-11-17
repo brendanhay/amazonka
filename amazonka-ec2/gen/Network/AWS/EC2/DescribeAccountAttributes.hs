@@ -113,4 +113,12 @@ instance ToPath DescribeAccountAttributes where
 
 instance ToHeaders DescribeAccountAttributes
 
-instance ToQuery DescribeAccountAttributes
+instance ToQuery DescribeAccountAttributes where
+    toQuery DescribeAccountAttributes{..} = mconcat
+        [ "dryRun"        =? _daaDryRun
+        , "attributeName" =? _daaAttributeNames
+        ]
+
+instance ToXML DescribeAccountAttributes where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeAccountAttributes"

@@ -179,4 +179,19 @@ instance ToPath AuthorizeSecurityGroupEgress where
 
 instance ToHeaders AuthorizeSecurityGroupEgress
 
-instance ToQuery AuthorizeSecurityGroupEgress
+instance ToQuery AuthorizeSecurityGroupEgress where
+    toQuery AuthorizeSecurityGroupEgress{..} = mconcat
+        [ "dryRun"                     =? _asgeDryRun
+        , "groupId"                    =? _asgeGroupId
+        , "sourceSecurityGroupName"    =? _asgeSourceSecurityGroupName
+        , "sourceSecurityGroupOwnerId" =? _asgeSourceSecurityGroupOwnerId
+        , "ipProtocol"                 =? _asgeIpProtocol
+        , "fromPort"                   =? _asgeFromPort
+        , "toPort"                     =? _asgeToPort
+        , "cidrIp"                     =? _asgeCidrIp
+        , "ipPermissions"              =? _asgeIpPermissions
+        ]
+
+instance ToXML AuthorizeSecurityGroupEgress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AuthorizeSecurityGroupEgress"

@@ -121,4 +121,11 @@ instance ToPath ListPipelines where
 
 instance ToHeaders ListPipelines
 
-instance ToQuery ListPipelines
+instance ToQuery ListPipelines where
+    toQuery ListPipelines{..} = mconcat
+        [ "Ascending" =? _lpAscending
+        , "PageToken" =? _lpPageToken
+        ]
+
+instance ToJSON ListPipelines where
+    toJSON = genericToJSON jsonOptions

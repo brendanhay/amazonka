@@ -93,4 +93,8 @@ instance ToPath DescribeVirtualGateways where
 
 instance ToHeaders DescribeVirtualGateways
 
-instance ToQuery DescribeVirtualGateways
+instance ToQuery DescribeVirtualGateways where
+    toQuery = const mempty
+
+instance ToJSON DescribeVirtualGateways where
+    toJSON = genericToJSON jsonOptions

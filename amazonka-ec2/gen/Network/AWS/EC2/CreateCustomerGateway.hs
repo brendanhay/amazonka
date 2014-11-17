@@ -140,4 +140,14 @@ instance ToPath CreateCustomerGateway where
 
 instance ToHeaders CreateCustomerGateway
 
-instance ToQuery CreateCustomerGateway
+instance ToQuery CreateCustomerGateway where
+    toQuery CreateCustomerGateway{..} = mconcat
+        [ "dryRun"    =? _ccgDryRun
+        , "Type"      =? _ccgType
+        , "IpAddress" =? _ccgPublicIp
+        , "BgpAsn"    =? _ccgBgpAsn
+        ]
+
+instance ToXML CreateCustomerGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateCustomerGateway"

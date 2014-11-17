@@ -113,4 +113,12 @@ instance ToPath ListCloudFrontOriginAccessIdentities where
 
 instance ToHeaders ListCloudFrontOriginAccessIdentities
 
-instance ToQuery ListCloudFrontOriginAccessIdentities
+instance ToQuery ListCloudFrontOriginAccessIdentities where
+    toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
+        [ "Marker"   =? _lcfoaiMarker
+        , "MaxItems" =? _lcfoaiMaxItems
+        ]
+
+instance ToXML ListCloudFrontOriginAccessIdentities where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentities"

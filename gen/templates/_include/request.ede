@@ -8,6 +8,16 @@ instance ToQuery {{ request.name }}
 {% endcase %}
 {% case request.style %}
 {% when "nullary" %}
+  {% case request.protocol %}
+  {% when "json" %}
+    {% include "json-to.ede" with type = request %}
+  {% when "rest-json" %}
+    {% include "json-to.ede" with type = request %}
+  {% when "xml" %}
+    {% include "xml-to.ede"  with type = request %}
+  {% when "rest-xml" %}
+    {% include "xml-to.ede"  with type = request %}
+  {% endcase %}
 {% when "body" %}
   {% include "body.ede" %}
 {% when "body-headers" %}
@@ -17,7 +27,7 @@ instance ToQuery {{ request.name }}
 {% when "json-headers" %}
   {% include "json-to.ede" with type = request %}
 {% when "xml" %}
-  {% include "xml-to.ede" with type = request %}
+  {% include "xml-to.ede"  with type = request %}
 {% when "xml-headers" %}
-  {% include "xml-to.ede" with type = request %}
+  {% include "xml-to.ede"  with type = request %}
 {% endcase %}

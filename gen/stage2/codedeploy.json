@@ -2786,6 +2786,7 @@
                     "type": "[ApplicationInfo]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2850,7 +2851,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "batchGetApplications",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2872,6 +2872,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2879,7 +2880,6 @@
                 "queryPad": 0,
                 "name": "BatchGetApplications",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2946,6 +2946,7 @@
                     "type": "[DeploymentInfo]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3010,7 +3011,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "batchGetDeployments",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3032,6 +3032,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3039,7 +3040,6 @@
                 "queryPad": 0,
                 "name": "BatchGetDeployments",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -3106,6 +3106,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3170,7 +3171,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "createApplication",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3192,6 +3192,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3214,7 +3215,6 @@
                 "queryPad": 0,
                 "name": "CreateApplication",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3266,6 +3266,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3326,7 +3327,6 @@
                 "style": "json",
                 "fieldPad": 32,
                 "ctor": "createDeployment",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3334,6 +3334,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3356,7 +3357,6 @@
                 "queryPad": 0,
                 "name": "CreateDeployment",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -3549,6 +3549,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3609,7 +3610,6 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "createDeploymentConfig",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3617,6 +3617,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3639,7 +3640,6 @@
                 "queryPad": 0,
                 "name": "CreateDeploymentConfig",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3720,6 +3720,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3780,7 +3781,6 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "createDeploymentGroup",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3788,6 +3788,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3824,7 +3825,6 @@
                 "queryPad": 0,
                 "name": "CreateDeploymentGroup",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -3987,6 +3987,7 @@
                 "ctor": "deleteApplicationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4020,7 +4021,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteApplication",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4042,6 +4042,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4064,7 +4065,6 @@
                 "queryPad": 0,
                 "name": "DeleteApplication",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4100,6 +4100,7 @@
                 "ctor": "deleteDeploymentConfigResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4133,7 +4134,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteDeploymentConfig",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4155,6 +4155,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4177,7 +4178,6 @@
                 "queryPad": 0,
                 "name": "DeleteDeploymentConfig",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4229,6 +4229,7 @@
                     "type": "[AutoScalingGroup]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4290,7 +4291,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "deleteDeploymentGroup",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4298,6 +4298,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4334,7 +4335,6 @@
                 "queryPad": 0,
                 "name": "DeleteDeploymentGroup",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4398,6 +4398,7 @@
                     "type": "Maybe ApplicationInfo"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4462,7 +4463,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getApplication",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4484,6 +4484,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4506,7 +4507,6 @@
                 "queryPad": 0,
                 "name": "GetApplication",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4541,6 +4541,7 @@
                 "ctor": "getApplicationRevisionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4657,7 +4658,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "getApplicationRevision",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4665,6 +4665,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4701,7 +4702,6 @@
                 "queryPad": 0,
                 "name": "GetApplicationRevision",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4765,6 +4765,7 @@
                     "type": "Maybe DeploymentInfo"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4829,7 +4830,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getDeployment",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4851,6 +4851,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4873,7 +4874,6 @@
                 "queryPad": 0,
                 "name": "GetDeployment",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4923,6 +4923,7 @@
                     "type": "Maybe DeploymentConfigInfo"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4987,7 +4988,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getDeploymentConfig",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -5009,6 +5009,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5031,7 +5032,6 @@
                 "queryPad": 0,
                 "name": "GetDeploymentConfig",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5081,6 +5081,7 @@
                     "type": "Maybe DeploymentGroupInfo"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5142,7 +5143,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "getDeploymentGroup",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5150,6 +5150,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5186,7 +5187,6 @@
                 "queryPad": 0,
                 "name": "GetDeploymentGroup",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5250,6 +5250,7 @@
                     "type": "Maybe InstanceSummary"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5311,7 +5312,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "getDeploymentInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5319,6 +5319,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5355,7 +5356,6 @@
                 "queryPad": 0,
                 "name": "GetDeploymentInstance",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5404,6 +5404,7 @@
                 "ctor": "listApplicationRevisionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5493,7 +5494,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "listApplicationRevisions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5501,6 +5501,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5523,7 +5524,6 @@
                 "queryPad": 0,
                 "name": "ListApplicationRevisions",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -5728,6 +5728,7 @@
                 "ctor": "listApplicationsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5819,7 +5820,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "listApplications",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -5841,6 +5841,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5848,7 +5849,6 @@
                 "queryPad": 0,
                 "name": "ListApplications",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -5899,6 +5899,7 @@
                 "ctor": "listDeploymentConfigsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5990,7 +5991,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "listDeploymentConfigs",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6012,6 +6012,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6019,7 +6020,6 @@
                 "queryPad": 0,
                 "name": "ListDeploymentConfigs",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -6070,6 +6070,7 @@
                 "ctor": "listDeploymentGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6187,7 +6188,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "listDeploymentGroups",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6195,6 +6195,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6217,7 +6218,6 @@
                 "queryPad": 0,
                 "name": "ListDeploymentGroups",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6282,6 +6282,7 @@
                 "ctor": "listDeploymentInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6371,7 +6372,6 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "listDeploymentInstances",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6379,6 +6379,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6401,7 +6402,6 @@
                 "queryPad": 0,
                 "name": "ListDeploymentInstances",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -6494,6 +6494,7 @@
                 "ctor": "listDeploymentsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6582,7 +6583,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "listDeployments",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6590,6 +6590,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6597,7 +6598,6 @@
                 "queryPad": 0,
                 "name": "ListDeployments",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -6760,6 +6760,7 @@
                 "ctor": "registerApplicationRevisionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6789,7 +6790,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "registerApplicationRevision",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6797,6 +6797,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6833,7 +6834,6 @@
                 "queryPad": 0,
                 "name": "RegisterApplicationRevision",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -6912,6 +6912,7 @@
                 "ctor": "stopDeploymentResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7004,7 +7005,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopDeployment",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -7026,6 +7026,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7048,7 +7049,6 @@
                 "queryPad": 0,
                 "name": "StopDeployment",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7084,6 +7084,7 @@
                 "ctor": "updateApplicationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7114,7 +7115,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "updateApplication",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7122,6 +7122,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7129,7 +7130,6 @@
                 "queryPad": 0,
                 "name": "UpdateApplication",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7224,6 +7224,7 @@
                     "type": "[AutoScalingGroup]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7284,7 +7285,6 @@
                 "style": "json",
                 "fieldPad": 30,
                 "ctor": "updateDeploymentGroup",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7292,6 +7292,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7328,7 +7329,6 @@
                 "queryPad": 0,
                 "name": "UpdateDeploymentGroup",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {

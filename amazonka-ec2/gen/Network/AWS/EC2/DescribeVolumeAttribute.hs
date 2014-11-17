@@ -136,4 +136,13 @@ instance ToPath DescribeVolumeAttribute where
 
 instance ToHeaders DescribeVolumeAttribute
 
-instance ToQuery DescribeVolumeAttribute
+instance ToQuery DescribeVolumeAttribute where
+    toQuery DescribeVolumeAttribute{..} = mconcat
+        [ "dryRun"    =? _dvaDryRun
+        , "VolumeId"  =? _dvaVolumeId
+        , "Attribute" =? _dvaAttribute
+        ]
+
+instance ToXML DescribeVolumeAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVolumeAttribute"

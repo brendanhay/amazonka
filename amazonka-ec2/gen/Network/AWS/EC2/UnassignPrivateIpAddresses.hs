@@ -94,4 +94,12 @@ instance ToPath UnassignPrivateIpAddresses where
 
 instance ToHeaders UnassignPrivateIpAddresses
 
-instance ToQuery UnassignPrivateIpAddresses
+instance ToQuery UnassignPrivateIpAddresses where
+    toQuery UnassignPrivateIpAddresses{..} = mconcat
+        [ "networkInterfaceId" =? _upiaNetworkInterfaceId
+        , "privateIpAddress"   =? _upiaPrivateIpAddresses
+        ]
+
+instance ToXML UnassignPrivateIpAddresses where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UnassignPrivateIpAddresses"

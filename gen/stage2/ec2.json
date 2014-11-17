@@ -21819,6 +21819,7 @@
                     "type": "Maybe VpcPeeringConnection"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -21877,7 +21878,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 27,
                 "ctor": "acceptVpcPeeringConnection",
                 "headerPad": 0,
@@ -21887,6 +21888,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -21983,6 +21985,7 @@
                 "ctor": "allocateAddressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -22097,7 +22100,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 9,
                 "ctor": "allocateAddress",
                 "headerPad": 0,
@@ -22107,6 +22110,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -22203,6 +22207,7 @@
                 "ctor": "assignPrivateIpAddressesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -22230,7 +22235,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 35,
                 "ctor": "assignPrivateIpAddresses",
                 "headerPad": 0,
@@ -22240,6 +22245,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -22419,6 +22425,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -22477,7 +22484,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "associateAddress",
                 "headerPad": 0,
@@ -22487,6 +22494,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -22748,6 +22756,7 @@
                 "ctor": "associateDhcpOptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -22775,7 +22784,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "associateDhcpOptions",
                 "headerPad": 0,
@@ -22785,6 +22794,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -22931,6 +22941,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -22989,7 +23000,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "associateRouteTable",
                 "headerPad": 0,
@@ -22999,6 +23010,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -23129,6 +23141,7 @@
                 "ctor": "attachInternetGatewayResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -23156,7 +23169,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "attachInternetGateway",
                 "headerPad": 0,
@@ -23166,6 +23179,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -23312,6 +23326,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -23370,7 +23385,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "attachNetworkInterface",
                 "headerPad": 0,
@@ -23380,6 +23395,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -23543,6 +23559,7 @@
                 "ctor": "attachVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -23741,7 +23758,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "attachVolume",
                 "headerPad": 0,
@@ -23751,6 +23768,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -23928,6 +23946,7 @@
                     "type": "Maybe VpcAttachment"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -23986,7 +24005,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "attachVpnGateway",
                 "headerPad": 0,
@@ -23996,6 +24015,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -24126,6 +24146,7 @@
                 "ctor": "authorizeSecurityGroupEgressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -24152,7 +24173,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 31,
                 "ctor": "authorizeSecurityGroupEgress",
                 "headerPad": 0,
@@ -24162,6 +24183,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -24490,6 +24512,7 @@
                 "ctor": "authorizeSecurityGroupIngressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -24516,7 +24539,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 31,
                 "ctor": "authorizeSecurityGroupIngress",
                 "headerPad": 0,
@@ -24526,6 +24549,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -24900,6 +24924,7 @@
                     "type": "Maybe BundleTask"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -24957,7 +24982,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "bundleInstance",
                 "headerPad": 0,
@@ -24967,6 +24992,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -25111,6 +25137,7 @@
                     "type": "Maybe BundleTask"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -25169,7 +25196,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "cancelBundleTask",
                 "headerPad": 0,
@@ -25179,6 +25206,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -25276,6 +25304,7 @@
                 "ctor": "cancelConversionTaskResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -25303,7 +25332,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "cancelConversionTask",
                 "headerPad": 0,
@@ -25313,6 +25342,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -25443,6 +25473,7 @@
                 "ctor": "cancelExportTaskResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -25473,7 +25504,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "cancelExportTask",
                 "headerPad": 0,
@@ -25497,6 +25528,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -25576,6 +25608,7 @@
                     "type": "[ReservedInstancesListing]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -25637,7 +25670,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "cancelReservedInstancesListing",
                 "headerPad": 0,
@@ -25661,6 +25694,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -25740,6 +25774,7 @@
                     "type": "[CancelledSpotInstanceRequest]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -25798,7 +25833,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 27,
                 "ctor": "cancelSpotInstanceRequests",
                 "headerPad": 0,
@@ -25808,6 +25843,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -25920,6 +25956,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -25978,7 +26015,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "confirmProductInstance",
                 "headerPad": 0,
@@ -25988,6 +26025,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -26134,6 +26172,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -26192,7 +26231,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "copyImage",
                 "headerPad": 0,
@@ -26202,6 +26241,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -26447,6 +26487,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -26505,7 +26546,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "copySnapshot",
                 "headerPad": 0,
@@ -26515,6 +26556,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -26758,6 +26800,7 @@
                     "type": "Maybe CustomerGateway"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -26816,7 +26859,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "createCustomerGateway",
                 "headerPad": 0,
@@ -26826,6 +26869,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -27003,6 +27047,7 @@
                     "type": "Maybe DhcpOptions"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27060,7 +27105,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "createDhcpOptions",
                 "headerPad": 0,
@@ -27070,6 +27115,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27182,6 +27228,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27239,7 +27286,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "createImage",
                 "headerPad": 0,
@@ -27249,6 +27296,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -27492,6 +27540,7 @@
                     "type": "Maybe ExportTask"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27549,7 +27598,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "createInstanceExportTask",
                 "headerPad": 0,
@@ -27559,6 +27608,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -27736,6 +27786,7 @@
                     "type": "Maybe InternetGateway"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27795,7 +27846,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createInternetGateway",
                 "headerPad": 0,
@@ -27819,6 +27870,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27882,6 +27934,7 @@
                 "ctor": "createKeyPairResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -27996,7 +28049,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 11,
                 "ctor": "createKeyPair",
                 "headerPad": 0,
@@ -28006,6 +28059,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -28117,6 +28171,7 @@
                     "type": "Maybe NetworkAcl"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -28175,7 +28230,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 10,
                 "ctor": "createNetworkAcl",
                 "headerPad": 0,
@@ -28185,6 +28240,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -28282,6 +28338,7 @@
                 "ctor": "createNetworkAclEntryResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -28308,7 +28365,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "createNetworkAclEntry",
                 "headerPad": 0,
@@ -28318,6 +28375,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -28660,6 +28718,7 @@
                     "type": "Maybe NetworkInterface"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -28717,7 +28776,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 34,
                 "ctor": "createNetworkInterface",
                 "headerPad": 0,
@@ -28727,6 +28786,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -28989,6 +29049,7 @@
                 "ctor": "createPlacementGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -29016,7 +29077,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "createPlacementGroup",
                 "headerPad": 0,
@@ -29026,6 +29087,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -29172,6 +29234,7 @@
                     "type": "[ReservedInstancesListing]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -29229,7 +29292,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "createReservedInstancesListing",
                 "headerPad": 0,
@@ -29239,6 +29302,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -29402,6 +29466,7 @@
                 "ctor": "createRouteResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -29429,7 +29494,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 25,
                 "ctor": "createRoute",
                 "headerPad": 0,
@@ -29439,6 +29504,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -29715,6 +29781,7 @@
                     "type": "Maybe RouteTable"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -29773,7 +29840,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 10,
                 "ctor": "createRouteTable",
                 "headerPad": 0,
@@ -29783,6 +29850,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -29896,6 +29964,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -29954,7 +30023,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "createSecurityGroup",
                 "headerPad": 0,
@@ -29964,6 +30033,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -30126,6 +30196,7 @@
                 "ctor": "createSnapshotResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -30464,7 +30535,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "createSnapshot",
                 "headerPad": 0,
@@ -30474,6 +30545,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -30618,6 +30690,7 @@
                     "type": "Maybe SpotDatafeedSubscription"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -30676,7 +30749,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 11,
                 "ctor": "createSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -30686,6 +30759,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -30830,6 +30904,7 @@
                     "type": "Maybe Subnet"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -30888,7 +30963,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createSubnet",
                 "headerPad": 0,
@@ -30898,6 +30973,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -31061,6 +31137,7 @@
                 "ctor": "createTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -31087,7 +31164,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "createTags",
                 "headerPad": 0,
@@ -31097,6 +31174,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -31225,6 +31303,7 @@
                 "ctor": "createVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -31563,7 +31642,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createVolume",
                 "headerPad": 0,
@@ -31573,6 +31652,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -31849,6 +31929,7 @@
                     "type": "Maybe Vpc"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -31907,7 +31988,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "createVpc",
                 "headerPad": 0,
@@ -31917,6 +31998,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -32061,6 +32143,7 @@
                     "type": "Maybe VpcPeeringConnection"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -32119,7 +32202,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "createVpcPeeringConnection",
                 "headerPad": 0,
@@ -32129,6 +32212,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -32305,6 +32389,7 @@
                     "type": "Maybe VpnConnection"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -32362,7 +32447,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "createVpnConnection",
                 "headerPad": 0,
@@ -32372,6 +32457,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -32568,6 +32654,7 @@
                 "ctor": "createVpnConnectionRouteResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -32595,7 +32682,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 25,
                 "ctor": "createVpnConnectionRoute",
                 "headerPad": 0,
@@ -32605,6 +32692,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -32715,6 +32803,7 @@
                     "type": "Maybe VpnGateway"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -32773,7 +32862,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createVpnGateway",
                 "headerPad": 0,
@@ -32783,6 +32872,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -32913,6 +33003,7 @@
                 "ctor": "deleteCustomerGatewayResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -32940,7 +33031,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "deleteCustomerGateway",
                 "headerPad": 0,
@@ -32950,6 +33041,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33047,6 +33139,7 @@
                 "ctor": "deleteDhcpOptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33074,7 +33167,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "deleteDhcpOptions",
                 "headerPad": 0,
@@ -33084,6 +33177,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33181,6 +33275,7 @@
                 "ctor": "deleteInternetGatewayResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33208,7 +33303,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "deleteInternetGateway",
                 "headerPad": 0,
@@ -33218,6 +33313,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33315,6 +33411,7 @@
                 "ctor": "deleteKeyPairResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33342,7 +33439,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 11,
                 "ctor": "deleteKeyPair",
                 "headerPad": 0,
@@ -33352,6 +33449,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33449,6 +33547,7 @@
                 "ctor": "deleteNetworkAclResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33476,7 +33575,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "deleteNetworkAcl",
                 "headerPad": 0,
@@ -33486,6 +33585,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33583,6 +33683,7 @@
                 "ctor": "deleteNetworkAclEntryResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33610,7 +33711,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "deleteNetworkAclEntry",
                 "headerPad": 0,
@@ -33620,6 +33721,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33783,6 +33885,7 @@
                 "ctor": "deleteNetworkInterfaceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33810,7 +33913,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "deleteNetworkInterface",
                 "headerPad": 0,
@@ -33820,6 +33923,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -33917,6 +34021,7 @@
                 "ctor": "deletePlacementGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -33944,7 +34049,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "deletePlacementGroup",
                 "headerPad": 0,
@@ -33954,6 +34059,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -34051,6 +34157,7 @@
                 "ctor": "deleteRouteResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34078,7 +34185,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "deleteRoute",
                 "headerPad": 0,
@@ -34088,6 +34195,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -34218,6 +34326,7 @@
                 "ctor": "deleteRouteTableResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34245,7 +34354,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "deleteRouteTable",
                 "headerPad": 0,
@@ -34255,6 +34364,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -34352,6 +34462,7 @@
                 "ctor": "deleteSecurityGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34379,7 +34490,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "deleteSecurityGroup",
                 "headerPad": 0,
@@ -34389,6 +34500,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -34518,6 +34630,7 @@
                 "ctor": "deleteSnapshotResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34545,7 +34658,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "deleteSnapshot",
                 "headerPad": 0,
@@ -34555,6 +34668,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -34652,6 +34766,7 @@
                 "ctor": "deleteSpotDatafeedSubscriptionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34680,7 +34795,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -34704,6 +34819,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -34767,6 +34883,7 @@
                 "ctor": "deleteSubnetResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34794,7 +34911,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "deleteSubnet",
                 "headerPad": 0,
@@ -34804,6 +34921,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -34901,6 +35019,7 @@
                 "ctor": "deleteTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -34927,7 +35046,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "deleteTags",
                 "headerPad": 0,
@@ -34937,6 +35056,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -35066,6 +35186,7 @@
                 "ctor": "deleteVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -35093,7 +35214,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "deleteVolume",
                 "headerPad": 0,
@@ -35103,6 +35224,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -35200,6 +35322,7 @@
                 "ctor": "deleteVpcResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -35227,7 +35350,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 10,
                 "ctor": "deleteVpc",
                 "headerPad": 0,
@@ -35237,6 +35360,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -35349,6 +35473,7 @@
                     "type": "Maybe Bool"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -35407,7 +35532,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 27,
                 "ctor": "deleteVpcPeeringConnection",
                 "headerPad": 0,
@@ -35417,6 +35542,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -35514,6 +35640,7 @@
                 "ctor": "deleteVpnConnectionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -35541,7 +35668,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "deleteVpnConnection",
                 "headerPad": 0,
@@ -35551,6 +35678,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -35648,6 +35776,7 @@
                 "ctor": "deleteVpnConnectionRouteResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -35675,7 +35804,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 25,
                 "ctor": "deleteVpnConnectionRoute",
                 "headerPad": 0,
@@ -35685,6 +35814,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -35781,6 +35911,7 @@
                 "ctor": "deleteVpnGatewayResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -35808,7 +35939,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "deleteVpnGateway",
                 "headerPad": 0,
@@ -35818,6 +35949,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -35915,6 +36047,7 @@
                 "ctor": "deregisterImageResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -35942,7 +36075,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 10,
                 "ctor": "deregisterImage",
                 "headerPad": 0,
@@ -35952,6 +36085,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -36065,6 +36199,7 @@
                     "type": "[AccountAttribute]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36123,7 +36258,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "describeAccountAttributes",
                 "headerPad": 0,
@@ -36133,6 +36268,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36245,6 +36381,7 @@
                     "type": "[Address]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36302,7 +36439,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "describeAddresses",
                 "headerPad": 0,
@@ -36312,6 +36449,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36490,6 +36628,7 @@
                     "type": "[AvailabilityZone]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36547,7 +36686,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "describeAvailabilityZones",
                 "headerPad": 0,
@@ -36557,6 +36696,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36702,6 +36842,7 @@
                     "type": "[BundleTask]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36759,7 +36900,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "describeBundleTasks",
                 "headerPad": 0,
@@ -36769,6 +36910,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36914,6 +37056,7 @@
                     "type": "[ConversionTask]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -36971,7 +37114,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "describeConversionTasks",
                 "headerPad": 0,
@@ -36981,6 +37124,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37126,6 +37270,7 @@
                     "type": "[CustomerGateway]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37183,7 +37328,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "describeCustomerGateways",
                 "headerPad": 0,
@@ -37193,6 +37338,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37338,6 +37484,7 @@
                     "type": "[DhcpOptions]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37395,7 +37542,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "describeDhcpOptions",
                 "headerPad": 0,
@@ -37405,6 +37552,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37550,6 +37698,7 @@
                     "type": "[ExportTask]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37611,7 +37760,7 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "describeExportTasks",
                 "headerPad": 0,
@@ -37635,6 +37784,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37697,6 +37847,7 @@
                 "ctor": "describeImageAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -37951,7 +38102,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "describeImageAttribute",
                 "headerPad": 0,
@@ -37961,6 +38112,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -38107,6 +38259,7 @@
                     "type": "[Image]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -38164,7 +38317,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "describeImages",
                 "headerPad": 0,
@@ -38174,6 +38327,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -38368,6 +38522,7 @@
                 "ctor": "describeInstanceAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -38790,7 +38945,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "describeInstanceAttribute",
                 "headerPad": 0,
@@ -38800,6 +38955,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -38929,6 +39085,7 @@
                 "ctor": "describeInstanceStatusResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39022,7 +39179,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "describeInstanceStatus",
                 "headerPad": 0,
@@ -39032,6 +39189,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39259,6 +39417,7 @@
                 "ctor": "describeInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39352,7 +39511,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "describeInstances",
                 "headerPad": 0,
@@ -39362,6 +39521,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39573,6 +39733,7 @@
                     "type": "[InternetGateway]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39630,7 +39791,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "describeInternetGateways",
                 "headerPad": 0,
@@ -39640,6 +39801,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39785,6 +39947,7 @@
                     "type": "[KeyPairInfo]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39842,7 +40005,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "describeKeyPairs",
                 "headerPad": 0,
@@ -39852,6 +40015,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -39997,6 +40161,7 @@
                     "type": "[NetworkAcl]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40054,7 +40219,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "describeNetworkAcls",
                 "headerPad": 0,
@@ -40064,6 +40229,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40192,6 +40358,7 @@
                 "ctor": "describeNetworkInterfaceAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40362,7 +40529,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "describeNetworkInterfaceAttribute",
                 "headerPad": 0,
@@ -40372,6 +40539,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -40518,6 +40686,7 @@
                     "type": "[NetworkInterface]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40575,7 +40744,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "describeNetworkInterfaces",
                 "headerPad": 0,
@@ -40585,6 +40754,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40730,6 +40900,7 @@
                     "type": "[PlacementGroup]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40787,7 +40958,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "describePlacementGroups",
                 "headerPad": 0,
@@ -40797,6 +40968,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40942,6 +41114,7 @@
                     "type": "[Region]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -40999,7 +41172,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "describeRegions",
                 "headerPad": 0,
@@ -41009,6 +41182,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41154,6 +41328,7 @@
                     "type": "[ReservedInstances]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41211,7 +41386,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "describeReservedInstances",
                 "headerPad": 0,
@@ -41221,6 +41396,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41399,6 +41575,7 @@
                     "type": "[ReservedInstancesListing]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41456,7 +41633,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 31,
                 "ctor": "describeReservedInstancesListings",
                 "headerPad": 0,
@@ -41466,6 +41643,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41594,6 +41772,7 @@
                 "ctor": "describeReservedInstancesModificationsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41687,7 +41866,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 37,
                 "ctor": "describeReservedInstancesModifications",
                 "headerPad": 0,
@@ -41697,6 +41876,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41825,6 +42005,7 @@
                 "ctor": "describeReservedInstancesOfferingsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -41918,7 +42099,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 33,
                 "ctor": "describeReservedInstancesOfferings",
                 "headerPad": 0,
@@ -41928,6 +42109,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -42436,6 +42618,7 @@
                     "type": "[RouteTable]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -42493,7 +42676,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "describeRouteTables",
                 "headerPad": 0,
@@ -42503,6 +42686,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -42648,6 +42832,7 @@
                     "type": "[SecurityGroup]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -42705,7 +42890,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "describeSecurityGroups",
                 "headerPad": 0,
@@ -42715,6 +42900,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -42876,6 +43062,7 @@
                 "ctor": "describeSnapshotAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -42990,7 +43177,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "describeSnapshotAttribute",
                 "headerPad": 0,
@@ -43000,6 +43187,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -43146,6 +43334,7 @@
                     "type": "[Snapshot]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43203,7 +43392,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "describeSnapshots",
                 "headerPad": 0,
@@ -43213,6 +43402,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43422,6 +43612,7 @@
                     "type": "Maybe SpotDatafeedSubscription"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43481,7 +43672,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "describeSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -43505,6 +43696,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43584,6 +43776,7 @@
                     "type": "[SpotInstanceRequest]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43641,7 +43834,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 27,
                 "ctor": "describeSpotInstanceRequests",
                 "headerPad": 0,
@@ -43651,6 +43844,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43779,6 +43973,7 @@
                 "ctor": "describeSpotPriceHistoryResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -43872,7 +44067,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "describeSpotPriceHistory",
                 "headerPad": 0,
@@ -43882,6 +44077,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -44225,6 +44421,7 @@
                     "type": "[Subnet]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -44282,7 +44479,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "describeSubnets",
                 "headerPad": 0,
@@ -44292,6 +44489,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -44420,6 +44618,7 @@
                 "ctor": "describeTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -44513,7 +44712,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "describeTags",
                 "headerPad": 0,
@@ -44523,6 +44722,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -44684,6 +44884,7 @@
                 "ctor": "describeVolumeAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -44798,7 +44999,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "describeVolumeAttribute",
                 "headerPad": 0,
@@ -44808,6 +45009,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -44937,6 +45139,7 @@
                 "ctor": "describeVolumeStatusResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -45030,7 +45233,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "describeVolumeStatus",
                 "headerPad": 0,
@@ -45040,6 +45243,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -45234,6 +45438,7 @@
                 "ctor": "describeVolumesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -45319,7 +45524,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "describeVolumes",
                 "headerPad": 0,
@@ -45329,6 +45534,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -45523,6 +45729,7 @@
                 "ctor": "describeVpcAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -45637,7 +45844,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "describeVpcAttribute",
                 "headerPad": 0,
@@ -45647,6 +45854,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -45793,6 +46001,7 @@
                     "type": "[VpcPeeringConnection]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -45850,7 +46059,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 29,
                 "ctor": "describeVpcPeeringConnections",
                 "headerPad": 0,
@@ -45860,6 +46069,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46005,6 +46215,7 @@
                     "type": "[Vpc]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46062,7 +46273,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 11,
                 "ctor": "describeVpcs",
                 "headerPad": 0,
@@ -46072,6 +46283,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46217,6 +46429,7 @@
                     "type": "[VpnConnection]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46274,7 +46487,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "describeVpnConnections",
                 "headerPad": 0,
@@ -46284,6 +46497,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46429,6 +46643,7 @@
                     "type": "[VpnGateway]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46486,7 +46701,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "describeVpnGateways",
                 "headerPad": 0,
@@ -46496,6 +46711,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -46625,6 +46841,7 @@
                 "ctor": "detachInternetGatewayResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -46652,7 +46869,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "detachInternetGateway",
                 "headerPad": 0,
@@ -46662,6 +46879,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -46792,6 +47010,7 @@
                 "ctor": "detachNetworkInterfaceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -46819,7 +47038,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "detachNetworkInterface",
                 "headerPad": 0,
@@ -46829,6 +47048,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -46959,6 +47179,7 @@
                 "ctor": "detachVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -47157,7 +47378,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "detachVolume",
                 "headerPad": 0,
@@ -47167,6 +47388,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -47363,6 +47585,7 @@
                 "ctor": "detachVpnGatewayResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -47390,7 +47613,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "detachVpnGateway",
                 "headerPad": 0,
@@ -47400,6 +47623,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -47530,6 +47754,7 @@
                 "ctor": "disableVgwRoutePropagationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -47557,7 +47782,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "disableVgwRoutePropagation",
                 "headerPad": 0,
@@ -47567,6 +47792,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -47663,6 +47889,7 @@
                 "ctor": "disassociateAddressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -47690,7 +47917,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "disassociateAddress",
                 "headerPad": 0,
@@ -47700,6 +47927,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -47829,6 +48057,7 @@
                 "ctor": "disassociateRouteTableResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -47856,7 +48085,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "disassociateRouteTable",
                 "headerPad": 0,
@@ -47866,6 +48095,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -47963,6 +48193,7 @@
                 "ctor": "enableVgwRoutePropagationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -47990,7 +48221,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "enableVgwRoutePropagation",
                 "headerPad": 0,
@@ -48000,6 +48231,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -48096,6 +48328,7 @@
                 "ctor": "enableVolumeIOResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -48123,7 +48356,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "enableVolumeIO",
                 "headerPad": 0,
@@ -48133,6 +48366,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -48230,6 +48464,7 @@
                 "ctor": "getConsoleOutputResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -48344,7 +48579,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "getConsoleOutput",
                 "headerPad": 0,
@@ -48354,6 +48589,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -48451,6 +48687,7 @@
                 "ctor": "getPasswordDataResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -48565,7 +48802,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "getPasswordData",
                 "headerPad": 0,
@@ -48575,6 +48812,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -48686,6 +48924,7 @@
                     "type": "Maybe ConversionTask"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -48743,7 +48982,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "importInstance",
                 "headerPad": 0,
@@ -48753,6 +48992,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -48949,6 +49189,7 @@
                 "ctor": "importKeyPairResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -49034,7 +49275,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "importKeyPair",
                 "headerPad": 0,
@@ -49044,6 +49285,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -49188,6 +49430,7 @@
                     "type": "Maybe ConversionTask"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -49245,7 +49488,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "importVolume",
                 "headerPad": 0,
@@ -49255,6 +49498,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -49451,6 +49695,7 @@
                 "ctor": "modifyImageAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -49477,7 +49722,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "modifyImageAttribute",
                 "headerPad": 0,
@@ -49487,6 +49732,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -49848,6 +50094,7 @@
                 "ctor": "modifyInstanceAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -49874,7 +50121,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 38,
                 "ctor": "modifyInstanceAttribute",
                 "headerPad": 0,
@@ -49884,6 +50131,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -50410,6 +50658,7 @@
                 "ctor": "modifyNetworkInterfaceAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -50436,7 +50685,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "modifyNetworkInterfaceAttribute",
                 "headerPad": 0,
@@ -50446,6 +50695,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -50691,6 +50941,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -50748,7 +50999,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "modifyReservedInstances",
                 "headerPad": 0,
@@ -50758,6 +51009,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -50887,6 +51139,7 @@
                 "ctor": "modifySnapshotAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -50913,7 +51166,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 26,
                 "ctor": "modifySnapshotAttribute",
                 "headerPad": 0,
@@ -50923,6 +51176,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -51185,6 +51439,7 @@
                 "ctor": "modifySubnetAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -51211,7 +51466,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "modifySubnetAttribute",
                 "headerPad": 0,
@@ -51221,6 +51476,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -51318,6 +51574,7 @@
                 "ctor": "modifyVolumeAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -51344,7 +51601,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "modifyVolumeAttribute",
                 "headerPad": 0,
@@ -51354,6 +51611,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -51484,6 +51742,7 @@
                 "ctor": "modifyVpcAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -51510,7 +51769,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 22,
                 "ctor": "modifyVpcAttribute",
                 "headerPad": 0,
@@ -51520,6 +51779,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -51666,6 +51926,7 @@
                     "type": "[InstanceMonitoring]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -51724,7 +51985,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "monitorInstances",
                 "headerPad": 0,
@@ -51734,6 +51995,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -51846,6 +52108,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -51903,7 +52166,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 32,
                 "ctor": "purchaseReservedInstancesOffering",
                 "headerPad": 0,
@@ -51913,6 +52176,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -52076,6 +52340,7 @@
                 "ctor": "rebootInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -52103,7 +52368,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "rebootInstances",
                 "headerPad": 0,
@@ -52113,6 +52378,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -52225,6 +52491,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -52282,7 +52549,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "registerImage",
                 "headerPad": 0,
@@ -52292,6 +52559,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -52701,6 +52969,7 @@
                     "type": "Maybe Bool"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -52759,7 +53028,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 27,
                 "ctor": "rejectVpcPeeringConnection",
                 "headerPad": 0,
@@ -52769,6 +53038,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -52866,6 +53136,7 @@
                 "ctor": "releaseAddressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -52893,7 +53164,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "releaseAddress",
                 "headerPad": 0,
@@ -52903,6 +53174,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -53048,6 +53320,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -53106,7 +53379,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "replaceNetworkAclAssociation",
                 "headerPad": 0,
@@ -53116,6 +53389,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -53246,6 +53520,7 @@
                 "ctor": "replaceNetworkAclEntryResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -53272,7 +53547,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "replaceNetworkAclEntry",
                 "headerPad": 0,
@@ -53282,6 +53557,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -53610,6 +53886,7 @@
                 "ctor": "replaceRouteResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -53637,7 +53914,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 25,
                 "ctor": "replaceRoute",
                 "headerPad": 0,
@@ -53647,6 +53924,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -53925,6 +54203,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -53983,7 +54262,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "replaceRouteTableAssociation",
                 "headerPad": 0,
@@ -53993,6 +54272,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -54123,6 +54403,7 @@
                 "ctor": "reportInstanceStatusResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -54150,7 +54431,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "reportInstanceStatus",
                 "headerPad": 0,
@@ -54160,6 +54441,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -54438,6 +54720,7 @@
                     "type": "[SpotInstanceRequest]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -54495,7 +54778,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 25,
                 "ctor": "requestSpotInstances",
                 "headerPad": 0,
@@ -54505,6 +54788,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -54833,6 +55117,7 @@
                 "ctor": "resetImageAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -54860,7 +55145,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "resetImageAttribute",
                 "headerPad": 0,
@@ -54870,6 +55155,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -55000,6 +55286,7 @@
                 "ctor": "resetInstanceAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -55027,7 +55314,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "resetInstanceAttribute",
                 "headerPad": 0,
@@ -55037,6 +55324,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -55167,6 +55455,7 @@
                 "ctor": "resetNetworkInterfaceAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -55194,7 +55483,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "resetNetworkInterfaceAttribute",
                 "headerPad": 0,
@@ -55204,6 +55493,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -55334,6 +55624,7 @@
                 "ctor": "resetSnapshotAttributeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -55361,7 +55652,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "resetSnapshotAttribute",
                 "headerPad": 0,
@@ -55371,6 +55662,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -55501,6 +55793,7 @@
                 "ctor": "revokeSecurityGroupEgressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -55527,7 +55820,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 31,
                 "ctor": "revokeSecurityGroupEgress",
                 "headerPad": 0,
@@ -55537,6 +55830,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -55865,6 +56159,7 @@
                 "ctor": "revokeSecurityGroupIngressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -55891,7 +56186,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 31,
                 "ctor": "revokeSecurityGroupIngress",
                 "headerPad": 0,
@@ -55901,6 +56196,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -56260,6 +56556,7 @@
                 "ctor": "runInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -56429,7 +56726,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 36,
                 "ctor": "runInstances",
                 "headerPad": 0,
@@ -56439,6 +56736,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -57245,6 +57543,7 @@
                     "type": "[InstanceStateChange]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -57303,7 +57602,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "startInstances",
                 "headerPad": 0,
@@ -57313,6 +57612,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -57458,6 +57758,7 @@
                     "type": "[InstanceStateChange]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -57516,7 +57817,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "stopInstances",
                 "headerPad": 0,
@@ -57526,6 +57827,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -57671,6 +57973,7 @@
                     "type": "[InstanceStateChange]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -57729,7 +58032,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "terminateInstances",
                 "headerPad": 0,
@@ -57739,6 +58042,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -57835,6 +58139,7 @@
                 "ctor": "unassignPrivateIpAddressesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "ec2",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -57862,7 +58167,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 23,
                 "ctor": "unassignPrivateIpAddresses",
                 "headerPad": 0,
@@ -57872,6 +58177,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [
                     {
@@ -57985,6 +58291,7 @@
                     "type": "[InstanceMonitoring]"
                 },
                 "wrapper": false,
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -58043,7 +58350,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 14,
                 "ctor": "unmonitorInstances",
                 "headerPad": 0,
@@ -58053,6 +58360,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "ec2",
                 "payload": null,
                 "required": [],
                 "shared": false,

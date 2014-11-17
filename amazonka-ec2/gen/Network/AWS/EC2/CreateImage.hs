@@ -157,4 +157,16 @@ instance ToPath CreateImage where
 
 instance ToHeaders CreateImage
 
-instance ToQuery CreateImage
+instance ToQuery CreateImage where
+    toQuery CreateImage{..} = mconcat
+        [ "dryRun"             =? _ci1DryRun
+        , "instanceId"         =? _ci1InstanceId
+        , "name"               =? _ci1Name
+        , "description"        =? _ci1Description
+        , "noReboot"           =? _ci1NoReboot
+        , "blockDeviceMapping" =? _ci1BlockDeviceMappings
+        ]
+
+instance ToXML CreateImage where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateImage"

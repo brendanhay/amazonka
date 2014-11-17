@@ -176,4 +176,13 @@ instance ToPath DescribeNetworkInterfaces where
 
 instance ToHeaders DescribeNetworkInterfaces
 
-instance ToQuery DescribeNetworkInterfaces
+instance ToQuery DescribeNetworkInterfaces where
+    toQuery DescribeNetworkInterfaces{..} = mconcat
+        [ "dryRun"             =? _dni1DryRun
+        , "NetworkInterfaceId" =? _dni1NetworkInterfaceIds
+        , "filter"             =? _dni1Filters
+        ]
+
+instance ToXML DescribeNetworkInterfaces where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeNetworkInterfaces"

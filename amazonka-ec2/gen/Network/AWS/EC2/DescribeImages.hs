@@ -178,4 +178,15 @@ instance ToPath DescribeImages where
 
 instance ToHeaders DescribeImages
 
-instance ToQuery DescribeImages
+instance ToQuery DescribeImages where
+    toQuery DescribeImages{..} = mconcat
+        [ "dryRun"       =? _di2DryRun
+        , "ImageId"      =? _di2ImageIds
+        , "Owner"        =? _di2Owners
+        , "ExecutableBy" =? _di2ExecutableUsers
+        , "Filter"       =? _di2Filters
+        ]
+
+instance ToXML DescribeImages where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeImages"

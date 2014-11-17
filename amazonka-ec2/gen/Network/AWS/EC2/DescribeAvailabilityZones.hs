@@ -130,4 +130,13 @@ instance ToPath DescribeAvailabilityZones where
 
 instance ToHeaders DescribeAvailabilityZones
 
-instance ToQuery DescribeAvailabilityZones
+instance ToQuery DescribeAvailabilityZones where
+    toQuery DescribeAvailabilityZones{..} = mconcat
+        [ "dryRun"   =? _dazDryRun
+        , "ZoneName" =? _dazZoneNames
+        , "Filter"   =? _dazFilters
+        ]
+
+instance ToXML DescribeAvailabilityZones where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeAvailabilityZones"

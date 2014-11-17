@@ -170,4 +170,12 @@ instance ToPath ListHealthChecks where
 
 instance ToHeaders ListHealthChecks
 
-instance ToQuery ListHealthChecks
+instance ToQuery ListHealthChecks where
+    toQuery ListHealthChecks{..} = mconcat
+        [ "marker"   =? _lhcMarker
+        , "maxitems" =? _lhcMaxItems
+        ]
+
+instance ToXML ListHealthChecks where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListHealthChecks"

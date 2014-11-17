@@ -122,4 +122,13 @@ instance ToPath BundleInstance where
 
 instance ToHeaders BundleInstance
 
-instance ToQuery BundleInstance
+instance ToQuery BundleInstance where
+    toQuery BundleInstance{..} = mconcat
+        [ "dryRun"     =? _biDryRun
+        , "InstanceId" =? _biInstanceId
+        , "Storage"    =? _biStorage
+        ]
+
+instance ToXML BundleInstance where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "BundleInstance"

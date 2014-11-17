@@ -152,4 +152,13 @@ instance ToPath DescribeReservedInstancesModifications where
 
 instance ToHeaders DescribeReservedInstancesModifications
 
-instance ToQuery DescribeReservedInstancesModifications
+instance ToQuery DescribeReservedInstancesModifications where
+    toQuery DescribeReservedInstancesModifications{..} = mconcat
+        [ "ReservedInstancesModificationId" =? _drimReservedInstancesModificationIds
+        , "nextToken"                       =? _drimNextToken
+        , "Filter"                          =? _drimFilters
+        ]
+
+instance ToXML DescribeReservedInstancesModifications where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeReservedInstancesModifications"

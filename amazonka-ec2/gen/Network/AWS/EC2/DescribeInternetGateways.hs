@@ -135,4 +135,13 @@ instance ToPath DescribeInternetGateways where
 
 instance ToHeaders DescribeInternetGateways
 
-instance ToQuery DescribeInternetGateways
+instance ToQuery DescribeInternetGateways where
+    toQuery DescribeInternetGateways{..} = mconcat
+        [ "dryRun"            =? _dig1DryRun
+        , "internetGatewayId" =? _dig1InternetGatewayIds
+        , "Filter"            =? _dig1Filters
+        ]
+
+instance ToXML DescribeInternetGateways where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeInternetGateways"

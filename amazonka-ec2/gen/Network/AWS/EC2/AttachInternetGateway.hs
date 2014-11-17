@@ -101,4 +101,13 @@ instance ToPath AttachInternetGateway where
 
 instance ToHeaders AttachInternetGateway
 
-instance ToQuery AttachInternetGateway
+instance ToQuery AttachInternetGateway where
+    toQuery AttachInternetGateway{..} = mconcat
+        [ "dryRun"            =? _aigDryRun
+        , "internetGatewayId" =? _aigInternetGatewayId
+        , "vpcId"             =? _aigVpcId
+        ]
+
+instance ToXML AttachInternetGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AttachInternetGateway"

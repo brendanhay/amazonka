@@ -169,4 +169,17 @@ instance ToPath CreateNetworkInterface where
 
 instance ToHeaders CreateNetworkInterface
 
-instance ToQuery CreateNetworkInterface
+instance ToQuery CreateNetworkInterface where
+    toQuery CreateNetworkInterface{..} = mconcat
+        [ "subnetId"                       =? _cniSubnetId
+        , "description"                    =? _cniDescription
+        , "privateIpAddress"               =? _cniPrivateIpAddress
+        , "SecurityGroupId"                =? _cniGroups
+        , "privateIpAddresses"             =? _cniPrivateIpAddresses
+        , "secondaryPrivateIpAddressCount" =? _cniSecondaryPrivateIpAddressCount
+        , "dryRun"                         =? _cniDryRun
+        ]
+
+instance ToXML CreateNetworkInterface where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateNetworkInterface"

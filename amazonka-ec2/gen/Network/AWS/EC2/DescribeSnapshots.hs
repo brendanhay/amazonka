@@ -182,4 +182,15 @@ instance ToPath DescribeSnapshots where
 
 instance ToHeaders DescribeSnapshots
 
-instance ToQuery DescribeSnapshots
+instance ToQuery DescribeSnapshots where
+    toQuery DescribeSnapshots{..} = mconcat
+        [ "dryRun"       =? _ds1DryRun
+        , "SnapshotId"   =? _ds1SnapshotIds
+        , "Owner"        =? _ds1OwnerIds
+        , "RestorableBy" =? _ds1RestorableByUserIds
+        , "Filter"       =? _ds1Filters
+        ]
+
+instance ToXML DescribeSnapshots where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSnapshots"

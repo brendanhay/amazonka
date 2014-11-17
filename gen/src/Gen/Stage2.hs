@@ -569,8 +569,9 @@ instance ToJSON Request where
         qs = filter isQuery fs
         fs = toListOf dataFields _rqData
 
-        style | length qs == length fs = ["style" .= "query"]
-              | otherwise              = ["qs" .= length qs, "fs" .= length fs]
+        style | Query <- _rqProto
+              , length qs == length fs = ["style" .= "query"]
+              | otherwise              = []
 
 data Response = Response
     { _rsProto         :: !Protocol
@@ -597,6 +598,7 @@ operationJSON p s n d = y <> x
     Object x = toJSON d
     Object y = object
         [ "ctor"      .= constructor n
+        , "protocol"  .= p
         , "streaming" .= stream
         , "headers"   .= map fieldLocation hdr
         , "headerPad" .= fieldPad hdr

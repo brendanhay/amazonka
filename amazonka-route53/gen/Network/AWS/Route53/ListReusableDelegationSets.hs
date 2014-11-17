@@ -173,4 +173,12 @@ instance ToPath ListReusableDelegationSets where
 
 instance ToHeaders ListReusableDelegationSets
 
-instance ToQuery ListReusableDelegationSets
+instance ToQuery ListReusableDelegationSets where
+    toQuery ListReusableDelegationSets{..} = mconcat
+        [ "marker"   =? _lrdsMarker
+        , "maxitems" =? _lrdsMaxItems
+        ]
+
+instance ToXML ListReusableDelegationSets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListReusableDelegationSets"

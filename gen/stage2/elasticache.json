@@ -5235,6 +5235,7 @@
                     "type": "Maybe CacheSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5303,6 +5304,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5446,6 +5448,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5514,6 +5517,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5624,6 +5628,7 @@
                     "type": "Maybe CacheCluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5692,6 +5697,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6430,6 +6436,7 @@
                     "type": "Maybe CacheParameterGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6498,6 +6505,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6641,6 +6649,7 @@
                     "type": "Maybe CacheSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6709,6 +6718,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6819,6 +6829,7 @@
                     "type": "Maybe CacheSubnetGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6887,6 +6898,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7031,6 +7043,7 @@
                     "type": "Maybe ReplicationGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7099,6 +7112,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7837,6 +7851,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7905,6 +7920,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8015,6 +8031,7 @@
                     "type": "Maybe CacheCluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8083,6 +8100,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8180,6 +8198,7 @@
                 "ctor": "deleteCacheParameterGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8234,6 +8253,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8297,6 +8317,7 @@
                 "ctor": "deleteCacheSecurityGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8351,6 +8372,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8414,6 +8436,7 @@
                 "ctor": "deleteCacheSubnetGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8468,6 +8491,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8545,6 +8569,7 @@
                     "type": "Maybe ReplicationGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8613,6 +8638,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8757,6 +8783,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8842,6 +8869,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8904,6 +8932,7 @@
                 "ctor": "describeCacheClustersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9008,6 +9037,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9169,6 +9199,7 @@
                 "ctor": "describeCacheEngineVersionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9273,6 +9304,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9500,6 +9532,7 @@
                 "ctor": "describeCacheParameterGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9604,6 +9637,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9732,6 +9766,7 @@
                 "ctor": "describeCacheParametersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9864,6 +9899,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10026,6 +10062,7 @@
                 "ctor": "describeCacheSecurityGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10130,6 +10167,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10258,6 +10296,7 @@
                 "ctor": "describeCacheSubnetGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10362,6 +10401,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10505,6 +10545,7 @@
                     "type": "EngineDefaults"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10581,6 +10622,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10710,6 +10752,7 @@
                 "ctor": "describeEventsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10814,6 +10857,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11074,6 +11118,7 @@
                 "ctor": "describeReplicationGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11178,6 +11223,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11306,6 +11352,7 @@
                 "ctor": "describeReservedCacheNodesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11410,6 +11457,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11703,6 +11751,7 @@
                 "ctor": "describeReservedCacheNodesOfferingsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11807,6 +11856,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12067,6 +12117,7 @@
                 "ctor": "describeSnapshotsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12171,6 +12222,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12380,6 +12432,7 @@
                     "type": "Maybe CacheCluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12448,6 +12501,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -13023,6 +13077,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13090,6 +13145,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -13201,6 +13257,7 @@
                     "type": "Maybe CacheSubnetGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13269,6 +13326,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -13413,6 +13471,7 @@
                     "type": "Maybe ReplicationGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13481,6 +13540,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14054,6 +14114,7 @@
                     "type": "Maybe ReservedCacheNode"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14122,6 +14183,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14266,6 +14328,7 @@
                     "type": "Maybe CacheCluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14334,6 +14397,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14447,6 +14511,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14514,6 +14579,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14658,6 +14724,7 @@
                     "type": "Maybe CacheSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14726,6 +14793,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

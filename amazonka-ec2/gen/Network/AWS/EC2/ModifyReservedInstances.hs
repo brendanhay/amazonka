@@ -124,4 +124,13 @@ instance ToPath ModifyReservedInstances where
 
 instance ToHeaders ModifyReservedInstances
 
-instance ToQuery ModifyReservedInstances
+instance ToQuery ModifyReservedInstances where
+    toQuery ModifyReservedInstances{..} = mconcat
+        [ "clientToken"                               =? _mriClientToken
+        , "ReservedInstancesId"                       =? _mriReservedInstancesIds
+        , "ReservedInstancesConfigurationSetItemType" =? _mriTargetConfigurations
+        ]
+
+instance ToXML ModifyReservedInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifyReservedInstances"

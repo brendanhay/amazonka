@@ -140,4 +140,17 @@ instance ToPath ModifySnapshotAttribute where
 
 instance ToHeaders ModifySnapshotAttribute
 
-instance ToQuery ModifySnapshotAttribute
+instance ToQuery ModifySnapshotAttribute where
+    toQuery ModifySnapshotAttribute{..} = mconcat
+        [ "dryRun"                 =? _msaDryRun
+        , "SnapshotId"             =? _msaSnapshotId
+        , "Attribute"              =? _msaAttribute
+        , "OperationType"          =? _msaOperationType
+        , "UserId"                 =? _msaUserIds
+        , "UserGroup"              =? _msaGroupNames
+        , "CreateVolumePermission" =? _msaCreateVolumePermission
+        ]
+
+instance ToXML ModifySnapshotAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifySnapshotAttribute"

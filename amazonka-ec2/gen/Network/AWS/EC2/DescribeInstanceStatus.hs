@@ -225,4 +225,16 @@ instance ToPath DescribeInstanceStatus where
 
 instance ToHeaders DescribeInstanceStatus
 
-instance ToQuery DescribeInstanceStatus
+instance ToQuery DescribeInstanceStatus where
+    toQuery DescribeInstanceStatus{..} = mconcat
+        [ "dryRun"              =? _disDryRun
+        , "InstanceId"          =? _disInstanceIds
+        , "Filter"              =? _disFilters
+        , "NextToken"           =? _disNextToken
+        , "MaxResults"          =? _disMaxResults
+        , "includeAllInstances" =? _disIncludeAllInstances
+        ]
+
+instance ToXML DescribeInstanceStatus where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeInstanceStatus"

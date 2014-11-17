@@ -97,4 +97,12 @@ instance ToPath DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot
 
-instance ToQuery DeleteSnapshot
+instance ToQuery DeleteSnapshot where
+    toQuery DeleteSnapshot{..} = mconcat
+        [ "dryRun"     =? _ds3DryRun
+        , "SnapshotId" =? _ds3SnapshotId
+        ]
+
+instance ToXML DeleteSnapshot where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteSnapshot"

@@ -104,4 +104,13 @@ instance ToPath DetachVpnGateway where
 
 instance ToHeaders DetachVpnGateway
 
-instance ToQuery DetachVpnGateway
+instance ToQuery DetachVpnGateway where
+    toQuery DetachVpnGateway{..} = mconcat
+        [ "dryRun"       =? _dvg1DryRun
+        , "VpnGatewayId" =? _dvg1VpnGatewayId
+        , "VpcId"        =? _dvg1VpcId
+        ]
+
+instance ToXML DetachVpnGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DetachVpnGateway"

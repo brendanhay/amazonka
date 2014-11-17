@@ -165,4 +165,16 @@ instance ToPath CopySnapshot where
 
 instance ToHeaders CopySnapshot
 
-instance ToQuery CopySnapshot
+instance ToQuery CopySnapshot where
+    toQuery CopySnapshot{..} = mconcat
+        [ "dryRun"            =? _csDryRun
+        , "SourceRegion"      =? _csSourceRegion
+        , "SourceSnapshotId"  =? _csSourceSnapshotId
+        , "Description"       =? _csDescription
+        , "destinationRegion" =? _csDestinationRegion
+        , "presignedUrl"      =? _csPresignedUrl
+        ]
+
+instance ToXML CopySnapshot where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CopySnapshot"

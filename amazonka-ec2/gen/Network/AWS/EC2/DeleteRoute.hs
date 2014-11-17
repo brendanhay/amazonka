@@ -100,4 +100,13 @@ instance ToPath DeleteRoute where
 
 instance ToHeaders DeleteRoute
 
-instance ToQuery DeleteRoute
+instance ToQuery DeleteRoute where
+    toQuery DeleteRoute{..} = mconcat
+        [ "dryRun"               =? _drDryRun
+        , "routeTableId"         =? _drRouteTableId
+        , "destinationCidrBlock" =? _drDestinationCidrBlock
+        ]
+
+instance ToXML DeleteRoute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteRoute"

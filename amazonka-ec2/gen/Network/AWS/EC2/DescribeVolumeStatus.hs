@@ -182,4 +182,15 @@ instance ToPath DescribeVolumeStatus where
 
 instance ToHeaders DescribeVolumeStatus
 
-instance ToQuery DescribeVolumeStatus
+instance ToQuery DescribeVolumeStatus where
+    toQuery DescribeVolumeStatus{..} = mconcat
+        [ "dryRun"     =? _dvsDryRun
+        , "VolumeId"   =? _dvsVolumeIds
+        , "Filter"     =? _dvsFilters
+        , "NextToken"  =? _dvsNextToken
+        , "MaxResults" =? _dvsMaxResults
+        ]
+
+instance ToXML DescribeVolumeStatus where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVolumeStatus"

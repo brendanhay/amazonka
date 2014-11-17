@@ -89,4 +89,12 @@ instance ToPath DeregisterImage where
 
 instance ToHeaders DeregisterImage
 
-instance ToQuery DeregisterImage
+instance ToQuery DeregisterImage where
+    toQuery DeregisterImage{..} = mconcat
+        [ "dryRun"  =? _diDryRun
+        , "ImageId" =? _diImageId
+        ]
+
+instance ToXML DeregisterImage where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeregisterImage"

@@ -122,4 +122,13 @@ instance ToPath DescribeKeyPairs where
 
 instance ToHeaders DescribeKeyPairs
 
-instance ToQuery DescribeKeyPairs
+instance ToQuery DescribeKeyPairs where
+    toQuery DescribeKeyPairs{..} = mconcat
+        [ "dryRun"  =? _dkp1DryRun
+        , "KeyName" =? _dkp1KeyNames
+        , "Filter"  =? _dkp1Filters
+        ]
+
+instance ToXML DescribeKeyPairs where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeKeyPairs"

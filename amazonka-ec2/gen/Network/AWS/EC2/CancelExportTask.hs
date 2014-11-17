@@ -84,4 +84,9 @@ instance ToPath CancelExportTask where
 
 instance ToHeaders CancelExportTask
 
-instance ToQuery CancelExportTask
+instance ToQuery CancelExportTask where
+    toQuery rq = "exportTaskId" =? _cetExportTaskId rq
+
+instance ToXML CancelExportTask where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CancelExportTask"

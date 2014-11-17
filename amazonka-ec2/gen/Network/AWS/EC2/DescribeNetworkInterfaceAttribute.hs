@@ -155,4 +155,13 @@ instance ToPath DescribeNetworkInterfaceAttribute where
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
 
-instance ToQuery DescribeNetworkInterfaceAttribute
+instance ToQuery DescribeNetworkInterfaceAttribute where
+    toQuery DescribeNetworkInterfaceAttribute{..} = mconcat
+        [ "dryRun"             =? _dniaDryRun
+        , "networkInterfaceId" =? _dniaNetworkInterfaceId
+        , "attribute"          =? _dniaAttribute
+        ]
+
+instance ToXML DescribeNetworkInterfaceAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeNetworkInterfaceAttribute"

@@ -2394,6 +2394,7 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -2454,7 +2455,6 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "associateVPCWithHostedZone",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2470,6 +2470,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -2506,7 +2507,6 @@
                 "queryPad": 0,
                 "name": "AssociateVPCWithHostedZone",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -2599,6 +2599,7 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -2659,7 +2660,6 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "changeResourceRecordSets",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2675,6 +2675,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -2711,7 +2712,6 @@
                 "queryPad": 0,
                 "name": "ChangeResourceRecordSets",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2761,6 +2761,7 @@
                 "ctor": "changeTagsForResourceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2790,7 +2791,6 @@
                 "style": "xml",
                 "fieldPad": 18,
                 "ctor": "changeTagsForResource",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2810,6 +2810,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -2874,7 +2875,6 @@
                 "queryPad": 0,
                 "name": "ChangeTagsForResource",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2951,6 +2951,7 @@
                 "ctor": "createHealthCheckResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3045,7 +3046,6 @@
                 "style": "xml",
                 "fieldPad": 21,
                 "ctor": "createHealthCheck",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3053,6 +3053,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3089,7 +3090,6 @@
                 "queryPad": 0,
                 "name": "CreateHealthCheck",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3138,6 +3138,7 @@
                 "ctor": "createHostedZoneResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3317,7 +3318,6 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createHostedZone",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3325,6 +3325,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3361,7 +3362,6 @@
                 "queryPad": 0,
                 "name": "CreateHostedZone",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -3495,6 +3495,7 @@
                 "ctor": "createReusableDelegationSetResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3590,7 +3591,6 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createReusableDelegationSet",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3598,6 +3598,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3620,7 +3621,6 @@
                 "queryPad": 0,
                 "name": "CreateReusableDelegationSet",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3685,6 +3685,7 @@
                 "ctor": "deleteHealthCheckResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3718,7 +3719,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheck",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -3744,6 +3744,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3766,7 +3767,6 @@
                 "queryPad": 0,
                 "name": "DeleteHealthCheck",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3816,6 +3816,7 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3880,7 +3881,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHostedZone",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -3906,6 +3906,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -3928,7 +3929,6 @@
                 "queryPad": 0,
                 "name": "DeleteHostedZone",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3964,6 +3964,7 @@
                 "ctor": "deleteReusableDelegationSetResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3997,7 +3998,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSet",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4023,6 +4023,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4045,7 +4046,6 @@
                 "queryPad": 0,
                 "name": "DeleteReusableDelegationSet",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4095,6 +4095,7 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4155,7 +4156,6 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "disassociateVPCFromHostedZone",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4171,6 +4171,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4207,7 +4208,6 @@
                 "queryPad": 0,
                 "name": "DisassociateVPCFromHostedZone",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -4300,6 +4300,7 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4364,7 +4365,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getChange",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4390,6 +4390,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4412,7 +4413,6 @@
                 "queryPad": 0,
                 "name": "GetChange",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4465,6 +4465,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4523,7 +4524,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRanges",
                 "headerPad": 0,
@@ -4533,6 +4534,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4573,6 +4575,7 @@
                     "type": "GeoLocationDetails"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4631,7 +4634,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "getGeoLocation",
                 "headerPad": 0,
@@ -4641,6 +4644,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4784,6 +4788,7 @@
                     "type": "HealthCheck"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4848,7 +4853,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheck",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4874,6 +4878,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -4896,7 +4901,6 @@
                 "queryPad": 0,
                 "name": "GetHealthCheck",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4951,6 +4955,7 @@
                     "type": "Integer"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5009,7 +5014,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCount",
                 "headerPad": 0,
@@ -5019,6 +5024,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5061,6 +5067,7 @@
                     "type": "[HealthCheckObservation]"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5125,7 +5132,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReason",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5155,6 +5161,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5177,7 +5184,6 @@
                 "queryPad": 0,
                 "name": "GetHealthCheckLastFailureReason",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5229,6 +5235,7 @@
                     "type": "[HealthCheckObservation]"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5293,7 +5300,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatus",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5323,6 +5329,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5345,7 +5352,6 @@
                 "queryPad": 0,
                 "name": "GetHealthCheckStatus",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5380,6 +5386,7 @@
                 "ctor": "getHostedZoneResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5501,7 +5508,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHostedZone",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5527,6 +5533,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5549,7 +5556,6 @@
                 "queryPad": 0,
                 "name": "GetHostedZone",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5599,6 +5605,7 @@
                     "type": "DelegationSet"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5663,7 +5670,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSet",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5689,6 +5695,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5711,7 +5718,6 @@
                 "queryPad": 0,
                 "name": "GetReusableDelegationSet",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5746,6 +5752,7 @@
                 "ctor": "listGeoLocationsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -5945,7 +5952,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "listGeoLocations",
                 "headerPad": 0,
@@ -5955,6 +5962,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6116,6 +6124,7 @@
                 "ctor": "listHealthChecksResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -6295,7 +6304,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "listHealthChecks",
                 "headerPad": 0,
@@ -6305,6 +6314,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6400,6 +6410,7 @@
                 "ctor": "listHostedZonesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -6579,7 +6590,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "listHostedZones",
                 "headerPad": 0,
@@ -6589,6 +6600,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6717,6 +6729,7 @@
                 "ctor": "listResourceRecordSetsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -6938,7 +6951,6 @@
                 "style": "xml",
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSets",
-                "qs": 4,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6954,6 +6966,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -6997,7 +7010,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -7145,6 +7157,7 @@
                 "ctor": "listReusableDelegationSetsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7316,7 +7329,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "listReusableDelegationSets",
                 "headerPad": 0,
@@ -7326,6 +7339,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7436,6 +7450,7 @@
                     "type": "ResourceTagSet"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7497,7 +7512,6 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "listTagsForResource",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7517,6 +7531,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7553,7 +7568,6 @@
                 "queryPad": 0,
                 "name": "ListTagsForResource",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7619,6 +7633,7 @@
                     "type": "[ResourceTagSet]"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7680,7 +7695,6 @@
                 "style": "xml",
                 "fieldPad": 18,
                 "ctor": "listTagsForResources",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7692,6 +7706,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7728,7 +7743,6 @@
                 "queryPad": 0,
                 "name": "ListTagsForResources",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7792,6 +7806,7 @@
                     "type": "HealthCheck"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7853,7 +7868,6 @@
                 "style": "xml",
                 "fieldPad": 28,
                 "ctor": "updateHealthCheck",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7865,6 +7879,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7887,7 +7902,6 @@
                 "queryPad": 0,
                 "name": "UpdateHealthCheck",
                 "query": [],
-                "fs": 8,
                 "type": "record",
                 "optional": [
                     {

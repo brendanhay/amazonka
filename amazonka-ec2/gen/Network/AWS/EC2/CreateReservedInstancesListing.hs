@@ -159,4 +159,14 @@ instance ToPath CreateReservedInstancesListing where
 
 instance ToHeaders CreateReservedInstancesListing
 
-instance ToQuery CreateReservedInstancesListing
+instance ToQuery CreateReservedInstancesListing where
+    toQuery CreateReservedInstancesListing{..} = mconcat
+        [ "reservedInstancesId" =? _crilReservedInstancesId
+        , "instanceCount"       =? _crilInstanceCount
+        , "priceSchedules"      =? _crilPriceSchedules
+        , "clientToken"         =? _crilClientToken
+        ]
+
+instance ToXML CreateReservedInstancesListing where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateReservedInstancesListing"

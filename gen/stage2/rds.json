@@ -7309,6 +7309,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7377,6 +7378,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7473,6 +7475,7 @@
                 "ctor": "addTagsToResourceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7509,6 +7512,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7620,6 +7624,7 @@
                     "type": "Maybe DBSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7688,6 +7693,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7898,6 +7904,7 @@
                     "type": "Maybe DBParameterGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7965,6 +7972,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8142,6 +8150,7 @@
                     "type": "Maybe DBSnapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8209,6 +8218,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8353,6 +8363,7 @@
                     "type": "Maybe OptionGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8420,6 +8431,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8597,6 +8609,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8664,6 +8677,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9633,6 +9647,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9700,6 +9715,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10141,6 +10157,7 @@
                     "type": "Maybe DBParameterGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10208,6 +10225,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10385,6 +10403,7 @@
                     "type": "Maybe DBSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10452,6 +10471,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10596,6 +10616,7 @@
                     "type": "Maybe DBSnapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10663,6 +10684,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10807,6 +10829,7 @@
                     "type": "Maybe DBSubnetGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10874,6 +10897,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11051,6 +11075,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11118,6 +11143,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11394,6 +11420,7 @@
                     "type": "Maybe OptionGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11461,6 +11488,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11671,6 +11699,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11739,6 +11768,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11869,6 +11899,7 @@
                 "ctor": "deleteDBParameterGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11923,6 +11954,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11986,6 +12018,7 @@
                 "ctor": "deleteDBSecurityGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12040,6 +12073,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12117,6 +12151,7 @@
                     "type": "Maybe DBSnapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12202,6 +12237,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12265,6 +12301,7 @@
                 "ctor": "deleteDBSubnetGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12319,6 +12356,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12396,6 +12434,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12481,6 +12520,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12544,6 +12584,7 @@
                 "ctor": "deleteOptionGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12598,6 +12639,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12660,6 +12702,7 @@
                 "ctor": "describeDBEngineVersionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12763,6 +12806,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13056,6 +13100,7 @@
                 "ctor": "describeDBInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13159,6 +13204,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13320,6 +13366,7 @@
                 "ctor": "describeDBLogFilesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13423,6 +13470,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -13684,6 +13732,7 @@
                 "ctor": "describeDBParameterGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13787,6 +13836,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13948,6 +13998,7 @@
                 "ctor": "describeDBParametersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14051,6 +14102,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14246,6 +14298,7 @@
                 "ctor": "describeDBSecurityGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14349,6 +14402,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14510,6 +14564,7 @@
                 "ctor": "describeDBSnapshotsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14613,6 +14668,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14840,6 +14896,7 @@
                 "ctor": "describeDBSubnetGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14943,6 +15000,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15119,6 +15177,7 @@
                     "type": "Maybe EngineDefaults"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15194,6 +15253,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15373,6 +15433,7 @@
                     "type": "[EventCategoriesMap]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15440,6 +15501,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15535,6 +15597,7 @@
                 "ctor": "describeEventSubscriptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15638,6 +15701,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15799,6 +15863,7 @@
                 "ctor": "describeEventsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15902,6 +15967,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16228,6 +16294,7 @@
                 "ctor": "describeOptionGroupOptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16331,6 +16398,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16526,6 +16594,7 @@
                 "ctor": "describeOptionGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16629,6 +16698,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16856,6 +16926,7 @@
                 "ctor": "describeOrderableDBInstanceOptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16959,6 +17030,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17253,6 +17325,7 @@
                 "ctor": "describeReservedDBInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17356,6 +17429,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17715,6 +17789,7 @@
                 "ctor": "describeReservedDBInstancesOfferingsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17818,6 +17893,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18145,6 +18221,7 @@
                 "ctor": "downloadDBLogFilePortionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18277,6 +18354,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -18456,6 +18534,7 @@
                     "type": "[Tag]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18523,6 +18602,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -18634,6 +18714,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18702,6 +18783,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -19442,6 +19524,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -19509,6 +19592,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -19620,6 +19704,7 @@
                     "type": "Maybe DBSubnetGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -19688,6 +19773,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -19832,6 +19918,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -19900,6 +19987,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -20110,6 +20198,7 @@
                     "type": "Maybe OptionGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -20177,6 +20266,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -20354,6 +20444,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -20422,6 +20513,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -20566,6 +20658,7 @@
                     "type": "Maybe ReservedDBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -20633,6 +20726,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -20810,6 +20904,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -20878,6 +20973,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -20989,6 +21085,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -21057,6 +21154,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -21153,6 +21251,7 @@
                 "ctor": "removeTagsFromResourceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -21190,6 +21289,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -21303,6 +21403,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -21370,6 +21471,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -21514,6 +21616,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -21581,6 +21684,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -22220,6 +22324,7 @@
                     "type": "Maybe DBInstance"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -22287,6 +22392,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -22992,6 +23098,7 @@
                     "type": "Maybe DBSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -23060,6 +23167,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

@@ -5853,6 +5853,7 @@
                 "ctor": "createCloudFrontOriginAccessIdentityResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -5994,7 +5995,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createCloudFrontOriginAccessIdentity",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6016,6 +6016,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6051,7 +6052,6 @@
                 "queryPad": 0,
                 "name": "CreateCloudFrontOriginAccessIdentity",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6086,6 +6086,7 @@
                 "ctor": "createDistributionResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6227,7 +6228,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createDistribution",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6249,6 +6249,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6284,7 +6285,6 @@
                 "queryPad": 0,
                 "name": "CreateDistribution",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6319,6 +6319,7 @@
                 "ctor": "createInvalidationResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6426,7 +6427,6 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createInvalidation",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6442,6 +6442,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6491,7 +6492,6 @@
                 "queryPad": 0,
                 "name": "CreateInvalidation",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -6540,6 +6540,7 @@
                 "ctor": "createStreamingDistributionResponse",
                 "headerPad": 9,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6681,7 +6682,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createStreamingDistribution",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6703,6 +6703,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -6738,7 +6739,6 @@
                 "queryPad": 0,
                 "name": "CreateStreamingDistribution",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6774,6 +6774,7 @@
                 "ctor": "deleteCloudFrontOriginAccessIdentityResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6804,7 +6805,6 @@
                 "style": "xml-headers",
                 "fieldPad": 14,
                 "ctor": "deleteCloudFrontOriginAccessIdentity",
-                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -6816,6 +6816,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -6844,7 +6845,6 @@
                 "queryPad": 0,
                 "name": "DeleteCloudFrontOriginAccessIdentity",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6909,6 +6909,7 @@
                 "ctor": "deleteDistributionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6939,7 +6940,6 @@
                 "style": "xml-headers",
                 "fieldPad": 10,
                 "ctor": "deleteDistribution",
-                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -6951,6 +6951,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -6979,7 +6980,6 @@
                 "queryPad": 0,
                 "name": "DeleteDistribution",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7044,6 +7044,7 @@
                 "ctor": "deleteStreamingDistributionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7074,7 +7075,6 @@
                 "style": "xml-headers",
                 "fieldPad": 11,
                 "ctor": "deleteStreamingDistribution",
-                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -7086,6 +7086,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7114,7 +7115,6 @@
                 "queryPad": 0,
                 "name": "DeleteStreamingDistribution",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7178,6 +7178,7 @@
                 "ctor": "getCloudFrontOriginAccessIdentityResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -7289,7 +7290,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getCloudFrontOriginAccessIdentity",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7315,6 +7315,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7337,7 +7338,6 @@
                 "queryPad": 0,
                 "name": "GetCloudFrontOriginAccessIdentity",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7372,6 +7372,7 @@
                 "ctor": "getCloudFrontOriginAccessIdentityConfigResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -7483,7 +7484,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getCloudFrontOriginAccessIdentityConfig",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7513,6 +7513,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7535,7 +7536,6 @@
                 "queryPad": 0,
                 "name": "GetCloudFrontOriginAccessIdentityConfig",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7570,6 +7570,7 @@
                 "ctor": "getDistributionResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -7681,7 +7682,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getDistribution",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7707,6 +7707,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7729,7 +7730,6 @@
                 "queryPad": 0,
                 "name": "GetDistribution",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7764,6 +7764,7 @@
                 "ctor": "getDistributionConfigResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -7875,7 +7876,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getDistributionConfig",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7905,6 +7905,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -7927,7 +7928,6 @@
                 "queryPad": 0,
                 "name": "GetDistributionConfig",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7977,6 +7977,7 @@
                     "type": "Maybe Invalidation"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -8051,7 +8052,6 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "getInvalidation",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8071,6 +8071,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -8107,7 +8108,6 @@
                 "queryPad": 0,
                 "name": "GetInvalidation",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -8156,6 +8156,7 @@
                 "ctor": "getStreamingDistributionResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -8267,7 +8268,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getStreamingDistribution",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8293,6 +8293,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -8315,7 +8316,6 @@
                 "queryPad": 0,
                 "name": "GetStreamingDistribution",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8350,6 +8350,7 @@
                 "ctor": "getStreamingDistributionConfigResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -8461,7 +8462,6 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getStreamingDistributionConfig",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8491,6 +8491,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -8513,7 +8514,6 @@
                 "queryPad": 0,
                 "name": "GetStreamingDistributionConfig",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8563,6 +8563,7 @@
                     "type": "Maybe CloudFrontOriginAccessIdentityList"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -8642,7 +8643,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 15,
                 "ctor": "listCloudFrontOriginAccessIdentities",
                 "headerPad": 0,
@@ -8652,6 +8653,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8762,6 +8764,7 @@
                     "type": "Maybe DistributionList"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -8841,7 +8844,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 11,
                 "ctor": "listDistributions",
                 "headerPad": 0,
@@ -8851,6 +8854,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8961,6 +8965,7 @@
                     "type": "Maybe InvalidationList"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -9043,7 +9048,6 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "listInvalidations",
-                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9059,6 +9063,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [
                     {
@@ -9092,7 +9097,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9199,6 +9203,7 @@
                     "type": "Maybe StreamingDistributionList"
                 },
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -9278,7 +9283,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "listStreamingDistributions",
                 "headerPad": 0,
@@ -9288,6 +9293,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9383,6 +9389,7 @@
                 "ctor": "updateCloudFrontOriginAccessIdentityResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -9490,7 +9497,6 @@
                 "style": "xml-headers",
                 "fieldPad": 43,
                 "ctor": "updateCloudFrontOriginAccessIdentity",
-                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -9506,6 +9512,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -9561,7 +9568,6 @@
                 "queryPad": 0,
                 "name": "UpdateCloudFrontOriginAccessIdentity",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9639,6 +9645,7 @@
                 "ctor": "updateDistributionResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -9746,7 +9753,6 @@
                 "style": "xml-headers",
                 "fieldPad": 21,
                 "ctor": "updateDistribution",
-                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -9762,6 +9768,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -9817,7 +9824,6 @@
                 "queryPad": 0,
                 "name": "UpdateDistribution",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9895,6 +9901,7 @@
                 "ctor": "updateStreamingDistributionResponse",
                 "headerPad": 5,
                 "wrapper": false,
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -10002,7 +10009,6 @@
                 "style": "xml-headers",
                 "fieldPad": 31,
                 "ctor": "updateStreamingDistribution",
-                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -10018,6 +10024,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-xml",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -10073,7 +10080,6 @@
                 "queryPad": 0,
                 "name": "UpdateStreamingDistribution",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {

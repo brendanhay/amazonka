@@ -139,4 +139,13 @@ instance ToPath Suggest where
 
 instance ToHeaders Suggest
 
-instance ToQuery Suggest
+instance ToQuery Suggest where
+    toQuery Suggest{..} = mconcat
+        [ "format=sdk&pretty=true"
+        , "q"         =? _sQuery
+        , "suggester" =? _sSuggester
+        , "size"      =? _sSize
+        ]
+
+instance ToJSON Suggest where
+    toJSON = genericToJSON jsonOptions

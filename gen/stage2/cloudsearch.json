@@ -4356,6 +4356,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4441,6 +4442,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4518,6 +4520,7 @@
                     "type": "Maybe DomainStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4603,6 +4606,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4680,6 +4684,7 @@
                     "type": "AnalysisSchemeStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4747,6 +4752,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4857,6 +4863,7 @@
                     "type": "ExpressionStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4924,6 +4931,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5034,6 +5042,7 @@
                     "type": "IndexFieldStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5101,6 +5110,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5211,6 +5221,7 @@
                     "type": "SuggesterStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5278,6 +5289,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5388,6 +5400,7 @@
                     "type": "AnalysisSchemeStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5456,6 +5469,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5566,6 +5580,7 @@
                     "type": "Maybe DomainStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5651,6 +5666,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5728,6 +5744,7 @@
                     "type": "ExpressionStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5796,6 +5813,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5906,6 +5924,7 @@
                     "type": "IndexFieldStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5974,6 +5993,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6084,6 +6104,7 @@
                     "type": "SuggesterStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6152,6 +6173,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6264,6 +6286,7 @@
                     "type": "[AnalysisSchemeStatus]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6332,6 +6355,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6476,6 +6500,7 @@
                     "type": "Maybe AvailabilityOptionsStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6544,6 +6569,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6657,6 +6683,7 @@
                     "type": "[DomainStatus]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6742,6 +6769,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6821,6 +6849,7 @@
                     "type": "[ExpressionStatus]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6889,6 +6918,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7035,6 +7065,7 @@
                     "type": "[IndexFieldStatus]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7103,6 +7134,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7247,6 +7279,7 @@
                     "type": "ScalingParametersStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7332,6 +7365,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7409,6 +7443,7 @@
                     "type": "AccessPoliciesStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7477,6 +7512,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7590,6 +7626,7 @@
                     "type": "[SuggesterStatus]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7658,6 +7695,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7805,6 +7843,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7890,6 +7929,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7969,6 +8009,7 @@
                     "type": "Map Text Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8037,6 +8078,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8077,6 +8119,7 @@
                     "type": "Maybe AvailabilityOptionsStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8145,6 +8188,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8255,6 +8299,7 @@
                     "type": "ScalingParametersStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8322,6 +8367,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8432,6 +8478,7 @@
                     "type": "AccessPoliciesStatus"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8500,6 +8547,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

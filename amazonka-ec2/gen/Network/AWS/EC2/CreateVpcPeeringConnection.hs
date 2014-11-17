@@ -134,4 +134,14 @@ instance ToPath CreateVpcPeeringConnection where
 
 instance ToHeaders CreateVpcPeeringConnection
 
-instance ToQuery CreateVpcPeeringConnection
+instance ToQuery CreateVpcPeeringConnection where
+    toQuery CreateVpcPeeringConnection{..} = mconcat
+        [ "dryRun"      =? _cvpcDryRun
+        , "vpcId"       =? _cvpcVpcId
+        , "peerVpcId"   =? _cvpcPeerVpcId
+        , "peerOwnerId" =? _cvpcPeerOwnerId
+        ]
+
+instance ToXML CreateVpcPeeringConnection where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateVpcPeeringConnection"

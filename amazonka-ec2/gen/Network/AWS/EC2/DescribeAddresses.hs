@@ -143,4 +143,14 @@ instance ToPath DescribeAddresses where
 
 instance ToHeaders DescribeAddresses
 
-instance ToQuery DescribeAddresses
+instance ToQuery DescribeAddresses where
+    toQuery DescribeAddresses{..} = mconcat
+        [ "dryRun"       =? _daDryRun
+        , "PublicIp"     =? _daPublicIps
+        , "Filter"       =? _daFilters
+        , "AllocationId" =? _daAllocationIds
+        ]
+
+instance ToXML DescribeAddresses where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeAddresses"

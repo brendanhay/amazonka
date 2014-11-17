@@ -658,6 +658,7 @@
                 "ctor": "batchDeleteAttributesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -694,6 +695,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -791,6 +793,7 @@
                 "ctor": "batchPutAttributesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -827,6 +830,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -924,6 +928,7 @@
                 "ctor": "createDomainResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -978,6 +983,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1041,6 +1047,7 @@
                 "ctor": "deleteAttributesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1077,6 +1084,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1240,6 +1248,7 @@
                 "ctor": "deleteDomainResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1294,6 +1303,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1357,6 +1367,7 @@
                 "ctor": "domainMetadataResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1610,6 +1621,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1689,6 +1701,7 @@
                     "type": "[Attribute]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1757,6 +1770,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1920,6 +1934,7 @@
                 "ctor": "listDomainsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2024,6 +2039,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2120,6 +2136,7 @@
                 "ctor": "putAttributesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2156,6 +2173,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2318,6 +2336,7 @@
                 "ctor": "selectResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2422,6 +2441,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

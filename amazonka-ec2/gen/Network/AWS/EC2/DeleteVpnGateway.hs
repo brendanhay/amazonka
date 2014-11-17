@@ -92,4 +92,12 @@ instance ToPath DeleteVpnGateway where
 
 instance ToHeaders DeleteVpnGateway
 
-instance ToQuery DeleteVpnGateway
+instance ToQuery DeleteVpnGateway where
+    toQuery DeleteVpnGateway{..} = mconcat
+        [ "dryRun"       =? _dvgDryRun
+        , "VpnGatewayId" =? _dvgVpnGatewayId
+        ]
+
+instance ToXML DeleteVpnGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteVpnGateway"

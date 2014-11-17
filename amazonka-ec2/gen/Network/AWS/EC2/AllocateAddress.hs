@@ -128,4 +128,12 @@ instance ToPath AllocateAddress where
 
 instance ToHeaders AllocateAddress
 
-instance ToQuery AllocateAddress
+instance ToQuery AllocateAddress where
+    toQuery AllocateAddress{..} = mconcat
+        [ "dryRun" =? _aaDryRun
+        , "Domain" =? _aaDomain
+        ]
+
+instance ToXML AllocateAddress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AllocateAddress"

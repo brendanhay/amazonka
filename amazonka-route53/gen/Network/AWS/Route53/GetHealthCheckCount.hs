@@ -86,4 +86,9 @@ instance ToPath GetHealthCheckCount where
 
 instance ToHeaders GetHealthCheckCount
 
-instance ToQuery GetHealthCheckCount
+instance ToQuery GetHealthCheckCount where
+    toQuery = const mempty
+
+instance ToXML GetHealthCheckCount where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetHealthCheckCount"

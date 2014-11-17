@@ -135,4 +135,13 @@ instance ToPath DescribeDhcpOptions where
 
 instance ToHeaders DescribeDhcpOptions
 
-instance ToQuery DescribeDhcpOptions
+instance ToQuery DescribeDhcpOptions where
+    toQuery DescribeDhcpOptions{..} = mconcat
+        [ "dryRun"        =? _ddoDryRun
+        , "DhcpOptionsId" =? _ddoDhcpOptionsIds
+        , "Filter"        =? _ddoFilters
+        ]
+
+instance ToXML DescribeDhcpOptions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeDhcpOptions"

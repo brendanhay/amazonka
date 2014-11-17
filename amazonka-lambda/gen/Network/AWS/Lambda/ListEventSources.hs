@@ -140,4 +140,13 @@ instance ToPath ListEventSources where
 
 instance ToHeaders ListEventSources
 
-instance ToQuery ListEventSources
+instance ToQuery ListEventSources where
+    toQuery ListEventSources{..} = mconcat
+        [ "EventSource"  =? _lesEventSourceArn
+        , "FunctionName" =? _lesFunctionName
+        , "Marker"       =? _lesMarker
+        , "MaxItems"     =? _lesMaxItems
+        ]
+
+instance ToJSON ListEventSources where
+    toJSON = genericToJSON jsonOptions

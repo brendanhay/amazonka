@@ -1018,6 +1018,7 @@
                 "ctor": "createLogGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1051,7 +1052,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "createLogGroup",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1073,6 +1073,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1095,7 +1096,6 @@
                 "queryPad": 0,
                 "name": "CreateLogGroup",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1131,6 +1131,7 @@
                 "ctor": "createLogStreamResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1161,7 +1162,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "createLogStream",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1169,6 +1169,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1205,7 +1206,6 @@
                 "queryPad": 0,
                 "name": "CreateLogStream",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1255,6 +1255,7 @@
                 "ctor": "deleteLogGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1288,7 +1289,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteLogGroup",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1310,6 +1310,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1332,7 +1333,6 @@
                 "queryPad": 0,
                 "name": "DeleteLogGroup",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1368,6 +1368,7 @@
                 "ctor": "deleteLogStreamResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1398,7 +1399,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "deleteLogStream",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1406,6 +1406,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1442,7 +1443,6 @@
                 "queryPad": 0,
                 "name": "DeleteLogStream",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1492,6 +1492,7 @@
                 "ctor": "deleteMetricFilterResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1522,7 +1523,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "deleteMetricFilter",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1530,6 +1530,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1566,7 +1567,6 @@
                 "queryPad": 0,
                 "name": "DeleteMetricFilter",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1616,6 +1616,7 @@
                 "ctor": "deleteRetentionPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1649,7 +1650,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteRetentionPolicy",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1671,6 +1671,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1693,7 +1694,6 @@
                 "queryPad": 0,
                 "name": "DeleteRetentionPolicy",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1728,6 +1728,7 @@
                 "ctor": "describeLogGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1817,7 +1818,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "describeLogGroups",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1825,6 +1825,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1832,7 +1833,6 @@
                 "queryPad": 0,
                 "name": "DescribeLogGroups",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -1938,6 +1938,7 @@
                 "ctor": "describeLogStreamsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2027,7 +2028,6 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "describeLogStreams",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2035,6 +2035,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2057,7 +2058,6 @@
                 "queryPad": 0,
                 "name": "DescribeLogStreams",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -2177,6 +2177,7 @@
                 "ctor": "describeMetricFiltersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2266,7 +2267,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "describeMetricFilters",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2274,6 +2274,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2296,7 +2297,6 @@
                 "queryPad": 0,
                 "name": "DescribeMetricFilters",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -2416,6 +2416,7 @@
                 "ctor": "getLogEventsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2533,7 +2534,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "getLogEvents",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2541,6 +2541,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2577,7 +2578,6 @@
                 "queryPad": 0,
                 "name": "GetLogEvents",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -2784,6 +2784,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2844,7 +2845,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "putLogEvents",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2852,6 +2852,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -2902,7 +2903,6 @@
                 "queryPad": 0,
                 "name": "PutLogEvents",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -2995,6 +2995,7 @@
                 "ctor": "putMetricFilterResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3024,7 +3025,6 @@
                 "style": "json",
                 "fieldPad": 25,
                 "ctor": "putMetricFilter",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3032,6 +3032,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3096,7 +3097,6 @@
                 "queryPad": 0,
                 "name": "PutMetricFilter",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3174,6 +3174,7 @@
                 "ctor": "putRetentionPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3204,7 +3205,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "putRetentionPolicy",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3212,6 +3212,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3248,7 +3249,6 @@
                 "queryPad": 0,
                 "name": "PutRetentionPolicy",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3314,6 +3314,7 @@
                     "type": "[MetricFilterMatchRecord]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3375,7 +3376,6 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "testMetricFilter",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3383,6 +3383,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3419,7 +3420,6 @@
                 "queryPad": 0,
                 "name": "TestMetricFilter",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [

@@ -99,4 +99,9 @@ instance ToPath DescribeSpotDatafeedSubscription where
 
 instance ToHeaders DescribeSpotDatafeedSubscription
 
-instance ToQuery DescribeSpotDatafeedSubscription
+instance ToQuery DescribeSpotDatafeedSubscription where
+    toQuery rq = "dryRun" =? _dsdsDryRun rq
+
+instance ToXML DescribeSpotDatafeedSubscription where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSpotDatafeedSubscription"

@@ -4374,6 +4374,7 @@
                 "ctor": "cancelJobResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4407,7 +4408,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "cancelJob",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4433,6 +4433,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -4455,7 +4456,6 @@
                 "queryPad": 0,
                 "name": "CancelJob",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4505,6 +4505,7 @@
                     "type": "Maybe Job'"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4565,7 +4566,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "createJob",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4573,6 +4573,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -4609,7 +4610,6 @@
                 "queryPad": 0,
                 "name": "CreateJob",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -4786,6 +4786,7 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4846,7 +4847,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "createPipeline",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4854,6 +4854,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -4904,7 +4905,6 @@
                 "queryPad": 0,
                 "name": "CreatePipeline",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -5080,6 +5080,7 @@
                 "ctor": "createPresetResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5168,7 +5169,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "createPreset",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5176,6 +5176,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -5212,7 +5213,6 @@
                 "queryPad": 0,
                 "name": "CreatePreset",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -5375,6 +5375,7 @@
                 "ctor": "deletePipelineResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5408,7 +5409,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePipeline",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5434,6 +5434,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -5456,7 +5457,6 @@
                 "queryPad": 0,
                 "name": "DeletePipeline",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5492,6 +5492,7 @@
                 "ctor": "deletePresetResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5525,7 +5526,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePreset",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5551,6 +5551,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -5573,7 +5574,6 @@
                 "queryPad": 0,
                 "name": "DeletePreset",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5608,6 +5608,7 @@
                 "ctor": "listJobsByPipelineResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5705,7 +5706,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "listJobsByPipeline",
-                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5717,6 +5717,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -5750,7 +5751,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -5842,6 +5842,7 @@
                 "ctor": "listJobsByStatusResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5939,7 +5940,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "listJobsByStatus",
-                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5951,6 +5951,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -5984,7 +5985,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -6076,6 +6076,7 @@
                 "ctor": "listPipelinesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6170,7 +6171,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 12,
                 "ctor": "listPipelines",
                 "headerPad": 0,
@@ -6180,6 +6181,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6275,6 +6277,7 @@
                 "ctor": "listPresetsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6369,7 +6372,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 13,
                 "ctor": "listPresets",
                 "headerPad": 0,
@@ -6379,6 +6382,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6489,6 +6493,7 @@
                     "type": "Maybe Job'"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6553,7 +6558,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "readJob",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6579,6 +6583,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -6601,7 +6606,6 @@
                 "queryPad": 0,
                 "name": "ReadJob",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6651,6 +6655,7 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6715,7 +6720,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPipeline",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6741,6 +6745,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -6763,7 +6768,6 @@
                 "queryPad": 0,
                 "name": "ReadPipeline",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6813,6 +6817,7 @@
                     "type": "Maybe Preset"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6877,7 +6882,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPreset",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6903,6 +6907,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -6925,7 +6930,6 @@
                 "queryPad": 0,
                 "name": "ReadPreset",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6961,6 +6965,7 @@
                 "ctor": "testRoleResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7050,7 +7055,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "testRole",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7058,6 +7062,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -7108,7 +7113,6 @@
                 "queryPad": 0,
                 "name": "TestRole",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -7215,6 +7219,7 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7275,7 +7280,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "updatePipeline",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7287,6 +7291,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -7309,7 +7314,6 @@
                 "queryPad": 0,
                 "name": "UpdatePipeline",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -7528,6 +7532,7 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7588,7 +7593,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "updatePipelineNotifications",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7604,6 +7608,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -7640,7 +7645,6 @@
                 "queryPad": 0,
                 "name": "UpdatePipelineNotifications",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7704,6 +7708,7 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7765,7 +7770,6 @@
                 "style": "json",
                 "fieldPad": 10,
                 "ctor": "updatePipelineStatus",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7781,6 +7785,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -7817,7 +7822,6 @@
                 "queryPad": 0,
                 "name": "UpdatePipelineStatus",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [

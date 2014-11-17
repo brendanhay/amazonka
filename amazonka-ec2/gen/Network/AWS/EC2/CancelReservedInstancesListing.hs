@@ -110,4 +110,9 @@ instance ToPath CancelReservedInstancesListing where
 
 instance ToHeaders CancelReservedInstancesListing
 
-instance ToQuery CancelReservedInstancesListing
+instance ToQuery CancelReservedInstancesListing where
+    toQuery rq = "reservedInstancesListingId" =? _crilReservedInstancesListingId rq
+
+instance ToXML CancelReservedInstancesListing where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CancelReservedInstancesListing"

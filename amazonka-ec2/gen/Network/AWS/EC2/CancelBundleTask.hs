@@ -106,4 +106,12 @@ instance ToPath CancelBundleTask where
 
 instance ToHeaders CancelBundleTask
 
-instance ToQuery CancelBundleTask
+instance ToQuery CancelBundleTask where
+    toQuery CancelBundleTask{..} = mconcat
+        [ "dryRun"   =? _cbtDryRun
+        , "BundleId" =? _cbtBundleId
+        ]
+
+instance ToXML CancelBundleTask where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CancelBundleTask"

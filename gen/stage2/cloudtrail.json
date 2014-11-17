@@ -281,6 +281,7 @@
                 "ctor": "createTrailResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -510,7 +511,6 @@
                 "style": "json",
                 "fieldPad": 29,
                 "ctor": "createTrail",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -518,6 +518,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -554,7 +555,6 @@
                 "queryPad": 0,
                 "name": "CreateTrail",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -745,6 +745,7 @@
                 "ctor": "deleteTrailResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -778,7 +779,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteTrail",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -800,6 +800,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -822,7 +823,6 @@
                 "queryPad": 0,
                 "name": "DeleteTrail",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -874,6 +874,7 @@
                     "type": "[Trail]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -938,7 +939,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrails",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -960,6 +960,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -967,7 +968,6 @@
                 "queryPad": 0,
                 "name": "DescribeTrails",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -1018,6 +1018,7 @@
                 "ctor": "getTrailStatusResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1306,7 +1307,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getTrailStatus",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1328,6 +1328,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1350,7 +1351,6 @@
                 "queryPad": 0,
                 "name": "GetTrailStatus",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1386,6 +1386,7 @@
                 "ctor": "startLoggingResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1419,7 +1420,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "startLogging",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1441,6 +1441,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1463,7 +1464,6 @@
                 "queryPad": 0,
                 "name": "StartLogging",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1499,6 +1499,7 @@
                 "ctor": "stopLoggingResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1532,7 +1533,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopLogging",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1554,6 +1554,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1576,7 +1577,6 @@
                 "queryPad": 0,
                 "name": "StopLogging",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1612,6 +1612,7 @@
                 "ctor": "updateTrailResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1841,7 +1842,6 @@
                 "style": "json",
                 "fieldPad": 29,
                 "ctor": "updateTrail",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1849,6 +1849,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -1871,7 +1872,6 @@
                 "queryPad": 0,
                 "name": "UpdateTrail",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {

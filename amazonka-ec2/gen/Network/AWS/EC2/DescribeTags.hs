@@ -144,4 +144,14 @@ instance ToPath DescribeTags where
 
 instance ToHeaders DescribeTags
 
-instance ToQuery DescribeTags
+instance ToQuery DescribeTags where
+    toQuery DescribeTags{..} = mconcat
+        [ "dryRun"     =? _dtDryRun
+        , "Filter"     =? _dtFilters
+        , "maxResults" =? _dtMaxResults
+        , "nextToken"  =? _dtNextToken
+        ]
+
+instance ToXML DescribeTags where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeTags"

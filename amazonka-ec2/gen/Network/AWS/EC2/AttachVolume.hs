@@ -195,4 +195,14 @@ instance ToPath AttachVolume where
 
 instance ToHeaders AttachVolume
 
-instance ToQuery AttachVolume
+instance ToQuery AttachVolume where
+    toQuery AttachVolume{..} = mconcat
+        [ "dryRun"     =? _avDryRun
+        , "VolumeId"   =? _avVolumeId
+        , "InstanceId" =? _avInstanceId
+        , "Device"     =? _avDevice
+        ]
+
+instance ToXML AttachVolume where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AttachVolume"

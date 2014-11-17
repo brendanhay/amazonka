@@ -122,4 +122,13 @@ instance ToPath DescribeConversionTasks where
 
 instance ToHeaders DescribeConversionTasks
 
-instance ToQuery DescribeConversionTasks
+instance ToQuery DescribeConversionTasks where
+    toQuery DescribeConversionTasks{..} = mconcat
+        [ "dryRun"           =? _dctDryRun
+        , "filter"           =? _dctFilters
+        , "conversionTaskId" =? _dctConversionTaskIds
+        ]
+
+instance ToXML DescribeConversionTasks where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeConversionTasks"

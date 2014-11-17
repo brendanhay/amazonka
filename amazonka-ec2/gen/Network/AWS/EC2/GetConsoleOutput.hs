@@ -137,4 +137,12 @@ instance ToPath GetConsoleOutput where
 
 instance ToHeaders GetConsoleOutput
 
-instance ToQuery GetConsoleOutput
+instance ToQuery GetConsoleOutput where
+    toQuery GetConsoleOutput{..} = mconcat
+        [ "dryRun"     =? _gcoDryRun
+        , "InstanceId" =? _gcoInstanceId
+        ]
+
+instance ToXML GetConsoleOutput where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetConsoleOutput"

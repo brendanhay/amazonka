@@ -167,4 +167,20 @@ instance ToPath ModifyImageAttribute where
 
 instance ToHeaders ModifyImageAttribute
 
-instance ToQuery ModifyImageAttribute
+instance ToQuery ModifyImageAttribute where
+    toQuery ModifyImageAttribute{..} = mconcat
+        [ "dryRun"           =? _miaDryRun
+        , "ImageId"          =? _miaImageId
+        , "Attribute"        =? _miaAttribute
+        , "OperationType"    =? _miaOperationType
+        , "UserId"           =? _miaUserIds
+        , "UserGroup"        =? _miaUserGroups
+        , "ProductCode"      =? _miaProductCodes
+        , "Value"            =? _miaValue
+        , "LaunchPermission" =? _miaLaunchPermission
+        , "Description"      =? _miaDescription
+        ]
+
+instance ToXML ModifyImageAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifyImageAttribute"

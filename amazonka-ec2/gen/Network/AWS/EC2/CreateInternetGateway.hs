@@ -100,4 +100,9 @@ instance ToPath CreateInternetGateway where
 
 instance ToHeaders CreateInternetGateway
 
-instance ToQuery CreateInternetGateway
+instance ToQuery CreateInternetGateway where
+    toQuery rq = "dryRun" =? _cigDryRun rq
+
+instance ToXML CreateInternetGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateInternetGateway"

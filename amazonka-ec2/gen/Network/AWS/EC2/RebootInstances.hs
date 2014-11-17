@@ -93,4 +93,12 @@ instance ToPath RebootInstances where
 
 instance ToHeaders RebootInstances
 
-instance ToQuery RebootInstances
+instance ToQuery RebootInstances where
+    toQuery RebootInstances{..} = mconcat
+        [ "dryRun"     =? _ri2DryRun
+        , "InstanceId" =? _ri2InstanceIds
+        ]
+
+instance ToXML RebootInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RebootInstances"

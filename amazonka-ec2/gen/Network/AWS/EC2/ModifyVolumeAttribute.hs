@@ -103,4 +103,13 @@ instance ToPath ModifyVolumeAttribute where
 
 instance ToHeaders ModifyVolumeAttribute
 
-instance ToQuery ModifyVolumeAttribute
+instance ToQuery ModifyVolumeAttribute where
+    toQuery ModifyVolumeAttribute{..} = mconcat
+        [ "dryRun"       =? _mvaDryRun
+        , "VolumeId"     =? _mvaVolumeId
+        , "AutoEnableIO" =? _mvaAutoEnableIO
+        ]
+
+instance ToXML ModifyVolumeAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifyVolumeAttribute"

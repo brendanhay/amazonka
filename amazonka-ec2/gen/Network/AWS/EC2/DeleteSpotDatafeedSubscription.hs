@@ -79,4 +79,9 @@ instance ToPath DeleteSpotDatafeedSubscription where
 
 instance ToHeaders DeleteSpotDatafeedSubscription
 
-instance ToQuery DeleteSpotDatafeedSubscription
+instance ToQuery DeleteSpotDatafeedSubscription where
+    toQuery rq = "dryRun" =? _dsds1DryRun rq
+
+instance ToXML DeleteSpotDatafeedSubscription where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteSpotDatafeedSubscription"

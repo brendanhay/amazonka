@@ -136,4 +136,16 @@ instance ToPath ModifyNetworkInterfaceAttribute where
 
 instance ToHeaders ModifyNetworkInterfaceAttribute
 
-instance ToQuery ModifyNetworkInterfaceAttribute
+instance ToQuery ModifyNetworkInterfaceAttribute where
+    toQuery ModifyNetworkInterfaceAttribute{..} = mconcat
+        [ "dryRun"             =? _mniaDryRun
+        , "networkInterfaceId" =? _mniaNetworkInterfaceId
+        , "description"        =? _mniaDescription
+        , "sourceDestCheck"    =? _mniaSourceDestCheck
+        , "SecurityGroupId"    =? _mniaGroups
+        , "attachment"         =? _mniaAttachment
+        ]
+
+instance ToXML ModifyNetworkInterfaceAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifyNetworkInterfaceAttribute"

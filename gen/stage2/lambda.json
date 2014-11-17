@@ -802,6 +802,7 @@
                 "ctor": "addEventSourceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1086,7 +1087,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "addEventSource",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1094,6 +1094,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1144,7 +1145,6 @@
                 "queryPad": 0,
                 "name": "AddEventSource",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -1265,6 +1265,7 @@
                 "ctor": "deleteFunctionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1298,7 +1299,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteFunction",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1324,6 +1324,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1346,7 +1347,6 @@
                 "queryPad": 0,
                 "name": "DeleteFunction",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1381,6 +1381,7 @@
                 "ctor": "getEventSourceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1669,7 +1670,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getEventSource",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1695,6 +1695,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1717,7 +1718,6 @@
                 "queryPad": 0,
                 "name": "GetEventSource",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1752,6 +1752,7 @@
                 "ctor": "getFunctionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1844,7 +1845,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getFunction",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1870,6 +1870,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1892,7 +1893,6 @@
                 "queryPad": 0,
                 "name": "GetFunction",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1928,6 +1928,7 @@
                 "ctor": "getFunctionConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2300,7 +2301,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getFunctionConfiguration",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -2330,6 +2330,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -2352,7 +2353,6 @@
                 "queryPad": 0,
                 "name": "GetFunctionConfiguration",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2407,6 +2407,7 @@
                     "type": "Int"
                 },
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -2467,7 +2468,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "invokeAsync",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2483,6 +2483,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -2532,7 +2533,6 @@
                 "queryPad": 0,
                 "name": "InvokeAsync",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2581,6 +2581,7 @@
                 "ctor": "listEventSourcesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2667,7 +2668,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "listEventSources",
                 "headerPad": 0,
@@ -2677,6 +2678,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2838,6 +2840,7 @@
                 "ctor": "listFunctionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2924,7 +2927,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 11,
                 "ctor": "listFunctions",
                 "headerPad": 0,
@@ -2934,6 +2937,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3030,6 +3034,7 @@
                 "ctor": "removeEventSourceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3063,7 +3068,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "removeEventSource",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -3089,6 +3093,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -3111,7 +3116,6 @@
                 "queryPad": 0,
                 "name": "RemoveEventSource",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3147,6 +3151,7 @@
                 "ctor": "updateFunctionConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3516,7 +3521,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "updateFunctionConfiguration",
-                "qs": 5,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3532,6 +3536,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -3580,7 +3585,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -3757,6 +3761,7 @@
                 "ctor": "uploadFunctionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4125,7 +4130,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "uploadFunction",
-                "qs": 7,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4137,6 +4141,7 @@
                         "type": "var"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -4278,7 +4283,6 @@
                         "type": "field"
                     }
                 ],
-                "fs": 9,
                 "type": "record",
                 "optional": [
                     {

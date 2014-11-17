@@ -272,4 +272,17 @@ instance ToPath CreateVolume where
 
 instance ToHeaders CreateVolume
 
-instance ToQuery CreateVolume
+instance ToQuery CreateVolume where
+    toQuery CreateVolume{..} = mconcat
+        [ "dryRun"           =? _cv1DryRun
+        , "Size"             =? _cv1Size
+        , "SnapshotId"       =? _cv1SnapshotId
+        , "AvailabilityZone" =? _cv1AvailabilityZone
+        , "VolumeType"       =? _cv1VolumeType
+        , "Iops"             =? _cv1Iops
+        , "encrypted"        =? _cv1Encrypted
+        ]
+
+instance ToXML CreateVolume where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateVolume"

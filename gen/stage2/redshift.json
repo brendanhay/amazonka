@@ -5995,6 +5995,7 @@
                     "type": "Maybe ClusterSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6063,6 +6064,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6240,6 +6242,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6308,6 +6311,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6452,6 +6456,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6520,6 +6525,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6664,6 +6670,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6732,6 +6739,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7503,6 +7511,7 @@
                     "type": "Maybe ClusterParameterGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7571,6 +7580,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7714,6 +7724,7 @@
                     "type": "Maybe ClusterSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7782,6 +7793,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7892,6 +7904,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7960,6 +7973,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8070,6 +8084,7 @@
                     "type": "Maybe ClusterSubnetGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8138,6 +8153,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8282,6 +8298,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8350,6 +8367,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8626,6 +8644,7 @@
                     "type": "Maybe HsmClientCertificate"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8711,6 +8730,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8788,6 +8808,7 @@
                     "type": "Maybe HsmConfiguration"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8856,6 +8877,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9098,6 +9120,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9166,6 +9189,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9296,6 +9320,7 @@
                 "ctor": "deleteClusterParameterGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9350,6 +9375,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9413,6 +9439,7 @@
                 "ctor": "deleteClusterSecurityGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9467,6 +9494,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9544,6 +9572,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9612,6 +9641,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9709,6 +9739,7 @@
                 "ctor": "deleteClusterSubnetGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9763,6 +9794,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9826,6 +9858,7 @@
                 "ctor": "deleteEventSubscriptionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9880,6 +9913,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9943,6 +9977,7 @@
                 "ctor": "deleteHsmClientCertificateResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9997,6 +10032,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10060,6 +10096,7 @@
                 "ctor": "deleteHsmConfigurationResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -10114,6 +10151,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10176,6 +10214,7 @@
                 "ctor": "describeClusterParameterGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10280,6 +10319,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10408,6 +10448,7 @@
                 "ctor": "describeClusterParametersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10512,6 +10553,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10674,6 +10716,7 @@
                 "ctor": "describeClusterSecurityGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10778,6 +10821,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10906,6 +10950,7 @@
                 "ctor": "describeClusterSnapshotsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11010,6 +11055,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11303,6 +11349,7 @@
                 "ctor": "describeClusterSubnetGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11407,6 +11454,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11535,6 +11583,7 @@
                 "ctor": "describeClusterVersionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11639,6 +11688,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11800,6 +11850,7 @@
                 "ctor": "describeClustersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11904,6 +11955,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12047,6 +12099,7 @@
                     "type": "Maybe DefaultClusterParameters"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12123,6 +12176,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12269,6 +12323,7 @@
                     "type": "[EventCategoriesMap]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12353,6 +12408,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12415,6 +12471,7 @@
                 "ctor": "describeEventSubscriptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12519,6 +12576,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12647,6 +12705,7 @@
                 "ctor": "describeEventsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12751,6 +12810,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13011,6 +13071,7 @@
                 "ctor": "describeHsmClientCertificatesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13115,6 +13176,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13243,6 +13305,7 @@
                 "ctor": "describeHsmConfigurationsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13347,6 +13410,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13476,6 +13540,7 @@
                 "ctor": "describeLoggingStatusResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13701,6 +13766,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -13763,6 +13829,7 @@
                 "ctor": "describeOrderableClusterOptionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13867,6 +13934,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14028,6 +14096,7 @@
                 "ctor": "describeReservedNodeOfferingsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14132,6 +14201,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14260,6 +14330,7 @@
                 "ctor": "describeReservedNodesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14364,6 +14435,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14493,6 +14565,7 @@
                 "ctor": "describeResizeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14886,6 +14959,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14949,6 +15023,7 @@
                 "ctor": "disableLoggingResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15174,6 +15249,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15251,6 +15327,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15336,6 +15413,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15399,6 +15477,7 @@
                 "ctor": "enableLoggingResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15607,6 +15686,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15751,6 +15831,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15819,6 +15900,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15963,6 +16045,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16031,6 +16114,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16557,6 +16641,7 @@
                 "ctor": "modifyClusterParameterGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16652,6 +16737,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16763,6 +16849,7 @@
                     "type": "Maybe ClusterSubnetGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16831,6 +16918,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16975,6 +17063,7 @@
                     "type": "Maybe EventSubscription"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17043,6 +17132,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17319,6 +17409,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17387,6 +17478,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17497,6 +17589,7 @@
                     "type": "Maybe ReservedNode"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17565,6 +17658,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17676,6 +17770,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17761,6 +17856,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17824,6 +17920,7 @@
                 "ctor": "resetClusterParameterGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -17919,6 +18016,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -18063,6 +18161,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18131,6 +18230,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -18737,6 +18837,7 @@
                     "type": "Maybe ClusterSecurityGroup"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18805,6 +18906,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -18982,6 +19084,7 @@
                     "type": "Maybe Snapshot"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -19050,6 +19153,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -19194,6 +19298,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": true,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -19279,6 +19384,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

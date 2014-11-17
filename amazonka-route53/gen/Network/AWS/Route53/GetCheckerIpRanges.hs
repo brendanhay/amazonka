@@ -95,4 +95,9 @@ instance ToPath GetCheckerIpRanges where
 
 instance ToHeaders GetCheckerIpRanges
 
-instance ToQuery GetCheckerIpRanges
+instance ToQuery GetCheckerIpRanges where
+    toQuery = const mempty
+
+instance ToXML GetCheckerIpRanges where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetCheckerIpRanges"

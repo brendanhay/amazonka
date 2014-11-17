@@ -6067,6 +6067,7 @@
                 "ctor": "addInstanceGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6155,7 +6156,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "addInstanceGroups",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6163,6 +6163,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6185,7 +6186,6 @@
                 "queryPad": 0,
                 "name": "AddInstanceGroups",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6267,6 +6267,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6327,7 +6328,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "addJobFlowSteps",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6335,6 +6335,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6357,7 +6358,6 @@
                 "queryPad": 0,
                 "name": "AddJobFlowSteps",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6422,6 +6422,7 @@
                 "ctor": "addTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6451,7 +6452,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "addTags",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6459,6 +6459,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6481,7 +6482,6 @@
                 "queryPad": 0,
                 "name": "AddTags",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6560,6 +6560,7 @@
                     "type": "Maybe Cluster"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6624,7 +6625,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeCluster",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6646,6 +6646,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6668,7 +6669,6 @@
                 "queryPad": 0,
                 "name": "DescribeCluster",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6720,6 +6720,7 @@
                     "type": "[JobFlowDetail]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6781,7 +6782,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "describeJobFlows",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6789,6 +6789,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6796,7 +6797,6 @@
                 "queryPad": 0,
                 "name": "DescribeJobFlows",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -6945,6 +6945,7 @@
                     "type": "Maybe Step"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7006,7 +7007,6 @@
                 "style": "json",
                 "fieldPad": 12,
                 "ctor": "describeStep",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7014,6 +7014,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7050,7 +7051,6 @@
                 "queryPad": 0,
                 "name": "DescribeStep",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7099,6 +7099,7 @@
                 "ctor": "listBootstrapActionsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7196,7 +7197,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listBootstrapActions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7204,6 +7204,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7226,7 +7227,6 @@
                 "queryPad": 0,
                 "name": "ListBootstrapActions",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7290,6 +7290,7 @@
                 "ctor": "listClustersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7387,7 +7388,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "listClusters",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7395,6 +7395,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7402,7 +7403,6 @@
                 "queryPad": 0,
                 "name": "ListClusters",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -7536,6 +7536,7 @@
                 "ctor": "listInstanceGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7633,7 +7634,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listInstanceGroups",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7641,6 +7641,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7663,7 +7664,6 @@
                 "queryPad": 0,
                 "name": "ListInstanceGroups",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7727,6 +7727,7 @@
                 "ctor": "listInstancesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7824,7 +7825,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "listInstances",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7832,6 +7832,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7854,7 +7855,6 @@
                 "queryPad": 0,
                 "name": "ListInstances",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -7974,6 +7974,7 @@
                 "ctor": "listStepsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8071,7 +8072,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listSteps",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8079,6 +8079,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -8101,7 +8102,6 @@
                 "queryPad": 0,
                 "name": "ListSteps",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -8194,6 +8194,7 @@
                 "ctor": "modifyInstanceGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8226,7 +8227,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "modifyInstanceGroups",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -8248,6 +8248,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8255,7 +8256,6 @@
                 "queryPad": 0,
                 "name": "ModifyInstanceGroups",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -8306,6 +8306,7 @@
                 "ctor": "removeTagsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8336,7 +8337,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "removeTags",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8344,6 +8344,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -8366,7 +8367,6 @@
                 "queryPad": 0,
                 "name": "RemoveTags",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -8447,6 +8447,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8507,7 +8508,6 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "runJobFlow",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8515,6 +8515,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -8551,7 +8552,6 @@
                 "queryPad": 0,
                 "name": "RunJobFlow",
                 "query": [],
-                "fs": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -8910,6 +8910,7 @@
                 "ctor": "setTerminationProtectionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -8940,7 +8941,6 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "setTerminationProtection",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8948,6 +8948,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -8970,7 +8971,6 @@
                 "queryPad": 0,
                 "name": "SetTerminationProtection",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -9035,6 +9035,7 @@
                 "ctor": "setVisibleToAllUsersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9065,7 +9066,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "setVisibleToAllUsers",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9073,6 +9073,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -9095,7 +9096,6 @@
                 "queryPad": 0,
                 "name": "SetVisibleToAllUsers",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -9160,6 +9160,7 @@
                 "ctor": "terminateJobFlowsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -9193,7 +9194,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "terminateJobFlows",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -9215,6 +9215,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9222,7 +9223,6 @@
                 "queryPad": 0,
                 "name": "TerminateJobFlows",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {

@@ -217,4 +217,14 @@ instance ToPath ListGeoLocations where
 
 instance ToHeaders ListGeoLocations
 
-instance ToQuery ListGeoLocations
+instance ToQuery ListGeoLocations where
+    toQuery ListGeoLocations{..} = mconcat
+        [ "startcontinentcode"   =? _lglStartContinentCode
+        , "startcountrycode"     =? _lglStartCountryCode
+        , "startsubdivisioncode" =? _lglStartSubdivisionCode
+        , "maxitems"             =? _lglMaxItems
+        ]
+
+instance ToXML ListGeoLocations where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListGeoLocations"

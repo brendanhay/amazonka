@@ -137,4 +137,15 @@ instance ToPath ImportInstance where
 
 instance ToHeaders ImportInstance
 
-instance ToQuery ImportInstance
+instance ToQuery ImportInstance where
+    toQuery ImportInstance{..} = mconcat
+        [ "dryRun"              =? _iiDryRun
+        , "description"         =? _iiDescription
+        , "launchSpecification" =? _iiLaunchSpecification
+        , "diskImage"           =? _iiDiskImages
+        , "platform"            =? _iiPlatform
+        ]
+
+instance ToXML ImportInstance where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ImportInstance"

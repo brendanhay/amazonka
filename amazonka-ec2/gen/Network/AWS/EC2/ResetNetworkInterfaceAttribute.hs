@@ -100,4 +100,13 @@ instance ToPath ResetNetworkInterfaceAttribute where
 
 instance ToHeaders ResetNetworkInterfaceAttribute
 
-instance ToQuery ResetNetworkInterfaceAttribute
+instance ToQuery ResetNetworkInterfaceAttribute where
+    toQuery ResetNetworkInterfaceAttribute{..} = mconcat
+        [ "dryRun"             =? _rniaDryRun
+        , "networkInterfaceId" =? _rniaNetworkInterfaceId
+        , "sourceDestCheck"    =? _rniaSourceDestCheck
+        ]
+
+instance ToXML ResetNetworkInterfaceAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResetNetworkInterfaceAttribute"

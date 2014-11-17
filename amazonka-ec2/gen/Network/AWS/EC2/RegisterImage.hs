@@ -208,4 +208,21 @@ instance ToPath RegisterImage where
 
 instance ToHeaders RegisterImage
 
-instance ToQuery RegisterImage
+instance ToQuery RegisterImage where
+    toQuery RegisterImage{..} = mconcat
+        [ "dryRun"             =? _ri1DryRun
+        , "ImageLocation"      =? _ri1ImageLocation
+        , "name"               =? _ri1Name
+        , "description"        =? _ri1Description
+        , "architecture"       =? _ri1Architecture
+        , "kernelId"           =? _ri1KernelId
+        , "ramdiskId"          =? _ri1RamdiskId
+        , "rootDeviceName"     =? _ri1RootDeviceName
+        , "BlockDeviceMapping" =? _ri1BlockDeviceMappings
+        , "virtualizationType" =? _ri1VirtualizationType
+        , "sriovNetSupport"    =? _ri1SriovNetSupport
+        ]
+
+instance ToXML RegisterImage where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RegisterImage"

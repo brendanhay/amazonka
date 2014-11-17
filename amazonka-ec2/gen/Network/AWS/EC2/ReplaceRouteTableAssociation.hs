@@ -124,4 +124,13 @@ instance ToPath ReplaceRouteTableAssociation where
 
 instance ToHeaders ReplaceRouteTableAssociation
 
-instance ToQuery ReplaceRouteTableAssociation
+instance ToQuery ReplaceRouteTableAssociation where
+    toQuery ReplaceRouteTableAssociation{..} = mconcat
+        [ "dryRun"        =? _rrtaDryRun
+        , "associationId" =? _rrtaAssociationId
+        , "routeTableId"  =? _rrtaRouteTableId
+        ]
+
+instance ToXML ReplaceRouteTableAssociation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ReplaceRouteTableAssociation"

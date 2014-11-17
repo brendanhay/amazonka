@@ -89,4 +89,12 @@ instance ToPath EnableVolumeIO where
 
 instance ToHeaders EnableVolumeIO
 
-instance ToQuery EnableVolumeIO
+instance ToQuery EnableVolumeIO where
+    toQuery EnableVolumeIO{..} = mconcat
+        [ "dryRun"   =? _evioDryRun
+        , "volumeId" =? _evioVolumeId
+        ]
+
+instance ToXML EnableVolumeIO where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "EnableVolumeIO"

@@ -130,4 +130,13 @@ instance ToPath GetGeoLocation where
 
 instance ToHeaders GetGeoLocation
 
-instance ToQuery GetGeoLocation
+instance ToQuery GetGeoLocation where
+    toQuery GetGeoLocation{..} = mconcat
+        [ "continentcode"   =? _gglContinentCode
+        , "countrycode"     =? _gglCountryCode
+        , "subdivisioncode" =? _gglSubdivisionCode
+        ]
+
+instance ToXML GetGeoLocation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetGeoLocation"

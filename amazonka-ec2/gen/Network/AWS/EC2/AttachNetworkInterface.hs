@@ -127,4 +127,14 @@ instance ToPath AttachNetworkInterface where
 
 instance ToHeaders AttachNetworkInterface
 
-instance ToQuery AttachNetworkInterface
+instance ToQuery AttachNetworkInterface where
+    toQuery AttachNetworkInterface{..} = mconcat
+        [ "dryRun"             =? _aniDryRun
+        , "networkInterfaceId" =? _aniNetworkInterfaceId
+        , "instanceId"         =? _aniInstanceId
+        , "deviceIndex"        =? _aniDeviceIndex
+        ]
+
+instance ToXML AttachNetworkInterface where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AttachNetworkInterface"

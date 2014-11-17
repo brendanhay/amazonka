@@ -145,4 +145,13 @@ instance ToPath DescribeReservedInstancesListings where
 
 instance ToHeaders DescribeReservedInstancesListings
 
-instance ToQuery DescribeReservedInstancesListings
+instance ToQuery DescribeReservedInstancesListings where
+    toQuery DescribeReservedInstancesListings{..} = mconcat
+        [ "reservedInstancesId"        =? _drilReservedInstancesId
+        , "reservedInstancesListingId" =? _drilReservedInstancesListingId
+        , "filters"                    =? _drilFilters
+        ]
+
+instance ToXML DescribeReservedInstancesListings where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeReservedInstancesListings"

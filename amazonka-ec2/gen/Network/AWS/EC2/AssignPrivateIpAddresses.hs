@@ -128,4 +128,14 @@ instance ToPath AssignPrivateIpAddresses where
 
 instance ToHeaders AssignPrivateIpAddresses
 
-instance ToQuery AssignPrivateIpAddresses
+instance ToQuery AssignPrivateIpAddresses where
+    toQuery AssignPrivateIpAddresses{..} = mconcat
+        [ "networkInterfaceId"             =? _apiaNetworkInterfaceId
+        , "privateIpAddress"               =? _apiaPrivateIpAddresses
+        , "secondaryPrivateIpAddressCount" =? _apiaSecondaryPrivateIpAddressCount
+        , "allowReassignment"              =? _apiaAllowReassignment
+        ]
+
+instance ToXML AssignPrivateIpAddresses where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AssignPrivateIpAddresses"

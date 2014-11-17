@@ -133,4 +133,11 @@ instance ToPath ListIdentityPoolUsage where
 
 instance ToHeaders ListIdentityPoolUsage
 
-instance ToQuery ListIdentityPoolUsage
+instance ToQuery ListIdentityPoolUsage where
+    toQuery ListIdentityPoolUsage{..} = mconcat
+        [ "nextToken"  =? _lipuNextToken
+        , "maxResults" =? _lipuMaxResults
+        ]
+
+instance ToJSON ListIdentityPoolUsage where
+    toJSON = genericToJSON jsonOptions

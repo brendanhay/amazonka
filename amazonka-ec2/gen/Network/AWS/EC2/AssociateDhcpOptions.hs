@@ -107,4 +107,13 @@ instance ToPath AssociateDhcpOptions where
 
 instance ToHeaders AssociateDhcpOptions
 
-instance ToQuery AssociateDhcpOptions
+instance ToQuery AssociateDhcpOptions where
+    toQuery AssociateDhcpOptions{..} = mconcat
+        [ "dryRun"        =? _adoDryRun
+        , "DhcpOptionsId" =? _adoDhcpOptionsId
+        , "VpcId"         =? _adoVpcId
+        ]
+
+instance ToXML AssociateDhcpOptions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AssociateDhcpOptions"

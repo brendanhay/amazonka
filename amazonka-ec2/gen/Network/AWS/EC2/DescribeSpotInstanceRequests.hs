@@ -189,4 +189,13 @@ instance ToPath DescribeSpotInstanceRequests where
 
 instance ToHeaders DescribeSpotInstanceRequests
 
-instance ToQuery DescribeSpotInstanceRequests
+instance ToQuery DescribeSpotInstanceRequests where
+    toQuery DescribeSpotInstanceRequests{..} = mconcat
+        [ "dryRun"                =? _dsirDryRun
+        , "SpotInstanceRequestId" =? _dsirSpotInstanceRequestIds
+        , "Filter"                =? _dsirFilters
+        ]
+
+instance ToXML DescribeSpotInstanceRequests where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSpotInstanceRequests"

@@ -98,4 +98,12 @@ instance ToPath CreateVpnConnectionRoute where
 
 instance ToHeaders CreateVpnConnectionRoute
 
-instance ToQuery CreateVpnConnectionRoute
+instance ToQuery CreateVpnConnectionRoute where
+    toQuery CreateVpnConnectionRoute{..} = mconcat
+        [ "VpnConnectionId"      =? _cvcrVpnConnectionId
+        , "DestinationCidrBlock" =? _cvcrDestinationCidrBlock
+        ]
+
+instance ToXML CreateVpnConnectionRoute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateVpnConnectionRoute"

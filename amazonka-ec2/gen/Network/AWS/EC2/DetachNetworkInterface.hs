@@ -97,4 +97,13 @@ instance ToPath DetachNetworkInterface where
 
 instance ToHeaders DetachNetworkInterface
 
-instance ToQuery DetachNetworkInterface
+instance ToQuery DetachNetworkInterface where
+    toQuery DetachNetworkInterface{..} = mconcat
+        [ "dryRun"       =? _dniDryRun
+        , "attachmentId" =? _dniAttachmentId
+        , "force"        =? _dniForce
+        ]
+
+instance ToXML DetachNetworkInterface where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DetachNetworkInterface"

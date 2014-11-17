@@ -102,4 +102,13 @@ instance ToPath CreateTags where
 
 instance ToHeaders CreateTags
 
-instance ToQuery CreateTags
+instance ToQuery CreateTags where
+    toQuery CreateTags{..} = mconcat
+        [ "dryRun"     =? _ct1DryRun
+        , "ResourceId" =? _ct1Resources
+        , "Tag"        =? _ct1Tags
+        ]
+
+instance ToXML CreateTags where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateTags"

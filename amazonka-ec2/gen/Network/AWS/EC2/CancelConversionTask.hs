@@ -103,4 +103,13 @@ instance ToPath CancelConversionTask where
 
 instance ToHeaders CancelConversionTask
 
-instance ToQuery CancelConversionTask
+instance ToQuery CancelConversionTask where
+    toQuery CancelConversionTask{..} = mconcat
+        [ "dryRun"           =? _cctDryRun
+        , "conversionTaskId" =? _cctConversionTaskId
+        , "reasonMessage"    =? _cctReasonMessage
+        ]
+
+instance ToXML CancelConversionTask where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CancelConversionTask"

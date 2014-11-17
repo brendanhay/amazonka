@@ -215,4 +215,19 @@ instance ToPath RequestSpotInstances where
 
 instance ToHeaders RequestSpotInstances
 
-instance ToQuery RequestSpotInstances
+instance ToQuery RequestSpotInstances where
+    toQuery RequestSpotInstances{..} = mconcat
+        [ "dryRun"                =? _rsiDryRun
+        , "spotPrice"             =? _rsiSpotPrice
+        , "instanceCount"         =? _rsiInstanceCount
+        , "type"                  =? _rsiType
+        , "validFrom"             =? _rsiValidFrom
+        , "validUntil"            =? _rsiValidUntil
+        , "launchGroup"           =? _rsiLaunchGroup
+        , "availabilityZoneGroup" =? _rsiAvailabilityZoneGroup
+        , "LaunchSpecification"   =? _rsiLaunchSpecification
+        ]
+
+instance ToXML RequestSpotInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RequestSpotInstances"

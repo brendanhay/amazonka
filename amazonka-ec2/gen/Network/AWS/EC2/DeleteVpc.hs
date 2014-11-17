@@ -93,4 +93,12 @@ instance ToPath DeleteVpc where
 
 instance ToHeaders DeleteVpc
 
-instance ToQuery DeleteVpc
+instance ToQuery DeleteVpc where
+    toQuery DeleteVpc{..} = mconcat
+        [ "dryRun" =? _dv3DryRun
+        , "VpcId"  =? _dv3VpcId
+        ]
+
+instance ToXML DeleteVpc where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteVpc"

@@ -89,4 +89,12 @@ instance ToPath DeleteSubnet where
 
 instance ToHeaders DeleteSubnet
 
-instance ToQuery DeleteSubnet
+instance ToQuery DeleteSubnet where
+    toQuery DeleteSubnet{..} = mconcat
+        [ "dryRun"   =? _ds2DryRun
+        , "SubnetId" =? _ds2SubnetId
+        ]
+
+instance ToXML DeleteSubnet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteSubnet"

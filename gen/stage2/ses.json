@@ -992,6 +992,7 @@
                 "ctor": "deleteIdentityResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1046,6 +1047,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1109,6 +1111,7 @@
                 "ctor": "deleteVerifiedEmailAddressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1163,6 +1166,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -1242,6 +1246,7 @@
                     "type": "Map Text IdentityDkimAttributes"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1327,6 +1332,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1406,6 +1412,7 @@
                     "type": "Map Text IdentityNotificationAttributes"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1491,6 +1498,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1570,6 +1578,7 @@
                     "type": "Map Text IdentityVerificationAttributes"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1655,6 +1664,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1718,6 +1728,7 @@
                 "ctor": "getSendQuotaResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1842,6 +1853,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1884,6 +1896,7 @@
                     "type": "[SendDataPoint]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1952,6 +1965,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1978,6 +1992,7 @@
                 "ctor": "listIdentitiesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2082,6 +2097,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2228,6 +2244,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -2296,6 +2313,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2339,6 +2357,7 @@
                     "type": "Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2406,6 +2425,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2619,6 +2639,7 @@
                     "type": "Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2686,6 +2707,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2816,6 +2838,7 @@
                 "ctor": "setIdentityDkimEnabledResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2853,6 +2876,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2949,6 +2973,7 @@
                 "ctor": "setIdentityFeedbackForwardingEnabledResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2986,6 +3011,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3082,6 +3108,7 @@
                 "ctor": "setIdentityNotificationTopicResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3119,6 +3146,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3266,6 +3294,7 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3351,6 +3380,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3431,6 +3461,7 @@
                     "type": "Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3516,6 +3547,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3579,6 +3611,7 @@
                 "ctor": "verifyEmailAddressResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3633,6 +3666,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3696,6 +3730,7 @@
                 "ctor": "verifyEmailIdentityResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3750,6 +3785,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

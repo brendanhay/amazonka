@@ -183,4 +183,15 @@ instance ToPath DescribeVolumes where
 
 instance ToHeaders DescribeVolumes
 
-instance ToQuery DescribeVolumes
+instance ToQuery DescribeVolumes where
+    toQuery DescribeVolumes{..} = mconcat
+        [ "dryRun"     =? _dv2DryRun
+        , "VolumeId"   =? _dv2VolumeIds
+        , "Filter"     =? _dv2Filters
+        , "nextToken"  =? _dv2NextToken
+        , "maxResults" =? _dv2MaxResults
+        ]
+
+instance ToXML DescribeVolumes where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVolumes"

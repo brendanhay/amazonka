@@ -112,4 +112,12 @@ instance ToPath RejectVpcPeeringConnection where
 
 instance ToHeaders RejectVpcPeeringConnection
 
-instance ToQuery RejectVpcPeeringConnection
+instance ToQuery RejectVpcPeeringConnection where
+    toQuery RejectVpcPeeringConnection{..} = mconcat
+        [ "dryRun"                 =? _rvpcDryRun
+        , "vpcPeeringConnectionId" =? _rvpcVpcPeeringConnectionId
+        ]
+
+instance ToXML RejectVpcPeeringConnection where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RejectVpcPeeringConnection"

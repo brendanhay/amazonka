@@ -126,4 +126,13 @@ instance ToPath DescribePlacementGroups where
 
 instance ToHeaders DescribePlacementGroups
 
-instance ToQuery DescribePlacementGroups
+instance ToQuery DescribePlacementGroups where
+    toQuery DescribePlacementGroups{..} = mconcat
+        [ "dryRun"    =? _dpg1DryRun
+        , "groupName" =? _dpg1GroupNames
+        , "Filter"    =? _dpg1Filters
+        ]
+
+instance ToXML DescribePlacementGroups where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribePlacementGroups"

@@ -129,4 +129,14 @@ instance ToPath CreateInstanceExportTask where
 
 instance ToHeaders CreateInstanceExportTask
 
-instance ToQuery CreateInstanceExportTask
+instance ToQuery CreateInstanceExportTask where
+    toQuery CreateInstanceExportTask{..} = mconcat
+        [ "description"       =? _cietDescription
+        , "instanceId"        =? _cietInstanceId
+        , "targetEnvironment" =? _cietTargetEnvironment
+        , "exportToS3"        =? _cietExportToS3Task
+        ]
+
+instance ToXML CreateInstanceExportTask where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateInstanceExportTask"

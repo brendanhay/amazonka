@@ -150,4 +150,16 @@ instance ToPath CopyImage where
 
 instance ToHeaders CopyImage
 
-instance ToQuery CopyImage
+instance ToQuery CopyImage where
+    toQuery CopyImage{..} = mconcat
+        [ "dryRun"        =? _ciDryRun
+        , "SourceRegion"  =? _ciSourceRegion
+        , "SourceImageId" =? _ciSourceImageId
+        , "Name"          =? _ciName
+        , "Description"   =? _ciDescription
+        , "ClientToken"   =? _ciClientToken
+        ]
+
+instance ToXML CopyImage where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CopyImage"

@@ -145,4 +145,14 @@ instance ToPath CreateSubnet where
 
 instance ToHeaders CreateSubnet
 
-instance ToQuery CreateSubnet
+instance ToQuery CreateSubnet where
+    toQuery CreateSubnet{..} = mconcat
+        [ "dryRun"           =? _cs1DryRun
+        , "VpcId"            =? _cs1VpcId
+        , "CidrBlock"        =? _cs1CidrBlock
+        , "AvailabilityZone" =? _cs1AvailabilityZone
+        ]
+
+instance ToXML CreateSubnet where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateSubnet"

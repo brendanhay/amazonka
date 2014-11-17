@@ -119,4 +119,13 @@ instance ToPath AttachVpnGateway where
 
 instance ToHeaders AttachVpnGateway
 
-instance ToQuery AttachVpnGateway
+instance ToQuery AttachVpnGateway where
+    toQuery AttachVpnGateway{..} = mconcat
+        [ "dryRun"       =? _avgDryRun
+        , "VpnGatewayId" =? _avgVpnGatewayId
+        , "VpcId"        =? _avgVpcId
+        ]
+
+instance ToXML AttachVpnGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AttachVpnGateway"

@@ -108,4 +108,9 @@ instance ToPath DescribeExportTasks where
 
 instance ToHeaders DescribeExportTasks
 
-instance ToQuery DescribeExportTasks
+instance ToQuery DescribeExportTasks where
+    toQuery rq = "exportTaskId" =? _detExportTaskIds rq
+
+instance ToXML DescribeExportTasks where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeExportTasks"

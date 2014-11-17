@@ -111,4 +111,12 @@ instance ToPath DeleteVpcPeeringConnection where
 
 instance ToHeaders DeleteVpcPeeringConnection
 
-instance ToQuery DeleteVpcPeeringConnection
+instance ToQuery DeleteVpcPeeringConnection where
+    toQuery DeleteVpcPeeringConnection{..} = mconcat
+        [ "dryRun"                 =? _dvpcDryRun
+        , "vpcPeeringConnectionId" =? _dvpcVpcPeeringConnectionId
+        ]
+
+instance ToXML DeleteVpcPeeringConnection where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteVpcPeeringConnection"

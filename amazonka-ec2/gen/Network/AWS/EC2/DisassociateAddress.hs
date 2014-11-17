@@ -101,4 +101,13 @@ instance ToPath DisassociateAddress where
 
 instance ToHeaders DisassociateAddress
 
-instance ToQuery DisassociateAddress
+instance ToQuery DisassociateAddress where
+    toQuery DisassociateAddress{..} = mconcat
+        [ "dryRun"        =? _da1DryRun
+        , "PublicIp"      =? _da1PublicIp
+        , "AssociationId" =? _da1AssociationId
+        ]
+
+instance ToXML DisassociateAddress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DisassociateAddress"

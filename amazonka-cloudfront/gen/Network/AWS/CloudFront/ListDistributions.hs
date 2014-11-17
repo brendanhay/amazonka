@@ -111,4 +111,12 @@ instance ToPath ListDistributions where
 
 instance ToHeaders ListDistributions
 
-instance ToQuery ListDistributions
+instance ToQuery ListDistributions where
+    toQuery ListDistributions{..} = mconcat
+        [ "Marker"   =? _ldMarker
+        , "MaxItems" =? _ldMaxItems
+        ]
+
+instance ToXML ListDistributions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListDistributions"

@@ -103,4 +103,13 @@ instance ToPath DeleteTags where
 
 instance ToHeaders DeleteTags
 
-instance ToQuery DeleteTags
+instance ToQuery DeleteTags where
+    toQuery DeleteTags{..} = mconcat
+        [ "dryRun"     =? _dt1DryRun
+        , "resourceId" =? _dt1Resources
+        , "tag"        =? _dt1Tags
+        ]
+
+instance ToXML DeleteTags where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteTags"

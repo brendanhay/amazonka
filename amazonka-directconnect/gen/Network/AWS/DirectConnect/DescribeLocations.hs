@@ -89,4 +89,8 @@ instance ToPath DescribeLocations where
 
 instance ToHeaders DescribeLocations
 
-instance ToQuery DescribeLocations
+instance ToQuery DescribeLocations where
+    toQuery = const mempty
+
+instance ToJSON DescribeLocations where
+    toJSON = genericToJSON jsonOptions

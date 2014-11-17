@@ -151,4 +151,13 @@ instance ToPath DescribeRouteTables where
 
 instance ToHeaders DescribeRouteTables
 
-instance ToQuery DescribeRouteTables
+instance ToQuery DescribeRouteTables where
+    toQuery DescribeRouteTables{..} = mconcat
+        [ "dryRun"       =? _drt2DryRun
+        , "RouteTableId" =? _drt2RouteTableIds
+        , "Filter"       =? _drt2Filters
+        ]
+
+instance ToXML DescribeRouteTables where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeRouteTables"

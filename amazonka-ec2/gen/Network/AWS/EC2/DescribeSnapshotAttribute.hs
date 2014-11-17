@@ -139,4 +139,13 @@ instance ToPath DescribeSnapshotAttribute where
 
 instance ToHeaders DescribeSnapshotAttribute
 
-instance ToQuery DescribeSnapshotAttribute
+instance ToQuery DescribeSnapshotAttribute where
+    toQuery DescribeSnapshotAttribute{..} = mconcat
+        [ "dryRun"     =? _dsaDryRun
+        , "SnapshotId" =? _dsaSnapshotId
+        , "Attribute"  =? _dsaAttribute
+        ]
+
+instance ToXML DescribeSnapshotAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSnapshotAttribute"

@@ -105,4 +105,13 @@ instance ToPath ResetInstanceAttribute where
 
 instance ToHeaders ResetInstanceAttribute
 
-instance ToQuery ResetInstanceAttribute
+instance ToQuery ResetInstanceAttribute where
+    toQuery ResetInstanceAttribute{..} = mconcat
+        [ "dryRun"     =? _riaDryRun
+        , "instanceId" =? _riaInstanceId
+        , "attribute"  =? _riaAttribute
+        ]
+
+instance ToXML ResetInstanceAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResetInstanceAttribute"

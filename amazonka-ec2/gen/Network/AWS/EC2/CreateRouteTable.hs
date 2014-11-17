@@ -109,4 +109,12 @@ instance ToPath CreateRouteTable where
 
 instance ToHeaders CreateRouteTable
 
-instance ToQuery CreateRouteTable
+instance ToQuery CreateRouteTable where
+    toQuery CreateRouteTable{..} = mconcat
+        [ "dryRun" =? _crtDryRun
+        , "vpcId"  =? _crtVpcId
+        ]
+
+instance ToXML CreateRouteTable where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateRouteTable"

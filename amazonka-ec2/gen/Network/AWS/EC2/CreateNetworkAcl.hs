@@ -109,4 +109,12 @@ instance ToPath CreateNetworkAcl where
 
 instance ToHeaders CreateNetworkAcl
 
-instance ToQuery CreateNetworkAcl
+instance ToQuery CreateNetworkAcl where
+    toQuery CreateNetworkAcl{..} = mconcat
+        [ "dryRun" =? _cnaDryRun
+        , "vpcId"  =? _cnaVpcId
+        ]
+
+instance ToXML CreateNetworkAcl where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateNetworkAcl"

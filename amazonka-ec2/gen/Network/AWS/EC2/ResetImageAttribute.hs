@@ -99,4 +99,13 @@ instance ToPath ResetImageAttribute where
 
 instance ToHeaders ResetImageAttribute
 
-instance ToQuery ResetImageAttribute
+instance ToQuery ResetImageAttribute where
+    toQuery ResetImageAttribute{..} = mconcat
+        [ "dryRun"    =? _ria1DryRun
+        , "ImageId"   =? _ria1ImageId
+        , "Attribute" =? _ria1Attribute
+        ]
+
+instance ToXML ResetImageAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResetImageAttribute"

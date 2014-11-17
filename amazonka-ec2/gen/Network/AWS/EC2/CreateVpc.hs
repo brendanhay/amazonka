@@ -129,4 +129,13 @@ instance ToPath CreateVpc where
 
 instance ToHeaders CreateVpc
 
-instance ToQuery CreateVpc
+instance ToQuery CreateVpc where
+    toQuery CreateVpc{..} = mconcat
+        [ "dryRun"          =? _cvDryRun
+        , "CidrBlock"       =? _cvCidrBlock
+        , "instanceTenancy" =? _cvInstanceTenancy
+        ]
+
+instance ToXML CreateVpc where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateVpc"

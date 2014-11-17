@@ -2596,6 +2596,7 @@
                 "ctor": "addClientIDToOpenIDConnectProviderResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2633,6 +2634,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2729,6 +2731,7 @@
                 "ctor": "addRoleToInstanceProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2766,6 +2769,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2862,6 +2866,7 @@
                 "ctor": "addUserToGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2899,6 +2904,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -2995,6 +3001,7 @@
                 "ctor": "changePasswordResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3032,6 +3039,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3142,6 +3150,7 @@
                     "type": "AccessKey"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3226,6 +3235,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3289,6 +3299,7 @@
                 "ctor": "createAccountAliasResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3343,6 +3354,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3420,6 +3432,7 @@
                     "type": "Group"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3488,6 +3501,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3599,6 +3613,7 @@
                     "type": "InstanceProfile"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3667,6 +3682,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3778,6 +3794,7 @@
                     "type": "LoginProfile"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3846,6 +3863,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -3992,6 +4010,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4060,6 +4079,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4204,6 +4224,7 @@
                     "type": "Role"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4272,6 +4293,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4418,6 +4440,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4486,6 +4509,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4596,6 +4620,7 @@
                     "type": "Maybe User"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4664,6 +4689,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4775,6 +4801,7 @@
                     "type": "VirtualMFADevice"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4843,6 +4870,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -4940,6 +4968,7 @@
                 "ctor": "deactivateMFADeviceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4977,6 +5006,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5073,6 +5103,7 @@
                 "ctor": "deleteAccessKeyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5110,6 +5141,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5207,6 +5239,7 @@
                 "ctor": "deleteAccountAliasResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5261,6 +5294,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5324,6 +5358,7 @@
                 "ctor": "deleteAccountPasswordPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5361,6 +5396,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5387,6 +5423,7 @@
                 "ctor": "deleteGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5441,6 +5478,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5504,6 +5542,7 @@
                 "ctor": "deleteGroupPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5541,6 +5580,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5637,6 +5677,7 @@
                 "ctor": "deleteInstanceProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5691,6 +5732,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5754,6 +5796,7 @@
                 "ctor": "deleteLoginProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5808,6 +5851,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5871,6 +5915,7 @@
                 "ctor": "deleteOpenIDConnectProviderResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5925,6 +5970,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -5988,6 +6034,7 @@
                 "ctor": "deleteRoleResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6042,6 +6089,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6105,6 +6153,7 @@
                 "ctor": "deleteRolePolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6142,6 +6191,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6238,6 +6288,7 @@
                 "ctor": "deleteSAMLProviderResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6292,6 +6343,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6355,6 +6407,7 @@
                 "ctor": "deleteServerCertificateResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6409,6 +6462,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6472,6 +6526,7 @@
                 "ctor": "deleteSigningCertificateResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6509,6 +6564,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6606,6 +6662,7 @@
                 "ctor": "deleteUserResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6660,6 +6717,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6723,6 +6781,7 @@
                 "ctor": "deleteUserPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6760,6 +6819,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6856,6 +6916,7 @@
                 "ctor": "deleteVirtualMFADeviceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -6910,6 +6971,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -6973,6 +7035,7 @@
                 "ctor": "enableMFADeviceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7010,6 +7073,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7172,6 +7236,7 @@
                 "ctor": "generateCredentialReportResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7268,6 +7333,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7308,6 +7374,7 @@
                     "type": "PasswordPolicy"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7376,6 +7443,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7418,6 +7486,7 @@
                     "type": "Map Text Int"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7486,6 +7555,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7511,6 +7581,7 @@
                 "ctor": "getCredentialReportResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7635,6 +7706,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7660,6 +7732,7 @@
                 "ctor": "getGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7821,6 +7894,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -7951,6 +8025,7 @@
                 "ctor": "getGroupPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8075,6 +8150,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8185,6 +8261,7 @@
                     "type": "InstanceProfile"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8270,6 +8347,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8347,6 +8425,7 @@
                     "type": "LoginProfile"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8432,6 +8511,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8495,6 +8575,7 @@
                 "ctor": "getOpenIDConnectProviderResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8664,6 +8745,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8741,6 +8823,7 @@
                     "type": "Role"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8826,6 +8909,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -8889,6 +8973,7 @@
                 "ctor": "getRolePolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9013,6 +9098,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9109,6 +9195,7 @@
                 "ctor": "getSAMLProviderResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9250,6 +9337,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9327,6 +9415,7 @@
                     "type": "ServerCertificate"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9412,6 +9501,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9489,6 +9579,7 @@
                     "type": "User"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9573,6 +9664,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9636,6 +9728,7 @@
                 "ctor": "getUserPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9760,6 +9853,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -9855,6 +9949,7 @@
                 "ctor": "listAccessKeysResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9987,6 +10082,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10116,6 +10212,7 @@
                 "ctor": "listAccountAliasesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10248,6 +10345,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10344,6 +10442,7 @@
                 "ctor": "listGroupPoliciesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10476,6 +10575,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -10605,6 +10705,7 @@
                 "ctor": "listGroupsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10737,6 +10838,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10865,6 +10967,7 @@
                 "ctor": "listGroupsForUserResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10997,6 +11100,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11126,6 +11230,7 @@
                 "ctor": "listInstanceProfilesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11258,6 +11363,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11386,6 +11492,7 @@
                 "ctor": "listInstanceProfilesForRoleResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11518,6 +11625,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -11647,6 +11755,7 @@
                 "ctor": "listMFADevicesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11779,6 +11888,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11924,6 +12034,7 @@
                     "type": "[OpenIDConnectProviderListEntry]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11992,6 +12103,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12018,6 +12130,7 @@
                 "ctor": "listRolePoliciesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12150,6 +12263,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -12279,6 +12393,7 @@
                 "ctor": "listRolesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12411,6 +12526,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12556,6 +12672,7 @@
                     "type": "[SAMLProviderListEntry]"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12624,6 +12741,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12649,6 +12767,7 @@
                 "ctor": "listServerCertificatesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12781,6 +12900,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12909,6 +13029,7 @@
                 "ctor": "listSigningCertificatesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13041,6 +13162,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13170,6 +13292,7 @@
                 "ctor": "listUserPoliciesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13302,6 +13425,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -13431,6 +13555,7 @@
                 "ctor": "listUsersResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13563,6 +13688,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13691,6 +13817,7 @@
                 "ctor": "listVirtualMFADevicesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13823,6 +13950,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13952,6 +14080,7 @@
                 "ctor": "putGroupPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13989,6 +14118,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14118,6 +14248,7 @@
                 "ctor": "putRolePolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14155,6 +14286,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14284,6 +14416,7 @@
                 "ctor": "putUserPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14321,6 +14454,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14450,6 +14584,7 @@
                 "ctor": "removeClientIDFromOpenIDConnectProviderResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14487,6 +14622,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14583,6 +14719,7 @@
                 "ctor": "removeRoleFromInstanceProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14620,6 +14757,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14716,6 +14854,7 @@
                 "ctor": "removeUserFromGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14753,6 +14892,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -14849,6 +14989,7 @@
                 "ctor": "resyncMFADeviceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -14886,6 +15027,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15048,6 +15190,7 @@
                 "ctor": "updateAccessKeyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15085,6 +15228,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15215,6 +15359,7 @@
                 "ctor": "updateAccountPasswordPolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15252,6 +15397,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15579,6 +15725,7 @@
                 "ctor": "updateAssumeRolePolicyResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15616,6 +15763,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15712,6 +15860,7 @@
                 "ctor": "updateGroupResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15749,6 +15898,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -15879,6 +16029,7 @@
                 "ctor": "updateLoginProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15916,6 +16067,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16046,6 +16198,7 @@
                 "ctor": "updateOpenIDConnectProviderThumbprintResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16083,6 +16236,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16196,6 +16350,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16264,6 +16419,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16360,6 +16516,7 @@
                 "ctor": "updateServerCertificateResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16397,6 +16554,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16527,6 +16685,7 @@
                 "ctor": "updateSigningCertificateResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16564,6 +16723,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16694,6 +16854,7 @@
                 "ctor": "updateUserResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "query",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16731,6 +16892,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -16875,6 +17037,7 @@
                     "type": "Maybe ServerCertificateMetadata"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16943,6 +17106,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17153,6 +17317,7 @@
                     "type": "SigningCertificate"
                 },
                 "wrapper": false,
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {
@@ -17221,6 +17386,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "query",
                 "payload": null,
                 "required": [
                     {

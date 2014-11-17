@@ -101,4 +101,13 @@ instance ToPath DetachInternetGateway where
 
 instance ToHeaders DetachInternetGateway
 
-instance ToQuery DetachInternetGateway
+instance ToQuery DetachInternetGateway where
+    toQuery DetachInternetGateway{..} = mconcat
+        [ "dryRun"            =? _digDryRun
+        , "internetGatewayId" =? _digInternetGatewayId
+        , "vpcId"             =? _digVpcId
+        ]
+
+instance ToXML DetachInternetGateway where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DetachInternetGateway"

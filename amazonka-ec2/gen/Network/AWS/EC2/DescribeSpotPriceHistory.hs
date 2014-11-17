@@ -210,4 +210,19 @@ instance ToPath DescribeSpotPriceHistory where
 
 instance ToHeaders DescribeSpotPriceHistory
 
-instance ToQuery DescribeSpotPriceHistory
+instance ToQuery DescribeSpotPriceHistory where
+    toQuery DescribeSpotPriceHistory{..} = mconcat
+        [ "dryRun"             =? _dsphDryRun
+        , "startTime"          =? _dsphStartTime
+        , "endTime"            =? _dsphEndTime
+        , "InstanceType"       =? _dsphInstanceTypes
+        , "ProductDescription" =? _dsphProductDescriptions
+        , "Filter"             =? _dsphFilters
+        , "availabilityZone"   =? _dsphAvailabilityZone
+        , "maxResults"         =? _dsphMaxResults
+        , "nextToken"          =? _dsphNextToken
+        ]
+
+instance ToXML DescribeSpotPriceHistory where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSpotPriceHistory"

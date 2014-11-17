@@ -91,4 +91,12 @@ instance ToPath DeleteVolume where
 
 instance ToHeaders DeleteVolume
 
-instance ToQuery DeleteVolume
+instance ToQuery DeleteVolume where
+    toQuery DeleteVolume{..} = mconcat
+        [ "dryRun"   =? _dv4DryRun
+        , "VolumeId" =? _dv4VolumeId
+        ]
+
+instance ToXML DeleteVolume where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteVolume"

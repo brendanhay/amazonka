@@ -91,4 +91,12 @@ instance ToPath EnableVgwRoutePropagation where
 
 instance ToHeaders EnableVgwRoutePropagation
 
-instance ToQuery EnableVgwRoutePropagation
+instance ToQuery EnableVgwRoutePropagation where
+    toQuery EnableVgwRoutePropagation{..} = mconcat
+        [ "RouteTableId" =? _evrpRouteTableId
+        , "GatewayId"    =? _evrpGatewayId
+        ]
+
+instance ToXML EnableVgwRoutePropagation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "EnableVgwRoutePropagation"

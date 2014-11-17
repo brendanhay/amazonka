@@ -113,4 +113,12 @@ instance ToPath ListStreamingDistributions where
 
 instance ToHeaders ListStreamingDistributions
 
-instance ToQuery ListStreamingDistributions
+instance ToQuery ListStreamingDistributions where
+    toQuery ListStreamingDistributions{..} = mconcat
+        [ "Marker"   =? _lsdMarker
+        , "MaxItems" =? _lsdMaxItems
+        ]
+
+instance ToXML ListStreamingDistributions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListStreamingDistributions"

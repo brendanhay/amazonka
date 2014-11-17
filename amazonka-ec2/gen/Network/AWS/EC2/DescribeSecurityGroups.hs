@@ -151,4 +151,14 @@ instance ToPath DescribeSecurityGroups where
 
 instance ToHeaders DescribeSecurityGroups
 
-instance ToQuery DescribeSecurityGroups
+instance ToQuery DescribeSecurityGroups where
+    toQuery DescribeSecurityGroups{..} = mconcat
+        [ "dryRun"    =? _dsg1DryRun
+        , "GroupName" =? _dsg1GroupNames
+        , "GroupId"   =? _dsg1GroupIds
+        , "Filter"    =? _dsg1Filters
+        ]
+
+instance ToXML DescribeSecurityGroups where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeSecurityGroups"

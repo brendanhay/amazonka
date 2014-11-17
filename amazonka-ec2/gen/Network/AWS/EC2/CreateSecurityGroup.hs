@@ -147,4 +147,14 @@ instance ToPath CreateSecurityGroup where
 
 instance ToHeaders CreateSecurityGroup
 
-instance ToQuery CreateSecurityGroup
+instance ToQuery CreateSecurityGroup where
+    toQuery CreateSecurityGroup{..} = mconcat
+        [ "dryRun"           =? _csgDryRun
+        , "GroupName"        =? _csgGroupName
+        , "GroupDescription" =? _csgDescription
+        , "VpcId"            =? _csgVpcId
+        ]
+
+instance ToXML CreateSecurityGroup where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateSecurityGroup"

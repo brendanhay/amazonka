@@ -122,4 +122,13 @@ instance ToPath ReplaceNetworkAclAssociation where
 
 instance ToHeaders ReplaceNetworkAclAssociation
 
-instance ToQuery ReplaceNetworkAclAssociation
+instance ToQuery ReplaceNetworkAclAssociation where
+    toQuery ReplaceNetworkAclAssociation{..} = mconcat
+        [ "dryRun"        =? _rnaaDryRun
+        , "associationId" =? _rnaaAssociationId
+        , "networkAclId"  =? _rnaaNetworkAclId
+        ]
+
+instance ToXML ReplaceNetworkAclAssociation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ReplaceNetworkAclAssociation"

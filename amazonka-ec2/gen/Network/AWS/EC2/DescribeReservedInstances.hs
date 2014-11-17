@@ -158,4 +158,14 @@ instance ToPath DescribeReservedInstances where
 
 instance ToHeaders DescribeReservedInstances
 
-instance ToQuery DescribeReservedInstances
+instance ToQuery DescribeReservedInstances where
+    toQuery DescribeReservedInstances{..} = mconcat
+        [ "dryRun"              =? _driDryRun
+        , "ReservedInstancesId" =? _driReservedInstancesIds
+        , "Filter"              =? _driFilters
+        , "offeringType"        =? _driOfferingType
+        ]
+
+instance ToXML DescribeReservedInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeReservedInstances"

@@ -149,4 +149,15 @@ instance ToPath CreateVpnConnection where
 
 instance ToHeaders CreateVpnConnection
 
-instance ToQuery CreateVpnConnection
+instance ToQuery CreateVpnConnection where
+    toQuery CreateVpnConnection{..} = mconcat
+        [ "dryRun"            =? _cvcDryRun
+        , "Type"              =? _cvcType
+        , "CustomerGatewayId" =? _cvcCustomerGatewayId
+        , "VpnGatewayId"      =? _cvcVpnGatewayId
+        , "options"           =? _cvcOptions
+        ]
+
+instance ToXML CreateVpnConnection where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateVpnConnection"

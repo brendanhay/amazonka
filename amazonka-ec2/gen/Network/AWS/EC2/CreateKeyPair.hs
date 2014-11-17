@@ -133,4 +133,12 @@ instance ToPath CreateKeyPair where
 
 instance ToHeaders CreateKeyPair
 
-instance ToQuery CreateKeyPair
+instance ToQuery CreateKeyPair where
+    toQuery CreateKeyPair{..} = mconcat
+        [ "dryRun"  =? _ckpDryRun
+        , "KeyName" =? _ckpKeyName
+        ]
+
+instance ToXML CreateKeyPair where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateKeyPair"

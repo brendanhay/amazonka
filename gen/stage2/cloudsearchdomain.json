@@ -872,6 +872,7 @@
                 "ctor": "searchResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -986,7 +987,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "search",
                 "headerPad": 0,
@@ -996,6 +997,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1459,6 +1461,7 @@
                 "ctor": "suggestResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1545,7 +1548,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "json",
                 "fieldPad": 11,
                 "ctor": "suggest",
                 "headerPad": 0,
@@ -1555,6 +1558,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [
                     {
@@ -1688,6 +1692,7 @@
                 "ctor": "uploadDocumentsResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "rest-json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -1832,7 +1837,6 @@
                 "style": "json-headers",
                 "fieldPad": 14,
                 "ctor": "uploadDocuments",
-                "qs": 0,
                 "headerPad": 13,
                 "path": [
                     {
@@ -1840,6 +1844,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "rest-json",
                 "payload": {
                     "location": null,
                     "iso": null,
@@ -1900,7 +1905,6 @@
                         "type": "const"
                     }
                 ],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [

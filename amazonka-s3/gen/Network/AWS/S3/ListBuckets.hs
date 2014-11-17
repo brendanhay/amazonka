@@ -91,4 +91,9 @@ instance ToPath ListBuckets where
 
 instance ToHeaders ListBuckets
 
-instance ToQuery ListBuckets
+instance ToQuery ListBuckets where
+    toQuery = const mempty
+
+instance ToXML ListBuckets where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListBuckets"

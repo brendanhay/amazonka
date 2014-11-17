@@ -120,4 +120,13 @@ instance ToPath ConfirmProductInstance where
 
 instance ToHeaders ConfirmProductInstance
 
-instance ToQuery ConfirmProductInstance
+instance ToQuery ConfirmProductInstance where
+    toQuery ConfirmProductInstance{..} = mconcat
+        [ "dryRun"      =? _cpiDryRun
+        , "ProductCode" =? _cpiProductCode
+        , "InstanceId"  =? _cpiInstanceId
+        ]
+
+instance ToXML ConfirmProductInstance where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ConfirmProductInstance"

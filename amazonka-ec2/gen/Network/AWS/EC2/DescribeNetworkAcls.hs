@@ -146,4 +146,13 @@ instance ToPath DescribeNetworkAcls where
 
 instance ToHeaders DescribeNetworkAcls
 
-instance ToQuery DescribeNetworkAcls
+instance ToQuery DescribeNetworkAcls where
+    toQuery DescribeNetworkAcls{..} = mconcat
+        [ "dryRun"       =? _dna1DryRun
+        , "NetworkAclId" =? _dna1NetworkAclIds
+        , "Filter"       =? _dna1Filters
+        ]
+
+instance ToXML DescribeNetworkAcls where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeNetworkAcls"

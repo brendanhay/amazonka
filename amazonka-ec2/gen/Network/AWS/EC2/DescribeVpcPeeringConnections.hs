@@ -145,4 +145,13 @@ instance ToPath DescribeVpcPeeringConnections where
 
 instance ToHeaders DescribeVpcPeeringConnections
 
-instance ToQuery DescribeVpcPeeringConnections
+instance ToQuery DescribeVpcPeeringConnections where
+    toQuery DescribeVpcPeeringConnections{..} = mconcat
+        [ "dryRun"                 =? _dvpc1DryRun
+        , "VpcPeeringConnectionId" =? _dvpc1VpcPeeringConnectionIds
+        , "Filter"                 =? _dvpc1Filters
+        ]
+
+instance ToXML DescribeVpcPeeringConnections where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVpcPeeringConnections"

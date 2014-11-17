@@ -161,4 +161,19 @@ instance ToPath ReplaceNetworkAclEntry where
 
 instance ToHeaders ReplaceNetworkAclEntry
 
-instance ToQuery ReplaceNetworkAclEntry
+instance ToQuery ReplaceNetworkAclEntry where
+    toQuery ReplaceNetworkAclEntry{..} = mconcat
+        [ "dryRun"       =? _rnaeDryRun
+        , "networkAclId" =? _rnaeNetworkAclId
+        , "ruleNumber"   =? _rnaeRuleNumber
+        , "protocol"     =? _rnaeProtocol
+        , "ruleAction"   =? _rnaeRuleAction
+        , "egress"       =? _rnaeEgress
+        , "cidrBlock"    =? _rnaeCidrBlock
+        , "Icmp"         =? _rnaeIcmpTypeCode
+        , "portRange"    =? _rnaePortRange
+        ]
+
+instance ToXML ReplaceNetworkAclEntry where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ReplaceNetworkAclEntry"

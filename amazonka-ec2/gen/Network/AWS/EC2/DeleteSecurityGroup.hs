@@ -100,4 +100,13 @@ instance ToPath DeleteSecurityGroup where
 
 instance ToHeaders DeleteSecurityGroup
 
-instance ToQuery DeleteSecurityGroup
+instance ToQuery DeleteSecurityGroup where
+    toQuery DeleteSecurityGroup{..} = mconcat
+        [ "dryRun"    =? _dsgDryRun
+        , "GroupName" =? _dsgGroupName
+        , "GroupId"   =? _dsgGroupId
+        ]
+
+instance ToXML DeleteSecurityGroup where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteSecurityGroup"

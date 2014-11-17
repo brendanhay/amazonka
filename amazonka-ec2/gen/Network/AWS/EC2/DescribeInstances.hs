@@ -278,4 +278,15 @@ instance ToPath DescribeInstances where
 
 instance ToHeaders DescribeInstances
 
-instance ToQuery DescribeInstances
+instance ToQuery DescribeInstances where
+    toQuery DescribeInstances{..} = mconcat
+        [ "dryRun"     =? _di1DryRun
+        , "InstanceId" =? _di1InstanceIds
+        , "Filter"     =? _di1Filters
+        , "nextToken"  =? _di1NextToken
+        , "maxResults" =? _di1MaxResults
+        ]
+
+instance ToXML DescribeInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeInstances"

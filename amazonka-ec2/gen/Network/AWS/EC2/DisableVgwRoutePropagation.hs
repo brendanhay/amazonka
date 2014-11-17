@@ -91,4 +91,12 @@ instance ToPath DisableVgwRoutePropagation where
 
 instance ToHeaders DisableVgwRoutePropagation
 
-instance ToQuery DisableVgwRoutePropagation
+instance ToQuery DisableVgwRoutePropagation where
+    toQuery DisableVgwRoutePropagation{..} = mconcat
+        [ "RouteTableId" =? _dvrpRouteTableId
+        , "GatewayId"    =? _dvrpGatewayId
+        ]
+
+instance ToXML DisableVgwRoutePropagation where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DisableVgwRoutePropagation"

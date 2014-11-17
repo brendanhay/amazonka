@@ -184,4 +184,20 @@ instance ToPath AuthorizeSecurityGroupIngress where
 
 instance ToHeaders AuthorizeSecurityGroupIngress
 
-instance ToQuery AuthorizeSecurityGroupIngress
+instance ToQuery AuthorizeSecurityGroupIngress where
+    toQuery AuthorizeSecurityGroupIngress{..} = mconcat
+        [ "dryRun"                     =? _asgiDryRun
+        , "GroupName"                  =? _asgiGroupName
+        , "GroupId"                    =? _asgiGroupId
+        , "SourceSecurityGroupName"    =? _asgiSourceSecurityGroupName
+        , "SourceSecurityGroupOwnerId" =? _asgiSourceSecurityGroupOwnerId
+        , "IpProtocol"                 =? _asgiIpProtocol
+        , "FromPort"                   =? _asgiFromPort
+        , "ToPort"                     =? _asgiToPort
+        , "CidrIp"                     =? _asgiCidrIp
+        , "IpPermissions"              =? _asgiIpPermissions
+        ]
+
+instance ToXML AuthorizeSecurityGroupIngress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "AuthorizeSecurityGroupIngress"

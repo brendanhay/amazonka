@@ -227,4 +227,13 @@ instance ToPath CreateSnapshot where
 
 instance ToHeaders CreateSnapshot
 
-instance ToQuery CreateSnapshot
+instance ToQuery CreateSnapshot where
+    toQuery CreateSnapshot{..} = mconcat
+        [ "dryRun"      =? _cs2DryRun
+        , "VolumeId"    =? _cs2VolumeId
+        , "Description" =? _cs2Description
+        ]
+
+instance ToXML CreateSnapshot where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateSnapshot"

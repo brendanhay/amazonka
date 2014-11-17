@@ -253,4 +253,13 @@ instance ToPath DescribeInstanceAttribute where
 
 instance ToHeaders DescribeInstanceAttribute
 
-instance ToQuery DescribeInstanceAttribute
+instance ToQuery DescribeInstanceAttribute where
+    toQuery DescribeInstanceAttribute{..} = mconcat
+        [ "dryRun"     =? _diaDryRun
+        , "instanceId" =? _diaInstanceId
+        , "attribute"  =? _diaAttribute
+        ]
+
+instance ToXML DescribeInstanceAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeInstanceAttribute"

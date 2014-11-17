@@ -107,4 +107,13 @@ instance ToPath ReleaseAddress where
 
 instance ToHeaders ReleaseAddress
 
-instance ToQuery ReleaseAddress
+instance ToQuery ReleaseAddress where
+    toQuery ReleaseAddress{..} = mconcat
+        [ "dryRun"       =? _raDryRun
+        , "PublicIp"     =? _raPublicIp
+        , "AllocationId" =? _raAllocationId
+        ]
+
+instance ToXML ReleaseAddress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ReleaseAddress"

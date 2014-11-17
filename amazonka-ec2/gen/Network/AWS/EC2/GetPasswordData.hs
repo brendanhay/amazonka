@@ -134,4 +134,12 @@ instance ToPath GetPasswordData where
 
 instance ToHeaders GetPasswordData
 
-instance ToQuery GetPasswordData
+instance ToQuery GetPasswordData where
+    toQuery GetPasswordData{..} = mconcat
+        [ "dryRun"     =? _gpdDryRun
+        , "InstanceId" =? _gpdInstanceId
+        ]
+
+instance ToXML GetPasswordData where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "GetPasswordData"

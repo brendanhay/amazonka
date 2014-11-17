@@ -135,4 +135,13 @@ instance ToPath StartInstances where
 
 instance ToHeaders StartInstances
 
-instance ToQuery StartInstances
+instance ToQuery StartInstances where
+    toQuery StartInstances{..} = mconcat
+        [ "InstanceId"     =? _si1InstanceIds
+        , "additionalInfo" =? _si1AdditionalInfo
+        , "dryRun"         =? _si1DryRun
+        ]
+
+instance ToXML StartInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "StartInstances"

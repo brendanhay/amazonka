@@ -3013,6 +3013,7 @@
                 "ctor": "batchGetItemResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3129,7 +3130,6 @@
                 "style": "json",
                 "fieldPad": 26,
                 "ctor": "batchGetItem",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3137,6 +3137,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3144,7 +3145,6 @@
                 "queryPad": 0,
                 "name": "BatchGetItem",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3222,6 +3222,7 @@
                 "ctor": "batchWriteItemResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3338,7 +3339,6 @@
                 "style": "json",
                 "fieldPad": 31,
                 "ctor": "batchWriteItem",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3346,6 +3346,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3353,7 +3354,6 @@
                 "queryPad": 0,
                 "name": "BatchWriteItem",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -3474,6 +3474,7 @@
                     "type": "Maybe TableDescription"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3534,7 +3535,6 @@
                 "style": "json",
                 "fieldPad": 25,
                 "ctor": "createTable",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3542,6 +3542,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3592,7 +3593,6 @@
                 "queryPad": 0,
                 "name": "CreateTable",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -3740,6 +3740,7 @@
                 "ctor": "deleteItemResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -3856,7 +3857,6 @@
                 "style": "json",
                 "fieldPad": 30,
                 "ctor": "deleteItem",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3864,6 +3864,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -3886,7 +3887,6 @@
                 "queryPad": 0,
                 "name": "DeleteItem",
                 "query": [],
-                "fs": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -4189,6 +4189,7 @@
                     "type": "Maybe TableDescription"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4253,7 +4254,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteTable",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4275,6 +4275,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4297,7 +4298,6 @@
                 "queryPad": 0,
                 "name": "DeleteTable",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4347,6 +4347,7 @@
                     "type": "Maybe TableDescription"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4411,7 +4412,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTable",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4433,6 +4433,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4455,7 +4456,6 @@
                 "queryPad": 0,
                 "name": "DescribeTable",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4490,6 +4490,7 @@
                 "ctor": "getItemResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4578,7 +4579,6 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "getItem",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4586,6 +4586,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -4622,7 +4623,6 @@
                 "queryPad": 0,
                 "name": "GetItem",
                 "query": [],
-                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -4813,6 +4813,7 @@
                 "ctor": "listTablesResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4910,7 +4911,6 @@
                 "style": "json",
                 "fieldPad": 26,
                 "ctor": "listTables",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4918,6 +4918,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -4925,7 +4926,6 @@
                 "queryPad": 0,
                 "name": "ListTables",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -5003,6 +5003,7 @@
                 "ctor": "putItemResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5119,7 +5120,6 @@
                 "style": "json",
                 "fieldPad": 30,
                 "ctor": "putItem",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5127,6 +5127,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5149,7 +5150,6 @@
                 "queryPad": 0,
                 "name": "PutItem",
                 "query": [],
-                "fs": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -5437,6 +5437,7 @@
                 "ctor": "queryResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -5617,7 +5618,6 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "query",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5625,6 +5625,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -5661,7 +5662,6 @@
                 "queryPad": 0,
                 "name": "Query",
                 "query": [],
-                "fs": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -6103,6 +6103,7 @@
                 "ctor": "scanResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6283,7 +6284,6 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "scan",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6291,6 +6291,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6327,7 +6328,6 @@
                 "queryPad": 0,
                 "name": "Scan",
                 "query": [],
-                "fs": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -6713,6 +6713,7 @@
                 "ctor": "updateItemResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -6829,7 +6830,6 @@
                 "style": "json",
                 "fieldPad": 30,
                 "ctor": "updateItem",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6837,6 +6837,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -6859,7 +6860,6 @@
                 "queryPad": 0,
                 "name": "UpdateItem",
                 "query": [],
-                "fs": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -7218,6 +7218,7 @@
                     "type": "Maybe TableDescription"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -7278,7 +7279,6 @@
                 "style": "json",
                 "fieldPad": 30,
                 "ctor": "updateTable",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7286,6 +7286,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7308,7 +7309,6 @@
                 "queryPad": 0,
                 "name": "UpdateTable",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {

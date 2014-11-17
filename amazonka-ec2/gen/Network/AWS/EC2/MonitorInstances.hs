@@ -114,4 +114,12 @@ instance ToPath MonitorInstances where
 
 instance ToHeaders MonitorInstances
 
-instance ToQuery MonitorInstances
+instance ToQuery MonitorInstances where
+    toQuery MonitorInstances{..} = mconcat
+        [ "dryRun"     =? _miDryRun
+        , "InstanceId" =? _miInstanceIds
+        ]
+
+instance ToXML MonitorInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "MonitorInstances"

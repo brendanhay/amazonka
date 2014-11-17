@@ -134,4 +134,13 @@ instance ToPath DescribeVpcs where
 
 instance ToHeaders DescribeVpcs
 
-instance ToQuery DescribeVpcs
+instance ToQuery DescribeVpcs where
+    toQuery DescribeVpcs{..} = mconcat
+        [ "dryRun" =? _dv1DryRun
+        , "VpcId"  =? _dv1VpcIds
+        , "Filter" =? _dv1Filters
+        ]
+
+instance ToXML DescribeVpcs where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVpcs"

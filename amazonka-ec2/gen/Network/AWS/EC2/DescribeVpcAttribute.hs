@@ -140,4 +140,13 @@ instance ToPath DescribeVpcAttribute where
 
 instance ToHeaders DescribeVpcAttribute
 
-instance ToQuery DescribeVpcAttribute
+instance ToQuery DescribeVpcAttribute where
+    toQuery DescribeVpcAttribute{..} = mconcat
+        [ "dryRun"    =? _dva1DryRun
+        , "VpcId"     =? _dva1VpcId
+        , "Attribute" =? _dva1Attribute
+        ]
+
+instance ToXML DescribeVpcAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeVpcAttribute"

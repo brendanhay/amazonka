@@ -143,4 +143,17 @@ instance ToPath ReplaceRoute where
 
 instance ToHeaders ReplaceRoute
 
-instance ToQuery ReplaceRoute
+instance ToQuery ReplaceRoute where
+    toQuery ReplaceRoute{..} = mconcat
+        [ "dryRun"                 =? _rrDryRun
+        , "routeTableId"           =? _rrRouteTableId
+        , "destinationCidrBlock"   =? _rrDestinationCidrBlock
+        , "gatewayId"              =? _rrGatewayId
+        , "instanceId"             =? _rrInstanceId
+        , "networkInterfaceId"     =? _rrNetworkInterfaceId
+        , "vpcPeeringConnectionId" =? _rrVpcPeeringConnectionId
+        ]
+
+instance ToXML ReplaceRoute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ReplaceRoute"

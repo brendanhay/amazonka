@@ -121,4 +121,13 @@ instance ToPath CreateSpotDatafeedSubscription where
 
 instance ToHeaders CreateSpotDatafeedSubscription
 
-instance ToQuery CreateSpotDatafeedSubscription
+instance ToQuery CreateSpotDatafeedSubscription where
+    toQuery CreateSpotDatafeedSubscription{..} = mconcat
+        [ "dryRun" =? _csdsDryRun
+        , "bucket" =? _csdsBucket
+        , "prefix" =? _csdsPrefix
+        ]
+
+instance ToXML CreateSpotDatafeedSubscription where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateSpotDatafeedSubscription"

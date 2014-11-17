@@ -90,4 +90,12 @@ instance ToPath DeleteNetworkInterface where
 
 instance ToHeaders DeleteNetworkInterface
 
-instance ToQuery DeleteNetworkInterface
+instance ToQuery DeleteNetworkInterface where
+    toQuery DeleteNetworkInterface{..} = mconcat
+        [ "dryRun"             =? _dni2DryRun
+        , "networkInterfaceId" =? _dni2NetworkInterfaceId
+        ]
+
+instance ToXML DeleteNetworkInterface where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteNetworkInterface"

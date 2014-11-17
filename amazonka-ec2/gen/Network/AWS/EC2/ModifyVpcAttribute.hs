@@ -107,4 +107,13 @@ instance ToPath ModifyVpcAttribute where
 
 instance ToHeaders ModifyVpcAttribute
 
-instance ToQuery ModifyVpcAttribute
+instance ToQuery ModifyVpcAttribute where
+    toQuery ModifyVpcAttribute{..} = mconcat
+        [ "vpcId"              =? _mvaVpcId
+        , "EnableDnsSupport"   =? _mvaEnableDnsSupport
+        , "EnableDnsHostnames" =? _mvaEnableDnsHostnames
+        ]
+
+instance ToXML ModifyVpcAttribute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ModifyVpcAttribute"

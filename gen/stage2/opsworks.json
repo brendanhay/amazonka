@@ -7649,6 +7649,7 @@
                 "ctor": "assignVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7679,7 +7680,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "assignVolume",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7687,6 +7687,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7709,7 +7710,6 @@
                 "queryPad": 0,
                 "name": "AssignVolume",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7774,6 +7774,7 @@
                 "ctor": "associateElasticIpResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7804,7 +7805,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "associateElasticIp",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7812,6 +7812,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7834,7 +7835,6 @@
                 "queryPad": 0,
                 "name": "AssociateElasticIp",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7899,6 +7899,7 @@
                 "ctor": "attachElasticLoadBalancerResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -7929,7 +7930,6 @@
                 "style": "json",
                 "fieldPad": 28,
                 "ctor": "attachElasticLoadBalancer",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7937,6 +7937,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -7973,7 +7974,6 @@
                 "queryPad": 0,
                 "name": "AttachElasticLoadBalancer",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -8039,6 +8039,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8099,7 +8100,6 @@
                 "style": "json",
                 "fieldPad": 29,
                 "ctor": "cloneStack",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8107,6 +8107,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -8143,7 +8144,6 @@
                 "queryPad": 0,
                 "name": "CloneStack",
                 "query": [],
-                "fs": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -8742,6 +8742,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -8802,7 +8803,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "createApp",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8810,6 +8810,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -8860,7 +8861,6 @@
                 "queryPad": 0,
                 "name": "CreateApp",
                 "query": [],
-                "fs": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -9165,6 +9165,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9225,7 +9226,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "createDeployment",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9233,6 +9233,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -9269,7 +9270,6 @@
                 "queryPad": 0,
                 "name": "CreateDeployment",
                 "query": [],
-                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -9448,6 +9448,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -9509,7 +9510,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "createInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9517,6 +9517,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -9553,7 +9554,6 @@
                 "queryPad": 0,
                 "name": "CreateInstance",
                 "query": [],
-                "fs": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -9984,6 +9984,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10044,7 +10045,6 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "createLayer",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -10052,6 +10052,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -10116,7 +10117,6 @@
                 "queryPad": 0,
                 "name": "CreateLayer",
                 "query": [],
-                "fs": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -10519,6 +10519,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -10579,7 +10580,6 @@
                 "style": "json",
                 "fieldPad": 28,
                 "ctor": "createStack",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -10587,6 +10587,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -10651,7 +10652,6 @@
                 "queryPad": 0,
                 "name": "CreateStack",
                 "query": [],
-                "fs": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -11138,6 +11138,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -11199,7 +11200,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "createUserProfile",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -11207,6 +11207,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -11229,7 +11230,6 @@
                 "queryPad": 0,
                 "name": "CreateUserProfile",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -11350,6 +11350,7 @@
                 "ctor": "deleteAppResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11383,7 +11384,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteApp",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -11405,6 +11405,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -11427,7 +11428,6 @@
                 "queryPad": 0,
                 "name": "DeleteApp",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11463,6 +11463,7 @@
                 "ctor": "deleteInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11493,7 +11494,6 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "deleteInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -11501,6 +11501,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -11523,7 +11524,6 @@
                 "queryPad": 0,
                 "name": "DeleteInstance",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -11616,6 +11616,7 @@
                 "ctor": "deleteLayerResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11649,7 +11650,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteLayer",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -11671,6 +11671,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -11693,7 +11694,6 @@
                 "queryPad": 0,
                 "name": "DeleteLayer",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11729,6 +11729,7 @@
                 "ctor": "deleteStackResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11762,7 +11763,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteStack",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -11784,6 +11784,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -11806,7 +11807,6 @@
                 "queryPad": 0,
                 "name": "DeleteStack",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11842,6 +11842,7 @@
                 "ctor": "deleteUserProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11875,7 +11876,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteUserProfile",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -11897,6 +11897,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -11919,7 +11920,6 @@
                 "queryPad": 0,
                 "name": "DeleteUserProfile",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11955,6 +11955,7 @@
                 "ctor": "deregisterElasticIpResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -11988,7 +11989,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deregisterElasticIp",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -12010,6 +12010,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12032,7 +12033,6 @@
                 "queryPad": 0,
                 "name": "DeregisterElasticIp",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -12068,6 +12068,7 @@
                 "ctor": "deregisterRdsDbInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12101,7 +12102,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deregisterRdsDbInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -12123,6 +12123,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12145,7 +12146,6 @@
                 "queryPad": 0,
                 "name": "DeregisterRdsDbInstance",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -12181,6 +12181,7 @@
                 "ctor": "deregisterVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -12214,7 +12215,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deregisterVolume",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -12236,6 +12236,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -12258,7 +12259,6 @@
                 "queryPad": 0,
                 "name": "DeregisterVolume",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -12310,6 +12310,7 @@
                     "type": "[App]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12371,7 +12372,6 @@
                 "style": "json",
                 "fieldPad": 10,
                 "ctor": "describeApps",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12379,6 +12379,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12386,7 +12387,6 @@
                 "queryPad": 0,
                 "name": "DescribeApps",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -12481,6 +12481,7 @@
                     "type": "[Command]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12542,7 +12543,6 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "describeCommands",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12550,6 +12550,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12557,7 +12558,6 @@
                 "queryPad": 0,
                 "name": "DescribeCommands",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -12680,6 +12680,7 @@
                     "type": "[Deployment]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12741,7 +12742,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "describeDeployments",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12749,6 +12749,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12756,7 +12757,6 @@
                 "queryPad": 0,
                 "name": "DescribeDeployments",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -12879,6 +12879,7 @@
                     "type": "[ElasticIp]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12940,7 +12941,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeElasticIps",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -12948,6 +12948,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -12955,7 +12956,6 @@
                 "queryPad": 0,
                 "name": "DescribeElasticIps",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -13078,6 +13078,7 @@
                     "type": "[ElasticLoadBalancer]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13139,7 +13140,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "describeElasticLoadBalancers",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13147,6 +13147,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13154,7 +13155,6 @@
                 "queryPad": 0,
                 "name": "DescribeElasticLoadBalancers",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -13249,6 +13249,7 @@
                     "type": "[Instance]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13310,7 +13311,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeInstances",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13318,6 +13318,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13325,7 +13326,6 @@
                 "queryPad": 0,
                 "name": "DescribeInstances",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -13448,6 +13448,7 @@
                     "type": "[Layer]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13509,7 +13510,6 @@
                 "style": "json",
                 "fieldPad": 11,
                 "ctor": "describeLayers",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13517,6 +13517,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13524,7 +13525,6 @@
                 "queryPad": 0,
                 "name": "DescribeLayers",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -13619,6 +13619,7 @@
                     "type": "[LoadBasedAutoScalingConfiguration]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13683,7 +13684,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeLoadBasedAutoScaling",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -13705,6 +13705,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13712,7 +13713,6 @@
                 "queryPad": 0,
                 "name": "DescribeLoadBasedAutoScaling",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -13777,6 +13777,7 @@
                     "type": "Maybe SelfUserProfile"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13835,7 +13836,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "query",
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "describeMyUserProfile",
                 "headerPad": 0,
@@ -13845,6 +13846,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -13887,6 +13889,7 @@
                     "type": "[Permission]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13948,7 +13951,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "describePermissions",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13956,6 +13958,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -13963,7 +13966,6 @@
                 "queryPad": 0,
                 "name": "DescribePermissions",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -14058,6 +14060,7 @@
                     "type": "[RaidArray]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14119,7 +14122,6 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "describeRaidArrays",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14127,6 +14129,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14134,7 +14137,6 @@
                 "queryPad": 0,
                 "name": "DescribeRaidArrays",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -14229,6 +14231,7 @@
                     "type": "[RdsDbInstance]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14290,7 +14293,6 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "describeRdsDbInstances",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14298,6 +14300,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14320,7 +14323,6 @@
                 "queryPad": 0,
                 "name": "DescribeRdsDbInstances",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -14401,6 +14403,7 @@
                     "type": "[ServiceError']"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14462,7 +14465,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "describeServiceErrors",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -14470,6 +14472,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14477,7 +14480,6 @@
                 "queryPad": 0,
                 "name": "DescribeServiceErrors",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -14598,6 +14600,7 @@
                     "type": "Maybe StackSummary"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14662,7 +14665,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeStackSummary",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -14684,6 +14686,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -14706,7 +14709,6 @@
                 "queryPad": 0,
                 "name": "DescribeStackSummary",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -14758,6 +14760,7 @@
                     "type": "[Stack]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14822,7 +14825,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeStacks",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -14844,6 +14846,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14851,7 +14854,6 @@
                 "queryPad": 0,
                 "name": "DescribeStacks",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -14918,6 +14920,7 @@
                     "type": "[TimeBasedAutoScalingConfiguration]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -14982,7 +14985,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTimeBasedAutoScaling",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -15004,6 +15006,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15011,7 +15014,6 @@
                 "queryPad": 0,
                 "name": "DescribeTimeBasedAutoScaling",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -15078,6 +15080,7 @@
                     "type": "[UserProfile]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15142,7 +15145,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeUserProfiles",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -15164,6 +15166,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15171,7 +15174,6 @@
                 "queryPad": 0,
                 "name": "DescribeUserProfiles",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -15238,6 +15240,7 @@
                     "type": "[Volume]"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15299,7 +15302,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeVolumes",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -15307,6 +15309,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15314,7 +15317,6 @@
                 "queryPad": 0,
                 "name": "DescribeVolumes",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -15449,6 +15451,7 @@
                 "ctor": "detachElasticLoadBalancerResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15479,7 +15482,6 @@
                 "style": "json",
                 "fieldPad": 28,
                 "ctor": "detachElasticLoadBalancer",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -15487,6 +15489,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15523,7 +15526,6 @@
                 "queryPad": 0,
                 "name": "DetachElasticLoadBalancer",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -15573,6 +15575,7 @@
                 "ctor": "disassociateElasticIpResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15606,7 +15609,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "disassociateElasticIp",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -15628,6 +15630,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15650,7 +15653,6 @@
                 "queryPad": 0,
                 "name": "DisassociateElasticIp",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -15686,6 +15688,7 @@
                 "ctor": "getHostnameSuggestionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -15778,7 +15781,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getHostnameSuggestion",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -15800,6 +15802,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15822,7 +15825,6 @@
                 "queryPad": 0,
                 "name": "GetHostnameSuggestion",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -15858,6 +15860,7 @@
                 "ctor": "rebootInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -15891,7 +15894,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "rebootInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -15913,6 +15915,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -15935,7 +15938,6 @@
                 "queryPad": 0,
                 "name": "RebootInstance",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -15987,6 +15989,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16048,7 +16051,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "registerElasticIp",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16056,6 +16058,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16092,7 +16095,6 @@
                 "queryPad": 0,
                 "name": "RegisterElasticIp",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -16142,6 +16144,7 @@
                 "ctor": "registerRdsDbInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16172,7 +16175,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "registerRdsDbInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16180,6 +16182,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16244,7 +16247,6 @@
                 "queryPad": 0,
                 "name": "RegisterRdsDbInstance",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -16338,6 +16340,7 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -16399,7 +16402,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "registerVolume",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16407,6 +16409,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16429,7 +16432,6 @@
                 "queryPad": 0,
                 "name": "RegisterVolume",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -16494,6 +16496,7 @@
                 "ctor": "setLoadBasedAutoScalingResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16523,7 +16526,6 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "setLoadBasedAutoScaling",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16531,6 +16533,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16553,7 +16556,6 @@
                 "queryPad": 0,
                 "name": "SetLoadBasedAutoScaling",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -16674,6 +16676,7 @@
                 "ctor": "setPermissionResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16704,7 +16707,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "setPermission",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16712,6 +16714,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16748,7 +16751,6 @@
                 "queryPad": 0,
                 "name": "SetPermission",
                 "query": [],
-                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -16883,6 +16885,7 @@
                 "ctor": "setTimeBasedAutoScalingResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -16912,7 +16915,6 @@
                 "style": "json",
                 "fieldPad": 25,
                 "ctor": "setTimeBasedAutoScaling",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16920,6 +16922,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -16942,7 +16945,6 @@
                 "queryPad": 0,
                 "name": "SetTimeBasedAutoScaling",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -17007,6 +17009,7 @@
                 "ctor": "startInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17040,7 +17043,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "startInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -17062,6 +17064,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17084,7 +17087,6 @@
                 "queryPad": 0,
                 "name": "StartInstance",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -17120,6 +17122,7 @@
                 "ctor": "startStackResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17153,7 +17156,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "startStack",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -17175,6 +17177,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17197,7 +17200,6 @@
                 "queryPad": 0,
                 "name": "StartStack",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -17233,6 +17235,7 @@
                 "ctor": "stopInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17266,7 +17269,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -17288,6 +17290,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17310,7 +17313,6 @@
                 "queryPad": 0,
                 "name": "StopInstance",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -17346,6 +17348,7 @@
                 "ctor": "stopStackResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17379,7 +17382,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopStack",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -17401,6 +17403,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17423,7 +17426,6 @@
                 "queryPad": 0,
                 "name": "StopStack",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -17459,6 +17461,7 @@
                 "ctor": "unassignVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17492,7 +17495,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "unassignVolume",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -17514,6 +17516,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17536,7 +17539,6 @@
                 "queryPad": 0,
                 "name": "UnassignVolume",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -17572,6 +17574,7 @@
                 "ctor": "updateAppResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17601,7 +17604,6 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "updateApp",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17609,6 +17611,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17631,7 +17634,6 @@
                 "queryPad": 0,
                 "name": "UpdateApp",
                 "query": [],
-                "fs": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -17920,6 +17922,7 @@
                 "ctor": "updateElasticIpResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -17950,7 +17953,6 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "updateElasticIp",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17958,6 +17960,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -17980,7 +17983,6 @@
                 "queryPad": 0,
                 "name": "UpdateElasticIp",
                 "query": [],
-                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -18045,6 +18047,7 @@
                 "ctor": "updateInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18075,7 +18078,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "updateInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18083,6 +18085,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18105,7 +18108,6 @@
                 "queryPad": 0,
                 "name": "UpdateInstance",
                 "query": [],
-                "fs": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -18422,6 +18424,7 @@
                 "ctor": "updateLayerResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18451,7 +18454,6 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "updateLayer",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -18459,6 +18461,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -18481,7 +18484,6 @@
                 "queryPad": 0,
                 "name": "UpdateLayer",
                 "query": [],
-                "fs": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -18882,6 +18884,7 @@
                 "ctor": "updateMyUserProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -18914,7 +18917,6 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "updateMyUserProfile",
-                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -18936,6 +18938,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [],
                 "shared": false,
@@ -18943,7 +18946,6 @@
                 "queryPad": 0,
                 "name": "UpdateMyUserProfile",
                 "query": [],
-                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -18994,6 +18996,7 @@
                 "ctor": "updateRdsDbInstanceResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -19024,7 +19027,6 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "updateRdsDbInstance",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -19032,6 +19034,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -19054,7 +19057,6 @@
                 "queryPad": 0,
                 "name": "UpdateRdsDbInstance",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -19147,6 +19149,7 @@
                 "ctor": "updateStackResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -19176,7 +19179,6 @@
                 "style": "json",
                 "fieldPad": 28,
                 "ctor": "updateStack",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -19184,6 +19186,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -19206,7 +19209,6 @@
                 "queryPad": 0,
                 "name": "UpdateStack",
                 "query": [],
-                "fs": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -19691,6 +19693,7 @@
                 "ctor": "updateUserProfileResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -19721,7 +19724,6 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "updateUserProfile",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -19729,6 +19731,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -19751,7 +19754,6 @@
                 "queryPad": 0,
                 "name": "UpdateUserProfile",
                 "query": [],
-                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -19872,6 +19874,7 @@
                 "ctor": "updateVolumeResponse",
                 "headerPad": 0,
                 "wrapper": false,
+                "protocol": "json",
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -19902,7 +19905,6 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "updateVolume",
-                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -19910,6 +19912,7 @@
                         "type": "const"
                     }
                 ],
+                "protocol": "json",
                 "payload": null,
                 "required": [
                     {
@@ -19932,7 +19935,6 @@
                 "queryPad": 0,
                 "name": "UpdateVolume",
                 "query": [],
-                "fs": 3,
                 "type": "record",
                 "optional": [
                     {

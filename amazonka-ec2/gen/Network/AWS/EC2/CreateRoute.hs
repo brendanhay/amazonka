@@ -152,4 +152,17 @@ instance ToPath CreateRoute where
 
 instance ToHeaders CreateRoute
 
-instance ToQuery CreateRoute
+instance ToQuery CreateRoute where
+    toQuery CreateRoute{..} = mconcat
+        [ "dryRun"                 =? _crDryRun
+        , "routeTableId"           =? _crRouteTableId
+        , "destinationCidrBlock"   =? _crDestinationCidrBlock
+        , "gatewayId"              =? _crGatewayId
+        , "instanceId"             =? _crInstanceId
+        , "networkInterfaceId"     =? _crNetworkInterfaceId
+        , "vpcPeeringConnectionId" =? _crVpcPeeringConnectionId
+        ]
+
+instance ToXML CreateRoute where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateRoute"

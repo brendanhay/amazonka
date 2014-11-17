@@ -121,4 +121,11 @@ instance ToPath ListFunctions where
 
 instance ToHeaders ListFunctions
 
-instance ToQuery ListFunctions
+instance ToQuery ListFunctions where
+    toQuery ListFunctions{..} = mconcat
+        [ "Marker"   =? _lfMarker
+        , "MaxItems" =? _lfMaxItems
+        ]
+
+instance ToJSON ListFunctions where
+    toJSON = genericToJSON jsonOptions

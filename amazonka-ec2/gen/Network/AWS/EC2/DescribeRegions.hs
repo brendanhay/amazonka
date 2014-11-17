@@ -123,4 +123,13 @@ instance ToPath DescribeRegions where
 
 instance ToHeaders DescribeRegions
 
-instance ToQuery DescribeRegions
+instance ToQuery DescribeRegions where
+    toQuery DescribeRegions{..} = mconcat
+        [ "dryRun"     =? _dr1DryRun
+        , "RegionName" =? _dr1RegionNames
+        , "Filter"     =? _dr1Filters
+        ]
+
+instance ToXML DescribeRegions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DescribeRegions"

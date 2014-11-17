@@ -114,4 +114,12 @@ instance ToPath UnmonitorInstances where
 
 instance ToHeaders UnmonitorInstances
 
-instance ToQuery UnmonitorInstances
+instance ToQuery UnmonitorInstances where
+    toQuery UnmonitorInstances{..} = mconcat
+        [ "dryRun"     =? _uiDryRun
+        , "InstanceId" =? _uiInstanceIds
+        ]
+
+instance ToXML UnmonitorInstances where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "UnmonitorInstances"

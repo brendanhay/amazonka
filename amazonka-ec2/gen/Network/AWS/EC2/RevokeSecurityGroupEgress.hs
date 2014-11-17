@@ -172,4 +172,19 @@ instance ToPath RevokeSecurityGroupEgress where
 
 instance ToHeaders RevokeSecurityGroupEgress
 
-instance ToQuery RevokeSecurityGroupEgress
+instance ToQuery RevokeSecurityGroupEgress where
+    toQuery RevokeSecurityGroupEgress{..} = mconcat
+        [ "dryRun"                     =? _rsgeDryRun
+        , "groupId"                    =? _rsgeGroupId
+        , "sourceSecurityGroupName"    =? _rsgeSourceSecurityGroupName
+        , "sourceSecurityGroupOwnerId" =? _rsgeSourceSecurityGroupOwnerId
+        , "ipProtocol"                 =? _rsgeIpProtocol
+        , "fromPort"                   =? _rsgeFromPort
+        , "toPort"                     =? _rsgeToPort
+        , "cidrIp"                     =? _rsgeCidrIp
+        , "ipPermissions"              =? _rsgeIpPermissions
+        ]
+
+instance ToXML RevokeSecurityGroupEgress where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RevokeSecurityGroupEgress"

@@ -129,4 +129,12 @@ instance ToPath CreateDhcpOptions where
 
 instance ToHeaders CreateDhcpOptions
 
-instance ToQuery CreateDhcpOptions
+instance ToQuery CreateDhcpOptions where
+    toQuery CreateDhcpOptions{..} = mconcat
+        [ "dryRun"            =? _cdoDryRun
+        , "dhcpConfiguration" =? _cdoDhcpConfigurations
+        ]
+
+instance ToXML CreateDhcpOptions where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "CreateDhcpOptions"

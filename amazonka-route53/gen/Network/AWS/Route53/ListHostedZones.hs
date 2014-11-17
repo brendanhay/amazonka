@@ -178,4 +178,13 @@ instance ToPath ListHostedZones where
 
 instance ToHeaders ListHostedZones
 
-instance ToQuery ListHostedZones
+instance ToQuery ListHostedZones where
+    toQuery ListHostedZones{..} = mconcat
+        [ "marker"          =? _lhzMarker
+        , "maxitems"        =? _lhzMaxItems
+        , "delegationsetid" =? _lhzDelegationSetId
+        ]
+
+instance ToXML ListHostedZones where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ListHostedZones"

@@ -97,4 +97,12 @@ instance ToPath DeleteVpnConnection where
 
 instance ToHeaders DeleteVpnConnection
 
-instance ToQuery DeleteVpnConnection
+instance ToQuery DeleteVpnConnection where
+    toQuery DeleteVpnConnection{..} = mconcat
+        [ "dryRun"          =? _dvcDryRun
+        , "VpnConnectionId" =? _dvcVpnConnectionId
+        ]
+
+instance ToXML DeleteVpnConnection where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "DeleteVpnConnection"

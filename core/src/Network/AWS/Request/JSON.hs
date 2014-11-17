@@ -32,7 +32,7 @@ post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a
 post a x = get' x & rqHeaders <>~ hs & rqBody .~ toBody (toJSON x)
   where
     hs = toHeader hAMZTarget   target
-        ++ toHeader hContentType content
+      ++ toHeader hContentType content
 
     target  = (\p -> p <> "." <> toBS a) <$> _svcTargetPrefix svc
     content = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc

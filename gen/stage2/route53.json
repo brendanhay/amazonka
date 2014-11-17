@@ -77,7 +77,7 @@
             "Network.AWS.Route53.Types",
             "Network.AWS.Route53.UpdateHealthCheck"
         ],
-        "dependencies": [],
+        "protocol": "rest-xml",
         "name": "Amazon Route 53",
         "version": "0.0.0",
         "description": "Amazon Route 53 is a scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure that uses Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3). You can also use Amazon Route 53 to route users to your infrastructure outside of AWS."
@@ -94,23 +94,10 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "aliasTarget",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "atHostedZoneId",
-                    "name": "_atHostedZoneId",
-                    "shape": "ResourceId",
-                    "locationName": "HostedZoneId",
-                    "documentation": "\u003cp\u003e\u003ci\u003eAlias resource record sets only:\u003c/i\u003e The value of the hosted zone ID for the AWS resource.\u003c/p\u003e \u003cp\u003eFor more information and an example, see \u003ca href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\"\u003eCreating Alias Resource Record Sets\u003c/a\u003e in the \u003ci\u003eAmazon Route 53 Developer Guide\u003c/i\u003e\u003c/p\u003e.",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -124,7 +111,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -138,7 +125,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -157,7 +144,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -171,7 +158,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -185,7 +172,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -213,7 +200,7 @@
                 "fieldPad": 0,
                 "ctor": "resourceRecord",
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -226,23 +213,10 @@
                     "typeExposed": "Text",
                     "type": "Text"
                 },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rrValue",
-                    "name": "_rrValue",
-                    "shape": "RData",
-                    "locationName": "Value",
-                    "documentation": "\u003cp\u003eThe value of the \u003ccode\u003eValue\u003c/code\u003e element for the current resource record set.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -261,7 +235,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -285,26 +259,13 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tagKey",
-                    "name": "_tagKey",
-                    "shape": "TagKey",
-                    "locationName": "Key",
-                    "documentation": "\u003cp\u003eThe key for a \u003ccode\u003eTag\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Tag",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -318,7 +279,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -334,7 +295,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -348,7 +309,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -372,26 +333,13 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "geoLocationDetails",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "gldContinentCode",
-                    "name": "_gldContinentCode",
-                    "shape": "GeoLocationContinentCode",
-                    "locationName": "ContinentCode",
-                    "documentation": "\u003cp\u003eThe code for a continent geo location. Note: only continent locations have a continent code.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "GeoLocationDetails",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -405,7 +353,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -419,7 +367,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -433,7 +381,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -447,7 +395,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -461,7 +409,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -477,7 +425,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -491,7 +439,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -505,7 +453,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -519,7 +467,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -533,7 +481,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -547,7 +495,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -570,23 +518,10 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "healthCheck",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "hcId",
-                    "name": "_hcId",
-                    "shape": "HealthCheckId",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003eThe ID of the specified health check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -600,7 +535,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -614,7 +549,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -628,7 +563,7 @@
                         "type": "HealthCheckConfig"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -647,7 +582,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -661,7 +596,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -675,7 +610,7 @@
                         "type": "HealthCheckConfig"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -689,7 +624,7 @@
                         "type": "Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -772,23 +707,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "healthCheckConfig",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "hccIPAddress",
-                    "name": "_hccIPAddress",
-                    "shape": "IPAddress",
-                    "locationName": "IPAddress",
-                    "documentation": "\u003cp\u003eIP Address of the instance being checked. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -806,7 +728,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -820,7 +742,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -834,7 +756,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -848,7 +770,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -862,7 +784,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -876,7 +798,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -890,7 +812,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -906,7 +828,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -920,7 +842,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -934,7 +856,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -948,7 +870,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -962,7 +884,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -976,7 +898,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -990,7 +912,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1004,7 +926,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1027,23 +949,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "change",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cAction",
-                    "name": "_cAction",
-                    "shape": "ChangeAction",
-                    "locationName": "Action",
-                    "documentation": "\u003cp\u003eThe action to perform.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eCREATE\u003c/code\u003e | \u003ccode\u003eDELETE\u003c/code\u003e | \u003ccode\u003eUPSERT\u003c/code\u003e\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1057,7 +966,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1076,7 +985,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1090,7 +999,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1130,23 +1039,10 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "hostedZone",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "hzId",
-                    "name": "_hzId",
-                    "shape": "ResourceId",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003eThe ID of the specified hosted zone.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1160,7 +1056,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1174,7 +1070,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1192,7 +1088,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1206,7 +1102,7 @@
                         "type": "Maybe HostedZoneConfig"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1222,7 +1118,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1236,7 +1132,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1250,7 +1146,7 @@
                         "type": "Maybe HostedZoneConfig"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1264,7 +1160,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1278,7 +1174,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1301,23 +1197,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "resourceTagSet",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rtsResourceType",
-                    "name": "_rtsResourceType",
-                    "shape": "TagResourceType",
-                    "locationName": "ResourceType",
-                    "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -1335,7 +1218,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1349,7 +1232,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1365,7 +1248,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1379,7 +1262,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1393,7 +1276,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -1433,23 +1316,10 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "changeBatch",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cbComment",
-                    "name": "_cbComment",
-                    "shape": "ResourceDescription",
-                    "locationName": "Comment",
-                    "documentation": "\u003cp\u003e\u003ci\u003eOptional:\u003c/i\u003e Any comments you want to include about a change batch request.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -1467,7 +1337,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1483,7 +1353,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -1497,7 +1367,7 @@
                         "type": "List1 Change"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1521,26 +1391,13 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "statusReport",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "srStatus",
-                    "name": "_srStatus",
-                    "shape": "Status",
-                    "locationName": "Status",
-                    "documentation": "\u003cp\u003eThe observed health check status.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "StatusReport",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1554,7 +1411,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1570,7 +1427,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1584,7 +1441,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1628,26 +1485,13 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "vpc",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "vpcVPCRegion",
-                    "name": "_vpcVPCRegion",
-                    "shape": "VPCRegion",
-                    "locationName": "VPCRegion",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "VPC",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1661,7 +1505,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1677,7 +1521,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1691,7 +1535,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1715,26 +1559,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "hostedZoneConfig",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "hzcComment",
-                    "name": "_hzcComment",
-                    "shape": "ResourceDescription",
-                    "locationName": "Comment",
-                    "documentation": "\u003cp\u003eAn optional comment about your hosted zone. If you don't want to specify a comment, you can omit the \u003ccode\u003eHostedZoneConfig\u003c/code\u003e and \u003ccode\u003eComment\u003c/code\u003e elements from the XML document.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "HostedZoneConfig",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1748,7 +1579,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1764,7 +1595,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1778,7 +1609,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1801,23 +1632,10 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "resourceRecordSet",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rrsName",
-                    "name": "_rrsName",
-                    "shape": "DNSName",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe domain name of the current resource record set.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1831,7 +1649,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1845,7 +1663,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -1863,7 +1681,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1877,7 +1695,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -1891,7 +1709,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1905,7 +1723,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1919,7 +1737,7 @@
                         "type": "Maybe GeoLocation"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1933,7 +1751,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -1947,7 +1765,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1961,7 +1779,7 @@
                         "type": "Maybe AliasTarget"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1977,7 +1795,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1991,7 +1809,7 @@
                         "type": "Maybe AliasTarget"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2005,7 +1823,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2019,7 +1837,7 @@
                         "type": "Maybe GeoLocation"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2033,7 +1851,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2047,7 +1865,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2061,7 +1879,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -2075,7 +1893,7 @@
                         "type": "List1 ResourceRecord"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2089,7 +1907,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2103,7 +1921,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2117,7 +1935,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2141,23 +1959,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "delegationSet",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dsId",
-                    "name": "_dsId",
-                    "shape": "ResourceId",
-                    "locationName": "Id",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -2175,7 +1980,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2189,7 +1994,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2205,7 +2010,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2219,7 +2024,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2233,7 +2038,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -2257,23 +2062,10 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "changeInfo",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ciId",
-                    "name": "_ciId",
-                    "shape": "ResourceId",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003eThe ID of the request. Use this ID to track when the change has completed across all Amazon Route 53 DNS servers.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2287,7 +2079,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2301,7 +2093,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_Time",
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
@@ -2319,7 +2111,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2335,7 +2127,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2349,7 +2141,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2363,7 +2155,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2377,7 +2169,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_Time",
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
@@ -2401,26 +2193,13 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "geoLocation",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "glContinentCode",
-                    "name": "_glContinentCode",
-                    "shape": "GeoLocationContinentCode",
-                    "locationName": "ContinentCode",
-                    "documentation": "\u003cp\u003eThe code for a continent geo location. Note: only continent locations have a continent code.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eAF\u003c/code\u003e | \u003ccode\u003eAN\u003c/code\u003e | \u003ccode\u003eAS\u003c/code\u003e | \u003ccode\u003eEU\u003c/code\u003e | \u003ccode\u003eOC\u003c/code\u003e | \u003ccode\u003eNA\u003c/code\u003e | \u003ccode\u003eSA\u003c/code\u003e\u003c/p\u003e \u003cp\u003eConstraint: Specifying \u003ccode\u003eContinentCode\u003c/code\u003e with either \u003ccode\u003eCountryCode\u003c/code\u003e or \u003ccode\u003eSubdivisionCode\u003c/code\u003e returns an \u003ca\u003eInvalidInput\u003c/a\u003e error.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "GeoLocation",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2434,7 +2213,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2448,7 +2227,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2464,7 +2243,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2478,7 +2257,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2492,7 +2271,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2515,26 +2294,13 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "healthCheckObservation",
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "hcoIPAddress",
-                    "name": "_hcoIPAddress",
-                    "shape": "IPAddress",
-                    "locationName": "IPAddress",
-                    "documentation": "\u003cp\u003eThe IP address of the Route 53 health checker that performed the health check.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "HealthCheckObservation",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2548,7 +2314,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2564,7 +2330,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2578,7 +2344,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2607,10 +2373,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "associateVPCWithHostedZoneResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -2624,23 +2392,10 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "avpcwhzrChangeInfo",
-                    "name": "_avpcwhzrChangeInfo",
-                    "shape": "ChangeInfo",
-                    "locationName": "ChangeInfo",
-                    "documentation": "\u003cp\u003eA complex type that contains the ID, the status, and the date and time of your \u003ccode\u003eAssociateVPCWithHostedZoneRequest\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "ChangeInfo",
-                    "type": "ChangeInfo"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2655,13 +2410,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "AssociateVPCWithHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2679,7 +2435,7 @@
             "namespace": "Network.AWS.Route53.AssociateVPCWithHostedZone",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "AssociateVPCWithHostedZone",
@@ -2692,6 +2448,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "associateVPCWithHostedZone",
                 "headerPad": 0,
@@ -2709,20 +2466,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "avpcwhzVPC",
-                    "name": "_avpcwhzVPC",
-                    "shape": "VPC",
-                    "locationName": "VPC",
-                    "documentation": "\u003cp\u003eThe VPC that you want your hosted zone to be associated with. \u003c/p\u003e",
-                    "typeExposed": "VPC",
-                    "type": "VPC"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -2739,7 +2483,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2761,7 +2505,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2777,7 +2521,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2805,7 +2549,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2831,10 +2575,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "changeResourceRecordSetsResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -2848,23 +2594,10 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "crrsrChangeInfo",
-                    "name": "_crrsrChangeInfo",
-                    "shape": "ChangeInfo",
-                    "locationName": "ChangeInfo",
-                    "documentation": "\u003cp\u003eA complex type that contains information about changes made to your hosted zone.\u003c/p\u003e \u003cp\u003eThis element contains an ID that you use when performing a \u003ca\u003eGetChange\u003c/a\u003e action to get detailed information about the change.\u003c/p\u003e",
-                    "typeExposed": "ChangeInfo",
-                    "type": "ChangeInfo"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2879,13 +2612,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ChangeResourceRecordSetsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2903,7 +2637,7 @@
             "namespace": "Network.AWS.Route53.ChangeResourceRecordSets",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "ChangeResourceRecordSets",
@@ -2916,6 +2650,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "changeResourceRecordSets",
                 "headerPad": 0,
@@ -2933,20 +2668,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "crrsChangeBatch",
-                    "name": "_crrsChangeBatch",
-                    "shape": "ChangeBatch",
-                    "locationName": "ChangeBatch",
-                    "documentation": "\u003cp\u003eA complex type that contains an optional comment and the \u003ccode\u003eChanges\u003c/code\u003e element.\u003c/p\u003e",
-                    "typeExposed": "ChangeBatch",
-                    "type": "ChangeBatch"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -2963,7 +2685,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2986,7 +2708,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3026,11 +2748,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "changeTagsForResourceResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ChangeTagsForResourceResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3040,7 +2765,7 @@
             "namespace": "Network.AWS.Route53.ChangeTagsForResource",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "ChangeTagsForResource",
@@ -3053,6 +2778,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "changeTagsForResource",
                 "headerPad": 0,
@@ -3074,20 +2800,7 @@
                         "type": "var"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": "_List1",
-                    "lensMapping": "_List1",
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ctfrAddTags",
-                    "name": "_ctfrAddTags",
-                    "shape": "TagList",
-                    "locationName": "AddTags",
-                    "documentation": "\u003cp\u003eA complex type that contains a list of \u003ccode\u003eTag\u003c/code\u003e elements. Each \u003ccode\u003eTag\u003c/code\u003e element identifies a tag that you want to add or update for the specified resource.\u003c/p\u003e",
-                    "typeExposed": "NonEmpty Tag",
-                    "type": "List1 Tag"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -3118,7 +2831,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3132,7 +2845,7 @@
                         "type": "List1 Tag"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3155,7 +2868,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3169,7 +2882,7 @@
                         "type": "List1 Tag"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3222,26 +2935,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml-headers",
                 "fieldPad": 16,
                 "ctor": "createHealthCheckResponse",
+                "headerPad": 9,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "chcrHealthCheck",
-                    "name": "_chcrHealthCheck",
-                    "shape": "HealthCheck",
-                    "locationName": "HealthCheck",
-                    "documentation": "\u003cp\u003eA complex type that contains identifying information about the health check.\u003c/p\u003e",
-                    "typeExposed": "HealthCheck",
-                    "type": "HealthCheck"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3270,13 +2972,20 @@
                     }
                 ],
                 "shared": false,
+                "headers": [
+                    {
+                        "field": "_chcrLocation",
+                        "locationName": "Location",
+                        "type": "field"
+                    }
+                ],
                 "name": "CreateHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3308,7 +3017,7 @@
             "namespace": "Network.AWS.Route53.CreateHealthCheck",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "CreateHealthCheck",
@@ -3321,6 +3030,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "createHealthCheck",
                 "headerPad": 0,
@@ -3330,23 +3040,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "chcCallerReference",
-                    "name": "_chcCallerReference",
-                    "shape": "HealthCheckNonce",
-                    "locationName": "CallerReference",
-                    "documentation": "\u003cp\u003eA unique string that identifies the request and that allows failed \u003ccode\u003eCreateHealthCheck\u003c/code\u003e requests to be retried without the risk of executing the operation twice. You must use a unique \u003ccode\u003eCallerReference\u003c/code\u003e string every time you create a health check. \u003ccode\u003eCallerReference\u003c/code\u003e can be any unique string; you might choose to use a string that identifies your project.\u003c/p\u003e \u003cp\u003eValid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3360,7 +3057,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3383,7 +3080,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3397,7 +3094,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3422,26 +3119,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml-headers",
                 "fieldPad": 18,
                 "ctor": "createHostedZoneResponse",
+                "headerPad": 9,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "chzrHostedZone",
-                    "name": "_chzrHostedZone",
-                    "shape": "HostedZone",
-                    "locationName": "HostedZone",
-                    "documentation": "\u003cp\u003eA complex type that contains identifying information about the hosted zone.\u003c/p\u003e",
-                    "typeExposed": "HostedZone",
-                    "type": "HostedZone"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3455,7 +3141,7 @@
                         "type": "HostedZone"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3469,7 +3155,7 @@
                         "type": "ChangeInfo"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3498,12 +3184,19 @@
                     }
                 ],
                 "shared": false,
+                "headers": [
+                    {
+                        "field": "_chzrLocation",
+                        "locationName": "Location",
+                        "type": "field"
+                    }
+                ],
                 "name": "CreateHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3519,7 +3212,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3533,7 +3226,7 @@
                         "type": "ChangeInfo"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3547,7 +3240,7 @@
                         "type": "DelegationSet"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3575,7 +3268,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3593,7 +3286,7 @@
             "namespace": "Network.AWS.Route53.CreateHostedZone",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "CreateHostedZone",
@@ -3606,6 +3299,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createHostedZone",
                 "headerPad": 0,
@@ -3615,23 +3309,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "chzName",
-                    "name": "_chzName",
-                    "shape": "DNSName",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of the domain. This must be a fully-specified domain, for example, www.example.com. The trailing dot is optional; Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.\u003c/p\u003e \u003cp\u003eThis is the name you have registered with your DNS registrar. You should ask your registrar to change the authoritative name servers for your domain to the set of \u003ccode\u003eNameServers\u003c/code\u003e elements returned in \u003ccode\u003eDelegationSet\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3645,7 +3326,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3667,7 +3348,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3681,7 +3362,7 @@
                         "type": "Maybe VPC"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3695,7 +3376,7 @@
                         "type": "Maybe HostedZoneConfig"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3711,7 +3392,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3725,7 +3406,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3739,7 +3420,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3753,7 +3434,7 @@
                         "type": "Maybe HostedZoneConfig"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3767,7 +3448,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3792,26 +3473,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml-headers",
                 "fieldPad": 19,
                 "ctor": "createReusableDelegationSetResponse",
+                "headerPad": 9,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "crdsrDelegationSet",
-                    "name": "_crdsrDelegationSet",
-                    "shape": "DelegationSet",
-                    "locationName": "DelegationSet",
-                    "documentation": "\u003cp\u003eA complex type that contains name server information.\u003c/p\u003e",
-                    "typeExposed": "DelegationSet",
-                    "type": "DelegationSet"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3840,13 +3510,20 @@
                     }
                 ],
                 "shared": false,
+                "headers": [
+                    {
+                        "field": "_crdsrLocation",
+                        "locationName": "Location",
+                        "type": "field"
+                    }
+                ],
                 "name": "CreateReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3878,7 +3555,7 @@
             "namespace": "Network.AWS.Route53.CreateReusableDelegationSet",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "CreateReusableDelegationSet",
@@ -3892,6 +3569,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createReusableDelegationSet",
                 "headerPad": 0,
@@ -3901,23 +3579,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "crdsCallerReference",
-                    "name": "_crdsCallerReference",
-                    "shape": "Nonce",
-                    "locationName": "CallerReference",
-                    "documentation": "\u003cp\u003eA unique string that identifies the request and that allows failed \u003ccode\u003eCreateReusableDelegationSet\u003c/code\u003e requests to be retried without the risk of executing the operation twice. You must use a unique \u003ccode\u003eCallerReference\u003c/code\u003e string every time you create a reusable delegation set. \u003ccode\u003eCallerReference\u003c/code\u003e can be any unique string; you might choose to use a string that identifies your project, such as \u003ccode\u003eDNSMigration_01\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eValid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3939,7 +3604,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3955,7 +3620,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3969,7 +3634,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3995,11 +3660,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheckResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -4009,7 +3677,7 @@
             "namespace": "Network.AWS.Route53.DeleteHealthCheck",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "DeleteHealthCheck",
@@ -4026,6 +3694,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheck",
                 "headerPad": 0,
@@ -4105,10 +3774,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHostedZoneResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4122,23 +3793,10 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dhzrChangeInfo",
-                    "name": "_dhzrChangeInfo",
-                    "shape": "ChangeInfo",
-                    "locationName": "ChangeInfo",
-                    "documentation": "\u003cp\u003eA complex type that contains the ID, the status, and the date and time of your delete request.\u003c/p\u003e",
-                    "typeExposed": "ChangeInfo",
-                    "type": "ChangeInfo"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4153,13 +3811,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4177,7 +3836,7 @@
             "namespace": "Network.AWS.Route53.DeleteHostedZone",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "DeleteHostedZone",
@@ -4194,6 +3853,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHostedZone",
                 "headerPad": 0,
@@ -4273,11 +3933,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSetResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -4287,7 +3950,7 @@
             "namespace": "Network.AWS.Route53.DeleteReusableDelegationSet",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "DeleteReusableDelegationSet",
@@ -4304,6 +3967,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSet",
                 "headerPad": 0,
@@ -4383,10 +4047,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "disassociateVPCFromHostedZoneResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4400,23 +4066,10 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dvpcfhzrChangeInfo",
-                    "name": "_dvpcfhzrChangeInfo",
-                    "shape": "ChangeInfo",
-                    "locationName": "ChangeInfo",
-                    "documentation": "\u003cp\u003eA complex type that contains the ID, the status, and the date and time of your \u003ccode\u003eDisassociateVPCFromHostedZoneRequest\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "ChangeInfo",
-                    "type": "ChangeInfo"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4431,13 +4084,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "DisassociateVPCFromHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4455,7 +4109,7 @@
             "namespace": "Network.AWS.Route53.DisassociateVPCFromHostedZone",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "DisassociateVPCFromHostedZone",
@@ -4468,6 +4122,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "disassociateVPCFromHostedZone",
                 "headerPad": 0,
@@ -4485,20 +4140,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dvpcfhzVPC",
-                    "name": "_dvpcfhzVPC",
-                    "shape": "VPC",
-                    "locationName": "VPC",
-                    "documentation": "\u003cp\u003eThe VPC that you want your hosted zone to be disassociated from. \u003c/p\u003e",
-                    "typeExposed": "VPC",
-                    "type": "VPC"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -4515,7 +4157,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4537,7 +4179,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4553,7 +4195,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4581,7 +4223,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4607,10 +4249,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getChangeResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4624,23 +4268,10 @@
                     "type": "ChangeInfo"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "gcrChangeInfo",
-                    "name": "_gcrChangeInfo",
-                    "shape": "ChangeInfo",
-                    "locationName": "ChangeInfo",
-                    "documentation": "\u003cp\u003eA complex type that contains information about the specified change batch, including the change batch ID, the status of the change, and the date and time of the request.\u003c/p\u003e",
-                    "typeExposed": "ChangeInfo",
-                    "type": "ChangeInfo"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4655,13 +4286,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetChangeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4679,7 +4311,7 @@
             "namespace": "Network.AWS.Route53.GetChange",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetChange",
@@ -4696,6 +4328,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getChange",
                 "headerPad": 0,
@@ -4778,10 +4411,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRangesResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4795,28 +4430,16 @@
                     "type": "[Text]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "gcirrCheckerIpRanges",
-                    "name": "_gcirrCheckerIpRanges",
-                    "shape": "CheckerIpRanges",
-                    "locationName": "CheckerIpRanges",
-                    "documentation": "\u003cp\u003eA complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetCheckerIpRangesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4832,7 +4455,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4850,7 +4473,7 @@
             "namespace": "Network.AWS.Route53.GetCheckerIpRanges",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetCheckerIpRanges",
@@ -4864,6 +4487,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRanges",
                 "headerPad": 0,
@@ -4894,10 +4518,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getGeoLocationResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4911,23 +4537,10 @@
                     "type": "GeoLocationDetails"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "gglrGeoLocationDetails",
-                    "name": "_gglrGeoLocationDetails",
-                    "shape": "GeoLocationDetails",
-                    "locationName": "GeoLocationDetails",
-                    "documentation": "\u003cp\u003eA complex type that contains the information about the specified geo location.\u003c/p\u003e",
-                    "typeExposed": "GeoLocationDetails",
-                    "type": "GeoLocationDetails"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4942,13 +4555,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetGeoLocationResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4966,7 +4580,7 @@
             "namespace": "Network.AWS.Route53.GetGeoLocation",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetGeoLocation",
@@ -4980,6 +4594,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "getGeoLocation",
                 "headerPad": 0,
@@ -5113,10 +4728,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5130,23 +4747,10 @@
                     "type": "HealthCheck"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ghcrHealthCheck",
-                    "name": "_ghcrHealthCheck",
-                    "shape": "HealthCheck",
-                    "locationName": "HealthCheck",
-                    "documentation": "\u003cp\u003eA complex type that contains the information about the specified health check.\u003c/p\u003e",
-                    "typeExposed": "HealthCheck",
-                    "type": "HealthCheck"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5161,13 +4765,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5185,7 +4790,7 @@
             "namespace": "Network.AWS.Route53.GetHealthCheck",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetHealthCheck",
@@ -5202,6 +4807,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheck",
                 "headerPad": 0,
@@ -5286,10 +4892,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCountResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5303,23 +4911,10 @@
                     "type": "Integer"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ghccrHealthCheckCount",
-                    "name": "_ghccrHealthCheckCount",
-                    "shape": "HealthCheckCount",
-                    "locationName": "HealthCheckCount",
-                    "documentation": "\u003cp\u003e The number of health checks associated with the current AWS account.\u003c/p\u003e",
-                    "typeExposed": "Integer",
-                    "type": "Integer"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5334,13 +4929,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetHealthCheckCountResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5358,7 +4954,7 @@
             "namespace": "Network.AWS.Route53.GetHealthCheckCount",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetHealthCheckCount",
@@ -5372,6 +4968,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCount",
                 "headerPad": 0,
@@ -5404,10 +5001,12 @@
                 ],
                 "streaming": false,
                 "listElement": "HealthCheckObservation",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReasonResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -5421,28 +5020,16 @@
                     "type": "[HealthCheckObservation]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ghclfrrHealthCheckObservations",
-                    "name": "_ghclfrrHealthCheckObservations",
-                    "shape": "HealthCheckObservations",
-                    "locationName": "HealthCheckObservations",
-                    "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
-                    "typeExposed": "[HealthCheckObservation]",
-                    "type": "[HealthCheckObservation]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetHealthCheckLastFailureReasonResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5458,7 +5045,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5476,7 +5063,7 @@
             "namespace": "Network.AWS.Route53.GetHealthCheckLastFailureReason",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetHealthCheckLastFailureReason",
@@ -5493,6 +5080,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReason",
                 "headerPad": 0,
@@ -5578,10 +5166,12 @@
                 ],
                 "streaming": false,
                 "listElement": "HealthCheckObservation",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatusResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -5595,28 +5185,16 @@
                     "type": "[HealthCheckObservation]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ghcsrHealthCheckObservations",
-                    "name": "_ghcsrHealthCheckObservations",
-                    "shape": "HealthCheckObservations",
-                    "locationName": "HealthCheckObservations",
-                    "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
-                    "typeExposed": "[HealthCheckObservation]",
-                    "type": "[HealthCheckObservation]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetHealthCheckStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5632,7 +5210,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5650,7 +5228,7 @@
             "namespace": "Network.AWS.Route53.GetHealthCheckStatus",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetHealthCheckStatus",
@@ -5667,6 +5245,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatus",
                 "headerPad": 0,
@@ -5749,26 +5328,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "getHostedZoneResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ghzrHostedZone",
-                    "name": "_ghzrHostedZone",
-                    "shape": "HostedZone",
-                    "locationName": "HostedZone",
-                    "documentation": "\u003cp\u003eA complex type that contains the information about the specified hosted zone.\u003c/p\u003e",
-                    "typeExposed": "HostedZone",
-                    "type": "HostedZone"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5782,7 +5350,7 @@
                         "type": "HostedZone"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -5797,12 +5365,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetHostedZoneResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5818,7 +5387,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5832,7 +5401,7 @@
                         "type": "Maybe DelegationSet"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5846,7 +5415,7 @@
                         "type": "HostedZone"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -5864,7 +5433,7 @@
             "namespace": "Network.AWS.Route53.GetHostedZone",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetHostedZone",
@@ -5881,6 +5450,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHostedZone",
                 "headerPad": 0,
@@ -5960,10 +5530,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSetResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5977,23 +5549,10 @@
                     "type": "DelegationSet"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "grdsrDelegationSet",
-                    "name": "_grdsrDelegationSet",
-                    "shape": "DelegationSet",
-                    "locationName": "DelegationSet",
-                    "documentation": "\u003cp\u003eA complex type that contains the information about the nameservers for the specified delegation set ID.\u003c/p\u003e",
-                    "typeExposed": "DelegationSet",
-                    "type": "DelegationSet"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6008,13 +5567,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetReusableDelegationSetResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6032,7 +5592,7 @@
             "namespace": "Network.AWS.Route53.GetReusableDelegationSet",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "GetReusableDelegationSet",
@@ -6049,6 +5609,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSet",
                 "headerPad": 0,
@@ -6127,26 +5688,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 27,
                 "ctor": "listGeoLocationsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lglrGeoLocationDetailsList",
-                    "name": "_lglrGeoLocationDetailsList",
-                    "shape": "GeoLocationDetailsList",
-                    "locationName": "GeoLocationDetailsList",
-                    "documentation": "\u003cp\u003eA complex type that contains information about the geo locations that are returned by the request.\u003c/p\u003e",
-                    "typeExposed": "[GeoLocationDetails]",
-                    "type": "[GeoLocationDetails]"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6160,7 +5710,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6175,12 +5725,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ListGeoLocationsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6194,7 +5745,7 @@
                         "type": "[GeoLocationDetails]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6208,7 +5759,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6222,7 +5773,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6238,7 +5789,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6252,7 +5803,7 @@
                         "type": "[GeoLocationDetails]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6266,7 +5817,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6280,7 +5831,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6294,7 +5845,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6308,7 +5859,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6326,7 +5877,7 @@
             "namespace": "Network.AWS.Route53.ListGeoLocations",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "ListGeoLocations",
@@ -6340,6 +5891,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 24,
                 "ctor": "listGeoLocations",
                 "headerPad": 0,
@@ -6505,26 +6057,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "listHealthChecksResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lhcrHealthChecks",
-                    "name": "_lhcrHealthChecks",
-                    "shape": "HealthChecks",
-                    "locationName": "HealthChecks",
-                    "documentation": "\u003cp\u003eA complex type that contains information about the health checks associated with the current AWS account.\u003c/p\u003e",
-                    "typeExposed": "[HealthCheck]",
-                    "type": "[HealthCheck]"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6538,7 +6079,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6552,7 +6093,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6567,12 +6108,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ListHealthChecksResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6586,7 +6128,7 @@
                         "type": "[HealthCheck]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6602,7 +6144,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6616,7 +6158,7 @@
                         "type": "[HealthCheck]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6630,7 +6172,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6644,7 +6186,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6658,7 +6200,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6676,7 +6218,7 @@
             "namespace": "Network.AWS.Route53.ListHealthChecks",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "pager": {
@@ -6698,6 +6240,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 12,
                 "ctor": "listHealthChecks",
                 "headerPad": 0,
@@ -6797,26 +6340,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 16,
                 "ctor": "listHostedZonesResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lhzrHostedZones",
-                    "name": "_lhzrHostedZones",
-                    "shape": "HostedZones",
-                    "locationName": "HostedZones",
-                    "documentation": "\u003cp\u003eA complex type that contains information about the hosted zones associated with the current AWS account.\u003c/p\u003e",
-                    "typeExposed": "[HostedZone]",
-                    "type": "[HostedZone]"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6830,7 +6362,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6844,7 +6376,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6859,12 +6391,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ListHostedZonesResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6878,7 +6411,7 @@
                         "type": "[HostedZone]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6894,7 +6427,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6908,7 +6441,7 @@
                         "type": "[HostedZone]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6922,7 +6455,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6936,7 +6469,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -6950,7 +6483,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6968,7 +6501,7 @@
             "namespace": "Network.AWS.Route53.ListHostedZones",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "pager": {
@@ -6990,6 +6523,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 19,
                 "ctor": "listHostedZones",
                 "headerPad": 0,
@@ -7122,26 +6656,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSetsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lrrsrResourceRecordSets",
-                    "name": "_lrrsrResourceRecordSets",
-                    "shape": "ResourceRecordSets",
-                    "locationName": "ResourceRecordSets",
-                    "documentation": "\u003cp\u003eA complex type that contains information about the resource record sets that are returned by the request.\u003c/p\u003e",
-                    "typeExposed": "[ResourceRecordSet]",
-                    "type": "[ResourceRecordSet]"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7155,7 +6678,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7170,12 +6693,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ListResourceRecordSetsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7189,7 +6713,7 @@
                         "type": "[ResourceRecordSet]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7203,7 +6727,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7217,7 +6741,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7233,7 +6757,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7247,7 +6771,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7261,7 +6785,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7275,7 +6799,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7289,7 +6813,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7303,7 +6827,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7321,7 +6845,7 @@
             "namespace": "Network.AWS.Route53.ListResourceRecordSets",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "pager": {
@@ -7354,6 +6878,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSets",
                 "headerPad": 0,
@@ -7556,26 +7081,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 20,
                 "ctor": "listReusableDelegationSetsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lrdsrDelegationSets",
-                    "name": "_lrdsrDelegationSets",
-                    "shape": "DelegationSets",
-                    "locationName": "DelegationSets",
-                    "documentation": "\u003cp\u003eA complex type that contains information about the reusable delegation sets associated with the current AWS account.\u003c/p\u003e",
-                    "typeExposed": "[DelegationSet]",
-                    "type": "[DelegationSet]"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7589,7 +7103,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7603,7 +7117,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7618,12 +7132,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ListReusableDelegationSetsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7637,7 +7152,7 @@
                         "type": "[DelegationSet]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7653,7 +7168,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7667,7 +7182,7 @@
                         "type": "[DelegationSet]"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7681,7 +7196,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7695,7 +7210,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7709,7 +7224,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7727,7 +7242,7 @@
             "namespace": "Network.AWS.Route53.ListReusableDelegationSets",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "ListReusableDelegationSets",
@@ -7741,6 +7256,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 13,
                 "ctor": "listReusableDelegationSets",
                 "headerPad": 0,
@@ -7841,10 +7357,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "listTagsForResourceResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -7858,23 +7376,10 @@
                     "type": "ResourceTagSet"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ltfrrResourceTagSet",
-                    "name": "_ltfrrResourceTagSet",
-                    "shape": "ResourceTagSet",
-                    "locationName": "ResourceTagSet",
-                    "documentation": "\u003cp\u003eA \u003ccode\u003eResourceTagSet\u003c/code\u003e containing tags associated with the specified resource.\u003c/p\u003e",
-                    "typeExposed": "ResourceTagSet",
-                    "type": "ResourceTagSet"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7889,13 +7394,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "ListTagsForResourceResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7913,7 +7419,7 @@
             "namespace": "Network.AWS.Route53.ListTagsForResource",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "ListTagsForResource",
@@ -7927,6 +7433,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 17,
                 "ctor": "listTagsForResource",
                 "headerPad": 0,
@@ -8030,10 +7537,12 @@
                 ],
                 "streaming": false,
                 "listElement": "ResourceTagSet",
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "listTagsForResourcesResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -8047,28 +7556,16 @@
                     "type": "[ResourceTagSet]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ltfrrResourceTagSets",
-                    "name": "_ltfrrResourceTagSets",
-                    "shape": "ResourceTagSetList",
-                    "locationName": "ResourceTagSets",
-                    "documentation": "\u003cp\u003eA list of \u003ccode\u003eResourceTagSet\u003c/code\u003es containing tags associated with the specified resources.\u003c/p\u003e",
-                    "typeExposed": "[ResourceTagSet]",
-                    "type": "[ResourceTagSet]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListTagsForResourcesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -8084,7 +7581,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -8102,7 +7599,7 @@
             "namespace": "Network.AWS.Route53.ListTagsForResources",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "ListTagsForResources",
@@ -8116,6 +7613,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 18,
                 "ctor": "listTagsForResources",
                 "headerPad": 0,
@@ -8129,20 +7627,7 @@
                         "type": "var"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": "_List1",
-                    "lensMapping": "_List1",
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ltfr1ResourceIds",
-                    "name": "_ltfr1ResourceIds",
-                    "shape": "TagResourceIdList",
-                    "locationName": "ResourceIds",
-                    "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
-                    "typeExposed": "NonEmpty Text",
-                    "type": "List1 Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -8159,7 +7644,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -8182,7 +7667,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -8222,10 +7707,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "xml",
                 "fieldPad": 0,
                 "ctor": "updateHealthCheckResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-xml",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -8239,23 +7726,10 @@
                     "type": "HealthCheck"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "uhcrHealthCheck",
-                    "name": "_uhcrHealthCheck",
-                    "shape": "HealthCheck",
-                    "locationName": "HealthCheck",
-                    "documentation": null,
-                    "typeExposed": "HealthCheck",
-                    "type": "HealthCheck"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -8270,13 +7744,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "UpdateHealthCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -8294,7 +7769,7 @@
             "namespace": "Network.AWS.Route53.UpdateHealthCheck",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.XML",
                 "Network.AWS.Route53.Types"
             ],
             "name": "UpdateHealthCheck",
@@ -8308,6 +7783,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "xml",
                 "fieldPad": 28,
                 "ctor": "updateHealthCheck",
                 "headerPad": 0,
@@ -8321,20 +7797,7 @@
                         "type": "var"
                     }
                 ],
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": "mapping _Nat",
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "uhcHealthCheckVersion",
-                    "name": "_uhcHealthCheckVersion",
-                    "shape": "HealthCheckVersion",
-                    "locationName": "HealthCheckVersion",
-                    "documentation": "\u003cp\u003eOptional. When you specify a health check version, Route 53 compares this value with the current value in the health check, which prevents you from updating the health check when the versions don't match. Using \u003ccode\u003eHealthCheckVersion\u003c/code\u003e lets you prevent overwriting another change to the health check.\u003c/p\u003e",
-                    "typeExposed": "Maybe Natural",
-                    "type": "Maybe Nat"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -8359,7 +7822,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -8373,7 +7836,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8387,7 +7850,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -8401,7 +7864,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8415,7 +7878,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8429,7 +7892,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8443,7 +7906,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -8459,7 +7922,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -8473,7 +7936,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8501,7 +7964,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -8515,7 +7978,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8529,7 +7992,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -8543,7 +8006,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8557,7 +8020,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-xml",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",

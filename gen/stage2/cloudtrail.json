@@ -38,7 +38,7 @@
             "Network.AWS.CloudTrail.Types",
             "Network.AWS.CloudTrail.UpdateTrail"
         ],
-        "dependencies": [],
+        "protocol": "json",
         "name": "Amazon CloudTrail",
         "version": "0.0.0",
         "description": "CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service."
@@ -55,26 +55,13 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "trail",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tName",
-                    "name": "_tName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eName of the trail set by calling \u003ca\u003eCreateTrail\u003c/a\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Trail",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -88,7 +75,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -102,7 +89,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -116,7 +103,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -130,7 +117,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -144,7 +131,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -158,7 +145,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -174,7 +161,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -188,7 +175,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -202,7 +189,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -216,7 +203,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -230,7 +217,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -244,7 +231,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -258,7 +245,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -287,31 +274,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 30,
                 "ctor": "createTrailResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ctrName",
-                    "name": "_ctrName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eSpecifies the name of the trail.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreateTrailResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -325,7 +302,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -339,7 +316,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -353,7 +330,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -367,7 +344,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -381,7 +358,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -395,7 +372,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -411,7 +388,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -425,7 +402,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -439,7 +416,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -453,7 +430,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -467,7 +444,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -481,7 +458,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -495,7 +472,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -513,7 +490,7 @@
             "namespace": "Network.AWS.CloudTrail.CreateTrail",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "CreateTrail",
@@ -527,6 +504,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 29,
                 "ctor": "createTrail",
                 "headerPad": 0,
@@ -536,23 +514,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ctName",
-                    "name": "_ctName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eSpecifies the name of the trail.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -566,7 +531,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -588,7 +553,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -602,7 +567,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -616,7 +581,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -630,7 +595,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -644,7 +609,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -660,7 +625,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -674,7 +639,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -688,7 +653,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -702,7 +667,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -716,7 +681,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -730,7 +695,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -744,7 +709,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -770,11 +735,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteTrailResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteTrailResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -784,7 +752,7 @@
             "namespace": "Network.AWS.CloudTrail.DeleteTrail",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "DeleteTrail",
@@ -801,11 +769,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteTrail",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -824,23 +793,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dtName",
-                    "name": "_dtName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of a trail to be deleted.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -863,7 +819,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -891,10 +847,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Trail",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrailsResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -908,28 +866,16 @@
                     "type": "[Trail]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtrTrailList",
-                    "name": "_dtrTrailList",
-                    "shape": "TrailList",
-                    "locationName": "trailList",
-                    "documentation": "\u003cp\u003eThe list of trails.\u003c/p\u003e",
-                    "typeExposed": "[Trail]",
-                    "type": "[Trail]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeTrailsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -945,7 +891,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -963,7 +909,7 @@
             "namespace": "Network.AWS.CloudTrail.DescribeTrails",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "DescribeTrails",
@@ -980,11 +926,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrails",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -1003,20 +950,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtTrailNameList",
-                    "name": "_dtTrailNameList",
-                    "shape": "TrailNameList",
-                    "locationName": "trailNameList",
-                    "documentation": "\u003cp\u003eThe trail returned.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1026,7 +960,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1042,7 +976,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1068,31 +1002,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 38,
                 "ctor": "getTrailStatusResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "gtsrIsLogging",
-                    "name": "_gtsrIsLogging",
-                    "shape": "Boolean",
-                    "locationName": "IsLogging",
-                    "documentation": "\u003cp\u003eWhether the CloudTrail is currently logging AWS API calls.\u003c/p\u003e",
-                    "typeExposed": "Maybe Bool",
-                    "type": "Maybe Bool"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetTrailStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1106,7 +1030,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1120,7 +1044,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1134,7 +1058,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1148,7 +1072,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1162,7 +1086,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1176,7 +1100,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1190,7 +1114,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1204,7 +1128,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1220,7 +1144,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1234,7 +1158,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1248,7 +1172,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1262,7 +1186,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1276,7 +1200,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1290,7 +1214,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1304,7 +1228,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1318,7 +1242,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1332,7 +1256,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1350,7 +1274,7 @@
             "namespace": "Network.AWS.CloudTrail.GetTrailStatus",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "GetTrailStatus",
@@ -1367,11 +1291,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "getTrailStatus",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1390,23 +1315,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "gtsName",
-                    "name": "_gtsName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of the trail for which you are requesting the current status.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1429,7 +1341,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1455,11 +1367,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "startLoggingResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "StartLoggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1469,7 +1384,7 @@
             "namespace": "Network.AWS.CloudTrail.StartLogging",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "StartLogging",
@@ -1486,11 +1401,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "startLogging",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1509,23 +1425,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "sl1Name",
-                    "name": "_sl1Name",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of the trail for which CloudTrail logs AWS API calls.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1548,7 +1451,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1574,11 +1477,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "stopLoggingResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "StopLoggingResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1588,7 +1494,7 @@
             "namespace": "Network.AWS.CloudTrail.StopLogging",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "StopLogging",
@@ -1605,11 +1511,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopLogging",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1628,23 +1535,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "slName",
-                    "name": "_slName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eCommunicates to CloudTrail the name of the trail for which to stop logging AWS API calls.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1667,7 +1561,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1693,31 +1587,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 30,
                 "ctor": "updateTrailResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "utrName",
-                    "name": "_utrName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eSpecifies the name of the trail.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "UpdateTrailResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1731,7 +1615,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1745,7 +1629,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1759,7 +1643,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1773,7 +1657,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1787,7 +1671,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1801,7 +1685,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1817,7 +1701,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1831,7 +1715,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1845,7 +1729,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1859,7 +1743,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1873,7 +1757,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1887,7 +1771,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1901,7 +1785,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1919,7 +1803,7 @@
             "namespace": "Network.AWS.CloudTrail.UpdateTrail",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
             "name": "UpdateTrail",
@@ -1933,6 +1817,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 29,
                 "ctor": "updateTrail",
                 "headerPad": 0,
@@ -1942,23 +1827,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "utName",
-                    "name": "_utName",
-                    "shape": "String",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eSpecifies the name of the trail.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1980,7 +1852,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1994,7 +1866,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2008,7 +1880,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2022,7 +1894,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2036,7 +1908,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2050,7 +1922,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2066,7 +1938,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2080,7 +1952,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2094,7 +1966,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2108,7 +1980,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2122,7 +1994,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2136,7 +2008,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2150,7 +2022,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",

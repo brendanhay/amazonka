@@ -57,7 +57,7 @@
             "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
             "Network.AWS.ElasticTranscoder.UpdatePipelineStatus"
         ],
-        "dependencies": [],
+        "protocol": "rest-json",
         "name": "Amazon Elastic Transcoder",
         "version": "0.0.0",
         "description": "Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices. For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions."
@@ -73,26 +73,13 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "pipelineOutputConfig",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pocBucket",
-                    "name": "_pocBucket",
-                    "shape": "BucketName",
-                    "locationName": "Bucket",
-                    "documentation": "\u003cp\u003e The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files. Specify this value when all of the following are true: \u003cul\u003e \u003cli\u003eYou want to save transcoded files, thumbnails (if any), and playlists (if any) together in one bucket.\u003c/li\u003e \u003cli\u003eYou do not want to specify the users or groups who have access to the transcoded files, thumbnails, and playlists.\u003c/li\u003e \u003cli\u003eYou do not want to specify the permissions that Elastic Transcoder grants to the files. \u003c/li\u003e \u003cli\u003eYou want to associate the transcoded files and thumbnails with the Amazon S3 Standard storage class.\u003c/li\u003e \u003c/ul\u003e If you want to save transcoded files and playlists in one bucket and thumbnails in another bucket, specify which users can access the transcoded files or the permissions the users have, or change the Amazon S3 storage class, omit OutputBucket and specify values for \u003ccode\u003eContentConfig\u003c/code\u003e and \u003ccode\u003eThumbnailConfig\u003c/code\u003e instead. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "PipelineOutputConfig",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -106,7 +93,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -120,7 +107,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -136,7 +123,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -150,7 +137,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -164,7 +151,7 @@
                         "type": "[Permission]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -188,26 +175,13 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "createJobPlaylist",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cjpName",
-                    "name": "_cjpName",
-                    "shape": "Filename",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name that you want Elastic Transcoder to assign to the master playlist, for example, nyc-vacation.m3u8. If the name includes a \u003ccode\u003e/\u003c/code\u003e character, the section of the name before the last \u003ccode\u003e/\u003c/code\u003e must be identical for all \u003ccode\u003eName\u003c/code\u003e objects. If you create more than one master playlist, the values of all \u003ccode\u003eName\u003c/code\u003e objects must be unique.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e Elastic Transcoder automatically appends the relevant file extension to the file name (\u003ccode\u003e.m3u8\u003c/code\u003e for \u003ccode\u003eHLSv3\u003c/code\u003e and \u003ccode\u003eHLSv4\u003c/code\u003e playlists, and \u003ccode\u003e.ism\u003c/code\u003e and \u003ccode\u003e.ismc\u003c/code\u003e for \u003ccode\u003eSmooth\u003c/code\u003e playlists). If you include a file extension in \u003ccode\u003eName\u003c/code\u003e, the file name will have two extensions.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "CreateJobPlaylist",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -221,7 +195,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -235,7 +209,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -251,7 +225,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -265,7 +239,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -279,7 +253,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -302,26 +276,13 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "captions",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cMergePolicy",
-                    "name": "_cMergePolicy",
-                    "shape": "CaptionMergePolicy",
-                    "locationName": "MergePolicy",
-                    "documentation": "\u003cp\u003eA policy that determines how Elastic Transcoder handles the existence of multiple captions.\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eMergeOverride:\u003c/b\u003e Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eMergeRetain:\u003c/b\u003e Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If \u003cguilabel\u003eCaptionSources\u003c/guilabel\u003e is empty, Elastic Transcoder omits all sidecar captions from the output files.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eOverride:\u003c/b\u003e Elastic Transcoder transcodes only the sidecar captions that you specify in \u003ccode\u003eCaptionSources\u003c/code\u003e.\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003ccode\u003eMergePolicy\u003c/code\u003e cannot be null.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Captions",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -335,7 +296,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -349,7 +310,7 @@
                         "type": "[CaptionSource]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -365,7 +326,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -379,7 +340,7 @@
                         "type": "[CaptionFormat]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -393,7 +354,7 @@
                         "type": "[CaptionSource]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -420,7 +381,7 @@
                 "fieldPad": 0,
                 "ctor": "audioCodecOptions",
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -433,26 +394,13 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "acoProfile",
-                    "name": "_acoProfile",
-                    "shape": "AudioCodecProfile",
-                    "locationName": "Profile",
-                    "documentation": "\u003cp\u003eYou can only choose an audio profile when you specify AAC for the value of Audio:Codec.\u003c/p\u003e \u003cp\u003eSpecify the AAC profile for the output file. Elastic Transcoder supports the following profiles:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eauto\u003c/code\u003e: If you specify \u003ccode\u003eauto\u003c/code\u003e, Elastic Transcoder will select the profile based on the bit rate selected for the output file.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAAC-LC\u003c/code\u003e: The most common AAC profile. Use for bitrates larger than 64 kbps.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eHE-AAC\u003c/code\u003e: Not supported on some older players and devices. Use for bitrates between 40 and 80 kbps.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eHE-AACv2\u003c/code\u003e: Not supported on some players and devices. Use for bitrates less than 48 kbps.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eAll outputs in a \u003ccode\u003eSmooth\u003c/code\u003e playlist must have the same value for \u003ccode\u003eProfile\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "AudioCodecOptions",
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -468,7 +416,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -491,26 +439,13 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "jobOutput",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "joId",
-                    "name": "_joId",
-                    "shape": "String",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003eA sequential counter, starting with 1, that identifies an output among the outputs from the current job. In the Output syntax, this value is always 1.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "JobOutput",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -524,7 +459,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -538,7 +473,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -552,7 +487,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -566,7 +501,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -580,7 +515,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -594,7 +529,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -608,7 +543,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -622,7 +557,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -636,7 +571,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -650,7 +585,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -664,7 +599,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -678,7 +613,7 @@
                         "type": "[JobWatermark]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -692,7 +627,7 @@
                         "type": "Maybe JobAlbumArt"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -706,7 +641,7 @@
                         "type": "[Clip]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -722,7 +657,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -736,7 +671,7 @@
                         "type": "Maybe JobAlbumArt"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -750,7 +685,7 @@
                         "type": "Maybe Captions"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -764,7 +699,7 @@
                         "type": "[Clip]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -778,7 +713,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -792,7 +727,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -806,7 +741,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -820,7 +755,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -834,7 +769,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -848,7 +783,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -862,7 +797,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -876,7 +811,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -890,7 +825,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -904,7 +839,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -918,7 +853,7 @@
                         "type": "[JobWatermark]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -941,26 +876,13 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "job",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "jId",
-                    "name": "_jId",
-                    "shape": "Id",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003e The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Job'",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -974,7 +896,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -988,7 +910,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1002,7 +924,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1016,7 +938,7 @@
                         "type": "Maybe JobInput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1030,7 +952,7 @@
                         "type": "Maybe JobOutput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1044,7 +966,7 @@
                         "type": "[JobOutput]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1058,7 +980,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1072,7 +994,7 @@
                         "type": "[Playlist]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1088,7 +1010,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1102,7 +1024,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1116,7 +1038,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1130,7 +1052,7 @@
                         "type": "Maybe JobInput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1144,7 +1066,7 @@
                         "type": "Maybe JobOutput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1158,7 +1080,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1172,7 +1094,7 @@
                         "type": "[JobOutput]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1186,7 +1108,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1200,7 +1122,7 @@
                         "type": "[Playlist]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1224,26 +1146,13 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "captionSource",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "csKey",
-                    "name": "_csKey",
-                    "shape": "Key",
-                    "locationName": "Key",
-                    "documentation": "\u003cp\u003eThe name of the sidecar caption file that you want Elastic Transcoder to include in the output file.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "CaptionSource",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1257,7 +1166,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1271,7 +1180,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1285,7 +1194,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1301,7 +1210,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1315,7 +1224,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1329,7 +1238,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1343,7 +1252,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1367,26 +1276,13 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "artwork",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "aInputKey",
-                    "name": "_aInputKey",
-                    "shape": "WatermarkKey",
-                    "locationName": "InputKey",
-                    "documentation": "\u003cp\u003eThe name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by \u003ccode\u003ePipelineId\u003c/code\u003e; the \u003ccode\u003eInputBucket\u003c/code\u003e object in that pipeline identifies the bucket.\u003c/p\u003e \u003cp\u003eIf the file name includes a prefix, for example, \u003ccode\u003ecooking/pie.jpg\u003c/code\u003e, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Artwork",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1400,7 +1296,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1414,7 +1310,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1428,7 +1324,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1442,7 +1338,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1456,7 +1352,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1472,7 +1368,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1486,7 +1382,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1500,7 +1396,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1514,7 +1410,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1528,7 +1424,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1542,7 +1438,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1566,26 +1462,13 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "timeSpan",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tsStartTime",
-                    "name": "_tsStartTime",
-                    "shape": "Time",
-                    "locationName": "StartTime",
-                    "documentation": "\u003cp\u003eThe place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "TimeSpan",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1599,7 +1482,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1615,7 +1498,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1629,7 +1512,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1652,26 +1535,13 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "createJobOutput",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cjoKey",
-                    "name": "_cjoKey",
-                    "shape": "Key",
-                    "locationName": "Key",
-                    "documentation": "\u003cp\u003e The name to assign to the transcoded file. Elastic Transcoder saves the file in the Amazon S3 bucket specified by the \u003ccode\u003eOutputBucket\u003c/code\u003e object in the pipeline that is specified by the pipeline ID. If a file with the specified name already exists in the output bucket, the job fails. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "CreateJobOutput",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1685,7 +1555,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1699,7 +1569,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1713,7 +1583,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1727,7 +1597,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1741,7 +1611,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1755,7 +1625,7 @@
                         "type": "[JobWatermark]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1769,7 +1639,7 @@
                         "type": "Maybe JobAlbumArt"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1783,7 +1653,7 @@
                         "type": "[Clip]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1799,7 +1669,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1813,7 +1683,7 @@
                         "type": "Maybe JobAlbumArt"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1827,7 +1697,7 @@
                         "type": "Maybe Captions"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1841,7 +1711,7 @@
                         "type": "[Clip]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1855,7 +1725,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1869,7 +1739,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1883,7 +1753,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1897,7 +1767,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1911,7 +1781,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1934,26 +1804,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "audioParameters",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "apCodec",
-                    "name": "_apCodec",
-                    "shape": "AudioCodec",
-                    "locationName": "Codec",
-                    "documentation": "\u003cp\u003eThe audio codec for the output file. Valid values include \u003ccode\u003eaac\u003c/code\u003e, \u003ccode\u003emp3\u003c/code\u003e, and \u003ccode\u003evorbis\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "AudioParameters",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1967,7 +1824,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1981,7 +1838,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1995,7 +1852,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2009,7 +1866,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2025,7 +1882,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2039,7 +1896,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2053,7 +1910,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2067,7 +1924,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2081,7 +1938,7 @@
                         "type": "Maybe AudioCodecOptions"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2105,26 +1962,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "thumbnails",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tFormat",
-                    "name": "_tFormat",
-                    "shape": "JpgOrPng",
-                    "locationName": "Format",
-                    "documentation": "\u003cp\u003eThe format of thumbnails, if any. Valid values are \u003ccode\u003ejpg\u003c/code\u003e and \u003ccode\u003epng\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eYou specify whether you want Elastic Transcoder to create thumbnails when you create a job.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Thumbnails",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2138,7 +1982,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2152,7 +1996,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2166,7 +2010,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2180,7 +2024,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2194,7 +2038,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2208,7 +2052,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2222,7 +2066,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2238,7 +2082,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2252,7 +2096,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2266,7 +2110,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2280,7 +2124,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2294,7 +2138,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2308,7 +2152,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2322,7 +2166,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2336,7 +2180,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2359,26 +2203,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "jobAlbumArt",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "jaaMergePolicy",
-                    "name": "_jaaMergePolicy",
-                    "shape": "MergePolicy",
-                    "locationName": "MergePolicy",
-                    "documentation": "\u003cp\u003eA policy that determines how Elastic Transcoder will handle the existence of multiple album artwork files.\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eReplace:\u003c/code\u003e The specified album art will replace any existing album art.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePrepend:\u003c/code\u003e The specified album art will be placed in front of any existing album art.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAppend:\u003c/code\u003e The specified album art will be placed after any existing album art.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFallback:\u003c/code\u003e If the original input file contains artwork, Elastic Transcoder will use that artwork for the output. If the original input does not contain artwork, Elastic Transcoder will use the specified album art file.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "JobAlbumArt",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2392,7 +2223,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2408,7 +2239,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2422,7 +2253,7 @@
                         "type": "[Artwork]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2446,26 +2277,13 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "jobWatermark",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "jwPresetWatermarkId",
-                    "name": "_jwPresetWatermarkId",
-                    "shape": "PresetWatermarkId",
-                    "locationName": "PresetWatermarkId",
-                    "documentation": "\u003cp\u003eThe ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "JobWatermark",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2479,7 +2297,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2495,7 +2313,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2509,7 +2327,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2532,26 +2350,13 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "pipeline",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pId",
-                    "name": "_pId",
-                    "shape": "Id",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003eThe identifier for the pipeline. You use this value to identify the pipeline in which you want to perform a variety of operations, such as creating a job or a preset. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Pipeline",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2565,7 +2370,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2579,7 +2384,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2593,7 +2398,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2607,7 +2412,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2621,7 +2426,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2635,7 +2440,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2649,7 +2454,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2663,7 +2468,7 @@
                         "type": "Maybe Notifications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2677,7 +2482,7 @@
                         "type": "Maybe PipelineOutputConfig"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2693,7 +2498,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2707,7 +2512,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2721,7 +2526,7 @@
                         "type": "Maybe PipelineOutputConfig"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2735,7 +2540,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2749,7 +2554,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2763,7 +2568,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2777,7 +2582,7 @@
                         "type": "Maybe Notifications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2791,7 +2596,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2805,7 +2610,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2819,7 +2624,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2842,26 +2647,13 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "preset",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "p1Id",
-                    "name": "_p1Id",
-                    "shape": "Id",
-                    "locationName": "Id",
-                    "documentation": "\u003cp\u003eIdentifier for the new preset. You use this value to get settings for the preset or to delete it.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Preset",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2875,7 +2667,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2889,7 +2681,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2903,7 +2695,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2917,7 +2709,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2931,7 +2723,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2945,7 +2737,7 @@
                         "type": "Maybe AudioParameters"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2959,7 +2751,7 @@
                         "type": "Maybe VideoParameters"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2973,7 +2765,7 @@
                         "type": "Maybe Thumbnails"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2989,7 +2781,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3003,7 +2795,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3017,7 +2809,7 @@
                         "type": "Maybe AudioParameters"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3031,7 +2823,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3045,7 +2837,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3059,7 +2851,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3073,7 +2865,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3087,7 +2879,7 @@
                         "type": "Maybe Thumbnails"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3101,7 +2893,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3125,26 +2917,13 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "captionFormat",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cfFormat",
-                    "name": "_cfFormat",
-                    "shape": "CaptionFormatFormat",
-                    "locationName": "Format",
-                    "documentation": "\u003cp\u003eThe format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eValid Embedded Caption Formats:\u003c/b\u003e\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eFor MP3\u003c/b\u003e: None\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eFor MP4\u003c/b\u003e: mov-text\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eFor MPEG-TS\u003c/b\u003e: None\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eFor ogg\u003c/b\u003e: None\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eFor webm\u003c/b\u003e: None\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eValid Sidecar Caption Formats:\u003c/b\u003e Elastic Transcoder supports dfxp (first div element only), scc, srt, and webvtt. If you want ttml or smpte-tt compatible captions, specify dfxp as your output format.\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eFor FMP4\u003c/b\u003e: dfxp\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003cb\u003eNon-FMP4 outputs\u003c/b\u003e: All sidecar types\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003ccode\u003efmp4\u003c/code\u003e captions have an extension of \u003ccode\u003e.ismt\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "CaptionFormat",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3158,7 +2937,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3174,7 +2953,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3188,7 +2967,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3212,26 +2991,13 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "presetWatermark",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pwId",
-                    "name": "_pwId",
-                    "shape": "PresetWatermarkId",
-                    "locationName": "Id",
-                    "documentation": "A unique identifier for the settings for one watermark. The value of \u003ccode\u003eId\u003c/code\u003e can be up to 40 characters long.",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "PresetWatermark",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3245,7 +3011,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3259,7 +3025,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3273,7 +3039,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3287,7 +3053,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3301,7 +3067,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3315,7 +3081,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3329,7 +3095,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3343,7 +3109,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3357,7 +3123,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3373,7 +3139,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3387,7 +3153,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3401,7 +3167,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3415,7 +3181,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3429,7 +3195,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3443,7 +3209,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3457,7 +3223,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3471,7 +3237,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3485,7 +3251,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3499,7 +3265,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3523,26 +3289,13 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "permission",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pGranteeType",
-                    "name": "_pGranteeType",
-                    "shape": "GranteeType",
-                    "locationName": "GranteeType",
-                    "documentation": "\u003cp\u003eThe type of value that appears in the Grantee object: \u003cul\u003e \u003cli\u003e \u003ccode\u003eCanonical\u003c/code\u003e: Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution. \u003cimportant\u003eA canonical user ID is not the same as an AWS account number.\u003c/important\u003e \u003c/li\u003e \u003cli\u003e \u003ccode\u003eEmail\u003c/code\u003e: The registered email address of an AWS account.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eGroup\u003c/code\u003e: One of the following predefined Amazon S3 groups: \u003ccode\u003eAllUsers\u003c/code\u003e, \u003ccode\u003eAuthenticatedUsers\u003c/code\u003e, or \u003ccode\u003eLogDelivery\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Permission",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3556,7 +3309,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3570,7 +3323,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3586,7 +3339,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3600,7 +3353,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3614,7 +3367,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3637,26 +3390,13 @@
                 ],
                 "fieldPad": 21,
                 "ctor": "videoParameters",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "vpCodec",
-                    "name": "_vpCodec",
-                    "shape": "VideoCodec",
-                    "locationName": "Codec",
-                    "documentation": "\u003cp\u003eThe video codec for the output file. Valid values include \u003ccode\u003eH.264\u003c/code\u003e and \u003ccode\u003evp8\u003c/code\u003e. You can only specify \u003ccode\u003evp8\u003c/code\u003e when the container type is \u003ccode\u003ewebm\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "VideoParameters",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3670,7 +3410,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -3684,7 +3424,7 @@
                         "type": "Map Text Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3698,7 +3438,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3712,7 +3452,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3726,7 +3466,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3740,7 +3480,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3754,7 +3494,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3768,7 +3508,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3782,7 +3522,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3796,7 +3536,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3810,7 +3550,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3824,7 +3564,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3838,7 +3578,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3852,7 +3592,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3868,7 +3608,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3882,7 +3622,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3896,7 +3636,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3910,7 +3650,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -3924,7 +3664,7 @@
                         "type": "Map Text Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3938,7 +3678,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3952,7 +3692,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3966,7 +3706,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3980,7 +3720,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3994,7 +3734,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4008,7 +3748,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4022,7 +3762,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4036,7 +3776,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4050,7 +3790,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4064,7 +3804,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4088,26 +3828,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "playlist",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "p2Name",
-                    "name": "_p2Name",
-                    "shape": "Filename",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name that you want Elastic Transcoder to assign to the master playlist, for example, nyc-vacation.m3u8. If the name includes a \u003ccode\u003e/\u003c/code\u003e character, the section of the name before the last \u003ccode\u003e/\u003c/code\u003e must be identical for all \u003ccode\u003eName\u003c/code\u003e objects. If you create more than one master playlist, the values of all \u003ccode\u003eName\u003c/code\u003e objects must be unique.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote\u003c/b\u003e: Elastic Transcoder automatically appends the relevant file extension to the file name (\u003ccode\u003e.m3u8\u003c/code\u003e for \u003ccode\u003eHLSv3\u003c/code\u003e and \u003ccode\u003eHLSv4\u003c/code\u003e playlists, and \u003ccode\u003e.ism\u003c/code\u003e and \u003ccode\u003e.ismc\u003c/code\u003e for \u003ccode\u003eSmooth\u003c/code\u003e playlists). If you include a file extension in \u003ccode\u003eName\u003c/code\u003e, the file name will have two extensions.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Playlist",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4121,7 +3848,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4135,7 +3862,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4149,7 +3876,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4163,7 +3890,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4179,7 +3906,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4193,7 +3920,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4207,7 +3934,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4221,7 +3948,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4235,7 +3962,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4259,26 +3986,13 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "notifications",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nProgressing",
-                    "name": "_nProgressing",
-                    "shape": "SnsTopic",
-                    "locationName": "Progressing",
-                    "documentation": "\u003cp\u003eThe Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Notifications",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4292,7 +4006,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4306,7 +4020,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4320,7 +4034,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4336,7 +4050,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4350,7 +4064,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4364,7 +4078,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4378,7 +4092,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4403,7 +4117,7 @@
                 "fieldPad": 0,
                 "ctor": "clip",
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -4416,26 +4130,13 @@
                     "typeExposed": "Maybe TimeSpan",
                     "type": "Maybe TimeSpan"
                 },
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cTimeSpan",
-                    "name": "_cTimeSpan",
-                    "shape": "TimeSpan",
-                    "locationName": "TimeSpan",
-                    "documentation": "\u003cp\u003eSettings that determine when a clip begins and how long it lasts.\u003c/p\u003e",
-                    "typeExposed": "Maybe TimeSpan",
-                    "type": "Maybe TimeSpan"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Clip",
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4451,7 +4152,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4475,26 +4176,13 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "jobInput",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "jiKey",
-                    "name": "_jiKey",
-                    "shape": "Key",
-                    "locationName": "Key",
-                    "documentation": "\u003cp\u003e The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID of the pipeline to use for processing the job. The \u003ccode\u003eInputBucket\u003c/code\u003e object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. \u003c/p\u003e \u003cp\u003eIf the file name includes a prefix, such as \u003ccode\u003ecooking/lasagna.mpg\u003c/code\u003e, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "JobInput",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4508,7 +4196,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4522,7 +4210,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4536,7 +4224,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4550,7 +4238,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4564,7 +4252,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4580,7 +4268,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4594,7 +4282,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4608,7 +4296,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4622,7 +4310,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4636,7 +4324,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4650,7 +4338,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4679,11 +4367,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "cancelJobResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CancelJobResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -4693,7 +4384,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.CancelJob",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "CancelJob",
@@ -4710,6 +4401,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "cancelJob",
                 "headerPad": 0,
@@ -4789,10 +4481,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "createJobResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -4806,28 +4500,16 @@
                     "type": "Maybe Job'"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cjrJob",
-                    "name": "_cjrJob",
-                    "shape": "Job",
-                    "locationName": "Job",
-                    "documentation": "\u003cp\u003e A section of the response body that provides information about the job that is created. \u003c/p\u003e",
-                    "typeExposed": "Maybe Job'",
-                    "type": "Maybe Job'"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreateJobResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4843,7 +4525,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4861,7 +4543,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.CreateJob",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "CreateJob",
@@ -4874,6 +4556,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "createJob",
                 "headerPad": 0,
@@ -4883,23 +4566,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cjPipelineId",
-                    "name": "_cjPipelineId",
-                    "shape": "Id",
-                    "locationName": "PipelineId",
-                    "documentation": "\u003cp\u003eThe \u003ccode\u003eId\u003c/code\u003e of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4913,7 +4583,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4935,7 +4605,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4949,7 +4619,7 @@
                         "type": "Maybe CreateJobOutput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4963,7 +4633,7 @@
                         "type": "[CreateJobOutput]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4977,7 +4647,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4993,7 +4663,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5007,7 +4677,7 @@
                         "type": "JobInput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5021,7 +4691,7 @@
                         "type": "Maybe CreateJobOutput"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5035,7 +4705,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5049,7 +4719,7 @@
                         "type": "[CreateJobOutput]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5063,7 +4733,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5089,10 +4759,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "createPipelineResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -5106,28 +4778,16 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cprPipeline",
-                    "name": "_cprPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": "\u003cp\u003eA section of the response body that provides information about the pipeline that is created.\u003c/p\u003e",
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreatePipelineResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5143,7 +4803,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5161,7 +4821,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.CreatePipeline",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "CreatePipeline",
@@ -5174,6 +4834,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 19,
                 "ctor": "createPipeline",
                 "headerPad": 0,
@@ -5183,23 +4844,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cp1Name",
-                    "name": "_cp1Name",
-                    "shape": "Name",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of the pipeline. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.\u003c/p\u003e \u003cp\u003eConstraints: Maximum 40 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5213,7 +4861,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5227,7 +4875,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5249,7 +4897,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5263,7 +4911,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5277,7 +4925,7 @@
                         "type": "Maybe Notifications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5291,7 +4939,7 @@
                         "type": "Maybe PipelineOutputConfig"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5307,7 +4955,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5321,7 +4969,7 @@
                         "type": "Maybe PipelineOutputConfig"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5335,7 +4983,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5349,7 +4997,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5363,7 +5011,7 @@
                         "type": "Maybe Notifications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5377,7 +5025,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5391,7 +5039,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5416,31 +5064,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 11,
                 "ctor": "createPresetResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cprPreset",
-                    "name": "_cprPreset",
-                    "shape": "Preset",
-                    "locationName": "Preset",
-                    "documentation": "\u003cp\u003e A section of the response body that provides information about the preset that is created. \u003c/p\u003e",
-                    "typeExposed": "Maybe Preset",
-                    "type": "Maybe Preset"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreatePresetResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5454,7 +5092,7 @@
                         "type": "Maybe Preset"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5470,7 +5108,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5484,7 +5122,7 @@
                         "type": "Maybe Preset"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5502,7 +5140,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.CreatePreset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "CreatePreset",
@@ -5515,6 +5153,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 14,
                 "ctor": "createPreset",
                 "headerPad": 0,
@@ -5524,23 +5163,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cpName",
-                    "name": "_cpName",
-                    "shape": "Name",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5554,7 +5180,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5576,7 +5202,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5590,7 +5216,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5604,7 +5230,7 @@
                         "type": "Maybe VideoParameters"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5618,7 +5244,7 @@
                         "type": "Maybe AudioParameters"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5634,7 +5260,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5648,7 +5274,7 @@
                         "type": "Maybe AudioParameters"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5662,7 +5288,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5676,7 +5302,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5690,7 +5316,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5704,7 +5330,7 @@
                         "type": "Maybe Thumbnails"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5730,11 +5356,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deletePipelineResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeletePipelineResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -5744,7 +5373,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.DeletePipeline",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "DeletePipeline",
@@ -5761,6 +5390,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePipeline",
                 "headerPad": 0,
@@ -5840,11 +5470,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deletePresetResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeletePresetResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -5854,7 +5487,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.DeletePreset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "DeletePreset",
@@ -5871,6 +5504,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePreset",
                 "headerPad": 0,
@@ -5949,31 +5583,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 19,
                 "ctor": "listJobsByPipelineResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ljbprJobs",
-                    "name": "_ljbprJobs",
-                    "shape": "Jobs",
-                    "locationName": "Jobs",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
-                    "typeExposed": "[Job']",
-                    "type": "[Job']"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListJobsByPipelineResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5987,7 +5611,7 @@
                         "type": "[Job']"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6003,7 +5627,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6017,7 +5641,7 @@
                         "type": "[Job']"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6035,7 +5659,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ListJobsByPipeline",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "pager": {
@@ -6057,6 +5681,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "listJobsByPipeline",
                 "headerPad": 0,
@@ -6189,31 +5814,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 19,
                 "ctor": "listJobsByStatusResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ljbsrJobs",
-                    "name": "_ljbsrJobs",
-                    "shape": "Jobs",
-                    "locationName": "Jobs",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
-                    "typeExposed": "[Job']",
-                    "type": "[Job']"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListJobsByStatusResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6227,7 +5842,7 @@
                         "type": "[Job']"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6243,7 +5858,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6257,7 +5872,7 @@
                         "type": "[Job']"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6275,7 +5890,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ListJobsByStatus",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "pager": {
@@ -6297,6 +5912,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 14,
                 "ctor": "listJobsByStatus",
                 "headerPad": 0,
@@ -6429,31 +6045,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "listPipelinesResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lprPipelines",
-                    "name": "_lprPipelines",
-                    "shape": "Pipelines",
-                    "locationName": "Pipelines",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePipeline\u003c/code\u003e objects.\u003c/p\u003e",
-                    "typeExposed": "[Pipeline]",
-                    "type": "[Pipeline]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListPipelinesResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6467,7 +6073,7 @@
                         "type": "[Pipeline]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6483,7 +6089,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6497,7 +6103,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6515,7 +6121,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ListPipelines",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "pager": {
@@ -6537,6 +6143,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 12,
                 "ctor": "listPipelines",
                 "headerPad": 0,
@@ -6636,31 +6243,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "listPresetsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lpr1Presets",
-                    "name": "_lpr1Presets",
-                    "shape": "Presets",
-                    "locationName": "Presets",
-                    "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePreset\u003c/code\u003e objects.\u003c/p\u003e",
-                    "typeExposed": "[Preset]",
-                    "type": "[Preset]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListPresetsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6674,7 +6271,7 @@
                         "type": "[Preset]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6690,7 +6287,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6704,7 +6301,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -6722,7 +6319,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ListPresets",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "pager": {
@@ -6744,6 +6341,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 13,
                 "ctor": "listPresets",
                 "headerPad": 0,
@@ -6844,10 +6442,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "readJobResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -6861,28 +6461,16 @@
                     "type": "Maybe Job'"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rjrJob",
-                    "name": "_rjrJob",
-                    "shape": "Job",
-                    "locationName": "Job",
-                    "documentation": "\u003cp\u003eA section of the response body that provides information about the job.\u003c/p\u003e",
-                    "typeExposed": "Maybe Job'",
-                    "type": "Maybe Job'"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ReadJobResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6898,7 +6486,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -6916,7 +6504,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ReadJob",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "ReadJob",
@@ -6933,6 +6521,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "readJob",
                 "headerPad": 0,
@@ -7012,10 +6601,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPipelineResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -7029,28 +6620,16 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rprPipeline",
-                    "name": "_rprPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": "\u003cp\u003eA section of the response body that provides information about the pipeline.\u003c/p\u003e",
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ReadPipelineResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7066,7 +6645,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7084,7 +6663,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ReadPipeline",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "ReadPipeline",
@@ -7101,6 +6680,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPipeline",
                 "headerPad": 0,
@@ -7180,10 +6760,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPresetResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -7197,28 +6779,16 @@
                     "type": "Maybe Preset"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rprPreset",
-                    "name": "_rprPreset",
-                    "shape": "Preset",
-                    "locationName": "Preset",
-                    "documentation": "\u003cp\u003eA section of the response body that provides information about the preset.\u003c/p\u003e",
-                    "typeExposed": "Maybe Preset",
-                    "type": "Maybe Preset"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ReadPresetResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7234,7 +6804,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7252,7 +6822,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.ReadPreset",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "ReadPreset",
@@ -7269,6 +6839,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPreset",
                 "headerPad": 0,
@@ -7348,31 +6919,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 12,
                 "ctor": "testRoleResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "trrSuccess",
-                    "name": "_trrSuccess",
-                    "shape": "Success",
-                    "locationName": "Success",
-                    "documentation": "\u003cp\u003eIf the operation is successful, this value is \u003ccode\u003etrue\u003c/code\u003e; otherwise, the value is \u003ccode\u003efalse\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "TestRoleResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7386,7 +6947,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7402,7 +6963,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7416,7 +6977,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7434,7 +6995,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.TestRole",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "TestRole",
@@ -7448,6 +7009,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "testRole",
                 "headerPad": 0,
@@ -7457,23 +7019,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "trRole",
-                    "name": "_trRole",
-                    "shape": "Role",
-                    "locationName": "Role",
-                    "documentation": "\u003cp\u003eThe IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7487,7 +7036,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7501,7 +7050,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7523,7 +7072,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7539,7 +7088,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7553,7 +7102,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7567,7 +7116,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -7581,7 +7130,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -7607,10 +7156,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "updatePipelineResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -7624,28 +7175,16 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "uprPipeline",
-                    "name": "_uprPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": null,
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "UpdatePipelineResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7661,7 +7200,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7679,7 +7218,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipeline",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "UpdatePipeline",
@@ -7692,6 +7231,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "updatePipeline",
                 "headerPad": 0,
@@ -7705,20 +7245,7 @@
                         "type": "var"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "upName",
-                    "name": "_upName",
-                    "shape": "Name",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe name of the pipeline. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.\u003c/p\u003e \u003cp\u003eConstraints: Maximum 40 characters\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -7743,7 +7270,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7757,7 +7284,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7771,7 +7298,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7785,7 +7312,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7799,7 +7326,7 @@
                         "type": "Maybe Notifications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7813,7 +7340,7 @@
                         "type": "Maybe PipelineOutputConfig"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7829,7 +7356,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7857,7 +7384,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7871,7 +7398,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7885,7 +7412,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7899,7 +7426,7 @@
                         "type": "Maybe Notifications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7913,7 +7440,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7939,10 +7466,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "updatePipelineNotificationsResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -7956,28 +7485,16 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "upnrPipeline",
-                    "name": "_upnrPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": "\u003cp\u003eA section of the response body that provides information about the pipeline.\u003c/p\u003e",
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "UpdatePipelineNotificationsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -7993,7 +7510,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8011,7 +7528,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "UpdatePipelineNotifications",
@@ -8024,6 +7541,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "updatePipelineNotifications",
                 "headerPad": 0,
@@ -8041,20 +7559,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "upnNotifications",
-                    "name": "_upnNotifications",
-                    "shape": "Notifications",
-                    "locationName": "Notifications",
-                    "documentation": "\u003cp\u003eThe topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.\u003c/p\u003e \u003cimportant\u003eTo receive notifications, you must also subscribe to the new topic in the Amazon SNS console.\u003c/important\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eProgressing\u003c/b\u003e: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.\u003c/li\u003e \u003cli\u003e \u003cb\u003eCompleted\u003c/b\u003e: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.\u003c/li\u003e \u003cli\u003e \u003cb\u003eWarning\u003c/b\u003e: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.\u003c/li\u003e \u003cli\u003e \u003cb\u003eError\u003c/b\u003e: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.\u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "Notifications",
-                    "type": "Notifications"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -8071,7 +7576,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -8108,7 +7613,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -8134,10 +7639,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "updatePipelineStatusResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -8151,28 +7658,16 @@
                     "type": "Maybe Pipeline"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "upsrPipeline",
-                    "name": "_upsrPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": "\u003cp\u003eA section of the response body that provides information about the pipeline.\u003c/p\u003e",
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "UpdatePipelineStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8188,7 +7683,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -8206,7 +7701,7 @@
             "namespace": "Network.AWS.ElasticTranscoder.UpdatePipelineStatus",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.ElasticTranscoder.Types"
             ],
             "name": "UpdatePipelineStatus",
@@ -8220,6 +7715,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 10,
                 "ctor": "updatePipelineStatus",
                 "headerPad": 0,
@@ -8237,20 +7733,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "upsStatus",
-                    "name": "_upsStatus",
-                    "shape": "PipelineStatus",
-                    "locationName": "Status",
-                    "documentation": "\u003cp\u003eThe desired status of the pipeline:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eActive\u003c/code\u003e: The pipeline is processing jobs.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePaused\u003c/code\u003e: The pipeline is not currently processing jobs.\u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
                         "location": "uri",
@@ -8267,7 +7750,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -8304,7 +7787,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",

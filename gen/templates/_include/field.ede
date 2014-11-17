@@ -2,7 +2,7 @@
 {% when "headers" %}
         {% include "applicative.ede" %} h ~:: "{{ field.locationName }}"
 {% when "header" %}
-        {% include "applicative.ede" %} h {% if field.required %}~:{% else %}~:?{% endif %} "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} h {% if field.required %}~:{% else %}~:?{% endif %} "{{ field.locationName }}"
 {% when "status-code" %}
         {% include "applicative.ede" %} o .: "{{ field.locationName }}"
 {% when "body" %}

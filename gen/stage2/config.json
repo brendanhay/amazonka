@@ -46,7 +46,7 @@
             "Network.AWS.Config.StopConfigurationRecorder",
             "Network.AWS.Config.Types"
         ],
-        "dependencies": [],
+        "protocol": "json",
         "name": "Amazon Config",
         "version": "0.0.0",
         "description": "Amazon Config is a fully managed service that provides you with an Amazon resource inventory, configuration history, and configuration change notifications to enable security and governance. With Amazon Config you can discover existing Amazon resources, export a complete inventory of your Amazon resources with all configuration details, and determine how a resource was configured at any point in time. These capabilities enable compliance auditing, security analysis, resource change tracking, and troubleshooting."
@@ -63,26 +63,13 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "configExportDeliveryInfo",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cediLastStatus",
-                    "name": "_cediLastStatus",
-                    "shape": "DeliveryStatus",
-                    "locationName": "lastStatus",
-                    "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ConfigExportDeliveryInfo",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -96,7 +83,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -110,7 +97,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -124,7 +111,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -138,7 +125,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -154,7 +141,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -168,7 +155,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -182,7 +169,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -196,7 +183,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -210,7 +197,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -234,26 +221,13 @@
                 ],
                 "fieldPad": 25,
                 "ctor": "configStreamDeliveryInfo",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "csdiLastStatus",
-                    "name": "_csdiLastStatus",
-                    "shape": "DeliveryStatus",
-                    "locationName": "lastStatus",
-                    "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ConfigStreamDeliveryInfo",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -267,7 +241,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -281,7 +255,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -295,7 +269,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -311,7 +285,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -325,7 +299,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -339,7 +313,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -353,7 +327,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -377,26 +351,13 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "relationship",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rResourceType",
-                    "name": "_rResourceType",
-                    "shape": "ResourceType",
-                    "locationName": "resourceType",
-                    "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Relationship",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -410,7 +371,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -424,7 +385,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -440,7 +401,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -454,7 +415,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -468,7 +429,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -492,26 +453,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "deliveryChannel",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dcName",
-                    "name": "_dcName",
-                    "shape": "ChannelName",
-                    "locationName": "name",
-                    "documentation": "\u003cp\u003eThe name of the delivery channel. By default, AWS Config automatically assigns the name \"default\" when creating the delivery channel. You cannot change the assigned name. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "DeliveryChannel",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -525,7 +473,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -539,7 +487,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -553,7 +501,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -569,7 +517,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -583,7 +531,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -597,7 +545,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -611,7 +559,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -680,26 +628,13 @@
                 ],
                 "fieldPad": 31,
                 "ctor": "configurationItem",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ciVersion",
-                    "name": "_ciVersion",
-                    "shape": "Version",
-                    "locationName": "version",
-                    "documentation": "\u003cp\u003eThe version number of the resource configuration.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ConfigurationItem",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -713,7 +648,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -727,7 +662,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -741,7 +676,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -755,7 +690,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -769,7 +704,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -783,7 +718,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -797,7 +732,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -811,7 +746,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -825,7 +760,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -839,7 +774,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -853,7 +788,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -867,7 +802,7 @@
                         "type": "Map Text Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -881,7 +816,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -895,7 +830,7 @@
                         "type": "[Relationship]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -911,7 +846,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -925,7 +860,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -939,7 +874,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -953,7 +888,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -967,7 +902,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -981,7 +916,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -995,7 +930,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1009,7 +944,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1023,7 +958,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1037,7 +972,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1051,7 +986,7 @@
                         "type": "[Relationship]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1065,7 +1000,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1079,7 +1014,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1093,7 +1028,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -1107,7 +1042,7 @@
                         "type": "Map Text Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1147,26 +1082,13 @@
                 ],
                 "fieldPad": 30,
                 "ctor": "deliveryChannelStatus",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dcsName",
-                    "name": "_dcsName",
-                    "shape": "String",
-                    "locationName": "name",
-                    "documentation": "\u003cp\u003eThe name of the delivery channel.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "DeliveryChannelStatus",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1180,7 +1102,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1194,7 +1116,7 @@
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1208,7 +1130,7 @@
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1224,7 +1146,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1238,7 +1160,7 @@
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1252,7 +1174,7 @@
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1266,7 +1188,7 @@
                         "type": "Maybe ConfigStreamDeliveryInfo"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1290,26 +1212,13 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "configurationRecorderStatus",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "crsName",
-                    "name": "_crsName",
-                    "shape": "String",
-                    "locationName": "name",
-                    "documentation": "\u003cp\u003eThe name of the configuration recorder.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ConfigurationRecorderStatus",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1323,7 +1232,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1337,7 +1246,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1351,7 +1260,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1365,7 +1274,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1379,7 +1288,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1393,7 +1302,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1407,7 +1316,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1423,7 +1332,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1437,7 +1346,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1451,7 +1360,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1465,7 +1374,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1479,7 +1388,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1493,7 +1402,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -1507,7 +1416,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1521,7 +1430,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1564,26 +1473,13 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "configurationRecorder",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "crName",
-                    "name": "_crName",
-                    "shape": "RecorderName",
-                    "locationName": "name",
-                    "documentation": "\u003cp\u003eThe name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ConfigurationRecorder",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1597,7 +1493,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1613,7 +1509,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1627,7 +1523,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1674,11 +1570,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteDeliveryChannelResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteDeliveryChannelResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1688,7 +1587,7 @@
             "namespace": "Network.AWS.Config.DeleteDeliveryChannel",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "DeleteDeliveryChannel",
@@ -1705,11 +1604,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteDeliveryChannel",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1728,23 +1628,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ddcDeliveryChannelName",
-                    "name": "_ddcDeliveryChannelName",
-                    "shape": "ChannelName",
-                    "locationName": "DeliveryChannelName",
-                    "documentation": "\u003cp\u003eThe name of the delivery channel to delete.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1767,7 +1654,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1795,10 +1682,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deliverConfigSnapshotResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -1812,28 +1701,16 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dcsrConfigSnapshotId",
-                    "name": "_dcsrConfigSnapshotId",
-                    "shape": "String",
-                    "locationName": "configSnapshotId",
-                    "documentation": "\u003cp\u003eThe ID of the snapshot that is being created.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeliverConfigSnapshotResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1849,7 +1726,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1867,7 +1744,7 @@
             "namespace": "Network.AWS.Config.DeliverConfigSnapshot",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "DeliverConfigSnapshot",
@@ -1884,11 +1761,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deliverConfigSnapshot",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1907,23 +1785,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dcsDeliveryChannelName",
-                    "name": "_dcsDeliveryChannelName",
-                    "shape": "ChannelName",
-                    "locationName": "deliveryChannelName",
-                    "documentation": "\u003cp\u003eThe name of the delivery channel through which the snapshot is delivered.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1946,7 +1811,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1974,10 +1839,12 @@
                 ],
                 "streaming": false,
                 "listElement": "ConfigurationRecorderStatus",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConfigurationRecorderStatusResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -1991,28 +1858,16 @@
                     "type": "[ConfigurationRecorderStatus]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcrsrConfigurationRecordersStatus",
-                    "name": "_dcrsrConfigurationRecordersStatus",
-                    "shape": "ConfigurationRecorderStatusList",
-                    "locationName": "ConfigurationRecordersStatus",
-                    "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
-                    "typeExposed": "[ConfigurationRecorderStatus]",
-                    "type": "[ConfigurationRecorderStatus]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeConfigurationRecorderStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2028,7 +1883,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2046,7 +1901,7 @@
             "namespace": "Network.AWS.Config.DescribeConfigurationRecorderStatus",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "DescribeConfigurationRecorderStatus",
@@ -2063,11 +1918,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConfigurationRecorderStatus",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2086,20 +1942,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcrsConfigurationRecorderNames",
-                    "name": "_dcrsConfigurationRecorderNames",
-                    "shape": "ConfigurationRecorderNameList",
-                    "locationName": "ConfigurationRecorderNames",
-                    "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2109,7 +1952,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2125,7 +1968,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2153,10 +1996,12 @@
                 ],
                 "streaming": false,
                 "listElement": "ConfigurationRecorder",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConfigurationRecordersResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2170,28 +2015,16 @@
                     "type": "[ConfigurationRecorder]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcrrConfigurationRecorders",
-                    "name": "_dcrrConfigurationRecorders",
-                    "shape": "ConfigurationRecorderList",
-                    "locationName": "ConfigurationRecorders",
-                    "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
-                    "typeExposed": "[ConfigurationRecorder]",
-                    "type": "[ConfigurationRecorder]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeConfigurationRecordersResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2207,7 +2040,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2225,7 +2058,7 @@
             "namespace": "Network.AWS.Config.DescribeConfigurationRecorders",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "DescribeConfigurationRecorders",
@@ -2242,11 +2075,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConfigurationRecorders",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2265,20 +2099,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcrConfigurationRecorderNames",
-                    "name": "_dcrConfigurationRecorderNames",
-                    "shape": "ConfigurationRecorderNameList",
-                    "locationName": "ConfigurationRecorderNames",
-                    "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2288,7 +2109,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2304,7 +2125,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2332,10 +2153,12 @@
                 ],
                 "streaming": false,
                 "listElement": "DeliveryChannelStatus",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDeliveryChannelStatusResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2349,28 +2172,16 @@
                     "type": "[DeliveryChannelStatus]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ddcsrDeliveryChannelsStatus",
-                    "name": "_ddcsrDeliveryChannelsStatus",
-                    "shape": "DeliveryChannelStatusList",
-                    "locationName": "DeliveryChannelsStatus",
-                    "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
-                    "typeExposed": "[DeliveryChannelStatus]",
-                    "type": "[DeliveryChannelStatus]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeDeliveryChannelStatusResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2386,7 +2197,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2404,7 +2215,7 @@
             "namespace": "Network.AWS.Config.DescribeDeliveryChannelStatus",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "DescribeDeliveryChannelStatus",
@@ -2421,11 +2232,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDeliveryChannelStatus",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2444,20 +2256,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ddcsDeliveryChannelNames",
-                    "name": "_ddcsDeliveryChannelNames",
-                    "shape": "DeliveryChannelNameList",
-                    "locationName": "DeliveryChannelNames",
-                    "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2467,7 +2266,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2483,7 +2282,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2511,10 +2310,12 @@
                 ],
                 "streaming": false,
                 "listElement": "DeliveryChannel",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDeliveryChannelsResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2528,28 +2329,16 @@
                     "type": "[DeliveryChannel]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ddcrDeliveryChannels",
-                    "name": "_ddcrDeliveryChannels",
-                    "shape": "DeliveryChannelList",
-                    "locationName": "DeliveryChannels",
-                    "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
-                    "typeExposed": "[DeliveryChannel]",
-                    "type": "[DeliveryChannel]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeDeliveryChannelsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2565,7 +2354,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2583,7 +2372,7 @@
             "namespace": "Network.AWS.Config.DescribeDeliveryChannels",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "DescribeDeliveryChannels",
@@ -2600,11 +2389,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDeliveryChannels",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -2623,20 +2413,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ddcDeliveryChannelNames",
-                    "name": "_ddcDeliveryChannelNames",
-                    "shape": "DeliveryChannelNameList",
-                    "locationName": "DeliveryChannelNames",
-                    "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2646,7 +2423,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2662,7 +2439,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2687,31 +2464,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 24,
                 "ctor": "getResourceConfigHistoryResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "grchrConfigurationItems",
-                    "name": "_grchrConfigurationItems",
-                    "shape": "ConfigurationItemList",
-                    "locationName": "configurationItems",
-                    "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
-                    "typeExposed": "[ConfigurationItem]",
-                    "type": "[ConfigurationItem]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetResourceConfigHistoryResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2725,7 +2492,7 @@
                         "type": "[ConfigurationItem]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2741,7 +2508,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2755,7 +2522,7 @@
                         "type": "[ConfigurationItem]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2773,7 +2540,7 @@
             "namespace": "Network.AWS.Config.GetResourceConfigHistory",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "GetResourceConfigHistory",
@@ -2787,6 +2554,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 23,
                 "ctor": "getResourceConfigHistory",
                 "headerPad": 0,
@@ -2796,23 +2564,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "grchResourceType",
-                    "name": "_grchResourceType",
-                    "shape": "ResourceType",
-                    "locationName": "resourceType",
-                    "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2826,7 +2581,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2848,7 +2603,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2862,7 +2617,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2876,7 +2631,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2890,7 +2645,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2904,7 +2659,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2920,7 +2675,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2934,7 +2689,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2948,7 +2703,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2962,7 +2717,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2976,7 +2731,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2990,7 +2745,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3004,7 +2759,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3030,11 +2785,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "putConfigurationRecorderResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "PutConfigurationRecorderResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3044,7 +2802,7 @@
             "namespace": "Network.AWS.Config.PutConfigurationRecorder",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "PutConfigurationRecorder",
@@ -3058,11 +2816,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "putConfigurationRecorder",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3081,23 +2840,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "pcrConfigurationRecorder",
-                    "name": "_pcrConfigurationRecorder",
-                    "shape": "ConfigurationRecorder",
-                    "locationName": "ConfigurationRecorder",
-                    "documentation": "\u003cp\u003eThe configuration recorder object that records each configuration change made to the resources.\u003c/p\u003e",
-                    "typeExposed": "ConfigurationRecorder",
-                    "type": "ConfigurationRecorder"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3120,7 +2866,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3146,11 +2892,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "putDeliveryChannelResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "PutDeliveryChannelResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3160,7 +2909,7 @@
             "namespace": "Network.AWS.Config.PutDeliveryChannel",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "PutDeliveryChannel",
@@ -3174,11 +2923,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "putDeliveryChannel",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3197,23 +2947,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "pdcDeliveryChannel",
-                    "name": "_pdcDeliveryChannel",
-                    "shape": "DeliveryChannel",
-                    "locationName": "DeliveryChannel",
-                    "documentation": "\u003cp\u003eThe configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.\u003c/p\u003e",
-                    "typeExposed": "DeliveryChannel",
-                    "type": "DeliveryChannel"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3236,7 +2973,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3262,11 +2999,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "startConfigurationRecorderResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "StartConfigurationRecorderResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3276,7 +3016,7 @@
             "namespace": "Network.AWS.Config.StartConfigurationRecorder",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "StartConfigurationRecorder",
@@ -3293,11 +3033,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "startConfigurationRecorder",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3316,23 +3057,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "scr1ConfigurationRecorderName",
-                    "name": "_scr1ConfigurationRecorderName",
-                    "shape": "RecorderName",
-                    "locationName": "ConfigurationRecorderName",
-                    "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3355,7 +3083,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3381,11 +3109,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "stopConfigurationRecorderResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "StopConfigurationRecorderResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3395,7 +3126,7 @@
             "namespace": "Network.AWS.Config.StopConfigurationRecorder",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
             "name": "StopConfigurationRecorder",
@@ -3412,11 +3143,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopConfigurationRecorder",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3435,23 +3167,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "scrConfigurationRecorderName",
-                    "name": "_scrConfigurationRecorderName",
-                    "shape": "RecorderName",
-                    "locationName": "ConfigurationRecorderName",
-                    "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3474,7 +3193,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",

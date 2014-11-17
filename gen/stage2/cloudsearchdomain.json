@@ -29,7 +29,7 @@
             "Network.AWS.CloudSearchDomains.Types",
             "Network.AWS.CloudSearchDomains.UploadDocuments"
         ],
-        "dependencies": [],
+        "protocol": "rest-json",
         "name": "Amazon CloudSearch Domain",
         "version": "0.0.0",
         "description": "Pending"
@@ -46,26 +46,13 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "searchStatus",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ssTimems",
-                    "name": "_ssTimems",
-                    "shape": "Long",
-                    "locationName": "timems",
-                    "documentation": "\u003cp\u003eHow long it took to process the request, in milliseconds.\u003c/p\u003e",
-                    "typeExposed": "Maybe Integer",
-                    "type": "Maybe Integer"
-                },
+                "payload": null,
                 "required": [],
                 "name": "SearchStatus",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -79,7 +66,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -95,7 +82,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -109,7 +96,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -151,26 +138,13 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "hit",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "hitId",
-                    "name": "_hitId",
-                    "shape": "String",
-                    "locationName": "id",
-                    "documentation": "\u003cp\u003eThe document ID of a document that matches the search request.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Hit",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -184,7 +158,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -198,7 +172,7 @@
                         "type": "Map Text [Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -214,7 +188,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -228,7 +202,7 @@
                         "type": "Map Text [Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -242,7 +216,7 @@
                         "type": "Map Text Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -266,26 +240,13 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "suggestStatus",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ss1Timems",
-                    "name": "_ss1Timems",
-                    "shape": "Long",
-                    "locationName": "timems",
-                    "documentation": "\u003cp\u003eHow long it took to process the request, in milliseconds.\u003c/p\u003e",
-                    "typeExposed": "Maybe Integer",
-                    "type": "Maybe Integer"
-                },
+                "payload": null,
                 "required": [],
                 "name": "SuggestStatus",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -299,7 +260,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -315,7 +276,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -329,7 +290,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -353,26 +314,13 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "bucket",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "bValue",
-                    "name": "_bValue",
-                    "shape": "String",
-                    "locationName": "value",
-                    "documentation": "\u003cp\u003eThe facet value being counted.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Bucket",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -386,7 +334,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -402,7 +350,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -416,7 +364,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -440,26 +388,13 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "suggestionMatch",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "smSuggestion",
-                    "name": "_smSuggestion",
-                    "shape": "String",
-                    "locationName": "suggestion",
-                    "documentation": "\u003cp\u003eThe string that matches the query string specified in the \u003ccode\u003eSuggestRequest\u003c/code\u003e. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "SuggestionMatch",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -473,7 +408,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -487,7 +422,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -503,7 +438,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -517,7 +452,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -531,7 +466,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -558,7 +493,7 @@
                 "fieldPad": 0,
                 "ctor": "bucketInfo",
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -571,26 +506,13 @@
                     "typeExposed": "[Bucket]",
                     "type": "[Bucket]"
                 },
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "biBuckets",
-                    "name": "_biBuckets",
-                    "shape": "BucketList",
-                    "locationName": "buckets",
-                    "documentation": "\u003cp\u003eA list of the calculated facet values and counts.\u003c/p\u003e",
-                    "typeExposed": "[Bucket]",
-                    "type": "[Bucket]"
-                },
+                "payload": null,
                 "required": [],
                 "name": "BucketInfo",
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -606,7 +528,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -633,7 +555,7 @@
                 "fieldPad": 0,
                 "ctor": "documentServiceWarning",
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -646,26 +568,13 @@
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dswMessage",
-                    "name": "_dswMessage",
-                    "shape": "String",
-                    "locationName": "message",
-                    "documentation": "\u003cp\u003eThe description for a warning returned by the document service.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "DocumentServiceWarning",
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -681,7 +590,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -704,26 +613,13 @@
                 ],
                 "fieldPad": 14,
                 "ctor": "suggestModel",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "smQuery",
-                    "name": "_smQuery",
-                    "shape": "String",
-                    "locationName": "query",
-                    "documentation": "\u003cp\u003eThe query string specified in the suggest request.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "SuggestModel",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -737,7 +633,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -751,7 +647,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -767,7 +663,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -781,7 +677,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -795,7 +691,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -818,26 +714,13 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "hits",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "hFound",
-                    "name": "_hFound",
-                    "shape": "Long",
-                    "locationName": "found",
-                    "documentation": "\u003cp\u003eThe total number of documents that match the search request.\u003c/p\u003e",
-                    "typeExposed": "Maybe Integer",
-                    "type": "Maybe Integer"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Hits",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -851,7 +734,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -865,7 +748,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -879,7 +762,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -895,7 +778,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -909,7 +792,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -923,7 +806,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -937,7 +820,7 @@
                         "type": "[Hit]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -982,31 +865,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 10,
                 "ctor": "searchResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sr1Status",
-                    "name": "_sr1Status",
-                    "shape": "SearchStatus",
-                    "locationName": "status",
-                    "documentation": "\u003cp\u003eThe status information returned for the search request.\u003c/p\u003e",
-                    "typeExposed": "Maybe SearchStatus",
-                    "type": "Maybe SearchStatus"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "SearchResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1020,7 +893,7 @@
                         "type": "Maybe SearchStatus"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1034,7 +907,7 @@
                         "type": "Maybe Hits"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -1050,7 +923,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -1064,7 +937,7 @@
                         "type": "Map Text BucketInfo"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1078,7 +951,7 @@
                         "type": "Maybe Hits"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1096,7 +969,7 @@
             "namespace": "Network.AWS.CloudSearchDomains.Search",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudSearchDomains.Types"
             ],
             "name": "Search",
@@ -1110,6 +983,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "search",
                 "headerPad": 0,
@@ -1577,31 +1451,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 10,
                 "ctor": "suggestResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "srStatus",
-                    "name": "_srStatus",
-                    "shape": "SuggestStatus",
-                    "locationName": "status",
-                    "documentation": "\u003cp\u003eThe status of a \u003ccode\u003eSuggestRequest\u003c/code\u003e. Contains the resource ID (\u003ccode\u003erid\u003c/code\u003e) and how long it took to process the request (\u003ccode\u003etimems\u003c/code\u003e).\u003c/p\u003e",
-                    "typeExposed": "Maybe SuggestStatus",
-                    "type": "Maybe SuggestStatus"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "SuggestResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1615,7 +1479,7 @@
                         "type": "Maybe SuggestStatus"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1631,7 +1495,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1645,7 +1509,7 @@
                         "type": "Maybe SuggestStatus"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1663,7 +1527,7 @@
             "namespace": "Network.AWS.CloudSearchDomains.Suggest",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudSearchDomains.Types"
             ],
             "name": "Suggest",
@@ -1677,6 +1541,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 11,
                 "ctor": "suggest",
                 "headerPad": 0,
@@ -1814,31 +1679,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 12,
                 "ctor": "uploadDocumentsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "udrStatus",
-                    "name": "_udrStatus",
-                    "shape": "String",
-                    "locationName": "status",
-                    "documentation": "\u003cp\u003eThe status of an \u003ccode\u003eUploadDocumentsRequest\u003c/code\u003e.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "UploadDocumentsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1852,7 +1707,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1866,7 +1721,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1880,7 +1735,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1896,7 +1751,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1910,7 +1765,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1924,7 +1779,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1938,7 +1793,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1956,7 +1811,7 @@
             "namespace": "Network.AWS.CloudSearchDomains.UploadDocuments",
             "protocol": "rest-json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudSearchDomains.Types"
             ],
             "name": "UploadDocuments",
@@ -1969,6 +1824,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json-headers",
                 "fieldPad": 14,
                 "ctor": "uploadDocuments",
                 "headerPad": 13,
@@ -1979,7 +1835,7 @@
                     }
                 ],
                 "payload": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1994,7 +1850,7 @@
                 },
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2056,7 +1912,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",

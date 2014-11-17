@@ -52,7 +52,7 @@
             "Network.AWS.Support.ResolveCase",
             "Network.AWS.Support.Types"
         ],
-        "dependencies": [],
+        "protocol": "json",
         "name": "Amazon Support",
         "version": "0.0.0",
         "description": "AWS Support is a one-on-one, fast-response support channel that is staffed with experienced support personnel. The service helps customers get the most from the products and features provided by Amazon Web Services. There are four levels, or tiers, of AWS Support: Basic, Developer, Business, and Enterprise. The Basic tier is free of charge and offers support for account and billing questions and service limit increases. The other tiers offer an unlimited number of technical support cases with pay-by-the-month pricing and no long-term contracts, providing developers and businesses flexibility to choose the level of support that meets their needs."
@@ -69,23 +69,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "trustedAdvisorResourcesSummary",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tarsResourcesProcessed",
-                    "name": "_tarsResourcesProcessed",
-                    "shape": "Long",
-                    "locationName": "resourcesProcessed",
-                    "documentation": "\u003cp\u003eThe number of AWS resources that were analyzed by the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Integer",
-                    "type": "Integer"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -99,7 +86,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -113,7 +100,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -127,7 +114,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -146,7 +133,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -160,7 +147,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -174,7 +161,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -188,7 +175,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -211,26 +198,13 @@
                 ],
                 "fieldPad": 12,
                 "ctor": "service",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sCode",
-                    "name": "_sCode",
-                    "shape": "ServiceCode",
-                    "locationName": "code",
-                    "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Service",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -244,7 +218,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -258,7 +232,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -274,7 +248,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -288,7 +262,7 @@
                         "type": "[Category]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -302,7 +276,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -327,7 +301,7 @@
                 "fieldPad": 0,
                 "ctor": "trustedAdvisorCategorySpecificSummary",
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -340,26 +314,13 @@
                     "typeExposed": "Maybe TrustedAdvisorCostOptimizingSummary",
                     "type": "Maybe TrustedAdvisorCostOptimizingSummary"
                 },
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tacssCostOptimizing",
-                    "name": "_tacssCostOptimizing",
-                    "shape": "TrustedAdvisorCostOptimizingSummary",
-                    "locationName": "costOptimizing",
-                    "documentation": "\u003cp\u003eThe summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.\u003c/p\u003e",
-                    "typeExposed": "Maybe TrustedAdvisorCostOptimizingSummary",
-                    "type": "Maybe TrustedAdvisorCostOptimizingSummary"
-                },
+                "payload": null,
                 "required": [],
                 "name": "TrustedAdvisorCategorySpecificSummary",
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -375,7 +336,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -398,26 +359,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "communication",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cCaseId",
-                    "name": "_cCaseId",
-                    "shape": "CaseId",
-                    "locationName": "caseId",
-                    "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Communication",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -431,7 +379,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -445,7 +393,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -459,7 +407,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -473,7 +421,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -489,7 +437,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -503,7 +451,7 @@
                         "type": "[AttachmentDetails]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -517,7 +465,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -531,7 +479,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -545,7 +493,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -569,26 +517,13 @@
                 ],
                 "fieldPad": 6,
                 "ctor": "category",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cCode",
-                    "name": "_cCode",
-                    "shape": "CategoryCode",
-                    "locationName": "code",
-                    "documentation": "\u003cp\u003eThe category code for the support case. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Category",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -602,7 +537,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -618,7 +553,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -632,7 +567,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -655,23 +590,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "trustedAdvisorCheckSummary",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tacsCheckId",
-                    "name": "_tacsCheckId",
-                    "shape": "String",
-                    "locationName": "checkId",
-                    "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -685,7 +607,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -699,7 +621,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -713,7 +635,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -727,7 +649,7 @@
                         "type": "TrustedAdvisorResourcesSummary"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -745,7 +667,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -761,7 +683,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -775,7 +697,7 @@
                         "type": "TrustedAdvisorCategorySpecificSummary"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -789,7 +711,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -803,7 +725,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -817,7 +739,7 @@
                         "type": "TrustedAdvisorResourcesSummary"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -831,7 +753,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -855,26 +777,13 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "attachmentDetails",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "adAttachmentId",
-                    "name": "_adAttachmentId",
-                    "shape": "AttachmentId",
-                    "locationName": "attachmentId",
-                    "documentation": "\u003cp\u003eThe ID of the attachment.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "AttachmentDetails",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -888,7 +797,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -904,7 +813,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -918,7 +827,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -941,23 +850,10 @@
                 ],
                 "fieldPad": 28,
                 "ctor": "trustedAdvisorCheckResult",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tacrCheckId",
-                    "name": "_tacrCheckId",
-                    "shape": "String",
-                    "locationName": "checkId",
-                    "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -971,7 +867,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -985,7 +881,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -999,7 +895,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1013,7 +909,7 @@
                         "type": "TrustedAdvisorResourcesSummary"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1031,7 +927,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1047,7 +943,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1061,7 +957,7 @@
                         "type": "TrustedAdvisorCategorySpecificSummary"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1075,7 +971,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1089,7 +985,7 @@
                         "type": "[TrustedAdvisorResourceDetail]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1103,7 +999,7 @@
                         "type": "TrustedAdvisorResourcesSummary"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1117,7 +1013,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1141,23 +1037,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "trustedAdvisorCheckDescription",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tacdId",
-                    "name": "_tacdId",
-                    "shape": "String",
-                    "locationName": "id",
-                    "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1171,7 +1054,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1185,7 +1068,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1199,7 +1082,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1217,7 +1100,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1233,7 +1116,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1247,7 +1130,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1261,7 +1144,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1275,7 +1158,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1289,7 +1172,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1312,26 +1195,13 @@
                 ],
                 "fieldPad": 10,
                 "ctor": "attachment",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "aFileName",
-                    "name": "_aFileName",
-                    "shape": "FileName",
-                    "locationName": "fileName",
-                    "documentation": "\u003cp\u003eThe name of the attachment file.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "Attachment",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1345,7 +1215,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1361,7 +1231,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1375,7 +1245,7 @@
                         "type": "Maybe Base64"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1398,26 +1268,13 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "recentCaseCommunications",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "rccCommunications",
-                    "name": "_rccCommunications",
-                    "shape": "CommunicationList",
-                    "locationName": "communications",
-                    "documentation": "\u003cp\u003eThe five most recent communications associated with the case.\u003c/p\u003e",
-                    "typeExposed": "[Communication]",
-                    "type": "[Communication]"
-                },
+                "payload": null,
                 "required": [],
                 "name": "RecentCaseCommunications",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1431,7 +1288,7 @@
                         "type": "[Communication]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1447,7 +1304,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1461,7 +1318,7 @@
                         "type": "[Communication]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1485,23 +1342,10 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "trustedAdvisorResourceDetail",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tardStatus",
-                    "name": "_tardStatus",
-                    "shape": "String",
-                    "locationName": "status",
-                    "documentation": "\u003cp\u003eThe status code for the resource identified in the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1515,7 +1359,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1529,7 +1373,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1547,7 +1391,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1561,7 +1405,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1577,7 +1421,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1591,7 +1435,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1605,7 +1449,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1619,7 +1463,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1633,7 +1477,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1657,23 +1501,10 @@
                 ],
                 "fieldPad": 36,
                 "ctor": "trustedAdvisorCostOptimizingSummary",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tacosEstimatedMonthlySavings",
-                    "name": "_tacosEstimatedMonthlySavings",
-                    "shape": "Double",
-                    "locationName": "estimatedMonthlySavings",
-                    "documentation": "\u003cp\u003eThe estimated monthly savings that might be realized if the recommended actions are taken.\u003c/p\u003e",
-                    "typeExposed": "Double",
-                    "type": "Double"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1687,7 +1518,7 @@
                         "type": "Double"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1706,7 +1537,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1720,7 +1551,7 @@
                         "type": "Double"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1744,26 +1575,13 @@
                 ],
                 "fieldPad": 7,
                 "ctor": "severityLevel",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "slCode",
-                    "name": "_slCode",
-                    "shape": "SeverityLevelCode",
-                    "locationName": "code",
-                    "documentation": "\u003cp\u003eOne of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in \u003ccode\u003eSeverityLevel.name\u003c/code\u003e. \u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "SeverityLevel",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1777,7 +1595,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1793,7 +1611,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1807,7 +1625,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1830,26 +1648,13 @@
                 ],
                 "fieldPad": 23,
                 "ctor": "caseDetails",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cdCaseId",
-                    "name": "_cdCaseId",
-                    "shape": "CaseId",
-                    "locationName": "caseId",
-                    "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "CaseDetails",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1863,7 +1668,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1877,7 +1682,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1891,7 +1696,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1905,7 +1710,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1919,7 +1724,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1933,7 +1738,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1947,7 +1752,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1961,7 +1766,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1975,7 +1780,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1989,7 +1794,7 @@
                         "type": "Maybe RecentCaseCommunications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2003,7 +1808,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2019,7 +1824,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2033,7 +1838,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2047,7 +1852,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2061,7 +1866,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2075,7 +1880,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2089,7 +1894,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2103,7 +1908,7 @@
                         "type": "Maybe RecentCaseCommunications"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2117,7 +1922,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2131,7 +1936,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2145,7 +1950,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2159,7 +1964,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2173,7 +1978,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2197,23 +2002,10 @@
                 ],
                 "fieldPad": 32,
                 "ctor": "trustedAdvisorCheckRefreshStatus",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tacrsCheckId",
-                    "name": "_tacrsCheckId",
-                    "shape": "String",
-                    "locationName": "checkId",
-                    "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2227,7 +2019,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2241,7 +2033,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2260,7 +2052,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2274,7 +2066,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2288,7 +2080,7 @@
                         "type": "Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2317,31 +2109,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 21,
                 "ctor": "addAttachmentsToSetResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "aatsrAttachmentSetId",
-                    "name": "_aatsrAttachmentSetId",
-                    "shape": "AttachmentSetId",
-                    "locationName": "attachmentSetId",
-                    "documentation": "\u003cp\u003eThe ID of the attachment set. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e was specified, the attachments are added to the specified set, if it exists.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "AddAttachmentsToSetResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2355,7 +2137,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2371,7 +2153,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2385,7 +2167,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2403,7 +2185,7 @@
             "namespace": "Network.AWS.Support.AddAttachmentsToSet",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "AddAttachmentsToSet",
@@ -2416,6 +2198,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 20,
                 "ctor": "addAttachmentsToSet",
                 "headerPad": 0,
@@ -2425,20 +2208,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "aatsAttachmentSetId",
-                    "name": "_aatsAttachmentSetId",
-                    "shape": "AttachmentSetId",
-                    "locationName": "attachmentSetId",
-                    "documentation": "\u003cp\u003eThe ID of the attachment set. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e is specified, the attachments are added to the specified set, if it exists.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -2448,7 +2218,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2462,7 +2232,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2478,7 +2248,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2492,7 +2262,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2519,10 +2289,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "addCommunicationToCaseResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -2536,28 +2308,16 @@
                     "type": "Maybe Bool"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "actcrResult",
-                    "name": "_actcrResult",
-                    "shape": "Result",
-                    "locationName": "result",
-                    "documentation": "\u003cp\u003eTrue if \u003ca\u003eAddCommunicationToCase\u003c/a\u003e succeeds. Otherwise, returns an error.\u003c/p\u003e",
-                    "typeExposed": "Maybe Bool",
-                    "type": "Maybe Bool"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "AddCommunicationToCaseResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2573,7 +2333,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2591,7 +2351,7 @@
             "namespace": "Network.AWS.Support.AddCommunicationToCase",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "AddCommunicationToCase",
@@ -2605,6 +2365,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 22,
                 "ctor": "addCommunicationToCase",
                 "headerPad": 0,
@@ -2614,23 +2375,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "actcCaseId",
-                    "name": "_actcCaseId",
-                    "shape": "CaseId",
-                    "locationName": "caseId",
-                    "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2652,7 +2400,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2666,7 +2414,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2680,7 +2428,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2696,7 +2444,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2710,7 +2458,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2724,7 +2472,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2738,7 +2486,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2766,10 +2514,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "createCaseResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -2783,28 +2533,16 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ccrCaseId",
-                    "name": "_ccrCaseId",
-                    "shape": "CaseId",
-                    "locationName": "caseId",
-                    "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreateCaseResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2820,7 +2558,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2838,7 +2576,7 @@
             "namespace": "Network.AWS.Support.CreateCase",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "CreateCase",
@@ -2852,6 +2590,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 20,
                 "ctor": "createCase",
                 "headerPad": 0,
@@ -2861,23 +2600,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ccSubject",
-                    "name": "_ccSubject",
-                    "shape": "Subject",
-                    "locationName": "subject",
-                    "documentation": "\u003cp\u003eThe title of the AWS Support case.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2891,7 +2617,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2913,7 +2639,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2927,7 +2653,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2941,7 +2667,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2955,7 +2681,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2969,7 +2695,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2983,7 +2709,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2997,7 +2723,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3013,7 +2739,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3027,7 +2753,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3041,7 +2767,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3055,7 +2781,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3069,7 +2795,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3083,7 +2809,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3097,7 +2823,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3111,7 +2837,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3125,7 +2851,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3151,10 +2877,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeAttachmentResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -3168,28 +2896,16 @@
                     "type": "Maybe Attachment"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "darAttachment",
-                    "name": "_darAttachment",
-                    "shape": "Attachment",
-                    "locationName": "attachment",
-                    "documentation": "\u003cp\u003eThe attachment content and file name.\u003c/p\u003e",
-                    "typeExposed": "Maybe Attachment",
-                    "type": "Maybe Attachment"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeAttachmentResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3205,7 +2921,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3223,7 +2939,7 @@
             "namespace": "Network.AWS.Support.DescribeAttachment",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeAttachment",
@@ -3240,11 +2956,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeAttachment",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3263,23 +2980,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "daAttachmentId",
-                    "name": "_daAttachmentId",
-                    "shape": "AttachmentId",
-                    "locationName": "attachmentId",
-                    "documentation": "\u003cp\u003eThe ID of the attachment to return. Attachment IDs are returned by the \u003ca\u003eDescribeCommunications\u003c/a\u003e operation.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3302,7 +3006,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3327,31 +3031,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeCasesResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcr1Cases",
-                    "name": "_dcr1Cases",
-                    "shape": "CaseList",
-                    "locationName": "cases",
-                    "documentation": "\u003cp\u003eThe details for the cases that match the request.\u003c/p\u003e",
-                    "typeExposed": "[CaseDetails]",
-                    "type": "[CaseDetails]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeCasesResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3365,7 +3059,7 @@
                         "type": "[CaseDetails]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3381,7 +3075,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3395,7 +3089,7 @@
                         "type": "[CaseDetails]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3413,7 +3107,7 @@
             "namespace": "Network.AWS.Support.DescribeCases",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "pager": {
@@ -3435,6 +3129,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 24,
                 "ctor": "describeCases",
                 "headerPad": 0,
@@ -3444,20 +3139,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcCaseIdList",
-                    "name": "_dcCaseIdList",
-                    "shape": "CaseIdList",
-                    "locationName": "caseIdList",
-                    "documentation": "\u003cp\u003eA list of ID numbers of the support cases you want returned. The maximum number of cases is 100. \u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3467,7 +3149,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3481,7 +3163,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3495,7 +3177,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3509,7 +3191,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3523,7 +3205,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3537,7 +3219,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3551,7 +3233,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -3565,7 +3247,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3579,7 +3261,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3595,7 +3277,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3609,7 +3291,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3623,7 +3305,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3637,7 +3319,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3651,7 +3333,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3665,7 +3347,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3679,7 +3361,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3693,7 +3375,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -3707,7 +3389,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3732,31 +3414,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "describeCommunicationsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dcrCommunications",
-                    "name": "_dcrCommunications",
-                    "shape": "CommunicationList",
-                    "locationName": "communications",
-                    "documentation": "\u003cp\u003eThe communications for the case.\u003c/p\u003e",
-                    "typeExposed": "[Communication]",
-                    "type": "[Communication]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeCommunicationsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3770,7 +3442,7 @@
                         "type": "[Communication]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3786,7 +3458,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3800,7 +3472,7 @@
                         "type": "[Communication]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3818,7 +3490,7 @@
             "namespace": "Network.AWS.Support.DescribeCommunications",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "pager": {
@@ -3840,6 +3512,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeCommunications",
                 "headerPad": 0,
@@ -3849,23 +3522,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dc1CaseId",
-                    "name": "_dc1CaseId",
-                    "shape": "CaseId",
-                    "locationName": "caseId",
-                    "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3887,7 +3547,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3901,7 +3561,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3915,7 +3575,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3929,7 +3589,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -3945,7 +3605,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3959,7 +3619,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3973,7 +3633,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3987,7 +3647,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -4001,7 +3661,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4029,10 +3689,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Service",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeServicesResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4046,28 +3708,16 @@
                     "type": "[Service]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dsrServices",
-                    "name": "_dsrServices",
-                    "shape": "ServiceList",
-                    "locationName": "services",
-                    "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
-                    "typeExposed": "[Service]",
-                    "type": "[Service]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeServicesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4083,7 +3733,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4101,7 +3751,7 @@
             "namespace": "Network.AWS.Support.DescribeServices",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeServices",
@@ -4115,6 +3765,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "describeServices",
                 "headerPad": 0,
@@ -4124,20 +3775,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dsServiceCodeList",
-                    "name": "_dsServiceCodeList",
-                    "shape": "ServiceCodeList",
-                    "locationName": "serviceCodeList",
-                    "documentation": "\u003cp\u003eA JSON-formatted list of service codes available for AWS services.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4147,7 +3785,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4161,7 +3799,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4177,7 +3815,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4191,7 +3829,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4219,10 +3857,12 @@
                 ],
                 "streaming": false,
                 "listElement": "SeverityLevel",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeSeverityLevelsResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4236,28 +3876,16 @@
                     "type": "[SeverityLevel]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dslrSeverityLevels",
-                    "name": "_dslrSeverityLevels",
-                    "shape": "SeverityLevelsList",
-                    "locationName": "severityLevels",
-                    "documentation": "\u003cp\u003eThe available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.\u003c/p\u003e",
-                    "typeExposed": "[SeverityLevel]",
-                    "type": "[SeverityLevel]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeSeverityLevelsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4273,7 +3901,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4291,7 +3919,7 @@
             "namespace": "Network.AWS.Support.DescribeSeverityLevels",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeSeverityLevels",
@@ -4307,11 +3935,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeSeverityLevels",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -4330,20 +3959,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dslLanguage",
-                    "name": "_dslLanguage",
-                    "shape": "Language",
-                    "locationName": "language",
-                    "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4353,7 +3969,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4369,7 +3985,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4397,10 +4013,12 @@
                 ],
                 "streaming": false,
                 "listElement": "TrustedAdvisorCheckRefreshStatus",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckRefreshStatusesResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4414,28 +4032,16 @@
                     "type": "[TrustedAdvisorCheckRefreshStatus]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtacrsrStatuses",
-                    "name": "_dtacrsrStatuses",
-                    "shape": "TrustedAdvisorCheckRefreshStatusList",
-                    "locationName": "statuses",
-                    "documentation": "\u003cp\u003eThe refresh status of the specified Trusted Advisor checks.\u003c/p\u003e",
-                    "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
-                    "type": "[TrustedAdvisorCheckRefreshStatus]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeTrustedAdvisorCheckRefreshStatusesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4451,7 +4057,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4469,7 +4075,7 @@
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeTrustedAdvisorCheckRefreshStatuses",
@@ -4486,11 +4092,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckRefreshStatuses",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4509,20 +4116,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtacrsCheckIds",
-                    "name": "_dtacrsCheckIds",
-                    "shape": "StringList",
-                    "locationName": "checkIds",
-                    "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4532,7 +4126,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4548,7 +4142,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4574,10 +4168,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckResultResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -4591,28 +4187,16 @@
                     "type": "Maybe TrustedAdvisorCheckResult"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dtacrrResult",
-                    "name": "_dtacrrResult",
-                    "shape": "TrustedAdvisorCheckResult",
-                    "locationName": "result",
-                    "documentation": "\u003cp\u003eThe detailed results of the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Maybe TrustedAdvisorCheckResult",
-                    "type": "Maybe TrustedAdvisorCheckResult"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeTrustedAdvisorCheckResultResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4628,7 +4212,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4646,7 +4230,7 @@
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorCheckResult",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeTrustedAdvisorCheckResult",
@@ -4660,6 +4244,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeTrustedAdvisorCheckResult",
                 "headerPad": 0,
@@ -4669,23 +4254,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dtacrCheckId",
-                    "name": "_dtacrCheckId",
-                    "shape": "String",
-                    "locationName": "checkId",
-                    "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4707,7 +4279,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4723,7 +4295,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4737,7 +4309,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4765,10 +4337,12 @@
                 ],
                 "streaming": false,
                 "listElement": "TrustedAdvisorCheckSummary",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckSummariesResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4782,28 +4356,16 @@
                     "type": "[TrustedAdvisorCheckSummary]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtacsrSummaries",
-                    "name": "_dtacsrSummaries",
-                    "shape": "TrustedAdvisorCheckSummaryList",
-                    "locationName": "summaries",
-                    "documentation": "\u003cp\u003eThe summary information for the requested Trusted Advisor checks.\u003c/p\u003e",
-                    "typeExposed": "[TrustedAdvisorCheckSummary]",
-                    "type": "[TrustedAdvisorCheckSummary]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeTrustedAdvisorCheckSummariesResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4819,7 +4381,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4837,7 +4399,7 @@
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeTrustedAdvisorCheckSummaries",
@@ -4854,11 +4416,12 @@
                 ],
                 "streaming": false,
                 "listElement": "Text",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckSummaries",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4877,20 +4440,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtacsCheckIds",
-                    "name": "_dtacsCheckIds",
-                    "shape": "StringList",
-                    "locationName": "checkIds",
-                    "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
-                    "typeExposed": "[Text]",
-                    "type": "[Text]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -4900,7 +4450,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4916,7 +4466,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4944,10 +4494,12 @@
                 ],
                 "streaming": false,
                 "listElement": "TrustedAdvisorCheckDescription",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorChecksResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -4961,28 +4513,16 @@
                     "type": "[TrustedAdvisorCheckDescription]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dtacrChecks",
-                    "name": "_dtacrChecks",
-                    "shape": "TrustedAdvisorCheckList",
-                    "locationName": "checks",
-                    "documentation": "\u003cp\u003eInformation about all available Trusted Advisor checks.\u003c/p\u003e",
-                    "typeExposed": "[TrustedAdvisorCheckDescription]",
-                    "type": "[TrustedAdvisorCheckDescription]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeTrustedAdvisorChecksResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4998,7 +4538,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5016,7 +4556,7 @@
             "namespace": "Network.AWS.Support.DescribeTrustedAdvisorChecks",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "DescribeTrustedAdvisorChecks",
@@ -5033,11 +4573,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorChecks",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5056,23 +4597,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dtacLanguage",
-                    "name": "_dtacLanguage",
-                    "shape": "String",
-                    "locationName": "language",
-                    "documentation": "\u003cp\u003eThe ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5095,7 +4623,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5121,10 +4649,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "refreshTrustedAdvisorCheckResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5138,23 +4668,10 @@
                     "type": "TrustedAdvisorCheckRefreshStatus"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rtacrStatus",
-                    "name": "_rtacrStatus",
-                    "shape": "TrustedAdvisorCheckRefreshStatus",
-                    "locationName": "status",
-                    "documentation": "\u003cp\u003eThe current refresh status for a check, including the amount of time until the check is eligible for refresh. \u003c/p\u003e",
-                    "typeExposed": "TrustedAdvisorCheckRefreshStatus",
-                    "type": "TrustedAdvisorCheckRefreshStatus"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5169,13 +4686,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "RefreshTrustedAdvisorCheckResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5193,7 +4711,7 @@
             "namespace": "Network.AWS.Support.RefreshTrustedAdvisorCheck",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "RefreshTrustedAdvisorCheck",
@@ -5210,11 +4728,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "refreshTrustedAdvisorCheck",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5233,23 +4752,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rtacCheckId",
-                    "name": "_rtacCheckId",
-                    "shape": "String",
-                    "locationName": "checkId",
-                    "documentation": "\u003cp\u003eThe unique identifier for the Trusted Advisor check.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5272,7 +4778,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5298,31 +4804,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 21,
                 "ctor": "resolveCaseResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rcrInitialCaseStatus",
-                    "name": "_rcrInitialCaseStatus",
-                    "shape": "CaseStatus",
-                    "locationName": "initialCaseStatus",
-                    "documentation": "\u003cp\u003eThe status of the case when the \u003ca\u003eResolveCase\u003c/a\u003e request was sent.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ResolveCaseResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5336,7 +4832,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5352,7 +4848,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5366,7 +4862,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5384,7 +4880,7 @@
             "namespace": "Network.AWS.Support.ResolveCase",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
             "name": "ResolveCase",
@@ -5400,11 +4896,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "resolveCase",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -5423,20 +4920,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "rcCaseId",
-                    "name": "_rcCaseId",
-                    "shape": "CaseId",
-                    "locationName": "caseId",
-                    "documentation": "\u003cp\u003eThe AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-\u003ci\u003e12345678910-2013-c4c1d2bf33c5cf47\u003c/i\u003e\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -5446,7 +4930,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5462,7 +4946,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",

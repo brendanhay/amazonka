@@ -52,7 +52,7 @@
             "Network.AWS.CloudWatchLogs.TestMetricFilter",
             "Network.AWS.CloudWatchLogs.Types"
         ],
-        "dependencies": [],
+        "protocol": "json",
         "name": "Amazon CloudWatch Logs",
         "version": "0.0.0",
         "description": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files."
@@ -68,23 +68,10 @@
                 ],
                 "fieldPad": 24,
                 "ctor": "metricFilter",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "mfFilterName",
-                    "name": "_mfFilterName",
-                    "shape": "FilterName",
-                    "locationName": "filterName",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -102,7 +89,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -116,7 +103,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -130,7 +117,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -146,7 +133,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -160,7 +147,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -174,7 +161,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -188,7 +175,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -211,26 +198,13 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "metricFilterMatchRecord",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "mfmrEventNumber",
-                    "name": "_mfmrEventNumber",
-                    "shape": "EventNumber",
-                    "locationName": "eventNumber",
-                    "documentation": null,
-                    "typeExposed": "Maybe Integer",
-                    "type": "Maybe Integer"
-                },
+                "payload": null,
                 "required": [],
                 "name": "MetricFilterMatchRecord",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -244,7 +218,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -258,7 +232,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -274,7 +248,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -288,7 +262,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -302,7 +276,7 @@
                         "type": "Maybe Integer"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Map",
                         "lensMapping": "_Map",
                         "default": "mempty",
@@ -326,23 +300,10 @@
                 ],
                 "fieldPad": 18,
                 "ctor": "metricTransformation",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "mtMetricName",
-                    "name": "_mtMetricName",
-                    "shape": "MetricName",
-                    "locationName": "metricName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -356,7 +317,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -370,7 +331,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -389,7 +350,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -403,7 +364,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -417,7 +378,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -441,26 +402,13 @@
                 ],
                 "fieldPad": 22,
                 "ctor": "logStream",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "lsLogStreamName",
-                    "name": "_lsLogStreamName",
-                    "shape": "LogStreamName",
-                    "locationName": "logStreamName",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "LogStream",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -474,7 +422,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -488,7 +436,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -502,7 +450,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -516,7 +464,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -530,7 +478,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -544,7 +492,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -558,7 +506,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -574,7 +522,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -588,7 +536,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -602,7 +550,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -616,7 +564,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -630,7 +578,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -644,7 +592,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -658,7 +606,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -672,7 +620,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -696,26 +644,13 @@
                 ],
                 "fieldPad": 20,
                 "ctor": "logGroup",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "lgLogGroupName",
-                    "name": "_lgLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "LogGroup",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -729,7 +664,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -743,7 +678,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -757,7 +692,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -771,7 +706,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -785,7 +720,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -801,7 +736,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -815,7 +750,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -829,7 +764,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -843,7 +778,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -857,7 +792,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -871,7 +806,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -895,23 +830,10 @@
                 ],
                 "fieldPad": 13,
                 "ctor": "inputLogEvent",
-                "payload": {
-                    "location": "body-json",
-                    "iso": "_Nat",
-                    "lensMapping": "_Nat",
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ileTimestamp",
-                    "name": "_ileTimestamp",
-                    "shape": "Timestamp",
-                    "locationName": "timestamp",
-                    "documentation": null,
-                    "typeExposed": "Natural",
-                    "type": "Nat"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -925,7 +847,7 @@
                         "type": "Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -944,7 +866,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -958,7 +880,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -982,26 +904,13 @@
                 ],
                 "fieldPad": 17,
                 "ctor": "outputLogEvent",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": "mapping _Nat",
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "oleTimestamp",
-                    "name": "_oleTimestamp",
-                    "shape": "Timestamp",
-                    "locationName": "timestamp",
-                    "documentation": null,
-                    "typeExposed": "Maybe Natural",
-                    "type": "Maybe Nat"
-                },
+                "payload": null,
                 "required": [],
                 "name": "OutputLogEvent",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -1015,7 +924,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1029,7 +938,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -1045,7 +954,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -1059,7 +968,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1073,7 +982,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -1102,11 +1011,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "createLogGroupResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreateLogGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1116,7 +1028,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.CreateLogGroup",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "CreateLogGroup",
@@ -1133,11 +1045,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "createLogGroup",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1156,23 +1069,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "clgLogGroupName",
-                    "name": "_clgLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1195,7 +1095,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1221,11 +1121,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "createLogStreamResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "CreateLogStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1235,7 +1138,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.CreateLogStream",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "CreateLogStream",
@@ -1249,6 +1152,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "createLogStream",
                 "headerPad": 0,
@@ -1258,23 +1162,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "clsLogGroupName",
-                    "name": "_clsLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1288,7 +1179,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1311,7 +1202,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1325,7 +1216,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1351,11 +1242,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteLogGroupResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteLogGroupResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1365,7 +1259,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DeleteLogGroup",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DeleteLogGroup",
@@ -1382,11 +1276,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteLogGroup",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1405,23 +1300,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dlgLogGroupName",
-                    "name": "_dlgLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1444,7 +1326,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1470,11 +1352,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteLogStreamResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteLogStreamResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1484,7 +1369,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DeleteLogStream",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DeleteLogStream",
@@ -1498,6 +1383,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "deleteLogStream",
                 "headerPad": 0,
@@ -1507,23 +1393,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dlsLogGroupName",
-                    "name": "_dlsLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1537,7 +1410,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1560,7 +1433,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1574,7 +1447,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1600,11 +1473,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteMetricFilterResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteMetricFilterResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1614,7 +1490,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DeleteMetricFilter",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DeleteMetricFilter",
@@ -1628,6 +1504,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "deleteMetricFilter",
                 "headerPad": 0,
@@ -1637,23 +1514,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dmf1LogGroupName",
-                    "name": "_dmf1LogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1667,7 +1531,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1690,7 +1554,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1704,7 +1568,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1730,11 +1594,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "deleteRetentionPolicyResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DeleteRetentionPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1744,7 +1611,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DeleteRetentionPolicy",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DeleteRetentionPolicy",
@@ -1761,11 +1628,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteRetentionPolicy",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1784,23 +1652,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "drpLogGroupName",
-                    "name": "_drpLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1823,7 +1678,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1848,31 +1703,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeLogGroupsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dlgrLogGroups",
-                    "name": "_dlgrLogGroups",
-                    "shape": "LogGroups",
-                    "locationName": "logGroups",
-                    "documentation": null,
-                    "typeExposed": "[LogGroup]",
-                    "type": "[LogGroup]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeLogGroupsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1886,7 +1731,7 @@
                         "type": "[LogGroup]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1902,7 +1747,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1916,7 +1761,7 @@
                         "type": "[LogGroup]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1934,7 +1779,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DescribeLogGroups",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DescribeLogGroups",
@@ -1948,6 +1793,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 22,
                 "ctor": "describeLogGroups",
                 "headerPad": 0,
@@ -1957,20 +1803,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dlgLogGroupNamePrefix",
-                    "name": "_dlgLogGroupNamePrefix",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupNamePrefix",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -1980,7 +1813,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1994,7 +1827,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2008,7 +1841,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2024,7 +1857,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2038,7 +1871,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2052,7 +1885,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2077,31 +1910,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "describeLogStreamsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dlsrLogStreams",
-                    "name": "_dlsrLogStreams",
-                    "shape": "LogStreams",
-                    "locationName": "logStreams",
-                    "documentation": null,
-                    "typeExposed": "[LogStream]",
-                    "type": "[LogStream]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeLogStreamsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2115,7 +1938,7 @@
                         "type": "[LogStream]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2131,7 +1954,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2145,7 +1968,7 @@
                         "type": "[LogStream]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2163,7 +1986,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DescribeLogStreams",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DescribeLogStreams",
@@ -2177,6 +2000,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 24,
                 "ctor": "describeLogStreams",
                 "headerPad": 0,
@@ -2186,23 +2010,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dls1LogGroupName",
-                    "name": "_dls1LogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2224,7 +2035,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2238,7 +2049,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2252,7 +2063,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2268,7 +2079,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2282,7 +2093,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2296,7 +2107,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2310,7 +2121,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2335,31 +2146,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "describeMetricFiltersResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "dmfrMetricFilters",
-                    "name": "_dmfrMetricFilters",
-                    "shape": "MetricFilters",
-                    "locationName": "metricFilters",
-                    "documentation": null,
-                    "typeExposed": "[MetricFilter]",
-                    "type": "[MetricFilter]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DescribeMetricFiltersResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2373,7 +2174,7 @@
                         "type": "[MetricFilter]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2389,7 +2190,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2403,7 +2204,7 @@
                         "type": "[MetricFilter]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2421,7 +2222,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.DescribeMetricFilters",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "DescribeMetricFilters",
@@ -2435,6 +2236,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 20,
                 "ctor": "describeMetricFilters",
                 "headerPad": 0,
@@ -2444,23 +2246,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dmfLogGroupName",
-                    "name": "_dmfLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2482,7 +2271,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2496,7 +2285,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2510,7 +2299,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2526,7 +2315,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2540,7 +2329,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2554,7 +2343,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2568,7 +2357,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2593,31 +2382,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 22,
                 "ctor": "getLogEventsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "glerEvents",
-                    "name": "_glerEvents",
-                    "shape": "OutputLogEvents",
-                    "locationName": "events",
-                    "documentation": null,
-                    "typeExposed": "[OutputLogEvent]",
-                    "type": "[OutputLogEvent]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetLogEventsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2631,7 +2410,7 @@
                         "type": "[OutputLogEvent]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2645,7 +2424,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2661,7 +2440,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2675,7 +2454,7 @@
                         "type": "[OutputLogEvent]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2689,7 +2468,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2707,7 +2486,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.GetLogEvents",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "GetLogEvents",
@@ -2721,6 +2500,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "getLogEvents",
                 "headerPad": 0,
@@ -2730,23 +2510,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "gleLogGroupName",
-                    "name": "_gleLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2760,7 +2527,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2782,7 +2549,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2796,7 +2563,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2810,7 +2577,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2824,7 +2591,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2838,7 +2605,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2854,7 +2621,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2868,7 +2635,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2882,7 +2649,7 @@
                         "type": "Maybe Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2896,7 +2663,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2910,7 +2677,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2924,7 +2691,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2938,7 +2705,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Nat",
                         "default": "Nothing",
@@ -2966,10 +2733,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "putLogEventsResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -2983,28 +2752,16 @@
                     "type": "Maybe Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "plerNextSequenceToken",
-                    "name": "_plerNextSequenceToken",
-                    "shape": "SequenceToken",
-                    "locationName": "nextSequenceToken",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "PutLogEventsResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3020,7 +2777,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3038,7 +2795,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.PutLogEvents",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "PutLogEvents",
@@ -3051,6 +2808,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 17,
                 "ctor": "putLogEvents",
                 "headerPad": 0,
@@ -3060,23 +2818,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "pleLogGroupName",
-                    "name": "_pleLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3090,7 +2835,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3104,7 +2849,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3126,7 +2871,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3142,7 +2887,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3156,7 +2901,7 @@
                         "type": "List1 InputLogEvent"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3170,7 +2915,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3184,7 +2929,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3210,11 +2955,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "putMetricFilterResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "PutMetricFilterResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3224,7 +2972,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.PutMetricFilter",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "PutMetricFilter",
@@ -3237,6 +2985,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 25,
                 "ctor": "putMetricFilter",
                 "headerPad": 0,
@@ -3246,23 +2995,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "pmfLogGroupName",
-                    "name": "_pmfLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3276,7 +3012,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3290,7 +3026,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3304,7 +3040,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3327,7 +3063,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3341,7 +3077,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3355,7 +3091,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3369,7 +3105,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3395,11 +3131,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "putRetentionPolicyResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "PutRetentionPolicyResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -3409,7 +3148,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "PutRetentionPolicy",
@@ -3423,6 +3162,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 19,
                 "ctor": "putRetentionPolicy",
                 "headerPad": 0,
@@ -3432,23 +3172,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "prpLogGroupName",
-                    "name": "_prpLogGroupName",
-                    "shape": "LogGroupName",
-                    "locationName": "logGroupName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3462,7 +3189,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3485,7 +3212,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3499,7 +3226,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3527,10 +3254,12 @@
                 ],
                 "streaming": false,
                 "listElement": "MetricFilterMatchRecord",
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "testMetricFilterResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "mempty",
@@ -3544,28 +3273,16 @@
                     "type": "[MetricFilterMatchRecord]"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "tmfrMatches",
-                    "name": "_tmfrMatches",
-                    "shape": "MetricFilterMatches",
-                    "locationName": "matches",
-                    "documentation": null,
-                    "typeExposed": "[MetricFilterMatchRecord]",
-                    "type": "[MetricFilterMatchRecord]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "TestMetricFilterResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3581,7 +3298,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3599,7 +3316,7 @@
             "namespace": "Network.AWS.CloudWatchLogs.TestMetricFilter",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.CloudWatchLogs.Types"
             ],
             "name": "TestMetricFilter",
@@ -3613,6 +3330,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 20,
                 "ctor": "testMetricFilter",
                 "headerPad": 0,
@@ -3622,23 +3340,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tmfFilterPattern",
-                    "name": "_tmfFilterPattern",
-                    "shape": "FilterPattern",
-                    "locationName": "filterPattern",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3652,7 +3357,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -3675,7 +3380,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3689,7 +3394,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",

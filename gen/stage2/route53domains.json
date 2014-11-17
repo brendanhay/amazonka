@@ -54,7 +54,7 @@
             "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
             "Network.AWS.Route53Domains.UpdateDomainNameservers"
         ],
-        "dependencies": [],
+        "protocol": "json",
         "name": "Amazon Route 53 Domains",
         "version": "0.0.0",
         "description": "Pending"
@@ -71,23 +71,10 @@
                 ],
                 "fieldPad": 15,
                 "ctor": "domainSummary",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "dsDomainName",
-                    "name": "_dsDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -105,7 +92,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -119,7 +106,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -133,7 +120,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -149,7 +136,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -163,7 +150,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -177,7 +164,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -191,7 +178,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -247,23 +234,10 @@
                 ],
                 "fieldPad": 9,
                 "ctor": "nameserver",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "nName",
-                    "name": "_nName",
-                    "shape": "HostName",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eThe fully qualified host name of the name server.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eConstraint: Maximum 255 characterss\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eNameservers\u003c/code\u003e\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -281,7 +255,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -297,7 +271,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -311,7 +285,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -643,23 +617,10 @@
                 ],
                 "fieldPad": 8,
                 "ctor": "extraParam",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "epName",
-                    "name": "_epName",
-                    "shape": "ExtraParamName",
-                    "locationName": "Name",
-                    "documentation": "\u003cp\u003eName of the additional parameter required by the top-level domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eDUNS_NUMBER\u003c/code\u003e | \u003ccode\u003eBRAND_NUMBER\u003c/code\u003e | \u003ccode\u003eBIRTH_DEPARTMENT\u003c/code\u003e | \u003ccode\u003eBIRTH_DATE_IN_YYYY_MM_DD\u003c/code\u003e | \u003ccode\u003eBIRTH_COUNTRY\u003c/code\u003e | \u003ccode\u003eBIRTH_CITY\u003c/code\u003e | \u003ccode\u003eDOCUMENT_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_TYPE\u003c/code\u003e | \u003ccode\u003eCA_LEGAL_TYPE\u003c/code\u003e | \u003ccode\u003eFI_BUSINESS_NUMBER\u003c/code\u003e | \u003ccode\u003eFI_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eIT_PIN\u003c/code\u003e | \u003ccode\u003eRU_PASSPORT_DATA\u003c/code\u003e | \u003ccode\u003eSE_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eSG_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eVAT_NUMBER\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eExtraParams\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -673,7 +634,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -692,7 +653,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -706,7 +667,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -749,26 +710,13 @@
                 ],
                 "fieldPad": 19,
                 "ctor": "contactDetail",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cdFirstName",
-                    "name": "_cdFirstName",
-                    "shape": "ContactName",
-                    "locationName": "FirstName",
-                    "documentation": "\u003cp\u003eFirst name of contact.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e \u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "name": "ContactDetail",
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -782,7 +730,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -796,7 +744,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -810,7 +758,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -824,7 +772,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -838,7 +786,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -852,7 +800,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -866,7 +814,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -880,7 +828,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -894,7 +842,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -908,7 +856,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -922,7 +870,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -936,7 +884,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -950,7 +898,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -966,7 +914,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -980,7 +928,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -994,7 +942,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1008,7 +956,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1022,7 +970,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1036,7 +984,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1050,7 +998,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1064,7 +1012,7 @@
                         "type": "[ExtraParam]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1078,7 +1026,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1092,7 +1040,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1106,7 +1054,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1120,7 +1068,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1134,7 +1082,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1148,7 +1096,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1172,23 +1120,10 @@
                 ],
                 "fieldPad": 16,
                 "ctor": "operationSummary",
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "osOperationId",
-                    "name": "_osOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier returned to track the requested action.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1202,7 +1137,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1216,7 +1151,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1230,7 +1165,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Time",
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
@@ -1249,7 +1184,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1263,7 +1198,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1277,7 +1212,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Time",
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
@@ -1291,7 +1226,7 @@
                         "type": "RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1323,10 +1258,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "checkDomainAvailabilityResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1340,23 +1277,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cdarAvailability",
-                    "name": "_cdarAvailability",
-                    "shape": "DomainAvailability",
-                    "locationName": "Availability",
-                    "documentation": "\u003cp\u003eWhether the domain name is available for registering.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE\u003c/code\u003e – The domain name is available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_RESERVED\u003c/code\u003e – The domain name is reserved under specific conditions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_PREORDER\u003c/code\u003e – The domain name is available and can be preordered.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_PREMIUM\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_RESTRICTED\u003c/code\u003e – The domain name is forbidden.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRESERVED\u003c/code\u003e – The domain name has been reserved for another person or organization.\u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1371,13 +1295,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "CheckDomainAvailabilityResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1395,7 +1320,7 @@
             "namespace": "Network.AWS.Route53Domains.CheckDomainAvailability",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "CheckDomainAvailability",
@@ -1409,6 +1334,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "checkDomainAvailability",
                 "headerPad": 0,
@@ -1418,23 +1344,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "cdaDomainName",
-                    "name": "_cdaDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1456,7 +1369,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1472,7 +1385,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1486,7 +1399,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1512,11 +1425,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "disableDomainAutoRenewResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "DisableDomainAutoRenewResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1526,7 +1442,7 @@
             "namespace": "Network.AWS.Route53Domains.DisableDomainAutoRenew",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "DisableDomainAutoRenew",
@@ -1543,11 +1459,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableDomainAutoRenew",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1566,23 +1483,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ddarDomainName",
-                    "name": "_ddarDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1605,7 +1509,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1634,10 +1538,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableDomainTransferLockResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1651,23 +1557,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ddtlrOperationId",
-                    "name": "_ddtlrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1682,13 +1575,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "DisableDomainTransferLockResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1706,7 +1600,7 @@
             "namespace": "Network.AWS.Route53Domains.DisableDomainTransferLock",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "DisableDomainTransferLock",
@@ -1723,11 +1617,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableDomainTransferLock",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1746,23 +1641,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "ddtlDomainName",
-                    "name": "_ddtlDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1785,7 +1667,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1811,11 +1693,14 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "nullary",
                 "fieldPad": 0,
                 "ctor": "enableDomainAutoRenewResponse",
+                "headerPad": 0,
                 "wrapper": false,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "EnableDomainAutoRenewResponse",
                 "resultWrapper": null,
                 "type": "empty",
@@ -1825,7 +1710,7 @@
             "namespace": "Network.AWS.Route53Domains.EnableDomainAutoRenew",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "EnableDomainAutoRenew",
@@ -1842,11 +1727,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableDomainAutoRenew",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1865,23 +1751,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "edarDomainName",
-                    "name": "_edarDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1904,7 +1777,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1933,10 +1806,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableDomainTransferLockResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1950,23 +1825,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "edtlrOperationId",
-                    "name": "_edtlrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1981,13 +1843,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "EnableDomainTransferLockResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2005,7 +1868,7 @@
             "namespace": "Network.AWS.Route53Domains.EnableDomainTransferLock",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "EnableDomainTransferLock",
@@ -2022,11 +1885,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableDomainTransferLock",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -2045,23 +1909,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "edtlDomainName",
-                    "name": "_edtlDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2084,7 +1935,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2109,26 +1960,15 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 22,
                 "ctor": "getDomainDetailResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "gddrDomainName",
-                    "name": "_gddrDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2142,7 +1982,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2156,7 +1996,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2170,7 +2010,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2185,12 +2025,13 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "GetDomainDetailResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2204,7 +2045,7 @@
                         "type": "[Nameserver]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2218,7 +2059,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2232,7 +2073,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2246,7 +2087,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2260,7 +2101,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2274,7 +2115,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2288,7 +2129,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2302,7 +2143,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2316,7 +2157,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2330,7 +2171,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2344,7 +2185,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2358,7 +2199,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2372,7 +2213,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2386,7 +2227,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2400,7 +2241,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2414,7 +2255,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2430,7 +2271,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2444,7 +2285,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2458,7 +2299,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2472,7 +2313,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2486,7 +2327,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2500,7 +2341,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2514,7 +2355,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2528,7 +2369,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2542,7 +2383,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2556,7 +2397,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2570,7 +2411,7 @@
                         "type": "[Nameserver]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2584,7 +2425,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2598,7 +2439,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2612,7 +2453,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2626,7 +2467,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2640,7 +2481,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2654,7 +2495,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -2668,7 +2509,7 @@
                         "type": "[Text]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2682,7 +2523,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2696,7 +2537,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2710,7 +2551,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2728,7 +2569,7 @@
             "namespace": "Network.AWS.Route53Domains.GetDomainDetail",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "GetDomainDetail",
@@ -2745,11 +2586,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "getDomainDetail",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -2768,23 +2610,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "gddDomainName",
-                    "name": "_gddDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2807,7 +2636,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -2833,31 +2662,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "getOperationDetailResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "godrOperationId",
-                    "name": "_godrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eThe identifier for the operation.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "GetOperationDetailResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2871,7 +2690,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2885,7 +2704,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2899,7 +2718,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2913,7 +2732,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2927,7 +2746,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -2943,7 +2762,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2957,7 +2776,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2971,7 +2790,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2985,7 +2804,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2999,7 +2818,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -3013,7 +2832,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3031,7 +2850,7 @@
             "namespace": "Network.AWS.Route53Domains.GetOperationDetail",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "GetOperationDetail",
@@ -3048,11 +2867,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "getOperationDetail",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3071,23 +2891,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "godOperationId",
-                    "name": "_godOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eThe identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3110,7 +2917,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3135,31 +2942,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "listDomainsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "ldrDomains",
-                    "name": "_ldrDomains",
-                    "shape": "DomainSummaryList",
-                    "locationName": "Domains",
-                    "documentation": "\u003cp\u003eA summary of domains.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of domain summaries.\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eAutoRenew\u003c/code\u003e, \u003ccode\u003eDomainName\u003c/code\u003e, \u003ccode\u003eExpiry\u003c/code\u003e, \u003ccode\u003eTransferLock\u003c/code\u003e\u003c/p\u003e",
-                    "typeExposed": "[DomainSummary]",
-                    "type": "[DomainSummary]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListDomainsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3173,7 +2970,7 @@
                         "type": "[DomainSummary]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3189,7 +2986,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3203,7 +3000,7 @@
                         "type": "[DomainSummary]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3221,7 +3018,7 @@
             "namespace": "Network.AWS.Route53Domains.ListDomains",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "ListDomains",
@@ -3235,6 +3032,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 11,
                 "ctor": "listDomains",
                 "headerPad": 0,
@@ -3244,20 +3042,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ldMarker",
-                    "name": "_ldMarker",
-                    "shape": "PageMarker",
-                    "locationName": "Marker",
-                    "documentation": "\u003cp\u003eFor an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for \u003ccode\u003eMaxItems\u003c/code\u003e, you can use \u003ccode\u003eMarker\u003c/code\u003e to return additional domains. Get the value of \u003ccode\u003eNextPageMarker\u003c/code\u003e from the previous response, and submit another request that includes the value of \u003ccode\u003eNextPageMarker\u003c/code\u003e in the \u003ccode\u003eMarker\u003c/code\u003e element.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The marker must match the value specified in the previous request. \u003c/p\u003e \u003cp\u003eRequired: No\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3267,7 +3052,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3281,7 +3066,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3297,7 +3082,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3311,7 +3096,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3336,31 +3121,21 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 18,
                 "ctor": "listOperationsResponse",
+                "headerPad": 0,
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "mempty",
-                    "required": true,
-                    "lens": "lorOperations",
-                    "name": "_lorOperations",
-                    "shape": "OperationSummaryList",
-                    "locationName": "Operations",
-                    "documentation": "\u003cp\u003eLists summaries of the operations.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of operation summaries\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eOperationId\u003c/code\u003e, \u003ccode\u003eStatus\u003c/code\u003e, \u003ccode\u003eSubmittedDate\u003c/code\u003e, \u003ccode\u003eType\u003c/code\u003e\u003c/p\u003e",
-                    "typeExposed": "[OperationSummary]",
-                    "type": "[OperationSummary]"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
+                "headers": [],
                 "name": "ListOperationsResponse",
                 "resultWrapper": null,
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3374,7 +3149,7 @@
                         "type": "[OperationSummary]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3390,7 +3165,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3404,7 +3179,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -3422,7 +3197,7 @@
             "namespace": "Network.AWS.Route53Domains.ListOperations",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "ListOperations",
@@ -3436,6 +3211,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 11,
                 "ctor": "listOperations",
                 "headerPad": 0,
@@ -3445,20 +3221,7 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "loMarker",
-                    "name": "_loMarker",
-                    "shape": "PageMarker",
-                    "locationName": "Marker",
-                    "documentation": "\u003cp\u003eFor an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for \u003ccode\u003eMaxItems\u003c/code\u003e, you can use \u003ccode\u003eMarker\u003c/code\u003e to return additional operations. Get the value of \u003ccode\u003eNextPageMarker\u003c/code\u003e from the previous response, and submit another request that includes the value of \u003ccode\u003eNextPageMarker\u003c/code\u003e in the \u003ccode\u003eMarker\u003c/code\u003e element.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eRequired: No\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
+                "payload": null,
                 "required": [],
                 "shared": false,
                 "headers": [],
@@ -3468,7 +3231,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3482,7 +3245,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3498,7 +3261,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3512,7 +3275,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3541,10 +3304,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "registerDomainResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -3558,23 +3323,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rdrOperationId",
-                    "name": "_rdrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3589,13 +3341,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "RegisterDomainResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3613,7 +3366,7 @@
             "namespace": "Network.AWS.Route53Domains.RegisterDomain",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "RegisterDomain",
@@ -3626,6 +3379,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 34,
                 "ctor": "registerDomain",
                 "headerPad": 0,
@@ -3635,23 +3389,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rdDomainName",
-                    "name": "_rdDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3665,7 +3406,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -3679,7 +3420,7 @@
                         "type": "Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3693,7 +3434,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3707,7 +3448,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3729,7 +3470,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3743,7 +3484,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3757,7 +3498,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3771,7 +3512,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3785,7 +3526,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3801,7 +3542,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3815,7 +3556,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3829,7 +3570,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3843,7 +3584,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -3857,7 +3598,7 @@
                         "type": "Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3871,7 +3612,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3885,7 +3626,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3899,7 +3640,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -3913,7 +3654,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3927,7 +3668,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -3956,10 +3697,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "retrieveDomainAuthCodeResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": "_Sensitive",
                     "lensMapping": "_Sensitive",
                     "default": "\u003cerror\u003e",
@@ -3973,23 +3716,10 @@
                     "type": "Sensitive Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": "_Sensitive",
-                    "lensMapping": "_Sensitive",
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rdacrAuthCode",
-                    "name": "_rdacrAuthCode",
-                    "shape": "DomainAuthCode",
-                    "locationName": "AuthCode",
-                    "documentation": "\u003cp\u003eThe authorization code for the domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Sensitive Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Sensitive",
                         "lensMapping": "_Sensitive",
                         "default": "\u003cerror\u003e",
@@ -4004,13 +3734,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "RetrieveDomainAuthCodeResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Sensitive",
                         "lensMapping": "_Sensitive",
                         "default": "\u003cerror\u003e",
@@ -4028,7 +3759,7 @@
             "namespace": "Network.AWS.Route53Domains.RetrieveDomainAuthCode",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "RetrieveDomainAuthCode",
@@ -4045,11 +3776,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "retrieveDomainAuthCode",
                 "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4068,23 +3800,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "rdacDomainName",
-                    "name": "_rdacDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4107,7 +3826,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4136,10 +3855,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "transferDomainResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4153,23 +3874,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tdrOperationId",
-                    "name": "_tdrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4184,13 +3892,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "TransferDomainResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4208,7 +3917,7 @@
             "namespace": "Network.AWS.Route53Domains.TransferDomain",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "TransferDomain",
@@ -4221,6 +3930,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 34,
                 "ctor": "transferDomain",
                 "headerPad": 0,
@@ -4230,23 +3940,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "tdDomainName",
-                    "name": "_tdDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4260,7 +3957,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -4274,7 +3971,7 @@
                         "type": "Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4288,7 +3985,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4302,7 +3999,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4324,7 +4021,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4338,7 +4035,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4352,7 +4049,7 @@
                         "type": "[Nameserver]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Sensitive",
                         "default": "Nothing",
@@ -4366,7 +4063,7 @@
                         "type": "Maybe (Sensitive Text)"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4380,7 +4077,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4394,7 +4091,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4408,7 +4105,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4424,7 +4121,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4438,7 +4135,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": "mapping _Sensitive",
                         "default": "Nothing",
@@ -4452,7 +4149,7 @@
                         "type": "Maybe (Sensitive Text)"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4466,7 +4163,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4480,7 +4177,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": "_Nat",
                         "lensMapping": "_Nat",
                         "default": "\u003cerror\u003e",
@@ -4494,7 +4191,7 @@
                         "type": "Nat"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4508,7 +4205,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -4522,7 +4219,7 @@
                         "type": "[Nameserver]"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4536,7 +4233,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4550,7 +4247,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4564,7 +4261,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4578,7 +4275,7 @@
                         "type": "ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4607,10 +4304,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "updateDomainContactResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4624,23 +4323,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "udcrOperationId",
-                    "name": "_udcrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4655,13 +4341,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "UpdateDomainContactResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4679,7 +4366,7 @@
             "namespace": "Network.AWS.Route53Domains.UpdateDomainContact",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "UpdateDomainContact",
@@ -4692,6 +4379,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 21,
                 "ctor": "updateDomainContact",
                 "headerPad": 0,
@@ -4701,23 +4389,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "udcDomainName",
-                    "name": "_udcDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4739,7 +4414,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4753,7 +4428,7 @@
                         "type": "Maybe ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4767,7 +4442,7 @@
                         "type": "Maybe ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4783,7 +4458,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4797,7 +4472,7 @@
                         "type": "Maybe ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4811,7 +4486,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4825,7 +4500,7 @@
                         "type": "Maybe ContactDetail"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -4854,10 +4529,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "updateDomainContactPrivacyResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -4871,23 +4548,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "udcprOperationId",
-                    "name": "_udcprOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4902,13 +4566,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "UpdateDomainContactPrivacyResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4926,7 +4591,7 @@
             "namespace": "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "UpdateDomainContactPrivacy",
@@ -4940,6 +4605,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 22,
                 "ctor": "updateDomainContactPrivacy",
                 "headerPad": 0,
@@ -4949,23 +4615,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "udcpDomainName",
-                    "name": "_udcpDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -4987,7 +4640,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5001,7 +4654,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5015,7 +4668,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5031,7 +4684,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5045,7 +4698,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5059,7 +4712,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5073,7 +4726,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -5102,10 +4755,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
+                "style": "json",
                 "fieldPad": 0,
                 "ctor": "updateDomainNameserversResponse",
+                "headerPad": 0,
                 "field": {
-                    "location": "body-json",
+                    "location": null,
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -5119,23 +4774,10 @@
                     "type": "Text"
                 },
                 "wrapper": false,
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "udnrOperationId",
-                    "name": "_udnrOperationId",
-                    "shape": "OperationId",
-                    "locationName": "OperationId",
-                    "documentation": "\u003cp\u003eIdentifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5150,13 +4792,14 @@
                     }
                 ],
                 "shared": false,
+                "headers": [],
                 "name": "UpdateDomainNameserversResponse",
                 "resultWrapper": null,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5174,7 +4817,7 @@
             "namespace": "Network.AWS.Route53Domains.UpdateDomainNameservers",
             "protocol": "json",
             "imports": [
-                "Network.AWS.Request",
+                "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
             "name": "UpdateDomainNameservers",
@@ -5187,6 +4830,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "style": "json",
                 "fieldPad": 15,
                 "ctor": "updateDomainNameservers",
                 "headerPad": 0,
@@ -5196,23 +4840,10 @@
                         "type": "const"
                     }
                 ],
-                "payload": {
-                    "location": "body-json",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "\u003cerror\u003e",
-                    "required": true,
-                    "lens": "udnDomainName",
-                    "name": "_udnDomainName",
-                    "shape": "DomainName",
-                    "locationName": "DomainName",
-                    "documentation": "\u003cp\u003eThe name of a domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
+                "payload": null,
                 "required": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5234,7 +4865,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -5250,7 +4881,7 @@
                 ],
                 "fields": [
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -5264,7 +4895,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": "body-json",
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",

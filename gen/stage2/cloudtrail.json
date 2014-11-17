@@ -507,6 +507,7 @@
                 "style": "json",
                 "fieldPad": 29,
                 "ctor": "createTrail",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -550,6 +551,7 @@
                 "queryPad": 0,
                 "name": "CreateTrail",
                 "query": [],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -772,6 +774,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteTrail",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -815,6 +818,7 @@
                 "queryPad": 0,
                 "name": "DeleteTrail",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -929,6 +933,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrails",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -957,6 +962,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrails",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -1294,6 +1300,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getTrailStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1337,6 +1344,7 @@
                 "queryPad": 0,
                 "name": "GetTrailStatus",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1404,6 +1412,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "startLogging",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1447,6 +1456,7 @@
                 "queryPad": 0,
                 "name": "StartLogging",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1514,6 +1524,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopLogging",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1557,6 +1568,7 @@
                 "queryPad": 0,
                 "name": "StopLogging",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1820,6 +1832,7 @@
                 "style": "json",
                 "fieldPad": 29,
                 "ctor": "updateTrail",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1849,6 +1862,7 @@
                 "queryPad": 0,
                 "name": "UpdateTrail",
                 "query": [],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {

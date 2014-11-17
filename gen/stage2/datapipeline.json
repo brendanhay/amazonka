@@ -1122,6 +1122,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "activatePipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1165,6 +1166,7 @@
                 "queryPad": 0,
                 "name": "ActivatePipeline",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1277,6 +1279,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "createPipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1320,6 +1323,7 @@
                 "queryPad": 0,
                 "name": "CreatePipeline",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -1430,6 +1434,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1473,6 +1478,7 @@
                 "queryPad": 0,
                 "name": "DeletePipeline",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1631,6 +1637,7 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "describeObjects",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1660,6 +1667,7 @@
                 "queryPad": 0,
                 "name": "DescribeObjects",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -1859,6 +1867,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describePipelines",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1887,6 +1896,7 @@
                 "queryPad": 0,
                 "name": "DescribePipelines",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2014,6 +2024,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "evaluateExpression",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2071,6 +2082,7 @@
                 "queryPad": 0,
                 "name": "EvaluateExpression",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2210,6 +2222,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "getPipelineDefinition",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2239,6 +2252,7 @@
                 "queryPad": 0,
                 "name": "GetPipelineDefinition",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -2428,6 +2442,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "listPipelines",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2456,6 +2471,7 @@
                 "queryPad": 0,
                 "name": "ListPipelines",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2579,6 +2595,7 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "pollForTask",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2608,6 +2625,7 @@
                 "queryPad": 0,
                 "name": "PollForTask",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -2815,6 +2833,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "putPipelineDefinition",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2844,6 +2863,7 @@
                 "queryPad": 0,
                 "name": "PutPipelineDefinition",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3031,6 +3051,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "queryObjects",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3074,6 +3095,7 @@
                 "queryPad": 0,
                 "name": "QueryObjects",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -3287,6 +3309,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "reportTaskProgress",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3330,6 +3353,7 @@
                 "queryPad": 0,
                 "name": "ReportTaskProgress",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3441,6 +3465,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "reportTaskRunnerHeartbeat",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3470,6 +3495,7 @@
                 "queryPad": 0,
                 "name": "ReportTaskRunnerHeartbeat",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -3591,6 +3617,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "setStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3634,6 +3661,7 @@
                 "queryPad": 0,
                 "name": "SetStatus",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -3741,6 +3769,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "setTaskStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3784,6 +3813,7 @@
                 "queryPad": 0,
                 "name": "SetTaskStatus",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -4033,6 +4063,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "validatePipelineDefinition",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4062,6 +4093,7 @@
                 "queryPad": 0,
                 "name": "ValidatePipelineDefinition",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {

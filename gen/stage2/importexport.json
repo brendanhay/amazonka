@@ -70,7 +70,7 @@
                 "payload": null,
                 "required": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -84,7 +84,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": "_Time",
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
@@ -98,7 +98,7 @@
                         "type": "RFC822"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -112,7 +112,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -131,7 +131,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": "_Time",
                         "lensMapping": "_Time",
                         "default": "\u003cerror\u003e",
@@ -145,7 +145,7 @@
                         "type": "RFC822"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -159,7 +159,7 @@
                         "type": "Bool"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -173,7 +173,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -208,7 +208,7 @@
                 "ctor": "cancelJobResponse",
                 "headerPad": 0,
                 "field": {
-                    "location": null,
+                    "location": "querystring",
                     "iso": null,
                     "lensMapping": null,
                     "default": "Nothing",
@@ -231,7 +231,7 @@
                 "type": "newtype",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -247,7 +247,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -282,12 +282,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "cancelJob",
                 "headerPad": 0,
                 "field": {
-                    "location": null,
+                    "location": "querystring",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -309,7 +309,7 @@
                 "payload": null,
                 "required": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -325,19 +325,24 @@
                 ],
                 "shared": false,
                 "headers": [],
-                "queryPad": 0,
+                "queryPad": 6,
                 "name": "CancelJob",
                 "query": [
                     {
                         "value": "Operation=CancelJob",
                         "type": "const"
+                    },
+                    {
+                        "field": "_cjJobId",
+                        "locationName": "JobId",
+                        "type": "field"
                     }
                 ],
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -377,7 +382,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -391,7 +396,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -405,7 +410,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -419,7 +424,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -433,7 +438,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -447,7 +452,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -463,7 +468,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -477,7 +482,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -491,7 +496,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -505,7 +510,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -519,7 +524,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -533,7 +538,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -565,7 +570,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 19,
                 "ctor": "createJob",
                 "headerPad": 0,
@@ -578,7 +583,7 @@
                 "payload": null,
                 "required": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -592,7 +597,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -606,7 +611,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -622,18 +627,38 @@
                 ],
                 "shared": false,
                 "headers": [],
-                "queryPad": 0,
+                "queryPad": 17,
                 "name": "CreateJob",
                 "query": [
                     {
                         "value": "Operation=CreateJob",
                         "type": "const"
+                    },
+                    {
+                        "field": "_cjJobType",
+                        "locationName": "JobType",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cjManifest",
+                        "locationName": "Manifest",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cjManifestAddendum",
+                        "locationName": "ManifestAddendum",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cjValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "type": "field"
                     }
                 ],
                 "type": "record",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -649,7 +674,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -663,7 +688,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -677,7 +702,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -691,7 +716,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -731,7 +756,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -745,7 +770,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -759,7 +784,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -773,7 +798,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -787,7 +812,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -801,7 +826,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -815,7 +840,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -829,7 +854,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -843,7 +868,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -857,7 +882,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -871,7 +896,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -885,7 +910,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -899,7 +924,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -913,7 +938,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -927,7 +952,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -941,7 +966,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -957,7 +982,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -971,7 +996,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -985,7 +1010,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": "mapping _Time",
                         "default": "Nothing",
@@ -999,7 +1024,7 @@
                         "type": "Maybe RFC822"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1013,7 +1038,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1027,7 +1052,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1041,7 +1066,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1055,7 +1080,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1069,7 +1094,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1083,7 +1108,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1097,7 +1122,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1111,7 +1136,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1125,7 +1150,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1139,7 +1164,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1153,7 +1178,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1167,7 +1192,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1202,12 +1227,12 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "getStatus",
                 "headerPad": 0,
                 "field": {
-                    "location": null,
+                    "location": "querystring",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -1229,7 +1254,7 @@
                 "payload": null,
                 "required": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1245,19 +1270,24 @@
                 ],
                 "shared": false,
                 "headers": [],
-                "queryPad": 0,
+                "queryPad": 6,
                 "name": "GetStatus",
                 "query": [
                     {
                         "value": "Operation=GetStatus",
                         "type": "const"
+                    },
+                    {
+                        "field": "_gsJobId",
+                        "locationName": "JobId",
+                        "type": "field"
                     }
                 ],
                 "type": "newtype",
                 "optional": [],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1296,7 +1326,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1310,7 +1340,7 @@
                         "type": "[Job]"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1326,7 +1356,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1340,7 +1370,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "mempty",
@@ -1380,7 +1410,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 10,
                 "ctor": "listJobs",
                 "headerPad": 0,
@@ -1394,18 +1424,28 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
-                "queryPad": 0,
+                "queryPad": 8,
                 "name": "ListJobs",
                 "query": [
                     {
                         "value": "Operation=ListJobs",
                         "type": "const"
+                    },
+                    {
+                        "field": "_ljMaxJobs",
+                        "locationName": "MaxJobs",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ljMarker",
+                        "locationName": "Marker",
+                        "type": "field"
                     }
                 ],
                 "type": "record",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1419,7 +1459,7 @@
                         "type": "Maybe Int"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1435,7 +1475,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1449,7 +1489,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1489,7 +1529,7 @@
                 "type": "record",
                 "optional": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1503,7 +1543,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1519,7 +1559,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1533,7 +1573,7 @@
                         "type": "Maybe Bool"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1565,7 +1605,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "updateJob",
                 "headerPad": 0,
@@ -1578,7 +1618,7 @@
                 "payload": null,
                 "required": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1592,7 +1632,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1606,7 +1646,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1620,7 +1660,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1636,19 +1676,39 @@
                 ],
                 "shared": false,
                 "headers": [],
-                "queryPad": 0,
+                "queryPad": 13,
                 "name": "UpdateJob",
                 "query": [
                     {
                         "value": "Operation=UpdateJob",
                         "type": "const"
+                    },
+                    {
+                        "field": "_ujJobId",
+                        "locationName": "JobId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ujManifest",
+                        "locationName": "Manifest",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ujJobType",
+                        "locationName": "JobType",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ujValidateOnly",
+                        "locationName": "ValidateOnly",
+                        "type": "field"
                     }
                 ],
                 "type": "record",
                 "optional": [],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1662,7 +1722,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1676,7 +1736,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -1690,7 +1750,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",

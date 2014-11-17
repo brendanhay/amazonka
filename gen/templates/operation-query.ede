@@ -1,4 +1,4 @@
-{% include "_include/operation-exports.ede" %}
+ {% include "_include/operation-exports.ede" %}
 
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
@@ -6,17 +6,13 @@ import qualified GHC.Exts
 
 {% include "_include/datatype.ede" with type = request %}
 
-instance ToQuery {{ request.name }}
-
-{% include "_include/path.ede" %}
-{% if !response.shared %}
 {% include "_include/datatype.ede" with type = response %}
 
-{% endif %}
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
 
-    request  = {{ method }} "{{ name }}"
+    request  = {{ method }}
 {% include "_include/response.ede" %}
-{% include "_include/pager.ede" %}
+
+{% include "_include/request.ede" %}

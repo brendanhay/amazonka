@@ -2201,6 +2201,7 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "addAttachmentsToSet",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2215,6 +2216,7 @@
                 "queryPad": 0,
                 "name": "AddAttachmentsToSet",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -2368,6 +2370,7 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "addCommunicationToCase",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2397,6 +2400,7 @@
                 "queryPad": 0,
                 "name": "AddCommunicationToCase",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -2593,6 +2597,7 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "createCase",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2636,6 +2641,7 @@
                 "queryPad": 0,
                 "name": "CreateCase",
                 "query": [],
+                "fs": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -2959,6 +2965,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeAttachment",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3002,6 +3009,7 @@
                 "queryPad": 0,
                 "name": "DescribeAttachment",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3132,6 +3140,7 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "describeCases",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3146,6 +3155,7 @@
                 "queryPad": 0,
                 "name": "DescribeCases",
                 "query": [],
+                "fs": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -3515,6 +3525,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeCommunications",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3544,6 +3555,7 @@
                 "queryPad": 0,
                 "name": "DescribeCommunications",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -3768,6 +3780,7 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "describeServices",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3782,6 +3795,7 @@
                 "queryPad": 0,
                 "name": "DescribeServices",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3938,6 +3952,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeSeverityLevels",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3966,6 +3981,7 @@
                 "queryPad": 0,
                 "name": "DescribeSeverityLevels",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -4095,6 +4111,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckRefreshStatuses",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4123,6 +4140,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckRefreshStatuses",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -4247,6 +4265,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "describeTrustedAdvisorCheckResult",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4276,6 +4295,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckResult",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -4419,6 +4439,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorCheckSummaries",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4447,6 +4468,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckSummaries",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -4576,6 +4598,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeTrustedAdvisorChecks",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4619,6 +4642,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorChecks",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4731,6 +4755,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "refreshTrustedAdvisorCheck",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4774,6 +4799,7 @@
                 "queryPad": 0,
                 "name": "RefreshTrustedAdvisorCheck",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4899,6 +4925,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "resolveCase",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4927,6 +4954,7 @@
                 "queryPad": 0,
                 "name": "ResolveCase",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {

@@ -171,6 +171,14 @@ instance FromJSON Location where
 
 nullary stage2 ''Location
 
+location :: Protocol -> Maybe Location -> Maybe Location
+location _ (Just l) = Just l
+location p Nothing  =
+    case p of
+        Query -> Just Querystring
+        Ec2   -> Just Querystring
+        _     -> Nothing
+
 data Seg
     = Seg Text
     | Var Text

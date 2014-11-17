@@ -782,6 +782,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "addTagsToStream",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -811,6 +812,7 @@
                 "queryPad": 0,
                 "name": "AddTagsToStream",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -904,6 +906,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "createStream",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -947,6 +950,7 @@
                 "queryPad": 0,
                 "name": "CreateStream",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1028,6 +1032,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteStream",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1071,6 +1076,7 @@
                 "queryPad": 0,
                 "name": "DeleteStream",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1188,6 +1194,7 @@
                 "style": "json",
                 "fieldPad": 25,
                 "ctor": "describeStream",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1217,6 +1224,7 @@
                 "queryPad": 0,
                 "name": "DescribeStream",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -1396,6 +1404,7 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "getRecords",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1425,6 +1434,7 @@
                 "queryPad": 0,
                 "name": "GetRecords",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -1565,6 +1575,7 @@
                 "style": "json",
                 "fieldPad": 26,
                 "ctor": "getShardIterator",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1622,6 +1633,7 @@
                 "queryPad": 0,
                 "name": "GetShardIterator",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -1811,6 +1823,7 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "listStreams",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1825,6 +1838,7 @@
                 "queryPad": 0,
                 "name": "ListStreams",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -1991,6 +2005,7 @@
                 "style": "json",
                 "fieldPad": 25,
                 "ctor": "listTagsForStream",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2020,6 +2035,7 @@
                 "queryPad": 0,
                 "name": "ListTagsForStream",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -2141,6 +2157,7 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "mergeShards",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2198,6 +2215,7 @@
                 "queryPad": 0,
                 "name": "MergeShards",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2348,6 +2366,7 @@
                 "style": "json",
                 "fieldPad": 28,
                 "ctor": "putRecord",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2405,6 +2424,7 @@
                 "queryPad": 0,
                 "name": "PutRecord",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -2554,6 +2574,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "removeTagsFromStream",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2597,6 +2618,7 @@
                 "queryPad": 0,
                 "name": "RemoveTagsFromStream",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2675,6 +2697,7 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "splitShard",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2732,6 +2755,7 @@
                 "queryPad": 0,
                 "name": "SplitShard",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [

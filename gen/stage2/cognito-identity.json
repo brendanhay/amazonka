@@ -610,6 +610,7 @@
                 "style": "json",
                 "fieldPad": 34,
                 "ctor": "createIdentityPool",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -653,6 +654,7 @@
                 "queryPad": 0,
                 "name": "CreateIdentityPool",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -819,6 +821,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteIdentityPool",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -862,6 +865,7 @@
                 "queryPad": 0,
                 "name": "DeleteIdentityPool",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1100,6 +1104,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeIdentityPool",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1143,6 +1148,7 @@
                 "queryPad": 0,
                 "name": "DescribeIdentityPool",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1253,6 +1259,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "getId",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1296,6 +1303,7 @@
                 "queryPad": 0,
                 "name": "GetId",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -1461,6 +1469,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "getOpenIdToken",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1490,6 +1499,7 @@
                 "queryPad": 0,
                 "name": "GetOpenIdToken",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -1641,6 +1651,7 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "getOpenIdTokenForDeveloperIdentity",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1670,6 +1681,7 @@
                 "queryPad": 0,
                 "name": "GetOpenIdTokenForDeveloperIdentity",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -1905,6 +1917,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "listIdentities",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1948,6 +1961,7 @@
                 "queryPad": 0,
                 "name": "ListIdentities",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -2113,6 +2127,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "listIdentityPools",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2142,6 +2157,7 @@
                 "queryPad": 0,
                 "name": "ListIdentityPools",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -2322,6 +2338,7 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "lookupDeveloperIdentity",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2351,6 +2368,7 @@
                 "queryPad": 0,
                 "name": "LookupDeveloperIdentity",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -2575,6 +2593,7 @@
                 "style": "json",
                 "fieldPad": 29,
                 "ctor": "mergeDeveloperIdentities",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2646,6 +2665,7 @@
                 "queryPad": 0,
                 "name": "MergeDeveloperIdentities",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2752,6 +2772,7 @@
                 "style": "json",
                 "fieldPad": 27,
                 "ctor": "unlinkDeveloperIdentity",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2823,6 +2844,7 @@
                 "queryPad": 0,
                 "name": "UnlinkDeveloperIdentity",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2928,6 +2950,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "unlinkIdentity",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2957,6 +2980,7 @@
                 "queryPad": 0,
                 "name": "UnlinkIdentity",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -3248,6 +3272,7 @@
                 "style": "json",
                 "fieldPad": 34,
                 "ctor": "updateIdentityPool",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3305,6 +3330,7 @@
                 "queryPad": 0,
                 "name": "UpdateIdentityPool",
                 "query": [],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {

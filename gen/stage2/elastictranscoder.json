@@ -4404,6 +4404,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "cancelJob",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4451,6 +4452,7 @@
                 "queryPad": 0,
                 "name": "CancelJob",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4559,6 +4561,7 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "createJob",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4602,6 +4605,7 @@
                 "queryPad": 0,
                 "name": "CreateJob",
                 "query": [],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -4837,6 +4841,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "createPipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4894,6 +4899,7 @@
                 "queryPad": 0,
                 "name": "CreatePipeline",
                 "query": [],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -5156,6 +5162,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "createPreset",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5199,6 +5206,7 @@
                 "queryPad": 0,
                 "name": "CreatePreset",
                 "query": [],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -5393,6 +5401,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5440,6 +5449,7 @@
                 "queryPad": 0,
                 "name": "DeletePipeline",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5507,6 +5517,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deletePreset",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5554,6 +5565,7 @@
                 "queryPad": 0,
                 "name": "DeletePreset",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5684,6 +5696,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "listJobsByPipeline",
+                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5728,6 +5741,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -5915,6 +5929,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "listJobsByStatus",
+                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5959,6 +5974,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -6143,7 +6159,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "json",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "listPipelines",
                 "headerPad": 0,
@@ -6341,7 +6357,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "json",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "listPresets",
                 "headerPad": 0,
@@ -6524,6 +6540,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "readJob",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6571,6 +6588,7 @@
                 "queryPad": 0,
                 "name": "ReadJob",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6683,6 +6701,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6730,6 +6749,7 @@
                 "queryPad": 0,
                 "name": "ReadPipeline",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6842,6 +6862,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "readPreset",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6889,6 +6910,7 @@
                 "queryPad": 0,
                 "name": "ReadPreset",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7012,6 +7034,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "testRole",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7069,6 +7092,7 @@
                 "queryPad": 0,
                 "name": "TestRole",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -7234,6 +7258,7 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "updatePipeline",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7267,6 +7292,7 @@
                 "queryPad": 0,
                 "name": "UpdatePipeline",
                 "query": [],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -7544,6 +7570,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "updatePipelineNotifications",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7595,6 +7622,7 @@
                 "queryPad": 0,
                 "name": "UpdatePipelineNotifications",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7718,6 +7746,7 @@
                 "style": "json",
                 "fieldPad": 10,
                 "ctor": "updatePipelineStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7769,6 +7798,7 @@
                 "queryPad": 0,
                 "name": "UpdatePipelineStatus",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [

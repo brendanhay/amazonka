@@ -555,16 +555,22 @@ data Request = Request
 
 instance ToJSON Request where
     toJSON Request{..} =
-        Object (operationJSON _rqProto _rqShared _rqName _rqData <> x)
+        Object (x <> operationJSON _rqProto _rqShared _rqName _rqData)
       where
-        Object x = object
-            [ "path"      .= _uriPath _rqUri
-            , "query"     .= (map toJSON (_uriQuery _rqUri) ++ map fieldLocation qry)
-            , "queryPad"  .= fieldPad qry
-            , "shared"    .= _rqShared
-            ]
+        Object x = object $
+            [ "path"     .= _uriPath _rqUri
+            , "query"    .= qry
+            , "queryPad" .= fieldPad qs
+            , "shared"   .= _rqShared
+            ] ++ style
 
-        qry = filter isQuery (toListOf dataFields _rqData)
+        qry = (map toJSON (_uriQuery _rqUri) ++ map fieldLocation qs)
+
+        qs = filter isQuery fs
+        fs = toListOf dataFields _rqData
+
+        style | length qs == length fs = ["style" .= "query"]
+              | otherwise              = ["qs" .= length qs, "fs" .= length fs]
 
 data Response = Response
     { _rsProto         :: !Protocol
@@ -577,7 +583,7 @@ data Response = Response
 
 instance ToJSON Response where
     toJSON Response{..} =
-        Object (operationJSON _rsProto _rsShared _rsName _rsData <> x)
+        Object (x <> operationJSON _rsProto _rsShared _rsName _rsData)
       where
         Object x = object
             [ "resultWrapper" .= _rsResultWrapper

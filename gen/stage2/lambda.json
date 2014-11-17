@@ -1083,6 +1083,7 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "addEventSource",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1140,6 +1141,7 @@
                 "queryPad": 0,
                 "name": "AddEventSource",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -1292,6 +1294,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteFunction",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1339,6 +1342,7 @@
                 "queryPad": 0,
                 "name": "DeleteFunction",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1660,6 +1664,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getEventSource",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1707,6 +1712,7 @@
                 "queryPad": 0,
                 "name": "GetEventSource",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1832,6 +1838,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getFunction",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -1879,6 +1886,7 @@
                 "queryPad": 0,
                 "name": "GetFunction",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2285,6 +2293,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getFunctionConfiguration",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -2336,6 +2345,7 @@
                 "queryPad": 0,
                 "name": "GetFunctionConfiguration",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2449,6 +2459,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "invokeAsync",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2513,6 +2524,7 @@
                 "queryPad": 0,
                 "name": "InvokeAsync",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2646,7 +2658,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "json",
+                "style": "query",
                 "fieldPad": 18,
                 "ctor": "listEventSources",
                 "headerPad": 0,
@@ -2902,7 +2914,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "json",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "listFunctions",
                 "headerPad": 0,
@@ -3040,6 +3052,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "removeEventSource",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -3087,6 +3100,7 @@
                 "queryPad": 0,
                 "name": "RemoveEventSource",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3490,6 +3504,7 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "updateFunctionConfiguration",
+                "qs": 5,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3553,6 +3568,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -4096,6 +4112,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "uploadFunction",
+                "qs": 7,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4248,6 +4265,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 9,
                 "type": "record",
                 "optional": [
                     {

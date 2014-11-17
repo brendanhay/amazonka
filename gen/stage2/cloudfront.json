@@ -5991,6 +5991,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createCloudFrontOriginAccessIdentity",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6047,6 +6048,7 @@
                 "queryPad": 0,
                 "name": "CreateCloudFrontOriginAccessIdentity",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6221,6 +6223,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createDistribution",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6277,6 +6280,7 @@
                 "queryPad": 0,
                 "name": "CreateDistribution",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6417,6 +6421,7 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createInvalidation",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6481,6 +6486,7 @@
                 "queryPad": 0,
                 "name": "CreateInvalidation",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -6669,6 +6675,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "createStreamingDistribution",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6725,6 +6732,7 @@
                 "queryPad": 0,
                 "name": "CreateStreamingDistribution",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6789,6 +6797,7 @@
                 "style": "xml-headers",
                 "fieldPad": 14,
                 "ctor": "deleteCloudFrontOriginAccessIdentity",
+                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -6828,6 +6837,7 @@
                 "queryPad": 0,
                 "name": "DeleteCloudFrontOriginAccessIdentity",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6921,6 +6931,7 @@
                 "style": "xml-headers",
                 "fieldPad": 10,
                 "ctor": "deleteDistribution",
+                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -6960,6 +6971,7 @@
                 "queryPad": 0,
                 "name": "DeleteDistribution",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7053,6 +7065,7 @@
                 "style": "xml-headers",
                 "fieldPad": 11,
                 "ctor": "deleteStreamingDistribution",
+                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -7092,6 +7105,7 @@
                 "queryPad": 0,
                 "name": "DeleteStreamingDistribution",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7265,6 +7279,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getCloudFrontOriginAccessIdentity",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7312,6 +7327,7 @@
                 "queryPad": 0,
                 "name": "GetCloudFrontOriginAccessIdentity",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7456,6 +7472,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getCloudFrontOriginAccessIdentityConfig",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7507,6 +7524,7 @@
                 "queryPad": 0,
                 "name": "GetCloudFrontOriginAccessIdentityConfig",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7651,6 +7669,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getDistribution",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7698,6 +7717,7 @@
                 "queryPad": 0,
                 "name": "GetDistribution",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7842,6 +7862,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getDistributionConfig",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7893,6 +7914,7 @@
                 "queryPad": 0,
                 "name": "GetDistributionConfig",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8015,6 +8037,7 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "getInvalidation",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8070,6 +8093,7 @@
                 "queryPad": 0,
                 "name": "GetInvalidation",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -8228,6 +8252,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getStreamingDistribution",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8275,6 +8300,7 @@
                 "queryPad": 0,
                 "name": "GetStreamingDistribution",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8419,6 +8445,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getStreamingDistributionConfig",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8470,6 +8497,7 @@
                 "queryPad": 0,
                 "name": "GetStreamingDistributionConfig",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8597,7 +8625,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "listCloudFrontOriginAccessIdentities",
                 "headerPad": 0,
@@ -8795,7 +8823,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "listDistributions",
                 "headerPad": 0,
@@ -8996,6 +9024,7 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "listInvalidations",
+                "qs": 2,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9044,6 +9073,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9228,7 +9258,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "listStreamingDistributions",
                 "headerPad": 0,
@@ -9439,6 +9469,7 @@
                 "style": "xml-headers",
                 "fieldPad": 43,
                 "ctor": "updateCloudFrontOriginAccessIdentity",
+                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -9509,6 +9540,7 @@
                 "queryPad": 0,
                 "name": "UpdateCloudFrontOriginAccessIdentity",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9692,6 +9724,7 @@
                 "style": "xml-headers",
                 "fieldPad": 21,
                 "ctor": "updateDistribution",
+                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -9762,6 +9795,7 @@
                 "queryPad": 0,
                 "name": "UpdateDistribution",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9945,6 +9979,7 @@
                 "style": "xml-headers",
                 "fieldPad": 31,
                 "ctor": "updateStreamingDistribution",
+                "qs": 0,
                 "headerPad": 9,
                 "path": [
                     {
@@ -10015,6 +10050,7 @@
                 "queryPad": 0,
                 "name": "UpdateStreamingDistribution",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {

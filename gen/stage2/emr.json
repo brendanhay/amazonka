@@ -6152,6 +6152,7 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "addInstanceGroups",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6181,6 +6182,7 @@
                 "queryPad": 0,
                 "name": "AddInstanceGroups",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6321,6 +6323,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "addJobFlowSteps",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6350,6 +6353,7 @@
                 "queryPad": 0,
                 "name": "AddJobFlowSteps",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6442,6 +6446,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "addTags",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6471,6 +6476,7 @@
                 "queryPad": 0,
                 "name": "AddTags",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -6612,6 +6618,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeCluster",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6655,6 +6662,7 @@
                 "queryPad": 0,
                 "name": "DescribeCluster",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6766,6 +6774,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "describeJobFlows",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6780,6 +6789,7 @@
                 "queryPad": 0,
                 "name": "DescribeJobFlows",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -6988,6 +6998,7 @@
                 "style": "json",
                 "fieldPad": 12,
                 "ctor": "describeStep",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7031,6 +7042,7 @@
                 "queryPad": 0,
                 "name": "DescribeStep",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7175,6 +7187,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listBootstrapActions",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7204,6 +7217,7 @@
                 "queryPad": 0,
                 "name": "ListBootstrapActions",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7363,6 +7377,7 @@
                 "style": "json",
                 "fieldPad": 16,
                 "ctor": "listClusters",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7377,6 +7392,7 @@
                 "queryPad": 0,
                 "name": "ListClusters",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -7606,6 +7622,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listInstanceGroups",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7635,6 +7652,7 @@
                 "queryPad": 0,
                 "name": "ListInstanceGroups",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -7794,6 +7812,7 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "listInstances",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7823,6 +7842,7 @@
                 "queryPad": 0,
                 "name": "ListInstances",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -8038,6 +8058,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listSteps",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8067,6 +8088,7 @@
                 "queryPad": 0,
                 "name": "ListSteps",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -8190,6 +8212,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "modifyInstanceGroups",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -8218,6 +8241,7 @@
                 "queryPad": 0,
                 "name": "ModifyInstanceGroups",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -8297,6 +8321,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "removeTags",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8326,6 +8351,7 @@
                 "queryPad": 0,
                 "name": "RemoveTags",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -8465,6 +8491,7 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "runJobFlow",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8508,6 +8535,7 @@
                 "queryPad": 0,
                 "name": "RunJobFlow",
                 "query": [],
+                "fs": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -8895,6 +8923,7 @@
                 "style": "json",
                 "fieldPad": 24,
                 "ctor": "setTerminationProtection",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8924,6 +8953,7 @@
                 "queryPad": 0,
                 "name": "SetTerminationProtection",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -9017,6 +9047,7 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "setVisibleToAllUsers",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9046,6 +9077,7 @@
                 "queryPad": 0,
                 "name": "SetVisibleToAllUsers",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -9142,6 +9174,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "terminateJobFlows",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -9170,6 +9203,7 @@
                 "queryPad": 0,
                 "name": "TerminateJobFlows",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {

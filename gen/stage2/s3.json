@@ -5295,6 +5295,7 @@
                 "style": "xml",
                 "fieldPad": 12,
                 "ctor": "abortMultipartUpload",
+                "qs": 1,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5370,6 +5371,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5710,6 +5712,7 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "completeMultipartUpload",
+                "qs": 1,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5798,6 +5801,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -6161,6 +6165,7 @@
                 "style": "xml-headers",
                 "fieldPad": 33,
                 "ctor": "copyObject",
+                "qs": 0,
                 "headerPad": 60,
                 "path": [
                     {
@@ -6371,6 +6376,7 @@
                 "queryPad": 0,
                 "name": "CopyObject",
                 "query": [],
+                "fs": 30,
                 "type": "record",
                 "optional": [
                     {
@@ -7273,6 +7279,7 @@
                 "style": "xml-headers",
                 "fieldPad": 28,
                 "ctor": "createBucket",
+                "qs": 0,
                 "headerPad": 25,
                 "path": [
                     {
@@ -7350,6 +7357,7 @@
                 "queryPad": 0,
                 "name": "CreateBucket",
                 "query": [],
+                "fs": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -7831,6 +7839,7 @@
                 "style": "xml-headers",
                 "fieldPad": 27,
                 "ctor": "createMultipartUpload",
+                "qs": 0,
                 "headerPad": 48,
                 "path": [
                     {
@@ -7987,6 +7996,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -8602,6 +8612,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteBucket",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8649,6 +8660,7 @@
                 "queryPad": 0,
                 "name": "DeleteBucket",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8717,6 +8729,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteBucketCors",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8769,6 +8782,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8837,6 +8851,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteBucketLifecycle",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8889,6 +8904,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8957,6 +8973,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteBucketPolicy",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -9009,6 +9026,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -9077,6 +9095,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteBucketTagging",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -9129,6 +9148,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -9197,6 +9217,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteBucketWebsite",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -9249,6 +9270,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -9384,6 +9406,7 @@
                 "style": "xml-headers",
                 "fieldPad": 12,
                 "ctor": "deleteObject",
+                "qs": 1,
                 "headerPad": 10,
                 "path": [
                     {
@@ -9451,6 +9474,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -9644,6 +9668,7 @@
                 "style": "xml-headers",
                 "fieldPad": 10,
                 "ctor": "deleteObjects",
+                "qs": 0,
                 "headerPad": 10,
                 "path": [
                     {
@@ -9715,6 +9740,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -9884,6 +9910,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketAcl",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -9936,6 +9963,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10051,6 +10079,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketCors",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -10103,6 +10132,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10218,6 +10248,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketLifecycle",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -10270,6 +10301,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10385,6 +10417,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketLocation",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -10437,6 +10470,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10550,6 +10584,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketLogging",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -10602,6 +10637,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10756,6 +10792,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketNotification",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -10808,6 +10845,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10936,6 +10974,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketPolicy",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -10988,6 +11027,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11103,6 +11143,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketRequestPayment",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -11155,6 +11196,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11270,6 +11312,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketTagging",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -11322,6 +11365,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11449,6 +11493,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketVersioning",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -11501,6 +11546,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11683,6 +11729,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getBucketWebsite",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -11735,6 +11782,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -12537,6 +12585,7 @@
                 "style": "xml-headers",
                 "fieldPad": 29,
                 "ctor": "getObject",
+                "qs": 7,
                 "headerPad": 48,
                 "path": [
                     {
@@ -12674,6 +12723,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -13260,6 +13310,7 @@
                 "style": "xml",
                 "fieldPad": 13,
                 "ctor": "getObjectAcl",
+                "qs": 1,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13325,6 +13376,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -13491,6 +13543,7 @@
                 "style": "xml",
                 "fieldPad": 10,
                 "ctor": "getObjectTorrent",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -13551,6 +13604,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -13633,6 +13687,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "headBucket",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -13680,6 +13735,7 @@
                 "queryPad": 0,
                 "name": "HeadBucket",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -14441,6 +14497,7 @@
                 "style": "xml-headers",
                 "fieldPad": 23,
                 "ctor": "headObject",
+                "qs": 1,
                 "headerPad": 48,
                 "path": [
                     {
@@ -14548,6 +14605,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -14963,7 +15021,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "listBuckets",
                 "headerPad": 0,
@@ -15382,6 +15440,7 @@
                 "style": "xml",
                 "fieldPad": 18,
                 "ctor": "listMultipartUploads",
+                "qs": 6,
                 "headerPad": 0,
                 "path": [
                     {
@@ -15450,6 +15509,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -16065,6 +16125,7 @@
                 "style": "xml",
                 "fieldPad": 19,
                 "ctor": "listObjectVersions",
+                "qs": 6,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16133,6 +16194,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -16657,6 +16719,7 @@
                 "style": "xml",
                 "fieldPad": 15,
                 "ctor": "listObjects",
+                "qs": 5,
                 "headerPad": 0,
                 "path": [
                     {
@@ -16716,6 +16779,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -17240,6 +17304,7 @@
                 "style": "xml",
                 "fieldPad": 19,
                 "ctor": "listParts",
+                "qs": 3,
                 "headerPad": 0,
                 "path": [
                     {
@@ -17325,6 +17390,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -17474,6 +17540,7 @@
                 "style": "xml-headers",
                 "fieldPad": 23,
                 "ctor": "putBucketAcl",
+                "qs": 0,
                 "headerPad": 25,
                 "path": [
                     {
@@ -17561,6 +17628,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -17850,6 +17918,7 @@
                 "style": "xml-headers",
                 "fieldPad": 21,
                 "ctor": "putBucketCors",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -17907,6 +17976,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18028,6 +18098,7 @@
                 "style": "xml-headers",
                 "fieldPad": 27,
                 "ctor": "putBucketLifecycle",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -18085,6 +18156,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18206,6 +18278,7 @@
                 "style": "xml-headers",
                 "fieldPad": 23,
                 "ctor": "putBucketLogging",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -18277,6 +18350,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18384,6 +18458,7 @@
                 "style": "xml-headers",
                 "fieldPad": 29,
                 "ctor": "putBucketNotification",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -18455,6 +18530,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18563,6 +18639,7 @@
                 "style": "xml-headers",
                 "fieldPad": 14,
                 "ctor": "putBucketPolicy",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -18634,6 +18711,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18741,6 +18819,7 @@
                 "style": "xml-headers",
                 "fieldPad": 32,
                 "ctor": "putBucketRequestPayment",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -18812,6 +18891,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -18919,6 +18999,7 @@
                 "style": "xml-headers",
                 "fieldPad": 14,
                 "ctor": "putBucketTagging",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -18990,6 +19071,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -19097,6 +19179,7 @@
                 "style": "xml-headers",
                 "fieldPad": 27,
                 "ctor": "putBucketVersioning",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -19173,6 +19256,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -19308,6 +19392,7 @@
                 "style": "xml-headers",
                 "fieldPad": 24,
                 "ctor": "putBucketWebsite",
+                "qs": 0,
                 "headerPad": 12,
                 "path": [
                     {
@@ -19379,6 +19464,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -19721,6 +19807,7 @@
                 "style": "body-headers",
                 "fieldPad": 26,
                 "ctor": "putObject",
+                "qs": 0,
                 "headerPad": 48,
                 "path": [
                     {
@@ -19895,6 +19982,7 @@
                 "queryPad": 0,
                 "name": "PutObject",
                 "query": [],
+                "fs": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -20590,6 +20678,7 @@
                 "style": "xml-headers",
                 "fieldPad": 23,
                 "ctor": "putObjectAcl",
+                "qs": 0,
                 "headerPad": 25,
                 "path": [
                     {
@@ -20699,6 +20788,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -21002,6 +21092,7 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "restoreObject",
+                "qs": 1,
                 "headerPad": 0,
                 "path": [
                     {
@@ -21080,6 +21171,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -21384,6 +21476,7 @@
                 "style": "body-headers",
                 "fieldPad": 23,
                 "ctor": "uploadPart",
+                "qs": 2,
                 "headerPad": 48,
                 "path": [
                     {
@@ -21522,6 +21615,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -22035,6 +22129,7 @@
                 "style": "xml-headers",
                 "fieldPad": 34,
                 "ctor": "uploadPartCopy",
+                "qs": 2,
                 "headerPad": 60,
                 "path": [
                     {
@@ -22209,6 +22304,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 17,
                 "type": "record",
                 "optional": [
                     {

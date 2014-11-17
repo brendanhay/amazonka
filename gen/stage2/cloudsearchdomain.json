@@ -983,7 +983,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "json",
+                "style": "query",
                 "fieldPad": 15,
                 "ctor": "search",
                 "headerPad": 0,
@@ -1541,7 +1541,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "json",
+                "style": "query",
                 "fieldPad": 11,
                 "ctor": "suggest",
                 "headerPad": 0,
@@ -1827,6 +1827,7 @@
                 "style": "json-headers",
                 "fieldPad": 14,
                 "ctor": "uploadDocuments",
+                "qs": 0,
                 "headerPad": 13,
                 "path": [
                     {
@@ -1894,6 +1895,7 @@
                         "type": "const"
                     }
                 ],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [

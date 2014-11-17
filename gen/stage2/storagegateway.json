@@ -2579,6 +2579,7 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "activateGateway",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2650,6 +2651,7 @@
                 "queryPad": 0,
                 "name": "ActivateGateway",
                 "query": [],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -2888,6 +2890,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "addCache",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2917,6 +2920,7 @@
                 "queryPad": 0,
                 "name": "AddCache",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3057,6 +3061,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "addUploadBuffer",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3086,6 +3091,7 @@
                 "queryPad": 0,
                 "name": "AddUploadBuffer",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3226,6 +3232,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "addWorkingStorage",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3255,6 +3262,7 @@
                 "queryPad": 0,
                 "name": "AddWorkingStorage",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3395,6 +3403,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "cancelArchival",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3438,6 +3447,7 @@
                 "queryPad": 0,
                 "name": "CancelArchival",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3563,6 +3573,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "cancelRetrieval",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3606,6 +3617,7 @@
                 "queryPad": 0,
                 "name": "CancelRetrieval",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3743,6 +3755,7 @@
                 "style": "json",
                 "fieldPad": 26,
                 "ctor": "createCachediSCSIVolume",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3828,6 +3841,7 @@
                 "queryPad": 0,
                 "name": "CreateCachediSCSIVolume",
                 "query": [],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -4036,6 +4050,7 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "createSnapshot",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4079,6 +4094,7 @@
                 "queryPad": 0,
                 "name": "CreateSnapshot",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4244,6 +4260,7 @@
                 "style": "json",
                 "fieldPad": 26,
                 "ctor": "createSnapshotFromVolumeRecoveryPoint",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4287,6 +4304,7 @@
                 "queryPad": 0,
                 "name": "CreateSnapshotFromVolumeRecoveryPoint",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4452,6 +4470,7 @@
                 "style": "json",
                 "fieldPad": 28,
                 "ctor": "createStorediSCSIVolume",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4537,6 +4556,7 @@
                 "queryPad": 0,
                 "name": "CreateStorediSCSIVolume",
                 "query": [],
+                "fs": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -4734,6 +4754,7 @@
                 "style": "json",
                 "fieldPad": 20,
                 "ctor": "createTapes",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4819,6 +4840,7 @@
                 "queryPad": 0,
                 "name": "CreateTapes",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4986,6 +5008,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "deleteBandwidthRateLimit",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5029,6 +5052,7 @@
                 "queryPad": 0,
                 "name": "DeleteBandwidthRateLimit",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5166,6 +5190,7 @@
                 "style": "json",
                 "fieldPad": 18,
                 "ctor": "deleteChapCredentials",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5209,6 +5234,7 @@
                 "queryPad": 0,
                 "name": "DeleteChapCredentials",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5337,6 +5363,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteGateway",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -5380,6 +5407,7 @@
                 "queryPad": 0,
                 "name": "DeleteGateway",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5494,6 +5522,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteSnapshotSchedule",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -5537,6 +5566,7 @@
                 "queryPad": 0,
                 "name": "DeleteSnapshotSchedule",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5648,6 +5678,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "deleteTape",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5691,6 +5722,7 @@
                 "queryPad": 0,
                 "name": "DeleteTape",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5819,6 +5851,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteTapeArchive",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -5862,6 +5895,7 @@
                 "queryPad": 0,
                 "name": "DeleteTapeArchive",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5976,6 +6010,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteVolume",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6019,6 +6054,7 @@
                 "queryPad": 0,
                 "name": "DeleteVolume",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6173,6 +6209,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeBandwidthRateLimit",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6216,6 +6253,7 @@
                 "queryPad": 0,
                 "name": "DescribeBandwidthRateLimit",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6482,6 +6520,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeCache",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6525,6 +6564,7 @@
                 "queryPad": 0,
                 "name": "DescribeCache",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6639,6 +6679,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeCachediSCSIVolumes",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6667,6 +6708,7 @@
                 "queryPad": 0,
                 "name": "DescribeCachediSCSIVolumes",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -6796,6 +6838,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeChapCredentials",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6839,6 +6882,7 @@
                 "queryPad": 0,
                 "name": "DescribeChapCredentials",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7104,6 +7148,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeGatewayInformation",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -7147,6 +7192,7 @@
                 "queryPad": 0,
                 "name": "DescribeGatewayInformation",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7357,6 +7403,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeMaintenanceStartTime",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -7400,6 +7447,7 @@
                 "queryPad": 0,
                 "name": "DescribeMaintenanceStartTime",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7610,6 +7658,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeSnapshotSchedule",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -7653,6 +7702,7 @@
                 "queryPad": 0,
                 "name": "DescribeSnapshotSchedule",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7767,6 +7817,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeStorediSCSIVolumes",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -7795,6 +7846,7 @@
                 "queryPad": 0,
                 "name": "DescribeStorediSCSIVolumes",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -7940,6 +7992,7 @@
                 "style": "json",
                 "fieldPad": 12,
                 "ctor": "describeTapeArchives",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7954,6 +8007,7 @@
                 "queryPad": 0,
                 "name": "DescribeTapeArchives",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -8183,6 +8237,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "describeTapeRecoveryPoints",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8212,6 +8267,7 @@
                 "queryPad": 0,
                 "name": "DescribeTapeRecoveryPoints",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -8399,6 +8455,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "describeTapes",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8428,6 +8485,7 @@
                 "queryPad": 0,
                 "name": "DescribeTapes",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -8695,6 +8753,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeUploadBuffer",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -8738,6 +8797,7 @@
                 "queryPad": 0,
                 "name": "DescribeUploadBuffer",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -8896,6 +8956,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "describeVTLDevices",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -8925,6 +8986,7 @@
                 "queryPad": 0,
                 "name": "DescribeVTLDevices",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -9192,6 +9254,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeWorkingStorage",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -9235,6 +9298,7 @@
                 "queryPad": 0,
                 "name": "DescribeWorkingStorage",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -9349,6 +9413,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableGateway",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -9392,6 +9457,7 @@
                 "queryPad": 0,
                 "name": "DisableGateway",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -9522,6 +9588,7 @@
                 "style": "json",
                 "fieldPad": 9,
                 "ctor": "listGateways",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -9536,6 +9603,7 @@
                 "queryPad": 0,
                 "name": "ListGateways",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -9704,6 +9772,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "listLocalDisks",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -9747,6 +9816,7 @@
                 "queryPad": 0,
                 "name": "ListLocalDisks",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -9872,6 +9942,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "listVolumeRecoveryPoints",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -9915,6 +9986,7 @@
                 "queryPad": 0,
                 "name": "ListVolumeRecoveryPoints",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10073,6 +10145,7 @@
                 "style": "json",
                 "fieldPad": 13,
                 "ctor": "listVolumes",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -10102,6 +10175,7 @@
                 "queryPad": 0,
                 "name": "ListVolumes",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -10270,6 +10344,7 @@
                 "style": "json",
                 "fieldPad": 14,
                 "ctor": "retrieveTapeArchive",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -10313,6 +10388,7 @@
                 "queryPad": 0,
                 "name": "RetrieveTapeArchive",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -10438,6 +10514,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "retrieveTapeRecoveryPoint",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -10481,6 +10558,7 @@
                 "queryPad": 0,
                 "name": "RetrieveTapeRecoveryPoint",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -10609,6 +10687,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "shutdownGateway",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -10652,6 +10731,7 @@
                 "queryPad": 0,
                 "name": "ShutdownGateway",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10766,6 +10846,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "startGateway",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -10809,6 +10890,7 @@
                 "queryPad": 0,
                 "name": "StartGateway",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -10920,6 +11002,7 @@
                 "style": "json",
                 "fieldPad": 41,
                 "ctor": "updateBandwidthRateLimit",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -10949,6 +11032,7 @@
                 "queryPad": 0,
                 "name": "UpdateBandwidthRateLimit",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -11129,6 +11213,7 @@
                 "style": "json",
                 "fieldPad": 33,
                 "ctor": "updateChapCredentials",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -11186,6 +11271,7 @@
                 "queryPad": 0,
                 "name": "UpdateChapCredentials",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -11354,6 +11440,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "updateGatewayInformation",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -11383,6 +11470,7 @@
                 "queryPad": 0,
                 "name": "UpdateGatewayInformation",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -11554,6 +11642,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "updateGatewaySoftwareNow",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -11597,6 +11686,7 @@
                 "queryPad": 0,
                 "name": "UpdateGatewaySoftwareNow",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -11708,6 +11798,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "updateMaintenanceStartTime",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -11779,6 +11870,7 @@
                 "queryPad": 0,
                 "name": "UpdateMaintenanceStartTime",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -11932,6 +12024,7 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "updateSnapshotSchedule",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -11989,6 +12082,7 @@
                 "queryPad": 0,
                 "name": "UpdateSnapshotSchedule",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {

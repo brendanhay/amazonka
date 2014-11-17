@@ -2451,6 +2451,7 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "associateVPCWithHostedZone",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2502,6 +2503,7 @@
                 "queryPad": 0,
                 "name": "AssociateVPCWithHostedZone",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -2653,6 +2655,7 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "changeResourceRecordSets",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2704,6 +2707,7 @@
                 "queryPad": 0,
                 "name": "ChangeResourceRecordSets",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2781,6 +2785,7 @@
                 "style": "xml",
                 "fieldPad": 18,
                 "ctor": "changeTagsForResource",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2864,6 +2869,7 @@
                 "queryPad": 0,
                 "name": "ChangeTagsForResource",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3033,6 +3039,7 @@
                 "style": "xml",
                 "fieldPad": 21,
                 "ctor": "createHealthCheck",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3076,6 +3083,7 @@
                 "queryPad": 0,
                 "name": "CreateHealthCheck",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3302,6 +3310,7 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createHostedZone",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3345,6 +3354,7 @@
                 "queryPad": 0,
                 "name": "CreateHostedZone",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -3572,6 +3582,7 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "createReusableDelegationSet",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3601,6 +3612,7 @@
                 "queryPad": 0,
                 "name": "CreateReusableDelegationSet",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3697,6 +3709,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheck",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -3744,6 +3757,7 @@
                 "queryPad": 0,
                 "name": "DeleteHealthCheck",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3856,6 +3870,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteHostedZone",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -3903,6 +3918,7 @@
                 "queryPad": 0,
                 "name": "DeleteHostedZone",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3970,6 +3986,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSet",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4017,6 +4034,7 @@
                 "queryPad": 0,
                 "name": "DeleteReusableDelegationSet",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4125,6 +4143,7 @@
                 "style": "xml",
                 "fieldPad": 20,
                 "ctor": "disassociateVPCFromHostedZone",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4176,6 +4195,7 @@
                 "queryPad": 0,
                 "name": "DisassociateVPCFromHostedZone",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [
                     {
@@ -4331,6 +4351,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getChange",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4378,6 +4399,7 @@
                 "queryPad": 0,
                 "name": "GetChange",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4487,7 +4509,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRanges",
                 "headerPad": 0,
@@ -4594,7 +4616,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 19,
                 "ctor": "getGeoLocation",
                 "headerPad": 0,
@@ -4810,6 +4832,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheck",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4857,6 +4880,7 @@
                 "queryPad": 0,
                 "name": "GetHealthCheck",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4968,7 +4992,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCount",
                 "headerPad": 0,
@@ -5083,6 +5107,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReason",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5134,6 +5159,7 @@
                 "queryPad": 0,
                 "name": "GetHealthCheckLastFailureReason",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5248,6 +5274,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5299,6 +5326,7 @@
                 "queryPad": 0,
                 "name": "GetHealthCheckStatus",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5453,6 +5481,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getHostedZone",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5500,6 +5529,7 @@
                 "queryPad": 0,
                 "name": "GetHostedZone",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5612,6 +5642,7 @@
                 "style": "xml",
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSet",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5659,6 +5690,7 @@
                 "queryPad": 0,
                 "name": "GetReusableDelegationSet",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5891,7 +5923,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 24,
                 "ctor": "listGeoLocations",
                 "headerPad": 0,
@@ -6240,7 +6272,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 12,
                 "ctor": "listHealthChecks",
                 "headerPad": 0,
@@ -6523,7 +6555,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 19,
                 "ctor": "listHostedZones",
                 "headerPad": 0,
@@ -6881,6 +6913,7 @@
                 "style": "xml",
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSets",
+                "qs": 4,
                 "headerPad": 0,
                 "path": [
                     {
@@ -6939,6 +6972,7 @@
                         "type": "field"
                     }
                 ],
+                "fs": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -7256,7 +7290,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "xml",
+                "style": "query",
                 "fieldPad": 13,
                 "ctor": "listReusableDelegationSets",
                 "headerPad": 0,
@@ -7436,6 +7470,7 @@
                 "style": "xml",
                 "fieldPad": 17,
                 "ctor": "listTagsForResource",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7491,6 +7526,7 @@
                 "queryPad": 0,
                 "name": "ListTagsForResource",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7616,6 +7652,7 @@
                 "style": "xml",
                 "fieldPad": 18,
                 "ctor": "listTagsForResources",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7663,6 +7700,7 @@
                 "queryPad": 0,
                 "name": "ListTagsForResources",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7786,6 +7824,7 @@
                 "style": "xml",
                 "fieldPad": 28,
                 "ctor": "updateHealthCheck",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7819,6 +7858,7 @@
                 "queryPad": 0,
                 "name": "UpdateHealthCheck",
                 "query": [],
+                "fs": 8,
                 "type": "record",
                 "optional": [
                     {

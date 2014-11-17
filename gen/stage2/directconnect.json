@@ -2434,6 +2434,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "allocateConnectionOnInterconnect",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2519,6 +2520,7 @@
                 "queryPad": 0,
                 "name": "AllocateConnectionOnInterconnect",
                 "query": [],
+                "fs": 5,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3060,6 +3062,7 @@
                 "style": "json",
                 "fieldPad": 41,
                 "ctor": "allocatePrivateVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3117,6 +3120,7 @@
                 "queryPad": 0,
                 "name": "AllocatePrivateVirtualInterface",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3630,6 +3634,7 @@
                 "style": "json",
                 "fieldPad": 41,
                 "ctor": "allocatePublicVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3687,6 +3692,7 @@
                 "queryPad": 0,
                 "name": "AllocatePublicVirtualInterface",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3829,6 +3835,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "confirmConnection",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3872,6 +3879,7 @@
                 "queryPad": 0,
                 "name": "ConfirmConnection",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3983,6 +3991,7 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "confirmPrivateVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4026,6 +4035,7 @@
                 "queryPad": 0,
                 "name": "ConfirmPrivateVirtualInterface",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4154,6 +4164,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "confirmPublicVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -4197,6 +4208,7 @@
                 "queryPad": 0,
                 "name": "ConfirmPublicVirtualInterface",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4516,6 +4528,7 @@
                 "style": "json",
                 "fieldPad": 17,
                 "ctor": "createConnection",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4573,6 +4586,7 @@
                 "queryPad": 0,
                 "name": "CreateConnection",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4836,6 +4850,7 @@
                 "style": "json",
                 "fieldPad": 19,
                 "ctor": "createInterconnect",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4893,6 +4908,7 @@
                 "queryPad": 0,
                 "name": "CreateInterconnect",
                 "query": [],
+                "fs": 3,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5406,6 +5422,7 @@
                 "style": "json",
                 "fieldPad": 32,
                 "ctor": "createPrivateVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5449,6 +5466,7 @@
                 "queryPad": 0,
                 "name": "CreatePrivateVirtualInterface",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5948,6 +5966,7 @@
                 "style": "json",
                 "fieldPad": 30,
                 "ctor": "createPublicVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -5991,6 +6010,7 @@
                 "queryPad": 0,
                 "name": "CreatePublicVirtualInterface",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -6327,6 +6347,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteConnection",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6370,6 +6391,7 @@
                 "queryPad": 0,
                 "name": "DeleteConnection",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6484,6 +6506,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteInterconnect",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6527,6 +6550,7 @@
                 "queryPad": 0,
                 "name": "DeleteInterconnect",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6641,6 +6665,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteVirtualInterface",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6684,6 +6709,7 @@
                 "queryPad": 0,
                 "name": "DeleteVirtualInterface",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6797,6 +6823,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConnections",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6825,6 +6852,7 @@
                 "queryPad": 0,
                 "name": "DescribeConnections",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -6954,6 +6982,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConnectionsOnInterconnect",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -6997,6 +7026,7 @@
                 "queryPad": 0,
                 "name": "DescribeConnectionsOnInterconnect",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7110,6 +7140,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeInterconnects",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -7138,6 +7169,7 @@
                 "queryPad": 0,
                 "name": "DescribeInterconnects",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -7261,7 +7293,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "describeLocations",
                 "headerPad": 0,
@@ -7370,7 +7402,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "style": "nullary",
+                "style": "query",
                 "fieldPad": 0,
                 "ctor": "describeVirtualGateways",
                 "headerPad": 0,
@@ -7482,6 +7514,7 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "describeVirtualInterfaces",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -7496,6 +7529,7 @@
                 "queryPad": 0,
                 "name": "DescribeVirtualInterfaces",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {

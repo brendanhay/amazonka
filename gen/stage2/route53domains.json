@@ -1337,6 +1337,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "checkDomainAvailability",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -1366,6 +1367,7 @@
                 "queryPad": 0,
                 "name": "CheckDomainAvailability",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -1462,6 +1464,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableDomainAutoRenew",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1505,6 +1508,7 @@
                 "queryPad": 0,
                 "name": "DisableDomainAutoRenew",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1620,6 +1624,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "disableDomainTransferLock",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1663,6 +1668,7 @@
                 "queryPad": 0,
                 "name": "DisableDomainTransferLock",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1730,6 +1736,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableDomainAutoRenew",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1773,6 +1780,7 @@
                 "queryPad": 0,
                 "name": "EnableDomainAutoRenew",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1888,6 +1896,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "enableDomainTransferLock",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1931,6 +1940,7 @@
                 "queryPad": 0,
                 "name": "EnableDomainTransferLock",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2589,6 +2599,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getDomainDetail",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2632,6 +2643,7 @@
                 "queryPad": 0,
                 "name": "GetDomainDetail",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2870,6 +2882,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "getOperationDetail",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2913,6 +2926,7 @@
                 "queryPad": 0,
                 "name": "GetOperationDetail",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3035,6 +3049,7 @@
                 "style": "json",
                 "fieldPad": 11,
                 "ctor": "listDomains",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3049,6 +3064,7 @@
                 "queryPad": 0,
                 "name": "ListDomains",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3214,6 +3230,7 @@
                 "style": "json",
                 "fieldPad": 11,
                 "ctor": "listOperations",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3228,6 +3245,7 @@
                 "queryPad": 0,
                 "name": "ListOperations",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {
@@ -3382,6 +3400,7 @@
                 "style": "json",
                 "fieldPad": 34,
                 "ctor": "registerDomain",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -3467,6 +3486,7 @@
                 "queryPad": 0,
                 "name": "RegisterDomain",
                 "query": [],
+                "fs": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -3779,6 +3799,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "retrieveDomainAuthCode",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3822,6 +3843,7 @@
                 "queryPad": 0,
                 "name": "RetrieveDomainAuthCode",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3933,6 +3955,7 @@
                 "style": "json",
                 "fieldPad": 34,
                 "ctor": "transferDomain",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4018,6 +4041,7 @@
                 "queryPad": 0,
                 "name": "TransferDomain",
                 "query": [],
+                "fs": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -4382,6 +4406,7 @@
                 "style": "json",
                 "fieldPad": 21,
                 "ctor": "updateDomainContact",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4411,6 +4436,7 @@
                 "queryPad": 0,
                 "name": "UpdateDomainContact",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -4608,6 +4634,7 @@
                 "style": "json",
                 "fieldPad": 22,
                 "ctor": "updateDomainContactPrivacy",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4637,6 +4664,7 @@
                 "queryPad": 0,
                 "name": "UpdateDomainContactPrivacy",
                 "query": [],
+                "fs": 4,
                 "type": "record",
                 "optional": [
                     {
@@ -4833,6 +4861,7 @@
                 "style": "json",
                 "fieldPad": 15,
                 "ctor": "updateDomainNameservers",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -4862,6 +4891,7 @@
                 "queryPad": 0,
                 "name": "UpdateDomainNameservers",
                 "query": [],
+                "fs": 2,
                 "type": "record",
                 "optional": [
                     {

@@ -124,7 +124,7 @@ dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
 
     ss = evalState (shared s1) datas
 
-    datas = overriden (o ^. oOverrides) (shapes (s1 ^. s1Shapes))
+    datas = overriden (o ^. oOverrides) (shapes proto (s1 ^. s1Shapes))
 
     proto = s1 ^. mProtocol
 
@@ -438,8 +438,8 @@ overriden = flip (Map.foldlWithKey' run)
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
-shapes :: HashMap Text S1.Shape -> HashMap Text Data
-shapes m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
+shapes :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
+shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
   where
     skip (Struct' x)
         | Just True <- x ^. scException = False
@@ -473,7 +473,7 @@ shapes m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
             { _fName          = k
             , _fShape         = r ^. refShape
             , _fType          = t
-            , _fLocation      = r ^. refLocation
+            , _fLocation      = location proto (r ^. refLocation)
             , _fLocationName  = fromMaybe k (r ^. refLocationName)
             , _fPayload       = Just k == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)

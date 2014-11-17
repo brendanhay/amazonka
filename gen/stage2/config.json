@@ -1607,6 +1607,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deleteDeliveryChannel",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1650,6 +1651,7 @@
                 "queryPad": 0,
                 "name": "DeleteDeliveryChannel",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1764,6 +1766,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "deliverConfigSnapshot",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1807,6 +1810,7 @@
                 "queryPad": 0,
                 "name": "DeliverConfigSnapshot",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -1921,6 +1925,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConfigurationRecorderStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -1949,6 +1954,7 @@
                 "queryPad": 0,
                 "name": "DescribeConfigurationRecorderStatus",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2078,6 +2084,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeConfigurationRecorders",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2106,6 +2113,7 @@
                 "queryPad": 0,
                 "name": "DescribeConfigurationRecorders",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2235,6 +2243,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDeliveryChannelStatus",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2263,6 +2272,7 @@
                 "queryPad": 0,
                 "name": "DescribeDeliveryChannelStatus",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2392,6 +2402,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeDeliveryChannels",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2420,6 +2431,7 @@
                 "queryPad": 0,
                 "name": "DescribeDeliveryChannels",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2557,6 +2569,7 @@
                 "style": "json",
                 "fieldPad": 23,
                 "ctor": "getResourceConfigHistory",
+                "qs": 0,
                 "headerPad": 0,
                 "path": [
                     {
@@ -2600,6 +2613,7 @@
                 "queryPad": 0,
                 "name": "GetResourceConfigHistory",
                 "query": [],
+                "fs": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -2819,6 +2833,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "putConfigurationRecorder",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2862,6 +2877,7 @@
                 "queryPad": 0,
                 "name": "PutConfigurationRecorder",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2926,6 +2942,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "putDeliveryChannel",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -2969,6 +2986,7 @@
                 "queryPad": 0,
                 "name": "PutDeliveryChannel",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3036,6 +3054,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "startConfigurationRecorder",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3079,6 +3098,7 @@
                 "queryPad": 0,
                 "name": "StartConfigurationRecorder",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3146,6 +3166,7 @@
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "stopConfigurationRecorder",
+                "qs": 0,
                 "headerPad": 0,
                 "field": {
                     "location": null,
@@ -3189,6 +3210,7 @@
                 "queryPad": 0,
                 "name": "StopConfigurationRecorder",
                 "query": [],
+                "fs": 1,
                 "type": "newtype",
                 "optional": [],
                 "fields": [

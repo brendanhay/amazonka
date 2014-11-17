@@ -24,6 +24,8 @@
 -- metric filters to list, the response would contain a nextToken value in the
 -- response body. You can also limit the number of metric filters returned in
 -- the response by specifying the limit parameter in the request.
+--
+-- <DescribeMetricFilters.html>
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
     -- * Request

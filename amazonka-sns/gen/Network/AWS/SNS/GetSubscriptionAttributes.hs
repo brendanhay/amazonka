@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns all of the properties of a subscription.
+--
+-- <GetSubscriptionAttributes.html>
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Request

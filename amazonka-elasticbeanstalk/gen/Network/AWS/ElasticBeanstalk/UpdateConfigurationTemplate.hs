@@ -21,6 +21,8 @@
 -- | Updates the specified configuration template to have the specified
 -- properties or configuration option values. Related Topics
 -- DescribeConfigurationOptions.
+--
+-- <UpdateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Request

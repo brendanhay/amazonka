@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes Amazon RDS instances.
+--
+-- <DescribeRdsDbInstances.html>
 module Network.AWS.OpsWorks.DescribeRdsDbInstances
     (
     -- * Request

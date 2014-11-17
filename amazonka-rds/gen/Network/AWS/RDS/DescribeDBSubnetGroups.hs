@@ -22,6 +22,8 @@
 -- specified, the list will contain only the descriptions of the specified
 -- DBSubnetGroup. For an overview of CIDR ranges, go to the Wikipedia
 -- Tutorial.
+--
+-- <DescribeDBSubnetGroups.html>
 module Network.AWS.RDS.DescribeDBSubnetGroups
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of orderable DB instance options for the specified engine.
+--
+-- <DescribeOrderableDBInstanceOptions.html>
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     (
     -- * Request

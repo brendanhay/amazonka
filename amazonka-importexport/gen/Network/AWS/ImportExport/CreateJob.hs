@@ -23,6 +23,8 @@
 -- transfer specifics. The response to the request includes a job ID, which
 -- you can use in other operations, a signature that you use to identify your
 -- storage device, and the address where you should ship your storage device.
+--
+-- <CreateJob.html>
 module Network.AWS.ImportExport.CreateJob
     (
     -- * Request

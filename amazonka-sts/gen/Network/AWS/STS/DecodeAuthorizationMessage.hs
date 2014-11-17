@@ -35,6 +35,8 @@
 -- Allowed or Denied in Using IAM. The principal who made the request. The
 -- requested action. The requested resource. The values of condition keys in
 -- the context of the user's request.
+--
+-- <DecodeAuthorizationMessage.html>
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
     -- * Request

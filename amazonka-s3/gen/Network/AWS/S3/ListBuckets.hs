@@ -20,6 +20,8 @@
 
 -- | Returns a list of all buckets owned by the authenticated sender of the
 -- request.
+--
+-- <ListBuckets.html>
 module Network.AWS.S3.ListBuckets
     (
     -- * Request

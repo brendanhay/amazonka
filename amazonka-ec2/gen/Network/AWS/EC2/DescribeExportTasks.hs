@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your export tasks.
+--
+-- <DescribeExportTasks.html>
 module Network.AWS.EC2.DescribeExportTasks
     (
     -- * Request

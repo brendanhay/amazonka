@@ -18,6 +18,8 @@ description:
     you can create and manage AWS users and groups and use permissions to
     allow and deny their access to AWS resources.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

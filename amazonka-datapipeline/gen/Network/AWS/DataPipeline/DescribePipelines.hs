@@ -26,6 +26,8 @@
 -- metadata about only those pipelines you have read permission for. To
 -- retrieve the full pipeline definition instead of metadata about the
 -- pipeline, call the GetPipelineDefinition action.
+--
+-- <DescribePipelines.html>
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Request

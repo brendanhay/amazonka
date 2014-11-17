@@ -32,6 +32,8 @@
 -- an instance that uses an instance store as its root device returns an
 -- error. For more information, see Stopping Instances in the Amazon Elastic
 -- Compute Cloud User Guide.
+--
+-- <StartInstances.html>
 module Network.AWS.EC2.StartInstances
     (
     -- * Request

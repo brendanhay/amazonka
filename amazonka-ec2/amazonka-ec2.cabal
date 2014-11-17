@@ -27,6 +27,8 @@ description:
     the tools to build failure resilient applications and isolate
     themselves from common failure scenarios.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

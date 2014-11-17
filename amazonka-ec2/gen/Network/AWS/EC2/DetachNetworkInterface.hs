@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Detaches a network interface from an instance.
+--
+-- <DetachNetworkInterface.html>
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Request

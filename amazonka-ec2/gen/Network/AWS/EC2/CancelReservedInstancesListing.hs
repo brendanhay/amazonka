@@ -21,6 +21,8 @@
 -- | Cancels the specified Reserved Instance listing in the Reserved Instance
 -- Marketplace. For more information, see Reserved Instance Marketplace in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <CancelReservedInstancesListing.html>
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Request

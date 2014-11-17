@@ -26,6 +26,8 @@
 -- its bandwidth usage and could potentially use the maximum available
 -- bandwidth. To specify which gateway to update, use the Amazon Resource Name
 -- (ARN) of the gateway in your request.
+--
+-- <UpdateBandwidthRateLimit.html>
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
     -- * Request

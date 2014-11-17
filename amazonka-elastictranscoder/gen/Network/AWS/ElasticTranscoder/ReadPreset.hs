@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The ReadPreset operation gets detailed information about a preset.
+--
+-- <ReadPreset.html>
 module Network.AWS.ElasticTranscoder.ReadPreset
     (
     -- * Request

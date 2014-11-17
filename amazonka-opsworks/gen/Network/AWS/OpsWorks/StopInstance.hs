@@ -26,6 +26,8 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
+--
+-- <StopInstance.html>
 module Network.AWS.OpsWorks.StopInstance
     (
     -- * Request

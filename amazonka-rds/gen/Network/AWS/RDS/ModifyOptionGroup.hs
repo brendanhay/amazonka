@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies an existing option group.
+--
+-- <ModifyOptionGroup.html>
 module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Request

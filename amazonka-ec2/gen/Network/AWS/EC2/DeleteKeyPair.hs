@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified key pair, by removing the public key from Amazon EC2.
+--
+-- <DeleteKeyPair.html>
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Request

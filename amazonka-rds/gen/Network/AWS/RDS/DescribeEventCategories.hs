@@ -21,6 +21,8 @@
 -- | Displays a list of categories for all event source types, or, if specified,
 -- for a specified source type. You can see a list of the event categories and
 -- source types in the Events topic in the Amazon RDS User Guide.
+--
+-- <DescribeEventCategories.html>
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Request

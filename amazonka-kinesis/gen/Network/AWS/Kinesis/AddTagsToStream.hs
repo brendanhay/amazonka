@@ -22,6 +22,8 @@
 -- can have up to 10 tags. If tags have already been assigned to the stream,
 -- AddTagsToStream overwrites any existing tags that correspond to the
 -- specified tag keys.
+--
+-- <AddTagsToStream.html>
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Request

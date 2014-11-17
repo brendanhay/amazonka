@@ -32,6 +32,8 @@
 -- outside the specified constraints, the action fails by throwing
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
+--
+-- <CountOpenWorkflowExecutions.html>
 module Network.AWS.SWF.CountOpenWorkflowExecutions
     (
     -- * Request

@@ -25,6 +25,8 @@
 -- the description of a specific parameter group. For more information about
 -- managing parameter groups, go to Amazon Redshift Parameter Groups in the
 -- Amazon Redshift Management Guide.
+--
+-- <DescribeClusterParameterGroups.html>
 module Network.AWS.Redshift.DescribeClusterParameterGroups
     (
     -- * Request

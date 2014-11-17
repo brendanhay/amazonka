@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List distributions.
+--
+-- <ListDistributions.html>
 module Network.AWS.CloudFront.ListDistributions
     (
     -- * Request

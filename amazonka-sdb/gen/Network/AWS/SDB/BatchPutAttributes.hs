@@ -51,6 +51,8 @@
 -- name-value pairs per item 1 MB request size 1 billion attributes per domain
 -- 10 GB of total user data storage per domain 25 item limit per
 -- BatchPutAttributes operation.
+--
+-- <BatchPutAttributes.html>
 module Network.AWS.SDB.BatchPutAttributes
     (
     -- * Request

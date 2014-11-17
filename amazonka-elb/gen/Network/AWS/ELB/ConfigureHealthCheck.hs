@@ -21,6 +21,8 @@
 -- | Specifies the health check settings to use for evaluating the health state
 -- of your back-end instances. For more information, see Health Check in the
 -- Elastic Load Balancing Developer Guide.
+--
+-- <ConfigureHealthCheck.html>
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Request

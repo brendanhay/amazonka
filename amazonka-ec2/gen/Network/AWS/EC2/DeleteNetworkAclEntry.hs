@@ -20,6 +20,8 @@
 
 -- | Deletes the specified ingress or egress entry (rule) from the specified
 -- network ACL.
+--
+-- <DeleteNetworkAclEntry.html>
 module Network.AWS.EC2.DeleteNetworkAclEntry
     (
     -- * Request

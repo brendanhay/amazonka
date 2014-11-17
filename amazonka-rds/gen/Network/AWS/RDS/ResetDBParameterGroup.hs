@@ -25,6 +25,8 @@
 -- resetting the entire group, dynamic parameters are updated immediately and
 -- static parameters are set to pending-reboot to take effect on the next DB
 -- instance restart or RebootDBInstance request.
+--
+-- <ResetDBParameterGroup.html>
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Request

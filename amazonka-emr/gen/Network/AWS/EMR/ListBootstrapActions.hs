@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides information about the bootstrap actions associated with a cluster.
+--
+-- <ListBootstrapActions.html>
 module Network.AWS.EMR.ListBootstrapActions
     (
     -- * Request

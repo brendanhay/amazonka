@@ -23,6 +23,8 @@
 -- interval. You can specify a limit on the number of results returned on the
 -- page. If a limit is specified, a nextToken is returned as part of the
 -- result that you can use to continue this request.
+--
+-- <GetResourceConfigHistory.html>
 module Network.AWS.Config.GetResourceConfigHistory
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Lists all tags on an Amazon RDS resource. For an overview on tagging an
 -- Amazon RDS resource, see Tagging Amazon RDS Resources.
+--
+-- <ListTagsForResource.html>
 module Network.AWS.RDS.ListTagsForResource
     (
     -- * Request

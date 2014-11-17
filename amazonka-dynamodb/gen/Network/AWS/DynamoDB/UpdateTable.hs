@@ -31,6 +31,8 @@
 -- returns to the ACTIVE state after the UpdateTable operation. You cannot
 -- add, modify or delete indexes using UpdateTable. Indexes can only be
 -- defined at table creation time.
+--
+-- <UpdateTable.html>
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Request

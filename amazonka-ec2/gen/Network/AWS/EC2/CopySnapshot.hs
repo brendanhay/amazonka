@@ -26,6 +26,8 @@
 -- snapshots remain encrypted. Copies of unencrypted snapshots remain
 -- unencrypted. For more information, see Copying an Amazon EBS Snapshot in
 -- the Amazon Elastic Compute Cloud User Guide.
+--
+-- <CopySnapshot.html>
 module Network.AWS.EC2.CopySnapshot
     (
     -- * Request

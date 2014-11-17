@@ -20,6 +20,8 @@
 
 -- | Decrypts ciphertext. Ciphertext is plaintext that has been previously
 -- encrypted by using the Encrypt function.
+--
+-- <Decrypt.html>
 module Network.AWS.KMS.Decrypt
     (
     -- * Request

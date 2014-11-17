@@ -26,6 +26,8 @@
 -- account, you can use this action to manage root credentials even if the AWS
 -- account has no associated users. For information about rotating keys, see
 -- Managing Keys and Certificates in the Using IAM guide.
+--
+-- <UpdateAccessKey.html>
 module Network.AWS.IAM.UpdateAccessKey
     (
     -- * Request

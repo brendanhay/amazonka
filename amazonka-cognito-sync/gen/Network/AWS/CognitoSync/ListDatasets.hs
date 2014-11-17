@@ -23,6 +23,8 @@
 -- identity has access only to its own data. You should use Amazon Cognito
 -- Identity service to retrieve the credentials necessary to make this API
 -- call.
+--
+-- <ListDatasets.html>
 module Network.AWS.CognitoSync.ListDatasets
     (
     -- * Request

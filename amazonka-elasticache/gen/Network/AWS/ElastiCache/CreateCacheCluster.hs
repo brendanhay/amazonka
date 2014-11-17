@@ -21,6 +21,8 @@
 -- | The CreateCacheCluster operation creates a cache cluster. All nodes in the
 -- cache cluster run the same protocol-compliant cache engine software, either
 -- Memcached or Redis.
+--
+-- <CreateCacheCluster.html>
 module Network.AWS.ElastiCache.CreateCacheCluster
     (
     -- * Request

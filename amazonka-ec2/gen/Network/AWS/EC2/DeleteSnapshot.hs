@@ -28,6 +28,8 @@
 -- EBS volume used by a registered AMI. You must first de-register the AMI
 -- before you can delete the snapshot. For more information, see Deleting an
 -- Amazon EBS Snapshot in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <DeleteSnapshot.html>
 module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Request

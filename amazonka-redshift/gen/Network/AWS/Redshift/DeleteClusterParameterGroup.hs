@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a specified Amazon Redshift parameter group.
+--
+-- <DeleteClusterParameterGroup.html>
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
     -- * Request

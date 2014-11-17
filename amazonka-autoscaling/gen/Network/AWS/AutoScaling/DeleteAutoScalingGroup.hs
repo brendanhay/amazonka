@@ -20,6 +20,8 @@
 
 -- | Deletes the specified Auto Scaling group if the group has no instances and
 -- no scaling activities in progress.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
     -- * Request

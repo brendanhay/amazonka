@@ -20,6 +20,8 @@
 
 -- | Returns a list of metrics and a corresponding list of granularities for
 -- each metric.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attempts to stop an ongoing deployment.
+--
+-- <StopDeployment.html>
 module Network.AWS.CodeDeploy.StopDeployment
     (
     -- * Request

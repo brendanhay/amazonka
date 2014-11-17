@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an Amazon Redshift event notification subscription.
+--
+-- <DeleteEventSubscription.html>
 module Network.AWS.Redshift.DeleteEventSubscription
     (
     -- * Request

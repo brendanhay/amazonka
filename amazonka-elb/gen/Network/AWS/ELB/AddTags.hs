@@ -24,6 +24,8 @@
 -- same key is already associated with the load balancer, this action will
 -- update the value of the key. For more information, see Tagging in the
 -- Elastic Load Balancing Developer Guide.
+--
+-- <AddTags.html>
 module Network.AWS.ELB.AddTags
     (
     -- * Request

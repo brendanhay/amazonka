@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation lists in-progress multipart uploads.
+--
+-- <ListMultipartUploads.html>
 module Network.AWS.S3.ListMultipartUploads
     (
     -- * Request

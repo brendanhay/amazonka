@@ -21,6 +21,8 @@
 -- | Move instances in an Auto Scaling group into a Standby mode. To learn more
 -- about how to put instances into a Standby mode, see Auto Scaling InService
 -- State.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html>
 module Network.AWS.AutoScaling.EnterStandby
     (
     -- * Request

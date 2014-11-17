@@ -22,6 +22,8 @@
 -- an IAM user must have an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
+--
+-- <UpdateUserProfile.html>
 module Network.AWS.OpsWorks.UpdateUserProfile
     (
     -- * Request

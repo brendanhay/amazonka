@@ -20,6 +20,8 @@
 
 -- | Deletes the log group with the specified name and permanently deletes all
 -- the archived log events associated with it.
+--
+-- <DeleteLogGroup.html>
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Request

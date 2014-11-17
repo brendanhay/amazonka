@@ -20,6 +20,8 @@
 
 -- | Unassigns one or more secondary private IP addresses from a network
 -- interface.
+--
+-- <UnassignPrivateIpAddresses.html>
 module Network.AWS.EC2.UnassignPrivateIpAddresses
     (
     -- * Request

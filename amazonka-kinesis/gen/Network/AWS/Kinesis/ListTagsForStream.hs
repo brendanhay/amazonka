@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the tags for the specified Amazon Kinesis stream.
+--
+-- <ListTagsForStream.html>
 module Network.AWS.Kinesis.ListTagsForStream
     (
     -- * Request

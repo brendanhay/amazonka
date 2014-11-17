@@ -29,6 +29,8 @@
 -- EC2 instance are authorized to connect to the cluster. For information
 -- about managing security groups, go to Working with Security Groups in the
 -- Amazon Redshift Management Guide.
+--
+-- <AuthorizeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     (
     -- * Request

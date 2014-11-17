@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The CopySnapshot operation makes a copy of an existing snapshot.
+--
+-- <CopySnapshot.html>
 module Network.AWS.ElastiCache.CopySnapshot
     (
     -- * Request

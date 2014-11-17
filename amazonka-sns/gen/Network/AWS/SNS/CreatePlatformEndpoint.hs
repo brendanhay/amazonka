@@ -31,6 +31,8 @@
 -- CreatePlatformEndpoint with Baidu, two attributes must be provided:
 -- ChannelId and UserId. The token field must also contain the ChannelId. For
 -- more information, see Creating an Amazon SNS Endpoint for Baidu.
+--
+-- <CreatePlatformEndpoint.html>
 module Network.AWS.SNS.CreatePlatformEndpoint
     (
     -- * Request

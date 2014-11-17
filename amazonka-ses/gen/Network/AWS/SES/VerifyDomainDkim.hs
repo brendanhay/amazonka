@@ -28,6 +28,8 @@
 -- second. To enable or disable Easy DKIM signing for a domain, use the
 -- SetIdentityDkimEnabled action. For more information about creating DNS
 -- records using DKIM tokens, go to the Amazon SES Developer Guide.
+--
+-- <VerifyDomainDkim.html>
 module Network.AWS.SES.VerifyDomainDkim
     (
     -- * Request

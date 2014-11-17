@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Registers a device to receive push sync notifications.
+--
+-- <RegisterDevice.html>
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Request

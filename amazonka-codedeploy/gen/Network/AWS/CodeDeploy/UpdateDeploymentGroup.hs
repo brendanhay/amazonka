@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Changes information about an existing deployment group.
+--
+-- <UpdateDeploymentGroup.html>
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
     -- * Request

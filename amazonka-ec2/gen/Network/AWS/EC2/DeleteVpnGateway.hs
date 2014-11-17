@@ -23,6 +23,8 @@
 -- VPN connection. Note that you don't need to delete the virtual private
 -- gateway if you plan to delete and recreate the VPN connection between your
 -- VPC and your network.
+--
+-- <DeleteVpnGateway.html>
 module Network.AWS.EC2.DeleteVpnGateway
     (
     -- * Request

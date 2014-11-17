@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Resets an attribute of an AMI to its default value.
+--
+-- <ResetImageAttribute.html>
 module Network.AWS.EC2.ResetImageAttribute
     (
     -- * Request

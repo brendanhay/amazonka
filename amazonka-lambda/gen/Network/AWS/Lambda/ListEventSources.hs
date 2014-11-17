@@ -22,6 +22,8 @@
 -- configuration information (see AddEventSource). You can optionally specify
 -- filters to retrieve specific event source mappings. This operation requires
 -- permission for the lambda:ListEventSources action.
+--
+-- <ListEventSources.html>
 module Network.AWS.Lambda.ListEventSources
     (
     -- * Request

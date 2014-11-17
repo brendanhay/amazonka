@@ -22,6 +22,8 @@
 -- message. To actually create a subscription, the endpoint owner must call
 -- the ConfirmSubscription action with the token from the confirmation
 -- message. Confirmation tokens are valid for three days.
+--
+-- <Subscribe.html>
 module Network.AWS.SNS.Subscribe
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
 -- Internet and the VPC. For more information about your VPC and Internet
 -- gateway, see the Amazon Virtual Private Cloud User Guide.
+--
+-- <AttachInternetGateway.html>
 module Network.AWS.EC2.AttachInternetGateway
     (
     -- * Request

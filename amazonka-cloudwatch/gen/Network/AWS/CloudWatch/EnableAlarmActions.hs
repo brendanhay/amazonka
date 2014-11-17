@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables actions for the specified alarms.
+--
+-- <EnableAlarmActions.html>
 module Network.AWS.CloudWatch.EnableAlarmActions
     (
     -- * Request

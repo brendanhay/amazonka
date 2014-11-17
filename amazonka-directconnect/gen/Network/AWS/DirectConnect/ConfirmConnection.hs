@@ -22,6 +22,8 @@
 -- creation, the hosted connection is initially in the 'Ordering' state, and
 -- will remain in this state until the owner calls ConfirmConnection to
 -- confirm creation of the hosted connection.
+--
+-- <ConfirmConnection.html>
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Request

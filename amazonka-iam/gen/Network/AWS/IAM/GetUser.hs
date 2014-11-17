@@ -22,6 +22,8 @@
 -- creation date, path, unique ID, and ARN. If you do not specify a user name,
 -- IAM determines the user name implicitly based on the AWS access key ID used
 -- to sign the request.
+--
+-- <GetUser.html>
 module Network.AWS.IAM.GetUser
     (
     -- * Request

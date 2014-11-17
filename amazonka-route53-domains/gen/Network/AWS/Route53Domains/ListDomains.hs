@@ -20,6 +20,8 @@
 
 -- | This operation returns all the domain names registered with Amazon Route 53
 -- for the current AWS account.
+--
+-- <ListDomains.html>
 module Network.AWS.Route53Domains.ListDomains
     (
     -- * Request

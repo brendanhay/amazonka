@@ -25,6 +25,8 @@
 -- the communication. The response indicates the success or failure of the
 -- request. This operation implements a subset of the behavior on the AWS
 -- Support Your Support Cases web form.
+--
+-- <AddCommunicationToCase.html>
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Request

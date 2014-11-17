@@ -21,6 +21,8 @@
 -- | Displays a list of event categories for all event source types, or for a
 -- specified source type. For a list of the event categories and source types,
 -- go to Amazon Redshift Event Notifications.
+--
+-- <DescribeEventCategories.html>
 module Network.AWS.Redshift.DescribeEventCategories
     (
     -- * Request

@@ -27,6 +27,8 @@
 -- gateway. If you create a new VPN connection, you must reconfigure the
 -- customer gateway using the new configuration information returned with the
 -- new VPN connection ID.
+--
+-- <DeleteVpnConnection.html>
 module Network.AWS.EC2.DeleteVpnConnection
     (
     -- * Request

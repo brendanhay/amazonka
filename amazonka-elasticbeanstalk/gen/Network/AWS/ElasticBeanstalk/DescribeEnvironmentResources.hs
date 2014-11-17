@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns AWS resources for this environment.
+--
+-- <DescribeEnvironmentResources.html>
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Request

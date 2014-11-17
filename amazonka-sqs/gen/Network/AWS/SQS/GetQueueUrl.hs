@@ -25,6 +25,8 @@
 -- permission to access the queue. For more information about shared queue
 -- access, see AddPermission or go to Shared Queues in the Amazon SQS
 -- Developer Guide.
+--
+-- <GetQueueUrl.html>
 module Network.AWS.SQS.GetQueueUrl
     (
     -- * Request

@@ -25,6 +25,8 @@
 -- operation returns only the gateway ARN in the response body. To specify
 -- which gateway to describe, use the Amazon Resource Name (ARN) of the
 -- gateway in your request.
+--
+-- <DescribeBandwidthRateLimit.html>
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
     -- * Request

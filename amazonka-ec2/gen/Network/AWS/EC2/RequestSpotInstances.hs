@@ -25,6 +25,8 @@
 -- more information about Spot Instances, see Spot Instances in the Amazon
 -- Elastic Compute Cloud User Guide. Users must be subscribed to the required
 -- product to run an instance with AWS Marketplace product codes.
+--
+-- <RequestSpotInstances.html>
 module Network.AWS.EC2.RequestSpotInstances
     (
     -- * Request

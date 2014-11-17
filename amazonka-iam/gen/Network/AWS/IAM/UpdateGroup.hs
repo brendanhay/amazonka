@@ -21,6 +21,8 @@
 -- | Updates the name and/or the path of the specified group. You should
 -- understand the implications of changing a group's path or name. For more
 -- information, see Renaming Users and Groups in the Using IAM guide.
+--
+-- <UpdateGroup.html>
 module Network.AWS.IAM.UpdateGroup
     (
     -- * Request

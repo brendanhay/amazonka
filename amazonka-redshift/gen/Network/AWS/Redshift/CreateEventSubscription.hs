@@ -38,6 +38,8 @@
 -- the SourceType nor the SourceIdentifier, you will be notified of events
 -- generated from all Amazon Redshift sources belonging to your AWS account.
 -- You must specify a source type if you specify a source ID.
+--
+-- <CreateEventSubscription.html>
 module Network.AWS.Redshift.CreateEventSubscription
     (
     -- * Request

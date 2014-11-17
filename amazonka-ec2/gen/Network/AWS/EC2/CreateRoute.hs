@@ -30,6 +30,8 @@
 -- that route to determine where to target the traffic. For more information
 -- about route tables, see Route Tables in the Amazon Virtual Private Cloud
 -- User Guide.
+--
+-- <CreateRoute.html>
 module Network.AWS.EC2.CreateRoute
     (
     -- * Request

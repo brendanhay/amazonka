@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an existing option group.
+--
+-- <DeleteOptionGroup.html>
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Request

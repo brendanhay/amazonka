@@ -21,6 +21,8 @@
 -- | Returns the current status of the specified delivery channel. If a delivery
 -- channel is not specified, this action returns the current status of all
 -- delivery channels associated with the account.
+--
+-- <DescribeDeliveryChannelStatus.html>
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (
     -- * Request

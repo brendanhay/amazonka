@@ -33,6 +33,8 @@
 -- instances, see Instance Lifecycle in the Amazon Elastic Compute Cloud User
 -- Guide. For more information about troubleshooting, see Troubleshooting
 -- Terminating Your Instance in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <TerminateInstances.html>
 module Network.AWS.EC2.TerminateInstances
     (
     -- * Request

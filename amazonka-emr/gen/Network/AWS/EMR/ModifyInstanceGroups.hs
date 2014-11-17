@@ -22,6 +22,8 @@
 -- settings of an instance group. The input parameters include the new target
 -- instance count for the group and the instance group ID. The call will
 -- either succeed or fail atomically.
+--
+-- <ModifyInstanceGroups.html>
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Request

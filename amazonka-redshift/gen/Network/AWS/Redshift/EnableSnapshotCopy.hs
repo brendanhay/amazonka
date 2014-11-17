@@ -20,6 +20,8 @@
 
 -- | Enables the automatic copy of snapshots from one region to another region
 -- for a specified cluster.
+--
+-- <EnableSnapshotCopy.html>
 module Network.AWS.Redshift.EnableSnapshotCopy
     (
     -- * Request

@@ -25,6 +25,8 @@
 -- applications running on the instance. For more information about roles, go
 -- to Working with Roles. For more information about instance profiles, go to
 -- About Instance Profiles.
+--
+-- <RemoveRoleFromInstanceProfile.html>
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Request

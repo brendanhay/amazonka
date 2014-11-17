@@ -20,6 +20,8 @@
 
 -- | Gets usage details (for example, data storage) about a particular identity
 -- pool.
+--
+-- <DescribeIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (
     -- * Request

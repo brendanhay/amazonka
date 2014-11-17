@@ -34,6 +34,8 @@
 -- updated item (after the update). For more information, see the ReturnValues
 -- description below. For more information about using this API, see Working
 -- with Items in the Amazon DynamoDB Developer Guide.
+--
+-- <PutItem.html>
 module Network.AWS.DynamoDB.PutItem
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Copies the specified Option Group.
+--
+-- <CopyOptionGroup.html>
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Request

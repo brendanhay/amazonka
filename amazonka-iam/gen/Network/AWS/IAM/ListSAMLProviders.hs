@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the SAML providers in the account.
+--
+-- <ListSAMLProviders.html>
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Request

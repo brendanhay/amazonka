@@ -20,6 +20,8 @@
 
 -- | Deletes the retention policy of the specified log group. Log events would
 -- not expire if they belong to log groups without a retention policy.
+--
+-- <DeleteRetentionPolicy.html>
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- pagination. If the response includes a token, there are more records
 -- available. To get the additional records, repeat the request with the
 -- response token as the NextToken parameter.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html>
 module Network.AWS.AutoScaling.DescribePolicies
     (
     -- * Request

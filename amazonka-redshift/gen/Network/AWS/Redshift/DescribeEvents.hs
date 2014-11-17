@@ -23,6 +23,8 @@
 -- cluster, security group, snapshot or parameter group can be obtained by
 -- providing the name as a parameter. By default, the past hour of events are
 -- returned.
+--
+-- <DescribeEvents.html>
 module Network.AWS.Redshift.DescribeEvents
     (
     -- * Request

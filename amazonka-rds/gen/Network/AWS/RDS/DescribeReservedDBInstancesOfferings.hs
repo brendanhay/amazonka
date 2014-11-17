@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists available reserved DB instance offerings.
+--
+-- <DescribeReservedDBInstancesOfferings.html>
 module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     (
     -- * Request

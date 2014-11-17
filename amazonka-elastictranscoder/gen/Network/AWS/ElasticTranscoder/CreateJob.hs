@@ -24,6 +24,8 @@
 -- example, one output for the Kindle Fire and another output for the Apple
 -- iPhone 4s), you currently must use the Elastic Transcoder API to list the
 -- jobs (as opposed to the AWS Console).
+--
+-- <CreateJob.html>
 module Network.AWS.ElasticTranscoder.CreateJob
     (
     -- * Request

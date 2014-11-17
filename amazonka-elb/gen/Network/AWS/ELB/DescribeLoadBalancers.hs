@@ -23,6 +23,8 @@
 -- returns configuration information of the specified load balancers. In order
 -- to retrieve this information, you must provide the same account credentials
 -- that was used to create the load balancer.
+--
+-- <DescribeLoadBalancers.html>
 module Network.AWS.ELB.DescribeLoadBalancers
     (
     -- * Request

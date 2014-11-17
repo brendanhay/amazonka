@@ -28,6 +28,8 @@
 -- only virtual interfaces provisioned on the specified connection will be
 -- returned. If a virtual interface ID is provided, only this particular
 -- virtual interface will be returned.
+--
+-- <DescribeVirtualInterfaces.html>
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- information you provided as parameters when uploading the function by using
 -- UploadFunction. This operation requires permission for the
 -- lambda:GetFunctionConfiguration operation.
+--
+-- <GetFunctionConfiguration.html>
 module Network.AWS.Lambda.GetFunctionConfiguration
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Returns the default engine and system parameter information for the
 -- specified database engine.
+--
+-- <DescribeEngineDefaultParameters.html>
 module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
     -- * Request

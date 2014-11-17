@@ -23,6 +23,8 @@
 -- ingress rule, see AuthorizeClusterSecurityGroupIngress. For information
 -- about managing security groups, go to Amazon Redshift Cluster Security
 -- Groups in the Amazon Redshift Management Guide.
+--
+-- <RevokeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- action, an IAM user must have self-management enabled or an attached policy
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
+--
+-- <DescribeMyUserProfile.html>
 module Network.AWS.OpsWorks.DescribeMyUserProfile
     (
     -- * Request

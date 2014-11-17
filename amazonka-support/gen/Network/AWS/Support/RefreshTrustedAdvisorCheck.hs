@@ -26,6 +26,8 @@
 -- "success", or "abandoned". MillisUntilNextRefreshable. The amount of time,
 -- in milliseconds, until the check is eligible for refresh. CheckId. The
 -- unique identifier for the check.
+--
+-- <RefreshTrustedAdvisorCheck.html>
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
     -- * Request

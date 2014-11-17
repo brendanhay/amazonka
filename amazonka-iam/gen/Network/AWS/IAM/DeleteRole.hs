@@ -23,6 +23,8 @@
 -- do not have any Amazon EC2 instances running with the role you are about to
 -- delete. Deleting a role or instance profile that is associated with a
 -- running instance will break any applications running on the instance.
+--
+-- <DeleteRole.html>
 module Network.AWS.IAM.DeleteRole
     (
     -- * Request

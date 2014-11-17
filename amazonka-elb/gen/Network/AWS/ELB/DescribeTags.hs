@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the tags associated with one or more load balancers.
+--
+-- <DescribeTags.html>
 module Network.AWS.ELB.DescribeTags
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | This operation returns the current status of an operation that is not
 -- completed.
+--
+-- <GetOperationDetail.html>
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Request

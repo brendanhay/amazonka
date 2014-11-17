@@ -23,6 +23,8 @@
 -- case or case communication. Attachment IDs are returned in the
 -- AttachmentDetails objects that are returned by the DescribeCommunications
 -- operation.
+--
+-- <DescribeAttachment.html>
 module Network.AWS.Support.DescribeAttachment
     (
     -- * Request

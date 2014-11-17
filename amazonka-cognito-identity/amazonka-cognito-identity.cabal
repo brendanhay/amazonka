@@ -24,6 +24,8 @@ description:
     users are provided with Cognito tokens that uniquely identify their
     device and any information provided about third-party logins.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

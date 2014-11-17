@@ -29,6 +29,8 @@
 -- gateway with the new information returned from this call. For more
 -- information about VPN connections, see Adding a Hardware Virtual Private
 -- Gateway to Your VPC in the Amazon Virtual Private Cloud User Guide.
+--
+-- <CreateVpnConnection.html>
 module Network.AWS.EC2.CreateVpnConnection
     (
     -- * Request

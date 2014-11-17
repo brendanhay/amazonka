@@ -43,6 +43,8 @@
 -- limitations are enforced for this operation: 256 total attribute name-value
 -- pairs per item One billion attributes per domain 10 GB of total user data
 -- storage per domain.
+--
+-- <PutAttributes.html>
 module Network.AWS.SDB.PutAttributes
     (
     -- * Request

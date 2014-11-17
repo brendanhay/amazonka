@@ -21,6 +21,8 @@
 -- | Retrieves account level information about account entity usage and IAM
 -- quotas. For information about limitations on IAM entities, see Limitations
 -- on IAM Entities in the Using IAM guide.
+--
+-- <GetAccountSummary.html>
 module Network.AWS.IAM.GetAccountSummary
     (
     -- * Request

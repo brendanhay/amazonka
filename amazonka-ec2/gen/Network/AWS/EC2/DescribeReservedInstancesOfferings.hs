@@ -24,6 +24,8 @@
 -- errors, and you pay a lower usage rate than the rate charged for On-Demand
 -- instances for the actual time used. For more information, see Reserved
 -- Instance Marketplace in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <DescribeReservedInstancesOfferings.html>
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
     (
     -- * Request

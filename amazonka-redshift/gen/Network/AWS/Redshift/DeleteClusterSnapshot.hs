@@ -25,6 +25,8 @@
 -- You must delete manual snapshot explicitly to avoid getting charged. If
 -- other accounts are authorized to access the snapshot, you must revoke all
 -- of the authorizations before you can delete the snapshot.
+--
+-- <DeleteClusterSnapshot.html>
 module Network.AWS.Redshift.DeleteClusterSnapshot
     (
     -- * Request

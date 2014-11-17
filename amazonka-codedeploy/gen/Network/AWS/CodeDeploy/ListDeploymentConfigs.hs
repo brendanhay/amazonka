@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the deployment configurations within the AWS user account.
+--
+-- <ListDeploymentConfigs.html>
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Describes one or more of your VPN customer gateways. For more information
 -- about VPN customer gateways, see Adding a Hardware Virtual Private Gateway
 -- to Your VPC in the Amazon Virtual Private Cloud User Guide.
+--
+-- <DescribeCustomerGateways.html>
 module Network.AWS.EC2.DescribeCustomerGateways
     (
     -- * Request

@@ -38,6 +38,8 @@
 -- for the message the next time it is received reverts to the original
 -- timeout value, not the value you set with the ChangeMessageVisibility
 -- action.
+--
+-- <ChangeMessageVisibility.html>
 module Network.AWS.SQS.ChangeMessageVisibility
     (
     -- * Request

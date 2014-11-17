@@ -21,6 +21,8 @@
 -- | Aborts a multipart upload. To verify that all parts have been removed, so
 -- you don't get charged for the part storage, you should call the List Parts
 -- operation and ensure the parts list is empty.
+--
+-- <AbortMultipartUpload.html>
 module Network.AWS.S3.AbortMultipartUpload
     (
     -- * Request

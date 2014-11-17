@@ -23,6 +23,8 @@
 -- used to encrypt or envelope data keys that are then used to encrypt
 -- customer data. For more information about data keys, see GenerateDataKey
 -- and GenerateDataKeyWithoutPlaintext.
+--
+-- <CreateKey.html>
 module Network.AWS.KMS.CreateKey
     (
     -- * Request

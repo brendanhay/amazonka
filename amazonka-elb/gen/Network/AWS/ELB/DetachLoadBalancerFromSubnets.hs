@@ -24,6 +24,8 @@
 -- removed subnet will go into the OutOfService state. When a subnet is
 -- removed, the load balancer will balance the traffic among the remaining
 -- routable subnets for the load balancer.
+--
+-- <DetachLoadBalancerFromSubnets.html>
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Request

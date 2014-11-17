@@ -22,6 +22,8 @@
 -- client IDs registered for the specified IAM OpenID Connect provider. This
 -- action is idempotent; it does not fail or return an error if you try to
 -- remove a client ID that was removed previously.
+--
+-- <RemoveClientIDFromOpenIDConnectProvider.html>
 module Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
     (
     -- * Request

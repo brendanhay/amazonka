@@ -10,7 +10,8 @@
 
 Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances. It enables you to achieve greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic.
 
-Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elb).
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elb)
+and [AWS API Reference]().
 
 
 ## Contribute

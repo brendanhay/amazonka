@@ -20,6 +20,8 @@
 
 -- | Causes the environment to restart the application container server running
 -- on each Amazon EC2 instance.
+--
+-- <RestartAppServer.html>
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Request

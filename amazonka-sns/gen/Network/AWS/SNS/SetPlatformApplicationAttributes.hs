@@ -21,6 +21,8 @@
 -- | Sets the attributes of the platform application object for the supported
 -- push notification services, such as APNS and GCM. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
+--
+-- <SetPlatformApplicationAttributes.html>
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Request

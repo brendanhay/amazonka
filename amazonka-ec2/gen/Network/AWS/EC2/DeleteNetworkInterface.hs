@@ -20,6 +20,8 @@
 
 -- | Deletes the specified network interface. You must detach the network
 -- interface before you can delete it.
+--
+-- <DeleteNetworkInterface.html>
 module Network.AWS.EC2.DeleteNetworkInterface
     (
     -- * Request

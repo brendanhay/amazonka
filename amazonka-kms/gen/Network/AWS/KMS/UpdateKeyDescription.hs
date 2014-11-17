@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | 
+--
+-- <UpdateKeyDescription.html>
 module Network.AWS.KMS.UpdateKeyDescription
     (
     -- * Request

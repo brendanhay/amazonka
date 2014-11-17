@@ -25,6 +25,8 @@
 -- checking the data consistency on your volume. You can change the default
 -- behavior to resume I/O operations. We recommend that you change this only
 -- for boot volumes or for volumes that are stateless or disposable.
+--
+-- <ModifyVolumeAttribute.html>
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- resources, or used in Condition statement in IAM policy for Amazon RDS. For
 -- an overview on tagging Amazon RDS resources, see Tagging Amazon RDS
 -- Resources.
+--
+-- <AddTagsToResource.html>
 module Network.AWS.RDS.AddTagsToResource
     (
     -- * Request

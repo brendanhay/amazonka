@@ -22,6 +22,8 @@
 -- customer. After the virtual interface owner calls this function, the
 -- virtual interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
+--
+-- <ConfirmPrivateVirtualInterface.html>
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
     -- * Request

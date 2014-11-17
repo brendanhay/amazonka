@@ -23,6 +23,8 @@
 -- optional certificate chain, which should all be PEM-encoded. For
 -- information about the number of server certificates you can upload, see
 -- Limitations on IAM Entities in the Using IAM guide.
+--
+-- <UploadServerCertificate.html>
 module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Request

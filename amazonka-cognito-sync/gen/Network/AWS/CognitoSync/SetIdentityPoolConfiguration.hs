@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the necessary configuration for push sync.
+--
+-- <SetIdentityPoolConfiguration.html>
 module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     (
     -- * Request

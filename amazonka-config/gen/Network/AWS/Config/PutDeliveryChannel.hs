@@ -26,6 +26,8 @@
 -- and the SNS topic. If you specify a different value for either the S3
 -- bucket or the SNS topic, this action will keep the existing value for the
 -- parameter that is not changed.
+--
+-- <PutDeliveryChannel.html>
 module Network.AWS.Config.PutDeliveryChannel
     (
     -- * Request

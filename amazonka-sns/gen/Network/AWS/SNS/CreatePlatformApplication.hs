@@ -32,6 +32,8 @@
 -- CreatePlatformApplication is then used as an attribute for the
 -- CreatePlatformEndpoint action. For more information, see Using Amazon SNS
 -- Mobile Push Notifications.
+--
+-- <CreatePlatformApplication.html>
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Request

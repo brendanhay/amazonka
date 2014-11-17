@@ -20,6 +20,8 @@
 
 -- | Describes the lifecycle hooks that currently belong to the specified Auto
 -- Scaling group.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html>
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
     -- * Request

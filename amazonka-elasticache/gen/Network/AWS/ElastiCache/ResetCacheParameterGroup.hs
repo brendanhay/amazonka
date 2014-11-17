@@ -23,6 +23,8 @@
 -- specific parameters by submitting a list of parameter names. To reset the
 -- entire cache parameter group, specify the ResetAllParameters and
 -- CacheParameterGroupName parameters.
+--
+-- <ResetCacheParameterGroup.html>
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
     (
     -- * Request

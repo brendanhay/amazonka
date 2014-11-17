@@ -22,6 +22,8 @@
 -- Connect port hour and data transfer charges. You need to cancel separately
 -- with the providers any services or charges for cross-connects or network
 -- circuits that connect you to the AWS Direct Connect location.
+--
+-- <DeleteConnection.html>
 module Network.AWS.DirectConnect.DeleteConnection
     (
     -- * Request

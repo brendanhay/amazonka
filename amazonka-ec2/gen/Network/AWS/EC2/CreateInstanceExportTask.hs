@@ -22,6 +22,8 @@
 -- information about the supported operating systems, image formats, and known
 -- limitations for the types of instances you can export, see Exporting EC2
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <CreateInstanceExportTask.html>
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Request

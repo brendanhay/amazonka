@@ -23,6 +23,8 @@
 -- unspecified, the corresponding value remains unchanged in the affected Auto
 -- Scaling group. For information on creating or updating a scheduled action
 -- for your Auto Scaling group, see Scale Based on a Schedule.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Modifies the parameters of a parameter group. For more information about
 -- managing parameter groups, go to Amazon Redshift Parameter Groups in the
 -- Amazon Redshift Management Guide.
+--
+-- <ModifyClusterParameterGroup.html>
 module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
     -- * Request

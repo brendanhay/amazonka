@@ -20,6 +20,8 @@
 
 -- | Describes the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time.
+--
+-- <DescribeImageAttribute.html>
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Request

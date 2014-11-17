@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new application.
+--
+-- <CreateApplication.html>
 module Network.AWS.CodeDeploy.CreateApplication
     (
     -- * Request

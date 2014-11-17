@@ -23,6 +23,8 @@
 -- Metrics parameter. Auto Scaling metrics collection can be turned on only if
 -- the InstanceMonitoring flag, in the Auto Scaling group's launch
 -- configuration, is set to True.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html>
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Request

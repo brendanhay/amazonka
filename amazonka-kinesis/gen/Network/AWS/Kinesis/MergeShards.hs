@@ -45,6 +45,8 @@
 -- operate on too many streams in parallel using CreateStream, DeleteStream,
 -- MergeShards or SplitShard, you will receive a LimitExceededException.
 -- MergeShards has limit of 5 transactions per second per account.
+--
+-- <MergeShards.html>
 module Network.AWS.Kinesis.MergeShards
     (
     -- * Request

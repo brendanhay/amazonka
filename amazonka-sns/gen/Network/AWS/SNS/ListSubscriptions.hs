@@ -22,6 +22,8 @@
 -- limited list of subscriptions, up to 100. If there are more subscriptions,
 -- a NextToken is also returned. Use the NextToken parameter in a new
 -- ListSubscriptions call to get further results.
+--
+-- <ListSubscriptions.html>
 module Network.AWS.SNS.ListSubscriptions
     (
     -- * Request

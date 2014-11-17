@@ -42,6 +42,8 @@
 -- to set the domain-name-servers option either to AmazonProvidedDNS or to a
 -- domain name server of your choice. For more information about DHCP options,
 -- see DHCP Options Sets in the Amazon Virtual Private Cloud User Guide.
+--
+-- <CreateDhcpOptions.html>
 module Network.AWS.EC2.CreateDhcpOptions
     (
     -- * Request

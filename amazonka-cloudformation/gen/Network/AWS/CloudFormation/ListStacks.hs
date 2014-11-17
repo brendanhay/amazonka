@@ -23,6 +23,8 @@
 -- deleted is kept for 90 days after the stack is deleted. If no
 -- StackStatusFilter is specified, summary information for all stacks is
 -- returned (including existing stacks and stacks that have been deleted).
+--
+-- <ListStacks.html>
 module Network.AWS.CloudFormation.ListStacks
     (
     -- * Request

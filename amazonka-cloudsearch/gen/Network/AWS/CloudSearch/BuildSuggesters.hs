@@ -20,6 +20,8 @@
 
 -- | Indexes the search suggestions. For more information, see Configuring
 -- Suggesters in the Amazon CloudSearch Developer Guide.
+--
+-- <BuildSuggesters.html>
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Removes an Expression from the search domain. For more information, see
 -- Configuring Expressions in the Amazon CloudSearch Developer Guide.
+--
+-- <DeleteExpression.html>
 module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Request

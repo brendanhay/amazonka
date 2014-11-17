@@ -21,6 +21,8 @@
 -- | Lists the names of the policies associated with the specified role. If
 -- there are none, the action returns an empty list. You can paginate the
 -- results using the MaxItems and Marker parameters.
+--
+-- <ListRolePolicies.html>
 module Network.AWS.IAM.ListRolePolicies
     (
     -- * Request

@@ -30,6 +30,8 @@
 -- or a network interface, you get an error unless you allow reassociation.
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn't return an error.
+--
+-- <AssociateAddress.html>
 module Network.AWS.EC2.AssociateAddress
     (
     -- * Request

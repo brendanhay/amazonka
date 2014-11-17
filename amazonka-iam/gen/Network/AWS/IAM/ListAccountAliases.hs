@@ -22,6 +22,8 @@
 -- about using an AWS account alias, see Using an Alias for Your AWS Account
 -- ID in the Using IAM guide. You can paginate the results using the MaxItems
 -- and Marker parameters.
+--
+-- <ListAccountAliases.html>
 module Network.AWS.IAM.ListAccountAliases
     (
     -- * Request

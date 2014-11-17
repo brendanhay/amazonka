@@ -20,6 +20,8 @@
 
 -- | From the command line, use create-subscription. Creates a trail that
 -- specifies the settings for delivery of log data to an Amazon S3 bucket.
+--
+-- <CreateTrail.html>
 module Network.AWS.CloudTrail.CreateTrail
     (
     -- * Request

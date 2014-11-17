@@ -23,6 +23,8 @@
 -- not have CHAP enabled; however, for added security, you might use it. When
 -- you update CHAP credentials, all existing connections on the target are
 -- closed and initiators must reconnect with the new credentials.
+--
+-- <UpdateChapCredentials.html>
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Request

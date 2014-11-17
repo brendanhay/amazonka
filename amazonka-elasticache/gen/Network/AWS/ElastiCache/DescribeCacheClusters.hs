@@ -34,6 +34,8 @@
 -- cluster state is available, the cluster is ready for use. If cache nodes
 -- are currently being removed from the cache cluster, no endpoint information
 -- for the removed nodes is displayed.
+--
+-- <DescribeCacheClusters.html>
 module Network.AWS.ElastiCache.DescribeCacheClusters
     (
     -- * Request

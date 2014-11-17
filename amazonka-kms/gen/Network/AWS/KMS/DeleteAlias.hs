@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified alias.
+--
+-- <DeleteAlias.html>
 module Network.AWS.KMS.DeleteAlias
     (
     -- * Request

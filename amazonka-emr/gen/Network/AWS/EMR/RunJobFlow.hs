@@ -37,6 +37,8 @@
 -- Steps to a Job Flow in the Amazon Elastic MapReduce Developer's Guide. For
 -- long running job flows, we recommend that you periodically store your
 -- results.
+--
+-- <RunJobFlow.html>
 module Network.AWS.EMR.RunJobFlow
     (
     -- * Request

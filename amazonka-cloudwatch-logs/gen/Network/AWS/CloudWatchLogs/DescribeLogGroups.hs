@@ -24,6 +24,8 @@
 -- more log groups to list, the response would contain a nextToken value in
 -- the response body. You can also limit the number of log groups returned in
 -- the response by specifying the limit parameter in the request.
+--
+-- <DescribeLogGroups.html>
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
     -- * Request

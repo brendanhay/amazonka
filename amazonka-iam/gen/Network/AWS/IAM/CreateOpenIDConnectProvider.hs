@@ -28,6 +28,8 @@
 -- provider, and a list of thumbprints of the server certificate(s) that the
 -- IdP uses. You get all of this information from the OIDC IdP that you want
 -- to use for access to AWS.
+--
+-- <CreateOpenIDConnectProvider.html>
 module Network.AWS.IAM.CreateOpenIDConnectProvider
     (
     -- * Request

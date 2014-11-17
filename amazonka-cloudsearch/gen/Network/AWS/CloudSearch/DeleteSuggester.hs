@@ -20,6 +20,8 @@
 
 -- | Deletes a suggester. For more information, see Getting Search Suggestions
 -- in the Amazon CloudSearch Developer Guide.
+--
+-- <DeleteSuggester.html>
 module Network.AWS.CloudSearch.DeleteSuggester
     (
     -- * Request

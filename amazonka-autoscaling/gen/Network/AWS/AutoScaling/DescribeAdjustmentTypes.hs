@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns policy adjustment types for use in the PutScalingPolicy action.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html>
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
     -- * Request

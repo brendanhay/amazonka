@@ -22,6 +22,8 @@
 -- If you do not specify an assignment status, the action returns a list of
 -- all virtual MFA devices. Assignment status can be Assigned, Unassigned, or
 -- Any. You can paginate the results using the MaxItems and Marker parameters.
+--
+-- <ListVirtualMFADevices.html>
 module Network.AWS.IAM.ListVirtualMFADevices
     (
     -- * Request

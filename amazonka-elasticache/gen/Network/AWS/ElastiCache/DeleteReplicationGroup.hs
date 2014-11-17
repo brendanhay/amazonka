@@ -25,6 +25,8 @@
 -- successful response from this operation, Amazon ElastiCache immediately
 -- begins deleting the selected resources; you cannot cancel or revert this
 -- operation.
+--
+-- <DeleteReplicationGroup.html>
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Request

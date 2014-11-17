@@ -29,6 +29,8 @@
 -- intend to use the gateway again, you must delete the gateway (using
 -- DeleteGateway) to no longer pay software charges associated with the
 -- gateway.
+--
+-- <ShutdownGateway.html>
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Request

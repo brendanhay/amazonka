@@ -20,6 +20,8 @@
 
 -- | Adds a statement to a topic's access control policy, granting access for
 -- the specified AWS accounts to the specified actions.
+--
+-- <AddPermission.html>
 module Network.AWS.SNS.AddPermission
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Modifies the specified network interface attribute. You can specify only
 -- one attribute at a time.
+--
+-- <ModifyNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     (
     -- * Request

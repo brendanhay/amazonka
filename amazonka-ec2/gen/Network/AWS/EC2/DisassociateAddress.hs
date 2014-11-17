@@ -24,6 +24,8 @@
 -- Addresses in the Amazon Elastic Compute Cloud User Guide. This is an
 -- idempotent operation. If you perform the operation more than once, Amazon
 -- EC2 doesn't return an error.
+--
+-- <DisassociateAddress.html>
 module Network.AWS.EC2.DisassociateAddress
     (
     -- * Request

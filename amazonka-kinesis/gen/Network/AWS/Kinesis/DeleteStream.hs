@@ -31,6 +31,8 @@
 -- the stream. You can use the DescribeStream operation to check the state of
 -- the stream, which is returned in StreamStatus. DeleteStream has a limit of
 -- 5 transactions per second per account.
+--
+-- <DeleteStream.html>
 module Network.AWS.Kinesis.DeleteStream
     (
     -- * Request

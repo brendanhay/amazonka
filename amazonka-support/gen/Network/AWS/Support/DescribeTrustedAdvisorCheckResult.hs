@@ -27,6 +27,8 @@
 -- fields: Status. The alert status of the check: "ok" (green), "warning"
 -- (yellow), "error" (red), or "not_available". Timestamp. The time of the
 -- last refresh of the check. CheckId. The unique identifier for the check.
+--
+-- <DescribeTrustedAdvisorCheckResult.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
     -- * Request

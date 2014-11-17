@@ -21,6 +21,8 @@
 -- | Attaches a virtual private gateway to a VPC. For more information, see
 -- Adding a Hardware Virtual Private Gateway to Your VPC in the Amazon Virtual
 -- Private Cloud User Guide.
+--
+-- <AttachVpnGateway.html>
 module Network.AWS.EC2.AttachVpnGateway
     (
     -- * Request

@@ -24,6 +24,8 @@
 -- with the transcoding process. The action attempts to assume the specified
 -- IAM role, checks read access to the input and output buckets, and tries to
 -- send a test notification to Amazon SNS topics that you specify.
+--
+-- <TestRole.html>
 module Network.AWS.ElasticTranscoder.TestRole
     (
     -- * Request

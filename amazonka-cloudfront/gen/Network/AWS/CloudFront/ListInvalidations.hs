@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List invalidation batches.
+--
+-- <ListInvalidations.html>
 module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Request

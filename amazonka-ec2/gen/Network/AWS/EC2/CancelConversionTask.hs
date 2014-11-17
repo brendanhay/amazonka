@@ -25,6 +25,8 @@
 -- command fails and returns an exception. For more information, see Using the
 -- Command Line Tools to Import Your Virtual Machine to Amazon EC2 in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <CancelConversionTask.html>
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Request

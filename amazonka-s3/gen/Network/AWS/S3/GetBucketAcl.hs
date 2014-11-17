@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets the access control policy for the bucket.
+--
+-- <GetBucketAcl.html>
 module Network.AWS.S3.GetBucketAcl
     (
     -- * Request

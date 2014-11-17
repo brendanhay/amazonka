@@ -28,6 +28,8 @@
 -- any time. Any modifications you make to an AMI backed by an instance store
 -- volume invalidates its registration. If you make changes to an image,
 -- deregister the previous image and register the new image.
+--
+-- <RegisterImage.html>
 module Network.AWS.EC2.RegisterImage
     (
     -- * Request

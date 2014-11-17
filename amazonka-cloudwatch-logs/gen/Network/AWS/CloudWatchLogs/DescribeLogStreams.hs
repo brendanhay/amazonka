@@ -24,6 +24,8 @@
 -- more log streams to list, the response would contain a nextToken value in
 -- the response body. You can also limit the number of log streams returned in
 -- the response by specifying the limit parameter in the request.
+--
+-- <DescribeLogStreams.html>
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
     -- * Request

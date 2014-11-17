@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your VPC peering connections.
+--
+-- <DescribeVpcPeeringConnections.html>
 module Network.AWS.EC2.DescribeVpcPeeringConnections
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- from the application server log files of every Amazon EC2 instance in your
 -- environment. Use RetrieveEnvironmentInfo to access the compiled
 -- information. Related Topics RetrieveEnvironmentInfo.
+--
+-- <RequestEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Request

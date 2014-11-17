@@ -25,6 +25,8 @@
 -- route table from the subnet later. A route table can be associated with
 -- multiple subnets. For more information about route tables, see Route Tables
 -- in the Amazon Virtual Private Cloud User Guide.
+--
+-- <AssociateRouteTable.html>
 module Network.AWS.EC2.AssociateRouteTable
     (
     -- * Request

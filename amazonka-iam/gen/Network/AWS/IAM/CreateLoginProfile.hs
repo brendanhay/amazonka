@@ -22,6 +22,8 @@
 -- access AWS services through the AWS Management Console. For more
 -- information about managing passwords, see Managing Passwords in the Using
 -- IAM guide.
+--
+-- <CreateLoginProfile.html>
 module Network.AWS.IAM.CreateLoginProfile
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Acquires an Elastic IP address. An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC. For more information, see Elastic IP
 -- Addresses in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <AllocateAddress.html>
 module Network.AWS.EC2.AllocateAddress
     (
     -- * Request

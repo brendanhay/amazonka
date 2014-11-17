@@ -31,6 +31,8 @@
 -- you must either replace it, or create an entry and delete the old one. For
 -- more information about network ACLs, see Network ACLs in the Amazon Virtual
 -- Private Cloud User Guide.
+--
+-- <CreateNetworkAclEntry.html>
 module Network.AWS.EC2.CreateNetworkAclEntry
     (
     -- * Request

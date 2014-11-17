@@ -21,6 +21,8 @@
 -- | The DescribeCacheParameterGroups operation returns a list of cache
 -- parameter group descriptions. If a cache parameter group name is specified,
 -- the list will contain only the descriptions for that group.
+--
+-- <DescribeCacheParameterGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     (
     -- * Request

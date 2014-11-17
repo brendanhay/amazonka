@@ -22,6 +22,8 @@
 -- group. After the instance(s) is attached, it becomes a part of the Auto
 -- Scaling group. For more information, see Attach Amazon EC2 Instances to
 -- Your Existing Auto Scaling Group in the Auto Scaling Developer Guide.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html>
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Request

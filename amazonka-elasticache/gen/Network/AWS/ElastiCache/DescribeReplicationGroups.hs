@@ -21,6 +21,8 @@
 -- | The DescribeReplicationGroups operation returns information about a
 -- particular replication group. If no identifier is specified,
 -- DescribeReplicationGroups returns information about all replication groups.
+--
+-- <DescribeReplicationGroups.html>
 module Network.AWS.ElastiCache.DescribeReplicationGroups
     (
     -- * Request

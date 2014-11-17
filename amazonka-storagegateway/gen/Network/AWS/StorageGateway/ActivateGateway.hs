@@ -25,6 +25,8 @@
 -- gateway snapshot schedule window, an activation key, and a name for your
 -- gateway. The activation process also associates your gateway with your
 -- account; for more information, see UpdateGatewayInformation.
+--
+-- <ActivateGateway.html>
 module Network.AWS.StorageGateway.ActivateGateway
     (
     -- * Request

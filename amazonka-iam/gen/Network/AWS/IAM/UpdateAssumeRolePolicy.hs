@@ -20,6 +20,8 @@
 
 -- | Updates the policy that grants an entity permission to assume a role. For
 -- more information about roles, go to Working with Roles.
+--
+-- <UpdateAssumeRolePolicy.html>
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
     -- * Request

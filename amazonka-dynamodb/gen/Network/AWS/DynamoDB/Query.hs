@@ -36,6 +36,8 @@
 -- to true and obtain a strongly consistent result. Global secondary indexes
 -- support eventually consistent reads only, so do not specify ConsistentRead
 -- when querying a global secondary index.
+--
+-- <Query.html>
 module Network.AWS.DynamoDB.Query
     (
     -- * Request

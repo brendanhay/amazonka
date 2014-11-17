@@ -23,6 +23,8 @@
 -- "engine-default". To reset the entire parameter group specify the
 -- ResetAllParameters parameter. For parameter changes to take effect you must
 -- reboot any associated clusters.
+--
+-- <ResetClusterParameterGroup.html>
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
     -- * Request

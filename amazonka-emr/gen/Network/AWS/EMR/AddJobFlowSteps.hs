@@ -36,6 +36,8 @@
 -- was running must have completed and run successfully. You can only add
 -- steps to a job flow that is in one of the following states: STARTING,
 -- BOOTSTRAPPING, RUNNING, or WAITING.
+--
+-- <AddJobFlowSteps.html>
 module Network.AWS.EMR.AddJobFlowSteps
     (
     -- * Request

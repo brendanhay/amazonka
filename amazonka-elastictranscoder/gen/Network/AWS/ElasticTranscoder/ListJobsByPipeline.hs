@@ -22,6 +22,8 @@
 -- pipeline. Elastic Transcoder returns all of the jobs currently in the
 -- specified pipeline. The response body contains one element for each job
 -- that satisfies the search criteria.
+--
+-- <ListJobsByPipeline.html>
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     (
     -- * Request

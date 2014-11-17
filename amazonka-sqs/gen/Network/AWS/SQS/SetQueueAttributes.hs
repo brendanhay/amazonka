@@ -22,6 +22,8 @@
 -- attributes, the change can take up to 60 seconds for most of the attributes
 -- to propagate throughout the SQS system. Changes made to the
 -- MessageRetentionPeriod attribute can take up to 15 minutes.
+--
+-- <SetQueueAttributes.html>
 module Network.AWS.SQS.SetQueueAttributes
     (
     -- * Request

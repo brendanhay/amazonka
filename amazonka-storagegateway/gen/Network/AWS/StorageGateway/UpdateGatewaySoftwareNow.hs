@@ -25,6 +25,8 @@
 -- timeouts. For more information about increasing iSCSI Initiator timeouts
 -- for Windows and Linux, see Customizing Your Windows iSCSI Settings and
 -- Customizing Your Linux iSCSI Settings, respectively.
+--
+-- <UpdateGatewaySoftwareNow.html>
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Request

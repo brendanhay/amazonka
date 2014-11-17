@@ -21,6 +21,9 @@
 -- | Creates a new Auto Scaling group with the specified name and other
 -- attributes. When the creation request is completed, the Auto Scaling group
 -- is ready to be used in other calls.
+--
+
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.CreateAutoScalingGroup
     (
     -- * Request

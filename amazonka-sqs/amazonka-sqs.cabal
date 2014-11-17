@@ -22,6 +22,8 @@ description:
     highly available messaging cluster, while paying a low price for only
     what you use.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

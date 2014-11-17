@@ -21,6 +21,8 @@
 -- | Describes one or more of the Reserved Instances that you purchased. For
 -- more information about Reserved Instances, see Reserved Instances in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <DescribeReservedInstances.html>
 module Network.AWS.EC2.DescribeReservedInstances
     (
     -- * Request

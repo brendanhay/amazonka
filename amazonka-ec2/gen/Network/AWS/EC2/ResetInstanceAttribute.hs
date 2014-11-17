@@ -26,6 +26,8 @@
 -- value must be false for a NAT instance to perform NAT. For more
 -- information, see NAT Instances in the Amazon Virtual Private Cloud User
 -- Guide.
+--
+-- <ResetInstanceAttribute.html>
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Request

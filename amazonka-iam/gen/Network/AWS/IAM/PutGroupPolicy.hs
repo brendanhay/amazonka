@@ -23,6 +23,8 @@
 -- IAM guide. For information about limits on the number of policies you can
 -- associate with a group, see Limitations on IAM Entities in the Using IAM
 -- guide.
+--
+-- <PutGroupPolicy.html>
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Request

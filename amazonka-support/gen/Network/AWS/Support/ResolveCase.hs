@@ -20,6 +20,8 @@
 
 -- | Takes a CaseId and returns the initial state of the case along with the
 -- state of the case after the call to ResolveCase completed.
+--
+-- <ResolveCase.html>
 module Network.AWS.Support.ResolveCase
     (
     -- * Request

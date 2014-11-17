@@ -25,6 +25,8 @@
 -- successfully retrieved to a gateway, it cannot be retrieved again to
 -- another gateway. You must archive the tape again before you can retrieve it
 -- to another gateway.
+--
+-- <RetrieveTapeArchive.html>
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
     -- * Request

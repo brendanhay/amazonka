@@ -24,6 +24,8 @@
 -- exist on the replica that was accessed for this operation, an empty set is
 -- returned. The system does not return an error as it cannot guarantee the
 -- item does not exist on other replicas.
+--
+-- <GetAttributes.html>
 module Network.AWS.SDB.GetAttributes
     (
     -- * Request

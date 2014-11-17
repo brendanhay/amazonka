@@ -25,6 +25,8 @@
 -- key. The private key is never transferred between you and AWS. For more
 -- information about key pairs, see Key Pairs in the Amazon Elastic Compute
 -- Cloud User Guide.
+--
+-- <ImportKeyPair.html>
 module Network.AWS.EC2.ImportKeyPair
     (
     -- * Request

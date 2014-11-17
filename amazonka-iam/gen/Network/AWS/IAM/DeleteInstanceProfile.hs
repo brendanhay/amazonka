@@ -24,6 +24,8 @@
 -- or instance profile that is associated with a running instance will break
 -- any applications running on the instance. For more information about
 -- instance profiles, go to About Instance Profiles.
+--
+-- <DeleteInstanceProfile.html>
 module Network.AWS.IAM.DeleteInstanceProfile
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Provides cluster-level details including status, hardware and software
 -- configuration, VPC settings, and so on. For information about the cluster
 -- steps, see ListSteps.
+--
+-- <DescribeCluster.html>
 module Network.AWS.EMR.DescribeCluster
     (
     -- * Request

@@ -25,6 +25,8 @@
 -- option to true to show the active configuration and exclude pending
 -- changes. For more information, see Getting Search Suggestions in the Amazon
 -- CloudSearch Developer Guide.
+--
+-- <DescribeSuggesters.html>
 module Network.AWS.CloudSearch.DescribeSuggesters
     (
     -- * Request

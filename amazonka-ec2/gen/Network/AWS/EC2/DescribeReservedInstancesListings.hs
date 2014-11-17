@@ -34,6 +34,8 @@
 -- You are charged based on the total price of all of the listings that you
 -- purchase. For more information, see Reserved Instance Marketplace in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <DescribeReservedInstancesListings.html>
 module Network.AWS.EC2.DescribeReservedInstancesListings
     (
     -- * Request

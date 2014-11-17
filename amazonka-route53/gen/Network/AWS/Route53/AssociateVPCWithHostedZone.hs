@@ -26,6 +26,8 @@
 -- ChangeInfo for you to track the progress of the
 -- AssociateVPCWithHostedZoneRequest you made. See GetChange operation for how
 -- to track the progress of your change.
+--
+-- <AssociateVPCWithHostedZone.html>
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Request

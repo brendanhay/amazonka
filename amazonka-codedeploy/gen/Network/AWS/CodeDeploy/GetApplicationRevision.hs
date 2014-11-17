@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets information about an application revision.
+--
+-- <GetApplicationRevision.html>
 module Network.AWS.CodeDeploy.GetApplicationRevision
     (
     -- * Request

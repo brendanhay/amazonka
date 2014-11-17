@@ -41,6 +41,8 @@
 -- For more information about using GetSessionToken to create temporary
 -- credentials, go to Creating Temporary Credentials to Enable Access for IAM
 -- Users in Using Temporary Security Credentials.
+--
+-- <GetSessionToken.html>
 module Network.AWS.STS.GetSessionToken
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Creates a new user for your AWS account. For information about limitations
 -- on the number of users you can create, see Limitations on IAM Entities in
 -- the Using IAM guide.
+--
+-- <CreateUser.html>
 module Network.AWS.IAM.CreateUser
     (
     -- * Request

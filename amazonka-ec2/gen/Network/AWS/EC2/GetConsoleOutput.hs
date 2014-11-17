@@ -31,6 +31,8 @@
 -- instance produces it and then posts it to a store where the instance's
 -- owner can retrieve it. For Windows instances, the instance console output
 -- displays the last three system event log errors.
+--
+-- <GetConsoleOutput.html>
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Resets a network interface attribute. You can specify only one attribute at
 -- a time.
+--
+-- <ResetNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Request

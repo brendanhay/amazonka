@@ -21,6 +21,8 @@
 -- | Retrieves the endpoint attributes for a device on one of the supported push
 -- notification services, such as GCM and APNS. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
+--
+-- <GetEndpointAttributes.html>
 module Network.AWS.SNS.GetEndpointAttributes
     (
     -- * Request

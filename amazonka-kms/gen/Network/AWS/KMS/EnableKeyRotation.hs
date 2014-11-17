@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables rotation of the specified customer master key.
+--
+-- <EnableKeyRotation.html>
 module Network.AWS.KMS.EnableKeyRotation
     (
     -- * Request

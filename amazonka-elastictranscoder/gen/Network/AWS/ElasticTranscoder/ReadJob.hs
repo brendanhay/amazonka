@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The ReadJob operation returns detailed information about a job.
+--
+-- <ReadJob.html>
 module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Request

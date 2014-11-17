@@ -23,6 +23,8 @@
 -- regardless of whether the task was sucessful. The task runner does not need
 -- to call SetTaskStatus for tasks that are canceled by the web service during
 -- a call to ReportTaskProgress.
+--
+-- <SetTaskStatus.html>
 module Network.AWS.DataPipeline.SetTaskStatus
     (
     -- * Request

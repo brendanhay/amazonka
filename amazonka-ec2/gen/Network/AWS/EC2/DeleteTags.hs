@@ -22,6 +22,8 @@
 -- call is designed to follow a DescribeTags request. For more information
 -- about tags, see Tagging Your Resources in the Amazon Elastic Compute Cloud
 -- User Guide.
+--
+-- <DeleteTags.html>
 module Network.AWS.EC2.DeleteTags
     (
     -- * Request

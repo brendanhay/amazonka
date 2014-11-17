@@ -25,6 +25,8 @@
 -- shut down within four minutes, Amazon EC2 performs a hard reboot. For more
 -- information about troubleshooting, see Getting Console Output and Rebooting
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <RebootInstances.html>
 module Network.AWS.EC2.RebootInstances
     (
     -- * Request

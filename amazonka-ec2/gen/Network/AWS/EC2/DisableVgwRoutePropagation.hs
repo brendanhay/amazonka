@@ -20,6 +20,8 @@
 
 -- | Disables a virtual private gateway (VGW) from propagating routes to a
 -- specified route table of a VPC.
+--
+-- <DisableVgwRoutePropagation.html>
 module Network.AWS.EC2.DisableVgwRoutePropagation
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Describes one or more of your route tables. For more information about
 -- route tables, see Route Tables in the Amazon Virtual Private Cloud User
 -- Guide.
+--
+-- <DescribeRouteTables.html>
 module Network.AWS.EC2.DescribeRouteTables
     (
     -- * Request

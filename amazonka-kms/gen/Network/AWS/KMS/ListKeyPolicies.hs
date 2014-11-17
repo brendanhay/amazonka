@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves a list of policies attached to a key.
+--
+-- <ListKeyPolicies.html>
 module Network.AWS.KMS.ListKeyPolicies
     (
     -- * Request

@@ -31,6 +31,8 @@
 -- character_set_database parameter. You can use the Parameter Groups option
 -- of the Amazon RDS console or the DescribeDBParameters command to verify
 -- that your DB parameter group has been created or modified.
+--
+-- <ModifyDBParameterGroup.html>
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
     -- * Request

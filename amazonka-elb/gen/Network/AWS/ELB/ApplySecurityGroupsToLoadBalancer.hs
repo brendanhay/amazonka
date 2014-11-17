@@ -23,6 +23,8 @@
 -- override any currently applied security groups. For more information, see
 -- Manage Security Groups in Amazon VPC in the Elastic Load Balancing
 -- Developer Guide.
+--
+-- <ApplySecurityGroupsToLoadBalancer.html>
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Request

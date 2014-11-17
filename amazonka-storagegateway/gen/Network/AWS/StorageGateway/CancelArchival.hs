@@ -20,6 +20,8 @@
 
 -- | Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after
 -- the archiving process is initiated.
+--
+-- <CancelArchival.html>
 module Network.AWS.StorageGateway.CancelArchival
     (
     -- * Request

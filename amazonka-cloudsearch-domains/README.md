@@ -10,7 +10,8 @@
 
 Pending
 
-Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch-domains).
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch-domains)
+and [AWS API Reference]().
 
 
 ## Contribute

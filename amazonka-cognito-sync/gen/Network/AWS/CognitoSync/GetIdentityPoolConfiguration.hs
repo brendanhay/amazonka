@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets the configuration settings of an identity pool.
+--
+-- <GetIdentityPoolConfiguration.html>
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (
     -- * Request

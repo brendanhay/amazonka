@@ -24,6 +24,8 @@
 -- operation creates an alarm, the alarm state is immediately set to
 -- INSUFFICIENT_DATA. The alarm is evaluated and its StateValue is set
 -- appropriately. Any actions associated with the StateValue is then executed.
+--
+-- <PutMetricAlarm.html>
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
     -- * Request

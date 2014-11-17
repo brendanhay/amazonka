@@ -21,6 +21,8 @@
 -- | Creates a network interface in the specified subnet. For more information
 -- about network interfaces, see Elastic Network Interfaces in the Amazon
 -- Elastic Compute Cloud User Guide.
+--
+-- <CreateNetworkInterface.html>
 module Network.AWS.EC2.CreateNetworkInterface
     (
     -- * Request

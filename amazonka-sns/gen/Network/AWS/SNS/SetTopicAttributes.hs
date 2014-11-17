@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Allows a topic owner to set an attribute of the topic to a new value.
+--
+-- <SetTopicAttributes.html>
 module Network.AWS.SNS.SetTopicAttributes
     (
     -- * Request

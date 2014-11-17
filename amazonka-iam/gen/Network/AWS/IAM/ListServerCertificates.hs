@@ -21,6 +21,8 @@
 -- | Lists the server certificates that have the specified path prefix. If none
 -- exist, the action returns an empty list. You can paginate the results using
 -- the MaxItems and Marker parameters.
+--
+-- <ListServerCertificates.html>
 module Network.AWS.IAM.ListServerCertificates
     (
     -- * Request

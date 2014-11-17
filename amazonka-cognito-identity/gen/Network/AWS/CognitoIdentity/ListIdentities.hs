@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the identities in a pool.
+--
+-- <ListIdentities.html>
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Request

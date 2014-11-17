@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List the grants for a specified key.
+--
+-- <ListGrants.html>
 module Network.AWS.KMS.ListGrants
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Describes the specified attribute of the specified VPC. You can specify
 -- only one attribute at a time.
+--
+-- <DescribeVpcAttribute.html>
 module Network.AWS.EC2.DescribeVpcAttribute
     (
     -- * Request

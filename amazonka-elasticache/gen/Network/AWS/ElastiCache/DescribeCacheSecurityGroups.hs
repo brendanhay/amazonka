@@ -21,6 +21,8 @@
 -- | The DescribeCacheSecurityGroups operation returns a list of cache security
 -- group descriptions. If a cache security group name is specified, the list
 -- will contain only the description of that group.
+--
+-- <DescribeCacheSecurityGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
     -- * Request

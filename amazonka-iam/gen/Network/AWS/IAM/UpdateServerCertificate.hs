@@ -22,6 +22,8 @@
 -- should understand the implications of changing a server certificate's path
 -- or name. For more information, see Managing Server Certificates in the
 -- Using IAM guide.
+--
+-- <UpdateServerCertificate.html>
 module Network.AWS.IAM.UpdateServerCertificate
     (
     -- * Request

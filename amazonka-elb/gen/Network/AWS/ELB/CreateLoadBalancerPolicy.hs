@@ -22,6 +22,8 @@
 -- the policy type. Policies are settings that are saved for your load
 -- balancer and that can be applied to the front-end listener, or the back-end
 -- application server, depending on your policy type.
+--
+-- <CreateLoadBalancerPolicy.html>
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Request

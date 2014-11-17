@@ -28,6 +28,8 @@
 -- subnet group where you want the cluster restored. For more information
 -- about working with snapshots, go to Amazon Redshift Snapshots in the Amazon
 -- Redshift Management Guide.
+--
+-- <RestoreFromClusterSnapshot.html>
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
     (
     -- * Request

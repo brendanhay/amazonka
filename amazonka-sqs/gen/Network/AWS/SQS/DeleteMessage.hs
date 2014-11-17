@@ -30,6 +30,8 @@
 -- remains on the server and might be returned to you again on a subsequent
 -- receive request. You should create your system to be idempotent so that
 -- receiving a particular message more than once is not a problem.
+--
+-- <DeleteMessage.html>
 module Network.AWS.SQS.DeleteMessage
     (
     -- * Request

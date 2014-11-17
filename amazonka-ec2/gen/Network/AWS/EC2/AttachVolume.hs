@@ -38,6 +38,8 @@
 -- about how to use the AWS Marketplace, see AWS Marketplace. For more
 -- information about Amazon EBS volumes, see Attaching Amazon EBS Volumes in
 -- the Amazon Elastic Compute Cloud User Guide.
+--
+-- <AttachVolume.html>
 module Network.AWS.EC2.AttachVolume
     (
     -- * Request

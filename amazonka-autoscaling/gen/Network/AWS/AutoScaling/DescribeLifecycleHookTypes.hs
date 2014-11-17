@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the available types of lifecycle hooks.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHookTypes.html>
 module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     (
     -- * Request

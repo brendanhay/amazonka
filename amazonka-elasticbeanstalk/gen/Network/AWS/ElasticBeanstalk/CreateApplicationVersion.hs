@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates an application version for the specified application.
+--
+-- <CreateApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Request

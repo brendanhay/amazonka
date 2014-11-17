@@ -26,6 +26,8 @@
 -- included in the returned results. Recently terminated instances might
 -- appear in the returned results. This interval is usually less than one
 -- hour.
+--
+-- <DescribeInstances.html>
 module Network.AWS.EC2.DescribeInstances
     (
     -- * Request

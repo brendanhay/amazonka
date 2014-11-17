@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a virtual MFA device.
+--
+-- <DeleteVirtualMFADevice.html>
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Request

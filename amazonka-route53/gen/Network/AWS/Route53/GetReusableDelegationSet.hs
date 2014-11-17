@@ -20,6 +20,8 @@
 
 -- | To retrieve the reusable delegation set, send a GET request to the
 -- 2013-04-01/delegationset/delegation set ID resource.
+--
+-- <GetReusableDelegationSet.html>
 module Network.AWS.Route53.GetReusableDelegationSet
     (
     -- * Request

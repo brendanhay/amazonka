@@ -27,6 +27,8 @@
 -- DELETING state, no error is returned. When you delete a table, any indexes
 -- on that table are also deleted. Use the DescribeTable API to check the
 -- status of the table.
+--
+-- <DeleteTable.html>
 module Network.AWS.DynamoDB.DeleteTable
     (
     -- * Request

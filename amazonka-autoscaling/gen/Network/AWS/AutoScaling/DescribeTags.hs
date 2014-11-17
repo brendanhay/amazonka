@@ -25,6 +25,8 @@
 -- the results. You can also specify multiple filters. The result includes
 -- information for a particular tag only if it matches all your filters. If
 -- there's no match, no special message is returned.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html>
 module Network.AWS.AutoScaling.DescribeTags
     (
     -- * Request

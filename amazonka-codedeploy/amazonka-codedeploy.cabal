@@ -22,6 +22,8 @@ description:
     your infrastructure so you can easily deploy to one EC2 instance or
     thousands.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

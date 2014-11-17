@@ -25,6 +25,8 @@
 -- ReplaceRouteTableAssociation to change which table is the main route table
 -- in the VPC. You just specify the main route table's association ID and the
 -- route table to be the new main route table.
+--
+-- <ReplaceRouteTableAssociation.html>
 module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
     -- * Request

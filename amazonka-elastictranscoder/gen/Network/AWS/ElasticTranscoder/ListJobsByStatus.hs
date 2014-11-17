@@ -21,6 +21,8 @@
 -- | The ListJobsByStatus operation gets a list of jobs that have a specified
 -- status. The response body contains one element for each job that satisfies
 -- the search criteria.
+--
+-- <ListJobsByStatus.html>
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
     (
     -- * Request

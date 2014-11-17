@@ -28,6 +28,8 @@
 -- access information, such as your AWS access keys or your passwords. After
 -- you provision your virtual device, you should ensure that the information
 -- is destroyed following secure procedures.
+--
+-- <CreateVirtualMFADevice.html>
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
     -- * Request

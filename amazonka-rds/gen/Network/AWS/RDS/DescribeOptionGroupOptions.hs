@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes all available options.
+--
+-- <DescribeOptionGroupOptions.html>
 module Network.AWS.RDS.DescribeOptionGroupOptions
     (
     -- * Request

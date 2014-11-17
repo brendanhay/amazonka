@@ -23,6 +23,8 @@
 -- launch configurations, which by default is 100, must not yet have been met;
 -- otherwise, the call will fail. When created, the new launch configuration
 -- is available for immediate use.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
     -- * Request

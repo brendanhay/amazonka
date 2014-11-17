@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | 
+--
+-- <ChangeTagsForResource.html>
 module Network.AWS.Route53.ChangeTagsForResource
     (
     -- * Request

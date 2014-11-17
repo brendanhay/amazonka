@@ -25,6 +25,8 @@
 -- undone. To temporarily pause a pipeline instead of deleting it, call
 -- SetStatus with the status set to Pause on individual components. Components
 -- that are paused by SetStatus can be resumed.
+--
+-- <DeletePipeline.html>
 module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Request

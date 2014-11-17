@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes notifications created by PutNotificationConfiguration.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html>
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
     -- * Request

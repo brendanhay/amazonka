@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets information about a deployment group.
+--
+-- <GetDeploymentGroup.html>
 module Network.AWS.CodeDeploy.GetDeploymentGroup
     (
     -- * Request

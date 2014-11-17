@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new DB instance.
+--
+-- <CreateDBInstance.html>
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Request

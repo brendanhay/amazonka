@@ -24,6 +24,8 @@
 -- and RemoveSourceIdentifierFromSubscription calls. You can see a list of the
 -- event categories for a given SourceType in the Events topic in the Amazon
 -- RDS User Guide or by using the DescribeEventCategories action.
+--
+-- <ModifyEventSubscription.html>
 module Network.AWS.RDS.ModifyEventSubscription
     (
     -- * Request

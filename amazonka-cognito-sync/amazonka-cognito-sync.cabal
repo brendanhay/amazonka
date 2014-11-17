@@ -23,6 +23,8 @@ description:
     persisted in a dataset that can store up to 1 MB of key-value pairs,
     and you can have up to 20 datasets per user identity.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

@@ -22,6 +22,8 @@
 -- the Elastic Load Balancing service. The policy types that are returned from
 -- this action can be used in a CreateLoadBalancerPolicy action to instantiate
 -- specific policy configurations that will be applied to a load balancer.
+--
+-- <DescribeLoadBalancerPolicyTypes.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Request

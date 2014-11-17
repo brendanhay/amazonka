@@ -22,6 +22,8 @@
 -- available state (not attached to an instance). For more information, see
 -- Deleting an Amazon EBS Volume in the Amazon Elastic Compute Cloud User
 -- Guide.
+--
+-- <DeleteVolume.html>
 module Network.AWS.EC2.DeleteVolume
     (
     -- * Request

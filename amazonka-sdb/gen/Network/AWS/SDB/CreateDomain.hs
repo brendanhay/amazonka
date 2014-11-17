@@ -24,6 +24,8 @@
 -- complete. The client can create up to 100 domains per account. If the
 -- client requires additional domains, go to
 -- http://aws.amazon.com/contact-us/simpledb-limit-request/.
+--
+-- <CreateDomain.html>
 module Network.AWS.SDB.CreateDomain
     (
     -- * Request

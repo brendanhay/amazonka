@@ -45,6 +45,8 @@
 -- explicit permissions, or all for public snapshots. For more information
 -- about Amazon EBS snapshots, see Amazon EBS Snapshots in the Amazon Elastic
 -- Compute Cloud User Guide.
+--
+-- <DescribeSnapshots.html>
 module Network.AWS.EC2.DescribeSnapshots
     (
     -- * Request

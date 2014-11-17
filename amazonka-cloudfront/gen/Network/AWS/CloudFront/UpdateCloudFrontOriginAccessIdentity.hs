@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update an origin access identity.
+--
+-- <UpdateCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
     -- * Request

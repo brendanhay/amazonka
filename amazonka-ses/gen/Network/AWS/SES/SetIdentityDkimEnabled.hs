@@ -29,6 +29,8 @@
 -- VerifyDomainDkim action. This action is throttled at one request per
 -- second. For more information about Easy DKIM signing, go to the Amazon SES
 -- Developer Guide.
+--
+-- <SetIdentityDkimEnabled.html>
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Request

@@ -24,6 +24,8 @@
 -- update until resources receive the required number of signals or the
 -- timeout period is exceeded. The SignalResource API is useful in cases where
 -- you want to send signals from anywhere other than an Amazon EC2 instance.
+--
+-- <SignalResource.html>
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Request

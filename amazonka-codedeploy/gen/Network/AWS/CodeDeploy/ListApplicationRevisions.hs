@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists information about revisions for an application.
+--
+-- <ListApplicationRevisions.html>
 module Network.AWS.CodeDeploy.ListApplicationRevisions
     (
     -- * Request

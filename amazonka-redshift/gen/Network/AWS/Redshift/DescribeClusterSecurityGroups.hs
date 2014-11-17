@@ -23,6 +23,8 @@
 -- about only that security group. For information about managing security
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
 -- Redshift Management Guide.
+--
+-- <DescribeClusterSecurityGroups.html>
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (
     -- * Request

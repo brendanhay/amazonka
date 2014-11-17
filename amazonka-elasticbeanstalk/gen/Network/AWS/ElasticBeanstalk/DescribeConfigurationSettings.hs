@@ -26,6 +26,8 @@
 -- set, and the other is a draft configuration of an environment that is
 -- either in the process of deployment or that failed to deploy. Related
 -- Topics DeleteEnvironmentConfiguration.
+--
+-- <DescribeConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Request

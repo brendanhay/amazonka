@@ -26,6 +26,8 @@
 -- the MaxResults and NextToken parameters to control the pagination of the
 -- result set. Set MaxResults to the number of cases you want displayed on
 -- each page, and use NextToken to specify the resumption of pagination.
+--
+-- <DescribeCommunications.html>
 module Network.AWS.Support.DescribeCommunications
     (
     -- * Request

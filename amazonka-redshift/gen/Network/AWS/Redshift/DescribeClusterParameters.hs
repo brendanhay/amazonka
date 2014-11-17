@@ -27,6 +27,8 @@
 -- ModifyClusterParameterGroup, you can specify source equal to user. For more
 -- information about managing parameter groups, go to Amazon Redshift
 -- Parameter Groups in the Amazon Redshift Management Guide.
+--
+-- <DescribeClusterParameters.html>
 module Network.AWS.Redshift.DescribeClusterParameters
     (
     -- * Request

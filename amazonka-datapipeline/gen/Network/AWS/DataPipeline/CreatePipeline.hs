@@ -20,6 +20,8 @@
 
 -- | Creates a new empty pipeline. When this action succeeds, you can then use
 -- the PutPipelineDefinition action to populate the pipeline.
+--
+-- <CreatePipeline.html>
 module Network.AWS.DataPipeline.CreatePipeline
     (
     -- * Request

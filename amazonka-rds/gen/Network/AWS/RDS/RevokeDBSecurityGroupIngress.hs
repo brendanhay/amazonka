@@ -22,6 +22,8 @@
 -- or EC2 or VPC Security Groups. Required parameters for this API are one of
 -- CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
 -- EC2SecurityGroupName or EC2SecurityGroupId).
+--
+-- <RevokeDBSecurityGroupIngress.html>
 module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     (
     -- * Request

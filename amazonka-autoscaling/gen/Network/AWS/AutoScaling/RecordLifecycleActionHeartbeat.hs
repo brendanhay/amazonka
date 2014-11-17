@@ -30,6 +30,8 @@
 -- record the lifecycle action heartbeat to keep the instance in a pending
 -- state. Complete the lifecycle action. To learn more, see Auto Scaling
 -- Pending State and Auto Scaling Terminating State.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html>
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     (
     -- * Request

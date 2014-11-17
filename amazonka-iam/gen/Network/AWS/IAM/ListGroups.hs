@@ -20,6 +20,8 @@
 
 -- | Lists the groups that have the specified path prefix. You can paginate the
 -- results using the MaxItems and Marker parameters.
+--
+-- <ListGroups.html>
 module Network.AWS.IAM.ListGroups
     (
     -- * Request

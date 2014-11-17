@@ -20,6 +20,8 @@
 
 -- | Tests the pipeline definition with a set of validation checks to ensure
 -- that it is well formed and can run without error.
+--
+-- <ValidatePipelineDefinition.html>
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Request

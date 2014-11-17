@@ -25,6 +25,8 @@
 -- see De-register and Register Amazon EC2 Instances in the Elastic Load
 -- Balancing Developer Guide. You can use DescribeLoadBalancers to verify if
 -- the instance is deregistered from the load balancer.
+--
+-- <DeregisterInstancesFromLoadBalancer.html>
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Request

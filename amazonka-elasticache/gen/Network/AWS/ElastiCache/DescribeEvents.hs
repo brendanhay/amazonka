@@ -24,6 +24,8 @@
 -- parameter group by providing the name as a parameter. By default, only the
 -- events occurring within the last hour are returned; however, you can
 -- retrieve up to 14 days' worth of events if necessary.
+--
+-- <DescribeEvents.html>
 module Network.AWS.ElastiCache.DescribeEvents
     (
     -- * Request

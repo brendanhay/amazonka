@@ -34,6 +34,8 @@
 -- of the last shard returned. Specify this ID in the ExclusiveStartShardId
 -- parameter in a subsequent request to DescribeStream. DescribeStream has a
 -- limit of 10 transactions per second per account.
+--
+-- <DescribeStream.html>
 module Network.AWS.Kinesis.DescribeStream
     (
     -- * Request

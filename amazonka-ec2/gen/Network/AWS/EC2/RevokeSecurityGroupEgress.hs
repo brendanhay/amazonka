@@ -26,6 +26,8 @@
 -- range of ports. For the ICMP protocol, you must also specify the ICMP type
 -- and code. Rule changes are propagated to instances within the security
 -- group as quickly as possible. However, a small delay might occur.
+--
+-- <RevokeSecurityGroupEgress.html>
 module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
     -- * Request

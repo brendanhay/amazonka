@@ -20,6 +20,8 @@
 
 -- | Deletes the specified Lambda function code and configuration. This
 -- operation requires permission for the lambda:DeleteFunction action.
+--
+-- <DeleteFunction.html>
 module Network.AWS.Lambda.DeleteFunction
     (
     -- * Request

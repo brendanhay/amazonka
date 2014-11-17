@@ -29,6 +29,8 @@
 -- request body. This operation requires permission for the iam:PassRole
 -- action for the IAM role. It also requires permission for the
 -- lambda:AddEventSource action.
+--
+-- <AddEventSource.html>
 module Network.AWS.Lambda.AddEventSource
     (
     -- * Request

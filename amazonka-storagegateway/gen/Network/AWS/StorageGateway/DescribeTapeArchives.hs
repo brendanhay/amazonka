@@ -22,6 +22,8 @@
 -- (VTS). If a specific TapeARN is not specified, AWS Storage Gateway returns
 -- a description of all virtual tapes found in the VTS associated with your
 -- account.
+--
+-- <DescribeTapeArchives.html>
 module Network.AWS.StorageGateway.DescribeTapeArchives
     (
     -- * Request

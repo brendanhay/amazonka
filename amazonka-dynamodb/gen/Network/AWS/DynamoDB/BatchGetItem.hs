@@ -55,6 +55,8 @@
 -- consume the minimum read capacity units according to the type of read. For
 -- more information, see Capacity Units Calculations in the Amazon DynamoDB
 -- Developer Guide.
+--
+-- <BatchGetItem.html>
 module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of the available DB engines.
+--
+-- <DescribeDBEngineVersions.html>
 module Network.AWS.RDS.DescribeDBEngineVersions
     (
     -- * Request

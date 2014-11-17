@@ -23,6 +23,8 @@
 -- volume architectures. The response includes disk IDs that are configured as
 -- upload buffer space, and it includes the amount of upload buffer space
 -- allocated and used.
+--
+-- <DescribeUploadBuffer.html>
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Request

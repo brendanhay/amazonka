@@ -34,6 +34,8 @@
 -- the domain registrant will be notified by email. Transferring domains
 -- charges your AWS account an amount based on the top-level domain. For more
 -- information, see Amazon Route 53 Pricing.
+--
+-- <TransferDomain.html>
 module Network.AWS.Route53Domains.TransferDomain
     (
     -- * Request

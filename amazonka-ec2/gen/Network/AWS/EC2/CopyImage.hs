@@ -23,6 +23,8 @@
 -- its endpoint when making the request. AMIs that use encrypted Amazon EBS
 -- snapshots cannot be copied with this method. For more information, see
 -- Copying AMIs in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <CopyImage.html>
 module Network.AWS.EC2.CopyImage
     (
     -- * Request

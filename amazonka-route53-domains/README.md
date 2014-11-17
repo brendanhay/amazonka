@@ -10,7 +10,8 @@
 
 Pending
 
-Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-route53-domains).
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-route53-domains)
+and [AWS API Reference]().
 
 
 ## Contribute

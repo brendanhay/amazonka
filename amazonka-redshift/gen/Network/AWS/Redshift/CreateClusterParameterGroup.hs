@@ -26,6 +26,8 @@
 -- behavior that applies to the databases you create on the cluster. For more
 -- information about managing parameter groups, go to Amazon Redshift
 -- Parameter Groups in the Amazon Redshift Management Guide.
+--
+-- <CreateClusterParameterGroup.html>
 module Network.AWS.Redshift.CreateClusterParameterGroup
     (
     -- * Request

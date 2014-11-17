@@ -26,6 +26,8 @@
 -- model, performing a GetAttributes or Select operation (read) immediately
 -- after a DeleteAttributes or PutAttributes operation (write) might not
 -- return updated item data.
+--
+-- <DeleteAttributes.html>
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Request

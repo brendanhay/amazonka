@@ -26,6 +26,8 @@
 -- finished using a grant, you retire it. When you want to end a grant
 -- immediately, revoke it. For more information about grants, see Grants.
 -- ListGrants RetireGrant RevokeGrant.
+--
+-- <CreateGrant.html>
 module Network.AWS.KMS.CreateGrant
     (
     -- * Request

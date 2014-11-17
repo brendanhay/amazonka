@@ -32,6 +32,8 @@
 -- constraints, the action fails by throwing OperationNotPermitted. For
 -- details and example IAM policies, see Using IAM to Manage Access to Amazon
 -- SWF Workflows.
+--
+-- <RequestCancelWorkflowExecution.html>
 module Network.AWS.SWF.RequestCancelWorkflowExecution
     (
     -- * Request

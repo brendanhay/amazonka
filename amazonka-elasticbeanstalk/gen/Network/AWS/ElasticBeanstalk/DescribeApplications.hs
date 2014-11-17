@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the descriptions of existing applications.
+--
+-- <DescribeApplications.html>
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Request

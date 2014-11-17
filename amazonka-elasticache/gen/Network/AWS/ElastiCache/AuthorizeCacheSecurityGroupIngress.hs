@@ -22,6 +22,8 @@
 -- a cache security group. Applications using ElastiCache must be running on
 -- Amazon EC2, and Amazon EC2 security groups are used as the authorization
 -- mechanism.
+--
+-- <AuthorizeCacheSecurityGroupIngress.html>
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Request

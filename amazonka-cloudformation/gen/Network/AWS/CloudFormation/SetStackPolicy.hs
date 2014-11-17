@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets a stack policy for a specified stack.
+--
+-- <SetStackPolicy.html>
 module Network.AWS.CloudFormation.SetStackPolicy
     (
     -- * Request

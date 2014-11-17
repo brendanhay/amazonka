@@ -24,6 +24,8 @@
 -- an empty result set with a value set for marker. If HasMoreResults is set
 -- to True, you should continue to call QueryObjects, passing in the returned
 -- value for marker, until HasMoreResults returns False.
+--
+-- <QueryObjects.html>
 module Network.AWS.DataPipeline.QueryObjects
     (
     -- * Request

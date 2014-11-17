@@ -33,6 +33,8 @@
 -- the type or code to mean all types or all codes. Rule changes are
 -- propagated to affected instances as quickly as possible. However, a small
 -- delay might occur.
+--
+-- <AuthorizeSecurityGroupEgress.html>
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     (
     -- * Request

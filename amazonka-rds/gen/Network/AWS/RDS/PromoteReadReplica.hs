@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Promotes a read replica DB instance to a standalone DB instance.
+--
+-- <PromoteReadReplica.html>
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Request

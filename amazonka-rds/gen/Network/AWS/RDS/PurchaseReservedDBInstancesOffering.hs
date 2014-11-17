@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Purchases a reserved DB instance offering.
+--
+-- <PurchaseReservedDBInstancesOffering.html>
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Request

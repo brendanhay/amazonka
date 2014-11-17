@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of DB log files for the DB instance.
+--
+-- <DescribeDBLogFiles.html>
 module Network.AWS.RDS.DescribeDBLogFiles
     (
     -- * Request

@@ -26,6 +26,8 @@
 -- configuration of the job flow, it may take up to 5-20 minutes for the job
 -- flow to completely terminate and release allocated resources, such as
 -- Amazon EC2 instances.
+--
+-- <TerminateJobFlows.html>
 module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Request

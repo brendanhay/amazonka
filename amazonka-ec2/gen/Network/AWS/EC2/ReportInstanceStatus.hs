@@ -25,6 +25,8 @@
 -- EC2 collects this information to improve the accuracy of status checks. Use
 -- of this action does not change the value returned by
 -- DescribeInstanceStatus.
+--
+-- <ReportInstanceStatus.html>
 module Network.AWS.EC2.ReportInstanceStatus
     (
     -- * Request

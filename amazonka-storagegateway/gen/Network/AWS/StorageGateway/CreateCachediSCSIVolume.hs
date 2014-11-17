@@ -26,6 +26,8 @@
 -- and returns information about it such as the volume Amazon Resource Name
 -- (ARN), its size, and the iSCSI target ARN that initiators can use to
 -- connect to the volume target.
+--
+-- <CreateCachediSCSIVolume.html>
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Request

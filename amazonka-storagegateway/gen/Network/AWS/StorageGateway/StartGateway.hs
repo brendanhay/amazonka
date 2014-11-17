@@ -24,6 +24,8 @@
 -- volumes and you will be able to take snapshot backups. To specify which
 -- gateway to start, use the Amazon Resource Name (ARN) of the gateway in your
 -- request.
+--
+-- <StartGateway.html>
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Returns the user's current sending limits. This action is throttled at one
 -- request per second.
+--
+-- <GetSendQuota.html>
 module Network.AWS.SES.GetSendQuota
     (
     -- * Request

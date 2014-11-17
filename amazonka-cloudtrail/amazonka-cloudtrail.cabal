@@ -19,6 +19,8 @@ description:
     AWS API call, the source IP address, the request parameters, and the
     response elements returned by the service.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

@@ -23,6 +23,8 @@
 -- gateway in the body of the request. The request returns all disks,
 -- specifying which are configured as working storage, stored volume or not
 -- configured at all.
+--
+-- <ListLocalDisks.html>
 module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Request

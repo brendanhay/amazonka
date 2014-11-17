@@ -22,6 +22,8 @@
 -- existing policy, use the existing policy name and set the parameter(s) you
 -- want to change. Any existing parameter not changed in an update to an
 -- existing policy is not changed in this update request.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html>
 module Network.AWS.AutoScaling.PutScalingPolicy
     (
     -- * Request

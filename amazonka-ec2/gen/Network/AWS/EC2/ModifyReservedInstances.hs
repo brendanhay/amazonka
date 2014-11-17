@@ -23,6 +23,8 @@
 -- Instances to be modified must be identical, except for Availability Zone,
 -- network platform, and instance type. For more information, see Modifying
 -- Reserved Instances in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <ModifyReservedInstances.html>
 module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Request

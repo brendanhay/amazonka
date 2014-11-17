@@ -24,6 +24,8 @@
 -- to view the state and any provided message for that Availability Zone. For
 -- more information, see Regions and Availability Zones in the Amazon Elastic
 -- Compute Cloud User Guide.
+--
+-- <DescribeAvailabilityZones.html>
 module Network.AWS.EC2.DescribeAvailabilityZones
     (
     -- * Request

@@ -24,6 +24,8 @@
 -- deny permissions to the queue. For more information about these
 -- permissions, see Shared Queues in the Amazon SQS Developer Guide.
 -- &amp;Attribute.1=this &amp;Attribute.2=that.
+--
+-- <AddPermission.html>
 module Network.AWS.SQS.AddPermission
     (
     -- * Request

@@ -24,6 +24,8 @@
 -- Calling ListDomains successive times with the NextToken provided by the
 -- operation returns up to MaxNumberOfDomains more domain names with each
 -- successive operation call.
+--
+-- <ListDomains.html>
 module Network.AWS.SDB.ListDomains
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete a streaming distribution.
+--
+-- <DeleteStreamingDistribution.html>
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Request

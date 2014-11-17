@@ -25,6 +25,8 @@
 -- reserved node offering and the number of nodes you want to reserve. For
 -- more information about managing parameter groups, go to Purchasing Reserved
 -- Nodes in the Amazon Redshift Management Guide.
+--
+-- <PurchaseReservedNodeOffering.html>
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Request

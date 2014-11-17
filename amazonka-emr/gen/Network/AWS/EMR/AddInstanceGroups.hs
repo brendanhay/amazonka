@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | AddInstanceGroups adds an instance group to a running cluster.
+--
+-- <AddInstanceGroups.html>
 module Network.AWS.EMR.AddInstanceGroups
     (
     -- * Request

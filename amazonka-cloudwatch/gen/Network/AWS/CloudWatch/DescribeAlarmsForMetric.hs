@@ -20,6 +20,8 @@
 
 -- | Retrieves all alarms for a single metric. Specify a statistic, period, or
 -- unit to filter the set of alarms further.
+--
+-- <DescribeAlarmsForMetric.html>
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
     -- * Request

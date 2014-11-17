@@ -27,6 +27,8 @@
 -- successfully created, you can add one or more read replica replicas to it,
 -- up to a total of five read replicas. Note: This action is valid only for
 -- Redis.
+--
+-- <CreateReplicationGroup.html>
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Request

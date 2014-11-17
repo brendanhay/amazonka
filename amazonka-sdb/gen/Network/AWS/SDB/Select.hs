@@ -27,6 +27,8 @@
 -- items and an appropriate NextToken so the client can access the next page
 -- of results. For information on how to construct select expressions, see
 -- Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
+--
+-- <Select.html>
 module Network.AWS.SDB.Select
     (
     -- * Request

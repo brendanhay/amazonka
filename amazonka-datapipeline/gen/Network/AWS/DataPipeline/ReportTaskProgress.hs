@@ -30,6 +30,8 @@
 -- minutes, AWS Data Pipeline will assume that the task runner is unable to
 -- process the task and will reassign the task in a subsequent response to
 -- PollForTask. task runners should call ReportTaskProgress every 60 seconds.
+--
+-- <ReportTaskProgress.html>
 module Network.AWS.DataPipeline.ReportTaskProgress
     (
     -- * Request

@@ -25,6 +25,8 @@
 -- pause the pipeline to which you submitted the jobs, you have more time to
 -- get the job IDs for the jobs that you want to cancel, and to send a
 -- CancelJob request.
+--
+-- <UpdatePipelineStatus.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Modifies a cluster subnet group to include the specified list of VPC
 -- subnets. The operation replaces the existing list of subnets with the new
 -- list of subnets.
+--
+-- <ModifyClusterSubnetGroup.html>
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Request

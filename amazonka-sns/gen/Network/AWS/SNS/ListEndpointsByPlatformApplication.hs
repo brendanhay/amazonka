@@ -27,6 +27,8 @@
 -- NextToken string received from the previous call. When there are no more
 -- records to return, NextToken will be null. For more information, see Using
 -- Amazon SNS Mobile Push Notifications.
+--
+-- <ListEndpointsByPlatformApplication.html>
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
     (
     -- * Request

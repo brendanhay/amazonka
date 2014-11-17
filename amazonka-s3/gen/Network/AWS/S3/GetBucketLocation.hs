@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the region the bucket resides in.
+--
+-- <GetBucketLocation.html>
 module Network.AWS.S3.GetBucketLocation
     (
     -- * Request

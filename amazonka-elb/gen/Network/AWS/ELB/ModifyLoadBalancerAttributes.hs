@@ -25,6 +25,8 @@
 -- connection timeout value for your load balancer. For more information, see
 -- the following: Cross-Zone Load Balancing Connection Draining Access Logs
 -- Idle Connection Timeout.
+--
+-- <ModifyLoadBalancerAttributes.html>
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Request

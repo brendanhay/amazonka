@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The CancelJob operation cancels an unfinished job.
+--
+-- <CancelJob.html>
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Request

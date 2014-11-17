@@ -32,6 +32,8 @@
 -- response, AWS Storage Gateway returns you a snapshot ID. You can use this
 -- snapshot ID to check the snapshot progress or later use it when you want to
 -- create a volume from a snapshot.
+--
+-- <CreateSnapshot.html>
 module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Request

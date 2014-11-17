@@ -22,6 +22,8 @@
 -- information about policies, go to Overview of Policies in the Using IAM
 -- guide. For information about limits on the policies you can associate with
 -- a role, see Limitations on IAM Entities in the Using IAM guide.
+--
+-- <PutRolePolicy.html>
 module Network.AWS.IAM.PutRolePolicy
     (
     -- * Request

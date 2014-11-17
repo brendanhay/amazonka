@@ -22,6 +22,8 @@
 -- You can use this action to change the role (roleARN) of an existing
 -- recorder. To change the role, call the action on the existing configuration
 -- recorder and specify a role.
+--
+-- <PutConfigurationRecorder.html>
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Request

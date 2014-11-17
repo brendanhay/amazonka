@@ -24,6 +24,8 @@
 -- provider that has been deleted will fail. This action is idempotent; it
 -- does not fail or return an error if you call the action for a provider that
 -- was already deleted.
+--
+-- <DeleteOpenIDConnectProvider.html>
 module Network.AWS.IAM.DeleteOpenIDConnectProvider
     (
     -- * Request

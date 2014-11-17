@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of all termination policies supported by Auto Scaling.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html>
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
     -- * Request

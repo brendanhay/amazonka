@@ -24,6 +24,8 @@
 -- outside of an Amazon Virtual Private Cloud (VPC). If you are creating a
 -- cache cluster inside of a VPC, use a cache subnet group instead. For more
 -- information, see CreateCacheSubnetGroup.
+--
+-- <CreateCacheSecurityGroup.html>
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
     -- * Request

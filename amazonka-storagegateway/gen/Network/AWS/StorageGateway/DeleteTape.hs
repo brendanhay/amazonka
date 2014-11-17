@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified virtual tape.
+--
+-- <DeleteTape.html>
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Request

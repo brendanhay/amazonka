@@ -29,6 +29,8 @@
 -- 14 days or the retention period of the log group. The log events in the
 -- batch must be in chronological ordered by their timestamp. The maximum
 -- number of log events in a batch is 1,000.
+--
+-- <PutLogEvents.html>
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Request

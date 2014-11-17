@@ -22,6 +22,8 @@
 -- deleted if it is the only delivery channel and the configuration recorder
 -- is still running. To delete the delivery channel, stop the running
 -- configuration recorder using the StopConfigurationRecorder action.
+--
+-- <DeleteDeliveryChannel.html>
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Request

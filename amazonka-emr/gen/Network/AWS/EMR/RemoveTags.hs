@@ -23,6 +23,8 @@
 -- EMR resource allocation costs. For more information, see Tagging Amazon EMR
 -- Resources. The following example removes the stack tag with value Prod from
 -- a cluster:.
+--
+-- <RemoveTags.html>
 module Network.AWS.EMR.RemoveTags
     (
     -- * Request

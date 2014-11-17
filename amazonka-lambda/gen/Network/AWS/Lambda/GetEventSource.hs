@@ -21,6 +21,8 @@
 -- | Returns configuration information for the specified event source mapping
 -- (see AddEventSource). This operation requires permission for the
 -- lambda:GetEventSource action.
+--
+-- <GetEventSource.html>
 module Network.AWS.Lambda.GetEventSource
     (
     -- * Request

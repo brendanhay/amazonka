@@ -21,6 +21,8 @@
 -- | Returns a list of parameter settings for the specified parameter group
 -- family. For more information about managing parameter groups, go to Amazon
 -- Redshift Parameter Groups in the Amazon Redshift Management Guide.
+--
+-- <DescribeDefaultClusterParameters.html>
 module Network.AWS.Redshift.DescribeDefaultClusterParameters
     (
     -- * Request

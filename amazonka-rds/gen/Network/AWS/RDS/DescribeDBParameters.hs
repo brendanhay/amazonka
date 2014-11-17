@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the detailed parameter list for a particular DB parameter group.
+--
+-- <DescribeDBParameters.html>
 module Network.AWS.RDS.DescribeDBParameters
     (
     -- * Request

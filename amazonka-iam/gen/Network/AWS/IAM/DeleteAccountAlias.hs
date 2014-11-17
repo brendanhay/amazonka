@@ -21,6 +21,8 @@
 -- | Deletes the specified AWS account alias. For information about using an AWS
 -- account alias, see Using an Alias for Your AWS Account ID in the Using IAM
 -- guide.
+--
+-- <DeleteAccountAlias.html>
 module Network.AWS.IAM.DeleteAccountAlias
     (
     -- * Request

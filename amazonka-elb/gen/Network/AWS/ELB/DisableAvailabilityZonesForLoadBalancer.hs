@@ -29,6 +29,8 @@
 -- balancer does nothing. For more information, see Disable an Availability
 -- Zone from a Load-Balanced Application in the Elastic Load Balancing
 -- Developer Guide.
+--
+-- <DisableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a DBSnapshot. The source DBInstance must be in "available" state.
+--
+-- <CreateDBSnapshot.html>
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Request

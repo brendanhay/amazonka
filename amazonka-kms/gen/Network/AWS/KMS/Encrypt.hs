@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Encrypts plaintext into ciphertext by using a customer master key.
+--
+-- <Encrypt.html>
 module Network.AWS.KMS.Encrypt
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Creates a manual snapshot of the specified cluster. The cluster must be in
 -- the available state. For more information about working with snapshots, go
 -- to Amazon Redshift Snapshots in the Amazon Redshift Management Guide.
+--
+-- <CreateClusterSnapshot.html>
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Request

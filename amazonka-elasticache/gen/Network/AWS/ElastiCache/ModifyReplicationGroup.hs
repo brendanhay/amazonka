@@ -20,6 +20,8 @@
 
 -- | The ModifyReplicationGroup operation modifies the settings for a
 -- replication group.
+--
+-- <ModifyReplicationGroup.html>
 module Network.AWS.ElastiCache.ModifyReplicationGroup
     (
     -- * Request

@@ -25,6 +25,8 @@
 -- either make the access key inactive or delete it. For more information
 -- about making keys inactive or deleting them, see UpdateAccessKey and
 -- DeleteAccessKey.
+--
+-- <DeleteLoginProfile.html>
 module Network.AWS.IAM.DeleteLoginProfile
     (
     -- * Request

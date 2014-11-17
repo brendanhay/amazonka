@@ -21,6 +21,8 @@
 -- | Returns the object definitions for a set of objects associated with the
 -- pipeline. Object definitions are composed of a set of fields that define
 -- the properties of the object.
+--
+-- <DescribeObjects.html>
 module Network.AWS.DataPipeline.DescribeObjects
     (
     -- * Request

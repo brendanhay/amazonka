@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns metadata about all of the versions of objects in a bucket.
+--
+-- <ListObjectVersions.html>
 module Network.AWS.S3.ListObjectVersions
     (
     -- * Request

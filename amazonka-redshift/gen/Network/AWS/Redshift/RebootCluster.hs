@@ -24,6 +24,8 @@
 -- pending cluster modifications (see ModifyCluster) are applied at this
 -- reboot. For more information about managing clusters, go to Amazon Redshift
 -- Clusters in the Amazon Redshift Management Guide.
+--
+-- <RebootCluster.html>
 module Network.AWS.Redshift.RebootCluster
     (
     -- * Request

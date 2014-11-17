@@ -21,6 +21,8 @@
 -- | Deletes the specified LaunchConfiguration. The specified launch
 -- configuration must not be attached to an Auto Scaling group. When this call
 -- completes, the launch configuration is no longer available for use.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html>
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Request

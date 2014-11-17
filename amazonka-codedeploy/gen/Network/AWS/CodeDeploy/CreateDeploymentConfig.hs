@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new deployment configuration.
+--
+-- <CreateDeploymentConfig.html>
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
     (
     -- * Request

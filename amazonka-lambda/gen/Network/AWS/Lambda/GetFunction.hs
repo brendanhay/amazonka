@@ -24,6 +24,8 @@
 -- minutes. The configuration information is the same information you provided
 -- as parameters when uploading the function. This operation requires
 -- permission for the lambda:GetFunction action.
+--
+-- <GetFunction.html>
 module Network.AWS.Lambda.GetFunction
     (
     -- * Request

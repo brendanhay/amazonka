@@ -27,6 +27,8 @@
 -- the values are verified against the database, the response returns both
 -- values and is the same as the request. Otherwise a
 -- ResourceConflictException is thrown.
+--
+-- <LookupDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     (
     -- * Request

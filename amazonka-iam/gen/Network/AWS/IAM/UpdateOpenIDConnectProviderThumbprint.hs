@@ -25,6 +25,8 @@
 -- changes, which occurs rarely. However, if the provider's certificate does
 -- change, any attempt to assume an IAM role that specifies the IAM provider
 -- as a principal will fail until the certificate thumbprint is updated.
+--
+-- <UpdateOpenIDConnectProviderThumbprint.html>
 module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
     (
     -- * Request

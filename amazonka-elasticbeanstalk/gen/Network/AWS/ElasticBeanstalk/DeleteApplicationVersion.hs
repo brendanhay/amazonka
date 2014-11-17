@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified version from the specified application.
+--
+-- <DeleteApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Request

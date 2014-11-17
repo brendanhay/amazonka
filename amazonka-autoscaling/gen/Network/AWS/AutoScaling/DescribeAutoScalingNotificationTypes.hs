@@ -20,6 +20,8 @@
 
 -- | Returns a list of all notification types that are supported by Auto
 -- Scaling.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     (
     -- * Request

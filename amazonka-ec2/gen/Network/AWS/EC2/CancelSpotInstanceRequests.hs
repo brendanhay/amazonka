@@ -26,6 +26,8 @@
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Canceling a Spot
 -- Instance request does not terminate running Spot Instances associated with
 -- the request.
+--
+-- <CancelSpotInstanceRequests.html>
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Request

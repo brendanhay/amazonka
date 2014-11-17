@@ -21,6 +21,8 @@
 -- | Deletes a user profile. Required Permissions: To use this action, an IAM
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
+--
+-- <DeleteUserProfile.html>
 module Network.AWS.OpsWorks.DeleteUserProfile
     (
     -- * Request

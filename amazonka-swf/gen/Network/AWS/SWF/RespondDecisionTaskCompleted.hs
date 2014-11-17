@@ -31,6 +31,8 @@
 -- were actual API calls, including applying conditions to some parameters.
 -- For more information, see Using IAM to Manage Access to Amazon SWF
 -- Workflows.
+--
+-- <RespondDecisionTaskCompleted.html>
 module Network.AWS.SWF.RespondDecisionTaskCompleted
     (
     -- * Request

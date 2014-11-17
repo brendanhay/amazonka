@@ -21,6 +21,8 @@
 -- | The DeleteSnapshot operation deletes an existing snapshot. When you receive
 -- a successful response from this operation, ElastiCache immediately begins
 -- deleting the snapshot; you cannot cancel or revert this operation.
+--
+-- <DeleteSnapshot.html>
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Request

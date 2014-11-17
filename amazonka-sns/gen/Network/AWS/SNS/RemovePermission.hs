@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes a statement from a topic's access control policy.
+--
+-- <RemovePermission.html>
 module Network.AWS.SNS.RemovePermission
     (
     -- * Request

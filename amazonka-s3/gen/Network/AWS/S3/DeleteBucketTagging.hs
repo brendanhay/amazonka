@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the tags from the bucket.
+--
+-- <DeleteBucketTagging.html>
 module Network.AWS.S3.DeleteBucketTagging
     (
     -- * Request

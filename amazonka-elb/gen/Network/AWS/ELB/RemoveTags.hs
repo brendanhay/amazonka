@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes one or more tags from the specified load balancer.
+--
+-- <RemoveTags.html>
 module Network.AWS.ELB.RemoveTags
     (
     -- * Request

@@ -26,6 +26,8 @@
 -- in JSON format: One or more CaseDetails data types. One or more NextToken
 -- values, which specify where to paginate the returned records represented by
 -- the CaseDetails objects.
+--
+-- <DescribeCases.html>
 module Network.AWS.Support.DescribeCases
     (
     -- * Request

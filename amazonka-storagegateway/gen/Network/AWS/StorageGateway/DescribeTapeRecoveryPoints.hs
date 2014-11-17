@@ -23,6 +23,8 @@
 -- virtual tape at which all the data on the virtual tape is consistent. If
 -- your gateway crashes, virtual tapes that have recovery points can be
 -- recovered to a new gateway.
+--
+-- <DescribeTapeRecoveryPoints.html>
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     (
     -- * Request

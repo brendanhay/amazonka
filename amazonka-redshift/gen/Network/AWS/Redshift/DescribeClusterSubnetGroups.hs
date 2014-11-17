@@ -22,6 +22,8 @@
 -- about your cluster subnet groups. By default, this operation returns
 -- information about all cluster subnet groups that are defined in you AWS
 -- account.
+--
+-- <DescribeClusterSubnetGroups.html>
 module Network.AWS.Redshift.DescribeClusterSubnetGroups
     (
     -- * Request

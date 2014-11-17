@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables notifications of specified events for a bucket.
+--
+-- <PutBucketNotification.html>
 module Network.AWS.S3.PutBucketNotification
     (
     -- * Request

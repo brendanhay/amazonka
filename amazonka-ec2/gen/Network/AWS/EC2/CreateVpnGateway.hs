@@ -23,6 +23,8 @@
 -- private gateway before creating the VPC itself. For more information about
 -- virtual private gateways, see Adding a Hardware Virtual Private Gateway to
 -- Your VPC in the Amazon Virtual Private Cloud User Guide.
+--
+-- <CreateVpnGateway.html>
 module Network.AWS.EC2.CreateVpnGateway
     (
     -- * Request

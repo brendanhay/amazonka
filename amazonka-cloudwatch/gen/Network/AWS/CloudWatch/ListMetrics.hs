@@ -21,6 +21,8 @@
 -- | Returns a list of valid metrics stored for the AWS account owner. Returned
 -- metrics can be used with GetMetricStatistics to obtain statistical data for
 -- a given metric.
+--
+-- <ListMetrics.html>
 module Network.AWS.CloudWatch.ListMetrics
     (
     -- * Request

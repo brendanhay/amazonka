@@ -22,6 +22,8 @@
 -- Simple Notification Service (Amazon SNS) notifications for a pipeline. When
 -- you update notifications for a pipeline, Elastic Transcoder returns the
 -- values that you specified in the request.
+--
+-- <UpdatePipelineNotifications.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
     -- * Request

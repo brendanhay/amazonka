@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Checks if the specified CNAME is available.
+--
+-- <CheckDNSAvailability.html>
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Request

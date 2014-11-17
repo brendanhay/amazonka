@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds the specified user to the specified group.
+--
+-- <AddUserToGroup.html>
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Request

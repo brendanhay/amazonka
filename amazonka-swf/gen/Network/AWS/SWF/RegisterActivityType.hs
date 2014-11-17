@@ -34,6 +34,8 @@
 -- fall outside the specified constraints, the action fails by throwing
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
+--
+-- <RegisterActivityType.html>
 module Network.AWS.SWF.RegisterActivityType
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- returned is 1000. If you specify a value for the optional QueueNamePrefix
 -- parameter, only queues with a name beginning with the specified value are
 -- returned.
+--
+-- <ListQueues.html>
 module Network.AWS.SQS.ListQueues
     (
     -- * Request

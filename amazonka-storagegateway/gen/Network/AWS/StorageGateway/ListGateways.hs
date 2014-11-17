@@ -26,6 +26,8 @@
 -- are returned in a response-that is, the response returns only a truncated
 -- list of your gateways-the response contains a marker that you can specify
 -- in your next request to fetch the next page of gateways.
+--
+-- <ListGateways.html>
 module Network.AWS.StorageGateway.ListGateways
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- an existing virtual private gateway and a VPN customer gateway. The static
 -- route allows traffic to be routed from the virtual private gateway to the
 -- VPN customer gateway.
+--
+-- <DeleteVpnConnectionRoute.html>
 module Network.AWS.EC2.DeleteVpnConnectionRoute
     (
     -- * Request

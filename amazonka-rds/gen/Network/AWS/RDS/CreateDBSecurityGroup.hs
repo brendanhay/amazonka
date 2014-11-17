@@ -20,6 +20,8 @@
 
 -- | Creates a new DB security group. DB security groups control access to a DB
 -- instance.
+--
+-- <CreateDBSecurityGroup.html>
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Request

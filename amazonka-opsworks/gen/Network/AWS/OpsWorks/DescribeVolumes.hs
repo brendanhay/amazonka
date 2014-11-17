@@ -23,6 +23,8 @@
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
+--
+-- <DescribeVolumes.html>
 module Network.AWS.OpsWorks.DescribeVolumes
     (
     -- * Request

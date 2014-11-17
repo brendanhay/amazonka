@@ -40,6 +40,8 @@
 -- instances, see Instance Lifecycle in the Amazon Elastic Compute Cloud User
 -- Guide. For more information about troubleshooting, see Troubleshooting
 -- Stopping Your Instance in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <StopInstances.html>
 module Network.AWS.EC2.StopInstances
     (
     -- * Request

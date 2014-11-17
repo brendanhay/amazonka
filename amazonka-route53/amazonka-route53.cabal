@@ -20,6 +20,8 @@ description:
     Service (Amazon S3). You can also use Amazon Route 53 to route users to
     your infrastructure outside of AWS.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

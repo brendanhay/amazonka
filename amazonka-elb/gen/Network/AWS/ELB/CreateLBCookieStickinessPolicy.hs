@@ -32,6 +32,8 @@
 -- cookie expiration time, which is specified in the policy configuration. For
 -- more information, see Enabling Duration-Based Session Stickiness in the
 -- Elastic Load Balancing Developer Guide.
+--
+-- <CreateLBCookieStickinessPolicy.html>
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Request

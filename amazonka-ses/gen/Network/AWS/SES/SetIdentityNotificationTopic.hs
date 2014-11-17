@@ -24,6 +24,8 @@
 -- identity as the Source. This action is throttled at one request per second.
 -- For more information about feedback notification, see the Amazon SES
 -- Developer Guide.
+--
+-- <SetIdentityNotificationTopic.html>
 module Network.AWS.SES.SetIdentityNotificationTopic
     (
     -- * Request

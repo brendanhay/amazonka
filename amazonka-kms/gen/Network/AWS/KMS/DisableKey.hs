@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Marks a key as disabled, thereby preventing its use.
+--
+-- <DisableKey.html>
 module Network.AWS.KMS.DisableKey
     (
     -- * Request

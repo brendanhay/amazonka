@@ -22,6 +22,8 @@
 -- gateway, you attach it to a VPC using AttachInternetGateway. For more
 -- information about your VPC and Internet gateway, see the Amazon Virtual
 -- Private Cloud User Guide.
+--
+-- <CreateInternetGateway.html>
 module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Request

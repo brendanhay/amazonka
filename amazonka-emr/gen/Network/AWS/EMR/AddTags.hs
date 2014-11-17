@@ -22,6 +22,8 @@
 -- clusters in various ways, such as grouping clusters to track your Amazon
 -- EMR resource allocation costs. For more information, see Tagging Amazon EMR
 -- Resources.
+--
+-- <AddTags.html>
 module Network.AWS.EMR.AddTags
     (
     -- * Request

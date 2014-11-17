@@ -24,6 +24,8 @@
 -- Working with Roles. The returned policy is URL-encoded according to RFC
 -- 3986. For more information about RFC 3986, go to
 -- http://www.faqs.org/rfcs/rfc3986.html.
+--
+-- <GetRole.html>
 module Network.AWS.IAM.GetRole
     (
     -- * Request

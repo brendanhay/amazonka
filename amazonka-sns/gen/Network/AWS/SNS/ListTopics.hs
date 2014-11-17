@@ -22,6 +22,8 @@
 -- of topics, up to 100. If there are more topics, a NextToken is also
 -- returned. Use the NextToken parameter in a new ListTopics call to get
 -- further results.
+--
+-- <ListTopics.html>
 module Network.AWS.SNS.ListTopics
     (
     -- * Request

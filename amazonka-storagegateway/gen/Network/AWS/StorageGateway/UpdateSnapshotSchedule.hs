@@ -25,6 +25,8 @@
 -- identify the gateway volume whose snapshot schedule you want to update, and
 -- the schedule information, including when you want the snapshot to begin on
 -- a day and the frequency (in hours) of snapshots.
+--
+-- <UpdateSnapshotSchedule.html>
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Request

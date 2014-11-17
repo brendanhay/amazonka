@@ -21,6 +21,8 @@
 -- | Removes an event source mapping. This means AWS Lambda will no longer
 -- invoke the function for events in the associated source. This operation
 -- requires permission for the lambda:RemoveEventSource action.
+--
+-- <RemoveEventSource.html>
 module Network.AWS.Lambda.RemoveEventSource
     (
     -- * Request

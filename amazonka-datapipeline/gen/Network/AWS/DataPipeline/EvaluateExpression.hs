@@ -20,6 +20,8 @@
 
 -- | Evaluates a string in the context of a specified object. A task runner can
 -- use this action to evaluate SQL queries stored in Amazon S3.
+--
+-- <EvaluateExpression.html>
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Request

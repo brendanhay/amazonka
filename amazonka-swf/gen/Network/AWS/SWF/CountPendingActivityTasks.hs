@@ -31,6 +31,8 @@
 -- action, or the parameter values fall outside the specified constraints, the
 -- action fails by throwing OperationNotPermitted. For details and example IAM
 -- policies, see Using IAM to Manage Access to Amazon SWF Workflows.
+--
+-- <CountPendingActivityTasks.html>
 module Network.AWS.SWF.CountPendingActivityTasks
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies the specified attribute of the specified VPC.
+--
+-- <ModifyVpcAttribute.html>
 module Network.AWS.EC2.ModifyVpcAttribute
     (
     -- * Request

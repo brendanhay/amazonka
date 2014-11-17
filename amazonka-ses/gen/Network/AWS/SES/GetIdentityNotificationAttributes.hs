@@ -22,6 +22,8 @@
 -- returns a structure describing identity notification attributes. This
 -- action is throttled at one request per second. For more information about
 -- using notifications with Amazon SES, see the Amazon SES Developer Guide.
+--
+-- <GetIdentityNotificationAttributes.html>
 module Network.AWS.SES.GetIdentityNotificationAttributes
     (
     -- * Request

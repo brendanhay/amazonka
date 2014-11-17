@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified policy associated with the specified user.
+--
+-- <DeleteUserPolicy.html>
 module Network.AWS.IAM.DeleteUserPolicy
     (
     -- * Request

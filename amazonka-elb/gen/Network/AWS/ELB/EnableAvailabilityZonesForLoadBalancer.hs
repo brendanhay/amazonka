@@ -25,6 +25,8 @@
 -- balancer was created. For more information, see Expand a Load Balanced
 -- Application to an Additional Availability Zone in the Elastic Load
 -- Balancing Developer Guide.
+--
+-- <EnableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Request

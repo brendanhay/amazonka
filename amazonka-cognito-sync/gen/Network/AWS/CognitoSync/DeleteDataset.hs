@@ -22,6 +22,8 @@
 -- the action can't be undone. Datasets that this dataset was merged with will
 -- no longer report the merge. Any consequent operation on this dataset will
 -- result in a ResourceNotFoundException.
+--
+-- <DeleteDataset.html>
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Request

@@ -27,6 +27,8 @@
 -- of the snapshot. Manual snapshots are retained until you delete them. For
 -- more information about working with snapshots, go to Amazon Redshift
 -- Snapshots in the Amazon Redshift Management Guide.
+--
+-- <CopyClusterSnapshot.html>
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Request

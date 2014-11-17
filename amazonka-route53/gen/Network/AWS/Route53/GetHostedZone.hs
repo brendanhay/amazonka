@@ -22,6 +22,8 @@
 -- 2013-04-01/hostedzone/hosted zone ID resource. The delegation set is the
 -- four Route 53 name servers that were assigned to the hosted zone when you
 -- created it.
+--
+-- <GetHostedZone.html>
 module Network.AWS.Route53.GetHostedZone
     (
     -- * Request

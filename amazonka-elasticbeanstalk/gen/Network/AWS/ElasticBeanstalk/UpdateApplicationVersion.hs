@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates the specified application version to have the specified properties.
+--
+-- <UpdateApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Request

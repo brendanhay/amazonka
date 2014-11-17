@@ -65,6 +65,8 @@
 -- Federation with Mobile Applications. This article discusses web identity
 -- federation and shows an example of how to use web identity federation to
 -- get access to content in Amazon S3.
+--
+-- <AssumeRoleWithWebIdentity.html>
 module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
     -- * Request

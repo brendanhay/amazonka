@@ -22,6 +22,8 @@
 -- peering connection must be in the pending-acceptance state, and you must be
 -- the owner of the peer VPC. Use the DescribeVpcPeeringConnections request to
 -- view your outstanding VPC peering connection requests.
+--
+-- <AcceptVpcPeeringConnection.html>
 module Network.AWS.EC2.AcceptVpcPeeringConnection
     (
     -- * Request

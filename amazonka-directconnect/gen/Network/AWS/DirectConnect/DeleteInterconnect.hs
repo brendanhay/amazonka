@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified interconnect.
+--
+-- <DeleteInterconnect.html>
 module Network.AWS.DirectConnect.DeleteInterconnect
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- requests, which generally yields better throughput. The following
 -- limitations are enforced for this operation: 1 MB request size 25 item
 -- limit per BatchDeleteAttributes operation.
+--
+-- <BatchDeleteAttributes.html>
 module Network.AWS.SDB.BatchDeleteAttributes
     (
     -- * Request

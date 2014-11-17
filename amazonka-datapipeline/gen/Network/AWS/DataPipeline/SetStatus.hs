@@ -22,6 +22,8 @@
 -- objects be updated in the pipeline. This update may not occur immediately,
 -- but is eventually consistent. The status that can be set depends on the
 -- type of object.
+--
+-- <SetStatus.html>
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Request

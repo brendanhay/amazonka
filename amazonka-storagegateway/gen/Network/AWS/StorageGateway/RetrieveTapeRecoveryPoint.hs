@@ -22,6 +22,8 @@
 -- point is a point in time view of a virtual tape at which all the data on
 -- the tape is consistent. If your gateway crashes, virtual tapes that have
 -- recovery points can be recovered to a new gateway.
+--
+-- <RetrieveTapeRecoveryPoint.html>
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Request

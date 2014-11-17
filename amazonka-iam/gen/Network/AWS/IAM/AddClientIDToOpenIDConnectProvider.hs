@@ -22,6 +22,8 @@
 -- already registered for the specified IAM OpenID Connect provider. This
 -- action is idempotent; it does not fail or return an error if you add an
 -- existing client ID to the provider.
+--
+-- <AddClientIDToOpenIDConnectProvider.html>
 module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
     (
     -- * Request

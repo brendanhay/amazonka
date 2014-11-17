@@ -21,6 +21,8 @@
 -- | The CreateCacheSubnetGroup operation creates a new cache subnet group. Use
 -- this parameter only when you are creating a cluster in an Amazon Virtual
 -- Private Cloud (VPC).
+--
+-- <CreateCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Request

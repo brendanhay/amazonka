@@ -21,6 +21,8 @@
 -- | Returns the current status of the specified configuration recorder. If a
 -- configuration recorder is not specified, this action returns the status of
 -- all configuration recorder associated with the account.
+--
+-- <DescribeConfigurationRecorderStatus.html>
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (
     -- * Request

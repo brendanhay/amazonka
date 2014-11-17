@@ -25,6 +25,8 @@
 -- During the reboot, the cache cluster status is set to REBOOTING. The reboot
 -- causes the contents of the cache (for each cache node being rebooted) to be
 -- lost. When the reboot is complete, a cache cluster event is created.
+--
+-- <RebootCacheCluster.html>
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Request

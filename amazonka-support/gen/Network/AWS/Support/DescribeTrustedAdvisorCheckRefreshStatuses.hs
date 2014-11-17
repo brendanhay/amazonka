@@ -21,6 +21,8 @@
 -- | Returns the refresh status of the Trusted Advisor checks that have the
 -- specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks.
+--
+-- <DescribeTrustedAdvisorCheckRefreshStatuses.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
     -- * Request

@@ -26,6 +26,8 @@
 -- with the stack after an UpdateStack operation. For more information about
 -- creating an update template, updating a stack, and monitoring the progress
 -- of the update, see Updating a Stack.
+--
+-- <UpdateStack.html>
 module Network.AWS.CloudFormation.UpdateStack
     (
     -- * Request

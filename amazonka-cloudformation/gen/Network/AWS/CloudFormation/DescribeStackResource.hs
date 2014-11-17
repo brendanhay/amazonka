@@ -21,6 +21,8 @@
 -- | Returns a description of the specified resource in the specified stack. For
 -- deleted stacks, DescribeStackResource returns resource information for up
 -- to 90 days after the stack has been deleted.
+--
+-- <DescribeStackResource.html>
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Request

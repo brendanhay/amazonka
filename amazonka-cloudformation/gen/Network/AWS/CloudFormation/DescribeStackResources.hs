@@ -31,6 +31,8 @@
 -- resources, the LogicalResourceId and PhysicalResourceId, go to the AWS
 -- CloudFormation User Guide. A ValidationError is returned if you specify
 -- both StackName and PhysicalResourceId in the same request.
+--
+-- <DescribeStackResources.html>
 module Network.AWS.CloudFormation.DescribeStackResources
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Stops recording configurations of all the resources associated with the
 -- account.
+--
+-- <StopConfigurationRecorder.html>
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Request

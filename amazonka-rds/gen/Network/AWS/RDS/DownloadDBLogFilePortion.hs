@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Downloads all or a portion of the specified log file.
+--
+-- <DownloadDBLogFilePortion.html>
 module Network.AWS.RDS.DownloadDBLogFilePortion
     (
     -- * Request

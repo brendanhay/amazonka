@@ -31,6 +31,8 @@
 -- socket timeout in your task runner to 90 seconds. The task runner should
 -- not call PollForTask again on the same workerGroup until it receives a
 -- response, and this may take up to 90 seconds.
+--
+-- <PollForTask.html>
 module Network.AWS.DataPipeline.PollForTask
     (
     -- * Request

@@ -53,6 +53,8 @@
 -- Using Temporary Security Credentials. SAML Providers in Using IAM.
 -- Configuring a Relying Party and Claims in Using IAM. Creating a Role for
 -- SAML-Based Federation in Using IAM.
+--
+-- <AssumeRoleWithSAML.html>
 module Network.AWS.STS.AssumeRoleWithSAML
     (
     -- * Request

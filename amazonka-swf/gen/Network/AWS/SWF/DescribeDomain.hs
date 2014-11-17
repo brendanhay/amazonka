@@ -28,6 +28,8 @@
 -- fall outside the specified constraints, the action fails by throwing
 -- OperationNotPermitted. For details and example IAM policies, see Using IAM
 -- to Manage Access to Amazon SWF Workflows.
+--
+-- <DescribeDomain.html>
 module Network.AWS.SWF.DescribeDomain
     (
     -- * Request

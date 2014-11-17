@@ -24,6 +24,8 @@
 -- groups and DB parameter groups) are inherited from the source DB instance,
 -- except as specified below. The source DB instance must have backup
 -- retention enabled.
+--
+-- <CreateDBInstanceReadReplica.html>
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Request

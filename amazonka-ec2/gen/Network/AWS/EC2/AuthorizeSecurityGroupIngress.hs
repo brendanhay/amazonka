@@ -31,6 +31,8 @@
 -- gives one or more other security groups (called the source groups)
 -- permission to access a security group for your VPC. The security groups
 -- must all be for the same VPC.
+--
+-- <AuthorizeSecurityGroupIngress.html>
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Request

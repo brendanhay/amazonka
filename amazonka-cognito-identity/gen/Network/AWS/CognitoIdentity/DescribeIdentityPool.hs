@@ -20,6 +20,8 @@
 
 -- | Gets details about a particular identity pool, including the pool name, ID
 -- description, creation date, and current number of users.
+--
+-- <DescribeIdentityPool.html>
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
     -- * Request

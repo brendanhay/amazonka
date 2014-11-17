@@ -22,6 +22,8 @@
 -- specify only one attribute at a time. For more information about Amazon EBS
 -- snapshots, see Amazon EBS Snapshots in the Amazon Elastic Compute Cloud
 -- User Guide.
+--
+-- <DescribeSnapshotAttribute.html>
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
     -- * Request

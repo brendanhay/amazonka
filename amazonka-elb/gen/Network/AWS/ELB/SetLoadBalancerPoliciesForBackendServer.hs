@@ -29,6 +29,8 @@
 -- PolicyNames parameter to list all the policies you want to enable. You can
 -- use DescribeLoadBalancers or DescribeLoadBalancerPolicies action to verify
 -- that the policy has been associated with the back-end server.
+--
+-- <SetLoadBalancerPoliciesForBackendServer.html>
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Request

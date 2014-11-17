@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists all of the key aliases in the account.
+--
+-- <ListAliases.html>
 module Network.AWS.KMS.ListAliases
     (
     -- * Request

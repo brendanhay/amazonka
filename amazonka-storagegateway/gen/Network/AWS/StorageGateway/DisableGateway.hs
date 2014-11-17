@@ -23,6 +23,8 @@
 -- recover virtual tapes. Use this operation for a gateway-VTL that is not
 -- reachable or not functioning. Once a gateway is disabled it cannot be
 -- enabled.
+--
+-- <DisableGateway.html>
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Request

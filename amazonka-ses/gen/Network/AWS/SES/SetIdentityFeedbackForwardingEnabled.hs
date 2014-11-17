@@ -24,6 +24,8 @@
 -- (Amazon SNS) topics are specified for both bounces and complaints. This
 -- action is throttled at one request per second. For more information about
 -- using notifications with Amazon SES, see the Amazon SES Developer Guide.
+--
+-- <SetIdentityFeedbackForwardingEnabled.html>
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
     -- * Request

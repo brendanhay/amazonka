@@ -28,6 +28,8 @@
 -- product codes from that volume are no longer associated with the instance.
 -- For more information, see Detaching an Amazon EBS Volume in the Amazon
 -- Elastic Compute Cloud User Guide.
+--
+-- <DetachVolume.html>
 module Network.AWS.EC2.DetachVolume
     (
     -- * Request

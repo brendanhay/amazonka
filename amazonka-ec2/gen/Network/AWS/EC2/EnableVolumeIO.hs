@@ -20,6 +20,8 @@
 
 -- | Enables I/O operations for a volume that had I/O operations disabled
 -- because the data on the volume was potentially inconsistent.
+--
+-- <EnableVolumeIO.html>
 module Network.AWS.EC2.EnableVolumeIO
     (
     -- * Request

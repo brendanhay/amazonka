@@ -24,6 +24,8 @@
 -- a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
+--
+-- <SetTimeBasedAutoScaling.html>
 module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     (
     -- * Request

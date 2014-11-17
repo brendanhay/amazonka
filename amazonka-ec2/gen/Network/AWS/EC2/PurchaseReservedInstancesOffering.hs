@@ -28,6 +28,8 @@
 -- Instance with DescribeReservedInstances. For more information, see Reserved
 -- Instances and Reserved Instance Marketplace in the Amazon Elastic Compute
 -- Cloud User Guide.
+--
+-- <PurchaseReservedInstancesOffering.html>
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Request

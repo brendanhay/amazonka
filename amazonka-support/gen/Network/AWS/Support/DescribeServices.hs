@@ -28,6 +28,8 @@
 -- DescribeServices request. Always use the service codes and categories
 -- obtained programmatically. This practice ensures that you always have the
 -- most recent set of service and category codes.
+--
+-- <DescribeServices.html>
 module Network.AWS.Support.DescribeServices
     (
     -- * Request

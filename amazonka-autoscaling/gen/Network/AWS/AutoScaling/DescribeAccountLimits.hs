@@ -24,6 +24,8 @@
 -- 100 launch configurations per region. If you reach the limits for the
 -- number of Auto Scaling groups or the launch configurations, you can go to
 -- the Support Center and place a request to raise the limits.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html>
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
     -- * Request

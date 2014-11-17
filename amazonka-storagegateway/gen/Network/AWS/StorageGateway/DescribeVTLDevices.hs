@@ -21,6 +21,8 @@
 -- | Returns a description of virtual tape library (VTL) devices for the
 -- specified gateway. In the response, AWS Storage Gateway returns VTL device
 -- information. The list of VTL devices must be from one gateway.
+--
+-- <DescribeVTLDevices.html>
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (
     -- * Request

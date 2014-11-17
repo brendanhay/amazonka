@@ -22,6 +22,8 @@
 -- description for a subscription includes SubscriptionName, SNSTopicARN,
 -- CustomerID, SourceType, SourceID, CreationTime, and Status. If you specify
 -- a SubscriptionName, lists the description for that subscription.
+--
+-- <DescribeEventSubscriptions.html>
 module Network.AWS.RDS.DescribeEventSubscriptions
     (
     -- * Request

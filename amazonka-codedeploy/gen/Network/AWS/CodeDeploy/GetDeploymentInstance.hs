@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets information about an Amazon EC2 instance as part of a deployment.
+--
+-- <GetDeploymentInstance.html>
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Request

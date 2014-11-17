@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Executes the specified policy.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html>
 module Network.AWS.AutoScaling.ExecutePolicy
     (
     -- * Request

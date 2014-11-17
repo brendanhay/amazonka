@@ -21,6 +21,8 @@
 -- | Describes one or more of the tags for your EC2 resources. For more
 -- information about tags, see Tagging Your Resources in the Amazon Elastic
 -- Compute Cloud User Guide.
+--
+-- <DescribeTags.html>
 module Network.AWS.EC2.DescribeTags
     (
     -- * Request

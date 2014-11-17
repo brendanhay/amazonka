@@ -21,6 +21,8 @@
 -- | Describes one or more of your VPN connections. For more information about
 -- VPN connections, see Adding a Hardware Virtual Private Gateway to Your VPC
 -- in the Amazon Virtual Private Cloud User Guide.
+--
+-- <DescribeVpnConnections.html>
 module Network.AWS.EC2.DescribeVpnConnections
     (
     -- * Request

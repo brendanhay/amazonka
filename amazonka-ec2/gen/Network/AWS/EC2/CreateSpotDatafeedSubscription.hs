@@ -22,6 +22,8 @@
 -- usage logs. You can create one data feed per AWS account. For more
 -- information, see Spot Instances in the Amazon Elastic Compute Cloud User
 -- Guide.
+--
+-- <CreateSpotDatafeedSubscription.html>
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Request

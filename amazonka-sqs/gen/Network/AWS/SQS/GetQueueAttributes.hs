@@ -43,6 +43,8 @@
 -- queue. For more information about RedrivePolicy and dead letter queues, see
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 -- &amp;Attribute.1=this &amp;Attribute.2=that.
+--
+-- <GetQueueAttributes.html>
 module Network.AWS.SQS.GetQueueAttributes
     (
     -- * Request

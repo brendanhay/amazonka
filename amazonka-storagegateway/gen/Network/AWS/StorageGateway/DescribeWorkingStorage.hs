@@ -24,6 +24,8 @@
 -- (20120630). Use DescribeUploadBuffer instead. The response includes disk
 -- IDs that are configured as working storage, and it includes the amount of
 -- working storage allocated and used.
+--
+-- <DescribeWorkingStorage.html>
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Request

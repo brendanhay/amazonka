@@ -27,6 +27,8 @@
 -- specify the EndpointArn. The EndpointArn is returned when making a call
 -- with the CreatePlatformEndpoint action. The second example below shows a
 -- request and response for publishing to a mobile endpoint.
+--
+-- <Publish.html>
 module Network.AWS.SNS.Publish
     (
     -- * Request

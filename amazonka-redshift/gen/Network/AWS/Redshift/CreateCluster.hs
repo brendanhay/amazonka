@@ -25,6 +25,8 @@
 -- security group with the cluster. For more information about managing
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
 -- Guide .
+--
+-- <CreateCluster.html>
 module Network.AWS.Redshift.CreateCluster
     (
     -- * Request

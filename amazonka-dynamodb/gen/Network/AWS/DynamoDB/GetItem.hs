@@ -24,6 +24,8 @@
 -- your application requires a strongly consistent read, set ConsistentRead to
 -- true. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
+--
+-- <GetItem.html>
 module Network.AWS.DynamoDB.GetItem
     (
     -- * Request

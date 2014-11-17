@@ -23,6 +23,8 @@
 -- of a key and optional value. Tag keys must be unique per resource. For more
 -- information about tags, see Tagging Your Resources in the Amazon Elastic
 -- Compute Cloud User Guide.
+--
+-- <CreateTags.html>
 module Network.AWS.EC2.CreateTags
     (
     -- * Request

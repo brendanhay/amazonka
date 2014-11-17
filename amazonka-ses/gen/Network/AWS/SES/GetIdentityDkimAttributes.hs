@@ -31,6 +31,8 @@
 -- action is throttled at one request per second. For more information about
 -- creating DNS records using DKIM tokens, go to the Amazon SES Developer
 -- Guide.
+--
+-- <GetIdentityDkimAttributes.html>
 module Network.AWS.SES.GetIdentityDkimAttributes
     (
     -- * Request

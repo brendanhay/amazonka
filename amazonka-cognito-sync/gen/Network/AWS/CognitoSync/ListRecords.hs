@@ -24,6 +24,8 @@
 -- identity has access only to its own data. You should use Amazon Cognito
 -- Identity service to retrieve the credentials necessary to make this API
 -- call.
+--
+-- <ListRecords.html>
 module Network.AWS.CognitoSync.ListRecords
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- group. After the instances are detached, you can manage them independently
 -- from the rest of the Auto Scaling group. To learn more about detaching
 -- instances, see Detach Amazon EC2 Instances From Your Auto Scaling Group.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Request

@@ -24,6 +24,8 @@
 -- to search for possible matches and a unique name for the suggester. For
 -- more information, see Getting Search Suggestions in the Amazon CloudSearch
 -- Developer Guide.
+--
+-- <DefineSuggester.html>
 module Network.AWS.CloudSearch.DefineSuggester
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- If you do not specify a user name, IAM determines the user name implicitly
 -- based on the AWS access key ID signing the request. You can paginate the
 -- results using the MaxItems and Marker parameters.
+--
+-- <ListMFADevices.html>
 module Network.AWS.IAM.ListMFADevices
     (
     -- * Request

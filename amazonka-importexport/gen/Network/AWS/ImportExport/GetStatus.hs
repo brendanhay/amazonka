@@ -22,6 +22,8 @@
 -- in the processing pipeline, the status of the results, and the signature
 -- value associated with the job. You can only return information about jobs
 -- you own.
+--
+-- <GetStatus.html>
 module Network.AWS.ImportExport.GetStatus
     (
     -- * Request

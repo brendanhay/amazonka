@@ -22,6 +22,8 @@
 -- some messages previously sent to the topic from being delivered to
 -- subscribers. This action is idempotent, so deleting a topic that does not
 -- exist does not result in an error.
+--
+-- <DeleteTopic.html>
 module Network.AWS.SNS.DeleteTopic
     (
     -- * Request

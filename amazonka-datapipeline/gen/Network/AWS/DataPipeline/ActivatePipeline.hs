@@ -23,6 +23,8 @@
 -- pipeline tasks of a pipeline you've created using the CreatePipeline and
 -- PutPipelineDefinition actions. A pipeline cannot be modified after it has
 -- been successfully activated.
+--
+-- <ActivatePipeline.html>
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Request

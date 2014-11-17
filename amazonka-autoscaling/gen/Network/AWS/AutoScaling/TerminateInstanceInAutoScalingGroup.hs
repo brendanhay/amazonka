@@ -20,6 +20,8 @@
 
 -- | Terminates the specified instance. Optionally, the desired group size can
 -- be adjusted.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html>
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about an invalidation.
+--
+-- <GetInvalidation.html>
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Request

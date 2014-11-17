@@ -27,6 +27,8 @@
 -- acceptance returns an operation ID that you can use with GetOperationDetail
 -- to track the progress and completion of the action. If the request is not
 -- completed successfully, the domain registrant will be notified by email.
+--
+-- <UpdateDomainContactPrivacy.html>
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
     -- * Request

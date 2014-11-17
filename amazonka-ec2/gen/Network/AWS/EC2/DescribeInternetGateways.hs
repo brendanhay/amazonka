@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your Internet gateways.
+--
+-- <DescribeInternetGateways.html>
 module Network.AWS.EC2.DescribeInternetGateways
     (
     -- * Request

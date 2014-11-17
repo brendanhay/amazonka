@@ -23,6 +23,8 @@
 -- you want to change. This operation must only be used on an existing Lambda
 -- function and cannot be used to update the function's code. This operation
 -- requires permission for the lambda:UpdateFunctionConfiguration action.
+--
+-- <UpdateFunctionConfiguration.html>
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
     -- * Request

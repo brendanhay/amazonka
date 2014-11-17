@@ -23,6 +23,8 @@
 -- CloudFormation User Guide. You can list events for stacks that have failed
 -- to create or have been deleted by specifying the unique stack identifier
 -- (stack ID).
+--
+-- <DescribeStackEvents.html>
 module Network.AWS.CloudFormation.DescribeStackEvents
     (
     -- * Request

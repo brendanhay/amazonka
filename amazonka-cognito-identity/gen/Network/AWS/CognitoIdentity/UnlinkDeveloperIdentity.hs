@@ -23,6 +23,8 @@
 -- If, for a given Cognito identity, you remove all federated identities as
 -- well as the developer user identifier, the Cognito identity becomes
 -- inaccessible.
+--
+-- <UnlinkDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     (
     -- * Request

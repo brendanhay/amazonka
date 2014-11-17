@@ -22,6 +22,8 @@
 -- this API without authenticating. Note that if the availability status of a
 -- domain is pending, you must submit another request to determine the
 -- availability of the domain name.
+--
+-- <CheckDomainAvailability.html>
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Request

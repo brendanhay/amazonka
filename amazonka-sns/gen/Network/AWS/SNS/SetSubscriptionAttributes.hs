@@ -20,6 +20,8 @@
 
 -- | Allows a subscription owner to set an attribute of the topic to a new
 -- value.
+--
+-- <SetSubscriptionAttributes.html>
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
     -- * Request

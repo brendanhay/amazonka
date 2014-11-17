@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets information about one or more deployments.
+--
+-- <BatchGetDeployments.html>
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Request

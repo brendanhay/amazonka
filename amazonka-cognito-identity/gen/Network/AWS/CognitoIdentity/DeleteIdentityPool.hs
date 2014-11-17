@@ -20,6 +20,8 @@
 
 -- | Deletes a user pool. Once a pool is deleted, users will not be able to
 -- authenticate with the pool.
+--
+-- <DeleteIdentityPool.html>
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- you. Images available to you include public images, private images that you
 -- own, and private images owned by other AWS accounts but for which you have
 -- explicit launch permissions.
+--
+-- <DescribeImages.html>
 module Network.AWS.EC2.DescribeImages
     (
     -- * Request

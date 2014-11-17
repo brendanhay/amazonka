@@ -27,6 +27,8 @@
 -- values when creating a cluster. For more information about managing
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
 -- Guide.
+--
+-- <DescribeOrderableClusterOptions.html>
 module Network.AWS.Redshift.DescribeOrderableClusterOptions
     (
     -- * Request

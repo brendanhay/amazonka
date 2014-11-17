@@ -21,6 +21,8 @@
 -- | Returns the definition of the specified pipeline. You can call
 -- GetPipelineDefinition to retrieve the pipeline definition you provided
 -- using PutPipelineDefinition.
+--
+-- <GetPipelineDefinition.html>
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Request

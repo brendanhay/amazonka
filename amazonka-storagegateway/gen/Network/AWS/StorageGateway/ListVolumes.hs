@@ -27,6 +27,8 @@
 -- volumes returned in the response is truncated, the response includes a
 -- Marker field. You can use this Marker value in your subsequent request to
 -- retrieve the next set of volumes.
+--
+-- <ListVolumes.html>
 module Network.AWS.StorageGateway.ListVolumes
     (
     -- * Request

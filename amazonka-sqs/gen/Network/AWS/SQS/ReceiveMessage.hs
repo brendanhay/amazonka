@@ -40,6 +40,8 @@
 -- response. If you do not include the parameter, the overall visibility
 -- timeout for the queue is used for the returned messages. For more
 -- information, see Visibility Timeout in the Amazon SQS Developer Guide.
+--
+-- <ReceiveMessage.html>
 module Network.AWS.SQS.ReceiveMessage
     (
     -- * Request

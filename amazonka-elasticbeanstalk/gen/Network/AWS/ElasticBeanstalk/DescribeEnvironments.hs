@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns descriptions for existing environments.
+--
+-- <DescribeEnvironments.html>
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Request

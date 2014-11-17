@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an application.
+--
+-- <DeleteApplication.html>
 module Network.AWS.CodeDeploy.DeleteApplication
     (
     -- * Request

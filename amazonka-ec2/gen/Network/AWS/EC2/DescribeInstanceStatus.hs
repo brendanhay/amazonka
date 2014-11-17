@@ -65,6 +65,8 @@
 -- information about working with scheduled events, see Working with an
 -- Instance That Has a Scheduled Event in the Amazon Elastic Compute Cloud
 -- User Guide.
+--
+-- <DescribeInstanceStatus.html>
 module Network.AWS.EC2.DescribeInstanceStatus
     (
     -- * Request

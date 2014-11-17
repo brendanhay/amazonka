@@ -22,6 +22,8 @@
 -- give the group a name that's unique within the scope of your account. For
 -- more information about placement groups and cluster instances, see Cluster
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <CreatePlacementGroup.html>
 module Network.AWS.EC2.CreatePlacementGroup
     (
     -- * Request

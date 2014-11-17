@@ -25,6 +25,8 @@
 -- private gateway are also described). You must wait for the attachment's
 -- state to switch to detached before you can delete the VPC or attach a
 -- different VPC to the virtual private gateway.
+--
+-- <DetachVpnGateway.html>
 module Network.AWS.EC2.DetachVpnGateway
     (
     -- * Request

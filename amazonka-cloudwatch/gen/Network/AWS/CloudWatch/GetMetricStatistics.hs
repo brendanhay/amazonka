@@ -39,6 +39,8 @@
 -- other Amazon Web Services products use to send metrics to Cloudwatch, go to
 -- Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference in the
 -- Amazon CloudWatch Developer Guide.
+--
+-- <GetMetricStatistics.html>
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified route from the specified route table.
+--
+-- <DeleteRoute.html>
 module Network.AWS.EC2.DeleteRoute
     (
     -- * Request

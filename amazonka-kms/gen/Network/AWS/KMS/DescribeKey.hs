@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides detailed information about the specified customer master key.
+--
+-- <DescribeKey.html>
 module Network.AWS.KMS.DescribeKey
     (
     -- * Request

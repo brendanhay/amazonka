@@ -20,6 +20,8 @@
 
 -- | Subscribes to receive notifications when a dataset is modified by another
 -- device.
+--
+-- <SubscribeToDataset.html>
 module Network.AWS.CognitoSync.SubscribeToDataset
     (
     -- * Request

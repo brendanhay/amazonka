@@ -43,6 +43,8 @@
 -- languages supported by an AWS SDK. A successful CreateCase request returns
 -- an AWS Support case number. Case numbers are used by the DescribeCases
 -- operation to retrieve existing AWS Support cases.
+--
+-- <CreateCase.html>
 module Network.AWS.Support.CreateCase
     (
     -- * Request

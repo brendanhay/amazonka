@@ -23,6 +23,8 @@
 -- when creating Amazon Redshift subnet group. For information about subnet
 -- groups, go to Amazon Redshift Cluster Subnet Groups in the Amazon Redshift
 -- Management Guide.
+--
+-- <CreateClusterSubnetGroup.html>
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Returns all of the properties of a topic. Topic properties returned might
 -- differ based on the authorization of the user.
+--
+-- <GetTopicAttributes.html>
 module Network.AWS.SNS.GetTopicAttributes
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Given a list of identities (email addresses and/or domains), returns the
 -- verification status and (for domain identities) the verification token for
 -- each identity. This action is throttled at one request per second.
+--
+-- <GetIdentityVerificationAttributes.html>
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Request

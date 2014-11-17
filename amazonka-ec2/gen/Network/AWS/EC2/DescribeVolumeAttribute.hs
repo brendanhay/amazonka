@@ -22,6 +22,8 @@
 -- only one attribute at a time. For more information about Amazon EBS
 -- volumes, see Amazon EBS Volumes in the Amazon Elastic Compute Cloud User
 -- Guide.
+--
+-- <DescribeVolumeAttribute.html>
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Request

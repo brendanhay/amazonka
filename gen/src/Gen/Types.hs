@@ -433,12 +433,12 @@ makeLenses ''Overrides
 instance FromJSON Overrides where
     parseJSON = withObject "overrides" $ \o -> Overrides
         <$> o .:  "library"
-        <*> o .:? "version"           .!= initial
+        <*> o .:? "version"          .!= initial
         <*> o .:  "url"
         <*> o .:  "operationUrl"
         <*> o .:? "operationModules" .!= mempty
         <*> o .:? "typeModules"      .!= mempty
-        <*> o .:? "overrides"         .!= mempty
+        <*> o .:? "overrides"        .!= mempty
 
 data Model = Model
     { _mName      :: String

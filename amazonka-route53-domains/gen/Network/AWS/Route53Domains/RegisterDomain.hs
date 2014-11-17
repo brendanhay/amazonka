@@ -35,6 +35,8 @@
 -- domain registrant is notified by email. Charges your AWS account an amount
 -- based on the top-level domain. For more information, see Amazon Route 53
 -- Pricing.
+--
+-- <RegisterDomain.html>
 module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Request

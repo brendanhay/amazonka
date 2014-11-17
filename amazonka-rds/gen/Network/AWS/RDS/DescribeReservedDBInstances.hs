@@ -20,6 +20,8 @@
 
 -- | Returns information about reserved DB instances for this account, or about
 -- a specified reserved DB instance.
+--
+-- <DescribeReservedDBInstances.html>
 module Network.AWS.RDS.DescribeReservedDBInstances
     (
     -- * Request

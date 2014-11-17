@@ -20,6 +20,8 @@
 
 -- | The DescribeReservedCacheNodes operation returns information about reserved
 -- cache nodes for this account, or about a specified reserved cache node.
+--
+-- <DescribeReservedCacheNodes.html>
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     (
     -- * Request

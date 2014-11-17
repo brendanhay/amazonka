@@ -25,6 +25,8 @@
 -- certain expected attribute values). You can also return the item's
 -- attribute values in the same UpdateItem operation using the ReturnValues
 -- parameter.
+--
+-- <UpdateItem.html>
 module Network.AWS.DynamoDB.UpdateItem
     (
     -- * Request

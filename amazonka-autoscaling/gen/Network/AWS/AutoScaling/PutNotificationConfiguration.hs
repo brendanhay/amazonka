@@ -24,6 +24,8 @@
 -- information see Get Email Notifications When Your Auto Scaling Group
 -- Changes A new PutNotificationConfiguration overwrites an existing
 -- configuration.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html>
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
     -- * Request

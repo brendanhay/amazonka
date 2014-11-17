@@ -27,6 +27,8 @@
 -- individual settings, a draft configuration is created and
 -- DescribeConfigurationSettings for this environment returns two setting
 -- descriptions with different DeploymentStatus values.
+--
+-- <UpdateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
     -- * Request

@@ -22,6 +22,8 @@
 -- created from the source database restore point with the same configuration
 -- as the original source database, except that the new RDS instance is
 -- created with the default security group.
+--
+-- <RestoreDBInstanceFromDBSnapshot.html>
 module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     (
     -- * Request

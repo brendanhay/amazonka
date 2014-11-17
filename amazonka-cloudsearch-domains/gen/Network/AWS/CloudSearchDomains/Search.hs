@@ -34,6 +34,8 @@
 -- CloudSearch configuration service DescribeDomains action. A domain's
 -- endpoints are also displayed on the domain dashboard in the Amazon
 -- CloudSearch console.
+--
+-- <Search.html>
 module Network.AWS.CloudSearchDomains.Search
     (
     -- * Request

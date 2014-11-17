@@ -30,6 +30,8 @@
 -- right to delete queues that have had no activity for more than 30 days. For
 -- more information, see How Amazon SQS Queues Work in the Amazon SQS
 -- Developer Guide.
+--
+-- <DeleteQueue.html>
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Request

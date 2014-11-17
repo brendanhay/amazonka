@@ -22,6 +22,8 @@
 -- settings are registered upon the completion of this call. Any launch
 -- configuration settings take effect on any triggers after this call returns.
 -- Scaling activities that are currently in progress aren't affected.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
     -- * Request

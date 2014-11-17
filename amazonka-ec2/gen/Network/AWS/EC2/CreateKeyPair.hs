@@ -27,6 +27,8 @@
 -- create a key pair that is available in all regions, use ImportKeyPair. For
 -- more information about key pairs, see Key Pairs in the Amazon Elastic
 -- Compute Cloud User Guide.
+--
+-- <CreateKeyPair.html>
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Request

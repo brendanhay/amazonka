@@ -20,6 +20,8 @@
 
 -- | Generates a secure data key. Data keys are used to encrypt and decrypt
 -- data. They are wrapped by customer master keys.
+--
+-- <GenerateDataKey.html>
 module Network.AWS.KMS.GenerateDataKey
     (
     -- * Request

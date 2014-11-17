@@ -20,6 +20,8 @@
 
 -- | Deletes the specified user. The user must not belong to any groups, have
 -- any keys or signing certificates, or have any attached policies.
+--
+-- <DeleteUser.html>
 module Network.AWS.IAM.DeleteUser
     (
     -- * Request

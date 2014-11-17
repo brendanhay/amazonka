@@ -20,6 +20,8 @@
 
 -- | Lists the deployment groups for an application registered within the AWS
 -- user account.
+--
+-- <ListDeploymentGroups.html>
 module Network.AWS.CodeDeploy.ListDeploymentGroups
     (
     -- * Request

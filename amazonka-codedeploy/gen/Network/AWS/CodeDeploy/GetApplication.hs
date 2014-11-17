@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets information about an application.
+--
+-- <GetApplication.html>
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Request

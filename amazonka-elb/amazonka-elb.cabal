@@ -19,6 +19,8 @@ description:
     providing the required amount of load balancing capacity needed to
     distribute application traffic.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

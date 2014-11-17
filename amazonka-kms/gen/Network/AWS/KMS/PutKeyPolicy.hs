@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attaches a policy to the specified key.
+--
+-- <PutKeyPolicy.html>
 module Network.AWS.KMS.PutKeyPolicy
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an RDS event notification subscription.
+--
+-- <DeleteEventSubscription.html>
 module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Request

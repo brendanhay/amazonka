@@ -21,6 +21,8 @@
 -- | Move an instance out of Standby mode. To learn more about how to put
 -- instances that are in a Standby mode back into service, see Auto Scaling
 -- InService State.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html>
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Request

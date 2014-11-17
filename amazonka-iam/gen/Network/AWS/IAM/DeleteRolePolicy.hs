@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified policy associated with the specified role.
+--
+-- <DeleteRolePolicy.html>
 module Network.AWS.IAM.DeleteRolePolicy
     (
     -- * Request

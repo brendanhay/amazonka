@@ -21,6 +21,8 @@
 -- | Synchronizes the specified MFA device with AWS servers. For more
 -- information about creating and working with virtual MFA devices, go to
 -- Using a Virtual MFA Device in the Using IAM guide.
+--
+-- <ResyncMFADevice.html>
 module Network.AWS.IAM.ResyncMFADevice
     (
     -- * Request

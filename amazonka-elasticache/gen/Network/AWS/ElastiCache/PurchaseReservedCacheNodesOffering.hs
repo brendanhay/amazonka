@@ -20,6 +20,8 @@
 
 -- | The PurchaseReservedCacheNodesOffering operation allows you to purchase a
 -- reserved cache node offering.
+--
+-- <PurchaseReservedCacheNodesOffering.html>
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates the metadata document for an existing SAML provider.
+--
+-- <UpdateSAMLProvider.html>
 module Network.AWS.IAM.UpdateSAMLProvider
     (
     -- * Request

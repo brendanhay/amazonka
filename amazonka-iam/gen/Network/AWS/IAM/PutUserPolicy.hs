@@ -23,6 +23,8 @@
 -- guide. For information about limits on the number of policies you can
 -- associate with a user, see Limitations on IAM Entities in the Using IAM
 -- guide.
+--
+-- <PutUserPolicy.html>
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Request

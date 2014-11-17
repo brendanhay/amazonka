@@ -22,6 +22,8 @@
 -- only one attribute at a time. To modify some attributes, the instance must
 -- be stopped. For more information, see Modifying Attributes of a Stopped
 -- Instance in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <ModifyInstanceAttribute.html>
 module Network.AWS.EC2.ModifyInstanceAttribute
     (
     -- * Request

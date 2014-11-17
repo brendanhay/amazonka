@@ -56,6 +56,8 @@
 -- using the CloudWatch metrics for PutRecord. For more information, see
 -- Monitoring Amazon Kinesis with Amazon CloudWatch in the Amazon Kinesis
 -- Developer Guide.
+--
+-- <GetRecords.html>
 module Network.AWS.Kinesis.GetRecords
     (
     -- * Request

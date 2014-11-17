@@ -25,6 +25,8 @@
 -- replication count. If the Multi-AZ option is enabled, these values control
 -- the resources used per Availability Zone. For more information, see
 -- Configuring Scaling Options in the Amazon CloudSearch Developer Guide.
+--
+-- <UpdateScalingParameters.html>
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Request

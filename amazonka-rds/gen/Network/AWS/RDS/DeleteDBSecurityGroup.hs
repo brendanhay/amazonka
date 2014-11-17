@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a DB security group.
+--
+-- <DeleteDBSecurityGroup.html>
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Request

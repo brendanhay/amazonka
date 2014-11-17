@@ -21,6 +21,8 @@
 -- | Deletes a specified stack. Once the call completes successfully, stack
 -- deletion starts. Deleted stacks do not show up in the DescribeStacks API if
 -- the deletion has been completed successfully.
+--
+-- <DeleteStack.html>
 module Network.AWS.CloudFormation.DeleteStack
     (
     -- * Request

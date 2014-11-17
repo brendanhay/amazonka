@@ -21,6 +21,8 @@
 -- | To retrieve the health check status, send a GET request to the
 -- 2013-04-01/healthcheck/health check ID/status resource. You can use this
 -- call to get a health check's current status.
+--
+-- <GetHealthCheckStatus.html>
 module Network.AWS.Route53.GetHealthCheckStatus
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Generates a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
+--
+-- <GenerateCredentialReport.html>
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Request

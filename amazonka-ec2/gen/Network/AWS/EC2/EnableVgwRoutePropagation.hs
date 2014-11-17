@@ -20,6 +20,8 @@
 
 -- | Enables a virtual private gateway (VGW) to propagate routes to the
 -- specified route table of a VPC.
+--
+-- <EnableVgwRoutePropagation.html>
 module Network.AWS.EC2.EnableVgwRoutePropagation
     (
     -- * Request

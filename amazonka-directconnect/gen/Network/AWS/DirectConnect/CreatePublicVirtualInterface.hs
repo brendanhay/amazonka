@@ -22,6 +22,8 @@
 -- that transports AWS Direct Connect traffic. A public virtual interface
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).
+--
+-- <CreatePublicVirtualInterface.html>
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
     -- * Request

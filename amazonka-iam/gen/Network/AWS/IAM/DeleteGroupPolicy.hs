@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified policy that is associated with the specified group.
+--
+-- <DeleteGroupPolicy.html>
 module Network.AWS.IAM.DeleteGroupPolicy
     (
     -- * Request

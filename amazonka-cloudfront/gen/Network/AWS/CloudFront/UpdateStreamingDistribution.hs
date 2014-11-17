@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update a streaming distribution.
+--
+-- <UpdateStreamingDistribution.html>
 module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
     -- * Request

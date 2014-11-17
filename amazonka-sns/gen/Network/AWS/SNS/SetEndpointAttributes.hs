@@ -21,6 +21,8 @@
 -- | Sets the attributes for an endpoint for a device on one of the supported
 -- push notification services, such as GCM and APNS. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
+--
+-- <SetEndpointAttributes.html>
 module Network.AWS.SNS.SetEndpointAttributes
     (
     -- * Request

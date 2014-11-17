@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates a user pool.
+--
+-- <UpdateIdentityPool.html>
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Request

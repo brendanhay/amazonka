@@ -22,6 +22,8 @@
 -- the placement group before you can delete the placement group. For more
 -- information about placement groups and cluster instances, see Cluster
 -- Instances in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <DeletePlacementGroup.html>
 module Network.AWS.EC2.DeletePlacementGroup
     (
     -- * Request

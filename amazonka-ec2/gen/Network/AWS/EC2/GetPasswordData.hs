@@ -28,6 +28,8 @@
 -- corresponding key pair file. Password generation and encryption takes a few
 -- moments. We recommend that you wait up to 15 minutes after launching an
 -- instance before trying to retrieve the generated password.
+--
+-- <GetPasswordData.html>
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Request

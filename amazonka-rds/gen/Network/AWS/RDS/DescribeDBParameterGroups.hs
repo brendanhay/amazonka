@@ -21,6 +21,8 @@
 -- | Returns a list of DBParameterGroup descriptions. If a DBParameterGroupName
 -- is specified, the list will contain only the description of the specified
 -- DB parameter group.
+--
+-- <DescribeDBParameterGroups.html>
 module Network.AWS.RDS.DescribeDBParameterGroups
     (
     -- * Request

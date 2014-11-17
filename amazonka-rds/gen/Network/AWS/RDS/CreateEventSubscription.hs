@@ -35,6 +35,8 @@
 -- If you do not specify either the SourceType nor the SourceIdentifier, you
 -- will be notified of events generated from all RDS sources belonging to your
 -- customer account.
+--
+-- <CreateEventSubscription.html>
 module Network.AWS.RDS.CreateEventSubscription
     (
     -- * Request

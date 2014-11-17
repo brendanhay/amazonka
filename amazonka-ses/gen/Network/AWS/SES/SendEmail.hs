@@ -33,6 +33,8 @@
 -- (To:, CC: and BCC:) is counted against your sending quota - the maximum
 -- number of emails you can send in a 24-hour period. For information about
 -- your sending quota, go to the Amazon SES Developer Guide.
+--
+-- <SendEmail.html>
 module Network.AWS.SES.SendEmail
     (
     -- * Request

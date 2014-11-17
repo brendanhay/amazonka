@@ -39,6 +39,8 @@
 -- changes will happen shortly. You can use DescribeLoadBalancers or
 -- DescribeInstanceHealth action to check the state of the newly registered
 -- instances.
+--
+-- <RegisterInstancesWithLoadBalancer.html>
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Request

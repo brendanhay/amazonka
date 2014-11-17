@@ -23,6 +23,8 @@
 -- delete both. If you delete only one of the limits, the other limit remains
 -- unchanged. To specify which gateway to work with, use the Amazon Resource
 -- Name (ARN) of the gateway in your request.
+--
+-- <DeleteBandwidthRateLimit.html>
 module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Returns the list of AWS Direct Connect locations in the current AWS region.
 -- These are the locations that may be selected when calling CreateConnection
 -- or CreateInterconnect.
+--
+-- <DescribeLocations.html>
 module Network.AWS.DirectConnect.DescribeLocations
     (
     -- * Request

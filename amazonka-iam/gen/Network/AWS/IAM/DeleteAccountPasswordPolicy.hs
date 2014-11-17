@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the password policy for the AWS account.
+--
+-- <DeleteAccountPasswordPolicy.html>
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
     -- * Request

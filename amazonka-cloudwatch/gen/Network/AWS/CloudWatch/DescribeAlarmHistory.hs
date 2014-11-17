@@ -21,6 +21,8 @@
 -- | Retrieves history for the specified alarm. Filter alarms by date range or
 -- item type. If an alarm name is not specified, Amazon CloudWatch returns
 -- histories for all of the owner's alarms.
+--
+-- <DescribeAlarmHistory.html>
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
     -- * Request

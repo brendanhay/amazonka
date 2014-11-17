@@ -23,6 +23,8 @@
 -- to this request replaces the original manifest file. You can only use the
 -- operation after a CreateJob request but before the data transfer starts and
 -- you can only use it on jobs you own.
+--
+-- <UpdateJob.html>
 module Network.AWS.ImportExport.UpdateJob
     (
     -- * Request

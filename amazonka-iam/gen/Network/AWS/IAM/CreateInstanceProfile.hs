@@ -22,6 +22,8 @@
 -- to About Instance Profiles. For information about the number of instance
 -- profiles you can create, see Limitations on IAM Entities in the Using IAM
 -- guide.
+--
+-- <CreateInstanceProfile.html>
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Request

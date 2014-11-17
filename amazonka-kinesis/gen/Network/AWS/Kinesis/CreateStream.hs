@@ -45,6 +45,8 @@
 -- to increase the limit on your account. You can use DescribeStream to check
 -- the stream status, which is returned in StreamStatus. CreateStream has a
 -- limit of 5 transactions per second per account.
+--
+-- <CreateStream.html>
 module Network.AWS.Kinesis.CreateStream
     (
     -- * Request

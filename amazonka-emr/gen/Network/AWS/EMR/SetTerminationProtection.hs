@@ -31,6 +31,8 @@
 -- the job flow by a subsequent call to SetTerminationProtection in which you
 -- set the value to false. For more information, go to Protecting a Job Flow
 -- from Termination in the Amazon Elastic MapReduce Developer's Guide.
+--
+-- <SetTerminationProtection.html>
 module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Request

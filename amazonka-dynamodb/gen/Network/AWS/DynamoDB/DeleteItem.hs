@@ -28,6 +28,8 @@
 -- useful for deleting items only if specific conditions are met. If those
 -- conditions are met, DynamoDB performs the delete. Otherwise, the item is
 -- not deleted.
+--
+-- <DeleteItem.html>
 module Network.AWS.DynamoDB.DeleteItem
     (
     -- * Request

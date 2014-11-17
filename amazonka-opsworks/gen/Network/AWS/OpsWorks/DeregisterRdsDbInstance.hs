@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deregisters an Amazon RDS instance.
+--
+-- <DeregisterRdsDbInstance.html>
 module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     (
     -- * Request

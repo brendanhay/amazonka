@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deploys an application revision to the specified deployment group.
+--
+-- <CreateDeployment.html>
 module Network.AWS.CodeDeploy.CreateDeployment
     (
     -- * Request

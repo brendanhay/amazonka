@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves a policy attached to the specified key.
+--
+-- <GetKeyPolicy.html>
 module Network.AWS.KMS.GetKeyPolicy
     (
     -- * Request

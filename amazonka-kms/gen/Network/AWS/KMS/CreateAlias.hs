@@ -25,6 +25,8 @@
 -- (-). An alias must start with the word "alias" followed by a forward slash
 -- (alias/). An alias that begins with "aws" after the forward slash
 -- (alias/aws...) is reserved by Amazon Web Services (AWS).
+--
+-- <CreateAlias.html>
 module Network.AWS.KMS.CreateAlias
     (
     -- * Request

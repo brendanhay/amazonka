@@ -20,6 +20,8 @@
 
 -- | Revokes a grant. You can revoke a grant to actively deny operations that
 -- depend on it.
+--
+-- <RevokeGrant.html>
 module Network.AWS.KMS.RevokeGrant
     (
     -- * Request

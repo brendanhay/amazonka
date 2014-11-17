@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns information about DB snapshots. This API supports pagination.
+--
+-- <DescribeDBSnapshots.html>
 module Network.AWS.RDS.DescribeDBSnapshots
     (
     -- * Request

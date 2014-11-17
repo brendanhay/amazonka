@@ -22,6 +22,8 @@
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk image,
 -- the command fails and returns an error.
+--
+-- <CancelExportTask.html>
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Request

@@ -26,6 +26,8 @@
 -- key ID used to sign the request. Because this action works for access keys
 -- under the AWS account, you can use this action to manage root credentials
 -- even if the AWS account has no associated users.
+--
+-- <UploadSigningCertificate.html>
 module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Request

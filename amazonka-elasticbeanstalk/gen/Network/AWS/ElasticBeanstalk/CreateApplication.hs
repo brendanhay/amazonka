@@ -20,6 +20,8 @@
 
 -- | Creates an application that has one configuration template named default
 -- and no application versions.
+--
+-- <CreateApplication.html>
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Request

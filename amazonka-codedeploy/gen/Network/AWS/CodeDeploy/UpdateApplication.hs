@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Changes an existing application's name.
+--
+-- <UpdateApplication.html>
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Request

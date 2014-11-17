@@ -33,6 +33,8 @@
 -- EC2-Classic, see Deploy Elastic Load Balancing in Amazon EC2-Classic.
 -- EC2-VPC For information on creating and managing your load balancers in
 -- EC2-VPC, see Deploy Elastic Load Balancing in Amazon VPC.
+--
+-- <CreateLoadBalancer.html>
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Request

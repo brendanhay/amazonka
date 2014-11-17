@@ -21,6 +21,8 @@
 -- | This operation updates a gateway's metadata, which includes the gateway's
 -- name and time zone. To specify which gateway to update, use the Amazon
 -- Resource Name (ARN) of the gateway in your request.
+--
+-- <UpdateGatewayInformation.html>
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Request

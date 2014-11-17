@@ -25,6 +25,8 @@
 -- launch an instance from this new AMI, the instance automatically launches
 -- with those additional volumes. For more information, see Creating Amazon
 -- EBS-Backed Linux AMIs in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <CreateImage.html>
 module Network.AWS.EC2.CreateImage
     (
     -- * Request

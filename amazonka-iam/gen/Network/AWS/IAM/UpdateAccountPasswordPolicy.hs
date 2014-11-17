@@ -21,6 +21,8 @@
 -- | Updates the password policy settings for the AWS account. For more
 -- information about using a password policy, see Managing an IAM Password
 -- Policy in the Using IAM guide.
+--
+-- <UpdateAccountPasswordPolicy.html>
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
     -- * Request

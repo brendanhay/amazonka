@@ -30,6 +30,8 @@
 -- (in the 64512 - 65534 range). For more information about VPN customer
 -- gateways, see Adding a Hardware Virtual Private Gateway to Your VPC in the
 -- Amazon Virtual Private Cloud User Guide.
+--
+-- <CreateCustomerGateway.html>
 module Network.AWS.EC2.CreateCustomerGateway
     (
     -- * Request

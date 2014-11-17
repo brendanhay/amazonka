@@ -24,6 +24,8 @@
 -- name already exists, the existing Lambda function is updated with the new
 -- code and metadata. This operation requires permission for the
 -- lambda:UploadFunction action.
+--
+-- <UploadFunction.html>
 module Network.AWS.Lambda.UploadFunction
     (
     -- * Request

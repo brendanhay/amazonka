@@ -27,6 +27,8 @@
 -- objects in the pipeline exceeds the maximum allowed objects. Pipeline
 -- object definitions are passed to the PutPipelineDefinition action and
 -- returned by the GetPipelineDefinition action.
+--
+-- <PutPipelineDefinition.html>
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Request

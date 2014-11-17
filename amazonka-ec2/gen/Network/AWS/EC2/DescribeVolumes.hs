@@ -26,6 +26,8 @@
 -- that can be passed to a subsequent DescribeVolumes request to retrieve the
 -- remaining results. For more information about Amazon EBS volumes, see
 -- Amazon EBS Volumes in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <DescribeVolumes.html>
 module Network.AWS.EC2.DescribeVolumes
     (
     -- * Request

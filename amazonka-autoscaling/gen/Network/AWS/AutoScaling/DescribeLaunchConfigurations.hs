@@ -21,6 +21,8 @@
 -- | Returns a full description of the launch configurations, or the specified
 -- launch configurations, if they exist. If no name is specified, then the
 -- full details of all launch configurations are returned.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
     -- * Request

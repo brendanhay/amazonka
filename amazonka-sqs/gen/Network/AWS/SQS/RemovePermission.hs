@@ -20,6 +20,8 @@
 
 -- | Revokes any permissions in the queue policy that matches the specified
 -- Label parameter. Only the owner of the queue can remove permissions.
+--
+-- <RemovePermission.html>
 module Network.AWS.SQS.RemovePermission
     (
     -- * Request

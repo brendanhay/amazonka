@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Copies the specified DBParameterGroup.
+--
+-- <CopyDBParameterGroup.html>
 module Network.AWS.RDS.CopyDBParameterGroup
     (
     -- * Request

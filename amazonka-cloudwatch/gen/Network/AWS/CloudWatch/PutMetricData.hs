@@ -30,6 +30,8 @@
 -- -130 (1 x 10^-130) are also truncated. Data that is timestamped 24 hours or
 -- more in the past may take in excess of 48 hours to become available from
 -- submission time using GetMetricStatistics.
+--
+-- <PutMetricData.html>
 module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Request

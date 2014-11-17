@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Terminates the specified environment.
+--
+-- <TerminateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     (
     -- * Request

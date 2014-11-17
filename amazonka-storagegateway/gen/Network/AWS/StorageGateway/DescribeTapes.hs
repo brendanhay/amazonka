@@ -21,6 +21,8 @@
 -- | Returns a description of the specified Amazon Resource Name (ARN) of
 -- virtual tapes. If a TapeARN is not specified, returns a description of all
 -- virtual tapes associated with the specified gateway.
+--
+-- <DescribeTapes.html>
 module Network.AWS.StorageGateway.DescribeTapes
     (
     -- * Request

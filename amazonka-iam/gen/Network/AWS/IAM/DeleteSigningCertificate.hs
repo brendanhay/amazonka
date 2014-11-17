@@ -23,6 +23,8 @@
 -- implicitly based on the AWS access key ID signing the request. Because this
 -- action works for access keys under the AWS account, you can use this action
 -- to manage root credentials even if the AWS account has no associated users.
+--
+-- <DeleteSigningCertificate.html>
 module Network.AWS.IAM.DeleteSigningCertificate
     (
     -- * Request

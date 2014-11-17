@@ -23,6 +23,8 @@
 -- balancers evenly distribute requests across all of the registered subnets.
 -- For more information, see Deploy Elastic Load Balancing in Amazon VPC in
 -- the Elastic Load Balancing Developer Guide.
+--
+-- <AttachLoadBalancerToSubnets.html>
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a virtual interface.
+--
+-- <DeleteVirtualInterface.html>
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
     -- * Request

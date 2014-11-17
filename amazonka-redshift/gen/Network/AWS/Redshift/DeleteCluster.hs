@@ -31,6 +31,8 @@
 -- snapshot is being taken, then it's "deleting" once Amazon Redshift begins
 -- deleting the cluster. For more information about managing clusters, go to
 -- Amazon Redshift Clusters in the Amazon Redshift Management Guide .
+--
+-- <DeleteCluster.html>
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Request

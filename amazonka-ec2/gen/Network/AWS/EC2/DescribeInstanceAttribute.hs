@@ -23,6 +23,8 @@
 -- instanceType | kernel | ramdisk | userData | disableApiTermination |
 -- instanceInitiatedShutdownBehavior | rootDeviceName | blockDeviceMapping |
 -- productCodes | sourceDestCheck | groupSet | ebsOptimized | sriovNetSupport.
+--
+-- <DescribeInstanceAttribute.html>
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Request

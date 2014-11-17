@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Disables rotation of the specified key.
+--
+-- <DisableKeyRotation.html>
 module Network.AWS.KMS.DisableKeyRotation
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- with the same configuration settings. Related Topics
 -- DescribeConfigurationOptions DescribeConfigurationSettings
 -- ListAvailableSolutionStacks.
+--
+-- <CreateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
     -- * Request

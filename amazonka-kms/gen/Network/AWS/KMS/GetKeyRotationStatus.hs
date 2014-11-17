@@ -20,6 +20,8 @@
 
 -- | Retrieves a Boolean value that indicates whether key rotation is enabled
 -- for the specified key.
+--
+-- <GetKeyRotationStatus.html>
 module Network.AWS.KMS.GetKeyRotationStatus
     (
     -- * Request

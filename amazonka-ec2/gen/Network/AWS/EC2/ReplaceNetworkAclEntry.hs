@@ -21,6 +21,8 @@
 -- | Replaces an entry (rule) in a network ACL. For more information about
 -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
 -- Guide.
+--
+-- <ReplaceNetworkAclEntry.html>
 module Network.AWS.EC2.ReplaceNetworkAclEntry
     (
     -- * Request

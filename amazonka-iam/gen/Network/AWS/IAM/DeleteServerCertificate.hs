@@ -27,6 +27,8 @@
 -- Elastic Load Balancing before using this command to delete the certificate.
 -- For more information, go to DeleteLoadBalancerListeners in the Elastic Load
 -- Balancing API Reference.
+--
+-- <DeleteServerCertificate.html>
 module Network.AWS.IAM.DeleteServerCertificate
     (
     -- * Request

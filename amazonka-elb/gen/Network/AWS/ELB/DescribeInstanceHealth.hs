@@ -23,6 +23,8 @@
 -- the instances registered with the load balancer is returned. You must
 -- provide the same account credentials as those that were used to create the
 -- load balancer.
+--
+-- <DescribeInstanceHealth.html>
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Request

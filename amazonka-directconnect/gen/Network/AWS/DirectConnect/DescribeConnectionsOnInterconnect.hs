@@ -20,6 +20,8 @@
 
 -- | Return a list of connections that have been provisioned on the given
 -- interconnect.
+--
+-- <DescribeConnectionsOnInterconnect.html>
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Request

@@ -24,6 +24,8 @@
 -- Auto Scaling groups. This action supports pagination by returning a token
 -- if there are more pages to retrieve. To get the next page, call this action
 -- again with the returned token as the NextToken parameter.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (
     -- * Request

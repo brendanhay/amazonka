@@ -22,6 +22,8 @@
 -- is for use in either the EC2-Classic platform or in a VPC. For more
 -- information, see Elastic IP Addresses in the Amazon Elastic Compute Cloud
 -- User Guide.
+--
+-- <DescribeAddresses.html>
 module Network.AWS.EC2.DescribeAddresses
     (
     -- * Request

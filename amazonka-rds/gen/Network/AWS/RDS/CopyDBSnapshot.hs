@@ -20,6 +20,8 @@
 
 -- | Copies the specified DBSnapshot. The source DBSnapshot must be in the
 -- "available" state.
+--
+-- <CopyDBSnapshot.html>
 module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Request

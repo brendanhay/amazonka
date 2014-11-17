@@ -31,6 +31,8 @@
 -- an existing authenticated/unauthenticated identity, you can do so by
 -- providing the existing IdentityId. This API will create the identity in the
 -- specified IdentityPoolId.
+--
+-- <GetOpenIdTokenForDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     (
     -- * Request

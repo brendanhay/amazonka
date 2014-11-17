@@ -22,6 +22,8 @@
 -- associated with an instance, or is referenced by another security group,
 -- the operation fails with InvalidGroup.InUse in EC2-Classic or
 -- DependencyViolation in EC2-VPC.
+--
+-- <DeleteSecurityGroup.html>
 module Network.AWS.EC2.DeleteSecurityGroup
     (
     -- * Request

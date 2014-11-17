@@ -21,6 +21,8 @@
 -- | Detaches an Internet gateway from a VPC, disabling connectivity between the
 -- Internet and the VPC. The VPC must not contain any running instances with
 -- Elastic IP addresses.
+--
+-- <DetachInternetGateway.html>
 module Network.AWS.EC2.DetachInternetGateway
     (
     -- * Request

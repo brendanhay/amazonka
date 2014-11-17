@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Validates a specified template.
+--
+-- <ValidateTemplate.html>
 module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Request

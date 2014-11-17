@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the tag set associated with the bucket.
+--
+-- <GetBucketTagging.html>
 module Network.AWS.S3.GetBucketTagging
     (
     -- * Request

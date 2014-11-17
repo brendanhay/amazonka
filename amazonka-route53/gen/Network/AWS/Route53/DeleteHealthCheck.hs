@@ -27,6 +27,8 @@
 -- record sets, Route 53 will deny your request with a HealthCheckInUse error.
 -- For information about disassociating the records from your health check,
 -- see ChangeResourceRecordSets.
+--
+-- <DeleteHealthCheck.html>
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Request

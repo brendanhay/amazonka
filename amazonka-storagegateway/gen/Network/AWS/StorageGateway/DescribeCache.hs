@@ -22,6 +22,8 @@
 -- operation is supported only for the gateway-cached volume architecture. The
 -- response includes disk IDs that are configured as cache, and it includes
 -- the amount of cache allocated and used.
+--
+-- <DescribeCache.html>
 module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Request

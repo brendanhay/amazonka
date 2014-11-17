@@ -23,6 +23,8 @@
 -- operation indicates when the EC2 instances reach the Ready state, when
 -- instances become available to Amazon EMR to use for jobs, and the IP
 -- addresses for cluster instances, etc.
+--
+-- <ListInstances.html>
 module Network.AWS.EMR.ListInstances
     (
     -- * Request

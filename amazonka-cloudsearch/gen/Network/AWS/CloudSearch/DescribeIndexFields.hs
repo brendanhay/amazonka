@@ -24,6 +24,8 @@
 -- to true to show the active configuration and exclude pending changes. For
 -- more information, see Getting Domain Information in the Amazon CloudSearch
 -- Developer Guide.
+--
+-- <DescribeIndexFields.html>
 module Network.AWS.CloudSearch.DescribeIndexFields
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Deletes a deployment configuration. A deployment configuration cannot be
 -- deleted if it is currently in use. Also, predefined configurations cannot
 -- be deleted.
+--
+-- <DeleteDeploymentConfig.html>
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
     -- * Request

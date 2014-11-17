@@ -22,6 +22,8 @@
 -- control access to non-VPC clusters. For information about managing security
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
 -- Redshift Management Guide.
+--
+-- <CreateClusterSecurityGroup.html>
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
     -- * Request

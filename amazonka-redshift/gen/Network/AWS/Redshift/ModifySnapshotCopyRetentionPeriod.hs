@@ -20,6 +20,8 @@
 
 -- | Modifies the number of days to retain automated snapshots in the
 -- destination region after they are copied from the source region.
+--
+-- <ModifySnapshotCopyRetentionPeriod.html>
 module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     (
     -- * Request

@@ -32,6 +32,8 @@
 -- If you prefer not to cancel your Amazon EC2 subscription, you can delete
 -- your snapshots using the Amazon EC2 console. For more information, see the
 -- AWS Storage Gateway Detail Page.
+--
+-- <DeleteGateway.html>
 module Network.AWS.StorageGateway.DeleteGateway
     (
     -- * Request

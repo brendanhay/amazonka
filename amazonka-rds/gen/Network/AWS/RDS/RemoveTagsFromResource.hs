@@ -20,6 +20,8 @@
 
 -- | Removes metadata tags from an Amazon RDS resource. For an overview on
 -- tagging an Amazon RDS resource, see Tagging Amazon RDS Resources.
+--
+-- <RemoveTagsFromResource.html>
 module Network.AWS.RDS.RemoveTagsFromResource
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Uploads a part by copying data from an existing object as data source.
+--
+-- <UploadPartCopy.html>
 module Network.AWS.S3.UploadPartCopy
     (
     -- * Request

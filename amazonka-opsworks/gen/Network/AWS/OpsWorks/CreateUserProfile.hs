@@ -21,6 +21,8 @@
 -- | Creates a new user profile. Required Permissions: To use this action, an
 -- IAM user must have an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
+--
+-- <CreateUserProfile.html>
 module Network.AWS.OpsWorks.CreateUserProfile
     (
     -- * Request

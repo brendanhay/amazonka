@@ -44,6 +44,8 @@
 -- This means that you may want to enable the I/O operations for the volume by
 -- calling the EnableVolumeIO action and then check the volume for data
 -- consistency.
+--
+-- <DescribeVolumeStatus.html>
 module Network.AWS.EC2.DescribeVolumeStatus
     (
     -- * Request

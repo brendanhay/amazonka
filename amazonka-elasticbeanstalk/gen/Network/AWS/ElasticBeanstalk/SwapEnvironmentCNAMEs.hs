@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Swaps the CNAMEs of two environments.
+--
+-- <SwapEnvironmentCNAMEs.html>
 module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     (
     -- * Request

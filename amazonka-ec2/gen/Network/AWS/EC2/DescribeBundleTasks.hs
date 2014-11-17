@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your bundling tasks.
+--
+-- <DescribeBundleTasks.html>
 module Network.AWS.EC2.DescribeBundleTasks
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Returns information about the domain, including when the domain was
 -- created, the number of items and attributes in the domain, and the size of
 -- the attribute names and values.
+--
+-- <DomainMetadata.html>
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Request

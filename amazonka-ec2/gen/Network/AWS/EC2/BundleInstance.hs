@@ -22,6 +22,8 @@
 -- only the root device volume (C:\) is bundled. Data on other instance store
 -- volumes is not preserved. For more information, see Creating an Instance
 -- Store-Backed Windows AMI.
+--
+-- <BundleInstance.html>
 module Network.AWS.EC2.BundleInstance
     (
     -- * Request

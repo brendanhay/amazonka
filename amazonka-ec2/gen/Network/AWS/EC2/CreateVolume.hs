@@ -29,6 +29,8 @@
 -- Amazon EBS Encryption in the Amazon Elastic Compute Cloud User Guide. For
 -- more information, see Creating or Restoring an Amazon EBS Volume in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <CreateVolume.html>
 module Network.AWS.EC2.CreateVolume
     (
     -- * Request

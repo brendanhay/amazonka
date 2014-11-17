@@ -21,6 +21,8 @@
 -- | Enables monitoring for a running instance. For more information about
 -- monitoring instances, see Monitoring Your Instances and Volumes in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <MonitorInstances.html>
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Request

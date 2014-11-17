@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new origin access identity.
+--
+-- <CreateCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
     -- * Request

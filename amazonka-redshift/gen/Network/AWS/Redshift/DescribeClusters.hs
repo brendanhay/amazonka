@@ -23,6 +23,8 @@
 -- and security and access properties. This operation supports pagination. For
 -- more information about managing clusters, go to Amazon Redshift Clusters in
 -- the Amazon Redshift Management Guide .
+--
+-- <DescribeClusters.html>
 module Network.AWS.Redshift.DescribeClusters
     (
     -- * Request

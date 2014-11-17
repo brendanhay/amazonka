@@ -22,6 +22,8 @@
 -- account password is not affected by this action. To change the password for
 -- a different user, see UpdateLoginProfile. For more information about
 -- modifying passwords, see Managing Passwords in the Using IAM guide.
+--
+-- <ChangePassword.html>
 module Network.AWS.IAM.ChangePassword
     (
     -- * Request

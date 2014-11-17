@@ -20,6 +20,8 @@
 
 -- | Lists the Amazon EC2 instances for a deployment within the AWS user
 -- account.
+--
+-- <ListDeploymentInstances.html>
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- about the Amazon Redshift versions. For more information about managing
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
 -- Guide.
+--
+-- <DescribeClusterVersions.html>
 module Network.AWS.Redshift.DescribeClusterVersions
     (
     -- * Request

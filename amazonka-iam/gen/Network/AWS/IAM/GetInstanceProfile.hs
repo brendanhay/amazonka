@@ -22,6 +22,8 @@
 -- instance profile's path, GUID, ARN, and role. For more information about
 -- instance profiles, go to About Instance Profiles. For more information
 -- about ARNs, go to ARNs.
+--
+-- <GetInstanceProfile.html>
 module Network.AWS.IAM.GetInstanceProfile
     (
     -- * Request

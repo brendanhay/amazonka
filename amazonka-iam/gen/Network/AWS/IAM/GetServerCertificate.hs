@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves information about the specified server certificate.
+--
+-- <GetServerCertificate.html>
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Request

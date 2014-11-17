@@ -22,6 +22,8 @@
 -- returned by GetId. You can optionally add additional logins for the
 -- identity. Supplying multiple logins creates an implicit link. The OpenId
 -- token is valid for 15 minutes.
+--
+-- <GetOpenIdToken.html>
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
     -- * Request

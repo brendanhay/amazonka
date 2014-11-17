@@ -18,6 +18,8 @@ description:
     and Access Management (IAM) users or for users that you authenticate
     (federated users).
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

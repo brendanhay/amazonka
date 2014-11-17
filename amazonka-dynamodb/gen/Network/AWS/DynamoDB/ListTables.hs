@@ -21,6 +21,8 @@
 -- | Returns an array of table names associated with the current account and
 -- endpoint. The output from ListTables is paginated, with each page returning
 -- a maximum of 100 table names.
+--
+-- <ListTables.html>
 module Network.AWS.DynamoDB.ListTables
     (
     -- * Request

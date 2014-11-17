@@ -22,6 +22,8 @@
 -- the user name for which it was originally enabled. For more information
 -- about creating and working with virtual MFA devices, go to Using a Virtual
 -- MFA Device in the Using IAM guide.
+--
+-- <DeactivateMFADevice.html>
 module Network.AWS.IAM.DeactivateMFADevice
     (
     -- * Request

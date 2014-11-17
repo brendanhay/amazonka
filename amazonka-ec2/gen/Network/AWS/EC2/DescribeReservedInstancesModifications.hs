@@ -24,6 +24,8 @@
 -- information about the specific modification is returned. For more
 -- information, see Modifying Reserved Instances in the Amazon Elastic Compute
 -- Cloud User Guide.
+--
+-- <DescribeReservedInstancesModifications.html>
 module Network.AWS.EC2.DescribeReservedInstancesModifications
     (
     -- * Request

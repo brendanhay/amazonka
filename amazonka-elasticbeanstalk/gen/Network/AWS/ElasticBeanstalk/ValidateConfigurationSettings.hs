@@ -22,6 +22,8 @@
 -- or environment, and determines whether those values are valid. This action
 -- returns a list of messages indicating any errors or warnings associated
 -- with the selection of option values.
+--
+-- <ValidateConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Request

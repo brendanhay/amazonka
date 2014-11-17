@@ -20,6 +20,8 @@
 
 -- | Describes a network interface attribute. You can specify only one attribute
 -- at a time.
+--
+-- <DescribeNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     (
     -- * Request

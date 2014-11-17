@@ -38,6 +38,8 @@
 -- specified constraints, the action fails by throwing OperationNotPermitted.
 -- For details and example IAM policies, see Using IAM to Manage Access to
 -- Amazon SWF Workflows.
+--
+-- <RespondActivityTaskCanceled.html>
 module Network.AWS.SWF.RespondActivityTaskCanceled
     (
     -- * Request

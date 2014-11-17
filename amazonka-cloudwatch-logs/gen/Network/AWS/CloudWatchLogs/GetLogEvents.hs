@@ -27,6 +27,8 @@
 -- events in either forward or backward direction. You can also limit the
 -- number of log events returned in the response by specifying the limit
 -- parameter in the request.
+--
+-- <GetLogEvents.html>
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
     -- * Request

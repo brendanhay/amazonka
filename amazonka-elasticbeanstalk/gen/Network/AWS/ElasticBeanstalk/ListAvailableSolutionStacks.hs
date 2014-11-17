@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of the available solution stack names.
+--
+-- <ListAvailableSolutionStacks.html>
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Request

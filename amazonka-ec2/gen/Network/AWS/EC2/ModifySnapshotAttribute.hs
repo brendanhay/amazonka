@@ -24,6 +24,8 @@
 -- both add and remove account IDs for a snapshot, you must use multiple API
 -- calls. For more information on modifying snapshot permissions, see Sharing
 -- Snapshots in the Amazon Elastic Compute Cloud User Guide.
+--
+-- <ModifySnapshotAttribute.html>
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
     -- * Request

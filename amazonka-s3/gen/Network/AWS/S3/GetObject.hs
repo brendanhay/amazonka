@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves objects from Amazon S3.
+--
+-- <GetObject.html>
 module Network.AWS.S3.GetObject
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Generates an unpredictable byte string.
+--
+-- <GenerateRandom.html>
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Request

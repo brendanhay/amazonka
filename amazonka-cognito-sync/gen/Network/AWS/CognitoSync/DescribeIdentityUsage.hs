@@ -20,6 +20,8 @@
 
 -- | Gets usage information for an identity, including number of datasets and
 -- data usage.
+--
+-- <DescribeIdentityUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
     -- * Request

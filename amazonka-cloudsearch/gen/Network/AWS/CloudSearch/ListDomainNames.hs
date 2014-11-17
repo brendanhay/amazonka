@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists all search domains owned by an account.
+--
+-- <ListDomainNames.html>
 module Network.AWS.CloudSearch.ListDomainNames
     (
     -- * Request

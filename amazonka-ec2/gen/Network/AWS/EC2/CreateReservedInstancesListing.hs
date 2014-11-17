@@ -34,6 +34,8 @@
 -- Instance listing, you can use the DescribeReservedInstancesListings
 -- operation. For more information, see Reserved Instance Marketplace in the
 -- Amazon Elastic Compute Cloud User Guide.
+--
+-- <CreateReservedInstancesListing.html>
 module Network.AWS.EC2.CreateReservedInstancesListing
     (
     -- * Request

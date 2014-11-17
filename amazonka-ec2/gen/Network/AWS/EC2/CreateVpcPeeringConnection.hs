@@ -27,6 +27,8 @@
 -- or rejected. A CreateVpcPeeringConnection request between VPCs with
 -- overlapping CIDR blocks results in the VPC peering connection having a
 -- status of failed.
+--
+-- <CreateVpcPeeringConnection.html>
 module Network.AWS.EC2.CreateVpcPeeringConnection
     (
     -- * Request

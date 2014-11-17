@@ -20,6 +20,8 @@
 
 -- | Deletes tags from the specified Amazon Kinesis stream. If you specify a tag
 -- that does not exist, it is ignored.
+--
+-- <RemoveTagsFromStream.html>
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Request

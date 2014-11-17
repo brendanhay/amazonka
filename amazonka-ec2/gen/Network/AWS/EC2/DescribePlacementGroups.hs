@@ -21,6 +21,8 @@
 -- | Describes one or more of your placement groups. For more information about
 -- placement groups and cluster instances, see Cluster Instances in the Amazon
 -- Elastic Compute Cloud User Guide.
+--
+-- <DescribePlacementGroups.html>
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Request

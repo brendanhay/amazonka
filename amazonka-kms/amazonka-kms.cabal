@@ -22,6 +22,8 @@ description:
     CloudTrail to provide you with logs of all key usage to help meet your
     regulatory and compliance needs.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

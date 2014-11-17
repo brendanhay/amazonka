@@ -29,6 +29,8 @@
 -- status. For more information, go to DescribeSnapshots in the Amazon Elastic
 -- Compute Cloud API Reference. In the request, you must provide the Amazon
 -- Resource Name (ARN) of the storage volume you want to delete.
+--
+-- <DeleteVolume.html>
 module Network.AWS.StorageGateway.DeleteVolume
     (
     -- * Request

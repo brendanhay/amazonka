@@ -19,6 +19,8 @@ description:
     supports 34 languages and popular search features such as highlighting,
     autocomplete, and geospatial search.
     .
+    /See:/ < AWS API Reference>
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 

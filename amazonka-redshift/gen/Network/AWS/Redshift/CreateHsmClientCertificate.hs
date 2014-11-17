@@ -26,6 +26,8 @@
 -- the information needed to store and use encryption keys in the HSM. For
 -- more information, go to Hardware Security Modules in the Amazon Redshift
 -- Management Guide.
+--
+-- <CreateHsmClientCertificate.html>
 module Network.AWS.Redshift.CreateHsmClientCertificate
     (
     -- * Request

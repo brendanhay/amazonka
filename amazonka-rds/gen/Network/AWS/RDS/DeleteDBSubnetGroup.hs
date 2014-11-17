@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a DB subnet group.
+--
+-- <DeleteDBSubnetGroup.html>
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Request

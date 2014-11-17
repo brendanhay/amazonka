@@ -21,6 +21,8 @@
 -- | Deletes a platform application object for one of the supported push
 -- notification services, such as APNS and GCM. For more information, see
 -- Using Amazon SNS Mobile Push Notifications.
+--
+-- <DeletePlatformApplication.html>
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Request

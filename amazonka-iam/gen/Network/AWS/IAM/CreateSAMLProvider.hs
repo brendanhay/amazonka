@@ -32,6 +32,8 @@
 -- more information, see Giving Console Access Using SAML and Creating
 -- Temporary Security Credentials for SAML Federation in the Using Temporary
 -- Credentials guide.
+--
+-- <CreateSAMLProvider.html>
 module Network.AWS.IAM.CreateSAMLProvider
     (
     -- * Request

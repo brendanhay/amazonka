@@ -22,6 +22,8 @@
 -- there are none, the action returns an empty list. For more information
 -- about instance profiles, go to About Instance Profiles. You can paginate
 -- the results using the MaxItems and Marker parameters.
+--
+-- <ListInstanceProfilesForRole.html>
 module Network.AWS.IAM.ListInstanceProfilesForRole
     (
     -- * Request

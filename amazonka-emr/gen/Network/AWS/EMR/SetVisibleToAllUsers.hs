@@ -24,6 +24,8 @@
 -- using the VisibleToAllUsers parameter of RunJobFlow. The
 -- SetVisibleToAllUsers action can be called only by an IAM user who created
 -- the job flow or the AWS account that owns the job flow.
+--
+-- <SetVisibleToAllUsers.html>
 module Network.AWS.EMR.SetVisibleToAllUsers
     (
     -- * Request

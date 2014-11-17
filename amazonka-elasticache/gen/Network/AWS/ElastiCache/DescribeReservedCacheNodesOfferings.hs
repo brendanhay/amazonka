@@ -20,6 +20,8 @@
 
 -- | The DescribeReservedCacheNodesOfferings operation lists available reserved
 -- cache node offerings.
+--
+-- <DescribeReservedCacheNodesOfferings.html>
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | The CreatePipeline operation creates a pipeline with settings that you
 -- specify.
+--
+-- <CreatePipeline.html>
 module Network.AWS.ElasticTranscoder.CreatePipeline
     (
     -- * Request

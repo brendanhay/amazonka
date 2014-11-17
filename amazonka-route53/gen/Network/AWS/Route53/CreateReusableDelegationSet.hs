@@ -26,6 +26,8 @@
 -- the delegationSet. If the optional parameter HostedZoneId is specified, it
 -- marks the delegationSet associated with that particular hosted zone as
 -- reusable.
+--
+-- <CreateReusableDelegationSet.html>
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Request

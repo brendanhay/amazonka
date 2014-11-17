@@ -30,6 +30,8 @@
 -- and user creation. You must save the key (for example, in a text file) if
 -- you want to be able to access it again. If a secret key is lost, you can
 -- delete the access keys for the associated user and then create new keys.
+--
+-- <CreateAccessKey.html>
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Request

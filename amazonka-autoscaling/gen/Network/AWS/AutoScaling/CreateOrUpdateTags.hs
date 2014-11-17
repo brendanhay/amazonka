@@ -21,6 +21,8 @@
 -- | Creates new tags or updates existing tags for an Auto Scaling group. For
 -- information on creating tags for your Auto Scaling group, see Tag Your Auto
 -- Scaling Groups and Amazon EC2 Instances.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Request

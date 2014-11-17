@@ -23,6 +23,8 @@
 -- backupRetentionPeriod days. The target database is created from the source
 -- database with the same configuration as the original database except that
 -- the DB instance is created with the default DB security group.
+--
+-- <RestoreDBInstanceToPointInTime.html>
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     (
     -- * Request

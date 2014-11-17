@@ -34,6 +34,8 @@
 -- delegation set, you could specify an optional DelegationSetId, and Route53
 -- would assign those 4 NS records for the zone, instead of alloting a new
 -- one.
+--
+-- <CreateHostedZone.html>
 module Network.AWS.Route53.CreateHostedZone
     (
     -- * Request

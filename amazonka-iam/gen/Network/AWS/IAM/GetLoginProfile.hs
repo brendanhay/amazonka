@@ -21,6 +21,8 @@
 -- | Retrieves the user name and password-creation date for the specified user.
 -- If the user has not been assigned a password, the action returns a 404
 -- (NoSuchEntity) error.
+--
+-- <GetLoginProfile.html>
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Request

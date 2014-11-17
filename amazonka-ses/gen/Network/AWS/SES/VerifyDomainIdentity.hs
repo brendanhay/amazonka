@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Verifies a domain. This action is throttled at one request per second.
+--
+-- <VerifyDomainIdentity.html>
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Request

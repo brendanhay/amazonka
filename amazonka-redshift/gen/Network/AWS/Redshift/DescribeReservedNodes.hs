@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the descriptions of the reserved nodes.
+--
+-- <DescribeReservedNodes.html>
 module Network.AWS.Redshift.DescribeReservedNodes
     (
     -- * Request

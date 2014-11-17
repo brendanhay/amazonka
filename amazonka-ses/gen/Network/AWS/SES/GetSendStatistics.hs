@@ -22,6 +22,8 @@
 -- representing the last two weeks of sending activity. Each data point in the
 -- list contains statistics for a 15-minute interval. This action is throttled
 -- at one request per second.
+--
+-- <GetSendStatistics.html>
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Request

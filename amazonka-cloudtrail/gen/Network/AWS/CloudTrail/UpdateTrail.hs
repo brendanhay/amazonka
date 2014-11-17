@@ -23,6 +23,8 @@
 -- the CloudTrail service. Use this action to designate an existing bucket for
 -- log delivery. If the existing bucket has previously been a target for
 -- CloudTrail log files, an IAM policy exists for the bucket.
+--
+-- <UpdateTrail.html>
 module Network.AWS.CloudTrail.UpdateTrail
     (
     -- * Request

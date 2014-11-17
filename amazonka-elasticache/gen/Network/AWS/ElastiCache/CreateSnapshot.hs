@@ -20,6 +20,8 @@
 
 -- | The CreateSnapshot operation creates a copy of an entire cache cluster at a
 -- specific moment in time.
+--
+-- <CreateSnapshot.html>
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Request

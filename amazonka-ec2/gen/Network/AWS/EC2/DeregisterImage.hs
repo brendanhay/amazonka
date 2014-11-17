@@ -20,6 +20,8 @@
 
 -- | Deregisters the specified AMI. After you deregister an AMI, it can't be
 -- used to launch new instances. This command does not delete the AMI.
+--
+-- <DeregisterImage.html>
 module Network.AWS.EC2.DeregisterImage
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the desired size of the specified AutoScalingGroup.
+--
+-- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html>
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Request

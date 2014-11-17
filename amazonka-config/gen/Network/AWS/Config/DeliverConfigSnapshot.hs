@@ -24,6 +24,8 @@
 -- specified. Notification of starting the delivery. Notification of delivery
 -- completed, if the delivery was successfully completed. Notification of
 -- delivery failure, if the delivery failed to complete.
+--
+-- <DeliverConfigSnapshot.html>
 module Network.AWS.Config.DeliverConfigSnapshot
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a deployment group.
+--
+-- <DeleteDeploymentGroup.html>
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
     -- * Request

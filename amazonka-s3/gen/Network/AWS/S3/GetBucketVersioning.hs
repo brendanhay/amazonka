@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the versioning state of a bucket.
+--
+-- <GetBucketVersioning.html>
 module Network.AWS.S3.GetBucketVersioning
     (
     -- * Request

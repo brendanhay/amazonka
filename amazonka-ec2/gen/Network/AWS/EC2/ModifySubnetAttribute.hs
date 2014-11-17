@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies a subnet attribute.
+--
+-- <ModifySubnetAttribute.html>
 module Network.AWS.EC2.ModifySubnetAttribute
     (
     -- * Request

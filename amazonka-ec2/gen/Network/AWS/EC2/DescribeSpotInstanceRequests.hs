@@ -29,6 +29,8 @@
 -- fulfilled, the instance ID appears in the response and contains the
 -- identifier of the instance. Alternatively, you can use DescribeInstances
 -- with a filter to look for instances where the instance lifecycle is spot.
+--
+-- <DescribeSpotInstanceRequests.html>
 module Network.AWS.EC2.DescribeSpotInstanceRequests
     (
     -- * Request

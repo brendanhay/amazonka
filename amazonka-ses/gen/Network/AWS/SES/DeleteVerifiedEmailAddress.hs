@@ -22,6 +22,8 @@
 -- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012
 -- release of Domain Verification. The DeleteIdentity action is now preferred.
 -- This action is throttled at one request per second.
+--
+-- <DeleteVerifiedEmailAddress.html>
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Request

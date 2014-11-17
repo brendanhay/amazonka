@@ -29,6 +29,8 @@
 -- on them, you must create them sequentially. Only one table with secondary
 -- indexes can be in the CREATING state at any given time. You can use the
 -- DescribeTable API to check the table status.
+--
+-- <CreateTable.html>
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Request

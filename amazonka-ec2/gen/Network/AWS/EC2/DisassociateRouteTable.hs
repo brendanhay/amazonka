@@ -22,6 +22,8 @@
 -- the subnet no longer uses the routes in the route table. Instead, it uses
 -- the routes in the VPC's main route table. For more information about route
 -- tables, see Route Tables in the Amazon Virtual Private Cloud User Guide.
+--
+-- <DisassociateRouteTable.html>
 module Network.AWS.EC2.DisassociateRouteTable
     (
     -- * Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List streaming distributions.
+--
+-- <ListStreamingDistributions.html>
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
     -- * Request

@@ -73,6 +73,8 @@
 -- The SerialNumber value identifies the user's hardware or virtual MFA
 -- device. The TokenCode is the time-based one-time password (TOTP) that the
 -- MFA devices produces.
+--
+-- <AssumeRole.html>
 module Network.AWS.STS.AssumeRole
     (
     -- * Request

@@ -21,6 +21,8 @@
 -- | Adds the specified role to the specified instance profile. For more
 -- information about roles, go to Working with Roles. For more information
 -- about instance profiles, go to About Instance Profiles.
+--
+-- <AddRoleToInstanceProfile.html>
 module Network.AWS.IAM.AddRoleToInstanceProfile
     (
     -- * Request

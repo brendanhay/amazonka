@@ -23,6 +23,8 @@
 -- must include an XML document with a CreateHealthCheckRequest element. The
 -- response returns the CreateHealthCheckResponse element that contains
 -- metadata about the health check.
+--
+-- <CreateHealthCheck.html>
 module Network.AWS.Route53.CreateHealthCheck
     (
     -- * Request

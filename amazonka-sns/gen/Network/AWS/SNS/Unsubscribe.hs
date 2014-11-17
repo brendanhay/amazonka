@@ -25,6 +25,8 @@
 -- a final cancellation message is delivered to the endpoint, so that the
 -- endpoint owner can easily resubscribe to the topic if the Unsubscribe
 -- request was unintended.
+--
+-- <Unsubscribe.html>
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Request

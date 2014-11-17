@@ -24,6 +24,8 @@
 -- request, you specify the gateway Amazon Resource Name (ARN) to which you
 -- want to add cache, and one or more disk IDs that you want to configure as
 -- cache.
+--
+-- <AddCache.html>
 module Network.AWS.StorageGateway.AddCache
     (
     -- * Request

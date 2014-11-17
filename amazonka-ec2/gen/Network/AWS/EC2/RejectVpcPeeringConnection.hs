@@ -23,6 +23,8 @@
 -- request to view your outstanding VPC peering connection requests. To delete
 -- an active VPC peering connection, or to delete a VPC peering connection
 -- request that you initiated, use DeleteVpcPeeringConnection.
+--
+-- <RejectVpcPeeringConnection.html>
 module Network.AWS.EC2.RejectVpcPeeringConnection
     (
     -- * Request

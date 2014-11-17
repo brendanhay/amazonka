@@ -30,6 +30,8 @@
 -- tables, applications can request a parallel Scan operation by specifying
 -- the Segment and TotalSegments parameters. For more information, see
 -- Parallel Scan in the Amazon DynamoDB Developer Guide.
+--
+-- <Scan.html>
 module Network.AWS.DynamoDB.Scan
     (
     -- * Request

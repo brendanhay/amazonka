@@ -24,6 +24,8 @@
 -- active configuration and exclude pending changes. For more information, see
 -- Configuring Access for a Search Domain in the Amazon CloudSearch Developer
 -- Guide.
+--
+-- <DescribeServiceAccessPolicies.html>
 module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     (
     -- * Request

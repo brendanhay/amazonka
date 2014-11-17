@@ -21,6 +21,8 @@
 -- | Changes the password for the specified user. Users can change their own
 -- passwords by calling ChangePassword. For more information about modifying
 -- passwords, see Managing Passwords in the Using IAM guide.
+--
+-- <UpdateLoginProfile.html>
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Request

@@ -33,6 +33,8 @@
 -- improve the reboot time, we recommend that you reduce database activities
 -- as much as possible during the reboot process to reduce rollback activity
 -- for in-transit transactions.
+--
+-- <RebootDBInstance.html>
 module Network.AWS.RDS.RebootDBInstance
     (
     -- * Request

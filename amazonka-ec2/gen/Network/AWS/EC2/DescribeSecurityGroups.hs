@@ -23,6 +23,8 @@
 -- more information, see Amazon EC2 Security Groups in the Amazon Elastic
 -- Compute Cloud User Guide and Security Groups for Your VPC in the Amazon
 -- Virtual Private Cloud User Guide.
+--
+-- <DescribeSecurityGroups.html>
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Request

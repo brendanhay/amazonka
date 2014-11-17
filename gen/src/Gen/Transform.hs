@@ -48,7 +48,6 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
   where
     cabal = Cabal
         { _cName         = name
-
         , _cUrl          = url
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = overrides ^. oVersion

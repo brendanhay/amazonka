@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the applications registered within the AWS user account.
+--
+-- <ListApplications.html>
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Request

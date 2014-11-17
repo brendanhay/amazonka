@@ -48,6 +48,8 @@
 -- ShardIterator. A shard can be closed using SplitShard or MergeShards.
 -- GetShardIterator has a limit of 5 transactions per second per account per
 -- open shard.
+--
+-- <GetShardIterator.html>
 module Network.AWS.Kinesis.GetShardIterator
     (
     -- * Request

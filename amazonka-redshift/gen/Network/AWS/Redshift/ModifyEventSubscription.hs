@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies an existing Amazon Redshift event notification subscription.
+--
+-- <ModifyEventSubscription.html>
 module Network.AWS.Redshift.ModifyEventSubscription
     (
     -- * Request

@@ -20,6 +20,8 @@
 
 -- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will
 -- create an implicit linked account.
+--
+-- <GetId.html>
 module Network.AWS.CognitoIdentity.GetId
     (
     -- * Request

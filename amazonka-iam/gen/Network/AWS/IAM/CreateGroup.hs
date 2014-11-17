@@ -20,6 +20,8 @@
 
 -- | Creates a new group. For information about the number of groups you can
 -- create, see Limitations on IAM Entities in the Using IAM guide.
+--
+-- <CreateGroup.html>
 module Network.AWS.IAM.CreateGroup
     (
     -- * Request

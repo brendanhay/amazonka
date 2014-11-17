@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attaches a network interface to an instance.
+--
+-- <AttachNetworkInterface.html>
 module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Request

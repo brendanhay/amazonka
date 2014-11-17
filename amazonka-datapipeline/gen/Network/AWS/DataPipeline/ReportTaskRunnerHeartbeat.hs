@@ -23,6 +23,8 @@
 -- launched on a resource managed by AWS Data Pipeline, the web service can
 -- use this call to detect when the task runner application has failed and
 -- restart a new instance.
+--
+-- <ReportTaskRunnerHeartbeat.html>
 module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     (
     -- * Request

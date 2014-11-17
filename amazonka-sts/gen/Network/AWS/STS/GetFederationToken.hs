@@ -68,6 +68,8 @@
 -- about using GetFederationToken to create temporary security credentials,
 -- see Creating Temporary Credentials to Enable Access for Federated Users in
 -- Using Temporary Security Credentials.
+--
+-- <GetFederationToken.html>
 module Network.AWS.STS.GetFederationToken
     (
     -- * Request

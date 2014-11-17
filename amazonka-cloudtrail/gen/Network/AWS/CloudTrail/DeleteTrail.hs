@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a trail.
+--
+-- <DeleteTrail.html>
 module Network.AWS.CloudTrail.DeleteTrail
     (
     -- * Request

@@ -23,6 +23,8 @@
 -- snapshots of all clusters that are owned by you AWS customer account. No
 -- information is returned for snapshots owned by inactive AWS customer
 -- accounts.
+--
+-- <DescribeClusterSnapshots.html>
 module Network.AWS.Redshift.DescribeClusterSnapshots
     (
     -- * Request

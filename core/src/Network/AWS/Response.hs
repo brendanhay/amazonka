@@ -36,8 +36,7 @@ import           Network.AWS.Data             (LazyByteString, FromXML, decodeXM
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types
-import qualified Text.XML                     as XML
-import           Text.XML.Cursor
+import           Text.XML                     (Node)
 
 nullResponse :: (MonadResource m, AWSService (Sv a))
                 => Rs a
@@ -54,7 +53,7 @@ xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
 xmlResponse = deserialise decodeXML (const Right)
 
 xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
-                  => (ResponseHeaders -> Cursor -> Either String (Rs a))
+                  => (ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> a
                   -> Either HttpException ClientResponse
                   -> m (Response a)

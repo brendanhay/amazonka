@@ -4,8 +4,8 @@ instance FromXML {{ type.name }} where
 {% when "nullary" %}
     parseXML = fromXMLText "{{ type.name }}"
 {% else %}
-    parseXML c = {{ type.name }}
+    parseXML x = {{ type.name }}
   {% for field in type.fields %}
-        {% include "applicative.ede" %} c {% include "operator.ede" %} "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} x {% include "xml-operator.ede" %} "{{ field.value.locationName }}"
   {% endfor %}
 {% endcase %}

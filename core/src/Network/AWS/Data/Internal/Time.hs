@@ -43,6 +43,7 @@ import qualified Data.Text                            as Text
 import           Data.Time
 import           Data.Time.Clock.POSIX
 import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.JSON
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
 import           System.Locale
@@ -69,20 +70,11 @@ instance Ord (Time (a :: Format)) where
         ts (LocaleTime l t) = (t, l)
 
 
--- -- | This is a poorly behaved isomorphism, due to the fact 'LocaleTime' only
--- -- exists for testing purposes, and we wish to compose using 'mapping'
--- -- in real usage.
+-- | This is a poorly behaved isomorphism, due to the fact 'LocaleTime' only
+-- exists for testing purposes, and we wish to compose using 'mapping'
+-- in actual usage.
 _Time :: Iso' (Time a) UTCTime
 _Time = iso (\case; Time a -> a; LocaleTime _ a -> a) Time
-
--- _Time :: Lens' (Time a) UTCTime
--- _Time = lens f g
---   where
---     f (Time         a) = a
---     f (LocalTime  _ a) = a
-
---     g (Time         _) a = Time a
---     g (LocaleTime l _) a = LocaleTime l a
 
 type RFC822    = Time RFC822Format
 type ISO8601   = Time ISO8601Format
@@ -97,52 +89,6 @@ instance TimeFormat RFC822    where format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
 instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%XZ"))
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
 instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
-
-instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
-instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
-instance ToByteString BasicTime where toBS = BS.pack . renderFormattedTime
-instance ToByteString AWSTime   where toBS = BS.pack . renderFormattedTime
-
-instance ToText RFC822    where toText = Text.pack . renderFormattedTime
-instance ToText ISO8601   where toText = Text.pack . renderFormattedTime
-instance ToText BasicTime where toText = Text.pack . renderFormattedTime
-instance ToText AWSTime   where toText = Text.pack . renderFormattedTime
-
-instance ToText POSIX where
-    toText t = toText time
-      where
-        time :: Integer
-        time = truncate . utcTimeToPOSIXSeconds $
-            case t of
-                Time         x -> x
-                LocaleTime _ x -> x
-
-instance ToXML RFC822 where
-    toXMLRoot = toRoot "Date"
-    toXML o   = toXML (retag o) . toText
-
-instance ToJSON RFC822 where
-    toJSON = toJSON . toText
-
-instance ToXML ISO8601 where
-    toXMLRoot = toRoot "Date"
-    toXML o   = toXML (retag o) . toText
-
-instance ToJSON ISO8601 where
-    toJSON = toJSON . toText
-
-instance ToJSON POSIX where
-    toJSON = toJSON . toText
-
-renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
-renderFormattedTime x = formatTime l (untag f) t
-  where
-    (l, t) = case x of
-        Time          t' -> (defaultTimeLocale, t')
-        LocaleTime l' t' -> (l', t')
-
-    f :: Tagged (Time a) String
-    f = format
 
 instance FromText RFC822    where parser = parseFormattedTime
 instance FromText ISO8601   where parser = parseFormattedTime
@@ -165,19 +111,55 @@ parseFormattedTime = do
     f :: Tagged (Time a) String
     f = format
 
-instance FromXML RFC822 where
-    parseXMLRoot = fromRoot "Date"
-    parseXML     = const fromNodeContent
+instance ToText RFC822    where toText = Text.pack . renderFormattedTime
+instance ToText ISO8601   where toText = Text.pack . renderFormattedTime
+instance ToText BasicTime where toText = Text.pack . renderFormattedTime
+instance ToText AWSTime   where toText = Text.pack . renderFormattedTime
 
-instance FromJSON RFC822 where
-    parseJSON = withText "Date" (either fail return . fromText)
+instance ToText POSIX where
+    toText t = toText time
+      where
+        time :: Integer
+        time = truncate . utcTimeToPOSIXSeconds $
+            case t of
+                Time         x -> x
+                LocaleTime _ x -> x
 
-instance FromXML ISO8601 where
-    parseXMLRoot = fromRoot "Date"
-    parseXML     = const fromNodeContent
+renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
+renderFormattedTime x = formatTime l (untag f) t
+  where
+    (l, t) = case x of
+        Time          t' -> (defaultTimeLocale, t')
+        LocaleTime l' t' -> (l', t')
 
-instance FromJSON ISO8601 where
-    parseJSON = withText "Date" (either fail return . fromText)
+    f :: Tagged (Time a) String
+    f = format
 
-instance FromJSON POSIX where
-    parseJSON = withText "Date" (either fail return . fromText)
+instance FromXML RFC822    where parseXML = fromXMLText "RFC822"
+instance FromXML ISO8601   where parseXML = fromXMLText "ISO8601"
+instance FromXML AWSTime   where parseXML = fromXMLText "AWSTime"
+instance FromXML BasicTime where parseXML = fromXMLText "BasicTime"
+instance FromXML POSIX     where parseXML = fromXMLText "POSIX"
+
+instance FromJSON RFC822    where parseJSON = fromJSONText "RFC822"
+instance FromJSON ISO8601   where parseJSON = fromJSONText "ISO8601"
+instance FromJSON AWSTime   where parseJSON = fromJSONText "AWSTime"
+instance FromJSON BasicTime where parseJSON = fromJSONText "BasicTime"
+instance FromJSON POSIX     where parseJSON = fromJSONText "POSIX"
+
+instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
+instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
+instance ToByteString BasicTime where toBS = BS.pack . renderFormattedTime
+instance ToByteString AWSTime   where toBS = BS.pack . renderFormattedTime
+
+instance ToXML RFC822    where toXML = toXMLText
+instance ToXML ISO8601   where toXML = toXMLText
+instance ToXML AWSTime   where toXML = toXMLText
+instance ToXML BasicTime where toXML = toXMLText
+instance ToXML POSIX     where toXML = toXMLText
+
+instance ToJSON RFC822    where toJSON = toJSONText
+instance ToJSON ISO8601   where toJSON = toJSONText
+instance ToJSON AWSTime   where toJSON = toJSONText
+instance ToJSON BasicTime where toJSON = toJSONText
+instance ToJSON POSIX     where toJSON = toJSONText

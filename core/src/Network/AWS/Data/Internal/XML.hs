@@ -16,14 +16,14 @@ module Network.AWS.Data.Internal.XML
     (
     -- * FromXML
       FromXML (..)
-    -- , decodeXML
+    , decodeXML
     , fromXMLText
     , (.@)
     , (.@?)
 
     -- * ToJSON
     , ToXML   (..)
-    -- , encodeXML
+    , encodeXML
     , toXMLText
     , nodes
     , (=@)
@@ -33,7 +33,6 @@ import           Control.Applicative
 import           Control.Monad
 import           Data.Bifunctor
 import qualified Data.ByteString                      as BS
-import           Data.ByteString.Lazy                 (ByteString)
 import           Data.Default.Class
 import           Data.Foldable                        (foldr', foldrM)
 import           Data.HashMap.Strict                  (HashMap)
@@ -48,11 +47,21 @@ import           Data.Tagged
 import           Data.Text                            (Text)
 import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
+import           Data.Traversable                     (traverse)
 import           GHC.Generics
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Numeric.Natural
 import           Text.XML
+
+decodeXML :: FromXML a => LazyByteString -> Either String a
+decodeXML = either failure success . parseLBS def
+  where
+    failure = Left . show
+    success = parseXML . (:[]) . NodeElement . documentRoot
+
+encodeXML :: ToXML a => a -> LazyByteString
+encodeXML = undefined -- renderLBS def .  o . toXML o
 
 fromXMLText :: FromText a => String -> [Node] -> Either String a
 fromXMLText n = withContent n fromText
@@ -122,6 +131,16 @@ instance FromXML a => FromXML (Maybe a) where
     parseXML ns = Just <$> parseXML ns
     {-# INLINE parseXML #-}
 
+instance FromXML a => FromXML [a] where
+    parseXML = traverse (parseXML . (:[]))
+    {-# INLINE parseXML #-}
+
+instance FromXML a => FromXML (NonEmpty a) where
+    parseXML = parseXML >=> \case
+        []   -> Left  "Empty list, expected at least 1 element."
+        x:xs -> Right (x :| xs)
+    {-# INLINE parseXML #-}
+
 instance FromXML Text    where parseXML = fromXMLText "Text"
 instance FromXML Int     where parseXML = fromXMLText "Int"
 instance FromXML Integer where parseXML = fromXMLText "Integer"
@@ -135,6 +154,10 @@ class ToXML a where
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = []
+    {-# INLINE toXML #-}
+
+instance ToXML a => ToXML [a] where
+    toXML = concatMap toXML
     {-# INLINE toXML #-}
 
 instance ToXML Text    where toXML = toXMLText
@@ -155,7 +178,7 @@ instance ToXML Bool    where toXML = toXMLText
 --     hush (Left  _) = Nothing
 --     hush (Right x) = Just x
 
--- decodeXML :: forall a. FromXML a => ByteString -> Either String a
+-- decodeXML :: forall a. FromXML a => LazyByteString -> Either String a
 -- decodeXML = either failure success . parseLBS def
 --   where
 --     failure = Left . show
@@ -163,7 +186,7 @@ instance ToXML Bool    where toXML = toXMLText
 
 --     o = parseXMLOptions :: Tagged a XMLOptions
 
--- encodeXML :: forall a. ToXML a => a -> ByteString
+-- encodeXML :: forall a. ToXML a => a -> LazyByteString
 -- encodeXML = renderLBS def . toXMLRoot o . toXML o
 --   where
 --     o = toXMLOptions :: Tagged a XMLOptions

@@ -11,9 +11,9 @@ instance ToXML {{ type.name }} where
   {% if type.contents | empty %}
     toXML = const (node "{{ type.name }}" [])
   {% else %}
-    toXML {{ type.name }}{..} = node "{{ type.name }}"
+    toXML {{ type.name }}{..} = nodes "{{ type.name }}"
     {% for field in type.contents %}
-        {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} .= {{ field.value.name }}
+        {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
     {% endfor %}
         ]
   {% endif %}

@@ -60,8 +60,6 @@ type role Map nominal representational
 _Map :: (Coercible a b, Coercible b a) => Iso' (Map k a) (HashMap k b)
 _Map = iso (coerce . toHashMap) (Map . coerce)
 
-infixl 6 ~::
-
 (~::) :: FromText v => [Header] -> Text -> Either String (Map Text v)
 (~::) hs p = Map
     . Map.filterWithKey (const . Text.isPrefixOf p)
@@ -93,6 +91,5 @@ instance (ToText k, ToJSON v) => ToJSON (Map k v) where
         . Map.toList
         . toHashMap
 
-instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
-    parseXMLRoot = fromRoot "Map"
-    parseXML o   = fmap Map . parseXML (retag o)
+-- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
+--     parseXML = fmap Map . parseXML

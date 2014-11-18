@@ -1,5 +1,3 @@
-Split into amazonka-core and amazonka?
-
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Data.Internal.JSON
@@ -26,8 +24,8 @@ module Network.AWS.Data.Internal.JSON
 
     -- * ToJSON
     , ToJSON   (..)
-    , toJSONText
     , encode
+    , toJSONText
     , object
     , (.=)
 
@@ -36,28 +34,30 @@ module Network.AWS.Data.Internal.JSON
     ) where
 
 import           Data.Aeson                     (encode, withText)
-import           Data.Aeson.Types               hiding ((.:), (.:?))
+import           Data.Aeson.Types
 import           Data.HashMap.Strict            (HashMap)
 import qualified Data.HashMap.Strict            as Map
 import           Data.Text                      (Text)
 import           Network.AWS.Data.Internal.Text
 
 fromJSONText :: FromText a => String -> Value -> Parser a
-fromJSONText n = withText n (either fail fromText)
+fromJSONText n = withText n (either fail return . fromText)
+{-# INLINE fromJSONText #-}
 
 toJSONText :: ToText a => a -> Value
 toJSONText = String . toText
+{-# INLINE toJSONText #-}
 
 (.:>) :: FromJSON a => Object -> Text -> Either String a
 (.:>) o k =
     case Map.lookup k o of
         Nothing -> Left $ "key " ++ show k ++ " not present"
         Just v  -> parseEither parseJSON v
-{-# INLINE (.:) #-}
+{-# INLINE (.:>) #-}
 
 (.:?>) :: FromJSON a => Object -> Text -> Either String (Maybe a)
 (.:?>) o k =
     case Map.lookup k o of
         Nothing -> Right Nothing
         Just v  -> parseEither parseJSON v
-{-# INLINE (.:?) #-}
+{-# INLINE (.:?>) #-}

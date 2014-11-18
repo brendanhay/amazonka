@@ -74,8 +74,8 @@ instance ToJSON a => ToJSON (List1 a) where
     toJSON = toJSON . toList
 
 instance FromXML a => FromXML (List1 a) where
-    fromXMLRoot = fromRoot "List1"
-    fromXML o   = either Left f . fromXML (retag o)
+    parseXMLRoot = fromRoot "List1"
+    parseXML o   = either Left f . parseXML (retag o)
       where
         f []     = Left  "Empty list, expected at least 1 element."
         f (x:xs) = Right (fromList x xs)

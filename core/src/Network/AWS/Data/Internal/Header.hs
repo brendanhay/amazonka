@@ -55,8 +55,6 @@ class ToHeaders a where
     toHeaders :: a -> [Header]
     toHeaders = const mempty
 
-infixl 6 =:
-
 (=:) :: ToHeader a => HeaderName -> a -> [Header]
 (=:) = toHeader
 

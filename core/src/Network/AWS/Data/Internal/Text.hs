@@ -94,5 +94,9 @@ instance ToText Double     where toText = shortText . Build.realFloat
 instance ToText StdMethod  where toText = toText . renderStdMethod
 instance ToText (Digest a) where toText = toText . digestToHexByteString
 
+instance ToText Bool where
+    toText True  = "true"
+    toText False = "false"
+
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32

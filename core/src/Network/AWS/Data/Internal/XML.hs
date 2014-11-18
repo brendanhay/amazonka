@@ -1,11 +1,6 @@
-{-# LANGUAGE DefaultSignatures    #-}
-{-# LANGUAGE FlexibleContexts     #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverlappingInstances #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE RecordWildCards      #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE TypeOperators        #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Network.AWS.Data.Internal.XML
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,7 +12,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.XML where
+module Network.AWS.Data.Internal.XML
+    (
+    -- * FromXML
+      FromXML (..)
+    -- , decodeXML
+    , fromXMLText
+    , (.@)
+    , (.@?)
+
+    -- * ToJSON
+    , ToXML   (..)
+    -- , encodeXML
+    , toXMLText
+    , nodes
+    , (=@)
+    ) where
 
 import           Control.Applicative
 import           Control.Monad
@@ -29,8 +39,10 @@ import           Data.Foldable                        (foldr', foldrM)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable
+import           Data.List                            (find)
 import           Data.List.NonEmpty                   (NonEmpty(..))
 import qualified Data.List.NonEmpty                   as NonEmpty
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Tagged
 import           Data.Text                            (Text)
@@ -41,37 +53,96 @@ import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Numeric.Natural
 import           Text.XML
-import           Text.XML.Cursor
 
--- FIXME: rather than returning a string, return typed exceptions which can be
--- rolled into the service serialisation errors branch.
+fromXMLText :: FromText a => String -> [Node] -> Either String a
+fromXMLText n = withContent n fromText
+{-# INLINE fromXMLText #-}
 
--- FIXME: Way to deal with unknowable XML root elements
--- Some of the xmlnamespaces for root elements (S3: ie. ListVersionsResult)
--- are not known from the json model, can these just be stripped by default?
+toXMLText :: ToText a => a -> [Node]
+toXMLText x = [NodeContent (toText x)]
+{-# INLINE toXMLText #-}
 
-fromXMLText = undefined
+(.@) :: FromXML a => [Node] -> Text -> Either String a
+ns .@ n =
+    case findElem n ns of
+        Nothing -> Left $ "element " ++ show n ++ " not present"
+        Just xs -> parseXML xs
+{-# INLINE (.@) #-}
 
-toXMLText = undefined
+(.@?) :: FromXML a => [Node] -> Text -> Either String (Maybe a)
+ns .@? n =
+    case findElem n ns of
+        Nothing -> Right Nothing
+        Just xs -> parseXML xs
+{-# INLINE (.@?) #-}
 
-(.:) = undefined
+nodes :: Name -> [Node] -> [Node]
+nodes n ns = [NodeElement (Element n mempty ns)]
+{-# INLINE nodes #-}
 
-(.:?) = undefined
+(=@) :: ToXML a => Name -> a -> Node
+n =@ x = NodeElement (Element n mempty (toXML x))
+{-# INLINE (=@) #-}
 
-(.:>) = undefined
+findElem :: Text -> [Node] -> Maybe [Node]
+findElem n = listToMaybe . mapMaybe f
+  where
+    f (NodeElement e)
+        | nameLocalName (elementName e) == n
+            = Just (elementNodes e)
+    f _     = Nothing
+{-# INLINE findElem #-}
 
-(.:?>) = undefined
+withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a
+withNode n f = \case
+    [x] -> f x
+    []  -> Left $ "empty nodes when parsing " ++ n
+    _   -> Left $ "encountered many nodes, expected one, when parsing " ++ n
+{-# INLINE withNode #-}
 
+withElem :: String -> (Element -> Either String a) -> [Node] -> Either String a
+withElem n f = withNode n (join . fmap f . g)
+  where
+    g (NodeElement x) = Right x
+    g _               = Left $ "expected node element, when parsing " ++ n
+{-# INLINE withElem #-}
 
-node = undefined
-
-(.=)
-
-class ToXML a where
-    toXML :: a -> Node
+withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
+withContent n f = withNode n (join . fmap f . g)
+  where
+    g (NodeContent x) = Right x
+    g _               = Left $ "expected node content, when parsing" ++ n
+{-# INLINE withContent #-}
 
 class FromXML a where
-    parseXML :: Cursor -> Either String a
+    parseXML :: [Node] -> Either String a
+
+instance FromXML a => FromXML (Maybe a) where
+    parseXML [] = pure Nothing
+    parseXML ns = Just <$> parseXML ns
+    {-# INLINE parseXML #-}
+
+instance FromXML Text    where parseXML = fromXMLText "Text"
+instance FromXML Int     where parseXML = fromXMLText "Int"
+instance FromXML Integer where parseXML = fromXMLText "Integer"
+instance FromXML Natural where parseXML = fromXMLText "Natural"
+instance FromXML Double  where parseXML = fromXMLText "Double"
+instance FromXML Bool    where parseXML = fromXMLText "Bool"
+
+class ToXML a where
+    toXML :: a -> [Node]
+
+instance ToXML a => ToXML (Maybe a) where
+    toXML (Just x) = toXML x
+    toXML Nothing  = []
+    {-# INLINE toXML #-}
+
+instance ToXML Text    where toXML = toXMLText
+instance ToXML Int     where toXML = toXMLText
+instance ToXML Integer where toXML = toXMLText
+instance ToXML Natural where toXML = toXMLText
+instance ToXML Double  where toXML = toXMLText
+instance ToXML Bool    where toXML = toXMLText
 
 -- infixl 6 %|, %|?
 
@@ -88,9 +159,9 @@ class FromXML a where
 -- decodeXML = either failure success . parseLBS def
 --   where
 --     failure = Left . show
---     success = join . fmap (fromXML o) . fromXMLRoot o
+--     success = join . fmap (fromXML o) . parseXMLRoot o
 
---     o = fromXMLOptions :: Tagged a XMLOptions
+--     o = parseXMLOptions :: Tagged a XMLOptions
 
 -- encodeXML :: forall a. ToXML a => a -> ByteString
 -- encodeXML = renderLBS def . toXMLRoot o . toXML o
@@ -147,65 +218,65 @@ class FromXML a where
 -- gFromRoot o = fromRoot (gRootName (untag o) $ from (undefined :: a)) o
 
 -- class FromXML a where
---     fromXMLOptions :: Tagged a XMLOptions
---     fromXMLRoot    :: Tagged a XMLOptions -> Document -> Either String [Node]
---     fromXML        :: Tagged a XMLOptions -> [Node]   -> Either String a
+--     parseXMLOptions :: Tagged a XMLOptions
+--     parseXMLRoot    :: Tagged a XMLOptions -> Document -> Either String [Node]
+--     parseXML        :: Tagged a XMLOptions -> [Node]   -> Either String a
 
---     fromXMLOptions = Tagged def
+--     parseXMLOptions = Tagged def
 
---     default fromXMLRoot :: (Generic a, GXMLRoot (Rep a))
+--     default parseXMLRoot :: (Generic a, GXMLRoot (Rep a))
 --                         => Tagged a XMLOptions
 --                         -> Document
 --                         -> Either String [Node]
---     fromXMLRoot = gFromRoot
+--     parseXMLRoot = gFromRoot
 
---     default fromXML :: (Generic a, GFromXML (Rep a))
+--     default parseXML :: (Generic a, GFromXML (Rep a))
 --                     => Tagged a XMLOptions
 --                     -> [Node]
 --                     -> Either String a
---     fromXML o = fmap to . gFromXML (untag o)
+--     parseXML o = fmap to . gFromXML (untag o)
 
 -- fromNodeContent :: FromText a => [Node] -> Either String a
 -- fromNodeContent [NodeContent x] = fromText x
 -- fromNodeContent _               = Left "Unexpected non-textual node contents."
 
 -- instance FromXML () where
---     fromXML _ _ = Right ()
+--     parseXML _ _ = Right ()
 
 -- instance FromXML Bool where
---     fromXML = const fromNodeContent
+--     parseXML = const fromNodeContent
 
 -- instance FromXML Text where
---     fromXMLRoot = fromRoot "Text"
---     fromXML     = const fromNodeContent
+--     parseXMLRoot = fromRoot "Text"
+--     parseXML     = const fromNodeContent
 
 -- instance FromXML BS.ByteString where
---     fromXMLRoot = fromRoot "ByteString"
---     fromXML o   = fmap Text.encodeUtf8 . fromXML (retag o)
+--     parseXMLRoot = fromRoot "ByteString"
+--     parseXML o   = fmap Text.encodeUtf8 . parseXML (retag o)
 
 -- instance FromXML Int where
---     fromXMLRoot = fromRoot "Int"
---     fromXML     = const fromNodeContent
+--     parseXMLRoot = fromRoot "Int"
+--     parseXML     = const fromNodeContent
 
 -- instance FromXML Integer where
---     fromXMLRoot = fromRoot "Integer"
---     fromXML     = const fromNodeContent
+--     parseXMLRoot = fromRoot "Integer"
+--     parseXML     = const fromNodeContent
 
 -- instance FromXML Natural where
---     fromXMLRoot = fromRoot "Natural"
---     fromXML     = const fromNodeContent
+--     parseXMLRoot = fromRoot "Natural"
+--     parseXML     = const fromNodeContent
 
 -- instance FromXML Double where
---     fromXML = const fromNodeContent
+--     parseXML = const fromNodeContent
 
 -- instance FromXML a => FromXML [a] where
---     fromXML o = sequence . f item
+--     parseXML o = sequence . f item
 --       where
 --         f (Just x) = map (g x)
 --         f Nothing  = map (fromXML (retag o) . (:[]))
 
 --         g n (NodeElement (Element n' _ xs))
---             | n' == Name n ns Nothing = fromXML (retag o) xs
+--             | n' == Name n ns Nothing = parseXML (retag o) xs
 --             | otherwise               = Left "Unrecognised list element name."
 --         g _ _                         = Left "Unable to parse list element."
 
@@ -213,8 +284,8 @@ class FromXML a where
 --         ns   = xmlNamespace (untag o)
 
 -- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (HashMap k v) where
---     fromXMLRoot = fromRoot "HashMap"
---     fromXML o   = fmap Map.fromList . mapM f
+--     parseXMLRoot = fromRoot "HashMap"
+--     parseXML o   = fmap Map.fromList . mapM f
 --       where
 --         f (NodeElement (Element n _ xs))
 --             | n == Name item ns Nothing
@@ -224,17 +295,17 @@ class FromXML a where
 --         g h (NodeElement (Element _ _ xs)) = h xs
 --         g _ _ = Left "Unable to parse hashmap pair."
 
---         val [NodeElement (Element _ _ xs)] = fromXML fromXMLOptions xs
+--         val [NodeElement (Element _ _ xs)] = parseXML parseXMLOptions xs
 --         val _ = Left "Unable to parse hashmap pair value."
 
 --         item = xmlMapItem   (untag o)
 --         ns   = xmlNamespace (untag o)
 
 -- instance FromXML a => FromXML (NonEmpty a) where
---     fromXMLRoot = fromRoot "NonEmpty"
---     fromXML o   = join
+--     parseXMLRoot = fromRoot "NonEmpty"
+--     parseXML o   = join
 --         . fmap (note . NonEmpty.nonEmpty)
---         . fromXML (retag o)
+--         . parseXML (retag o)
 --       where
 --         note Nothing  = Left "Unexpected empty list."
 --         note (Just x) = Right x
@@ -242,7 +313,7 @@ class FromXML a where
 -- -- FIXME: should fail if target doesn't exist? thereby requiring the element
 -- -- but it can be empty?
 -- instance FromXML a => FromXML (Maybe a) where
---     fromXML o ns =
+--     parseXML o ns =
 --         either (const $ Right Nothing)
 --                (Right . Just)
 --                (fromXML (retag o) ns :: Either String a)
@@ -260,12 +331,12 @@ class FromXML a where
 --     gFromXML _ _ = Right U1
 
 -- instance forall a. FromXML a => GFromXML (K1 R a) where
---     gFromXML x = fmap K1 . fromXML (Tagged o)
+--     gFromXML x = fmap K1 . parseXML (Tagged o)
 --       where
 --         o | xmlInherit $ untag y = x
 --           | otherwise            = untag y
 
---         y = fromXMLOptions :: Tagged a XMLOptions
+--         y = parseXMLOptions :: Tagged a XMLOptions
 
 -- instance GFromXML f => GFromXML (D1 c f) where
 --     gFromXML o = fmap M1 . gFromXML o

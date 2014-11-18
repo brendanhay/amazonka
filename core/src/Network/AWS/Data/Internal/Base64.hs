@@ -47,10 +47,10 @@ instance ToText Base64 where
     toText = Text.decodeUtf8 . toBS
 
 instance FromXML Base64 where
-    fromXML o = either Left (return . Base64)
+    parseXML o = either Left (return . Base64)
         . join
         . fmap Base64.decode
-        . fromXML (retag o)
+        . parseXML (retag o)
 
 instance ToXML Base64 where
     toXML o = toXML (retag o) . toText

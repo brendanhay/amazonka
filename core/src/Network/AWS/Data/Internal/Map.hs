@@ -94,5 +94,5 @@ instance (ToText k, ToJSON v) => ToJSON (Map k v) where
         . toHashMap
 
 instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
-    fromXMLRoot = fromRoot "Map"
-    fromXML o   = fmap Map . fromXML (retag o)
+    parseXMLRoot = fromRoot "Map"
+    parseXML o   = fmap Map . parseXML (retag o)

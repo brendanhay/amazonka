@@ -166,15 +166,15 @@ parseFormattedTime = do
     f = format
 
 instance FromXML RFC822 where
-    fromXMLRoot = fromRoot "Date"
-    fromXML     = const fromNodeContent
+    parseXMLRoot = fromRoot "Date"
+    parseXML     = const fromNodeContent
 
 instance FromJSON RFC822 where
     parseJSON = withText "Date" (either fail return . fromText)
 
 instance FromXML ISO8601 where
-    fromXMLRoot = fromRoot "Date"
-    fromXML     = const fromNodeContent
+    parseXMLRoot = fromRoot "Date"
+    parseXML     = const fromNodeContent
 
 instance FromJSON ISO8601 where
     parseJSON = withText "Date" (either fail return . fromText)

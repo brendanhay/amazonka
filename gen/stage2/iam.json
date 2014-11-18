@@ -97,8 +97,10 @@
         "version": "2010-05-08",
         "documentation": "AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users. Using IAM, you can create and manage AWS users and groups and use permissions to allow and deny their access to AWS resources.",
         "xmlNamespace": "https://iam.amazonaws.com/doc/2010-05-08/",
+        "jsonVersion": null,
         "endpoint": "Global",
-        "endpointPrefix": "iam"
+        "endpointPrefix": "iam",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -2644,9 +2646,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "AddClientIDToOpenIDConnectProvider",
             "method": "post",
             "documentation": "\u003cp\u003eAdds a new client ID (also known as audience) to the list of client IDs already registered for the specified IAM OpenID Connect provider.\u003c/p\u003e \u003cp\u003eThis action is idempotent; it does not fail or return an error if you add an existing client ID to the provider.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2784,9 +2788,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "AddRoleToInstanceProfile",
             "method": "post",
             "documentation": "\u003cp\u003eAdds the specified role to the specified instance profile. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2924,9 +2930,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "AddUserToGroup",
             "method": "post",
             "documentation": "\u003cp\u003eAdds the specified user to the specified group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3064,9 +3072,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "ChangePassword",
             "method": "post",
             "documentation": "\u003cp\u003eChanges the password of the IAM user who is calling this action. The root account password is not affected by this action. \u003c/p\u003e \u003cp\u003eTo change the password for a different user, see \u003ca\u003eUpdateLoginProfile\u003c/a\u003e. For more information about modifying passwords, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html\"\u003eManaging Passwords\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3251,9 +3261,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateAccessKey",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is \u003ccode\u003eActive\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e \u003cp\u003e For information about limits on the number of keys you can create, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cimportant\u003e To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3374,9 +3386,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateAccountAlias",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an alias for your AWS account. For information about using an AWS account alias, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html\"\u003eUsing an Alias for Your AWS Account ID\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3545,9 +3559,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateGroup",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new group.\u003c/p\u003e \u003cp\u003e For information about the number of groups you can create, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3733,9 +3749,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateInstanceProfile",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new instance profile. For information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e For information about the number of instance profiles you can create, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3921,9 +3939,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateLoginProfile",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html\"\u003eManaging Passwords\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4144,9 +4164,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateOpenIDConnectProvider",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an IAM entity to describe an identity provider (IdP) that supports \u003ca href=\"http://openid.net/connect/\"\u003eOpenID Connect (OIDC)\u003c/a\u003e. \u003c/p\u003e \u003cp\u003eThe OIDC provider that you create with this operation can be used as a principal in a role's trust policy to establish a trust relationship between AWS and the OIDC provider. \u003c/p\u003e \u003cp\u003eWhen you create the IAM OIDC provider, you specify the URL of the OIDC identity provider (IdP) to trust, a list of client IDs (also known as audiences) that identify the application or applications that are allowed to authenticate using the OIDC provider, and a list of thumbprints of the server certificate(s) that the IdP uses. You get all of this information from the OIDC IdP that you want to use for access to AWS. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4365,9 +4387,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateRole",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new role for your AWS account. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. For information about limitations on role names and the number of roles you can create, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e The example policy grants permission to an EC2 instance to assume the role. The policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4588,9 +4612,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateSAMLProvider",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an IAM entity to describe an identity provider (IdP) that supports SAML 2.0.\u003c/p\u003e \u003cp\u003e The SAML provider that you create with this operation can be used as a principal in a role's trust policy to establish a trust relationship between AWS and a SAML identity provider. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS. \u003c/p\u003e \u003cp\u003e When you create the SAML provider, you upload an a SAML metadata document that you get from your IdP and that includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP. \u003c/p\u003e \u003cp\u003e For more information, see \u003ca href=\"http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html\"\u003eGiving Console Access Using SAML\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html\"\u003eCreating Temporary Security Credentials for SAML Federation\u003c/a\u003e in the \u003ci\u003eUsing Temporary Credentials\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4775,9 +4801,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateUser",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new user for your AWS account.\u003c/p\u003e \u003cp\u003e For information about limitations on the number of users you can create, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4963,9 +4991,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "CreateVirtualMFADevice",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html\"\u003eEnableMFADevice\u003c/a\u003e to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html\"\u003eUsing a Virtual MFA Device\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e For information about limits on the number of MFA devices you can create, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cimportant\u003e The seed information contained in the QR code and the Base32 string should be treated like any other secret access information, such as your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5104,9 +5134,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeactivateMFADevice",
             "method": "post",
             "documentation": "\u003cp\u003eDeactivates the specified MFA device and removes it from association with the user name for which it was originally enabled. \u003c/p\u003e \u003cp\u003eFor more information about creating and working with virtual MFA devices, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html\"\u003eUsing a Virtual MFA Device\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5244,9 +5276,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteAccessKey",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the access key associated with the specified user.\u003c/p\u003e \u003cp\u003e If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5385,9 +5419,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteAccountAlias",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified AWS account alias. For information about using an AWS account alias, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html\"\u003eUsing an Alias for Your AWS Account ID\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5509,9 +5545,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteAccountPasswordPolicy",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the password policy for the AWS account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5577,9 +5615,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified group. The group must not contain any users or have any attached policies. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5701,9 +5741,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteGroupPolicy",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified policy that is associated with the specified group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5841,9 +5883,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteInstanceProfile",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified instance profile. The instance profile must not have an associated role. \u003c/p\u003e \u003cimportant\u003e Make sure you do not have any Amazon EC2 instances running with the instance profile you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance. \u003c/important\u003e \u003cp\u003e For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5965,9 +6009,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteLoginProfile",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the password for the specified user, which terminates the user's ability to access AWS services through the AWS Management Console. \u003c/p\u003e \u003cimportant\u003e Deleting a user's password does not prevent a user from accessing IAM through the command line interface or the API. To prevent all user access you must also either make the access key inactive or delete it. For more information about making keys inactive or deleting them, see \u003ca\u003eUpdateAccessKey\u003c/a\u003e and \u003ca\u003eDeleteAccessKey\u003c/a\u003e. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6089,9 +6135,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteOpenIDConnectProvider",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes an IAM OpenID Connect identity provider.\u003c/p\u003e \u003cp\u003eDeleting an OIDC provider does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a provider that has been deleted will fail. \u003c/p\u003e \u003cp\u003eThis action is idempotent; it does not fail or return an error if you call the action for a provider that was already deleted.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6213,9 +6261,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteRole",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified role. The role must not have any policies attached. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. \u003c/p\u003e \u003cimportant\u003e Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6337,9 +6387,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteRolePolicy",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified policy associated with the specified role.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6477,9 +6529,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteSAMLProvider",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a SAML provider.\u003c/p\u003e \u003cp\u003e Deleting the provider does not update any roles that reference the SAML provider as a principal in their trust policies. Any attempt to assume a role that references a SAML provider that has been deleted will fail. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6601,9 +6655,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteServerCertificate",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified server certificate.\u003c/p\u003e \u003cimportant\u003e If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html\" target=\"blank\"\u003eDeleteLoadBalancerListeners\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing API Reference\u003c/i\u003e. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6725,9 +6781,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteSigningCertificate",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified signing certificate associated with the specified user.\u003c/p\u003e \u003cp\u003e If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6866,9 +6924,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteUser",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified user. The user must not belong to any groups, have any keys or signing certificates, or have any attached policies. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6990,9 +7050,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteUserPolicy",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified policy associated with the specified user.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7130,9 +7192,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "DeleteVirtualMFADevice",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a virtual MFA device.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7254,9 +7318,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "EnableMFADevice",
             "method": "post",
             "documentation": "\u003cp\u003e Enables the specified MFA device and associates it with the specified user name. When enabled, the MFA device is required for every subsequent login by the user name associated with the device. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7521,9 +7587,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GenerateCredentialReport",
             "method": "post",
             "documentation": "\u003cp\u003e Generates a credential report for the AWS account. For more information about the credential report, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\"\u003eGetting Credential Reports\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7636,9 +7704,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetAccountPasswordPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the password policy for the AWS account. For more information about using a password policy, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html\"\u003eManaging an IAM Password Policy\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7753,9 +7823,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetAccountSummary",
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves account level information about account entity usage and IAM quotas.\u003c/p\u003e \u003cp\u003e For information about limitations on IAM entities, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7909,9 +7981,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetCredentialReport",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves a credential report for the AWS account. For more information about the credential report, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\"\u003eGetting Credential Reports\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8105,6 +8179,7 @@
             "name": "GetGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of users that are in the specified group. You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8365,9 +8440,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetGroupPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the specified policy document for the specified group. The returned policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8552,9 +8629,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetInstanceProfile",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. For more information about ARNs, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs\"\u003eARNs\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8723,9 +8802,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetLoginProfile",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the user name and password-creation date for the specified user. If the user has not been assigned a password, the action returns a 404 (\u003ccode\u003eNoSuchEntity\u003c/code\u003e) error. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8964,9 +9045,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetOpenIDConnectProvider",
             "method": "post",
             "documentation": "\u003cp\u003eReturns information about the specified OpenID Connect provider.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9135,9 +9218,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetRole",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves information about the specified role, including the role's path, GUID, ARN, and the policy granting permission to assume the role. For more information about ARNs, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs\"\u003eARNs\u003c/a\u003e. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e The returned policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9348,9 +9433,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetRolePolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the specified policy document for the specified role. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e The returned policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9577,9 +9664,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetSAMLProvider",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the SAML provider metadocument that was uploaded when the provider was created or updated. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9748,9 +9837,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetServerCertificate",
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves information about the specified server certificate.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9919,9 +10010,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetUser",
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves information about the specified user, including the user's creation date, path, unique ID, and ARN. \u003c/p\u003e \u003cp\u003eIf you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID used to sign the request. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10131,9 +10224,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "GetUserPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the specified policy document for the specified user. The returned policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10370,6 +10465,7 @@
             "name": "ListAccessKeys",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the access key IDs associated with the specified user. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e Although each user is limited to a small number of keys, you can still paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10640,6 +10736,7 @@
             "name": "ListAccountAliases",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the account aliases associated with the account. For information about using an AWS account alias, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html\"\u003eUsing an Alias for Your AWS Account ID\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10877,6 +10974,7 @@
             "name": "ListGroupPolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the names of the policies associated with the specified group. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11147,6 +11245,7 @@
             "name": "ListGroups",
             "method": "post",
             "documentation": "\u003cp\u003eLists the groups that have the specified path prefix.\u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11416,6 +11515,7 @@
             "name": "ListGroupsForUser",
             "method": "post",
             "documentation": "\u003cp\u003eLists the groups the specified user belongs to.\u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11686,6 +11786,7 @@
             "name": "ListInstanceProfiles",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the instance profiles that have the specified path prefix. If there are none, the action returns an empty list. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11955,6 +12056,7 @@
             "name": "ListInstanceProfilesForRole",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the instance profiles that have the specified associated role. If there are none, the action returns an empty list. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12225,6 +12327,7 @@
             "name": "ListMFADevices",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the MFA devices. If the request includes the user name, then this action lists all the MFA devices associated with the specified user name. If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12444,9 +12547,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "ListOpenIDConnectProviders",
             "method": "post",
             "documentation": "\u003cp\u003eLists information about the OpenID Connect providers in the AWS account. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12612,6 +12717,7 @@
             "name": "ListRolePolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the names of the policies associated with the specified role. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12882,6 +12988,7 @@
             "name": "ListRoles",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the roles that have the specified path prefix. If there are none, the action returns an empty list. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e \u003cp\u003e The returned policy is URL-encoded according to RFC 3986. For more information about RFC 3986, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc3986.html\"\u003ehttp://www.faqs.org/rfcs/rfc3986.html\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13101,9 +13208,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "ListSAMLProviders",
             "method": "post",
             "documentation": "\u003cp\u003eLists the SAML providers in the account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13268,6 +13377,7 @@
             "name": "ListServerCertificates",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the server certificates that have the specified path prefix. If none exist, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13537,6 +13647,7 @@
             "name": "ListSigningCertificates",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the signing certificates associated with the specified user. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e Although each user is limited to a small number of signing certificates, you can still paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13807,6 +13918,7 @@
             "name": "ListUserPolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the names of the policies associated with the specified user. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14077,6 +14189,7 @@
             "name": "ListUsers",
             "method": "post",
             "documentation": "\u003cp\u003eLists the IAM users that have the specified path prefix. If no path prefix is specified, the action returns all users in the AWS account. If there are none, the action returns an empty list. \u003c/p\u003e \u003cp\u003eYou can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14346,6 +14459,7 @@
             "name": "ListVirtualMFADevices",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the virtual MFA devices under the AWS account by assignment status. If you do not specify an assignment status, the action returns a list of all virtual MFA devices. Assignment status can be \u003ccode\u003eAssigned\u003c/code\u003e, \u003ccode\u003eUnassigned\u003c/code\u003e, or \u003ccode\u003eAny\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e You can paginate the results using the \u003ccode\u003eMaxItems\u003c/code\u003e and \u003ccode\u003eMarker\u003c/code\u003e parameters. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14516,9 +14630,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "PutGroupPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Adds (or updates) a policy document associated with the specified group. For information about policies, refer to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html\"\u003eOverview of Policies\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e For information about limits on the number of policies you can associate with a group, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14689,9 +14805,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "PutRolePolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Adds (or updates) a policy document associated with the specified role. For information about policies, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html\"\u003eOverview of Policies\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e For information about limits on the policies you can associate with a role, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14862,9 +14980,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "PutUserPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Adds (or updates) a policy document associated with the specified user. For information about policies, refer to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html\"\u003eOverview of Policies\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e \u003cp\u003e For information about limits on the number of policies you can associate with a user, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15035,9 +15155,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "RemoveClientIDFromOpenIDConnectProvider",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves the specified client ID (also known as audience) from the list of client IDs registered for the specified IAM OpenID Connect provider.\u003c/p\u003e \u003cp\u003eThis action is idempotent; it does not fail or return an error if you try to remove a client ID that was removed previously.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15175,9 +15297,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "RemoveRoleFromInstanceProfile",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves the specified role from the specified instance profile.\u003c/p\u003e \u003cimportant\u003e Make sure you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance will break any applications running on the instance. \u003c/important\u003e \u003cp\u003e For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. For more information about instance profiles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html\"\u003eAbout Instance Profiles\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15315,9 +15439,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "RemoveUserFromGroup",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves the specified user from the specified group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15455,9 +15581,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "ResyncMFADevice",
             "method": "post",
             "documentation": "\u003cp\u003eSynchronizes the specified MFA device with AWS servers.\u003c/p\u003e \u003cp\u003eFor more information about creating and working with virtual MFA devices, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html\"\u003eUsing a Virtual MFA Device\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15661,9 +15789,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateAccessKey",
             "method": "post",
             "documentation": "\u003cp\u003e Changes the status of the specified access key from Active to Inactive, or vice versa. This action can be used to disable a user's key as part of a key rotation work flow. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e \u003cp\u003e For information about rotating keys, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html\"\u003eManaging Keys and Certificates\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15835,9 +15965,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateAccountPasswordPolicy",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates the password policy settings for the AWS account.\u003c/p\u003e \u003cp\u003e For more information about using a password policy, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html\"\u003eManaging an IAM Password Policy\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16206,9 +16338,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateAssumeRolePolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Updates the policy that grants an entity permission to assume a role. For more information about roles, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\"\u003eWorking with Roles\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16346,9 +16480,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateGroup",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates the name and/or the path of the specified group.\u003c/p\u003e \u003cimportant\u003e You should understand the implications of changing a group's path or name. For more information, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html\"\u003eRenaming Users and Groups\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16520,9 +16656,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateLoginProfile",
             "method": "post",
             "documentation": "\u003cp\u003eChanges the password for the specified user.\u003c/p\u003e \u003cp\u003eUsers can change their own passwords by calling \u003ca\u003eChangePassword\u003c/a\u003e. For more information about modifying passwords, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html\"\u003eManaging Passwords\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16694,9 +16832,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateOpenIDConnectProviderThumbprint",
             "method": "post",
             "documentation": "\u003cp\u003eReplaces the existing list of server certificate thumbprints with a new list. \u003c/p\u003e \u003cp\u003eThe list that you pass with this action completely replaces the existing list of thumbprints. (The lists are not merged.)\u003c/p\u003e \u003cp\u003eTypically, you need to update a thumbprint only when the identity provider's certificate changes, which occurs rarely. However, if the provider's certificate \u003ci\u003edoes\u003c/i\u003e change, any attempt to assume an IAM role that specifies the IAM provider as a principal will fail until the certificate thumbprint is updated.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16884,9 +17024,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateSAMLProvider",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates the metadata document for an existing SAML provider.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17024,9 +17166,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateServerCertificate",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates the name and/or the path of the specified server certificate.\u003c/p\u003e \u003cimportant\u003e You should understand the implications of changing a server certificate's path or name. For more information, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html\"\u003eManaging Server Certificates\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17198,9 +17342,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateSigningCertificate",
             "method": "post",
             "documentation": "\u003cp\u003e Changes the status of the specified signing certificate from active to disabled, or vice versa. This action can be used to disable a user's signing certificate as part of a certificate rotation work flow. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e \u003cp\u003e For information about rotating certificates, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html\"\u003eManaging Keys and Certificates\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17372,9 +17518,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UpdateUser",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates the name and/or the path of the specified user.\u003c/p\u003e \u003cimportant\u003e You should understand the implications of changing a user's path or name. For more information, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html\"\u003eRenaming Users and Groups\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17593,9 +17741,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UploadServerCertificate",
             "method": "post",
             "documentation": "\u003cp\u003e Uploads a server certificate entity for the AWS account. The server certificate entity includes a public key certificate, a private key, and an optional certificate chain, which should all be PEM-encoded. \u003c/p\u003e \u003cp\u003e For information about the number of server certificates you can upload, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17880,9 +18030,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.IAM.Types"
             ],
+            "pager": null,
             "name": "UploadSigningCertificate",
             "method": "post",
             "documentation": "\u003cp\u003e Uploads an X.509 signing certificate and associates it with the specified user. Some AWS services use X.509 signing certificates to validate requests that are signed with a corresponding private key. When you upload the certificate, its default status is \u003ccode\u003eActive\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e If the \u003ccode\u003eUserName\u003c/code\u003e field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

@@ -168,8 +168,10 @@
         "version": "2014-09-01",
         "documentation": "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change. Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use. Amazon EC2 provides developers the tools to build failure resilient applications and isolate themselves from common failure scenarios.",
         "xmlNamespace": "http://ec2.amazonaws.com/doc/2014-09-01",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "ec2"
+        "endpointPrefix": "ec2",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [
@@ -22134,9 +22136,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AcceptVpcPeeringConnection",
             "method": "post",
             "documentation": "\u003cp\u003eAccept a VPC peering connection request. To accept a request, the VPC peering connection must be in the \u003ccode\u003epending-acceptance\u003c/code\u003e state, and you must be the owner of the peer VPC. Use the \u003ccode\u003eDescribeVpcPeeringConnections\u003c/code\u003e request to view your outstanding VPC peering connection requests.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22363,9 +22367,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AllocateAddress",
             "method": "post",
             "documentation": "\u003cp\u003eAcquires an Elastic IP address.\u003c/p\u003e \u003cp\u003eAn Elastic IP address is for use either in the EC2-Classic platform or in a VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\"\u003eElastic IP Addresses\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22503,9 +22509,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AssignPrivateIpAddresses",
             "method": "post",
             "documentation": "\u003cp\u003eAssigns one or more secondary private IP addresses to the specified network interface. You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e. For more information about Elastic IP addresses, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\"\u003eElastic IP Addresses\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eAssignPrivateIpAddresses is available only in EC2-VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22759,9 +22767,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AssociateAddress",
             "method": "post",
             "documentation": "\u003cp\u003eAssociates an Elastic IP address with an instance or a network interface.\u003c/p\u003e \u003cp\u003eAn Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\"\u003eElastic IP Addresses\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance.\u003c/p\u003e \u003cp\u003e[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation.\u003c/p\u003e \u003cp\u003eThis is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23064,9 +23074,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AssociateDhcpOptions",
             "method": "post",
             "documentation": "\u003cp\u003eAssociates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.\u003c/p\u003e \u003cp\u003eAfter you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html\"\u003eDHCP Options Sets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23287,9 +23299,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AssociateRouteTable",
             "method": "post",
             "documentation": "\u003cp\u003eAssociates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.\u003c/p\u003e \u003cp\u003eFor more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23461,9 +23475,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AttachInternetGateway",
             "method": "post",
             "documentation": "\u003cp\u003eAttaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and Internet gateway, see the \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/\"\u003eAmazon Virtual Private Cloud User Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23684,9 +23700,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AttachNetworkInterface",
             "method": "post",
             "documentation": "\u003cp\u003eAttaches a network interface to an instance.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24064,9 +24082,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AttachVolume",
             "method": "post",
             "documentation": "\u003cp\u003eAttaches an Amazon EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.\u003c/p\u003e \u003cp\u003eEncrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\"\u003eAmazon EBS Encryption\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eFor a list of supported device names, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html\"\u003eAttaching an Amazon EBS Volume to an Instance\u003c/a\u003e. Any device names that aren't reserved for instance store volumes can be used for Amazon EBS volumes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html\"\u003eAmazon EC2 Instance Store\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf a volume has an AWS Marketplace product code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eThe volume can only be attached as the root device of a stopped instance.\u003c/li\u003e \u003cli\u003eYou must be subscribed to the AWS Marketplace code that is on the volume.\u003c/li\u003e \u003cli\u003eThe configuration (instance type, operating system) of the instance must support that specific AWS Marketplace code. For example, you cannot take a volume from a Windows instance and attach it to a Linux instance.\u003c/li\u003e \u003cli\u003eAWS Marketplace product codes are copied from the volume to the instance.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor an overview of the AWS Marketplace, see \u003ca href=\"https://aws.amazon.com/marketplace/help/200900000\"\u003ehttps://aws.amazon.com/marketplace/help/200900000\u003c/a\u003e. For more information about how to use the AWS Marketplace, see \u003ca href=\"https://aws.amazon.com/marketplace\"\u003eAWS Marketplace\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eFor more information about Amazon EBS volumes, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html\"\u003eAttaching Amazon EBS Volumes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24318,9 +24338,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AttachVpnGateway",
             "method": "post",
             "documentation": "\u003cp\u003eAttaches a virtual private gateway to a VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24492,9 +24514,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AuthorizeSecurityGroupEgress",
             "method": "post",
             "documentation": "\u003cp\u003eAdds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination CIDR IP address ranges, or to one or more destination security groups for the same VPC.\u003c/p\u003e \u003cimportant\u003e \u003cp\u003eYou can have up to 50 rules per security group (covering both ingress and egress rules).\u003c/p\u003e \u003c/important\u003e \u003cp\u003eA security group is for use with instances either in the EC2-Classic platform or in a specific VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\"\u003eSecurity Groups for Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eEach rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.\u003c/p\u003e \u003cp\u003eRule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24863,9 +24887,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "AuthorizeSecurityGroupIngress",
             "method": "post",
             "documentation": "\u003cp\u003eAdds one or more ingress rules to a security group.\u003c/p\u003e \u003cimportant\u003e \u003cp\u003eEC2-Classic: You can have up to 100 rules per group.\u003c/p\u003e \u003cp\u003eEC2-VPC: You can have up to 50 rules per group (covering both ingress and egress rules).\u003c/p\u003e \u003c/important\u003e \u003cp\u003eRule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.\u003c/p\u003e \u003cp\u003e[EC2-Classic] This action gives one or more CIDR IP address ranges permission to access a security group in your account, or gives one or more security groups (called the \u003ci\u003esource groups\u003c/i\u003e) permission to access a security group for your account. A source group can be for your own AWS account, or another.\u003c/p\u003e \u003cp\u003e[EC2-VPC] This action gives one or more CIDR IP address ranges permission to access a security group in your VPC, or gives one or more other security groups (called the \u003ci\u003esource groups\u003c/i\u003e) permission to access a security group for your VPC. The security groups must all be for the same VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25313,9 +25339,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "BundleInstance",
             "method": "post",
             "documentation": "\u003cp\u003eBundles an Amazon instance store-backed Windows instance.\u003c/p\u003e \u003cp\u003eDuring bundling, only the root device volume (C:\\) is bundled. Data on other instance store volumes is not preserved.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html\"\u003eCreating an Instance Store-Backed Windows AMI\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25533,9 +25561,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CancelBundleTask",
             "method": "post",
             "documentation": "\u003cp\u003eCancels a bundling operation for an instance store-backed Windows instance.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25674,9 +25704,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CancelConversionTask",
             "method": "post",
             "documentation": "\u003cp\u003eCancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html\"\u003eUsing the Command Line Tools to Import Your Virtual Machine to Amazon EC2\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25848,9 +25880,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CancelExportTask",
             "method": "post",
             "documentation": "\u003cp\u003eCancels an active export task. The request removes all artifacts of the export, including any partially-created Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the command fails and returns an error.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26021,9 +26055,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CancelReservedInstancesListing",
             "method": "post",
             "documentation": "\u003cp\u003eCancels the specified Reserved Instance listing in the Reserved Instance Marketplace.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\"\u003eReserved Instance Marketplace\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26194,9 +26230,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CancelSpotInstanceRequests",
             "method": "post",
             "documentation": "\u003cp\u003eCancels one or more Spot Instance requests. Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance capacity and current Spot Instance requests. For more information about Spot Instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cimportant\u003e \u003cp\u003eCanceling a Spot Instance request does not terminate running Spot Instances associated with the request.\u003c/p\u003e \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26383,9 +26421,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ConfirmProductInstance",
             "method": "post",
             "documentation": "\u003cp\u003eDetermines whether a product code is associated with an instance. This action can only be used by the owner of the product code. It is useful when a product code owner needs to verify whether another user's instance is eligible for support.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26606,9 +26646,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CopyImage",
             "method": "post",
             "documentation": "\u003cp\u003eInitiates the copy of an AMI from the specified source region to the region in which the request was made. You specify the destination region by using its endpoint when making the request. AMIs that use encrypted Amazon EBS snapshots cannot be copied with this method.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html\"\u003eCopying AMIs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26928,9 +26970,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CopySnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eCopies a point-in-time snapshot of an Amazon EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create Amazon EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.\u003c/p\u003e \u003cp\u003eCopies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html\"\u003eCopying an Amazon EBS Snapshot\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -27248,9 +27292,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateCustomerGateway",
             "method": "post",
             "documentation": "\u003cp\u003eProvides information to AWS about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the AWS side of the VPN connection is the virtual private gateway.) You must provide the Internet-routable IP address of the customer gateway's external interface. The IP address must be static and can't be behind a device performing network address translation (NAT).\u003c/p\u003e \u003cp\u003eFor devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534 range).\u003c/p\u003e \u003cp\u003eFor more information about VPN customer gateways, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -27502,9 +27548,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateDhcpOptions",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a set of DHCP options for your VPC. After creating the set, you must associate it with the VPC, causing all existing and new instances that you launch in the VPC to use this set of DHCP options. The following are the individual DHCP options you can specify. For more information about the options, see \u003ca href=\"http://www.ietf.org/rfc/rfc2132.txt\"\u003eRFC 2132\u003c/a\u003e.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003edomain-name-servers\u003c/code\u003e - The IP addresses of up to four domain name servers, or \u003ccode\u003eAmazonProvidedDNS\u003c/code\u003e. The default DHCP option set specifies \u003ccode\u003eAmazonProvidedDNS\u003c/code\u003e. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas.\u003c/li\u003e \u003cli\u003e \u003ccode\u003edomain-name\u003c/code\u003e - If you're using AmazonProvidedDNS in \u003ccode\u003eus-east-1\u003c/code\u003e, specify \u003ccode\u003eec2.internal\u003c/code\u003e. If you're using AmazonProvidedDNS in another region, specify \u003ccode\u003eregion.compute.internal\u003c/code\u003e (for example, \u003ccode\u003eap-northeast-1.compute.internal\u003c/code\u003e). Otherwise, specify a domain name (for example, \u003ccode\u003eMyCompany.com\u003c/code\u003e). If specifying more than one domain name, separate them with spaces.\u003c/li\u003e \u003cli\u003e \u003ccode\u003entp-servers\u003c/code\u003e - The IP addresses of up to four Network Time Protocol (NTP) servers.\u003c/li\u003e \u003cli\u003e \u003ccode\u003enetbios-name-servers\u003c/code\u003e - The IP addresses of up to four NetBIOS name servers.\u003c/li\u003e \u003cli\u003e \u003ccode\u003enetbios-node-type\u003c/code\u003e - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). For more information about these node types, see \u003ca href=\"http://www.ietf.org/rfc/rfc2132.txt\"\u003eRFC 2132\u003c/a\u003e. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eYour VPC automatically starts out with a set of DHCP options that includes only a DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and if your VPC has an Internet gateway, make sure to set the \u003ccode\u003edomain-name-servers\u003c/code\u003e option either to \u003ccode\u003eAmazonProvidedDNS\u003c/code\u003e or to a domain name server of your choice. For more information about DHCP options, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html\"\u003eDHCP Options Sets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -27690,9 +27738,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateImage",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.\u003c/p\u003e \u003cp\u003eIf you customized your instance with instance store volumes or EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\"\u003eCreating Amazon EBS-Backed Linux AMIs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -28009,9 +28059,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateInstanceExportTask",
             "method": "post",
             "documentation": "\u003cp\u003eExports a running or stopped instance to an Amazon S3 bucket.\u003c/p\u003e \u003cp\u003eFor information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html\"\u003eExporting EC2 Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -28262,9 +28314,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateInternetGateway",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an Internet gateway for use with a VPC. After creating the Internet gateway, you attach it to a VPC using \u003ca\u003eAttachInternetGateway\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eFor more information about your VPC and Internet gateway, see the \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/\"\u003eAmazon Virtual Private Cloud User Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -28473,9 +28527,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateKeyPair",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#8 private key. If a key with the specified name already exists, Amazon EC2 returns an error.\u003c/p\u003e \u003cp\u003eYou can have up to five thousand key pairs per region.\u003c/p\u003e \u003cp\u003eThe key pair returned to you is available only in the region in which you create it. To create a key pair that is available in all regions, use \u003ca\u003eImportKeyPair\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eFor more information about key pairs, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\"\u003eKey Pairs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -28661,9 +28717,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateNetworkAcl",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.\u003c/p\u003e \u003cp\u003eFor more information about network ACLs, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\"\u003eNetwork ACLs\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -28802,9 +28860,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateNetworkAclEntry",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.\u003c/p\u003e \u003cp\u003eWe recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.\u003c/p\u003e \u003cp\u003eAfter you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.\u003c/p\u003e \u003cp\u003eFor more information about network ACLs, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\"\u003eNetwork ACLs\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -29220,9 +29280,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateNetworkInterface",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a network interface in the specified subnet.\u003c/p\u003e \u003cp\u003eFor more information about network interfaces, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\"\u003eElastic Network Interfaces\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -29525,9 +29587,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreatePlacementGroup",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a placement group that you launch cluster instances into. You must give the group a name that's unique within the scope of your account.\u003c/p\u003e \u003cp\u003eFor more information about placement groups and cluster instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html\"\u003eCluster Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -29748,9 +29812,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateReservedInstancesListing",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a listing for Amazon EC2 Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Reserved Instance listing at a time. To get a list of your Reserved Instances, you can use the \u003ca\u003eDescribeReservedInstances\u003c/a\u003e operation.\u003c/p\u003e \u003cp\u003eThe Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances. \u003c/p\u003e \u003cp\u003eTo sell your Reserved Instances, you must first register as a Seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Reserved Instances, and specify the upfront price to receive for them. Your Reserved Instance listings then become available for purchase. To view the details of your Reserved Instance listing, you can use the \u003ca\u003eDescribeReservedInstancesListings\u003c/a\u003e operation.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\"\u003eReserved Instance Marketplace\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -29954,9 +30020,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateRoute",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a route in a route table within a VPC.\u003c/p\u003e \u003cp\u003eYou must specify one of the following targets: Internet gateway or virtual private gateway, NAT instance, VPC peering connection, or network interface.\u003c/p\u003e \u003cp\u003eWhen determining how to route traffic, we use the route with the most specific match. For example, let's say the traffic is destined for \u003ccode\u003e192.0.2.3\u003c/code\u003e, and the route table includes the following two routes:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003ccode\u003e192.0.2.0/24\u003c/code\u003e (goes to some target A)\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003ccode\u003e192.0.2.0/28\u003c/code\u003e (goes to some target B)\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eBoth routes apply to the traffic destined for \u003ccode\u003e192.0.2.3\u003c/code\u003e. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.\u003c/p\u003e \u003cp\u003eFor more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -30307,9 +30375,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateRouteTable",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.\u003c/p\u003e \u003cp\u003eFor more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -30497,9 +30567,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateSecurityGroup",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a security group.\u003c/p\u003e \u003cp\u003eA security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\"\u003eAmazon EC2 Security Groups\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e and \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\"\u003eSecurity Groups for Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cimportant\u003e \u003cp\u003eEC2-Classic: You can have up to 500 security groups.\u003c/p\u003e \u003cp\u003eEC2-VPC: You can create up to 100 security groups per VPC.\u003c/p\u003e \u003c/important\u003e \u003cp\u003eWhen you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.\u003c/p\u003e \u003cp\u003eYou have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.\u003c/p\u003e \u003cp\u003eYou can add or remove rules from your security groups using \u003ca\u003eAuthorizeSecurityGroupIngress\u003c/a\u003e, \u003ca\u003eAuthorizeSecurityGroupEgress\u003c/a\u003e, \u003ca\u003eRevokeSecurityGroupIngress\u003c/a\u003e, and \u003ca\u003eRevokeSecurityGroupEgress\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -31016,9 +31088,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You can use snapshots for backups, to make copies of Amazon EBS volumes, and to save data before shutting down an instance.\u003c/p\u003e \u003cp\u003eWhen a snapshot is created, any AWS Marketplace product codes that are associated with the source volume are propagated to the snapshot.\u003c/p\u003e \u003cp\u003eYou can take a snapshot of an attached volume that is in use. However, snapshots only capture data that has been written to your Amazon EBS volume at the time the snapshot command is issued; this may exclude any data that has been cached by any applications or the operating system. If you can pause any file systems on the volume long enough to take a snapshot, your snapshot should be complete. However, if you cannot pause all file writes to the volume, you should unmount the volume from within the instance, issue the snapshot command, and then remount the volume to ensure a consistent and complete snapshot. You may remount and use your volume while the snapshot status is \u003ccode\u003epending\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eTo create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instance before taking the snapshot.\u003c/p\u003e \u003cp\u003eSnapshots that are taken from encrypted volumes are automatically encrypted. Volumes that are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes and any associated snapshots always remain protected.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html\"\u003eAmazon Elastic Block Store\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\"\u003eAmazon EBS Encryption\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -31237,9 +31311,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateSpotDatafeedSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a datafeed for Spot Instances, enabling you to view Spot Instance usage logs. You can create one data feed per AWS account. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -31458,9 +31534,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateSubnet",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a subnet in an existing VPC.\u003c/p\u003e \u003cp\u003eWhen you create each subnet, you provide the VPC ID and the CIDR block you want for the subnet. After you create a subnet, you can't change its CIDR block. The subnet's CIDR block can be the same as the VPC's CIDR block (assuming you want only a single subnet in the VPC), or a subset of the VPC's CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest subnet (and VPC) you can create uses a /28 netmask (16 IP addresses), and the largest uses a /16 netmask (65,536 IP addresses).\u003c/p\u003e \u003cimportant\u003e \u003cp\u003eAWS reserves both the first four and the last IP address in each subnet's CIDR block. They're not available for use.\u003c/p\u003e \u003c/important\u003e \u003cp\u003eIf you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.\u003c/p\u003e \u003cp\u003eIf you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.\u003c/p\u003e \u003cp\u003eFor more information about subnets, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html\"\u003eYour VPC and Subnets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -31665,9 +31743,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateTags",
             "method": "post",
             "documentation": "\u003cp\u003eAdds or overwrites one or more tags for the specified EC2 resource or resources. Each resource can have a maximum of 10 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.\u003c/p\u003e \u003cp\u003eFor more information about tags, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\"\u003eTagging Your Resources\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -32149,9 +32229,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateVolume",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an Amazon EBS volume that can be attached to an instance in the same Availability Zone. The volume is created in the specified region.\u003c/p\u003e \u003cp\u003eYou can create a new empty volume or restore a volume from an Amazon EBS snapshot. Any AWS Marketplace product codes from the snapshot are propagated to the volume.\u003c/p\u003e \u003cp\u003eYou can create encrypted volumes with the \u003ccode\u003eEncrypted\u003c/code\u003e parameter. Encrypted volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\"\u003eAmazon EBS Encryption\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html\"\u003eCreating or Restoring an Amazon EBS Volume\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -32502,9 +32584,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateVpc",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a VPC with the specified CIDR block.\u003c/p\u003e \u003cp\u003eThe smallest VPC you can create uses a /28 netmask (16 IP addresses), and the largest uses a /16 netmask (65,536 IP addresses). To help you decide how big to make your VPC, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html\"\u003eYour VPC and Subnets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eBy default, each instance you launch in the VPC has the default DHCP options, which includes only a default DNS server that we provide (AmazonProvidedDNS). For more information about DHCP options, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html\"\u003eDHCP Options Sets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -32723,9 +32807,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateVpcPeeringConnection",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a VPC peering connection between two VPCs: a requester VPC that you own and a peer VPC with which to create the connection. The peer VPC can belong to another AWS account. The requester VPC and peer VPC cannot have overlapping CIDR blocks.\u003c/p\u003e \u003cp\u003eThe owner of the peer VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.\u003c/p\u003e \u003cp\u003eA \u003ccode\u003eCreateVpcPeeringConnection\u003c/code\u003e request between VPCs with overlapping CIDR blocks results in the VPC peering connection having a status of \u003ccode\u003efailed\u003c/code\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -32976,9 +33062,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateVpnConnection",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The only supported connection type is \u003ccode\u003eipsec.1\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eThe response includes information that you need to give to your network administrator to configure your customer gateway.\u003c/p\u003e \u003cimportant\u003e \u003cp\u003eWe strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.\u003c/p\u003e \u003c/important\u003e \u003cp\u003eIf you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.\u003c/p\u003e \u003cp\u003eFor more information about VPN connections, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -33215,9 +33303,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateVpnConnectionRoute",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.\u003c/p\u003e \u003cp\u003eFor more information about VPN connections, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -33402,9 +33492,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "CreateVpnGateway",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.\u003c/p\u003e \u003cp\u003eFor more information about virtual private gateways, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -33576,9 +33668,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteCustomerGateway",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -33717,9 +33811,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteDhcpOptions",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -33858,9 +33954,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteInternetGateway",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified Internet gateway. You must detach the Internet gateway from the VPC before you can delete it.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -33999,9 +34097,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteKeyPair",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified key pair, by removing the public key from Amazon EC2.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -34140,9 +34240,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteNetworkAcl",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -34281,9 +34383,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteNetworkAclEntry",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified ingress or egress entry (rule) from the specified network ACL.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -34488,9 +34592,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteNetworkInterface",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified network interface. You must detach the network interface before you can delete it.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -34629,9 +34735,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeletePlacementGroup",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information about placement groups and cluster instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html\"\u003eCluster Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -34770,9 +34878,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteRoute",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified route from the specified route table.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -34944,9 +35054,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteRouteTable",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35085,9 +35197,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteSecurityGroup",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a security group.\u003c/p\u003e \u003cp\u003eIf you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with \u003ccode\u003eInvalidGroup.InUse\u003c/code\u003e in EC2-Classic or \u003ccode\u003eDependencyViolation\u003c/code\u003e in EC2-VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35258,9 +35372,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified snapshot.\u003c/p\u003e \u003cp\u003eWhen you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.\u003c/p\u003e \u003cp\u003eYou cannot delete a snapshot of the root device of an Amazon EBS volume used by a registered AMI. You must first de-register the AMI before you can delete the snapshot.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html\"\u003eDeleting an Amazon EBS Snapshot\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35399,9 +35515,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteSpotDatafeedSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the datafeed for Spot Instances. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35521,9 +35639,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteSubnet",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35662,9 +35782,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteTags",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified set of tags from the specified set of resources. This call is designed to follow a \u003ccode\u003eDescribeTags\u003c/code\u003e request.\u003c/p\u003e \u003cp\u003eFor more information about tags, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\"\u003eTagging Your Resources\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35834,9 +35956,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteVolume",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified Amazon EBS volume. The volume must be in the \u003ccode\u003eavailable\u003c/code\u003e state (not attached to an instance).\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html\"\u003eDeleting an Amazon EBS Volume\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -35975,9 +36099,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteVpc",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -36164,9 +36290,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteVpcPeeringConnection",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it's in the \u003ccode\u003eactive\u003c/code\u003e state. The owner of the requester VPC can delete a VPC peering connection in the \u003ccode\u003epending-acceptance\u003c/code\u003e state. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -36305,9 +36433,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteVpnConnection",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified VPN connection.\u003c/p\u003e \u003cp\u003eIf you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway using the new configuration information returned with the new VPN connection ID.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -36446,9 +36576,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteVpnConnectionRoute",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -36586,9 +36718,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeleteVpnGateway",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified virtual private gateway. We recommend that before you delete a virtual private gateway, you detach it from the VPC and delete the VPN connection. Note that you don't need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -36727,9 +36861,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DeregisterImage",
             "method": "post",
             "documentation": "\u003cp\u003eDeregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.\u003c/p\u003e \u003cp\u003eThis command does not delete the AMI.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -36917,9 +37053,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeAccountAttributes",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified attribute of your AWS account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -37106,9 +37244,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeAddresses",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your Elastic IP addresses.\u003c/p\u003e \u003cp\u003eAn Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\"\u003eElastic IP Addresses\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -37360,9 +37500,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeAvailabilityZones",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of the Availability Zones that are available to you. The results include zones only for the region you're currently using. If there is an event impacting an Availability Zone, you can use this request to view the state and any provided message for that Availability Zone.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\"\u003eRegions and Availability Zones\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -37581,9 +37723,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeBundleTasks",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your bundling tasks.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -37802,9 +37946,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeConversionTasks",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your conversion tasks. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html\"\u003eUsing the Command Line Tools to Import Your Virtual Machine to Amazon EC2\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -38023,9 +38169,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeCustomerGateways",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your VPN customer gateways.\u003c/p\u003e \u003cp\u003eFor more information about VPN customer gateways, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -38244,9 +38392,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeDhcpOptions",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your DHCP options sets.\u003c/p\u003e \u003cp\u003eFor more information about DHCP options sets, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html\"\u003eDHCP Options Sets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -38465,9 +38615,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeExportTasks",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your export tasks.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -38817,9 +38969,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeImageAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified attribute of the specified AMI. You can specify only one attribute at a time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -39040,9 +39194,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeImages",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images available to you include public images, private images that you own, and private images owned by other AWS accounts but for which you have explicit launch permissions.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -39674,9 +39830,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeInstanceAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified attribute of the specified instance. You can specify only one attribute at a time. Valid attribute values are: \u003ccode\u003einstanceType\u003c/code\u003e | \u003ccode\u003ekernel\u003c/code\u003e | \u003ccode\u003eramdisk\u003c/code\u003e | \u003ccode\u003euserData\u003c/code\u003e | \u003ccode\u003edisableApiTermination\u003c/code\u003e | \u003ccode\u003einstanceInitiatedShutdownBehavior\u003c/code\u003e | \u003ccode\u003erootDeviceName\u003c/code\u003e | \u003ccode\u003eblockDeviceMapping\u003c/code\u003e | \u003ccode\u003eproductCodes\u003c/code\u003e | \u003ccode\u003esourceDestCheck\u003c/code\u003e | \u003ccode\u003egroupSet\u003c/code\u003e | \u003ccode\u003eebsOptimized\u003c/code\u003e | \u003ccode\u003esriovNetSupport\u003c/code\u003e\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -39919,6 +40077,7 @@
             "name": "DescribeInstanceStatus",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the status of one or more instances, including any scheduled events.\u003c/p\u003e \u003cp\u003eInstance status has two main components:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eSystem Status reports impaired functionality that stems from issues related to the systems that support an instance, such as such as hardware failures and network connectivity problems. This call reports such problems as impaired reachability.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eInstance Status reports impaired functionality that arises from problems internal to the instance. This call reports such problems as impaired reachability.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eInstance status provides information about four types of scheduled events for an instance that may require your attention:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eScheduled Reboot: When Amazon EC2 determines that an instance must be rebooted, the instances status returns one of two event codes: \u003ccode\u003esystem-reboot\u003c/code\u003e or \u003ccode\u003einstance-reboot\u003c/code\u003e. System reboot commonly occurs if certain maintenance or upgrade operations require a reboot of the underlying host that supports an instance. Instance reboot commonly occurs if the instance must be rebooted, rather than the underlying host. Rebooting events include a scheduled start and end time.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eSystem Maintenance: When Amazon EC2 determines that an instance requires maintenance that requires power or network impact, the instance status is the event code \u003ccode\u003esystem-maintenance\u003c/code\u003e. System maintenance is either power maintenance or network maintenance. For power maintenance, your instance will be unavailable for a brief period of time and then rebooted. For network maintenance, your instance will experience a brief loss of network connectivity. System maintenance events include a scheduled start and end time. You will also be notified by email if one of your instances is set for system maintenance. The email message indicates when your instance is scheduled for maintenance.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eScheduled Retirement: When Amazon EC2 determines that an instance must be shut down, the instance status is the event code \u003ccode\u003einstance-retirement\u003c/code\u003e. Retirement commonly occurs when the underlying host is degraded and must be replaced. Retirement events include a scheduled start and end time. You will also be notified by email if one of your instances is set to retiring. The email message indicates when your instance will be permanently retired.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eScheduled Stop: When Amazon EC2 determines that an instance must be shut down, the instances status returns an event code called \u003ccode\u003einstance-stop\u003c/code\u003e. Stop events include a scheduled start and end time. You will also be notified by email if one of your instances is set to stop. The email message indicates when your instance will be stopped.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eWhen your instance is retired, it will either be terminated (if its root device type is the instance-store) or stopped (if its root device type is an EBS volume). Instances stopped due to retirement will not be restarted, but you can do so manually. You can also avoid retirement of EBS-backed instances by manually restarting your instance when its event code is \u003ccode\u003einstance-retirement\u003c/code\u003e. This ensures that your instance is started on a different underlying host.\u003c/p\u003e \u003cp\u003eFor more information about failed status checks, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\"\u003eTroubleshooting Instances with Failed Status Checks\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e. For more information about working with scheduled events, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions\"\u003eWorking with an Instance That Has a Scheduled Event\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -40258,6 +40417,7 @@
             "name": "DescribeInstances",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your instances.\u003c/p\u003e \u003cp\u003eIf you specify one or more instance IDs, Amazon EC2 returns information for those instances. If you do not specify instance IDs, Amazon EC2 returns information for all relevant instances. If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the returned results.\u003c/p\u003e \u003cp\u003eRecently terminated instances might appear in the returned results. This interval is usually less than one hour.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -40542,9 +40702,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeInternetGateways",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your Internet gateways.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -40763,9 +40925,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeKeyPairs",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your key pairs.\u003c/p\u003e \u003cp\u003eFor more information about key pairs, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\"\u003eKey Pairs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -40984,9 +41148,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeNetworkAcls",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your network ACLs.\u003c/p\u003e \u003cp\u003eFor more information about network ACLs, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\"\u003eNetwork ACLs\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -41300,9 +41466,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeNetworkInterfaceAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes a network interface attribute. You can specify only one attribute at a time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -41523,9 +41691,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeNetworkInterfaces",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your network interfaces.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -41744,9 +41914,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribePlacementGroups",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your placement groups. For more information about placement groups and cluster instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html\"\u003eCluster Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -41965,9 +42137,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeRegions",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more regions that are currently available to you.\u003c/p\u003e \u003cp\u003eFor a list of the regions supported by Amazon EC2, see \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region\"\u003eRegions and Endpoints\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -42186,9 +42360,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeReservedInstances",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of the Reserved Instances that you purchased.\u003c/p\u003e \u003cp\u003eFor more information about Reserved Instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\"\u003eReserved Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -42440,9 +42616,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeReservedInstancesListings",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes your account's Reserved Instance listings in the Reserved Instance Marketplace.\u003c/p\u003e \u003cp\u003eThe Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances. \u003c/p\u003e \u003cp\u003eAs a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase. \u003c/p\u003e \u003cp\u003eAs a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\"\u003eReserved Instance Marketplace\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -42683,6 +42861,7 @@
             "name": "DescribeReservedInstancesModifications",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\"\u003eModifying Reserved Instances\u003c/a\u003e in the Amazon Elastic Compute Cloud User Guide.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -42923,6 +43102,7 @@
             "name": "DescribeReservedInstancesOfferings",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\"\u003eReserved Instance Marketplace\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -43504,9 +43684,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeRouteTables",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your route tables.\u003c/p\u003e \u003cp\u003eFor more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -43725,9 +43907,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeSecurityGroups",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your security groups.\u003c/p\u003e \u003cp\u003eA security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\"\u003eAmazon EC2 Security Groups\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e and \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\"\u003eSecurity Groups for Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -44018,9 +44202,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeSnapshotAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified attribute of the specified snapshot. You can specify only one attribute at a time.\u003c/p\u003e \u003cp\u003eFor more information about Amazon EBS snapshots, see \u003ca href='http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html'\u003eAmazon EBS Snapshots\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -44241,9 +44427,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeSnapshots",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of the Amazon EBS snapshots available to you. Available snapshots include public snapshots available for any AWS account to launch, private snapshots that you own, and private snapshots owned by another AWS account but for which you've been given explicit create volume permissions.\u003c/p\u003e \u003cp\u003eThe create volume permissions fall into the following categories:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ci\u003epublic\u003c/i\u003e: The owner of the snapshot granted create volume permissions for the snapshot to the \u003ccode\u003eall\u003c/code\u003e group. All AWS accounts have create volume permissions for these snapshots.\u003c/li\u003e \u003cli\u003e \u003ci\u003eexplicit\u003c/i\u003e: The owner of the snapshot granted create volume permissions to a specific AWS account.\u003c/li\u003e \u003cli\u003e \u003ci\u003eimplicit\u003c/i\u003e: An AWS account has implicit create volume permissions for all snapshots it owns.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eThe list of snapshots returned can be modified by specifying snapshot IDs, snapshot owners, or AWS accounts with create volume permissions. If no options are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.\u003c/p\u003e \u003cp\u003eIf you specify one or more snapshot IDs, only snapshots that have the specified IDs are returned. If you specify an invalid snapshot ID, an error is returned. If you specify a snapshot ID for which you do not have access, it is not included in the returned results.\u003c/p\u003e \u003cp\u003eIf you specify one or more snapshot owners, only snapshots from the specified owners and for which you have access are returned. The results can include the AWS account IDs of the specified owners, \u003ccode\u003eamazon\u003c/code\u003e for snapshots owned by Amazon, or \u003ccode\u003eself\u003c/code\u003e for snapshots that you own.\u003c/p\u003e \u003cp\u003eIf you specify a list of restorable users, only snapshots with create snapshot permissions for those users are returned. You can specify AWS account IDs (if you own the snapshots), \u003ccode\u003eself\u003c/code\u003e for snapshots for which you own or have explicit permissions, or \u003ccode\u003eall\u003c/code\u003e for public snapshots.\u003c/p\u003e \u003cp\u003eFor more information about Amazon EBS snapshots, see \u003ca href='http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html'\u003eAmazon EBS Snapshots\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -44526,9 +44714,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeSpotDatafeedSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the datafeed for Spot Instances. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -44697,9 +44887,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeSpotInstanceRequests",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the Spot Instance requests that belong to your account. Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance capacity and current Spot Instance requests. For more information about Spot Instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eDescribeSpotInstanceRequests\u003c/code\u003e to find a running Spot Instance by examining the response. If the status of the Spot Instance is \u003ccode\u003efulfilled\u003c/code\u003e, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use \u003ca\u003eDescribeInstances\u003c/a\u003e with a filter to look for instances where the instance lifecycle is \u003ccode\u003espot\u003c/code\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -44940,6 +45132,7 @@
             "name": "DescribeSpotPriceHistory",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the Spot Price history. Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance capacity and current Spot Instance requests. For more information about Spot Instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eWhen you specify an Availability Zone, this operation describes the price history for the specified Availability Zone with the most recent set of prices listed first. If you don't specify an Availability Zone, you get the prices across all Availability Zones, starting with the most recent set. However, if you're using an API version earlier than 2011-05-15, you get the lowest price across the region for the specified time period. The prices returned are listed in chronological order, from the oldest to the most recent.\u003c/p\u003e \u003cp\u003eWhen you specify the start and end time options, this operation returns two pieces of data: the prices of the instance types within the time range that you specified and the time when the price changed. The price is valid within the time period that you specified; the response merely indicates the last time that the price changed.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -45356,9 +45549,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeSubnets",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your subnets.\u003c/p\u003e \u003cp\u003eFor more information about subnets, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html\"\u003eYour VPC and Subnets\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -45599,6 +45794,7 @@
             "name": "DescribeTags",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of the tags for your EC2 resources.\u003c/p\u003e \u003cp\u003eFor more information about tags, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\"\u003eTagging Your Resources\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -45889,9 +46085,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVolumeAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified attribute of the specified volume. You can specify only one attribute at a time.\u003c/p\u003e \u003cp\u003eFor more information about Amazon EBS volumes, see \u003ca href='http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html'\u003eAmazon EBS Volumes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -46134,6 +46332,7 @@
             "name": "DescribeVolumeStatus",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the status of the specified volumes. Volume status provides the result of the checks performed on your volumes to determine events that can impair the performance of your volumes. The performance of a volume can be affected if an issue occurs on the volume's underlying host. If the volume's underlying host experiences a power outage or system issue, after the system is restored, there could be data inconsistencies on the volume. Volume events notify you if this occurs. Volume actions notify you if any action needs to be taken in response to the event.\u003c/p\u003e \u003cp\u003eThe \u003ccode\u003eDescribeVolumeStatus\u003c/code\u003e operation provides the following information about the specified volumes:\u003c/p\u003e \u003cp\u003e\u003ci\u003eStatus\u003c/i\u003e: Reflects the current status of the volume. The possible values are \u003ccode\u003eok\u003c/code\u003e, \u003ccode\u003eimpaired\u003c/code\u003e , \u003ccode\u003ewarning\u003c/code\u003e, or \u003ccode\u003einsufficient-data\u003c/code\u003e. If all checks pass, the overall status of the volume is \u003ccode\u003eok\u003c/code\u003e. If the check fails, the overall status is \u003ccode\u003eimpaired\u003c/code\u003e. If the status is \u003ccode\u003einsufficient-data\u003c/code\u003e, then the checks may still be taking place on your volume at the time. We recommend that you retry the request. For more information on volume status, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html\"\u003eMonitoring the Status of Your Volumes\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003ci\u003eEvents\u003c/i\u003e: Reflect the cause of a volume status and may require you to take action. For example, if your volume returns an \u003ccode\u003eimpaired\u003c/code\u003e status, then the volume event might be \u003ccode\u003epotential-data-inconsistency\u003c/code\u003e. This means that your volume has been affected by an issue with the underlying host, has all I/O operations disabled, and may have inconsistent data.\u003c/p\u003e \u003cp\u003e\u003ci\u003eActions\u003c/i\u003e: Reflect the actions you may have to take in response to an event. For example, if the status of the volume is \u003ccode\u003eimpaired\u003c/code\u003e and the volume event shows \u003ccode\u003epotential-data-inconsistency\u003c/code\u003e, then the action shows \u003ccode\u003eenable-volume-io\u003c/code\u003e. This means that you may want to enable the I/O operations for the volume by calling the \u003ca\u003eEnableVolumeIO\u003c/a\u003e action and then check the volume for data consistency.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -46429,9 +46628,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVolumes",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified Amazon EBS volumes.\u003c/p\u003e \u003cp\u003eIf you are describing a long list of volumes, you can paginate the output to make the list more manageable. The \u003ccode\u003eMaxResults\u003c/code\u003e parameter sets the maximum number of results returned in a single page. If the list of results exceeds your \u003ccode\u003eMaxResults\u003c/code\u003e value, then that number of results is returned along with a \u003ccode\u003eNextToken\u003c/code\u003e value that can be passed to a subsequent \u003ccode\u003eDescribeVolumes\u003c/code\u003e request to retrieve the remaining results.\u003c/p\u003e \u003cp\u003eFor more information about Amazon EBS volumes, see \u003ca href='http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html'\u003eAmazon EBS Volumes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -46755,9 +46956,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVpcAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the specified attribute of the specified VPC. You can specify only one attribute at a time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -46978,9 +47181,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVpcPeeringConnections",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your VPC peering connections.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -47199,9 +47404,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVpcs",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your VPCs.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -47420,9 +47627,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVpnConnections",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your VPN connections.\u003c/p\u003e \u003cp\u003eFor more information about VPN connections, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding a Hardware Virtual Private Gateway to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -47641,9 +47850,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DescribeVpnGateways",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes one or more of your virtual private gateways.\u003c/p\u003e \u003cp\u003eFor more information about virtual private gateways, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html\"\u003eAdding an IPsec Hardware VPN to Your VPC\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -47813,9 +48024,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DetachInternetGateway",
             "method": "post",
             "documentation": "\u003cp\u003eDetaches an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -47987,9 +48200,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DetachNetworkInterface",
             "method": "post",
             "documentation": "\u003cp\u003eDetaches a network interface from an instance.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -48334,9 +48549,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DetachVolume",
             "method": "post",
             "documentation": "\u003cp\u003eDetaches an Amazon EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so results in the volume being stuck in a busy state while detaching.\u003c/p\u003e \u003cp\u003eIf an Amazon EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.\u003c/p\u003e \u003cp\u003eIf the root volume is detached from an instance with an AWS Marketplace product code, then the AWS Marketplace product codes from that volume are no longer associated with the instance.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html\"\u003eDetaching an Amazon EBS Volume\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -48574,9 +48791,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DetachVpnGateway",
             "method": "post",
             "documentation": "\u003cp\u003eDetaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).\u003c/p\u003e \u003cp\u003eYou must wait for the attachment's state to switch to \u003ccode\u003edetached\u003c/code\u003e before you can delete the VPC or attach a different VPC to the virtual private gateway.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -48748,9 +48967,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DisableVgwRoutePropagation",
             "method": "post",
             "documentation": "\u003cp\u003eDisables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -48888,9 +49109,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DisassociateAddress",
             "method": "post",
             "documentation": "\u003cp\u003eDisassociates an Elastic IP address from the instance or network interface it's associated with.\u003c/p\u003e \u003cp\u003eAn Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\"\u003eElastic IP Addresses\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eThis is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -49061,9 +49284,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "DisassociateRouteTable",
             "method": "post",
             "documentation": "\u003cp\u003eDisassociates a subnet from a route table.\u003c/p\u003e \u003cp\u003eAfter you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -49202,9 +49427,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "EnableVgwRoutePropagation",
             "method": "post",
             "documentation": "\u003cp\u003eEnables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -49342,9 +49569,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "EnableVolumeIO",
             "method": "post",
             "documentation": "\u003cp\u003eEnables I/O operations for a volume that had I/O operations disabled because the data on the volume was potentially inconsistent.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -49572,9 +49801,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "GetConsoleOutput",
             "method": "post",
             "documentation": "\u003cp\u003eGets the console output for the specified instance.\u003c/p\u003e \u003cp\u003eInstances do not have a physical monitor through which you can view their console output. They also lack physical controls that allow you to power up, reboot, or shut them down. To allow these actions, we provide them through the Amazon EC2 API and command line interface.\u003c/p\u003e \u003cp\u003eInstance console output is buffered and posted shortly after instance boot, reboot, and termination. Amazon EC2 preserves the most recent 64 KB output which is available for at least one hour after the most recent post.\u003c/p\u003e \u003cp\u003eFor Linux/Unix instances, the instance console output displays the exact console output that would normally be displayed on a physical monitor attached to a machine. This output is buffered because the instance produces it and then posts it to a store where the instance's owner can retrieve it.\u003c/p\u003e \u003cp\u003eFor Windows instances, the instance console output displays the last three system event log errors.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -49802,9 +50033,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "GetPasswordData",
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves the encrypted administrator password for an instance running Windows.\u003c/p\u003e \u003cp\u003eThe Windows password is generated at boot if the \u003ccode\u003eEC2Config\u003c/code\u003e service plugin, \u003ccode\u003eEc2SetPassword\u003c/code\u003e, is enabled. This usually only happens the first time an AMI is launched, and then \u003ccode\u003eEc2SetPassword\u003c/code\u003e is automatically disabled. The password is not generated for rebundled AMIs unless \u003ccode\u003eEc2SetPassword\u003c/code\u003e is enabled before bundling.\u003c/p\u003e \u003cp\u003eThe password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.\u003c/p\u003e \u003cp\u003ePassword generation and encryption takes a few moments. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -49990,9 +50223,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ImportInstance",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an import instance task using metadata from the specified disk image. After importing the image, you then upload it using the \u003cfunction\u003eec2-import-volume\u003c/function\u003e command in the EC2 command line tools. For more information, see \u003culink url=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html\"\u003eUsing the Command Line Tools to Import Your Virtual Machine to Amazon EC2\u003c/ulink\u003e in the \u003cemphasis\u003eAmazon Elastic Compute Cloud User Guide\u003c/emphasis\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -50290,9 +50525,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ImportKeyPair",
             "method": "post",
             "documentation": "\u003cp\u003eImports the public key from an RSA key pair that you created with a third-party tool. Compare this with \u003ca\u003eCreateKeyPair\u003c/a\u003e, in which AWS creates the key pair and gives the keys to you (AWS keeps a copy of the public key). With ImportKeyPair, you create the key pair and give AWS just the public key. The private key is never transferred between you and AWS.\u003c/p\u003e \u003cp\u003eFor more information about key pairs, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\"\u003eKey Pairs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -50510,9 +50747,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ImportVolume",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an import volume task using metadata from the specified disk image. After importing the image, you then upload it using the \u003cfunction\u003eec2-import-volume\u003c/function\u003e command in the Amazon EC2 command-line interface (CLI) tools. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html\"\u003eUsing the Command Line Tools to Import Your Virtual Machine to Amazon EC2\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -50749,9 +50988,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifyImageAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eModifies the specified attribute of the specified AMI. You can specify only one attribute at a time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -51153,9 +51394,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifyInstanceAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eModifies the specified attribute of the specified instance. You can specify only one attribute at a time.\u003c/p\u003e \u003cp\u003eTo modify some attributes, the instance must be stopped. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html\"\u003eModifying Attributes of a Stopped Instance\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -51722,9 +51965,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifyNetworkInterfaceAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eModifies the specified network interface attribute. You can specify only one attribute at a time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -52043,9 +52288,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifyReservedInstances",
             "method": "post",
             "documentation": "\u003cp\u003eModifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\"\u003eModifying Reserved Instances\u003c/a\u003e in the Amazon Elastic Compute Cloud User Guide.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -52215,9 +52462,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifySnapshotAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eAdds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single API call. If you need to both add and remove account IDs for a snapshot, you must use multiple API calls.\u003c/p\u003e \u003cp\u003eFor more information on modifying snapshot permissions, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html\"\u003eSharing Snapshots\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -52520,9 +52769,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifySubnetAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eModifies a subnet attribute.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -52660,9 +52911,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifyVolumeAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eModifies a volume attribute.\u003c/p\u003e \u003cp\u003eBy default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.\u003c/p\u003e \u003cp\u003eYou can change the default behavior to resume I/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -52833,9 +53086,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ModifyVpcAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eModifies the specified attribute of the specified VPC.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -53055,9 +53310,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "MonitorInstances",
             "method": "post",
             "documentation": "\u003cp\u003eEnables monitoring for a running instance. For more information about monitoring instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\"\u003eMonitoring Your Instances and Volumes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -53244,9 +53501,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "PurchaseReservedInstancesOffering",
             "method": "post",
             "documentation": "\u003cp\u003ePurchases a Reserved Instance for use with your account. With Amazon EC2 Reserved Instances, you obtain a capacity reservation for a certain instance configuration over a specified period of time. You pay a lower usage rate than with On-Demand instances for the time that you actually use the capacity reservation.\u003c/p\u003e \u003cp\u003eUse \u003ca\u003eDescribeReservedInstancesOfferings\u003c/a\u003e to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with \u003ca\u003eDescribeReservedInstances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\"\u003eReserved Instances\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\"\u003eReserved Instance Marketplace\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -53450,9 +53709,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RebootInstances",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a reboot of one or more instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.\u003c/p\u003e \u003cp\u003eIf a Linux/Unix instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.\u003c/p\u003e \u003cp\u003eFor more information about troubleshooting, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html\"\u003eGetting Console Output and Rebooting Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -53639,9 +53900,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RegisterImage",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\"\u003eCreating Your Own AMIs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can also use \u003ccode\u003eRegisterImage\u003c/code\u003e to create an Amazon EBS-backed AMI from a snapshot of a root device volume. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html\"\u003eLaunching an Instance from a Snapshot\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -54124,9 +54387,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RejectVpcPeeringConnection",
             "method": "post",
             "documentation": "\u003cp\u003eRejects a VPC peering connection request. The VPC peering connection must be in the \u003ccode\u003epending-acceptance\u003c/code\u003e state. Use the \u003ca\u003eDescribeVpcPeeringConnections\u003c/a\u003e request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use \u003ca\u003eDeleteVpcPeeringConnection\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -54265,9 +54530,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ReleaseAddress",
             "method": "post",
             "documentation": "\u003cp\u003eReleases the specified Elastic IP address.\u003c/p\u003e \u003cp\u003eAfter releasing an Elastic IP address, it is released to the IP address pool and might be unavailable to you. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an \u003ccode\u003eAuthFailure\u003c/code\u003e error if the address is already allocated to another AWS account.\u003c/p\u003e \u003cp\u003e[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use \u003ca\u003eDisassociateAddress\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e[Nondefault VPC] You must use \u003ca\u003eDisassociateAddress\u003c/a\u003e to disassociate the Elastic IP address before you try to release it. Otherwise, Amazon EC2 returns an error (\u003ccode\u003eInvalidIPAddress.InUse\u003c/code\u003e).\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -54487,9 +54754,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ReplaceNetworkAclAssociation",
             "method": "post",
             "documentation": "\u003cp\u003eChanges which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information about network ACLs, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\"\u003eNetwork ACLs\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -54661,9 +54930,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ReplaceNetworkAclEntry",
             "method": "post",
             "documentation": "\u003cp\u003eReplaces an entry (rule) in a network ACL. For more information about network ACLs, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html\"\u003eNetwork ACLs\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -55032,9 +55303,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ReplaceRoute",
             "method": "post",
             "documentation": "\u003cp\u003eReplaces an existing route within a route table in a VPC. You must provide only one of the following: Internet gateway or virtual private gateway, NAT instance, VPC peering connection, or network interface.\u003c/p\u003e \u003cp\u003eFor more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -55387,9 +55660,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ReplaceRouteTableAssociation",
             "method": "post",
             "documentation": "\u003cp\u003eChanges the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html\"\u003eRoute Tables\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -55561,9 +55836,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ReportInstanceStatus",
             "method": "post",
             "documentation": "\u003cp\u003eSubmits feedback about the status of an instance. The instance must be in the \u003ccode\u003erunning\u003c/code\u003e state. If your experience with the instance differs from the instance status returned by \u003ca\u003eDescribeInstanceStatus\u003c/a\u003e, use \u003ca\u003eReportInstanceStatus\u003c/a\u003e to report your experience with the instance. Amazon EC2 collects this information to improve the accuracy of status checks.\u003c/p\u003e \u003cp\u003eUse of this action does not change the value returned by \u003ca\u003eDescribeInstanceStatus\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -55916,9 +56193,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RequestSpotInstances",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a Spot Instance request. Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance capacity and current Spot Instance requests. For more information about Spot Instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html\"\u003eSpot Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eUsers must be subscribed to the required product to run an instance with AWS Marketplace product codes.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -56287,9 +56566,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ResetImageAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eResets an attribute of an AMI to its default value.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -56461,9 +56742,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ResetInstanceAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eResets an attribute of an instance to its default value. To reset the \u003ccode\u003ekernel\u003c/code\u003e or \u003ccode\u003eramdisk\u003c/code\u003e, the instance must be in a stopped state. To reset the \u003ccode\u003eSourceDestCheck\u003c/code\u003e, the instance can be either running or stopped.\u003c/p\u003e \u003cp\u003eThe \u003ccode\u003eSourceDestCheck\u003c/code\u003e attribute controls whether source/destination checking is enabled. The default value is \u003ccode\u003etrue\u003c/code\u003e, which means checking is enabled. This value must be \u003ccode\u003efalse\u003c/code\u003e for a NAT instance to perform NAT. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html\"\u003eNAT Instances\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -56635,9 +56918,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ResetNetworkInterfaceAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eResets a network interface attribute. You can specify only one attribute at a time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -56809,9 +57094,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "ResetSnapshotAttribute",
             "method": "post",
             "documentation": "\u003cp\u003eResets permission settings for the specified snapshot.\u003c/p\u003e \u003cp\u003eFor more information on modifying snapshot permissions, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html\"\u003eSharing Snapshots\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -56983,9 +57270,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RevokeSecurityGroupEgress",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves one or more egress rules from a security group for EC2-VPC. The values that you specify in the revoke request (for example, ports) must match the existing rule's values for the rule to be revoked.\u003c/p\u003e \u003cp\u003eEach rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.\u003c/p\u003e \u003cp\u003eRule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -57354,9 +57643,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RevokeSecurityGroupIngress",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves one or more ingress rules from a security group. The values that you specify in the revoke request (for example, ports) must match the existing rule's values for the rule to be removed.\u003c/p\u003e \u003cp\u003eEach rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.\u003c/p\u003e \u003cp\u003eRule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -57901,9 +58192,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "RunInstances",
             "method": "post",
             "documentation": "\u003cp\u003eLaunches the specified number of instances using an AMI for which you have permissions.\u003c/p\u003e \u003cp\u003eWhen you launch an instance, it enters the \u003ccode\u003epending\u003c/code\u003e state. After the instance is ready for you, it enters the \u003ccode\u003erunning\u003c/code\u003e state. To check the state of your instance, call \u003ca\u003eDescribeInstances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eIf you don't specify a security group when launching an instance, Amazon EC2 uses the default security group. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\"\u003eSecurity Groups\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eLinux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\"\u003eKey Pairs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can provide optional user data when launching an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\"\u003eInstance Metadata\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf any of the AMIs have a product code attached for which the user has not subscribed, \u003ccode\u003eRunInstances\u003c/code\u003e fails.\u003c/p\u003e \u003cp\u003eT2 instance types can only be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID in the request, \u003ccode\u003eRunInstances\u003c/code\u003e fails.\u003c/p\u003e \u003cp\u003eFor more information about troubleshooting, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\"\u003eWhat To Do If An Instance Immediately Terminates\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\"\u003eTroubleshooting Connecting to Your Instance\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -58783,9 +59076,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "StartInstances",
             "method": "post",
             "documentation": "\u003cp\u003eStarts an Amazon EBS-backed AMI that you've previously stopped.\u003c/p\u003e \u003cp\u003eInstances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for hourly instance usage. However, your root partition Amazon EBS volume remains, continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Each time you transition an instance from stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen multiple times within a single hour.\u003c/p\u003e \u003cp\u003eBefore stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.\u003c/p\u003e \u003cp\u003ePerforming this operation on an instance that uses an instance store as its root device returns an error.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\"\u003eStopping Instances\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -59005,9 +59300,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "StopInstances",
             "method": "post",
             "documentation": "\u003cp\u003eStops an Amazon EBS-backed instance. Each time you transition an instance from stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen multiple times within a single hour.\u003c/p\u003e \u003cp\u003eYou can't start or stop Spot Instances.\u003c/p\u003e \u003cp\u003eInstances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for hourly instance usage. However, your root partition Amazon EBS volume remains, continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time.\u003c/p\u003e \u003cp\u003eBefore stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.\u003c/p\u003e \u003cp\u003ePerforming this operation on an instance that uses an instance store as its root device returns an error.\u003c/p\u003e \u003cp\u003eYou can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between stopping and terminating instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\"\u003eInstance Lifecycle\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eFor more information about troubleshooting, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\"\u003eTroubleshooting Stopping Your Instance\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -59227,9 +59524,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "TerminateInstances",
             "method": "post",
             "documentation": "\u003cp\u003eShuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.\u003c/p\u003e \u003cp\u003eTerminated instances remain visible after termination (for approximately one hour).\u003c/p\u003e \u003cp\u003eBy default, Amazon EC2 deletes all Amazon EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.\u003c/p\u003e \u003cp\u003eYou can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between stopping and terminating instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\"\u003eInstance Lifecycle\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eFor more information about troubleshooting, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html\"\u003eTroubleshooting Terminating Your Instance\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -59367,9 +59666,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "UnassignPrivateIpAddresses",
             "method": "post",
             "documentation": "\u003cp\u003eUnassigns one or more secondary private IP addresses from a network interface.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -59557,9 +59858,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.EC2.Types"
             ],
+            "pager": null,
             "name": "UnmonitorInstances",
             "method": "post",
             "documentation": "\u003cp\u003eDisables monitoring for a running instance. For more information about monitoring instances, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\"\u003eMonitoring Your Instances and Volumes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

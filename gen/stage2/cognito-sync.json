@@ -29,7 +29,8 @@
         "xmlNamespace": "https://cognito-sync.amazonaws.com/doc/2014-06-30/",
         "jsonVersion": "1.1",
         "endpoint": "Regional",
-        "endpointPrefix": "cognito-sync"
+        "endpointPrefix": "cognito-sync",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -1540,9 +1541,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "DeleteDataset",
             "method": "delete",
             "documentation": "Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any consequent operation on this dataset will result in a ResourceNotFoundException.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1779,9 +1782,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "DescribeDataset",
             "method": "get",
             "documentation": "Gets metadata about a dataset by identity and dataset name. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2018,9 +2023,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "DescribeIdentityPoolUsage",
             "method": "get",
             "documentation": "Gets usage details (for example, data storage) about a particular identity pool.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2202,9 +2209,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "DescribeIdentityUsage",
             "method": "get",
             "documentation": "Gets usage information for an identity, including number of datasets and data usage.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2432,9 +2441,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "GetIdentityPoolConfiguration",
             "method": "get",
             "documentation": "\u003cp\u003eGets the configuration settings of an identity pool.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2689,9 +2700,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "ListDatasets",
             "method": "get",
             "documentation": "Lists datasets for an identity. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3075,9 +3088,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "ListIdentityPoolUsage",
             "method": "get",
             "documentation": "Gets a list of identity pools registered with Cognito.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3598,9 +3613,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "ListRecords",
             "method": "get",
             "documentation": "Gets paginated records, optionally changed after a particular sync count for a dataset and identity. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3977,9 +3994,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "RegisterDevice",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters a device to receive push sync notifications.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4296,9 +4315,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "SetIdentityPoolConfiguration",
             "method": "post",
             "documentation": "\u003cp\u003eSets the necessary configuration for push sync.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4448,9 +4469,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "SubscribeToDataset",
             "method": "post",
             "documentation": "\u003cp\u003eSubscribes to receive notifications when a dataset is modified by another device.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4661,9 +4684,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "UnsubscribeFromDataset",
             "method": "delete",
             "documentation": "\u003cp\u003eUnsubscribe from receiving notifications when a dataset is modified by another device.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4938,9 +4963,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.CognitoSync.Types"
             ],
+            "pager": null,
             "name": "UpdateRecords",
             "method": "post",
             "documentation": "Posts updates to records and add and delete records for a dataset and user. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

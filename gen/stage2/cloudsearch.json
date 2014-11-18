@@ -38,8 +38,10 @@
         "version": "2013-01-01",
         "documentation": "Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application. Amazon CloudSearch supports 34 languages and popular search features such as highlighting, autocomplete, and geospatial search.",
         "xmlNamespace": "http://cloudsearch.amazonaws.com/doc/2013-01-01/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "cloudsearch"
+        "endpointPrefix": "cloudsearch",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -4465,9 +4467,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "BuildSuggesters",
             "method": "post",
             "documentation": "\u003cp\u003eIndexes the search suggestions. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters\"\u003eConfiguring Suggesters\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4636,9 +4640,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "CreateDomain",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new search domain. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html\" target=\"_blank\"\u003eCreating a Search Domain\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4807,9 +4813,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DefineAnalysisScheme",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures an analysis scheme that can be applied to a \u003ccode\u003etext\u003c/code\u003e or \u003ccode\u003etext-array\u003c/code\u003e field to define language-specific text processing options. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\"\u003eConfiguring Analysis Schemes\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4993,9 +5001,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DefineExpression",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures an \u003ccode\u003e\u003ca\u003eExpression\u003c/a\u003e\u003c/code\u003e for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\"\u003eConfiguring Expressions\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5179,9 +5189,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DefineIndexField",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures an \u003ccode\u003e\u003ca\u003eIndexField\u003c/a\u003e\u003c/code\u003e for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the \u003ccode\u003e\u003ca\u003eIndexFieldType\u003c/a\u003e\u003c/code\u003e. If the field exists, the new configuration replaces the old one. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\"\u003eConfiguring Index Fields\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5365,9 +5377,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DefineSuggester",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\"\u003eGetting Search Suggestions\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5551,9 +5565,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DeleteAnalysisScheme",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes an analysis scheme. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\"\u003eConfiguring Analysis Schemes\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5738,9 +5754,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DeleteDomain",
             "method": "post",
             "documentation": "\u003cp\u003ePermanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html\" target=\"_blank\"\u003eDeleting a Search Domain\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5909,9 +5927,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DeleteExpression",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves an \u003ccode\u003e\u003ca\u003eExpression\u003c/a\u003e\u003c/code\u003e from the search domain. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\"\u003eConfiguring Expressions\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6096,9 +6116,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DeleteIndexField",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves an \u003ccode\u003e\u003ca\u003eIndexField\u003c/a\u003e\u003c/code\u003e from the search domain. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\"\u003eConfiguring Index Fields\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6283,9 +6305,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DeleteSuggester",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a suggester. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\"\u003eGetting Search Suggestions\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6472,9 +6496,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeAnalysisSchemes",
             "method": "post",
             "documentation": "\u003cp\u003eGets the analysis schemes configured for a domain. An analysis scheme defines language-specific text processing options for a \u003ccode\u003etext\u003c/code\u003e field. Can be limited to specific analysis schemes by name. By default, shows all analysis schemes and includes any pending changes to the configuration. Set the \u003ccode\u003eDeployed\u003c/code\u003e option to \u003ccode\u003etrue\u003c/code\u003e to show the active configuration and exclude pending changes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\"\u003eConfiguring Analysis Schemes\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6693,9 +6719,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeAvailabilityOptions",
             "method": "post",
             "documentation": "\u003cp\u003eGets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the \u003ccode\u003eDeployed\u003c/code\u003e option to \u003ccode\u003etrue\u003c/code\u003e to show the active configuration and exclude pending changes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\"\u003eConfiguring Availability Options\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6883,9 +6911,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeDomains",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a \u003ccode\u003ematchall\u003c/code\u003e request to your domain's search endpoint: \u003ccode\u003eq=matchall&amp;amp;q.parser=structured&amp;amp;size=0\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\"\u003eGetting Information about a Search Domain\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7056,9 +7086,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeExpressions",
             "method": "post",
             "documentation": "\u003cp\u003eGets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the \u003ccode\u003eDeployed\u003c/code\u003e option to \u003ccode\u003etrue\u003c/code\u003e to show the active configuration and exclude pending changes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\"\u003eConfiguring Expressions\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7279,9 +7311,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeIndexFields",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the \u003ccode\u003eDeployed\u003c/code\u003e option to \u003ccode\u003etrue\u003c/code\u003e to show the active configuration and exclude pending changes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\"\u003eGetting Domain Information\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7500,9 +7534,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeScalingParameters",
             "method": "post",
             "documentation": "\u003cp\u003eGets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\"\u003eConfiguring Scaling Options\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7671,9 +7707,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeServiceAccessPolicies",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the \u003ccode\u003eDeployed\u003c/code\u003e option to \u003ccode\u003etrue\u003c/code\u003e to show the active configuration and exclude pending changes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\"\u003eConfiguring Access for a Search Domain\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7861,9 +7899,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "DescribeSuggesters",
             "method": "post",
             "documentation": "\u003cp\u003eGets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries. Can be limited to specific suggesters by name. By default, shows all suggesters and includes any pending changes to the configuration. Set the \u003ccode\u003eDeployed\u003c/code\u003e option to \u003ccode\u003etrue\u003c/code\u003e to show the active configuration and exclude pending changes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\"\u003eGetting Search Suggestions\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8085,9 +8125,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "IndexDocuments",
             "method": "post",
             "documentation": "\u003cp\u003eTells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose \u003ca\u003eOptionStatus\u003c/a\u003e is \u003ccode\u003eRequiresIndexDocuments\u003c/code\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8258,9 +8300,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "ListDomainNames",
             "method": "post",
             "documentation": "\u003cp\u003eLists all search domains owned by an account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8373,9 +8417,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "UpdateAvailabilityOptions",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\"\u003eConfiguring Availability Options\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8560,9 +8606,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "UpdateScalingParameters",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\"\u003eConfiguring Scaling Options\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8746,9 +8794,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudSearch.Types"
             ],
+            "pager": null,
             "name": "UpdateServiceAccessPolicies",
             "method": "post",
             "documentation": "\u003cp\u003eConfigures the access rules that control access to the domain's document and search endpoints. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\"\u003e Configuring Access for an Amazon CloudSearch Domain\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

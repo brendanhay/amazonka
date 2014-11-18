@@ -2,7 +2,7 @@
 instance FromJSON {{ type.name }} where
 {% case type.type %}
 {% when "nullary" %}
-    parseJSON = fromJSONText "{{ type.name }}"
+    parseJSON = parseJSONText "{{ type.name }}"
 {% else %}
     parseJSON = withObject "{{ type.name }}" $ \o -> {{ type.name }}
   {% for field in type.fields %}

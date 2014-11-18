@@ -3470,9 +3470,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "AllocateConnectionOnInterconnect",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a hosted connection on an interconnect.\u003c/p\u003e \u003cp\u003eAllocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4389,9 +4391,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "AllocatePrivateVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eProvisions a private virtual interface to be owned by a different customer.\u003c/p\u003e \u003cp\u003eThe owner of a connection calls this function to provision a private virtual interface which will be owned by another AWS customer.\u003c/p\u003e \u003cp\u003eVirtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPrivateVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5223,9 +5227,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "AllocatePublicVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eProvisions a public virtual interface to be owned by a different customer.\u003c/p\u003e \u003cp\u003eThe owner of a connection calls this function to provision a public virtual interface which will be owned by another AWS customer.\u003c/p\u003e \u003cp\u003eVirtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5486,9 +5492,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "ConfirmConnection",
             "method": "post",
             "documentation": "\u003cp\u003eConfirm the creation of a hosted connection on an interconnect.\u003c/p\u003e \u003cp\u003eUpon creation, the hosted connection is initially in the 'Ordering' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5683,9 +5691,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "ConfirmPrivateVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eAccept ownership of a private virtual interface created by another customer.\u003c/p\u003e \u003cp\u003eAfter the virtual interface owner calls this function, the virtual interface will be created and attached to the given virtual private gateway, and will be available for handling traffic.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5905,9 +5915,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "ConfirmPublicVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eAccept ownership of a public virtual interface created by another customer.\u003c/p\u003e \u003cp\u003eAfter the virtual interface owner calls this function, the specified virtual interface will be created and made available for handling traffic.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6422,9 +6434,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "CreateConnection",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new connection between the customer network and a specific AWS Direct Connect location.\u003c/p\u003e \u003cp\u003eA connection links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with. You can establish connections with AWS Direct Connect locations in multiple regions, but a connection in one region does not provide connectivity to other regions.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6880,9 +6894,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "CreateInterconnect",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new interconnect between a AWS Direct Connect partner's network and a specific AWS Direct Connect location.\u003c/p\u003e \u003cp\u003eAn interconnect is a connection which is capable of hosting other connections. The AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the AWS Direct Connect partner's network to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.\u003c/p\u003e \u003cp\u003eFor each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling AllocateConnectionOnInterconnect. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the AWS Direct Connect partner.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7715,9 +7731,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "CreatePrivateVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface supports sending traffic to a single virtual private cloud (VPC).\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8507,9 +8525,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "CreatePublicVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon Simple Storage Service (Amazon S3).\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9048,9 +9068,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DeleteConnection",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the connection.\u003c/p\u003e \u003cp\u003eDeleting a connection only stops the AWS Direct Connect port hour and data transfer charges. You need to cancel separately with the providers any services or charges for cross-connects or network circuits that connect you to the AWS Direct Connect location.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9245,9 +9267,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DeleteInterconnect",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified interconnect.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9442,9 +9466,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DeleteVirtualInterface",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a virtual interface.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9639,9 +9665,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DescribeConnections",
             "method": "post",
             "documentation": "\u003cp\u003eDisplays all connections in this region.\u003c/p\u003e \u003cp\u003eIf a connection ID is provided, the call returns only that particular connection.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9835,9 +9863,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DescribeConnectionsOnInterconnect",
             "method": "post",
             "documentation": "\u003cp\u003eReturn a list of connections that have been provisioned on the given interconnect.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10032,9 +10062,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DescribeInterconnects",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of interconnects owned by the AWS account.\u003c/p\u003e \u003cp\u003eIf an interconnect ID is provided, it will only return this particular interconnect.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10228,9 +10260,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DescribeLocations",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the list of AWS Direct Connect locations in the current AWS region. These are the locations that may be selected when calling CreateConnection or CreateInterconnect.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10360,9 +10394,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DescribeVirtualGateways",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of virtual private gateways owned by the AWS account.\u003c/p\u003e \u003cp\u003eYou can create one or more AWS Direct Connect private virtual interfaces linking to a virtual private gateway. A virtual private gateway can be managed via Amazon Virtual Private Cloud (VPC) console or the \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html\"\u003eEC2 CreateVpnGateway\u003c/a\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10492,9 +10528,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.DirectConnect.Types"
             ],
+            "pager": null,
             "name": "DescribeVirtualInterfaces",
             "method": "post",
             "documentation": "\u003cp\u003eDisplays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before DescribeVirtualInterfaces is called are also returned. If a connection ID is included then only virtual interfaces associated with this connection will be returned. If a virtual interface ID is included then only a single virtual interface will be returned.\u003c/p\u003e \u003cp\u003eA virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.\u003c/p\u003e \u003cp\u003eIf a connection ID is provided, only virtual interfaces provisioned on the specified connection will be returned. If a virtual interface ID is provided, only this particular virtual interface will be returned.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

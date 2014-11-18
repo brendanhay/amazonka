@@ -839,9 +839,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "CreateIdentityPool",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1123,9 +1125,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "DeleteIdentityPool",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1514,9 +1518,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "DescribeIdentityPool",
             "method": "post",
             "documentation": "\u003cp\u003eGets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1711,9 +1717,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "GetId",
             "method": "post",
             "documentation": "\u003cp\u003eGenerates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2001,9 +2009,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "GetOpenIdToken",
             "method": "post",
             "documentation": "\u003cp\u003eGets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by \u003ca\u003eGetId\u003c/a\u003e. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.\u003c/p\u003e \u003cp\u003eThe OpenId token is valid for 15 minutes.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2249,9 +2259,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "GetOpenIdTokenForDeveloperIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters (or retrieves) a Cognito \u003ccode\u003eIdentityId\u003c/code\u003e and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the \u003ccode\u003eLogins\u003c/code\u003e map, which is linked to the identity pool. The developer provider is the \"domain\" by which Cognito will refer to your users.\u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eGetOpenIdTokenForDeveloperIdentity\u003c/code\u003e to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the \u003ccode\u003eIdentityId\u003c/code\u003e should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing \u003ccode\u003eIdentityId\u003c/code\u003e. This API will create the identity in the specified \u003ccode\u003eIdentityPoolId\u003c/code\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2622,9 +2634,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "ListIdentities",
             "method": "post",
             "documentation": "\u003cp\u003eLists the identities in a pool.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2912,9 +2926,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "ListIdentityPools",
             "method": "post",
             "documentation": "\u003cp\u003eLists all of the Cognito identity pools registered for your account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3203,9 +3219,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "LookupDeveloperIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves the \u003ccode\u003eIdentityID\u003c/code\u003e associated with a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e or the list of \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003es associated with an \u003ccode\u003eIdentityId\u003c/code\u003e for an existing identity. Either \u003ccode\u003eIdentityID\u003c/code\u003e or \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e will be matched against \u003ccode\u003eIdentityID\u003c/code\u003e. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a \u003ccode\u003eResourceConflictException\u003c/code\u003e is thrown.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3552,9 +3570,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "MergeDeveloperIdentities",
             "method": "post",
             "documentation": "\u003cp\u003eMerges two users having different \u003ccode\u003eIdentityId\u003c/code\u003es, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (\u003ccode\u003eSourceUserIdentifier\u003c/code\u003e) with the \u003ccode\u003eIdentityId\u003c/code\u003e of the \u003ccode\u003eDestinationUserIdentifier\u003c/code\u003e. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3794,9 +3814,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "UnlinkDeveloperIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eUnlinks a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4036,9 +4058,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "UnlinkIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eUnlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4494,9 +4518,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CognitoIdentity.Types"
             ],
+            "pager": null,
             "name": "UpdateIdentityPool",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a user pool.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

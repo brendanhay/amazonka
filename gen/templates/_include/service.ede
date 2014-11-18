@@ -1,5 +1,5 @@
 -- | Version @{{ service.version }}@ of the {{ service.name }} service.
-data {{ service.abbrev }} deriving (Typeable)
+data {{ service.abbrev }}
 
 instance AWSService {{ service.abbrev }} where
     type Sg {{ service.abbrev }} = {{ service.signature }}

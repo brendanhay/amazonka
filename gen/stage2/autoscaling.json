@@ -59,8 +59,10 @@
         "version": "2011-01-01",
         "documentation": "Auto Scaling allows you to scale your Amazon EC2 capacity up or down automatically according to conditions you define. With Auto Scaling, you can ensure that the number of Amazon EC2 instances you’re using increases seamlessly during demand spikes to maintain performance, and decreases automatically during demand lulls to minimize costs. Auto Scaling is particularly well suited for applications that experience hourly, daily, or weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch and available at no additional charge beyond Amazon CloudWatch fees.",
         "xmlNamespace": "http://autoscaling.amazonaws.com/doc/2011-01-01/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "autoscaling"
+        "endpointPrefix": "autoscaling",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -4171,9 +4173,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "AttachInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Attaches one or more Amazon EC2 instances to an existing Auto Scaling group. After the instance(s) is attached, it becomes a part of the Auto Scaling group. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html\"\u003eAttach Amazon EC2 Instances to Your Existing Auto Scaling Group\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4312,9 +4316,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "CompleteLifecycleAction",
             "method": "post",
             "documentation": "\u003cp\u003eCompletes the lifecycle action for the associated token initiated under the given lifecycle hook with the specified result. \u003c/p\u003e \u003cp\u003e This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: \u003c/p\u003e \u003col\u003e \u003cli\u003e Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. \u003c/li\u003e \u003cli\u003e Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. \u003c/li\u003e \u003cli\u003e Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate. \u003c/li\u003e \u003cli\u003e If necessary, record the lifecycle action heartbeat to keep the instance in a pending state. \u003c/li\u003e \u003cli\u003e \u003cb\u003eComplete the lifecycle action.\u003c/b\u003e \u003c/li\u003e \u003c/ol\u003e \u003cp\u003eTo learn more, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html\"\u003eAuto Scaling Pending State\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html\"\u003eAuto Scaling Terminating State\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4518,9 +4524,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "CreateAutoScalingGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new Auto Scaling group with the specified name and other attributes. When the creation request is completed, the Auto Scaling group is ready to be used in other calls. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5087,9 +5095,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "CreateLaunchConfiguration",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new launch configuration. The launch configuration name must be unique within the scope of the client's AWS account. The maximum limit of launch configurations, which by default is 100, must not yet have been met; otherwise, the call will fail. When created, the new launch configuration is available for immediate use. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5689,9 +5699,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "CreateOrUpdateTags",
             "method": "post",
             "documentation": "\u003cp\u003e Creates new tags or updates existing tags for an Auto Scaling group. \u003c/p\u003e \u003cp\u003eFor information on creating tags for your Auto Scaling group, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html\"\u003eTag Your Auto Scaling Groups and Amazon EC2 Instances\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5812,9 +5824,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeleteAutoScalingGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified Auto Scaling group if the group has no instances and no scaling activities in progress. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5953,9 +5967,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeleteLaunchConfiguration",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified \u003ca\u003eLaunchConfiguration\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e The specified launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6077,9 +6093,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeleteLifecycleHook",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified lifecycle hook. If there are any outstanding lifecycle actions, they are completed first (ABANDON for launching instances, CONTINUE for terminating instances).\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6217,9 +6235,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeleteNotificationConfiguration",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes notifications created by \u003ca\u003ePutNotificationConfiguration\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6357,9 +6377,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeletePolicy",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a policy created by \u003ca\u003ePutScalingPolicy\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6498,9 +6520,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeleteScheduledAction",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a scheduled action previously created using the \u003ca\u003ePutScheduledUpdateGroupAction\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6639,9 +6663,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DeleteTags",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves the specified tags or a set of tags from a set of resources.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6823,9 +6849,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeAccountLimits",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the limits for the Auto Scaling resources currently allowed for your AWS account. \u003c/p\u003e \u003cp\u003eYour AWS account comes with default limits on resources for Auto Scaling. There is a default limit of \u003ccode\u003e20\u003c/code\u003e Auto Scaling groups and \u003ccode\u003e100\u003c/code\u003e launch configurations per region.\u003c/p\u003e \u003cp\u003eIf you reach the limits for the number of Auto Scaling groups or the launch configurations, you can go to the \u003ca href=\"https://aws.amazon.com/support/\"\u003eSupport Center\u003c/a\u003e and place a request to raise the limits.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6940,9 +6968,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeAdjustmentTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns policy adjustment types for use in the \u003ca\u003ePutScalingPolicy\u003c/a\u003e action. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7079,6 +7109,7 @@
             "name": "DescribeAutoScalingGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a full description of each Auto Scaling group in the given list. This includes all Amazon EC2 instances that are members of the group. If a list of names is not provided, the service returns the full details of all Auto Scaling groups. \u003c/p\u003e \u003cp\u003e This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7320,6 +7351,7 @@
             "name": "DescribeAutoScalingInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a description of each Auto Scaling instance in the \u003ccode\u003eInstanceIds\u003c/code\u003e list. If a list is not provided, the service returns the full details of all instances up to a maximum of 50. By default, the service returns a list of 20 items. \u003c/p\u003e \u003cp\u003e This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7540,9 +7572,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeAutoScalingNotificationTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of all notification types that are supported by Auto Scaling. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7679,6 +7713,7 @@
             "name": "DescribeLaunchConfigurations",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a full description of the launch configurations, or the specified launch configurations, if they exist. \u003c/p\u003e \u003cp\u003e If no name is specified, then the full details of all launch configurations are returned. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7899,9 +7934,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeLifecycleHookTypes",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the available types of lifecycle hooks.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8016,9 +8053,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeLifecycleHooks",
             "method": "post",
             "documentation": "\u003cp\u003e Describes the lifecycle hooks that currently belong to the specified Auto Scaling group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8217,9 +8256,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeMetricCollectionTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of metrics and a corresponding list of granularities for each metric. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8356,6 +8397,7 @@
             "name": "DescribeNotificationConfigurations",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of notification actions associated with Auto Scaling groups for specified events. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8597,6 +8639,7 @@
             "name": "DescribePolicies",
             "method": "post",
             "documentation": "\u003cp\u003e Returns descriptions of what each policy does. This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8871,6 +8914,7 @@
             "name": "DescribeScalingActivities",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the scaling activities for the specified Auto Scaling group. \u003c/p\u003e \u003cp\u003e If the specified \u003ccode\u003eActivityIds\u003c/code\u003e list is empty, all the activities from the past six weeks are returned. Activities are sorted by the start time. Activities still in progress appear first on the list. \u003c/p\u003e \u003cp\u003e This action supports pagination. If the response includes a token, there are more records available. To get the additional records, repeat the request with the response token as the \u003ccode\u003eNextToken\u003c/code\u003e parameter. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9123,9 +9167,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeScalingProcessTypes",
             "method": "post",
             "documentation": "\u003cp\u003eReturns scaling process types for use in the \u003ca\u003eResumeProcesses\u003c/a\u003e and \u003ca\u003eSuspendProcesses\u003c/a\u003e actions.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9262,6 +9308,7 @@
             "name": "DescribeScheduledActions",
             "method": "post",
             "documentation": "\u003cp\u003e Lists all the actions scheduled for your Auto Scaling group that haven't been executed. To see a list of actions already executed, see the activity record returned in \u003ca\u003eDescribeScalingActivities\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9602,6 +9649,7 @@
             "name": "DescribeTags",
             "method": "post",
             "documentation": "\u003cp\u003e Lists the Auto Scaling group tags. \u003c/p\u003e \u003cp\u003e You can use filters to limit results when describing tags. For example, you can query for tags of a particular Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results. \u003c/p\u003e \u003cp\u003e You can also specify multiple filters. The result includes information for a particular tag only if it matches all your filters. If there's no match, no special message is returned. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9821,9 +9869,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DescribeTerminationPolicyTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of all termination policies supported by Auto Scaling. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9938,9 +9988,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DetachInstances",
             "method": "post",
             "documentation": "\u003cp\u003eUsing \u003ccode\u003eDetachInstances\u003c/code\u003e, you can remove an instance from an Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.\u003c/p\u003e \u003cp\u003eTo learn more about detaching instances, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html\"\u003eDetach Amazon EC2 Instances From Your Auto Scaling Group\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10112,9 +10164,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "DisableMetricsCollection",
             "method": "post",
             "documentation": "\u003cp\u003e Disables monitoring of group metrics for the Auto Scaling group specified in \u003ccode\u003eAutoScalingGroupName\u003c/code\u003e. You can specify the list of affected metrics with the \u003ccode\u003eMetrics\u003c/code\u003e parameter. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10253,9 +10307,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "EnableMetricsCollection",
             "method": "post",
             "documentation": "\u003cp\u003e Enables monitoring of group metrics for the Auto Scaling group specified in \u003ccode\u003eAutoScalingGroupName\u003c/code\u003e. You can specify the list of enabled metrics with the \u003ccode\u003eMetrics\u003c/code\u003e parameter. \u003c/p\u003e \u003cp\u003e Auto Scaling metrics collection can be turned on only if the \u003ccode\u003eInstanceMonitoring\u003c/code\u003e flag, in the Auto Scaling group's launch configuration, is set to \u003ccode\u003eTrue\u003c/code\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10476,9 +10532,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "EnterStandby",
             "method": "post",
             "documentation": "\u003cp\u003e Move instances in an Auto Scaling group into a Standby mode. \u003c/p\u003e \u003cp\u003eTo learn more about how to put instances into a Standby mode, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html\"\u003eAuto Scaling InService State\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10650,9 +10708,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "ExecutePolicy",
             "method": "post",
             "documentation": "\u003cp\u003eExecutes the specified policy. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10873,9 +10933,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "ExitStandby",
             "method": "post",
             "documentation": "\u003cp\u003e Move an instance out of Standby mode. \u003c/p\u003e \u003cp\u003eTo learn more about how to put instances that are in a Standby mode back into service, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html\"\u003eAuto Scaling InService State\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11014,9 +11076,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "PutLifecycleHook",
             "method": "post",
             "documentation": "\u003cp\u003eCreates or updates a lifecycle hook for an Auto Scaling Group.\u003c/p\u003e \u003cp\u003eA lifecycle hook tells Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.\u003c/p\u003e \u003cp\u003e This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: \u003c/p\u003e \u003col\u003e \u003cli\u003e Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. \u003c/li\u003e \u003cli\u003e Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. \u003c/li\u003e \u003cli\u003e \u003cb\u003eCreate the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\u003c/b\u003e \u003c/li\u003e \u003cli\u003e If necessary, record the lifecycle action heartbeat to keep the instance in a pending state. \u003c/li\u003e \u003cli\u003e Complete the lifecycle action. \u003c/li\u003e \u003c/ol\u003e \u003cp\u003eTo learn more, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html\"\u003eAuto Scaling Pending State\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html\"\u003eAuto Scaling Terminating State\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11353,9 +11417,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "PutNotificationConfiguration",
             "method": "post",
             "documentation": "\u003cp\u003e Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to this topic can have messages for events delivered to an endpoint such as a web server or email address. \u003c/p\u003e \u003cp\u003eFor more information see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html\"\u003eGet Email Notifications When Your Auto Scaling Group Changes\u003c/a\u003e\u003c/p\u003e \u003cp\u003eA new \u003ccode\u003ePutNotificationConfiguration\u003c/code\u003e overwrites an existing configuration. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11576,9 +11642,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "PutScalingPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameter(s) you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11849,9 +11917,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "PutScheduledUpdateGroupAction",
             "method": "post",
             "documentation": "\u003cp\u003e Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group. \u003c/p\u003e \u003cp\u003eFor information on creating or updating a scheduled action for your Auto Scaling group, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html\"\u003eScale Based on a Schedule\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12221,9 +12291,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "RecordLifecycleActionHeartbeat",
             "method": "post",
             "documentation": "\u003cp\u003e Records a heartbeat for the lifecycle action associated with a specific token. This extends the timeout by the length of time defined by the \u003ccode\u003eHeartbeatTimeout\u003c/code\u003e parameter of the \u003ca\u003ePutLifecycleHook\u003c/a\u003e operation. \u003c/p\u003e \u003cp\u003e This operation is a part of the basic sequence for adding a lifecycle hook to an Auto Scaling group: \u003c/p\u003e \u003col\u003e \u003cli\u003e Create a notification target. A target can be either an Amazon SQS queue or an Amazon SNS topic. \u003c/li\u003e \u003cli\u003e Create an IAM role. This role allows Auto Scaling to publish lifecycle notifications to the designated SQS queue or SNS topic. \u003c/li\u003e \u003cli\u003e Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate. \u003c/li\u003e \u003cli\u003e \u003cb\u003eIf necessary, record the lifecycle action heartbeat to keep the instance in a pending state.\u003c/b\u003e \u003c/li\u003e \u003cli\u003e Complete the lifecycle action. \u003c/li\u003e \u003c/ol\u003e \u003cp\u003eTo learn more, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html\"\u003eAuto Scaling Pending State\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html\"\u003eAuto Scaling Terminating State\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12394,9 +12466,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "ResumeProcesses",
             "method": "post",
             "documentation": "\u003cp\u003e Resumes all suspended Auto Scaling processes for an Auto Scaling group. For information on suspending and resuming Auto Scaling process, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html\"\u003eSuspend and Resume Auto Scaling Process\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12535,9 +12609,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "SetDesiredCapacity",
             "method": "post",
             "documentation": "\u003cp\u003e Sets the desired size of the specified \u003ca\u003eAutoScalingGroup\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12709,9 +12785,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "SetInstanceHealth",
             "method": "post",
             "documentation": "\u003cp\u003e Sets the health status of a specified instance that belongs to any of your Auto Scaling groups. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-configure-healthcheck.html\"\u003eConfigure Health Checks for Your Auto Scaling group\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12883,9 +12961,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "SuspendProcesses",
             "method": "post",
             "documentation": "\u003cp\u003e Suspends Auto Scaling processes for an Auto Scaling group. To suspend specific process types, specify them by name with the \u003ccode\u003eScalingProcesses.member.N\u003c/code\u003e parameter. To suspend all process types, omit the \u003ccode\u003eScalingProcesses.member.N\u003c/code\u003e parameter. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003e Suspending either of the two primary process types, \u003ccode\u003eLaunch\u003c/code\u003e or \u003ccode\u003eTerminate\u003c/code\u003e, can prevent other process types from functioning properly. \u003c/p\u003e \u003c/important\u003e \u003cp\u003e To resume processes that have been suspended, use \u003ca\u003eResumeProcesses\u003c/a\u003e For more information on suspending and resuming Auto Scaling process, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html\"\u003eSuspend and Resume Auto Scaling Process\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13071,9 +13151,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "TerminateInstanceInAutoScalingGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Terminates the specified instance. Optionally, the desired group size can be adjusted. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13211,9 +13293,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.AutoScaling.Types"
             ],
+            "pager": null,
             "name": "UpdateAutoScalingGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Updates the configuration for the specified \u003ca\u003eAutoScalingGroup\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren't affected. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

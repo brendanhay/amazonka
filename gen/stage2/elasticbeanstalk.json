@@ -43,8 +43,10 @@
         "version": "2010-12-01",
         "documentation": "AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, and Docker on familiar servers such as Apache HTTP Server, Apache Tomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring. At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time. There is no additional charge for Elastic Beanstalk - you pay only for the AWS resources needed to store and run your applications.",
         "xmlNamespace": "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "elasticbeanstalk"
+        "endpointPrefix": "elasticbeanstalk",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -3877,9 +3879,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "CheckDNSAvailability",
             "method": "post",
             "documentation": "\u003cp\u003e Checks if the specified CNAME is available. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4048,9 +4052,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "CreateApplication",
             "method": "post",
             "documentation": "\u003cp\u003e Creates an application that has one configuration template named \u003ccode\u003edefault\u003c/code\u003e and no application versions. \u003c/p\u003e \u003c?oxy_delete author=\"brussard\" timestamp=\"20131024T142047-0700\" content=\"&lt;note&gt; The &lt;code&gt;default&lt;/code&gt; configuration template is for a 32-bit version of the Amazon Linux operating system running the Tomcat 6 application container. &lt;/note&gt;\"\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4236,9 +4242,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "CreateApplicationVersion",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an application version for the specified application.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4731,9 +4739,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "CreateConfigurationTemplate",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a configuration template. Templates are associated with a specific application and are used to deploy different versions of the application with the same configuration settings.\u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eDescribeConfigurationOptions\u003c/a\u003e \u003c/li\u003e \u003cli\u003e \u003ca\u003eDescribeConfigurationSettings\u003c/a\u003e \u003c/li\u003e \u003cli\u003e \u003ca\u003eListAvailableSolutionStacks\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5460,9 +5470,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "CreateEnvironment",
             "method": "post",
             "documentation": "\u003cp\u003e Launches an environment for the specified application using the specified configuration. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5946,9 +5958,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "CreateStorageLocation",
             "method": "post",
             "documentation": "\u003cp\u003e Creates the Amazon S3 storage location for the account. \u003c/p\u003e \u003cp\u003e This location is used to store user log files. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6014,9 +6028,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DeleteApplication",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified application along with all associated versions and configurations. The application versions will not be deleted from your Amazon S3 bucket. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6155,9 +6171,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DeleteApplicationVersion",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified version from the specified application. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6329,9 +6347,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DeleteConfigurationTemplate",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified configuration template.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6469,9 +6489,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DeleteEnvironmentConfiguration",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the draft configuration associated with the running environment. \u003c/p\u003e \u003cp\u003e Updating a running environment with any configuration changes creates a draft configuration set. You can get the draft configuration using \u003ca\u003eDescribeConfigurationSettings\u003c/a\u003e while the update is in progress or if the update fails. The \u003ccode\u003eDeploymentStatus\u003c/code\u003e for the draft configuration indicates whether the deployment is in process or has failed. The draft configuration remains in existence until it is deleted with this action. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6658,9 +6680,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DescribeApplicationVersions",
             "method": "post",
             "documentation": "\u003cp\u003eReturns descriptions for existing application versions.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6847,9 +6871,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DescribeApplications",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the descriptions of existing applications.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7031,9 +7057,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DescribeConfigurationOptions",
             "method": "post",
             "documentation": "\u003cp\u003e Describes the configuration options that are used in a particular configuration template or environment, or that a specified solution stack defines. The description includes the values the options, their default values, and an indication of the required action on a running environment if an option value is changed. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7318,9 +7346,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DescribeConfigurationSettings",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a description of the settings for the specified configuration set, that is, either a configuration template or the configuration set associated with a running environment. \u003c/p\u003e \u003cp\u003e When describing the settings for the configuration set associated with a running environment, it is possible to receive two sets of setting descriptions. One is the deployed configuration set, and the other is a draft configuration of an environment that is either in the process of deployment or that failed to deploy. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eDeleteEnvironmentConfiguration\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7539,9 +7569,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DescribeEnvironmentResources",
             "method": "post",
             "documentation": "\u003cp\u003eReturns AWS resources for this environment.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7728,9 +7760,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "DescribeEnvironments",
             "method": "post",
             "documentation": "\u003cp\u003eReturns descriptions for existing environments.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8071,6 +8105,7 @@
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003eReturns list of event descriptions matching criteria up to the last 6 weeks.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8565,9 +8600,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "ListAvailableSolutionStacks",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of the available solution stack names. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8633,9 +8670,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "RebuildEnvironment",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes and recreates all of the AWS resources (for example: the Auto Scaling group, load balancer, etc.) for a specified environment and forces a restart. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8773,9 +8812,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "RequestEnvironmentInfo",
             "method": "post",
             "documentation": "\u003cp\u003e Initiates a request to compile the specified type of information of the deployed environment. \u003c/p\u003e \u003cp\u003e Setting the \u003ccode\u003eInfoType\u003c/code\u003e to \u003ccode\u003etail\u003c/code\u003e compiles the last lines from the application server log files of every Amazon EC2 instance in your environment. Use \u003ca\u003eRetrieveEnvironmentInfo\u003c/a\u003e to access the compiled information. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eRetrieveEnvironmentInfo\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8947,9 +8988,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "RestartAppServer",
             "method": "post",
             "documentation": "\u003cp\u003e Causes the environment to restart the application container server running on each Amazon EC2 instance. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9136,9 +9179,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "RetrieveEnvironmentInfo",
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the compiled information from a \u003ca\u003eRequestEnvironmentInfo\u003c/a\u003e request. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eRequestEnvironmentInfo\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9310,9 +9355,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "SwapEnvironmentCNAMEs",
             "method": "post",
             "documentation": "\u003cp\u003e Swaps the CNAMEs of two environments. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9940,9 +9987,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "TerminateEnvironment",
             "method": "post",
             "documentation": "\u003cp\u003e Terminates the specified environment. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10160,9 +10209,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "UpdateApplication",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates the specified application to have the specified properties. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10348,9 +10399,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "UpdateApplicationVersion",
             "method": "post",
             "documentation": "\u003cp\u003e Updates the specified application version to have the specified properties. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10778,9 +10831,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "UpdateConfigurationTemplate",
             "method": "post",
             "documentation": "\u003cp\u003e Updates the specified configuration template to have the specified properties or configuration option values. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eDescribeConfigurationOptions\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11441,9 +11496,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "UpdateEnvironment",
             "method": "post",
             "documentation": "\u003cp\u003e Updates the environment description, deploys a new application version, updates the configuration settings to an entirely new configuration template, or updates select configuration option values in the running environment. \u003c/p\u003e \u003cp\u003e Attempting to update both the release and configuration is not allowed and AWS Elastic Beanstalk returns an \u003ccode\u003eInvalidParameterCombination\u003c/code\u003e error. \u003c/p\u003e \u003cp\u003e When updating the configuration settings to a new template or individual settings, a draft configuration is created and \u003ca\u003eDescribeConfigurationSettings\u003c/a\u003e for this environment returns two setting descriptions with different \u003ccode\u003eDeploymentStatus\u003c/code\u003e values. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11827,9 +11884,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElasticBeanstalk.Types"
             ],
+            "pager": null,
             "name": "ValidateConfigurationSettings",
             "method": "post",
             "documentation": "\u003cp\u003e Takes a set of configuration settings and either a configuration template or environment, and determines whether those values are valid. \u003c/p\u003e \u003cp\u003e This action returns a list of messages indicating any errors or warnings associated with the selection of option values. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

@@ -17332,9 +17332,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "CountClosedWorkflowExecutions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the number of closed workflow executions within the given domain that meet the specified filtering criteria. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003etagFilter.tag\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:tagFilter.tag\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17791,9 +17793,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "CountOpenWorkflowExecutions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the number of open workflow executions within the given domain that meet the specified filtering criteria. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003etagFilter.tag\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:tagFilter.tag\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18166,9 +18170,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "CountPendingActivityTasks",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the estimated number of activity tasks in the specified task list. The count returned is an approximation and is not guaranteed to be exact. If you specify a task list that no activity task was ever scheduled in then 0 will be returned. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the \u003ccode\u003etaskList.name\u003c/code\u003e parameter by using a \u003cb\u003eCondition\u003c/b\u003e element with the \u003ccode\u003eswf:taskList.name\u003c/code\u003e key to allow the action to access only certain task lists.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18414,9 +18420,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "CountPendingDecisionTasks",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the estimated number of decision tasks in the specified task list. The count returned is an approximation and is not guaranteed to be exact. If you specify a task list that no decision task was ever scheduled in then 0 will be returned. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the \u003ccode\u003etaskList.name\u003c/code\u003e parameter by using a \u003cb\u003eCondition\u003c/b\u003e element with the \u003ccode\u003eswf:taskList.name\u003c/code\u003e key to allow the action to access only certain task lists.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18571,9 +18579,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DeprecateActivityType",
             "method": "post",
             "documentation": "\u003cp\u003e Deprecates the specified \u003ci\u003eactivity type\u003c/i\u003e. After an activity type has been deprecated, you cannot create new tasks of that activity type. Tasks of this type that were scheduled before the type was deprecated will continue to run. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003eactivityType.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:activityType.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eactivityType.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:activityType.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18728,9 +18738,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DeprecateDomain",
             "method": "post",
             "documentation": "\u003cp\u003e Deprecates the specified domain. After a domain has been deprecated it cannot be used to create new workflow executions or register new types. However, you can still use visibility actions on this domain. Deprecating a domain also deprecates all activity and workflow types registered in the domain. Executions that were started before the domain was deprecated will continue to run. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18861,9 +18873,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DeprecateWorkflowType",
             "method": "post",
             "documentation": "\u003cp\u003e Deprecates the specified \u003ci\u003eworkflow type\u003c/i\u003e. After a workflow type has been deprecated, you cannot create new executions of that type. Executions that were started before the type was deprecated will continue to run. A deprecated workflow type may still be used when calling visibility actions. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003eworkflowType.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:workflowType.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eworkflowType.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:workflowType.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19107,9 +19121,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DescribeActivityType",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the specified activity type. This includes configuration settings provided at registration time as well as other general information about the type. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003eactivityType.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:activityType.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eactivityType.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:activityType.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19353,9 +19369,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DescribeDomain",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the specified domain including description and status. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19702,9 +19720,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DescribeWorkflowExecution",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the specified workflow execution including its type and some statistics. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19948,9 +19968,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "DescribeWorkflowType",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the specified \u003ci\u003eworkflow type\u003c/i\u003e. This includes configuration settings specified when the type was registered and other information such as creation date, current status, etc. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003eworkflowType.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:workflowType.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eworkflowType.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:workflowType.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20205,6 +20227,7 @@
             "name": "GetWorkflowExecutionHistory",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the history of the specified workflow execution. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the \u003ccode\u003enextPageToken\u003c/code\u003e returned by the initial call. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20586,6 +20609,7 @@
             "name": "ListActivityTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about all activities registered in the specified domain that match the specified name and registration status. The result includes information like creation date, current status of the activity, etc. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the \u003ccode\u003enextPageToken\u003c/code\u003e returned by the initial call. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21010,6 +21034,7 @@
             "name": "ListClosedWorkflowExecutions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of closed workflow executions in the specified domain that meet the filtering criteria. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken returned by the initial call. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003etagFilter.tag\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:tagFilter.tag\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21601,6 +21626,7 @@
             "name": "ListDomains",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the list of domains registered in the account. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken returned by the initial call. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains. The element must be set to \u003ccode\u003earn:aws:swf::AccountID:domain/*\"\u003c/code\u003e, where \"AccountID\" is the account ID, with no dashes.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21941,6 +21967,7 @@
             "name": "ListOpenWorkflowExecutions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of open workflow executions in the specified domain that meet the filtering criteria. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken returned by the initial call. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003etagFilter.tag\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:tagFilter.tag\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etypeFilter.version\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:typeFilter.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22448,6 +22475,7 @@
             "name": "ListWorkflowTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about workflow types in the specified domain. The results may be split into multiple pages that can be retrieved by making the call repeatedly. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23030,9 +23058,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "PollForActivityTask",
             "method": "post",
             "documentation": "\u003cp\u003e Used by workers to get an \u003ca\u003eActivityTask\u003c/a\u003e from the specified activity \u003ccode\u003etaskList\u003c/code\u003e. This initiates a long poll, where the service holds the HTTP connection open and responds as soon as a task becomes available. The maximum time the service holds on to the request before responding is 60 seconds. If no task is available within 60 seconds, the poll will return an empty result. An empty result, in this context, means that an ActivityTask is returned, but that the value of taskToken is an empty string. If a task is returned, the worker should use its type to identify and process it correctly. \u003c/p\u003e \u003cimportant\u003e Workers should set their client side socket timeout to at least 70 seconds (10 seconds higher than the maximum time service may hold the poll request). \u003c/important\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the \u003ccode\u003etaskList.name\u003c/code\u003e parameter by using a \u003cb\u003eCondition\u003c/b\u003e element with the \u003ccode\u003eswf:taskList.name\u003c/code\u003e key to allow the action to access only certain task lists.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23541,6 +23571,7 @@
             "name": "PollForDecisionTask",
             "method": "post",
             "documentation": "\u003cp\u003e Used by deciders to get a \u003ca\u003eDecisionTask\u003c/a\u003e from the specified decision \u003ccode\u003etaskList\u003c/code\u003e. A decision task may be returned for any open workflow execution that is using the specified task list. The task includes a paginated view of the history of the workflow execution. The decider should use the workflow type and the history to determine how to properly handle the task. \u003c/p\u003e \u003cp\u003e This action initiates a long poll, where the service holds the HTTP connection open and responds as soon a task becomes available. If no decision task is available in the specified task list before the timeout of 60 seconds expires, an empty result is returned. An empty result, in this context, means that a DecisionTask is returned, but that the value of taskToken is an empty string. \u003c/p\u003e \u003cimportant\u003e Deciders should set their client side socket timeout to at least 70 seconds (10 seconds higher than the timeout). \u003c/important\u003e \u003cimportant\u003e Because the number of workflow history events for a single workflow execution might be very large, the result returned might be split up across a number of pages. To retrieve subsequent pages, make additional calls to \u003ccode\u003ePollForDecisionTask\u003c/code\u003e using the \u003ccode\u003enextPageToken\u003c/code\u003e returned by the initial call. Note that you do \u003cb\u003enot\u003c/b\u003e call \u003ccode\u003eGetWorkflowExecutionHistory\u003c/code\u003e with this \u003ccode\u003enextPageToken\u003c/code\u003e. Instead, call \u003ccode\u003ePollForDecisionTask\u003c/code\u003e again. \u003c/important\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the \u003ccode\u003etaskList.name\u003c/code\u003e parameter by using a \u003cb\u003eCondition\u003c/b\u003e element with the \u003ccode\u003eswf:taskList.name\u003c/code\u003e key to allow the action to access only certain task lists.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23928,9 +23959,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RecordActivityTaskHeartbeat",
             "method": "post",
             "documentation": "\u003cp\u003e Used by activity workers to report to the service that the \u003ca\u003eActivityTask\u003c/a\u003e represented by the specified \u003ccode\u003etaskToken\u003c/code\u003e is still making progress. The worker can also (optionally) specify details of the progress, for example percent complete, using the \u003ccode\u003edetails\u003c/code\u003e parameter. This action can also be used by the worker as a mechanism to check if cancellation is being requested for the activity task. If a cancellation is being attempted for the specified task, then the boolean \u003ccode\u003ecancelRequested\u003c/code\u003e flag returned by the service is set to \u003ccode\u003etrue\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e This action resets the \u003ccode\u003etaskHeartbeatTimeout\u003c/code\u003e clock. The \u003ccode\u003etaskHeartbeatTimeout\u003c/code\u003e is specified in \u003ca\u003eRegisterActivityType\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e This action does not in itself create an event in the workflow execution history. However, if the task times out, the workflow execution history will contain a \u003ccode\u003eActivityTaskTimedOut\u003c/code\u003e event that contains the information from the last heartbeat generated by the activity worker. \u003c/p\u003e \u003cimportant\u003e If the \u003ccode\u003ecancelRequested\u003c/code\u003e flag returns \u003ccode\u003etrue\u003c/code\u003e, a cancellation is being attempted. If the worker can cancel the activity, it should respond with \u003ca\u003eRespondActivityTaskCanceled\u003c/a\u003e. Otherwise, it should ignore the cancellation request. \u003c/important\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24087,9 +24120,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RegisterActivityType",
             "method": "post",
             "documentation": "\u003cp\u003e Registers a new \u003ci\u003eactivity type\u003c/i\u003e along with its configuration settings in the specified domain. \u003c/p\u003e \u003cimportant\u003e A \u003ccode\u003eTypeAlreadyExists\u003c/code\u003e fault is returned if the type already exists in the domain. You cannot change any configuration settings of the type after its registration, and it must be registered as a new version. \u003c/important\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003edefaultTaskList.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:defaultTaskList.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ename\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eversion\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24539,9 +24574,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RegisterDomain",
             "method": "post",
             "documentation": "\u003cp\u003e Registers a new domain. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eYou cannot use an IAM policy to control domain access for this action. The name of the domain being registered is available as the resource of this action.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24740,9 +24777,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RegisterWorkflowType",
             "method": "post",
             "documentation": "\u003cp\u003e Registers a new \u003ci\u003eworkflow type\u003c/i\u003e and its configuration settings in the specified domain. \u003c/p\u003e \u003cp\u003e The retention period for the workflow history is set by the \u003ca\u003eRegisterDomain\u003c/a\u003e action. \u003c/p\u003e \u003cimportant\u003e If the type already exists, then a \u003ccode\u003eTypeAlreadyExists\u003c/code\u003e fault is returned. You cannot change the configuration settings of a workflow type once it is registered and it must be registered as a new version. \u003c/important\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003edefaultTaskList.name\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:defaultTaskList.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ename\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eversion\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25150,9 +25189,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RequestCancelWorkflowExecution",
             "method": "post",
             "documentation": "\u003cp\u003e Records a \u003ccode\u003eWorkflowExecutionCancelRequested\u003c/code\u003e event in the currently running workflow execution identified by the given domain, workflowId, and runId. This logically requests the cancellation of the workflow execution as a whole. It is up to the decider to take appropriate actions when it receives an execution history with this event. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25351,9 +25392,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RespondActivityTaskCanceled",
             "method": "post",
             "documentation": "\u003cp\u003e Used by workers to tell the service that the \u003ca\u003eActivityTask\u003c/a\u003e identified by the \u003ccode\u003etaskToken\u003c/code\u003e was successfully canceled. Additional \u003ccode\u003edetails\u003c/code\u003e can be optionally provided using the \u003ccode\u003edetails\u003c/code\u003e argument. \u003c/p\u003e \u003cp\u003e These \u003ccode\u003edetails\u003c/code\u003e (if provided) appear in the \u003ccode\u003eActivityTaskCanceled\u003c/code\u003e event added to the workflow history. \u003c/p\u003e \u003cimportant\u003e Only use this operation if the \u003ccode\u003ecanceled\u003c/code\u003e flag of a \u003ca\u003eRecordActivityTaskHeartbeat\u003c/a\u003e request returns \u003ccode\u003etrue\u003c/code\u003e and if the activity can be safely undone or abandoned. \u003c/important\u003e \u003cp\u003e A task is considered open from the time that it is scheduled until it is closed. Therefore a task is reported as open while a worker is processing it. A task is closed after it has been specified in a call to \u003ca\u003eRespondActivityTaskCompleted\u003c/a\u003e, RespondActivityTaskCanceled, \u003ca\u003eRespondActivityTaskFailed\u003c/a\u003e, or the task has \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types\"\u003etimed out\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25510,9 +25553,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RespondActivityTaskCompleted",
             "method": "post",
             "documentation": "\u003cp\u003e Used by workers to tell the service that the \u003ca\u003eActivityTask\u003c/a\u003e identified by the \u003ccode\u003etaskToken\u003c/code\u003e completed successfully with a \u003ccode\u003eresult\u003c/code\u003e (if provided). The \u003ccode\u003eresult\u003c/code\u003e appears in the \u003ccode\u003eActivityTaskCompleted\u003c/code\u003e event in the workflow history. \u003c/p\u003e \u003cimportant\u003e If the requested task does not complete successfully, use \u003ca\u003eRespondActivityTaskFailed\u003c/a\u003e instead. If the worker finds that the task is canceled through the \u003ccode\u003ecanceled\u003c/code\u003e flag returned by \u003ca\u003eRecordActivityTaskHeartbeat\u003c/a\u003e, it should cancel the task, clean up and then call \u003ca\u003eRespondActivityTaskCanceled\u003c/a\u003e. \u003c/important\u003e \u003cp\u003e A task is considered open from the time that it is scheduled until it is closed. Therefore a task is reported as open while a worker is processing it. A task is closed after it has been specified in a call to RespondActivityTaskCompleted, \u003ca\u003eRespondActivityTaskCanceled\u003c/a\u003e, \u003ca\u003eRespondActivityTaskFailed\u003c/a\u003e, or the task has \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types\"\u003etimed out\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25669,9 +25714,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RespondActivityTaskFailed",
             "method": "post",
             "documentation": "\u003cp\u003e Used by workers to tell the service that the \u003ca\u003eActivityTask\u003c/a\u003e identified by the \u003ccode\u003etaskToken\u003c/code\u003e has failed with \u003ccode\u003ereason\u003c/code\u003e (if specified). The \u003ccode\u003ereason\u003c/code\u003e and \u003ccode\u003edetails\u003c/code\u003e appear in the \u003ccode\u003eActivityTaskFailed\u003c/code\u003e event added to the workflow history. \u003c/p\u003e \u003cp\u003e A task is considered open from the time that it is scheduled until it is closed. Therefore a task is reported as open while a worker is processing it. A task is closed after it has been specified in a call to \u003ca\u003eRespondActivityTaskCompleted\u003c/a\u003e, \u003ca\u003eRespondActivityTaskCanceled\u003c/a\u003e, RespondActivityTaskFailed, or the task has \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types\"\u003etimed out\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25870,9 +25917,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "RespondDecisionTaskCompleted",
             "method": "post",
             "documentation": "\u003cp\u003e Used by deciders to tell the service that the \u003ca\u003eDecisionTask\u003c/a\u003e identified by the \u003ccode\u003etaskToken\u003c/code\u003e has successfully completed. The \u003ccode\u003edecisions\u003c/code\u003e argument specifies the list of decisions made while processing the task. \u003c/p\u003e \u003cp\u003e A \u003ccode\u003eDecisionTaskCompleted\u003c/code\u003e event is added to the workflow history. The \u003ccode\u003eexecutionContext\u003c/code\u003e specified is attached to the event in the workflow execution history. \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eIf an IAM policy grants permission to use \u003ccode\u003eRespondDecisionTaskCompleted\u003c/code\u003e, it can express permissions for the list of decisions in the \u003ccode\u003edecisions\u003c/code\u003e parameter. Each of the decisions has one or more parameters, much like a regular API call. To allow for policies to be as readable as possible, you can express permissions on decisions as if they were actual API calls, including applying conditions to some parameters. For more information, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26070,9 +26119,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "SignalWorkflowExecution",
             "method": "post",
             "documentation": "\u003cp\u003e Records a \u003ccode\u003eWorkflowExecutionSignaled\u003c/code\u003e event in the workflow execution history and creates a decision task for the workflow execution identified by the given domain, workflowId and runId. The event is recorded with the specified user defined signalName and input (if provided). \u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26419,9 +26470,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "StartWorkflowExecution",
             "method": "post",
             "documentation": "\u003cp\u003e Starts an execution of the workflow type in the specified domain using the provided \u003ccode\u003eworkflowId\u003c/code\u003e and input data. \u003c/p\u003e \u003cp\u003eThis action returns the newly started workflow execution.\u003c/p\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eConstrain the following parameters by using a \u003ccode\u003eCondition\u003c/code\u003e element with the appropriate keys. \u003cul\u003e \u003cli\u003e \u003ccode\u003etagList.member.0\u003c/code\u003e: The key is \u003ccode\u003eswf:tagList.member.0\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etagList.member.1\u003c/code\u003e: The key is \u003ccode\u003eswf:tagList.member.1\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etagList.member.2\u003c/code\u003e: The key is \u003ccode\u003eswf:tagList.member.2\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etagList.member.3\u003c/code\u003e: The key is \u003ccode\u003eswf:tagList.member.3\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etagList.member.4\u003c/code\u003e: The key is \u003ccode\u003eswf:tagList.member.4\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003etaskList\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:taskList.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ename\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:workflowType.name\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eversion\u003c/code\u003e: String constraint. The key is \u003ccode\u003eswf:workflowType.version\u003c/code\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26871,9 +26924,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.SWF.Types"
             ],
+            "pager": null,
             "name": "TerminateWorkflowExecution",
             "method": "post",
             "documentation": "\u003cp\u003e Records a \u003ccode\u003eWorkflowExecutionTerminated\u003c/code\u003e event and forces closure of the workflow execution identified by the given domain, runId, and workflowId. The child policy, registered with the workflow type or specified when starting this execution, is applied to any open child workflow executions of this workflow execution. \u003c/p\u003e \u003cimportant\u003e If the identified workflow execution was in progress, it is terminated immediately. \u003c/important\u003e \u003cp\u003e\u003cb\u003eAccess Control\u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou can use IAM policies to control this action's access to Amazon SWF resources as follows:\u003c/p\u003e \u003cul\u003e \u003cli\u003eUse a \u003ccode\u003eResource\u003c/code\u003e element with the domain name to limit the action to only specified domains.\u003c/li\u003e \u003cli\u003eUse an \u003ccode\u003eAction\u003c/code\u003e element to allow or deny permission to call this action.\u003c/li\u003e \u003cli\u003eYou cannot use an IAM policy to constrain this action's parameters.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing \u003ccode\u003eOperationNotPermitted\u003c/code\u003e. For details and example IAM policies, see \u003ca href=\"http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html\"\u003eUsing IAM to Manage Access to Amazon SWF Workflows\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

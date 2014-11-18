@@ -1,17 +1,17 @@
 
-instance ToXML {{ type.name }} where
+instance ToXMLRoot {{ type.name }} where
 {% case type.type %}
 {% when "void" %}
-    toXML = const (nodes "{{ type.name }}" [])
+    toXMLRoot = const (element "{{ type.name }}" [])
 {% when "empty" %}
-    toXML = const (nodes "{{ type.name }}" [])
+    toXMLRoot = const (element "{{ type.name }}" [])
 {% when "nullary" %}
-    toXML = toXMLText
+    toXMLRoot = ?
 {% else %}
   {% if type.contents | empty %}
-    toXML = const (nodes "{{ type.name }}" [])
+    toXMLRoot = const (element "{{ type.name }}" [])
   {% else %}
-    toXML {{ type.name }}{..} = nodes "{{ type.name }}"
+    toXMLRoot {{ type.name }}{..} = element "{{ type.name }}"
     {% for field in type.contents %}
         {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
     {% endfor %}

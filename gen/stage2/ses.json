@@ -32,8 +32,10 @@
         "version": "2010-12-01",
         "documentation": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only email-sending service built on the reliable and scalable infrastructure that Amazon.com has developed to serve its own customer base. With Amazon SES, you can send transactional email, marketing messages, or any other type of high-quality content and you only pay for what you use. Along with high deliverability, Amazon SES provides easy, real-time access to your sending statistics and built-in notifications for bounces, complaints, and deliveries to help you fine-tune your email-sending strategy.",
         "xmlNamespace": "http://ses.amazonaws.com/doc/2010-12-01/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "email"
+        "endpointPrefix": "email",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -1028,9 +1030,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "DeleteIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified identity (email address or domain) from the list of verified identities.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1152,9 +1156,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "DeleteVerifiedEmailAddress",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified email address from the list of verified addresses.\u003c/p\u003e \u003cimportant\u003eThe DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1325,9 +1331,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "GetIdentityDkimAttributes",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.\u003c/p\u003e \u003cp\u003eThis action takes a list of identities as input and returns the following information for each:\u003c/p\u003e \u003cul\u003e \u003cli\u003eWhether Easy DKIM signing is enabled or disabled.\u003c/li\u003e \u003cli\u003eA set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/li\u003e \u003cli\u003eWhether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1498,9 +1506,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "GetIdentityNotificationAttributes",
             "method": "post",
             "documentation": "\u003cp\u003eGiven a list of verified identities (email addresses and/or domains), returns a structure describing identity notification attributes.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about using notifications with Amazon SES, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1671,9 +1681,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "GetIdentityVerificationAttributes",
             "method": "post",
             "documentation": "\u003cp\u003eGiven a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1884,9 +1896,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "GetSendQuota",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the user's current sending limits.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2001,9 +2015,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "GetSendStatistics",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. \u003c/p\u003e \u003cp\u003eEach data point in the list contains statistics for a 15-minute interval.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2141,6 +2157,7 @@
             "name": "ListIdentities",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2361,9 +2378,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "ListVerifiedEmailAddresses",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list containing all of the email addresses that have been verified.\u003c/p\u003e \u003cimportant\u003eThe ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2479,9 +2498,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "SendEmail",
             "method": "post",
             "documentation": "\u003cp\u003eComposes an email message based on input data, and then immediately queues the message for sending. \u003c/p\u003e \u003cimportant\u003e You can only send email from verified email addresses and domains. If you have not requested production access to Amazon SES, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/important\u003e \u003cp\u003eThe total size of the message cannot exceed 10 MB.\u003c/p\u003e \u003cp\u003eAmazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group. \u003c/p\u003e \u003cp\u003eFor every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your \u003ci\u003esending quota\u003c/i\u003e - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2768,9 +2789,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "SendRawEmail",
             "method": "post",
             "documentation": "\u003cp\u003eSends an email message, with header and content specified by the client. The \u003ccode\u003eSendRawEmail\u003c/code\u003e action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. \u003c/p\u003e \u003cimportant\u003e You can only send email from verified email addresses and domains. If you have not requested production access to Amazon SES, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/important\u003e \u003cp\u003eThe total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.\u003c/p\u003e \u003cp\u003eAmazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group. \u003c/p\u003e \u003cp\u003eThe To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit. \u003c/p\u003e \u003cp\u003eFor every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your \u003ci\u003esending quota\u003c/i\u003e - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2941,9 +2964,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "SetIdentityDkimEnabled",
             "method": "post",
             "documentation": "\u003cp\u003eEnables or disables Easy DKIM signing of email sent from an identity:\u003c/p\u003e \u003cul\u003e \u003cli\u003eIf Easy DKIM signing is enabled for a domain name identity (e.g., \u003ccode\u003eexample.com\u003c/code\u003e), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., \u003ccode\u003euser@example.com\u003c/code\u003e).\u003c/li\u003e \u003cli\u003eIf Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor email addresses (e.g., \u003ccode\u003euser@example.com\u003c/code\u003e), you can only enable Easy DKIM signing if the corresponding domain (e.g., \u003ccode\u003eexample.com\u003c/code\u003e) has been set up for Easy DKIM using the AWS Console or the \u003ccode\u003eVerifyDomainDkim\u003c/code\u003e action.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about Easy DKIM signing, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3081,9 +3106,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "SetIdentityFeedbackForwardingEnabled",
             "method": "post",
             "documentation": "\u003cp\u003eGiven an identity (email address or domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about using notifications with Amazon SES, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3221,9 +3248,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "SetIdentityNotificationTopic",
             "method": "post",
             "documentation": "\u003cp\u003eGiven an identity (email address or domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the \u003ccode\u003eSource\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about feedback notification, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3445,9 +3474,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "VerifyDomainDkim",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a set of DKIM tokens for a domain. DKIM \u003ci\u003etokens\u003c/i\u003e are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eTo enable or disable Easy DKIM signing for a domain, use the \u003ccode\u003eSetIdentityDkimEnabled\u003c/code\u003e action.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3619,9 +3650,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "VerifyDomainIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eVerifies a domain.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3743,9 +3776,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "VerifyEmailAddress",
             "method": "post",
             "documentation": "\u003cp\u003eVerifies an email address. This action causes a confirmation email message to be sent to the specified address.\u003c/p\u003e \u003cimportant\u003eThe VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3867,9 +3902,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SES.Types"
             ],
+            "pager": null,
             "name": "VerifyEmailIdentity",
             "method": "post",
             "documentation": "\u003cp\u003eVerifies an email address. This action causes a confirmation email message to be sent to the specified address.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

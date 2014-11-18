@@ -701,9 +701,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "CreateTrail",
             "method": "post",
             "documentation": "\u003cp\u003eFrom the command line, use \u003ccode\u003ecreate-subscription\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eCreates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1070,9 +1072,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "DeleteTrail",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a trail.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1267,9 +1271,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "DescribeTrails",
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves settings for the trail associated with the current region for your account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1784,9 +1790,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "GetTrailStatus",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a JSON-formatted list of information about the specified trail. Fields include information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for each trail. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1917,9 +1925,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "StartLogging",
             "method": "post",
             "documentation": "\u003cp\u003eStarts the recording of AWS API calls and log file delivery for a trail.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2050,9 +2060,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "StopLogging",
             "method": "post",
             "documentation": "\u003cp\u003eSuspends the recording of AWS API calls and log file delivery for the specified trail. Under most circumstances, there is no need to use this action. You can update a trail without stopping it first. This action is the only way to stop recording.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2483,9 +2495,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CloudTrail.Types"
             ],
+            "pager": null,
             "name": "UpdateTrail",
             "method": "post",
             "documentation": "\u003cp\u003eFrom the command line, use \u003ccode\u003eupdate-subscription\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eUpdates the settings that specify delivery of log files. Changes to a trail do not require stopping the CloudTrail service. Use this action to designate an existing bucket for log delivery. If the existing bucket has previously been a target for CloudTrail log files, an IAM policy exists for the bucket. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

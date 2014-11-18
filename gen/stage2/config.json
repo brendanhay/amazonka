@@ -2250,9 +2250,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "DeleteDeliveryChannel",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the specified delivery channel.\u003c/p\u003e \u003cp\u003eThe delivery channel cannot be deleted if it is the only delivery channel and the configuration recorder is still running. To delete the delivery channel, stop the running configuration recorder using the \u003ca\u003eStopConfigurationRecorder\u003c/a\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2447,9 +2449,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "DeliverConfigSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eSchedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel. After the delivery has started, AWS Config sends following notifications using an Amazon SNS topic that you have specified.\u003c/p\u003e \u003cul\u003e \u003cli\u003eNotification of starting the delivery.\u003c/li\u003e \u003cli\u003eNotification of delivery completed, if the delivery was successfully completed.\u003c/li\u003e \u003cli\u003eNotification of delivery failure, if the delivery failed to complete.\u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2644,9 +2648,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "DescribeConfigurationRecorderStatus",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorder associated with the account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2841,9 +2847,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "DescribeConfigurationRecorders",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the name of one or more specified configuration recorders. If the recorder name is not specified, this action returns the names of all the configuration recorders associated with the account. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3038,9 +3046,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "DescribeDeliveryChannelStatus",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the current status of the specified delivery channel. If a delivery channel is not specified, this action returns the current status of all delivery channels associated with the account. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3235,9 +3245,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "DescribeDeliveryChannels",
             "method": "post",
             "documentation": "\u003cp\u003eReturns details about the specified delivery channel. If a delivery channel is not specified, this action returns the details of all delivery channels associated with the account. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3457,9 +3469,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "GetResourceConfigHistory",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of configuration items for the specified resource. The list contains details about each state of the resource during the specified time interval. You can specify a \u003ccode\u003elimit\u003c/code\u003e on the number of results returned on the page. If a limit is specified, a \u003ccode\u003enextToken\u003c/code\u003e is returned as part of the result that you can use to continue this request. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3826,9 +3840,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "PutConfigurationRecorder",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new configuration recorder to record the resource configurations. \u003c/p\u003e \u003cp\u003eYou can use this action to change the role (\u003ccode\u003eroleARN\u003c/code\u003e) of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3956,9 +3972,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "PutDeliveryChannel",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new delivery channel object to deliver the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic. \u003c/p\u003e \u003cp\u003eYou can use this action to change the Amazon S3 bucket or an Amazon SNS topic of the existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS topic, call this action and specify the changed values for the S3 bucket and the SNS topic. If you specify a different value for either the S3 bucket or the SNS topic, this action will keep the existing value for the parameter that is not changed. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4086,9 +4104,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "StartConfigurationRecorder",
             "method": "post",
             "documentation": "\u003cp\u003eStarts recording configurations of all the resources associated with the account.\u003c/p\u003e \u003cp\u003eYou must have created at least one delivery channel to successfully start the configuration recorder.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4219,9 +4239,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Config.Types"
             ],
+            "pager": null,
             "name": "StopConfigurationRecorder",
             "method": "post",
             "documentation": "\u003cp\u003eStops recording configurations of all the resources associated with the account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

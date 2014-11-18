@@ -48,8 +48,10 @@
         "version": "2014-09-30",
         "documentation": "ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases. Amazon ElastiCache automatically detects and replaces failed nodes, reducing the overhead associated with self-managed infrastructures and provides a resilient system that mitigates the risk of overloaded databases, which slow website and application load times. Through integration with Amazon CloudWatch, Amazon ElastiCache provides enhanced visibility into key performance metrics associated with your Memcached or Redis nodes.",
         "xmlNamespace": "http://elasticache.amazonaws.com/doc/2014-09-30/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "elasticache"
+        "endpointPrefix": "elasticache",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -5348,9 +5350,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "AuthorizeCacheSecurityGroupIngress",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eAuthorizeCacheSecurityGroupIngress\u003c/i\u003e operation allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5568,9 +5572,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CopySnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCopySnapshot\u003c/i\u003e operation makes a copy of an existing snapshot.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5755,9 +5761,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CreateCacheCluster",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheCluster\u003c/i\u003e operation creates a cache cluster. All nodes in the cache cluster run the same protocol-compliant cache engine software, either Memcached or Redis.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6570,9 +6578,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CreateCacheParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheParameterGroup\u003c/i\u003e operation creates a new cache parameter group. A cache parameter group is a collection of parameters that you apply to all of the nodes in a cache cluster.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6790,9 +6800,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CreateCacheSecurityGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheSecurityGroup\u003c/i\u003e operation creates a new cache security group. Use a cache security group to control access to one or more cache clusters.\u003c/p\u003e \u003cp\u003eCache security groups are only used when you are creating a cache cluster outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache cluster inside of a VPC, use a cache subnet group instead. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html\"\u003eCreateCacheSubnetGroup\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6977,9 +6989,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CreateCacheSubnetGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheSubnetGroup\u003c/i\u003e operation creates a new cache subnet group.\u003c/p\u003e \u003cp\u003eUse this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (VPC).\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7198,9 +7212,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CreateReplicationGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCreateReplicationGroup\u003c/i\u003e operation creates a replication group. A replication group is a collection of cache clusters, where one of the cache clusters is a read/write primary and the others are read-only replicas. Writes to the primary are automatically propagated to the replicas.\u003c/p\u003e \u003cp\u003eWhen you create a replication group, you must specify an existing cache cluster that is in the primary role. When the replication group has been successfully created, you can add one or more read replica replicas to it, up to a total of five read replicas.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e This action is valid only for Redis.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8013,9 +8029,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "CreateSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eCreateSnapshot\u003c/i\u003e operation creates a copy of an entire cache cluster at a specific moment in time.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8200,9 +8218,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "DeleteCacheCluster",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheCluster\u003c/i\u003e operation deletes a previously provisioned cache cluster. \u003ci\u003eDeleteCacheCluster\u003c/i\u003e deletes all associated cache nodes, node endpoints and the cache cluster itself. When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the cache cluster; you cannot cancel or revert this operation.\u003c/p\u003e \u003cp\u003eThis API cannot be used to delete a cache cluster that is the last read replica of a replication group that has automatic failover mode enabled.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8341,9 +8361,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "DeleteCacheParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheParameterGroup\u003c/i\u003e operation deletes the specified cache parameter group. You cannot delete a cache parameter group if it is associated with any cache clusters.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8465,9 +8487,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "DeleteCacheSecurityGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheSecurityGroup\u003c/i\u003e operation deletes a cache security group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8589,9 +8613,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "DeleteCacheSubnetGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheSubnetGroup\u003c/i\u003e operation deletes a cache subnet group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8760,9 +8786,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "DeleteReplicationGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteReplicationGroup\u003c/i\u003e operation deletes an existing cluster. By default, this operation deletes the entire cluster, including the primary node group and all of the read replicas. You can optionally delete only the read replicas, while retaining the primary node group.\u003c/p\u003e \u003cp\u003eWhen you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this operation.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8981,9 +9009,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "DeleteSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteSnapshot\u003c/i\u003e operation deletes an existing snapshot. When you receive a successful response from this operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this operation.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9176,6 +9206,7 @@
             "name": "DescribeCacheClusters",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheClusters\u003c/i\u003e operation returns information about all provisioned cache clusters if no cache cluster identifier is specified, or about a specific cache cluster if a cache cluster identifier is supplied.\u003c/p\u003e \u003cp\u003eBy default, abbreviated information about the cache clusters(s) will be returned. You can use the optional \u003ci\u003eShowDetails\u003c/i\u003e flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.\u003c/p\u003e \u003cp\u003eIf the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.\u003c/p\u003e \u003cp\u003eIf the cluster is in the DELETING state, only cluster level information will be displayed.\u003c/p\u003e \u003cp\u003eIf cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the cache cluster state is \u003ci\u003eavailable\u003c/i\u003e, the cluster is ready for use.\u003c/p\u003e \u003cp\u003eIf cache nodes are currently being removed from the cache cluster, no endpoint information for the removed nodes is displayed.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9450,6 +9481,7 @@
             "name": "DescribeCacheEngineVersions",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheEngineVersions\u003c/i\u003e operation returns a list of the available cache engines and their versions.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9790,6 +9822,7 @@
             "name": "DescribeCacheParameterGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheParameterGroups\u003c/i\u003e operation returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list will contain only the descriptions for that group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10059,6 +10092,7 @@
             "name": "DescribeCacheParameters",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheParameters\u003c/i\u003e operation returns the detailed parameter list for a particular cache parameter group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10334,6 +10368,7 @@
             "name": "DescribeCacheSecurityGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheSecurityGroups\u003c/i\u003e operation returns a list of cache security group descriptions. If a cache security group name is specified, the list will contain only the description of that group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10575,6 +10610,7 @@
             "name": "DescribeCacheSubnetGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheSubnetGroups\u003c/i\u003e operation returns a list of cache subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10803,6 +10839,7 @@
             "name": "DescribeEngineDefaultParameters",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeEngineDefaultParameters\u003c/i\u003e operation returns the default engine and system parameter information for the specified cache engine.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11045,6 +11082,7 @@
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeEvents\u003c/i\u003e operation returns events related to cache clusters, cache security groups, and cache parameter groups. You can obtain events specific to a particular cache cluster, cache security group, or cache parameter group by providing the name as a parameter.\u003c/p\u003e \u003cp\u003eBy default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11418,6 +11456,7 @@
             "name": "DescribeReplicationGroups",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReplicationGroups\u003c/i\u003e operation returns information about a particular replication group. If no identifier is specified, \u003ci\u003eDescribeReplicationGroups\u003c/i\u003e returns information about all replication groups.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11659,6 +11698,7 @@
             "name": "DescribeReservedCacheNodes",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReservedCacheNodes\u003c/i\u003e operation returns information about reserved cache nodes for this account, or about a specified reserved cache node.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12065,6 +12105,7 @@
             "name": "DescribeReservedCacheNodesOfferings",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReservedCacheNodesOfferings\u003c/i\u003e operation lists available reserved cache node offerings.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12438,6 +12479,7 @@
             "name": "DescribeSnapshots",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeSnapshots\u003c/i\u003e operation returns information about cache cluster snapshots. By default, \u003ci\u003eDescribeSnapshots\u003c/i\u003e lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12721,9 +12763,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "ModifyCacheCluster",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eModifyCacheCluster\u003c/i\u003e operation modifies the settings for a cache cluster. You can use this operation to change one or more cluster configuration parameters by specifying the parameters and the new values.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13373,9 +13417,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "ModifyCacheParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eModifyCacheParameterGroup\u003c/i\u003e operation modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13560,9 +13606,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "ModifyCacheSubnetGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eModifyCacheSubnetGroup\u003c/i\u003e operation modifies an existing cache subnet group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13781,9 +13829,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "ModifyReplicationGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eModifyReplicationGroup\u003c/i\u003e operation modifies the settings for a replication group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14431,9 +14481,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "PurchaseReservedCacheNodesOffering",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003ePurchaseReservedCacheNodesOffering\u003c/i\u003e operation allows you to purchase a reserved cache node offering.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14652,9 +14704,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "RebootCacheCluster",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eRebootCacheCluster\u003c/i\u003e operation reboots some, or all, of the cache nodes within a provisioned cache cluster. This API will apply any modified cache parameter groups to the cache cluster. The reboot action takes place as soon as possible, and results in a momentary outage to the cache cluster. During the reboot, the cache cluster status is set to REBOOTING.\u003c/p\u003e \u003cp\u003eThe reboot causes the contents of the cache (for each cache node being rebooted) to be lost.\u003c/p\u003e \u003cp\u003eWhen the reboot is complete, a cache cluster event is created.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14842,9 +14896,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "ResetCacheParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eResetCacheParameterGroup\u003c/i\u003e operation modifies the parameters of a cache parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire cache parameter group, specify the \u003ci\u003eResetAllParameters\u003c/i\u003e and \u003ci\u003eCacheParameterGroupName\u003c/i\u003e parameters.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15062,9 +15118,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ElastiCache.Types"
             ],
+            "pager": null,
             "name": "RevokeCacheSecurityGroupIngress",
             "method": "post",
             "documentation": "\u003cp\u003eThe \u003ci\u003eRevokeCacheSecurityGroupIngress\u003c/i\u003e operation revokes ingress from a cache security group. Use this operation to disallow access from an Amazon EC2 security group that had been previously authorized.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

@@ -25,8 +25,10 @@
         "version": "2014-11-11",
         "documentation": "AWS Lambda is a compute service that runs your code in response to events and automatically manages the compute resources for you, making it easy to build applications that respond quickly to new information. AWS Lambda starts running your code within milliseconds of an event such as an image upload, in-app activity, website click, or output from a connected device. You can also use AWS Lambda to create new back-end services where compute resources are automatically triggered based on custom requests. With AWS Lambda you pay only for the requests served and the compute time required to run your code. Billing is metered in increments of 100 milliseconds, making it cost-effective and easy to scale automatically from a few requests per day to thousands per second.",
         "xmlNamespace": "https://lambda.amazonaws.com/doc/2014-11-11/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "lambda"
+        "endpointPrefix": "lambda",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -1535,9 +1537,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "AddEventSource",
             "method": "post",
             "documentation": "\u003cp\u003eIdentifies an Amazon Kinesis stream as the event source for an AWS Lambda function. AWS Lambda invokes the specified function when records are posted to the stream.\u003c/p\u003e \u003cp\u003eThis is the pull model, where AWS Lambda invokes the function. For more information, go to \u003ca href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\"\u003eAWS LambdaL How it Works\u003c/a\u003e in the AWS Lambda Developer Guide.\u003c/p\u003e \u003cp\u003eThis association between an Amazon Kinesis stream and an AWS Lambda function is called the event source mapping. You provide the configuration information (for example, which stream to read from and which AWS Lambda function to invoke) for the event source mapping in the request body.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003eiam:PassRole\u003c/code\u003e action for the IAM role. It also requires permission for the \u003ccode\u003elambda:AddEventSource\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1819,9 +1823,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "DeleteFunction",
             "method": "delete",
             "documentation": "\u003cp\u003eDeletes the specified Lambda function code and configuration.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:DeleteFunction\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2324,9 +2330,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "GetEventSource",
             "method": "get",
             "documentation": "\u003cp\u003eReturns configuration information for the specified event source mapping (see \u003ca\u003eAddEventSource\u003c/a\u003e).\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:GetEventSource\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2535,9 +2543,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "GetFunction",
             "method": "get",
             "documentation": "\u003cp\u003eReturns the configuration information of the Lambda function and a presigned URL link to the .zip file you uploaded with \u003ca\u003eUploadFunction\u003c/a\u003e so you can download the .zip file. Note that the URL is valid for up to 10 minutes. The configuration information is the same information you provided as parameters when uploading the function.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:GetFunction\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3167,9 +3177,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "GetFunctionConfiguration",
             "method": "get",
             "documentation": "\u003cp\u003eReturns the configuration information of the Lambda function. This the same information you provided as parameters when uploading the function by using \u003ca\u003eUploadFunction\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:GetFunctionConfiguration\u003c/code\u003e operation.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3345,9 +3357,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "InvokeAsync",
             "method": "post",
             "documentation": "\u003cp\u003eSubmits an invocation request to AWS Lambda. Upon receiving the request, Lambda executes the specified function asynchronously. To see the logs generated by the Lambda function execution, see the CloudWatch logs console.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:InvokeAsync\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3598,9 +3612,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "ListEventSources",
             "method": "get",
             "documentation": "\u003cp\u003eReturns a list of event source mappings. For each mapping, the API returns configuration information (see \u003ca\u003eAddEventSource\u003c/a\u003e). You can optionally specify filters to retrieve specific event source mappings.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:ListEventSources\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3893,9 +3909,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "ListFunctions",
             "method": "get",
             "documentation": "\u003cp\u003eReturns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use \u003ca\u003eGetFunction\u003c/a\u003e to retrieve the code for your function.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:ListFunctions\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4033,9 +4051,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "RemoveEventSource",
             "method": "delete",
             "documentation": "\u003cp\u003eRemoves an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.\u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:RemoveEventSource\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4665,9 +4685,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "UpdateFunctionConfiguration",
             "method": "put",
             "documentation": "\u003cp\u003eUpdates the configuration parameters for the specified Lambda function by using the values provided in the request. You provide only the parameters you want to change. This operation must only be used on an existing Lambda function and cannot be used to update the function's code. \u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:UpdateFunctionConfiguration\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5451,9 +5473,11 @@
                 "Network.AWS.Request.RestJSON",
                 "Network.AWS.Lambda.Types"
             ],
+            "pager": null,
             "name": "UploadFunction",
             "method": "put",
             "documentation": "\u003cp\u003eCreates a new Lambda function or updates an existing function. The function metadata is created from the request parameters, and the code for the function is provided by a .zip file in the request body. If the function name already exists, the existing Lambda function is updated with the new code and metadata. \u003c/p\u003e \u003cp\u003eThis operation requires permission for the \u003ccode\u003elambda:UploadFunction\u003c/code\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

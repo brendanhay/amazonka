@@ -3141,9 +3141,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "AddAttachmentsToSet",
             "method": "post",
             "documentation": "\u003cp\u003eAdds one or more attachments to an attachment set. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an \u003ccode\u003eAttachmentSetId\u003c/code\u003e is specified, the attachments are added to the specified set, if it exists.\u003c/p\u003e \u003cp\u003eAn attachment set is a temporary container for attachments that are to be added to a case or case communication. The set is available for one hour after it is created; the \u003ccode\u003eExpiryTime\u003c/code\u003e returned in the response indicates when the set expires. The maximum number of attachments in a set is 3, and the maximum size of any attachment in the set is 5 MB.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3361,9 +3363,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "AddCommunicationToCase",
             "method": "post",
             "documentation": "\u003cp\u003eAdds additional customer communication to an AWS Support case. You use the \u003ccode\u003eCaseId\u003c/code\u003e value to identify the case to add communication to. You can list a set of email addresses to copy on the communication using the \u003ccode\u003eCcEmailAddresses\u003c/code\u003e value. The \u003ccode\u003eCommunicationBody\u003c/code\u003e value contains the text of the communication.\u003c/p\u003e \u003cp\u003eThe response indicates the success or failure of the request.\u003c/p\u003e \u003cp\u003eThis operation implements a subset of the behavior on the AWS Support \u003ca href=\"https://aws.amazon.com/support\"\u003eYour Support Cases\u003c/a\u003e web form.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3668,9 +3672,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "CreateCase",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new case in the AWS Support Center. This operation is modeled on the behavior of the AWS Support Center \u003ca href=\"https://aws.amazon.com/support/createCase\"\u003eOpen a new case\u003c/a\u003e page. Its parameters require you to specify the following information: \u003c/p\u003e \u003col\u003e \u003cli\u003e \u003cb\u003eIssueType.\u003c/b\u003e The type of issue for the case. You can specify either \"customer-service\" or \"technical.\" If you do not indicate a value, the default is \"technical.\" \u003c/li\u003e \u003cli\u003e \u003cb\u003eServiceCode.\u003c/b\u003e The code for an AWS service. You obtain the \u003ccode\u003eServiceCode\u003c/code\u003e by calling \u003ca\u003eDescribeServices\u003c/a\u003e. \u003c/li\u003e \u003cli\u003e \u003cb\u003eCategoryCode.\u003c/b\u003e The category for the service defined for the \u003ccode\u003eServiceCode\u003c/code\u003e value. You also obtain the category code for a service by calling \u003ca\u003eDescribeServices\u003c/a\u003e. Each AWS service defines its own set of category codes. \u003c/li\u003e \u003cli\u003e \u003cb\u003eSeverityCode.\u003c/b\u003e A value that indicates the urgency of the case, which in turn determines the response time according to your service level agreement with AWS Support. You obtain the SeverityCode by calling \u003ca\u003eDescribeSeverityLevels\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003cb\u003eSubject.\u003c/b\u003e The \u003cb\u003eSubject\u003c/b\u003e field on the AWS Support Center \u003ca href=\"https://aws.amazon.com/support/createCase\"\u003eOpen a new case\u003c/a\u003e page.\u003c/li\u003e \u003cli\u003e \u003cb\u003eCommunicationBody.\u003c/b\u003e The \u003cb\u003eDescription\u003c/b\u003e field on the AWS Support Center \u003ca href=\"https://aws.amazon.com/support/createCase\"\u003eOpen a new case\u003c/a\u003e page.\u003c/li\u003e \u003cli\u003e \u003cb\u003eAttachmentSetId.\u003c/b\u003e The ID of a set of attachments that has been created by using \u003ca\u003eAddAttachmentsToSet\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLanguage.\u003c/b\u003e The human language in which AWS Support handles the case. English and Japanese are currently supported.\u003c/li\u003e \u003cli\u003e \u003cb\u003eCcEmailAddresses.\u003c/b\u003e The AWS Support Center \u003cb\u003eCC\u003c/b\u003e field on the \u003ca href=\"https://aws.amazon.com/support/createCase\"\u003eOpen a new case\u003c/a\u003e page. You can list email addresses to be copied on any correspondence about the case. The account that opens the case is already identified by passing the AWS Credentials in the HTTP POST method or in a method or function call from one of the programming languages supported by an \u003ca href=\"http://aws.amazon.com/tools/\"\u003eAWS SDK\u003c/a\u003e. \u003c/li\u003e \u003c/ol\u003e \u003cp\u003eA successful \u003ca\u003eCreateCase\u003c/a\u003e request returns an AWS Support case number. Case numbers are used by the \u003ca\u003eDescribeCases\u003c/a\u003e operation to retrieve existing AWS Support cases. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4183,9 +4189,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeAttachment",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the attachment that has the specified ID. Attachment IDs are generated by the case management system when you add an attachment to a case or case communication. Attachment IDs are returned in the \u003ca\u003eAttachmentDetails\u003c/a\u003e objects that are returned by the \u003ca\u003eDescribeCommunications\u003c/a\u003e operation.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4416,6 +4424,7 @@
             "name": "DescribeCases",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list of cases that you specify by passing one or more case IDs. In addition, you can filter the cases by date by setting values for the \u003ccode\u003eAfterTime\u003c/code\u003e and \u003ccode\u003eBeforeTime\u003c/code\u003e request parameters. \u003c/p\u003e \u003cp\u003eCase data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error. \u003c/p\u003e \u003cp\u003eThe response returns the following in JSON format:\u003c/p\u003e \u003col\u003e \u003cli\u003eOne or more \u003ca\u003eCaseDetails\u003c/a\u003e data types. \u003c/li\u003e \u003cli\u003eOne or more \u003ccode\u003eNextToken\u003c/code\u003e values, which specify where to paginate the returned records represented by the \u003ccode\u003eCaseDetails\u003c/code\u003e objects.\u003c/li\u003e \u003c/ol\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4965,6 +4974,7 @@
             "name": "DescribeCommunications",
             "method": "post",
             "documentation": "\u003cp\u003eReturns communications (and attachments) for one or more support cases. You can use the \u003ccode\u003eAfterTime\u003c/code\u003e and \u003ccode\u003eBeforeTime\u003c/code\u003e parameters to filter by date. You can use the \u003ccode\u003eCaseId\u003c/code\u003e parameter to restrict the results to a particular case.\u003c/p\u003e \u003cp\u003eCase data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error. \u003c/p\u003e \u003cp\u003eYou can use the \u003ccode\u003eMaxResults\u003c/code\u003e and \u003ccode\u003eNextToken\u003c/code\u003e parameters to control the pagination of the result set. Set \u003ccode\u003eMaxResults\u003c/code\u003e to the number of cases you want displayed on each page, and use \u003ccode\u003eNextToken\u003c/code\u003e to specify the resumption of pagination.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5311,9 +5321,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeServices",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the current list of AWS services and a list of service categories that applies to each one. You then use service names and categories in your \u003ca\u003eCreateCase\u003c/a\u003e requests. Each AWS service has its own set of categories.\u003c/p\u003e \u003cp\u003eThe service codes and category codes correspond to the values that are displayed in the \u003cb\u003eService\u003c/b\u003e and \u003cb\u003eCategory\u003c/b\u003e drop-down lists on the AWS Support Center \u003ca href=\"https://aws.amazon.com/support/createCase\"\u003eOpen a new case\u003c/a\u003e page. The values in those fields, however, do not necessarily match the service codes and categories returned by the \u003ccode\u003eDescribeServices\u003c/code\u003e request. Always use the service codes and categories obtained programmatically. This practice ensures that you always have the most recent set of service and category codes.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5533,9 +5545,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeSeverityLevels",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the list of severity levels that you can assign to an AWS Support case. The severity level for a case is also a field in the \u003ca\u003eCaseDetails\u003c/a\u003e data type included in any \u003ca\u003eCreateCase\u003c/a\u003e request. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5729,9 +5743,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeTrustedAdvisorCheckRefreshStatuses",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the refresh status of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5924,9 +5940,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeTrustedAdvisorCheckResult",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the results of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eThe response contains a \u003ca\u003eTrustedAdvisorCheckResult\u003c/a\u003e object, which contains these three objects:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003ca\u003eTrustedAdvisorCategorySpecificSummary\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca\u003eTrustedAdvisorResourceDetail\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca\u003eTrustedAdvisorResourcesSummary\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIn addition, the response contains these fields:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eStatus.\u003c/b\u003e The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimestamp.\u003c/b\u003e The time of the last refresh of the check.\u003c/li\u003e \u003cli\u003e \u003cb\u003eCheckId.\u003c/b\u003e The unique identifier for the check.\u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6147,9 +6165,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeTrustedAdvisorCheckSummaries",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the summaries of the results of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eThe response contains an array of \u003ca\u003eTrustedAdvisorCheckSummary\u003c/a\u003e objects.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6344,9 +6364,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "DescribeTrustedAdvisorChecks",
             "method": "post",
             "documentation": "\u003cp\u003eReturns information about all available Trusted Advisor checks, including name, ID, category, description, and metadata. You must specify a language code; English (\"en\") and Japanese (\"ja\") are currently supported. The response contains a \u003ca\u003eTrustedAdvisorCheckDescription\u003c/a\u003e for each check.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6539,9 +6561,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "RefreshTrustedAdvisorCheck",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a refresh of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eThe response contains a \u003ca\u003eRefreshTrustedAdvisorCheckResult\u003c/a\u003e object, which contains these fields:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eStatus.\u003c/b\u003e The refresh status of the check: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".\u003c/li\u003e \u003cli\u003e \u003cb\u003eMillisUntilNextRefreshable.\u003c/b\u003e The amount of time, in milliseconds, until the check is eligible for refresh.\u003c/li\u003e \u003cli\u003e \u003cb\u003eCheckId.\u003c/b\u003e The unique identifier for the check.\u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6762,9 +6786,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Support.Types"
             ],
+            "pager": null,
             "name": "ResolveCase",
             "method": "post",
             "documentation": "\u003cp\u003eTakes a \u003ccode\u003eCaseId\u003c/code\u003e and returns the initial state of the case along with the state of the case after the call to \u003ca\u003eResolveCase\u003c/a\u003e completed.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

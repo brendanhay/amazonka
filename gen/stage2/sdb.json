@@ -24,8 +24,10 @@
         "version": "2009-04-15",
         "documentation": "Amazon SimpleDB is a highly available and flexible non-relational data store that offloads the work of database administration. Developers simply store and query data items via web services requests and Amazon SimpleDB does the rest. Unbound by the strict requirements of a relational database, Amazon SimpleDB is optimized to provide high availability and flexibility, with little or no administrative burden. Behind the scenes, Amazon SimpleDB creates and manages multiple geographically distributed replicas of your data automatically to enable high availability and data durability. The service charges you only for the resources actually consumed in storing your data and serving your requests. You can change your data model on the fly, and data is automatically indexed for you. With Amazon SimpleDB, you can focus on application development without worrying about infrastructure provisioning, high availability, software maintenance, schema and index management, or performance tuning.",
         "xmlNamespace": "http://sdb.amazonaws.com/doc/2009-04-15/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "sdb"
+        "endpointPrefix": "sdb",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -688,9 +690,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "BatchDeleteAttributes",
             "method": "post",
             "documentation": "\u003cp\u003e Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e1 MB request size\u003c/li\u003e \u003cli\u003e25 item limit per BatchDeleteAttributes operation\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -828,9 +832,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "BatchPutAttributes",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple \u003ca\u003ePutAttribute\u003c/a\u003e operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. \u003c/p\u003e \u003cp\u003e The client may specify the item name with the \u003ccode\u003eItem.X.ItemName\u003c/code\u003e parameter. The client may specify new attributes using a combination of the \u003ccode\u003eItem.X.Attribute.Y.Name\u003c/code\u003e and \u003ccode\u003eItem.X.Attribute.Y.Value\u003c/code\u003e parameters. The client may specify the first attribute for the first item using the parameters \u003ccode\u003eItem.0.Attribute.0.Name\u003c/code\u003e and \u003ccode\u003eItem.0.Attribute.0.Value\u003c/code\u003e, and for the second attribute for the first item by the parameters \u003ccode\u003eItem.0.Attribute.1.Name\u003c/code\u003e and \u003ccode\u003eItem.0.Attribute.1.Value\u003c/code\u003e, and so on. \u003c/p\u003e \u003cp\u003e Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes \u003ccode\u003e{ \"first_name\", \"first_value\" }\u003c/code\u003e and \u003ccode\u003e{ \"first_name\", \"second_value\" }\u003c/code\u003e. However, it cannot have two attribute instances where both the \u003ccode\u003eItem.X.Attribute.Y.Name\u003c/code\u003e and \u003ccode\u003eItem.X.Attribute.Y.Value\u003c/code\u003e are the same. \u003c/p\u003e \u003cp\u003e Optionally, the requester can supply the \u003ccode\u003eReplace\u003c/code\u003e parameter for each individual value. Setting this value to \u003ccode\u003etrue\u003c/code\u003e will cause the new attribute values to replace the existing attribute values. For example, if an item \u003ccode\u003eI\u003c/code\u003e has the attributes \u003ccode\u003e{ 'a', '1' }, { 'b', '2'}\u003c/code\u003e and \u003ccode\u003e{ 'b', '3' }\u003c/code\u003e and the requester does a BatchPutAttributes of \u003ccode\u003e{'I', 'b', '4' }\u003c/code\u003e with the Replace parameter set to true, the final attributes of the item will be \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e and \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e, replacing the previous values of the 'b' attribute with the new value. \u003c/p\u003e \u003cimportant\u003e This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using \u003ccode\u003eExpected.X.Name\u003c/code\u003e, \u003ccode\u003eExpected.X.Value\u003c/code\u003e, or \u003ccode\u003eExpected.X.Exists\u003c/code\u003e. \u003c/important\u003e \u003cp\u003e You can execute multiple \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operations and other operations in parallel. However, large numbers of concurrent \u003ccode\u003eBatchPutAttributes\u003c/code\u003e calls can result in Service Unavailable (503) responses. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e256 attribute name-value pairs per item\u003c/li\u003e \u003cli\u003e1 MB request size\u003c/li\u003e \u003cli\u003e1 billion attributes per domain\u003c/li\u003e \u003cli\u003e10 GB of total user data storage per domain\u003c/li\u003e \u003cli\u003e25 item limit per \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operation\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -968,9 +974,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "CreateDomain",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eCreateDomain\u003c/code\u003e operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The \u003ccode\u003eCreateDomain\u003c/code\u003e operation may take 10 or more seconds to complete. \u003c/p\u003e \u003cp\u003e The client can create up to 100 domains per account. \u003c/p\u003e \u003cp\u003e If the client requires additional domains, go to \u003ca href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\"\u003e http://aws.amazon.com/contact-us/simpledb-limit-request/\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1092,9 +1100,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "DeleteAttributes",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. \u003c/p\u003e \u003cp\u003e \u003ccode\u003eDeleteAttributes\u003c/code\u003e is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. \u003c/p\u003e \u003cp\u003e Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a \u003ca\u003eGetAttributes\u003c/a\u003e or \u003ca\u003eSelect\u003c/a\u003e operation (read) immediately after a \u003ccode\u003eDeleteAttributes\u003c/code\u003e or \u003ca\u003ePutAttributes\u003c/a\u003e operation (write) might not return updated item data. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1298,9 +1308,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "DeleteDomain",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eDeleteDomain\u003c/code\u003e operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The \u003ccode\u003eDeleteDomain\u003c/code\u003e operation might take 10 or more seconds to complete. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1623,9 +1635,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "DomainMetadata",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -1796,9 +1810,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "GetAttributes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. \u003c/p\u003e \u003cp\u003e If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2075,6 +2091,7 @@
             "name": "ListDomains",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eListDomains\u003c/code\u003e operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by \u003ca href=\"#MaxNumberOfDomains\"\u003eMaxNumberOfDomains\u003c/a\u003e. A \u003ca href=\"#NextToken\"\u003eNextToken\u003c/a\u003e is returned if there are more than \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e domains. Calling \u003ccode\u003eListDomains\u003c/code\u003e successive times with the \u003ccode\u003eNextToken\u003c/code\u003e provided by the operation returns up to \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e more domain names with each successive operation call. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2212,9 +2229,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.SDB.Types"
             ],
+            "pager": null,
             "name": "PutAttributes",
             "method": "post",
             "documentation": "\u003cp\u003e The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the \u003ccode\u003eAttribute.X.Name\u003c/code\u003e and \u003ccode\u003eAttribute.X.Value\u003c/code\u003e parameters. The client specifies the first attribute by the parameters \u003ccode\u003eAttribute.0.Name\u003c/code\u003e and \u003ccode\u003eAttribute.0.Value\u003c/code\u003e, the second attribute by the parameters \u003ccode\u003eAttribute.1.Name\u003c/code\u003e and \u003ccode\u003eAttribute.1.Value\u003c/code\u003e, and so on. \u003c/p\u003e \u003cp\u003e Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes \u003ccode\u003e{ \"first_name\", \"first_value\" }\u003c/code\u003e and \u003ccode\u003e{ \"first_name\", second_value\" }\u003c/code\u003e. However, it cannot have two attribute instances where both the \u003ccode\u003eAttribute.X.Name\u003c/code\u003e and \u003ccode\u003eAttribute.X.Value\u003c/code\u003e are the same. \u003c/p\u003e \u003cp\u003e Optionally, the requestor can supply the \u003ccode\u003eReplace\u003c/code\u003e parameter for each individual attribute. Setting this value to \u003ccode\u003etrue\u003c/code\u003e causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e, \u003ccode\u003e{ 'b', '2'}\u003c/code\u003e and \u003ccode\u003e{ 'b', '3' }\u003c/code\u003e and the requestor calls \u003ccode\u003ePutAttributes\u003c/code\u003e using the attributes \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e with the \u003ccode\u003eReplace\u003c/code\u003e parameter set to true, the final attributes of the item are changed to \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e and \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e, which replaces the previous values of the 'b' attribute with the new value. \u003c/p\u003e \u003cp\u003e You cannot specify an empty string as an attribute name. \u003c/p\u003e \u003cp\u003e Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate \u003ca\u003eGetAttributes\u003c/a\u003e or \u003ca\u003eSelect\u003c/a\u003e operation (read) immediately after a \u003ca\u003ePutAttributes\u003c/a\u003e or \u003ca\u003eDeleteAttributes\u003c/a\u003e operation (write) might not return the updated data. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e256 total attribute name-value pairs per item\u003c/li\u003e \u003cli\u003eOne billion attributes per domain\u003c/li\u003e \u003cli\u003e10 GB of total user data storage per domain\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2489,6 +2508,7 @@
             "name": "Select",
             "method": "post",
             "documentation": "\u003cp\u003e The \u003ccode\u003eSelect\u003c/code\u003e operation returns a set of attributes for \u003ccode\u003eItemNames\u003c/code\u003e that match the select expression. \u003ccode\u003eSelect\u003c/code\u003e is similar to the standard SQL SELECT statement. \u003c/p\u003e \u003cp\u003e The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate \u003ccode\u003eNextToken\u003c/code\u003e so the client can access the next page of results. \u003c/p\u003e \u003cp\u003e For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

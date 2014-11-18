@@ -3954,9 +3954,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "BatchGetApplications",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about one or more applications.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4151,9 +4153,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "BatchGetDeployments",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about one or more deployments.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4348,9 +4352,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "CreateApplication",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new application.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4545,9 +4551,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "CreateDeployment",
             "method": "post",
             "documentation": "\u003cp\u003eDeploys an application revision to the specified deployment group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4935,9 +4943,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "CreateDeploymentConfig",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new deployment configuration.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5157,9 +5167,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "CreateDeploymentGroup",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new deployment group for application revisions to be deployed to.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5483,9 +5495,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "DeleteApplication",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes an application.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5616,9 +5630,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "DeleteDeploymentConfig",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a deployment configuration.\u003c/p\u003e \u003cnote\u003eA deployment configuration cannot be deleted if it is currently in use. Also, predefined configurations cannot be deleted.\u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5813,9 +5829,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "DeleteDeploymentGroup",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a deployment group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6033,9 +6051,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "GetApplication",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about an application.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6297,9 +6317,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "GetApplicationRevision",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about an application revision.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6516,9 +6538,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "GetDeployment",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about a deployment.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6711,9 +6735,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "GetDeploymentConfig",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about a deployment configuration.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6906,9 +6932,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "GetDeploymentGroup",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about a deployment group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7126,9 +7154,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "GetDeploymentInstance",
             "method": "post",
             "documentation": "\u003cp\u003eGets information about an Amazon EC2 instance as part of a deployment.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7373,9 +7403,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "ListApplicationRevisions",
             "method": "post",
             "documentation": "\u003cp\u003eLists information about revisions for an application.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7832,9 +7864,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "ListApplications",
             "method": "post",
             "documentation": "\u003cp\u003eLists the applications registered within the AWS user account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8054,9 +8088,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "ListDeploymentConfigs",
             "method": "post",
             "documentation": "\u003cp\u003eLists the deployment configurations within the AWS user account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8318,9 +8354,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "ListDeploymentGroups",
             "method": "post",
             "documentation": "\u003cp\u003eLists the deployment groups for an application registered within the AWS user account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8567,9 +8605,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "ListDeploymentInstances",
             "method": "post",
             "documentation": "\u003cp\u003eLists the Amazon EC2 instances for a deployment within the AWS user account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8858,9 +8898,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "ListDeployments",
             "method": "post",
             "documentation": "\u003cp\u003eLists the deployments under a deployment group for an application registered within the AWS user account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9141,9 +9183,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "RegisterApplicationRevision",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters with AWS CodeDeploy a revision for the specified application.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9431,9 +9475,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "StopDeployment",
             "method": "post",
             "documentation": "\u003cp\u003eAttempts to stop an ongoing deployment.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9564,9 +9610,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "UpdateApplication",
             "method": "post",
             "documentation": "\u003cp\u003eChanges an existing application's name.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9786,9 +9834,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.CodeDeploy.Types"
             ],
+            "pager": null,
             "name": "UpdateDeploymentGroup",
             "method": "post",
             "documentation": "\u003cp\u003eChanges information about an existing deployment group.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

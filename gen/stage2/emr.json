@@ -8774,9 +8774,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "AddInstanceGroups",
             "method": "post",
             "documentation": "\u003cp\u003eAddInstanceGroups adds an instance group to a running cluster.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8997,9 +8999,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "AddJobFlowSteps",
             "method": "post",
             "documentation": "\u003cp\u003e AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps are allowed in each job flow. \u003c/p\u003e \u003cp\u003eIf your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html\"\u003eAdd More than 256 Steps to a Job Flow\u003c/a\u003e in the \u003ci\u003eAmazon Elastic MapReduce Developer's Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e A step specifies the location of a JAR file stored either on the master node of the job flow or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step. \u003c/p\u003e \u003cp\u003e Elastic MapReduce executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully. \u003c/p\u003e \u003cp\u003e You can only add steps to a job flow that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9155,9 +9159,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "AddTags",
             "method": "post",
             "documentation": "\u003cp\u003eAdds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html\"\u003eTagging Amazon EMR Resources\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9375,9 +9381,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "DescribeCluster",
             "method": "post",
             "documentation": "\u003cp\u003eProvides cluster-level details including status, hardware and software configuration, VPC settings, and so on. For information about the cluster steps, see \u003ca\u003eListSteps\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9572,9 +9580,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "DescribeJobFlows",
             "method": "post",
             "documentation": "\u003cp\u003e This API is deprecated and will eventually be removed. We recommend you use \u003ca\u003eListClusters\u003c/a\u003e, \u003ca\u003eDescribeCluster\u003c/a\u003e, \u003ca\u003eListSteps\u003c/a\u003e, \u003ca\u003eListInstanceGroups\u003c/a\u003e and \u003ca\u003eListBootstrapActions\u003c/a\u003e instead.\u003c/p\u003e \u003cp\u003e DescribeJobFlows returns a list of job flows that match all of the supplied parameters. The parameters can include a list of job flow IDs, job flow states, and restrictions on job flow creation date and time.\u003c/p\u003e \u003cp\u003e Regardless of supplied parameters, only job flows created within the last two months are returned.\u003c/p\u003e \u003cp\u003e If no parameters are supplied, then job flows matching either of the following criteria are returned:\u003c/p\u003e \u003cul\u003e \u003cli\u003eJob flows created and completed in the last two weeks\u003c/li\u003e \u003cli\u003e Job flows created within the last two months that are in one of the following states: \u003ccode\u003eRUNNING\u003c/code\u003e, \u003ccode\u003eWAITING\u003c/code\u003e, \u003ccode\u003eSHUTTING_DOWN\u003c/code\u003e, \u003ccode\u003eSTARTING\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9876,9 +9886,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "DescribeStep",
             "method": "post",
             "documentation": "\u003cp\u003eProvides more detail about the cluster step.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10134,6 +10146,7 @@
             "name": "ListBootstrapActions",
             "method": "post",
             "documentation": "\u003cp\u003eProvides information about the bootstrap actions associated with a cluster.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10390,6 +10403,7 @@
             "name": "ListClusters",
             "method": "post",
             "documentation": "\u003cp\u003eProvides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10729,6 +10743,7 @@
             "name": "ListInstanceGroups",
             "method": "post",
             "documentation": "\u003cp\u003eProvides all available details about the instance groups in a cluster.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10985,6 +11000,7 @@
             "name": "ListInstances",
             "method": "post",
             "documentation": "\u003cp\u003eProvides information about the cluster instances that Amazon EMR provisions on behalf of a user when it creates the cluster. For example, this operation indicates when the EC2 instances reach the Ready state, when instances become available to Amazon EMR to use for jobs, and the IP addresses for cluster instances, etc. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11325,6 +11341,7 @@
             "name": "ListSteps",
             "method": "post",
             "documentation": "\u003cp\u003eProvides a list of steps for the cluster. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11523,9 +11540,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "ModifyInstanceGroups",
             "method": "post",
             "documentation": "\u003cp\u003eModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11655,9 +11674,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "RemoveTags",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html\"\u003eTagging Amazon EMR Resources\u003c/a\u003e. \u003c/p\u003e \u003cp\u003eThe following example removes the stack tag with value Prod from a cluster:\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11878,9 +11899,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "RunJobFlow",
             "method": "post",
             "documentation": "\u003cp\u003e RunJobFlow creates and starts running a new job flow. The job flow will run the steps specified. Once the job flow completes, the cluster is stopped and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the \u003ca\u003eJobFlowInstancesConfig\u003c/a\u003e \u003ccode\u003eKeepJobFlowAliveWhenNoSteps\u003c/code\u003e parameter is set to \u003ccode\u003eTRUE\u003c/code\u003e, the job flow will transition to the WAITING state rather than shutting down once the steps have completed. \u003c/p\u003e \u003cp\u003eFor additional protection, you can set the \u003ca\u003eJobFlowInstancesConfig\u003c/a\u003e \u003ccode\u003eTerminationProtected\u003c/code\u003e parameter to \u003ccode\u003eTRUE\u003c/code\u003e to lock the job flow and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.\u003c/p\u003e \u003cp\u003eA maximum of 256 steps are allowed in each job flow.\u003c/p\u003e \u003cp\u003eIf your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html\"\u003eAdd More than 256 Steps to a Job Flow\u003c/a\u003e in the \u003ci\u003eAmazon Elastic MapReduce Developer's Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eFor long running job flows, we recommend that you periodically store your results.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12498,9 +12521,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "SetTerminationProtection",
             "method": "post",
             "documentation": "\u003cp\u003e SetTerminationProtection locks a job flow so the Amazon EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling SetTerminationProtection on a job flow is analogous to calling the Amazon EC2 DisableAPITermination API on all of the EC2 instances in a cluster.\u003c/p\u003e \u003cp\u003e SetTerminationProtection is used to prevent accidental termination of a job flow and to ensure that in the event of an error, the instances will persist so you can recover any data stored in their ephemeral instance storage.\u003c/p\u003e \u003cp\u003e To terminate a job flow that has been locked by setting SetTerminationProtection to \u003ccode\u003etrue\u003c/code\u003e, you must first unlock the job flow by a subsequent call to SetTerminationProtection in which you set the value to \u003ccode\u003efalse\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e For more information, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html\"\u003eProtecting a Job Flow from Termination\u003c/a\u003e in the \u003ci\u003eAmazon Elastic MapReduce Developer's Guide.\u003c/i\u003e\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12657,9 +12682,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "SetVisibleToAllUsers",
             "method": "post",
             "documentation": "\u003cp\u003eSets whether all AWS Identity and Access Management (IAM) users under your account can access the specified job flows. This action works on running job flows. You can also set the visibility of a job flow when you launch it using the \u003ccode\u003eVisibleToAllUsers\u003c/code\u003e parameter of \u003ca\u003eRunJobFlow\u003c/a\u003e. The SetVisibleToAllUsers action can be called only by an IAM user who created the job flow or the AWS account that owns the job flow.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12816,9 +12843,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.EMR.Types"
             ],
+            "pager": null,
             "name": "TerminateJobFlows",
             "method": "post",
             "documentation": "\u003cp\u003e TerminateJobFlows shuts a list of job flows down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the job flow is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the job flow was created. \u003c/p\u003e \u003cp\u003e The call to TerminateJobFlows is asynchronous. Depending on the configuration of the job flow, it may take up to 5-20 minutes for the job flow to completely terminate and release allocated resources, such as Amazon EC2 instances. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

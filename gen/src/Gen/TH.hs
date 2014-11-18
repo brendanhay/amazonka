@@ -62,7 +62,7 @@ aeson :: TH -> A.Options
 aeson th = A.defaultOptions
     { A.constructorTagModifier = text (_thCtor th)
     , A.fieldLabelModifier     = text (_thField th)
-    , A.omitNothingFields      = True
+    , A.omitNothingFields      = False
     , A.allNullaryToStringTag  = True
     , A.sumEncoding            =
         A.defaultTaggedObject

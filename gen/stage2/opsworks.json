@@ -11129,9 +11129,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "AssignVolume",
             "method": "post",
             "documentation": "\u003cp\u003eAssigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must first be registered with the stack by calling \u003ca\u003eRegisterVolume\u003c/a\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11288,9 +11290,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "AssociateElasticIp",
             "method": "post",
             "documentation": "\u003cp\u003eAssociates one of the stack's registered Elastic IP addresses with a specified instance. The address must first be registered with the stack by calling \u003ca\u003eRegisterElasticIp\u003c/a\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11447,9 +11451,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "AttachElasticLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003eAttaches an Elastic Load Balancing load balancer to a specified layer. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/load-balancer-elb.html\"\u003eElastic Load Balancing\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11669,9 +11675,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CloneStack",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a clone of a specified stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html\"\u003eClone a Stack\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12689,9 +12697,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CreateApp",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an app for a specified stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html\"\u003eCreating Apps\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13289,9 +13299,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CreateDeployment",
             "method": "post",
             "documentation": "\u003cp\u003eDeploys a stack or app.\u003c/p\u003e \u003cul\u003e \u003cli\u003eApp deployment generates a \u003ccode\u003edeploy\u003c/code\u003e event, which runs the associated recipes and passes them a JSON stack configuration object that includes information about the app. \u003c/li\u003e \u003cli\u003eStack deployment runs the \u003ccode\u003edeploy\u003c/code\u003e recipes but does not raise an event.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html\"\u003eDeploying Apps\u003c/a\u003e and \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html\"\u003eRun Stack Commands\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13679,9 +13691,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CreateInstance",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an instance in a specified stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html\"\u003eAdding an Instance to a Layer\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14448,9 +14462,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CreateLayer",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a layer. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html\"\u003eHow to Create a Layer\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15216,9 +15232,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CreateStack",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html\"\u003eCreate a New Stack\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16110,9 +16128,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "CreateUserProfile",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a new user profile.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16353,9 +16373,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeleteApp",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a specified app.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16486,9 +16508,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeleteInstance",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a specified instance. You must stop an instance before you can delete it. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html\"\u003eDeleting Instances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16687,9 +16711,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeleteLayer",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a specified layer. You must first stop and then delete all associated instances. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html\"\u003eHow to Delete a Layer\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16820,9 +16846,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeleteStack",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a specified stack. You must first delete all instances, layers, and apps. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html\"\u003eShut Down a Stack\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16953,9 +16981,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeleteUserProfile",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a user profile.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17086,9 +17116,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeregisterElasticIp",
             "method": "post",
             "documentation": "\u003cp\u003eDeregisters a specified Elastic IP address. The address can then be registered by another stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17219,9 +17251,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeregisterRdsDbInstance",
             "method": "post",
             "documentation": "\u003cp\u003eDeregisters an Amazon RDS instance.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17352,9 +17386,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DeregisterVolume",
             "method": "post",
             "documentation": "\u003cp\u003eDeregisters an Amazon EBS volume. The volume can then be registered by another stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17549,9 +17585,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeApps",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a description of a specified set of apps.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17771,9 +17809,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeCommands",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the results of specified commands.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18035,9 +18075,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeDeployments",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a description of a specified set of deployments.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18299,9 +18341,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeElasticIps",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\"\u003eElastic IP addresses\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18563,9 +18607,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeElasticLoadBalancers",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes a stack's Elastic Load Balancing instances.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18785,9 +18831,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeInstances",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a description of a set of instances.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19049,9 +19097,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeLayers",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a description of one or more layers in a specified stack.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19271,9 +19321,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeLoadBasedAutoScaling",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes load-based auto scaling configurations for specified layers.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19466,9 +19518,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeMyUserProfile",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes a user's SSH information.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19598,9 +19652,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribePermissions",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the permissions for a specified stack.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19820,9 +19876,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeRaidArrays",
             "method": "post",
             "documentation": "\u003cp\u003eDescribe an instance's RAID arrays.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20042,9 +20100,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeRdsDbInstances",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes Amazon RDS instances.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20265,9 +20325,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeServiceErrors",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes AWS OpsWorks service errors.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20527,9 +20589,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeStackSummary",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the number of layers and apps in a specified stack, and the number of instances in each state, such as \u003ccode\u003erunning_setup\u003c/code\u003e or \u003ccode\u003eonline\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20724,9 +20788,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeStacks",
             "method": "post",
             "documentation": "\u003cp\u003eRequests a description of one or more stacks.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20921,9 +20987,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeTimeBasedAutoScaling",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes time-based auto scaling configurations for specified instances.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21118,9 +21186,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeUserProfiles",
             "method": "post",
             "documentation": "\u003cp\u003eDescribe specified users.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21315,9 +21385,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DescribeVolumes",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes an instance's Amazon EBS volumes.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21557,9 +21629,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DetachElasticLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003eDetaches a specified Elastic Load Balancing instance from its layer.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21715,9 +21789,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "DisassociateElasticIp",
             "method": "post",
             "documentation": "\u003cp\u003eDisassociates an Elastic IP address from its instance. The address remains registered with the stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21938,9 +22014,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "GetHostnameSuggestion",
             "method": "post",
             "documentation": "\u003cp\u003eGets a generated host name for the specified layer, based on the current host name theme.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22071,9 +22149,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "RebootInstance",
             "method": "post",
             "documentation": "\u003cp\u003eReboots a specified instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html\"\u003eStarting, Stopping, and Rebooting Instances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22268,9 +22348,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "RegisterElasticIp",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters an Elastic IP address with a specified stack. An address can be registered with only one stack at a time. If the address is already registered, you must first deregister it by calling \u003ca\u003eDeregisterElasticIp\u003c/a\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22426,9 +22508,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "RegisterRdsDbInstance",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters an Amazon RDS instance with a stack.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22732,9 +22816,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "RegisterVolume",
             "method": "post",
             "documentation": "\u003cp\u003eRegisters an Amazon EBS volume with a specified stack. A volume can be registered with only one stack at a time. If the volume is already registered, you must first deregister it by calling \u003ca\u003eDeregisterVolume\u003c/a\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22891,9 +22977,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "SetLoadBasedAutoScaling",
             "method": "post",
             "documentation": "\u003cp\u003eSpecify the load-based auto scaling configuration for a specified layer. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html\"\u003eManaging Load with Time-based and Load-based Instances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23133,9 +23221,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "SetPermission",
             "method": "post",
             "documentation": "\u003cp\u003eSpecifies a user's permissions. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html\"\u003eSecurity and Permissions\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23418,9 +23508,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "SetTimeBasedAutoScaling",
             "method": "post",
             "documentation": "\u003cp\u003eSpecify the time-based auto scaling configuration for a specified instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html\"\u003eManaging Load with Time-based and Load-based Instances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23576,9 +23668,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "StartInstance",
             "method": "post",
             "documentation": "\u003cp\u003eStarts a specified instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html\"\u003eStarting, Stopping, and Rebooting Instances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23709,9 +23803,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "StartStack",
             "method": "post",
             "documentation": "\u003cp\u003eStarts a stack's instances. \u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23842,9 +23938,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "StopInstance",
             "method": "post",
             "documentation": "\u003cp\u003eStops a specified instance. When you stop a standard instance, the data disappears and must be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without losing data. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html\"\u003eStarting, Stopping, and Rebooting Instances\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23975,9 +24073,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "StopStack",
             "method": "post",
             "documentation": "\u003cp\u003eStops a specified stack.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24108,9 +24208,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UnassignVolume",
             "method": "post",
             "documentation": "\u003cp\u003eUnassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24241,9 +24343,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateApp",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a specified app.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24735,9 +24839,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateElasticIp",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a registered Elastic IP address's name. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -24894,9 +25000,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateInstance",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a specified instance.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -25431,9 +25539,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateLayer",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a specified layer.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26093,9 +26203,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateMyUserProfile",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a user's SSH public key.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26225,9 +26337,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateRdsDbInstance",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates an Amazon RDS instance.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -26426,9 +26540,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateStack",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a specified stack.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -27214,9 +27330,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateUserProfile",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a specified user profile.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -27457,9 +27575,11 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.OpsWorks.Types"
             ],
+            "pager": null,
             "name": "UpdateVolume",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates an Amazon EBS volume's name or mount point. For more information, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\"\u003eResource Management\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003cb\u003eRequired Permissions\u003c/b\u003e: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see \u003ca href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\"\u003eManaging User Permissions\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

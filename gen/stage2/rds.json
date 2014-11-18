@@ -68,8 +68,10 @@
         "version": "2014-09-01",
         "documentation": "Amazon Relational Database Service (Amazon RDS) is a web service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while managing time-consuming database administration tasks, freeing you up to focus on your applications and business.",
         "xmlNamespace": "http://rds.amazonaws.com/doc/2014-09-01/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "rds"
+        "endpointPrefix": "rds",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -7434,9 +7436,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "AddSourceIdentifierToSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eAdds a source identifier to an existing RDS event notification subscription.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7574,9 +7578,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "AddTagsToResource",
             "method": "post",
             "documentation": "\u003cp\u003e Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in Condition statement in IAM policy for Amazon RDS.\u003c/p\u003e \u003cp\u003eFor an overview on tagging Amazon RDS resources, see \u003ca href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html\"\u003eTagging Amazon RDS Resources\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7761,9 +7767,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "AuthorizeDBSecurityGroupIngress",
             "method": "post",
             "documentation": "\u003cp\u003e Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC instances. Second, IP ranges are available if the application accessing your database is running on the Internet. Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC). \u003c/p\u003e \u003cp\u003eFor an overview of CIDR ranges, go to the \u003ca href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\"\u003eWikipedia Tutorial\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8048,9 +8056,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CopyDBParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Copies the specified DBParameterGroup. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8301,9 +8311,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CopyDBSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003e Copies the specified DBSnapshot. The source DBSnapshot must be in the \"available\" state. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8521,9 +8533,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CopyOptionGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Copies the specified Option Group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8774,9 +8788,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateDBInstance",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new DB instance. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9819,9 +9835,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateDBInstanceReadReplica",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a DB instance that acts as a read replica of a source DB instance. \u003c/p\u003e \u003cp\u003e All read replica DB instances are created as Single-AZ deployments with backups disabled. All other DB instance attributes (including DB security groups and DB parameter groups) are inherited from the source DB instance, except as specified below. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003e The source DB instance must have backup retention enabled. \u003c/p\u003e \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10336,9 +10354,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateDBParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new DB parameter group. \u003c/p\u003e \u003cp\u003e A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using \u003ci\u003eModifyDBParameterGroup\u003c/i\u003e. Once you've created a DB parameter group, you need to associate it with your DB instance using \u003ci\u003eModifyDBInstance\u003c/i\u003e. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003eAfter you create a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the \u003ccode\u003echaracter_set_database\u003c/code\u003e parameter. You can use the \u003ci\u003eParameter Groups\u003c/i\u003e option of the \u003ca href=\"https://console.aws.amazon.com/rds/\"\u003eAmazon RDS console\u003c/a\u003e or the \u003ci\u003eDescribeDBParameters\u003c/i\u003e command to verify that your DB parameter group has been created or modified.\u003c/p\u003e \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10589,9 +10609,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateDBSecurityGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new DB security group. DB security groups control access to a DB instance. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10809,9 +10831,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateDBSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a DBSnapshot. The source DBInstance must be in \"available\" state. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11029,9 +11053,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateDBSubnetGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the region. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11282,9 +11308,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateEventSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eCreates an RDS event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by either the RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.\u003c/p\u003e \u003cp\u003eYou can specify the type of source (SourceType) you want to be notified of, provide a list of RDS sources (SourceIds) that triggers the events, and provide a list of event categories (EventCategories) for events you want to be notified of. For example, you can specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and EventCategories = Availability, Backup.\u003c/p\u003e \u003cp\u003eIf you specify both the SourceType and SourceIds, such as SourceType = db-instance and SourceIdentifier = myDBInstance1, you will be notified of all the db-instance events for the specified source. If you specify a SourceType but do not specify a SourceIdentifier, you will receive notice of the events for that source type for all your RDS sources. If you do not specify either the SourceType nor the SourceIdentifier, you will be notified of events generated from all RDS sources belonging to your customer account.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11634,9 +11662,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "CreateOptionGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new option group. You can create up to 20 option groups. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11920,9 +11950,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteDBInstance",
             "method": "post",
             "documentation": "\u003cp\u003e The DeleteDBInstance action deletes a previously provisioned DB instance. A successful response from the web service indicates the request was received correctly. When you delete a DB instance, all automated backups for that instance are deleted and cannot be recovered. Manual DB snapshots of the DB instance to be deleted are not deleted. \u003c/p\u003e \u003cp\u003e If a final DB snapshot is requested the status of the RDS instance will be \"deleting\" until the DB snapshot is created. The API action \u003ccode\u003eDescribeDBInstance\u003c/code\u003e is used to monitor the status of this operation. The action cannot be canceled or reverted once submitted. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12094,9 +12126,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteDBParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted cannot be associated with any DB instances. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12218,9 +12252,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteDBSecurityGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes a DB security group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12389,9 +12425,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteDBSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is terminated. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12513,9 +12551,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteDBSubnetGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes a DB subnet group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12684,9 +12724,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteEventSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes an RDS event notification subscription.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12808,9 +12850,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DeleteOptionGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes an existing option group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13003,6 +13047,7 @@
             "name": "DescribeDBEngineVersions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of the available DB engines. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13408,6 +13453,7 @@
             "name": "DescribeDBInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about provisioned RDS instances. This API supports pagination. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13681,6 +13727,7 @@
             "name": "DescribeDBLogFiles",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of DB log files for the DB instance. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14054,6 +14101,7 @@
             "name": "DescribeDBParameterGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of \u003ccode\u003eDBParameterGroup\u003c/code\u003e descriptions. If a \u003ccode\u003eDBParameterGroupName\u003c/code\u003e is specified, the list will contain only the description of the specified DB parameter group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14327,6 +14375,7 @@
             "name": "DescribeDBParameters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the detailed parameter list for a particular DB parameter group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14634,6 +14683,7 @@
             "name": "DescribeDBSecurityGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of \u003ccode\u003eDBSecurityGroup\u003c/code\u003e descriptions. If a \u003ccode\u003eDBSecurityGroupName\u003c/code\u003e is specified, the list will contain only the descriptions of the specified DB security group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -14907,6 +14957,7 @@
             "name": "DescribeDBSnapshots",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about DB snapshots. This API supports pagination. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15246,6 +15297,7 @@
             "name": "DescribeDBSubnetGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup. \u003c/p\u003e \u003cp\u003eFor an overview of CIDR ranges, go to the \u003ca href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\"\u003eWikipedia Tutorial\u003c/a\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15506,6 +15558,7 @@
             "name": "DescribeEngineDefaultParameters",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the default engine and system parameter information for the specified database engine. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15758,9 +15811,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "DescribeEventCategories",
             "method": "post",
             "documentation": "\u003cp\u003eDisplays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the \u003ca href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html\"\u003e Events\u003c/a\u003e topic in the Amazon RDS User Guide.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -15968,6 +16023,7 @@
             "name": "DescribeEventSubscriptions",
             "method": "post",
             "documentation": "\u003cp\u003eLists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status. \u003c/p\u003e \u003cp\u003eIf you specify a SubscriptionName, lists the description for that subscription.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16241,6 +16297,7 @@
             "name": "DescribeEvents",
             "method": "post",
             "documentation": "\u003cp\u003e Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16679,6 +16736,7 @@
             "name": "DescribeOptionGroupOptions",
             "method": "post",
             "documentation": "\u003cp\u003e Describes all available options. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -16986,6 +17044,7 @@
             "name": "DescribeOptionGroups",
             "method": "post",
             "documentation": "\u003cp\u003e Describes the available option groups. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17325,6 +17384,7 @@
             "name": "DescribeOrderableDBInstanceOptions",
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of orderable DB instance options for the specified engine. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -17731,6 +17791,7 @@
             "name": "DescribeReservedDBInstances",
             "method": "post",
             "documentation": "\u003cp\u003e Returns information about reserved DB instances for this account, or about a specified reserved DB instance. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18202,6 +18263,7 @@
             "name": "DescribeReservedDBInstancesOfferings",
             "method": "post",
             "documentation": "\u003cp\u003e Lists available reserved DB instance offerings. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18669,6 +18731,7 @@
             "name": "DownloadDBLogFilePortion",
             "method": "post",
             "documentation": "\u003cp\u003e Downloads all or a portion of the specified log file. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -18922,9 +18985,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ListTagsForResource",
             "method": "post",
             "documentation": "\u003cp\u003e Lists all tags on an Amazon RDS resource.\u003c/p\u003e \u003cp\u003eFor an overview on tagging an Amazon RDS resource, see \u003ca href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html\"\u003eTagging Amazon RDS Resources\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19109,9 +19174,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ModifyDBInstance",
             "method": "post",
             "documentation": "\u003cp\u003e Modify settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -19926,9 +19993,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ModifyDBParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Modifies the parameters of a DB parameter group. To modify more than one parameter, submit a list of the following: \u003ccode\u003eParameterName\u003c/code\u003e, \u003ccode\u003eParameterValue\u003c/code\u003e, and \u003ccode\u003eApplyMethod\u003c/code\u003e. A maximum of 20 parameters can be modified in a single request. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003eAfter you modify a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon RDS to fully complete the modify action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the \u003ccode\u003echaracter_set_database\u003c/code\u003e parameter. You can use the \u003ci\u003eParameter Groups\u003c/i\u003e option of the \u003ca href=\"https://console.aws.amazon.com/rds/\"\u003eAmazon RDS console\u003c/a\u003e or the \u003ci\u003eDescribeDBParameters\u003c/i\u003e command to verify that your DB parameter group has been created or modified.\u003c/p\u003e \u003c/important\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20113,9 +20182,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ModifyDBSubnetGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the region. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20334,9 +20405,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ModifyEventSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eModifies an existing RDS event notification subscription. Note that you cannot modify the source identifiers using this call; to change source identifiers for a subscription, use the \u003ca\u003eAddSourceIdentifierToSubscription\u003c/a\u003e and \u003ca\u003eRemoveSourceIdentifierFromSubscription\u003c/a\u003e calls.\u003c/p\u003e \u003cp\u003eYou can see a list of the event categories for a given SourceType in the \u003ca href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html\"\u003eEvents\u003c/a\u003e topic in the Amazon RDS User Guide or by using the \u003cb\u003eDescribeEventCategories\u003c/b\u003e action.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20621,9 +20694,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ModifyOptionGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Modifies an existing option group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -20874,9 +20949,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "PromoteReadReplica",
             "method": "post",
             "documentation": "\u003cp\u003e Promotes a read replica DB instance to a standalone DB instance. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21095,9 +21172,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "PurchaseReservedDBInstancesOffering",
             "method": "post",
             "documentation": "\u003cp\u003e Purchases a reserved DB instance offering. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21348,9 +21427,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "RebootDBInstance",
             "method": "post",
             "documentation": "\u003cp\u003e Rebooting a DB instance restarts the database engine service. A reboot also applies to the DB instance any modifications to the associated DB parameter group that were pending. Rebooting a DB instance results in a momentary outage of the instance, during which the DB instance status is set to rebooting. If the RDS instance is configured for MultiAZ, it is possible that the reboot will be conducted through a failover. An Amazon RDS event is created when the reboot is completed. \u003c/p\u003e \u003cp\u003e If your DB instance is deployed in multiple Availability Zones, you can force a failover from one AZ to the other during the reboot. You might force a failover to test the availability of your DB instance deployment or to restore operations to the original AZ after a failover occurs. \u003c/p\u003e \u003cp\u003e The time required to reboot is a function of the specific database engine's crash recovery process. To improve the reboot time, we recommend that you reduce database activities as much as possible during the reboot process to reduce rollback activity for in-transit transactions. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21536,9 +21617,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "RemoveSourceIdentifierFromSubscription",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves a source identifier from an existing RDS event notification subscription.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21676,9 +21759,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "RemoveTagsFromResource",
             "method": "post",
             "documentation": "\u003cp\u003e Removes metadata tags from an Amazon RDS resource.\u003c/p\u003e \u003cp\u003eFor an overview on tagging an Amazon RDS resource, see \u003ca href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html\"\u003eTagging Amazon RDS Resources\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -21866,9 +21951,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "ResetDBParameterGroup",
             "method": "post",
             "documentation": "\u003cp\u003e Modifies the parameters of a DB parameter group to the engine/system default value. To reset specific parameters submit a list of the following: \u003ccode\u003eParameterName\u003c/code\u003e and \u003ccode\u003eApplyMethod\u003c/code\u003e. To reset the entire DB parameter group, specify the \u003ccode\u003eDBParameterGroup\u003c/code\u003e name and \u003ccode\u003eResetAllParameters\u003c/code\u003e parameters. When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to \u003ccode\u003epending-reboot\u003c/code\u003e to take effect on the next DB instance restart or \u003ccode\u003eRebootDBInstance\u003c/code\u003e request. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22086,9 +22173,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "RestoreDBInstanceFromDBSnapshot",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the same configuration as the original source database, except that the new RDS instance is created with the default security group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -22801,9 +22890,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "RestoreDBInstanceToPointInTime",
             "method": "post",
             "documentation": "\u003cp\u003e Restores a DB instance to an arbitrary point-in-time. Users can restore to any point in time before the latestRestorableTime for up to backupRetentionPeriod days. The target database is created from the source database with the same configuration as the original database except that the DB instance is created with the default DB security group. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -23582,9 +23673,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.RDS.Types"
             ],
+            "pager": null,
             "name": "RevokeDBSecurityGroupIngress",
             "method": "post",
             "documentation": "\u003cp\u003e Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId). \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

@@ -31,8 +31,10 @@
         "version": "2010-05-15",
         "documentation": "AWS CloudFormation gives developers and systems administrators an easy way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion. You can use AWS CloudFormation’s sample templates or create your own templates to describe the AWS resources, and any associated dependencies or runtime parameters, required to run your application. You don’t need to figure out the order for provisioning AWS services or the subtleties of making those dependencies work. CloudFormation takes care of this for you. After the AWS resources are deployed, you can modify and update them in a controlled and predictable way, in effect applying version control to your AWS infrastructure the same way you do with your software.",
         "xmlNamespace": "http://cloudformation.amazonaws.com/doc/2010-05-15/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "cloudformation"
+        "endpointPrefix": "cloudformation",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -2508,9 +2510,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "CancelUpdateStack",
             "method": "post",
             "documentation": "\u003cp\u003eCancels an update on the specified stack. If the call completes successfully, the stack will roll back the update and revert to the previous stack configuration.\u003c/p\u003e \u003cnote\u003eOnly stacks that are in the UPDATE_IN_PROGRESS state can be canceled.\u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -2681,9 +2685,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "CreateStack",
             "method": "post",
             "documentation": "\u003cp\u003eCreates a stack as specified in the template. After the call completes successfully, the stack creation starts. You can check the status of the stack via the \u003ca\u003eDescribeStacks\u003c/a\u003e API.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3151,9 +3157,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "DeleteStack",
             "method": "post",
             "documentation": "\u003cp\u003eDeletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks do not show up in the \u003ca\u003eDescribeStacks\u003c/a\u003e API if the deletion has been completed successfully.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3346,6 +3354,7 @@
             "name": "DescribeStackEvents",
             "method": "post",
             "documentation": "\u003cp\u003eReturns all stack related events for a specified stack. For more information about a stack's event history, go to \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html\"\u003eStacks\u003c/a\u003e in the AWS CloudFormation User Guide.\u003c/p\u003e \u003cnote\u003eYou can list events for stacks that have failed to create or have been deleted by specifying the unique stack identifier (stack ID).\u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3530,9 +3539,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "DescribeStackResource",
             "method": "post",
             "documentation": "\u003cp\u003eReturns a description of the specified resource in the specified stack.\u003c/p\u003e \u003cp\u003eFor deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has been deleted.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3719,9 +3730,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "DescribeStackResources",
             "method": "post",
             "documentation": "\u003cp\u003eReturns AWS resource descriptions for running and deleted stacks. If \u003ccode\u003eStackName\u003c/code\u003e is specified, all the associated resources that are part of the stack are returned. If \u003ccode\u003ePhysicalResourceId\u003c/code\u003e is specified, the associated resources of the stack that the resource belongs to are returned.\u003c/p\u003e \u003cnote\u003eOnly the first 100 resources will be returned. If your stack has more resources than this, you should use \u003ccode\u003eListStackResources\u003c/code\u003e instead.\u003c/note\u003e \u003cp\u003eFor deleted stacks, \u003ccode\u003eDescribeStackResources\u003c/code\u003e returns resource information for up to 90 days after the stack has been deleted.\u003c/p\u003e \u003cp\u003eYou must specify either \u003ccode\u003eStackName\u003c/code\u003e or \u003ccode\u003ePhysicalResourceId\u003c/code\u003e, but not both. In addition, you can specify \u003ccode\u003eLogicalResourceId\u003c/code\u003e to filter the returned result. For more information about resources, the \u003ccode\u003eLogicalResourceId\u003c/code\u003e and \u003ccode\u003ePhysicalResourceId\u003c/code\u003e, go to the \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide\"\u003eAWS CloudFormation User Guide\u003c/a\u003e.\u003c/p\u003e \u003cnote\u003eA \u003ccode\u003eValidationError\u003c/code\u003e is returned if you specify both \u003ccode\u003eStackName\u003c/code\u003e and \u003ccode\u003ePhysicalResourceId\u003c/code\u003e in the same request.\u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3963,6 +3976,7 @@
             "name": "DescribeStacks",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4149,9 +4163,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "EstimateTemplateCost",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the estimated monthly cost of a template. The return value is an AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4370,9 +4386,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "GetStackPolicy",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the stack policy for a specified stack. If a stack doesn't have a policy, a null value is returned.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4543,9 +4561,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "GetTemplate",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the template body for a specified stack. You can get the template for running or deleted stacks.\u003c/p\u003e \u003cp\u003eFor deleted stacks, GetTemplate returns the template for up to 90 days after the stack has been deleted.\u003c/p\u003e \u003cnote\u003e If the template does not exist, a \u003ccode\u003eValidationError\u003c/code\u003e is returned. \u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4811,9 +4831,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "GetTemplateSummary",
             "method": "post",
             "documentation": "\u003cp\u003eReturns information about a new or existing template. The \u003ccode\u003eGetTemplateSummary\u003c/code\u003e action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack.\u003c/p\u003e \u003cp\u003eYou can use the \u003ccode\u003eGetTemplateSummary\u003c/code\u003e action when you submit a template, or you can get template information for a running or deleted stack.\u003c/p\u003e \u003cp\u003eFor deleted stacks, \u003ccode\u003eGetTemplateSummary\u003c/code\u003e returns the template information for up to 90 days after the stack has been deleted. If the template does not exist, a \u003ccode\u003eValidationError\u003c/code\u003e is returned.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5055,6 +5077,7 @@
             "name": "ListStackResources",
             "method": "post",
             "documentation": "\u003cp\u003eReturns descriptions of all resources of the specified stack.\u003c/p\u003e \u003cp\u003eFor deleted stacks, ListStackResources returns resource information for up to 90 days after the stack has been deleted.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5264,6 +5287,7 @@
             "name": "ListStacks",
             "method": "post",
             "documentation": "\u003cp\u003eReturns the summary information for stacks whose status matches the specified StackStatusFilter. Summary information for stacks that have been deleted is kept for 90 days after the stack is deleted. If no StackStatusFilter is specified, summary information for all stacks is returned (including existing stacks and stacks that have been deleted).\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5401,9 +5425,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "SetStackPolicy",
             "method": "post",
             "documentation": "\u003cp\u003eSets a stack policy for a specified stack.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5575,9 +5601,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "SignalResource",
             "method": "post",
             "documentation": "\u003cp\u003eSends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn't proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5830,9 +5858,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "UpdateStack",
             "method": "post",
             "documentation": "\u003cp\u003eUpdates a stack as specified in the template. After the call completes successfully, the stack update starts. You can check the status of the stack via the \u003ca\u003eDescribeStacks\u003c/a\u003e action.\u003c/p\u003e \u003cp\u003eTo get a copy of the template for an existing stack, you can use the \u003ca\u003eGetTemplate\u003c/a\u003e action.\u003c/p\u003e \u003cp\u003eTags that were associated with this stack during creation time will still be associated with the stack after an \u003ccode\u003eUpdateStack\u003c/code\u003e operation.\u003c/p\u003e \u003cp\u003eFor more information about creating an update template, updating a stack, and monitoring the progress of the update, see \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html\"\u003eUpdating a Stack\u003c/a\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6383,9 +6413,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.CloudFormation.Types"
             ],
+            "pager": null,
             "name": "ValidateTemplate",
             "method": "post",
             "documentation": "\u003cp\u003eValidates a specified template.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

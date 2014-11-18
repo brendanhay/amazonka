@@ -11,7 +11,7 @@
 {% when "json-headers" %}
   {% include "json-to.ede" with type = request %}
 {% when "xml" %}
-  {% include "xml-to.ede"  with type = request %}
+  {% include "xml-to-root.ede" with type = request %}
 {% when "xml-headers" %}
-  {% include "xml-to.ede"  with type = request %}
+  {% include "xml-to-root.ede" with type = request %}
 {% endcase %}

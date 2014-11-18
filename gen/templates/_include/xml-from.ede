@@ -2,7 +2,7 @@
 instance FromXML {{ type.name }} where
 {% case type.type %}
 {% when "nullary" %}
-    parseXML = fromXMLText "{{ type.name }}"
+    parseXML = parseXMLText "{{ type.name }}"
 {% else %}
     parseXML x = {{ type.name }}
   {% for field in type.fields %}

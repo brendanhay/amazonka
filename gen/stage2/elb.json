@@ -42,8 +42,10 @@
         "version": "2012-06-01",
         "documentation": "Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2 instances. It enables you to achieve greater levels of fault tolerance in your applications, seamlessly providing the required amount of load balancing capacity needed to distribute application traffic.",
         "xmlNamespace": "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/",
+        "jsonVersion": null,
         "endpoint": "Regional",
-        "endpointPrefix": "elasticloadbalancing"
+        "endpointPrefix": "elasticloadbalancing",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -2904,9 +2906,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "AddTags",
             "method": "post",
             "documentation": "\u003cp\u003eAdds one or more tags for the specified load balancer. Each load balancer can have a maximum of 10 tags. Each tag consists of a key and an optional value.\u003c/p\u003e \u003cp\u003eTag keys must be unique for each load balancer. If a tag with the same key is already associated with the load balancer, this action will update the value of the key.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb\"\u003eTagging\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3094,9 +3098,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "ApplySecurityGroupsToLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Associates one or more security groups with your load balancer in Amazon Virtual Private Cloud (Amazon VPC). The provided security group IDs will override any currently applied security groups. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html\"\u003eManage Security Groups in Amazon VPC\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3285,9 +3291,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "AttachLoadBalancerToSubnets",
             "method": "post",
             "documentation": "\u003cp\u003e Adds one or more subnets to the set of configured subnets in the Amazon Virtual Private Cloud (Amazon VPC) for the load balancer. \u003c/p\u003e \u003cp\u003e The load balancers evenly distribute requests across all of the registered subnets. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html\"\u003eDeploy Elastic Load Balancing in Amazon VPC\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3473,9 +3481,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "ConfigureHealthCheck",
             "method": "post",
             "documentation": "\u003cp\u003e Specifies the health check settings to use for evaluating the health state of your back-end instances. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck\"\u003eHealth Check\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3612,9 +3622,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "CreateAppCookieStickinessPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners. \u003c/p\u003e \u003cp\u003e This policy is similar to the policy created by \u003ca\u003eCreateLBCookieStickinessPolicy\u003c/a\u003e, except that the lifetime of the special Elastic Load Balancing cookie follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer only inserts a new stickiness cookie when the application response includes a new application cookie. \u003c/p\u003e \u003cp\u003e If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued. \u003c/p\u003e \u003cnote\u003e An application client must receive and send two cookies: the application-generated cookie and the special Elastic Load Balancing cookie named \u003ccode\u003eAWSELB\u003c/code\u003e. This is the default behavior for many common web browsers. \u003c/note\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies\"\u003eEnabling Application-Controlled Session Stickiness\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -3785,9 +3797,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "CreateLBCookieStickinessPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners. \u003c/p\u003e \u003cp\u003e When a load balancer implements this policy, the load balancer uses a special cookie to track the backend server instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request. If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load balancing algorithm. \u003c/p\u003e \u003cp\u003e A cookie is inserted into the response for binding subsequent requests from the same user to that server. The validity of the cookie is based on the cookie expiration time, which is specified in the policy configuration. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies\"\u003eEnabling Duration-Based Session Stickiness\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4008,9 +4022,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "CreateLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new load balancer. \u003c/p\u003e \u003cp\u003e After the call has completed successfully, a new load balancer is created with a unique Domain Name Service (DNS) name. The DNS name includes the name of the AWS region in which the load balance was created. For example, if your load balancer was created in the United States, the DNS name might end with either of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ci\u003eus-east-1.elb.amazonaws.com\u003c/i\u003e (for the Northern Virginia region) \u003c/li\u003e \u003cli\u003e \u003ci\u003eus-west-1.elb.amazonaws.com\u003c/i\u003e (for the Northern California region) \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor information about the AWS regions supported by Elastic Load Balancing, see \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region\"\u003eRegions and Endpoints\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eYou can create up to 20 load balancers per region per account.\u003c/p\u003e \u003cp\u003eElastic Load Balancing supports load balancing your Amazon EC2 instances launched within any one of the following platforms:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ci\u003eEC2-Classic\u003c/i\u003e \u003cp\u003eFor information on creating and managing your load balancers in EC2-Classic, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html\"\u003eDeploy Elastic Load Balancing in Amazon EC2-Classic\u003c/a\u003e.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003ci\u003eEC2-VPC\u003c/i\u003e \u003cp\u003eFor information on creating and managing your load balancers in EC2-VPC, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html\"\u003eDeploy Elastic Load Balancing in Amazon VPC\u003c/a\u003e.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4313,9 +4329,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "CreateLoadBalancerListeners",
             "method": "post",
             "documentation": "\u003cp\u003e Creates one or more listeners on a load balancer for the specified port. If a listener with the given port does not already exist, it will be created; otherwise, the properties of the new listener must match the properties of the existing listener. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html\"\u003eAdd a Listener to Your Load Balancer\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4453,9 +4471,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "CreateLoadBalancerPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Creates a new policy that contains the necessary attributes depending on the policy type. Policies are settings that are saved for your load balancer and that can be applied to the front-end listener, or the back-end application server, depending on your policy type. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4659,9 +4679,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DeleteLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes the specified load balancer. \u003c/p\u003e \u003cp\u003e If attempting to recreate the load balancer, you must reconfigure all the settings. The DNS name associated with a deleted load balancer will no longer be usable. Once deleted, the name and associated DNS record of the load balancer no longer exist and traffic sent to any of its IP addresses will no longer be delivered to back-end instances. \u003c/p\u003e \u003cp\u003e To successfully call this API, you must provide the same account credentials as were used to create the load balancer. \u003c/p\u003e \u003cnote\u003e By design, if the load balancer does not exist or has already been deleted, a call to \u003ccode\u003eDeleteLoadBalancer\u003c/code\u003e action still succeeds. \u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4783,9 +4805,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DeleteLoadBalancerListeners",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes listeners from the load balancer for the specified port. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -4924,9 +4948,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DeleteLoadBalancerPolicy",
             "method": "post",
             "documentation": "\u003cp\u003e Deletes a policy from the load balancer. The specified policy must not be enabled for any listeners. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5113,9 +5139,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DeregisterInstancesFromLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Deregisters instances from the load balancer. Once the instance is deregistered, it will stop receiving traffic from the load balancer. \u003c/p\u003e \u003cp\u003e In order to successfully call this API, the same account credentials as those used to create the load balancer must be provided. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html\"\u003eDe-register and Register Amazon EC2 Instances\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeLoadBalancers\u003c/a\u003e to verify if the instance is deregistered from the load balancer.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5302,9 +5330,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DescribeInstanceHealth",
             "method": "post",
             "documentation": "\u003cp\u003e Returns the current state of the specified instances registered with the specified load balancer. If no instances are specified, the state of all the instances registered with the load balancer is returned. \u003c/p\u003e \u003cnote\u003e You must provide the same account credentials as those that were used to create the load balancer. \u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5489,9 +5519,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DescribeLoadBalancerAttributes",
             "method": "post",
             "documentation": "\u003cp\u003eReturns detailed information about all of the attributes associated with the specified load balancer.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5662,9 +5694,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DescribeLoadBalancerPolicies",
             "method": "post",
             "documentation": "\u003cp\u003eReturns detailed descriptions of the policies. If you specify a load balancer name, the action returns the descriptions of all the policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all the sample policies. The names of the sample policies have the \u003ccode\u003eELBSample-\u003c/code\u003e prefix. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -5851,9 +5885,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DescribeLoadBalancerPolicyTypes",
             "method": "post",
             "documentation": "\u003cp\u003e Returns meta-information on the specified load balancer policies defined by the Elastic Load Balancing service. The policy types that are returned from this action can be used in a \u003ca\u003eCreateLoadBalancerPolicy\u003c/a\u003e action to instantiate specific policy configurations that will be applied to a load balancer. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6046,6 +6082,7 @@
             "name": "DescribeLoadBalancers",
             "method": "post",
             "documentation": "\u003cp\u003e Returns detailed configuration information for all the load balancers created for the account. If you specify load balancer names, the action returns configuration information of the specified load balancers. \u003c/p\u003e \u003cnote\u003e In order to retrieve this information, you must provide the same account credentials that was used to create the load balancer.\u003c/note\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6265,9 +6302,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DescribeTags",
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the tags associated with one or more load balancers.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6438,9 +6477,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DetachLoadBalancerFromSubnets",
             "method": "post",
             "documentation": "\u003cp\u003e Removes subnets from the set of configured subnets in the Amazon Virtual Private Cloud (Amazon VPC) for the load balancer. \u003c/p\u003e \u003cp\u003e After a subnet is removed all of the EC2 instances registered with the load balancer that are in the removed subnet will go into the \u003ci\u003eOutOfService\u003c/i\u003e state. When a subnet is removed, the load balancer will balance the traffic among the remaining routable subnets for the load balancer. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6629,9 +6670,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "DisableAvailabilityZonesForLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Removes the specified EC2 Availability Zones from the set of configured Availability Zones for the load balancer. \u003c/p\u003e \u003cp\u003e There must be at least one Availability Zone registered with a load balancer at all times. Once an Availability Zone is removed, all the instances registered with the load balancer that are in the removed Availability Zone go into the \u003ci\u003eOutOfService\u003c/i\u003e state. Upon Availability Zone removal, the load balancer attempts to equally balance the traffic among its remaining usable Availability Zones. Trying to remove an Availability Zone that was not associated with the load balancer does nothing. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html\"\u003eDisable an Availability Zone from a Load-Balanced Application\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -6820,9 +6863,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "EnableAvailabilityZonesForLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Adds one or more EC2 Availability Zones to the load balancer. \u003c/p\u003e \u003cp\u003e The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. \u003c/p\u003e \u003cnote\u003e The new EC2 Availability Zones to be added must be in the same EC2 Region as the Availability Zones for which the load balancer was created. \u003c/note\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html\"\u003eExpand a Load Balanced Application to an Additional Availability Zone\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7021,9 +7066,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "ModifyLoadBalancerAttributes",
             "method": "post",
             "documentation": "\u003cp\u003eModifies the attributes of a specified load balancer.\u003c/p\u003e \u003cp\u003eYou can modify the load balancer attributes, such as \u003ccode\u003eAccessLogs\u003c/code\u003e, \u003ccode\u003eConnectionDraining\u003c/code\u003e, and \u003ccode\u003eCrossZoneLoadBalancing\u003c/code\u003e by either enabling or disabling them. Or, you can modify the load balancer attribute \u003ccode\u003eConnectionSettings\u003c/code\u003e by specifying an idle connection timeout value for your load balancer.\u003c/p\u003e \u003cp\u003eFor more information, see the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing\"\u003eCross-Zone Load Balancing\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain\"\u003eConnection Draining\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html\"\u003eAccess Logs\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout\"\u003eIdle Connection Timeout\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7209,9 +7256,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "RegisterInstancesWithLoadBalancer",
             "method": "post",
             "documentation": "\u003cp\u003e Adds new instances to the load balancer. \u003c/p\u003e \u003cp\u003e Once the instance is registered, it starts receiving traffic and requests from the load balancer. Any instance that is not in any of the Availability Zones registered for the load balancer will be moved to the \u003ci\u003eOutOfService\u003c/i\u003e state. It will move to the \u003ci\u003eInService\u003c/i\u003e state when the Availability Zone is added to the load balancer. \u003c/p\u003e \u003cp\u003eWhen an instance registered with a load balancer is stopped and then restarted, the IP addresses associated with the instance changes. Elastic Load Balancing cannot recognize the new IP address, which prevents it from routing traffic to the instances. We recommend that you de-register your Amazon EC2 instances from your load balancer after you stop your instance, and then register the load balancer with your instance after you've restarted. To de-register your instances from load balancer, use \u003ca\u003eDeregisterInstancesFromLoadBalancer\u003c/a\u003e action.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html\"\u003eDe-register and Register Amazon EC2 Instances\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cnote\u003e In order for this call to be successful, you must provide the same account credentials as those that were used to create the load balancer. \u003c/note\u003e \u003cnote\u003e Completion of this API does not guarantee that operation has completed. Rather, it means that the request has been registered and the changes will happen shortly. \u003c/note\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeLoadBalancers\u003c/a\u003e or \u003ca\u003eDescribeInstanceHealth\u003c/a\u003e action to check the state of the newly registered instances.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7349,9 +7398,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "RemoveTags",
             "method": "post",
             "documentation": "\u003cp\u003eRemoves one or more tags from the specified load balancer.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7489,9 +7540,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "SetLoadBalancerListenerSSLCertificate",
             "method": "post",
             "documentation": "\u003cp\u003e Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port. \u003c/p\u003e \u003cp\u003eFor more information on updating your SSL certificate, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html\"\u003eUpdating an SSL Certificate for a Load Balancer\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7662,9 +7715,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "SetLoadBalancerPoliciesForBackendServer",
             "method": "post",
             "documentation": "\u003cp\u003e Replaces the current set of policies associated with a port on which the back-end server is listening with a new set of policies. After the policies have been created using \u003ca\u003eCreateLoadBalancerPolicy\u003c/a\u003e, they can be applied here as a list. At this time, only the back-end server authentication policy type can be applied to the back-end ports; this policy type is composed of multiple public key policies. \u003c/p\u003e \u003cnote\u003e \u003cp\u003eThe \u003ci\u003eSetLoadBalancerPoliciesForBackendServer\u003c/i\u003e replaces the current set of policies associated with the specified instance port. Every time you use this action to enable the policies, use the \u003ccode\u003ePolicyNames\u003c/code\u003e parameter to list all the policies you want to enable.\u003c/p\u003e \u003c/note\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeLoadBalancers\u003c/a\u003e or \u003ca\u003eDescribeLoadBalancerPolicies\u003c/a\u003e action to verify that the policy has been associated with the back-end server.\u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -7836,9 +7891,11 @@
                 "Network.AWS.Request.Query",
                 "Network.AWS.ELB.Types"
             ],
+            "pager": null,
             "name": "SetLoadBalancerPoliciesOfListener",
             "method": "post",
             "documentation": "\u003cp\u003e Associates, updates, or disables a policy with a listener on the load balancer. You can associate multiple policies with a listener. \u003c/p\u003e",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

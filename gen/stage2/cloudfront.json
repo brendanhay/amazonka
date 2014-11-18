@@ -35,8 +35,10 @@
         "version": "2014-05-31",
         "documentation": "Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example, .html, .css, .php, image, and media files, to end users. CloudFront delivers your content through a worldwide network of edge locations. When an end user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance. If the content is already in that edge location, CloudFront delivers it immediately. If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.",
         "xmlNamespace": "https://cloudfront.amazonaws.com/doc/2014-05-31/",
+        "jsonVersion": null,
         "endpoint": "Global",
-        "endpointPrefix": "cloudfront"
+        "endpointPrefix": "cloudfront",
+        "targetPrefix": null
     },
     "cabal": {
         "other": [],
@@ -8547,9 +8549,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "CreateCloudFrontOriginAccessIdentity",
             "method": "post",
             "documentation": "Create a new origin access identity.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -8817,9 +8821,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "CreateDistribution",
             "method": "post",
             "documentation": "Create a new distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9054,9 +9060,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "CreateInvalidation",
             "method": "post",
             "documentation": "Create a new invalidation.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9345,9 +9353,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "CreateStreamingDistribution",
             "method": "post",
             "documentation": "Create a new streaming distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9488,9 +9498,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "DeleteCloudFrontOriginAccessIdentity",
             "method": "delete",
             "documentation": "Delete an origin access identity.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9628,9 +9640,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "DeleteDistribution",
             "method": "delete",
             "documentation": "Delete a distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -9768,9 +9782,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "DeleteStreamingDistribution",
             "method": "delete",
             "documentation": "Delete a streaming distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10002,9 +10018,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetCloudFrontOriginAccessIdentity",
             "method": "get",
             "documentation": "Get the information about an origin access identity.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10218,9 +10236,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetCloudFrontOriginAccessIdentityConfig",
             "method": "get",
             "documentation": "Get the configuration information about an origin access identity.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10438,9 +10458,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetDistribution",
             "method": "get",
             "documentation": "Get the information about a distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10654,9 +10676,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetDistributionConfig",
             "method": "get",
             "documentation": "Get the configuration information about a distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -10855,9 +10879,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetInvalidation",
             "method": "get",
             "documentation": "Get the information about an invalidation.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11090,9 +11116,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetStreamingDistribution",
             "method": "get",
             "documentation": "Get the information about a streaming distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11306,9 +11334,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "GetStreamingDistributionConfig",
             "method": "get",
             "documentation": "Get the configuration information about a streaming distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11518,6 +11548,7 @@
             "name": "ListCloudFrontOriginAccessIdentities",
             "method": "get",
             "documentation": "List origin access identities.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11741,6 +11772,7 @@
             "name": "ListDistributions",
             "method": "get",
             "documentation": "List distributions.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -11964,6 +11996,7 @@
             "name": "ListInvalidations",
             "method": "get",
             "documentation": "List invalidation batches.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12224,6 +12257,7 @@
             "name": "ListStreamingDistributions",
             "method": "get",
             "documentation": "List streaming distributions.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12455,9 +12489,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "UpdateCloudFrontOriginAccessIdentity",
             "method": "put",
             "documentation": "Update an origin access identity.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -12748,9 +12784,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "UpdateDistribution",
             "method": "put",
             "documentation": "Update a distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
@@ -13041,9 +13079,11 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
+            "pager": null,
             "name": "UpdateStreamingDistribution",
             "method": "put",
             "documentation": "Update a streaming distribution.",
+            "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",

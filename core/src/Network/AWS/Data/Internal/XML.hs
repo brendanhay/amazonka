@@ -15,16 +15,18 @@
 module Network.AWS.Data.Internal.XML
     (
     -- * FromXML
-      FromXML (..)
+      FromXML   (..)
     , decodeXML
-    , fromXMLText
+    , parseXMLText
     , (.@)
     , (.@?)
 
-    -- * ToJSON
-    , ToXML   (..)
+    -- * ToXML
+    , ToXML     (..)
+    , ToXMLRoot (..)
     , encodeXML
     , toXMLText
+    , element
     , nodes
     , (=@)
     ) where
@@ -54,18 +56,30 @@ import           Network.AWS.Data.Internal.Text
 import           Numeric.Natural
 import           Text.XML
 
-decodeXML :: FromXML a => LazyByteString -> Either String a
+decodeXML :: LazyByteString -> Either String [Node]
 decodeXML = either failure success . parseLBS def
   where
-    failure = Left . show
-    success = parseXML . (:[]) . NodeElement . documentRoot
+    failure = Left  . show
+    success = Right . (:[]) . NodeElement . documentRoot
 
-encodeXML :: ToXML a => a -> LazyByteString
-encodeXML = undefined -- renderLBS def .  o . toXML o
+encodeXML :: ToXMLRoot a => a -> LazyByteString
+encodeXML x = renderLBS def doc
+  where
+    doc = Document
+        { documentPrologue = pro
+        , documentRoot     = toXMLRoot x
+        , documentEpilogue = []
+        }
 
-fromXMLText :: FromText a => String -> [Node] -> Either String a
-fromXMLText n = withContent n fromText
-{-# INLINE fromXMLText #-}
+    pro = Prologue
+        { prologueBefore  = []
+        , prologueDoctype = Nothing
+        , prologueAfter   = []
+        }
+
+parseXMLText :: FromText a => String -> [Node] -> Either String a
+parseXMLText n = withContent n fromText
+{-# INLINE parseXMLText #-}
 
 toXMLText :: ToText a => a -> [Node]
 toXMLText x = [NodeContent (toText x)]
@@ -85,8 +99,12 @@ ns .@? n =
         Just xs -> parseXML xs
 {-# INLINE (.@?) #-}
 
+element :: Name -> [Node] -> Element
+element n ns = Element n mempty ns
+{-# INLINE element #-}
+
 nodes :: Name -> [Node] -> [Node]
-nodes n ns = [NodeElement (Element n mempty ns)]
+nodes n ns = [NodeElement (element n ns)]
 {-# INLINE nodes #-}
 
 (=@) :: ToXML a => Name -> a -> Node
@@ -141,12 +159,15 @@ instance FromXML a => FromXML (NonEmpty a) where
         x:xs -> Right (x :| xs)
     {-# INLINE parseXML #-}
 
-instance FromXML Text    where parseXML = fromXMLText "Text"
-instance FromXML Int     where parseXML = fromXMLText "Int"
-instance FromXML Integer where parseXML = fromXMLText "Integer"
-instance FromXML Natural where parseXML = fromXMLText "Natural"
-instance FromXML Double  where parseXML = fromXMLText "Double"
-instance FromXML Bool    where parseXML = fromXMLText "Bool"
+instance FromXML Text    where parseXML = parseXMLText "Text"
+instance FromXML Int     where parseXML = parseXMLText "Int"
+instance FromXML Integer where parseXML = parseXMLText "Integer"
+instance FromXML Natural where parseXML = parseXMLText "Natural"
+instance FromXML Double  where parseXML = parseXMLText "Double"
+instance FromXML Bool    where parseXML = parseXMLText "Bool"
+
+class ToXMLRoot a where
+    toXMLRoot :: a -> Element
 
 class ToXML a where
     toXML :: a -> [Node]

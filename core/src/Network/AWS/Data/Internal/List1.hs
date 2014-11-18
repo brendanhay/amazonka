@@ -28,7 +28,6 @@ import           Data.Foldable                   (Foldable)
 import           Data.List.NonEmpty              (NonEmpty(..))
 import qualified Data.List.NonEmpty              as NonEmpty
 import           Data.Semigroup                  (Semigroup)
-import           Data.Tagged
 import           Data.Traversable
 import qualified Data.Vector                     as Vector
 import           Network.AWS.Data.Internal.Query

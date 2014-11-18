@@ -32,7 +32,6 @@ import           Network.AWS.Data
 import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP
 import qualified Network.HTTP.Types           as HTTP
-import           Network.HTTP.Types.Method
 
 defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 defaultRequest x = def

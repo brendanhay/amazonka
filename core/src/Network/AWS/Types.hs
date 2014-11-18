@@ -416,8 +416,9 @@ instance ToText Region where
         SaoPaulo        -> "sa-east-1"
 
 instance ToByteString Region
-instance FromXML      Region
-instance ToXML        Region
+
+instance FromXML Region where parseXML = parseXMLText "Region"
+instance ToXML   Region where toXML    = toXMLText
 
 -- | An availability zone.
 data Zone = Zone

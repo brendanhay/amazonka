@@ -51,7 +51,7 @@ class ToByteString a where
     toBS :: a -> ByteString
 
     default toBS :: ToText a => a -> ByteString
-    toBS = toBS . toText
+    toBS = Text.encodeUtf8 . toText
 
 instance ToByteString Builder    where toBS = buildBS
 instance ToByteString ByteString where toBS = id

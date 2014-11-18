@@ -17,11 +17,12 @@
 module Network.AWS.Error where
 
 import           Control.Applicative
+import           Control.Monad
 import           Data.Aeson
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Text            (Text)
 import           GHC.Generics
-import           Network.AWS.Data     hiding ((.:), (.:?))
+import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Types
 
@@ -33,7 +34,12 @@ data ErrorType
     | Sender
       deriving (Eq, Ord, Enum, Show, Generic)
 
-instance FromXML ErrorType
+instance FromText ErrorType where
+    parser = match "Receiver" Receiver
+         <|> match "Sender"   Sender
+
+instance FromXML ErrorType where
+    parseXML = parseXMLText "Type"
 
 data Message = Message
     { _msgType    :: !ErrorType
@@ -41,14 +47,21 @@ data Message = Message
     , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
-instance FromXML Message
+instance FromXML Message where
+    parseXML x = Message
+        <$> x .@ "Type"
+        <*> x .@ "Code"
+        <*> x .@ "Message"
 
 data RESTError = RESTError
     { _errError     :: Message
     , _errRequestId :: Text
     } deriving (Eq, Show, Generic)
 
-instance FromXML RESTError
+instance FromXML RESTError where
+    parseXML x = RESTError
+        <$> x .@ "Error"
+        <*> x .@ "RequestId"
 
 restError :: FromXML (Er a)
           => (Status -> Bool)
@@ -57,7 +70,7 @@ restError :: FromXML (Er a)
           -> Maybe (LBS.ByteString -> ServiceError (Er a))
 restError f Service{..} s
     | f s       = Nothing
-    | otherwise = Just (either failure success . decodeXML)
+    | otherwise = Just (either failure success . (decodeXML >=> parseXML))
   where
     success = ServiceError _svcAbbrev s
     failure = SerializerError _svcAbbrev

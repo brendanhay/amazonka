@@ -25,14 +25,14 @@ module Network.AWS.Response
     ) where
 
 import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
-import           Data.Default.Class
-import           Network.AWS.Data             (LazyByteString, FromXML, decodeXML)
+import           Network.AWS.Data             (LazyByteString, FromXML(..), decodeXML)
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types
@@ -45,25 +45,29 @@ nullResponse :: (MonadResource m, AWSService (Sv a))
                 -> m (Response a)
 nullResponse rs = receive $ \_ _ bdy ->
     liftResourceT (bdy $$+- return (Right rs))
+{-# INLINE nullResponse #-}
 
 xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
             => a
             -> Either HttpException ClientResponse
             -> m (Response a)
-xmlResponse = deserialise decodeXML (const Right)
+xmlResponse = deserialise (decodeXML >=> parseXML) (const Right)
+{-# INLINE xmlResponse #-}
 
 xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
                   => (ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> a
                   -> Either HttpException ClientResponse
                   -> m (Response a)
-xmlHeaderResponse = deserialise (bimap show fromDocument . XML.parseLBS def)
+xmlHeaderResponse = deserialise decodeXML
+{-# INLINE xmlHeaderResponse #-}
 
 jsonResponse :: (MonadResource m, AWSService (Sv a), FromJSON (Rs a))
              => a
              -> Either HttpException ClientResponse
              -> m (Response a)
 jsonResponse = deserialise eitherDecode' (const Right)
+{-# INLINE jsonResponse #-}
 
 jsonHeaderResponse :: (MonadResource m, AWSService (Sv a))
                    => (ResponseHeaders -> Object -> Either String (Rs a))
@@ -71,6 +75,7 @@ jsonHeaderResponse :: (MonadResource m, AWSService (Sv a))
                    -> Either HttpException ClientResponse
                    -> m (Response a)
 jsonHeaderResponse = deserialise eitherDecode'
+{-# INLINE jsonHeaderResponse #-}
 
 bodyResponse :: (MonadResource m, AWSService (Sv a))
              => (ResponseHeaders -> ResponseBody -> Either String (Rs a))
@@ -79,6 +84,7 @@ bodyResponse :: (MonadResource m, AWSService (Sv a))
              -> m (Response a)
 bodyResponse f = receive $ \a hs bdy ->
     return (SerializerError a `first` f hs bdy)
+{-# INLINE bodyResponse #-}
 
 deserialise :: (AWSService (Sv a), MonadResource m)
             => (LazyByteString -> Either String b)
@@ -100,7 +106,7 @@ receive :: forall m a. (MonadResource m, AWSService (Sv a))
         -> a
         -> Either HttpException ClientResponse
         -> m (Response a)
-receive f = const (either httpFailure success)
+receive f = const (either (return . Left . HttpError) success)
   where
     success rs =
         maybe (f (_svcAbbrev svc) hs bdy)
@@ -115,6 +121,4 @@ receive f = const (either httpFailure success)
 
 sinkLbs :: MonadResource m => ResponseBody -> m LBS.ByteString
 sinkLbs bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)
-
-httpFailure :: Monad m => HttpException -> m (Either (ServiceError e) a)
-httpFailure = return . Left . HttpError
+{-# INLINE sinkLbs #-}

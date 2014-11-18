@@ -14,7 +14,7 @@ module Network.AWS.Data.Internal.JSON
     (
     -- * FromJSON
       FromJSON (..)
-    , fromJSONText
+    , parseJSONText
     -- ** Parser a
     , (.:)
     , (.:?)
@@ -40,9 +40,9 @@ import qualified Data.HashMap.Strict            as Map
 import           Data.Text                      (Text)
 import           Network.AWS.Data.Internal.Text
 
-fromJSONText :: FromText a => String -> Value -> Parser a
-fromJSONText n = withText n (either fail return . fromText)
-{-# INLINE fromJSONText #-}
+parseJSONText :: FromText a => String -> Value -> Parser a
+parseJSONText n = withText n (either fail return . fromText)
+{-# INLINE parseJSONText #-}
 
 toJSONText :: ToText a => a -> Value
 toJSONText = String . toText

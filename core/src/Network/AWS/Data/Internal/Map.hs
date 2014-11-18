@@ -32,7 +32,6 @@ import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable                        (Hashable)
 import           Data.Monoid
 import           Data.Semigroup                       (Semigroup)
-import           Data.Tagged
 import           Data.Text                            (Text)
 import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
@@ -40,7 +39,7 @@ import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
-import           Network.AWS.Data.Internal.XML
+-- import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
 
 newtype Map k v = Map { toHashMap :: HashMap k v }

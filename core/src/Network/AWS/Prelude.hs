@@ -84,18 +84,13 @@ import Prelude                   as Export hiding (head, error)
 import Control.Lens              as Export
     ( Lens'
     , Prism'
-    , (<&>)
+    , Iso'
     , (&)
     , (^.)
     , (.~)
     , (?~)
-    , (<>~)
     , (%~)
-    , (&~)
-    , (.=)
-    , (?=)
-    , (<>=)
-    , (%=)
+    , (<>~)
     , lens
     , prism
     , iso

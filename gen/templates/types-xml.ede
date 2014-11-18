@@ -11,7 +11,11 @@ import qualified GHC.Exts
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
 {% include "_include/xml-from.ede" with type = type.value %}
+  {% if type.value.name | member(shared) %}
+{% include "_include/xml-to-root.ede" with type = type.value %}
+  {% else %}
 {% include "_include/xml-to.ede" with type = type.value %}
+  {% endif %}
   {% if !type.last %}
 
   {% endif %}

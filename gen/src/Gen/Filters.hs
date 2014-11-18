@@ -13,15 +13,12 @@
 module Gen.Filters where
 
 import           Data.Char
-import           Data.HashMap.Strict  (HashMap)
-import qualified Data.HashMap.Strict  as Map
-import           Data.Maybe
+import           Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
 import           Gen.Documentation
-import           Text.EDE
 import           Text.EDE.Filters
 
 genFilters :: HashMap Text Term
@@ -33,6 +30,7 @@ genFilters = Map.fromList
     , "wrapped"      @: wrapped
     , "concat"       @: (mappend :: Text -> Text -> Text)
     , "joinedLength" @: joinedLength
+    , "member"       @: (elem :: Text -> [Text] -> Bool)
     ]
 
 wrapped :: Text -> Text

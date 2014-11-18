@@ -1,3 +1,4 @@
+{-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -171,6 +172,9 @@ class ToXMLRoot a where
 
 class ToXML a where
     toXML :: a -> [Node]
+
+    default ToXMLRoot a => a -> [Node]
+    toXML = (:[]) . NodeElement . toXMLRoot
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x

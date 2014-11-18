@@ -18,3 +18,5 @@ instance ToXMLRoot {{ type.name }} where
         ]
   {% endif %}
 {% endcase %}
+
+instance ToXML {{ type.name }}

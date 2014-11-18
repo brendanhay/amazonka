@@ -93,7 +93,7 @@ data JSONError = JSONError
     } deriving (Eq, Show, Generic)
 
 instance FromJSON JSONError where
-    parseJSON = withObject "json_error" $ \o ->
+    parseJSON = withObject "JSONError" $ \o ->
         JSONError
             <$> o .: "__type"
             <*> o .: "message"

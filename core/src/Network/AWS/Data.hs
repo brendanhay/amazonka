@@ -25,6 +25,9 @@ module Network.AWS.Data
     -- * Time
     , module Network.AWS.Data.Internal.Time
 
+    -- * Flatten
+    , module Network.AWS.Data.Internal.Flatten
+
     -- * Sensitive
     , module Network.AWS.Data.Internal.Sensitive
 
@@ -60,6 +63,7 @@ module Network.AWS.Data
 import Network.AWS.Data.Internal.Base64
 import Network.AWS.Data.Internal.Body
 import Network.AWS.Data.Internal.ByteString
+import Network.AWS.Data.Internal.Flatten
 import Network.AWS.Data.Internal.Header
 import Network.AWS.Data.Internal.JSON
 import Network.AWS.Data.Internal.List1

@@ -36,10 +36,11 @@ import           Data.Text                            (Text)
 import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
 import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
--- import           Network.AWS.Data.Internal.XML
+import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
 
 newtype Map k v = Map { toHashMap :: HashMap k v }
@@ -92,3 +93,40 @@ instance (ToText k, ToJSON v) => ToJSON (Map k v) where
 
 -- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
 --     parseXML = fmap Map . parseXML
+
+-- import flatten and define to/from xml here alongside map instance
+
+-- look for element named entry containing:
+-- (although it doesn't seem to care what the enclosing element is named)
+--   look for key or name case insensitively
+--   look for value case insensitively
+
+--    flattened: true
+-- looks for many top-level element name
+-- <Attribute>
+--   <Name>ReceiveMessageWaitTimeSeconds</Name>
+--   <Value>2</Value>
+-- </Attribute>
+-- <Attribute>
+--   <Name>VisibilityTimeout</Name>
+--   <Value>30</Value>
+-- </Attribute>
+-- <Attribute>
+
+--    flattened: false
+-- looks for top-level element name, then <entry>
+
+-- <Attributes>
+--   <entry>
+--     <key>Owner</key>
+--     <value>123456789012</value>
+--   </entry>
+--   <entry>
+--     <key>Policy</key>
+--     <value>x</value>
+--   </entry>
+--   <entry>
+--     <key>TopicArn</key>
+--     <value>arn:aws:sns:us-east-1:123456789012:My-Topic</value>
+--   </entry>
+-- </Attributes>

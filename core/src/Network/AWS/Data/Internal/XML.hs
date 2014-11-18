@@ -192,6 +192,24 @@ instance ToXML Natural where toXML = toXMLText
 instance ToXML Double  where toXML = toXMLText
 instance ToXML Bool    where toXML = toXMLText
 
+-- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (HashMap k v) where
+--     parseXML = fmap Map.fromList . traverse f
+--       where
+--         f (NodeElement (Element n _ xs))
+--             | n == item
+--             , [x, y] <- xs = (,) <$> g fromNodeContent x <*> g val y
+--         f _                = Left "Unable to parse hashmap pair."
+
+--         g h (NodeElement (Element _ _ xs)) = h xs
+--         g _ _ = Left "Unable to parse hashmap pair."
+
+--         val [NodeElement (Element _ _ xs)] = parseXML parseXMLOptions xs
+--         val _ = Left "Unable to parse hashmap pair value."
+
+--         item = xmlMapItem   (untag o)
+
+-- create an operator, or function for 
+
 -- infixl 6 %|, %|?
 
 -- (%|) :: FromXML a => Cursor -> Text -> Either String a

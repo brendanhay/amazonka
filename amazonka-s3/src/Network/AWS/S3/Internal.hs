@@ -22,41 +22,61 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype BucketName = BucketName Text
-    deriving (Eq, Ord, Show, Generic, IsString)
-
-instance FromText     BucketName where parser = BucketName <$> takeText
-instance ToText       BucketName where toText (BucketName b) = b
-instance ToByteString BucketName
-instance FromXML      BucketName
-instance ToXML        BucketName
-instance ToQuery      BucketName where toQuery = toQuery . toBS
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromText
+        , ToText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , ToQuery
+        )
 
 newtype ObjectKey = ObjectKey Text
-    deriving (Eq, Ord, Show, Generic, IsString)
-
-instance FromText     ObjectKey where parser = ObjectKey <$> takeText
-instance ToText       ObjectKey where toText (ObjectKey k) = k
-instance ToByteString ObjectKey
-instance FromXML      ObjectKey
-instance ToXML        ObjectKey
-instance ToQuery      ObjectKey where toQuery = toQuery . toBS
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromText
+        , ToText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , ToQuery
+        )
 
 newtype ObjectVersionId = ObjectVersionId Text
-    deriving (Eq, Ord, Show, Generic, IsString)
-
-instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
-instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
-instance ToByteString ObjectVersionId
-instance FromXML      ObjectVersionId
-instance ToXML        ObjectVersionId
-instance ToQuery      ObjectVersionId where toQuery = toQuery . toBS
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromText
+        , ToText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , ToQuery
+        )
 
 newtype ETag = ETag Text
-    deriving (Eq, Ord, Show, Generic, IsString)
-
-instance FromText     ETag where parser = ETag <$> takeText
-instance ToText       ETag where toText (ETag t) = t
-instance ToByteString ETag
-instance FromXML      ETag
-instance ToXML        ETag
-instance ToQuery      ETag where toQuery = toQuery . toBS
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromText
+        , ToText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , ToQuery
+        )

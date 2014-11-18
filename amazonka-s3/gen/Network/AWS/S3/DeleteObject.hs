@@ -139,8 +139,10 @@ instance ToHeaders DeleteObject where
         [ "x-amz-mfa" =: _doMFA
         ]
 
-instance ToXML DeleteObject where
-    toXML = const (node "DeleteObject" [])
+instance ToXMLRoot DeleteObject where
+    toXMLRoot = const (element "DeleteObject" [])
+
+instance ToXML DeleteObject
 
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3

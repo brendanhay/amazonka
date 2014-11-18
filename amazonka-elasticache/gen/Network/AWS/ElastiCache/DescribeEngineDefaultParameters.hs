@@ -127,5 +127,5 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response = xmlResponse
 
 instance FromXML DescribeEngineDefaultParametersResponse where
-    parseXML c = DescribeEngineDefaultParametersResponse
-        <$> c .: "EngineDefaults"
+    parseXML x = DescribeEngineDefaultParametersResponse
+        <$> x .@ "EngineDefaults"

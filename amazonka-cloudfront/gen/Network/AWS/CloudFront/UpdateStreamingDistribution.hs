@@ -131,10 +131,12 @@ instance ToHeaders UpdateStreamingDistribution where
         [ "If-Match" =: _usdIfMatch
         ]
 
-instance ToXML UpdateStreamingDistribution where
-    toXML UpdateStreamingDistribution{..} = node "UpdateStreamingDistribution"
-        [ "StreamingDistributionConfig" .= _usdStreamingDistributionConfig
+instance ToXMLRoot UpdateStreamingDistribution where
+    toXMLRoot UpdateStreamingDistribution{..} = element "UpdateStreamingDistribution"
+        [ "StreamingDistributionConfig" =@ _usdStreamingDistributionConfig
         ]
+
+instance ToXML UpdateStreamingDistribution
 
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront
@@ -143,4 +145,4 @@ instance AWSRequest UpdateStreamingDistribution where
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateStreamingDistributionResponse
         <$> h ~:? "ETag"
-        <*> x %| "StreamingDistribution"
+        <*> x .@? "StreamingDistribution"

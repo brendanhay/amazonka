@@ -112,5 +112,5 @@ instance AWSRequest RejectVpcPeeringConnection where
     response = xmlResponse
 
 instance FromXML RejectVpcPeeringConnectionResponse where
-    parseXML c = RejectVpcPeeringConnectionResponse
-        <$> c .:? "return"
+    parseXML x = RejectVpcPeeringConnectionResponse
+        <$> x .@? "return"

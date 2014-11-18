@@ -103,5 +103,5 @@ instance AWSRequest GetServerCertificate where
     response = xmlResponse
 
 instance FromXML GetServerCertificateResponse where
-    parseXML c = GetServerCertificateResponse
-        <$> c .: "ServerCertificate"
+    parseXML x = GetServerCertificateResponse
+        <$> x .@ "ServerCertificate"

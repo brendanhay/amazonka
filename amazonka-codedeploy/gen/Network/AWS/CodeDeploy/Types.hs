@@ -219,7 +219,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-10-06@ of the Amazon CodeDeploy service.
-data CodeDeploy deriving (Typeable)
+data CodeDeploy
 
 instance AWSService CodeDeploy where
     type Sg CodeDeploy = V4
@@ -389,7 +389,7 @@ instance ToText BundleType where
         Zip -> "zip"
 
 instance FromJSON BundleType where
-    parseJSON = fromJSONText "BundleType"
+    parseJSON = parseJSONText "BundleType"
 
 instance ToJSON BundleType where
     toJSON = toJSONText
@@ -453,7 +453,7 @@ instance ToText DeploymentCreator where
         User        -> "user"
 
 instance FromJSON DeploymentCreator where
-    parseJSON = fromJSONText "DeploymentCreator"
+    parseJSON = parseJSONText "DeploymentCreator"
 
 instance ToJSON DeploymentCreator where
     toJSON = toJSONText
@@ -697,7 +697,7 @@ instance ToText ApplicationRevisionSortBy where
         RegisterTime  -> "registerTime"
 
 instance FromJSON ApplicationRevisionSortBy where
-    parseJSON = fromJSONText "ApplicationRevisionSortBy"
+    parseJSON = parseJSONText "ApplicationRevisionSortBy"
 
 instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
@@ -773,7 +773,7 @@ instance ToText ListStateFilterAction where
         Include -> "include"
 
 instance FromJSON ListStateFilterAction where
-    parseJSON = fromJSONText "ListStateFilterAction"
+    parseJSON = parseJSONText "ListStateFilterAction"
 
 instance ToJSON ListStateFilterAction where
     toJSON = toJSONText
@@ -807,7 +807,7 @@ instance ToText LifecycleErrorCode where
         UnknownError        -> "UnknownError"
 
 instance FromJSON LifecycleErrorCode where
-    parseJSON = fromJSONText "LifecycleErrorCode"
+    parseJSON = parseJSONText "LifecycleErrorCode"
 
 instance ToJSON LifecycleErrorCode where
     toJSON = toJSONText
@@ -888,7 +888,7 @@ instance ToText LifecycleEventStatus where
         Unknown    -> "Unknown"
 
 instance FromJSON LifecycleEventStatus where
-    parseJSON = fromJSONText "LifecycleEventStatus"
+    parseJSON = parseJSONText "LifecycleEventStatus"
 
 instance ToJSON LifecycleEventStatus where
     toJSON = toJSONText
@@ -1023,7 +1023,7 @@ instance ToText StopStatus where
         SSSucceeded -> "Succeeded"
 
 instance FromJSON StopStatus where
-    parseJSON = fromJSONText "StopStatus"
+    parseJSON = parseJSONText "StopStatus"
 
 instance ToJSON StopStatus where
     toJSON = toJSONText
@@ -1100,7 +1100,7 @@ instance ToText SortOrder where
         Descending -> "descending"
 
 instance FromJSON SortOrder where
-    parseJSON = fromJSONText "SortOrder"
+    parseJSON = parseJSONText "SortOrder"
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
@@ -1475,7 +1475,7 @@ instance ToText ErrorCode where
         Timeout                  -> "TIMEOUT"
 
 instance FromJSON ErrorCode where
-    parseJSON = fromJSONText "ErrorCode"
+    parseJSON = parseJSONText "ErrorCode"
 
 instance ToJSON ErrorCode where
     toJSON = toJSONText
@@ -1571,7 +1571,7 @@ instance ToText InstanceStatus where
         ISUnknown    -> "Unknown"
 
 instance FromJSON InstanceStatus where
-    parseJSON = fromJSONText "InstanceStatus"
+    parseJSON = parseJSONText "InstanceStatus"
 
 instance ToJSON InstanceStatus where
     toJSON = toJSONText
@@ -1605,7 +1605,7 @@ instance ToText DeploymentStatus where
         DSSucceeded  -> "Succeeded"
 
 instance FromJSON DeploymentStatus where
-    parseJSON = fromJSONText "DeploymentStatus"
+    parseJSON = parseJSONText "DeploymentStatus"
 
 instance ToJSON DeploymentStatus where
     toJSON = toJSONText
@@ -1703,7 +1703,7 @@ instance ToText MinimumHealthyHostsType where
         HostCount    -> "HOST_COUNT"
 
 instance FromJSON MinimumHealthyHostsType where
-    parseJSON = fromJSONText "MinimumHealthyHostsType"
+    parseJSON = parseJSONText "MinimumHealthyHostsType"
 
 instance ToJSON MinimumHealthyHostsType where
     toJSON = toJSONText
@@ -1766,7 +1766,7 @@ instance ToText RevisionLocationType where
         S3     -> "S3"
 
 instance FromJSON RevisionLocationType where
-    parseJSON = fromJSONText "RevisionLocationType"
+    parseJSON = parseJSONText "RevisionLocationType"
 
 instance ToJSON RevisionLocationType where
     toJSON = toJSONText
@@ -1791,7 +1791,7 @@ instance ToText EC2TagFilterType where
         ValueOnly   -> "VALUE_ONLY"
 
 instance FromJSON EC2TagFilterType where
-    parseJSON = fromJSONText "EC2TagFilterType"
+    parseJSON = parseJSONText "EC2TagFilterType"
 
 instance ToJSON EC2TagFilterType where
     toJSON = toJSONText

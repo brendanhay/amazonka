@@ -421,7 +421,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2013-02-18@ of the Amazon OpsWorks service.
-data OpsWorks deriving (Typeable)
+data OpsWorks
 
 instance AWSService OpsWorks where
     type Sg OpsWorks = V4
@@ -995,7 +995,7 @@ instance ToText AppAttributesKeys where
         RailsEnv           -> "RailsEnv"
 
 instance FromJSON AppAttributesKeys where
-    parseJSON = fromJSONText "AppAttributesKeys"
+    parseJSON = parseJSONText "AppAttributesKeys"
 
 instance ToJSON AppAttributesKeys where
     toJSON = toJSONText
@@ -1169,7 +1169,7 @@ instance ToText StackAttributesKeys where
     toText Color = "Color"
 
 instance FromJSON StackAttributesKeys where
-    parseJSON = fromJSONText "StackAttributesKeys"
+    parseJSON = parseJSONText "StackAttributesKeys"
 
 instance ToJSON StackAttributesKeys where
     toJSON = toJSONText
@@ -1259,7 +1259,7 @@ instance ToText SourceType where
         Svn     -> "svn"
 
 instance FromJSON SourceType where
-    parseJSON = fromJSONText "SourceType"
+    parseJSON = parseJSONText "SourceType"
 
 instance ToJSON SourceType where
     toJSON = toJSONText
@@ -1493,7 +1493,7 @@ instance ToText LayerType where
         Web              -> "web"
 
 instance FromJSON LayerType where
-    parseJSON = fromJSONText "LayerType"
+    parseJSON = parseJSONText "LayerType"
 
 instance ToJSON LayerType where
     toJSON = toJSONText
@@ -1897,7 +1897,7 @@ instance ToText AutoScalingType where
         Timer -> "timer"
 
 instance FromJSON AutoScalingType where
-    parseJSON = fromJSONText "AutoScalingType"
+    parseJSON = parseJSONText "AutoScalingType"
 
 instance ToJSON AutoScalingType where
     toJSON = toJSONText
@@ -2054,7 +2054,7 @@ instance ToText Architecture where
         X8664 -> "x86_64"
 
 instance FromJSON Architecture where
-    parseJSON = fromJSONText "Architecture"
+    parseJSON = parseJSONText "Architecture"
 
 instance ToJSON Architecture where
     toJSON = toJSONText
@@ -2181,7 +2181,7 @@ instance ToText LayerAttributesKeys where
         RubygemsVersion             -> "RubygemsVersion"
 
 instance FromJSON LayerAttributesKeys where
-    parseJSON = fromJSONText "LayerAttributesKeys"
+    parseJSON = parseJSONText "LayerAttributesKeys"
 
 instance ToJSON LayerAttributesKeys where
     toJSON = toJSONText
@@ -2752,7 +2752,7 @@ instance ToText RootDeviceType where
         InstanceStore -> "instance-store"
 
 instance FromJSON RootDeviceType where
-    parseJSON = fromJSONText "RootDeviceType"
+    parseJSON = parseJSONText "RootDeviceType"
 
 instance ToJSON RootDeviceType where
     toJSON = toJSONText
@@ -3207,7 +3207,7 @@ instance ToText DeploymentCommandName where
         UpdateDependencies    -> "update_dependencies"
 
 instance FromJSON DeploymentCommandName where
-    parseJSON = fromJSONText "DeploymentCommandName"
+    parseJSON = parseJSONText "DeploymentCommandName"
 
 instance ToJSON DeploymentCommandName where
     toJSON = toJSONText
@@ -3887,7 +3887,7 @@ instance ToText AppType where
         Static -> "static"
 
 instance FromJSON AppType where
-    parseJSON = fromJSONText "AppType"
+    parseJSON = parseJSONText "AppType"
 
 instance ToJSON AppType where
     toJSON = toJSONText

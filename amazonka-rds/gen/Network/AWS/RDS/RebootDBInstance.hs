@@ -128,5 +128,5 @@ instance AWSRequest RebootDBInstance where
     response = xmlResponse
 
 instance FromXML RebootDBInstanceResponse where
-    parseXML c = RebootDBInstanceResponse
-        <$> c .:? "DBInstance"
+    parseXML x = RebootDBInstanceResponse
+        <$> x .@? "DBInstance"

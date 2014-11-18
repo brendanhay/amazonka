@@ -91,5 +91,5 @@ instance AWSRequest ListSAMLProviders where
     response = xmlResponse
 
 instance FromXML ListSAMLProvidersResponse where
-    parseXML c = ListSAMLProvidersResponse
-        <$> c .: "SAMLProviderList"
+    parseXML x = ListSAMLProvidersResponse
+        <$> x .@ "SAMLProviderList"

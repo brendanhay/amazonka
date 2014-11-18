@@ -79,8 +79,10 @@ instance ToQuery DeleteBucketTagging where
 
 instance ToHeaders DeleteBucketTagging
 
-instance ToXML DeleteBucketTagging where
-    toXML = const (node "DeleteBucketTagging" [])
+instance ToXMLRoot DeleteBucketTagging where
+    toXMLRoot = const (element "DeleteBucketTagging" [])
+
+instance ToXML DeleteBucketTagging
 
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3

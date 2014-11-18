@@ -99,5 +99,5 @@ instance AWSRequest DeleteSnapshot where
     response = xmlResponse
 
 instance FromXML DeleteSnapshotResponse where
-    parseXML c = DeleteSnapshotResponse
-        <$> c .:? "Snapshot"
+    parseXML x = DeleteSnapshotResponse
+        <$> x .@? "Snapshot"

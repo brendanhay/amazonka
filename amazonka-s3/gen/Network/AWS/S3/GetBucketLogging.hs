@@ -94,8 +94,10 @@ instance ToQuery GetBucketLogging where
 
 instance ToHeaders GetBucketLogging
 
-instance ToXML GetBucketLogging where
-    toXML = const (node "GetBucketLogging" [])
+instance ToXMLRoot GetBucketLogging where
+    toXMLRoot = const (element "GetBucketLogging" [])
+
+instance ToXML GetBucketLogging
 
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
@@ -105,5 +107,5 @@ instance AWSRequest GetBucketLogging where
     response = xmlResponse
 
 instance FromXML GetBucketLoggingResponse where
-    parseXML c = GetBucketLoggingResponse
-        <$> c .:? "LoggingEnabled"
+    parseXML x = GetBucketLoggingResponse
+        <$> x .@? "LoggingEnabled"

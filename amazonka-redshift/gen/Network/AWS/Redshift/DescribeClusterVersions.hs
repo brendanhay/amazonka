@@ -158,6 +158,6 @@ instance AWSRequest DescribeClusterVersions where
     response = xmlResponse
 
 instance FromXML DescribeClusterVersionsResponse where
-    parseXML c = DescribeClusterVersionsResponse
-        <$> c .: "ClusterVersions"
-        <*> c .:? "Marker"
+    parseXML x = DescribeClusterVersionsResponse
+        <$> x .@ "ClusterVersions"
+        <*> x .@? "Marker"

@@ -110,6 +110,6 @@ instance AWSRequest ListSubscriptions where
     response = xmlResponse
 
 instance FromXML ListSubscriptionsResponse where
-    parseXML c = ListSubscriptionsResponse
-        <$> c .:? "NextToken"
-        <*> c .: "Subscriptions"
+    parseXML x = ListSubscriptionsResponse
+        <$> x .@? "NextToken"
+        <*> x .@ "Subscriptions"

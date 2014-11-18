@@ -108,5 +108,5 @@ instance AWSRequest ListQueues where
     response = xmlResponse
 
 instance FromXML ListQueuesResponse where
-    parseXML c = ListQueuesResponse
-        <$> c .: "QueueUrls"
+    parseXML x = ListQueuesResponse
+        <$> x .@ "QueueUrls"

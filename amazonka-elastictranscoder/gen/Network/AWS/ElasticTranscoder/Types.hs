@@ -267,7 +267,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2012-09-25@ of the Amazon Elastic Transcoder service.
-data ElasticTranscoder deriving (Typeable)
+data ElasticTranscoder
 
 instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4

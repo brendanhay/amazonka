@@ -269,8 +269,10 @@ instance ToQuery ListMultipartUploads where
 
 instance ToHeaders ListMultipartUploads
 
-instance ToXML ListMultipartUploads where
-    toXML = const (node "ListMultipartUploads" [])
+instance ToXMLRoot ListMultipartUploads where
+    toXMLRoot = const (element "ListMultipartUploads" [])
+
+instance ToXML ListMultipartUploads
 
 instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
@@ -280,16 +282,16 @@ instance AWSRequest ListMultipartUploads where
     response = xmlResponse
 
 instance FromXML ListMultipartUploadsResponse where
-    parseXML c = ListMultipartUploadsResponse
-        <$> c .:? "Bucket"
-        <*> c .: "CommonPrefixes"
-        <*> c .:? "Delimiter"
-        <*> c .:? "EncodingType"
-        <*> c .:? "IsTruncated"
-        <*> c .:? "KeyMarker"
-        <*> c .:? "MaxUploads"
-        <*> c .:? "NextKeyMarker"
-        <*> c .:? "NextUploadIdMarker"
-        <*> c .:? "Prefix"
-        <*> c .:? "UploadIdMarker"
-        <*> c .: "Upload"
+    parseXML x = ListMultipartUploadsResponse
+        <$> x .@? "Bucket"
+        <*> x .@ "CommonPrefixes"
+        <*> x .@? "Delimiter"
+        <*> x .@? "EncodingType"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "KeyMarker"
+        <*> x .@? "MaxUploads"
+        <*> x .@? "NextKeyMarker"
+        <*> x .@? "NextUploadIdMarker"
+        <*> x .@? "Prefix"
+        <*> x .@? "UploadIdMarker"
+        <*> x .@ "Upload"

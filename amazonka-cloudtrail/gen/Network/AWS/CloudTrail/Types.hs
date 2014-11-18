@@ -45,7 +45,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2013-11-01@ of the Amazon CloudTrail service.
-data CloudTrail deriving (Typeable)
+data CloudTrail
 
 instance AWSService CloudTrail where
     type Sg CloudTrail = V4

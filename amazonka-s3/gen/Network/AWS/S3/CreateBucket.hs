@@ -166,10 +166,12 @@ instance ToHeaders CreateBucket where
         , "x-amz-grant-write-acp"    =: _cbGrantWriteACP
         ]
 
-instance ToXML CreateBucket where
-    toXML CreateBucket{..} = node "CreateBucket"
-        [ "CreateBucketConfiguration" .= _cbCreateBucketConfiguration
+instance ToXMLRoot CreateBucket where
+    toXMLRoot CreateBucket{..} = element "CreateBucket"
+        [ "CreateBucketConfiguration" =@ _cbCreateBucketConfiguration
         ]
+
+instance ToXML CreateBucket
 
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3

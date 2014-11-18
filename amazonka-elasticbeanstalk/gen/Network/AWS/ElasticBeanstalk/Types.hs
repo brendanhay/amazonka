@@ -269,7 +269,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2010-12-01@ of the Amazon Elastic Beanstalk service.
-data ElasticBeanstalk deriving (Typeable)
+data ElasticBeanstalk
 
 instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
@@ -352,13 +352,13 @@ adVersions :: Lens' ApplicationDescription [Text]
 adVersions = lens _adVersions (\s a -> s { _adVersions = a })
 
 instance FromXML ApplicationDescription where
-    parseXML c = ApplicationDescription
-        <$> c .:? "ApplicationName"
-        <*> c .: "ConfigurationTemplates"
-        <*> c .:? "DateCreated"
-        <*> c .:? "DateUpdated"
-        <*> c .:? "Description"
-        <*> c .: "Versions"
+    parseXML x = ApplicationDescription
+        <$> x .@? "ApplicationName"
+        <*> x .@ "ConfigurationTemplates"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@ "Versions"
 
 instance ToQuery ApplicationDescription
 
@@ -391,7 +391,7 @@ instance ToText EventSeverity where
         Warn  -> "WARN"
 
 instance FromXML EventSeverity where
-    parseXML = fromXMLText "EventSeverity"
+    parseXML = parseXMLText "EventSeverity"
 
 instance ToQuery EventSeverity
 
@@ -423,9 +423,9 @@ tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    parseXML c = Tag
-        <$> c .:? "Key"
-        <*> c .:? "Value"
+    parseXML x = Tag
+        <$> x .@? "Key"
+        <*> x .@? "Value"
 
 instance ToQuery Tag
 
@@ -508,15 +508,15 @@ edVersionLabel :: Lens' EventDescription (Maybe Text)
 edVersionLabel = lens _edVersionLabel (\s a -> s { _edVersionLabel = a })
 
 instance FromXML EventDescription where
-    parseXML c = EventDescription
-        <$> c .:? "ApplicationName"
-        <*> c .:? "EnvironmentName"
-        <*> c .:? "EventDate"
-        <*> c .:? "Message"
-        <*> c .:? "RequestId"
-        <*> c .:? "Severity"
-        <*> c .:? "TemplateName"
-        <*> c .:? "VersionLabel"
+    parseXML x = EventDescription
+        <$> x .@? "ApplicationName"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "EventDate"
+        <*> x .@? "Message"
+        <*> x .@? "RequestId"
+        <*> x .@? "Severity"
+        <*> x .@? "TemplateName"
+        <*> x .@? "VersionLabel"
 
 instance ToQuery EventDescription
 
@@ -540,8 +540,8 @@ lcName :: Lens' LaunchConfiguration (Maybe Text)
 lcName = lens _lcName (\s a -> s { _lcName = a })
 
 instance FromXML LaunchConfiguration where
-    parseXML c = LaunchConfiguration
-        <$> c .:? "Name"
+    parseXML x = LaunchConfiguration
+        <$> x .@? "Name"
 
 instance ToQuery LaunchConfiguration
 
@@ -566,8 +566,8 @@ avdmApplicationVersion =
     lens _avdmApplicationVersion (\s a -> s { _avdmApplicationVersion = a })
 
 instance FromXML ApplicationVersionDescriptionMessage where
-    parseXML c = ApplicationVersionDescriptionMessage
-        <$> c .:? "ApplicationVersion"
+    parseXML x = ApplicationVersionDescriptionMessage
+        <$> x .@? "ApplicationVersion"
 
 instance ToQuery ApplicationVersionDescriptionMessage
 
@@ -591,8 +591,8 @@ asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\s a -> s { _asgName = a })
 
 instance FromXML AutoScalingGroup where
-    parseXML c = AutoScalingGroup
-        <$> c .:? "Name"
+    parseXML x = AutoScalingGroup
+        <$> x .@? "Name"
 
 instance ToQuery AutoScalingGroup
 
@@ -616,7 +616,7 @@ instance ToText ConfigurationDeploymentStatus where
         Pending  -> "pending"
 
 instance FromXML ConfigurationDeploymentStatus where
-    parseXML = fromXMLText "ConfigurationDeploymentStatus"
+    parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
 instance ToQuery ConfigurationDeploymentStatus
 
@@ -656,10 +656,10 @@ cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosValue = lens _cosValue (\s a -> s { _cosValue = a })
 
 instance FromXML ConfigurationOptionSetting where
-    parseXML c = ConfigurationOptionSetting
-        <$> c .:? "Namespace"
-        <*> c .:? "OptionName"
-        <*> c .:? "Value"
+    parseXML x = ConfigurationOptionSetting
+        <$> x .@? "Namespace"
+        <*> x .@? "OptionName"
+        <*> x .@? "Value"
 
 instance ToQuery ConfigurationOptionSetting
 
@@ -680,7 +680,7 @@ instance ToText ConfigurationOptionValueType where
         Scalar -> "Scalar"
 
 instance FromXML ConfigurationOptionValueType where
-    parseXML = fromXMLText "ConfigurationOptionValueType"
+    parseXML = parseXMLText "ConfigurationOptionValueType"
 
 instance ToQuery ConfigurationOptionValueType
 
@@ -790,16 +790,16 @@ csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
 
 instance FromXML ConfigurationSettingsDescription where
-    parseXML c = ConfigurationSettingsDescription
-        <$> c .:? "ApplicationName"
-        <*> c .:? "DateCreated"
-        <*> c .:? "DateUpdated"
-        <*> c .:? "DeploymentStatus"
-        <*> c .:? "Description"
-        <*> c .:? "EnvironmentName"
-        <*> c .: "OptionSettings"
-        <*> c .:? "SolutionStackName"
-        <*> c .:? "TemplateName"
+    parseXML x = ConfigurationSettingsDescription
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "DeploymentStatus"
+        <*> x .@? "Description"
+        <*> x .@? "EnvironmentName"
+        <*> x .@ "OptionSettings"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "TemplateName"
 
 instance ToQuery ConfigurationSettingsDescription
 
@@ -866,13 +866,13 @@ avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
 avdVersionLabel = lens _avdVersionLabel (\s a -> s { _avdVersionLabel = a })
 
 instance FromXML ApplicationVersionDescription where
-    parseXML c = ApplicationVersionDescription
-        <$> c .:? "ApplicationName"
-        <*> c .:? "DateCreated"
-        <*> c .:? "DateUpdated"
-        <*> c .:? "Description"
-        <*> c .:? "SourceBundle"
-        <*> c .:? "VersionLabel"
+    parseXML x = ApplicationVersionDescription
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "SourceBundle"
+        <*> x .@? "VersionLabel"
 
 instance ToQuery ApplicationVersionDescription
 
@@ -904,9 +904,9 @@ osOptionName :: Lens' OptionSpecification (Maybe Text)
 osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
 
 instance FromXML OptionSpecification where
-    parseXML c = OptionSpecification
-        <$> c .:? "Namespace"
-        <*> c .:? "OptionName"
+    parseXML x = OptionSpecification
+        <$> x .@? "Namespace"
+        <*> x .@? "OptionName"
 
 instance ToQuery OptionSpecification
 
@@ -981,14 +981,14 @@ erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
 erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a })
 
 instance FromXML EnvironmentResourceDescription where
-    parseXML c = EnvironmentResourceDescription
-        <$> c .: "AutoScalingGroups"
-        <*> c .:? "EnvironmentName"
-        <*> c .: "Instances"
-        <*> c .: "LaunchConfigurations"
-        <*> c .: "LoadBalancers"
-        <*> c .: "Queues"
-        <*> c .: "Triggers"
+    parseXML x = EnvironmentResourceDescription
+        <$> x .@ "AutoScalingGroups"
+        <*> x .@? "EnvironmentName"
+        <*> x .@ "Instances"
+        <*> x .@ "LaunchConfigurations"
+        <*> x .@ "LoadBalancers"
+        <*> x .@ "Queues"
+        <*> x .@ "Triggers"
 
 instance ToQuery EnvironmentResourceDescription
 
@@ -1020,9 +1020,9 @@ qURL :: Lens' Queue (Maybe Text)
 qURL = lens _qURL (\s a -> s { _qURL = a })
 
 instance FromXML Queue where
-    parseXML c = Queue
-        <$> c .:? "Name"
-        <*> c .:? "URL"
+    parseXML x = Queue
+        <$> x .@? "Name"
+        <*> x .@? "URL"
 
 instance ToQuery Queue
 
@@ -1052,7 +1052,7 @@ instance ToText EnvironmentStatus where
         Updating    -> "Updating"
 
 instance FromXML EnvironmentStatus where
-    parseXML = fromXMLText "EnvironmentStatus"
+    parseXML = parseXMLText "EnvironmentStatus"
 
 instance ToQuery EnvironmentStatus
 
@@ -1093,10 +1093,10 @@ lbdLoadBalancerName =
     lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
 
 instance FromXML LoadBalancerDescription where
-    parseXML c = LoadBalancerDescription
-        <$> c .:? "Domain"
-        <*> c .: "Listeners"
-        <*> c .:? "LoadBalancerName"
+    parseXML x = LoadBalancerDescription
+        <$> x .@? "Domain"
+        <*> x .@ "Listeners"
+        <*> x .@? "LoadBalancerName"
 
 instance ToQuery LoadBalancerDescription
 
@@ -1120,8 +1120,8 @@ admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescript
 admApplication = lens _admApplication (\s a -> s { _admApplication = a })
 
 instance FromXML ApplicationDescriptionMessage where
-    parseXML c = ApplicationDescriptionMessage
-        <$> c .:? "Application"
+    parseXML x = ApplicationDescriptionMessage
+        <$> x .@? "Application"
 
 instance ToQuery ApplicationDescriptionMessage
 
@@ -1161,10 +1161,10 @@ etVersion :: Lens' EnvironmentTier (Maybe Text)
 etVersion = lens _etVersion (\s a -> s { _etVersion = a })
 
 instance FromXML EnvironmentTier where
-    parseXML c = EnvironmentTier
-        <$> c .:? "Name"
-        <*> c .:? "Type"
-        <*> c .:? "Version"
+    parseXML x = EnvironmentTier
+        <$> x .@? "Name"
+        <*> x .@? "Type"
+        <*> x .@? "Version"
 
 instance ToQuery EnvironmentTier
 
@@ -1188,8 +1188,8 @@ lbName :: Lens' LoadBalancer (Maybe Text)
 lbName = lens _lbName (\s a -> s { _lbName = a })
 
 instance FromXML LoadBalancer where
-    parseXML c = LoadBalancer
-        <$> c .:? "Name"
+    parseXML x = LoadBalancer
+        <$> x .@? "Name"
 
 instance ToQuery LoadBalancer
 
@@ -1213,8 +1213,8 @@ erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDesc
 erdLoadBalancer = lens _erdLoadBalancer (\s a -> s { _erdLoadBalancer = a })
 
 instance FromXML EnvironmentResourcesDescription where
-    parseXML c = EnvironmentResourcesDescription
-        <$> c .:? "LoadBalancer"
+    parseXML x = EnvironmentResourcesDescription
+        <$> x .@? "LoadBalancer"
 
 instance ToQuery EnvironmentResourcesDescription
 
@@ -1247,9 +1247,9 @@ orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
 orrPattern = lens _orrPattern (\s a -> s { _orrPattern = a })
 
 instance FromXML OptionRestrictionRegex where
-    parseXML c = OptionRestrictionRegex
-        <$> c .:? "Label"
-        <*> c .:? "Pattern"
+    parseXML x = OptionRestrictionRegex
+        <$> x .@? "Label"
+        <*> x .@? "Pattern"
 
 instance ToQuery OptionRestrictionRegex
 
@@ -1391,18 +1391,18 @@ codValueType :: Lens' ConfigurationOptionDescription (Maybe Text)
 codValueType = lens _codValueType (\s a -> s { _codValueType = a })
 
 instance FromXML ConfigurationOptionDescription where
-    parseXML c = ConfigurationOptionDescription
-        <$> c .:? "ChangeSeverity"
-        <*> c .:? "DefaultValue"
-        <*> c .:? "MaxLength"
-        <*> c .:? "MaxValue"
-        <*> c .:? "MinValue"
-        <*> c .:? "Name"
-        <*> c .:? "Namespace"
-        <*> c .:? "Regex"
-        <*> c .:? "UserDefined"
-        <*> c .: "ValueOptions"
-        <*> c .:? "ValueType"
+    parseXML x = ConfigurationOptionDescription
+        <$> x .@? "ChangeSeverity"
+        <*> x .@? "DefaultValue"
+        <*> x .@? "MaxLength"
+        <*> x .@? "MaxValue"
+        <*> x .@? "MinValue"
+        <*> x .@? "Name"
+        <*> x .@? "Namespace"
+        <*> x .@? "Regex"
+        <*> x .@? "UserDefined"
+        <*> x .@ "ValueOptions"
+        <*> x .@? "ValueType"
 
 instance ToQuery ConfigurationOptionDescription
 
@@ -1435,9 +1435,9 @@ scTemplateName :: Lens' SourceConfiguration (Maybe Text)
 scTemplateName = lens _scTemplateName (\s a -> s { _scTemplateName = a })
 
 instance FromXML SourceConfiguration where
-    parseXML c = SourceConfiguration
-        <$> c .:? "ApplicationName"
-        <*> c .:? "TemplateName"
+    parseXML x = SourceConfiguration
+        <$> x .@? "ApplicationName"
+        <*> x .@? "TemplateName"
 
 instance ToQuery SourceConfiguration
 
@@ -1487,11 +1487,11 @@ eidSampleTimestamp =
         . mapping _Time
 
 instance FromXML EnvironmentInfoDescription where
-    parseXML c = EnvironmentInfoDescription
-        <$> c .:? "Ec2InstanceId"
-        <*> c .:? "InfoType"
-        <*> c .:? "Message"
-        <*> c .:? "SampleTimestamp"
+    parseXML x = EnvironmentInfoDescription
+        <$> x .@? "Ec2InstanceId"
+        <*> x .@? "InfoType"
+        <*> x .@? "Message"
+        <*> x .@? "SampleTimestamp"
 
 instance ToQuery EnvironmentInfoDescription
 
@@ -1523,9 +1523,9 @@ slS3Key :: Lens' S3Location (Maybe Text)
 slS3Key = lens _slS3Key (\s a -> s { _slS3Key = a })
 
 instance FromXML S3Location where
-    parseXML c = S3Location
-        <$> c .:? "S3Bucket"
-        <*> c .:? "S3Key"
+    parseXML x = S3Location
+        <$> x .@? "S3Bucket"
+        <*> x .@? "S3Key"
 
 instance ToQuery S3Location
 
@@ -1578,11 +1578,11 @@ vmSeverity :: Lens' ValidationMessage (Maybe Text)
 vmSeverity = lens _vmSeverity (\s a -> s { _vmSeverity = a })
 
 instance FromXML ValidationMessage where
-    parseXML c = ValidationMessage
-        <$> c .:? "Message"
-        <*> c .:? "Namespace"
-        <*> c .:? "OptionName"
-        <*> c .:? "Severity"
+    parseXML x = ValidationMessage
+        <$> x .@? "Message"
+        <*> x .@? "Namespace"
+        <*> x .@? "OptionName"
+        <*> x .@? "Severity"
 
 instance ToQuery ValidationMessage
 
@@ -1603,7 +1603,7 @@ instance ToText ValidationSeverity where
         VSWarning -> "warning"
 
 instance FromXML ValidationSeverity where
-    parseXML = fromXMLText "ValidationSeverity"
+    parseXML = parseXMLText "ValidationSeverity"
 
 instance ToQuery ValidationSeverity
 
@@ -1627,8 +1627,8 @@ tName :: Lens' Trigger (Maybe Text)
 tName = lens _tName (\s a -> s { _tName = a })
 
 instance FromXML Trigger where
-    parseXML c = Trigger
-        <$> c .:? "Name"
+    parseXML x = Trigger
+        <$> x .@? "Name"
 
 instance ToQuery Trigger
 
@@ -1645,7 +1645,7 @@ instance ToText EnvironmentInfoType where
     toText Tail' = "tail"
 
 instance FromXML EnvironmentInfoType where
-    parseXML = fromXMLText "EnvironmentInfoType"
+    parseXML = parseXMLText "EnvironmentInfoType"
 
 instance ToQuery EnvironmentInfoType
 
@@ -1805,22 +1805,22 @@ ed1VersionLabel :: Lens' EnvironmentDescription (Maybe Text)
 ed1VersionLabel = lens _ed1VersionLabel (\s a -> s { _ed1VersionLabel = a })
 
 instance FromXML EnvironmentDescription where
-    parseXML c = EnvironmentDescription
-        <$> c .:? "ApplicationName"
-        <*> c .:? "CNAME"
-        <*> c .:? "DateCreated"
-        <*> c .:? "DateUpdated"
-        <*> c .:? "Description"
-        <*> c .:? "EndpointURL"
-        <*> c .:? "EnvironmentId"
-        <*> c .:? "EnvironmentName"
-        <*> c .:? "Health"
-        <*> c .:? "Resources"
-        <*> c .:? "SolutionStackName"
-        <*> c .:? "Status"
-        <*> c .:? "TemplateName"
-        <*> c .:? "Tier"
-        <*> c .:? "VersionLabel"
+    parseXML x = EnvironmentDescription
+        <$> x .@? "ApplicationName"
+        <*> x .@? "CNAME"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "EndpointURL"
+        <*> x .@? "EnvironmentId"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "Health"
+        <*> x .@? "Resources"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "Status"
+        <*> x .@? "TemplateName"
+        <*> x .@? "Tier"
+        <*> x .@? "VersionLabel"
 
 instance ToQuery EnvironmentDescription
 
@@ -1852,9 +1852,9 @@ lProtocol :: Lens' Listener (Maybe Text)
 lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
 
 instance FromXML Listener where
-    parseXML c = Listener
-        <$> c .:? "Port"
-        <*> c .:? "Protocol"
+    parseXML x = Listener
+        <$> x .@? "Port"
+        <*> x .@? "Protocol"
 
 instance ToQuery Listener
 
@@ -1881,7 +1881,7 @@ instance ToText EnvironmentHealth where
         Yellow -> "Yellow"
 
 instance FromXML EnvironmentHealth where
-    parseXML = fromXMLText "EnvironmentHealth"
+    parseXML = parseXMLText "EnvironmentHealth"
 
 instance ToQuery EnvironmentHealth
 
@@ -1905,8 +1905,8 @@ iId :: Lens' Instance (Maybe Text)
 iId = lens _iId (\s a -> s { _iId = a })
 
 instance FromXML Instance where
-    parseXML c = Instance
-        <$> c .:? "Id"
+    parseXML x = Instance
+        <$> x .@? "Id"
 
 instance ToQuery Instance
 
@@ -1940,8 +1940,8 @@ ssdSolutionStackName =
     lens _ssdSolutionStackName (\s a -> s { _ssdSolutionStackName = a })
 
 instance FromXML SolutionStackDescription where
-    parseXML c = SolutionStackDescription
-        <$> c .: "PermittedFileTypes"
-        <*> c .:? "SolutionStackName"
+    parseXML x = SolutionStackDescription
+        <$> x .@ "PermittedFileTypes"
+        <*> x .@? "SolutionStackName"
 
 instance ToQuery SolutionStackDescription

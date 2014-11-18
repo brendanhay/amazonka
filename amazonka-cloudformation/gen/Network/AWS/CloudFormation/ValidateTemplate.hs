@@ -147,8 +147,8 @@ instance AWSRequest ValidateTemplate where
     response = xmlResponse
 
 instance FromXML ValidateTemplateResponse where
-    parseXML c = ValidateTemplateResponse
-        <$> c .: "Capabilities"
-        <*> c .:? "CapabilitiesReason"
-        <*> c .:? "Description"
-        <*> c .: "Parameters"
+    parseXML x = ValidateTemplateResponse
+        <$> x .@ "Capabilities"
+        <*> x .@? "CapabilitiesReason"
+        <*> x .@? "Description"
+        <*> x .@ "Parameters"

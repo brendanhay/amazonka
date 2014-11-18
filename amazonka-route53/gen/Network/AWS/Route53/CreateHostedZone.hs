@@ -206,14 +206,16 @@ instance ToQuery CreateHostedZone where
 
 instance ToHeaders CreateHostedZone
 
-instance ToXML CreateHostedZone where
-    toXML CreateHostedZone{..} = node "CreateHostedZone"
-        [ "Name"             .= _chzName
-        , "VPC"              .= _chzVPC
-        , "CallerReference"  .= _chzCallerReference
-        , "HostedZoneConfig" .= _chzHostedZoneConfig
-        , "DelegationSetId"  .= _chzDelegationSetId
+instance ToXMLRoot CreateHostedZone where
+    toXMLRoot CreateHostedZone{..} = element "CreateHostedZone"
+        [ "Name"             =@ _chzName
+        , "VPC"              =@ _chzVPC
+        , "CallerReference"  =@ _chzCallerReference
+        , "HostedZoneConfig" =@ _chzHostedZoneConfig
+        , "DelegationSetId"  =@ _chzDelegationSetId
         ]
+
+instance ToXML CreateHostedZone
 
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53
@@ -221,8 +223,8 @@ instance AWSRequest CreateHostedZone where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateHostedZoneResponse
-        <$> x %| "ChangeInfo"
-        <*> x %| "DelegationSet"
-        <*> x %| "HostedZone"
+        <$> x .@ "ChangeInfo"
+        <*> x .@ "DelegationSet"
+        <*> x .@ "HostedZone"
         <*> h ~: "Location"
-        <*> x %| "VPC"
+        <*> x .@? "VPC"

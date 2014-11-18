@@ -240,13 +240,13 @@ instance AWSRequest UpdateConfigurationTemplate where
     response = xmlResponse
 
 instance FromXML UpdateConfigurationTemplateResponse where
-    parseXML c = UpdateConfigurationTemplateResponse
-        <$> c .:? "ApplicationName"
-        <*> c .:? "DateCreated"
-        <*> c .:? "DateUpdated"
-        <*> c .:? "DeploymentStatus"
-        <*> c .:? "Description"
-        <*> c .:? "EnvironmentName"
-        <*> c .: "OptionSettings"
-        <*> c .:? "SolutionStackName"
-        <*> c .:? "TemplateName"
+    parseXML x = UpdateConfigurationTemplateResponse
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "DeploymentStatus"
+        <*> x .@? "Description"
+        <*> x .@? "EnvironmentName"
+        <*> x .@ "OptionSettings"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "TemplateName"

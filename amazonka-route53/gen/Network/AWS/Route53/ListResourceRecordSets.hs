@@ -246,8 +246,10 @@ instance ToQuery ListResourceRecordSets where
 
 instance ToHeaders ListResourceRecordSets
 
-instance ToXML ListResourceRecordSets where
-    toXML = const (node "ListResourceRecordSets" [])
+instance ToXMLRoot ListResourceRecordSets where
+    toXMLRoot = const (element "ListResourceRecordSets" [])
+
+instance ToXML ListResourceRecordSets
 
 instance AWSRequest ListResourceRecordSets where
     type Sv ListResourceRecordSets = Route53
@@ -257,10 +259,10 @@ instance AWSRequest ListResourceRecordSets where
     response = xmlResponse
 
 instance FromXML ListResourceRecordSetsResponse where
-    parseXML c = ListResourceRecordSetsResponse
-        <$> c .: "IsTruncated"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextRecordIdentifier"
-        <*> c .:? "NextRecordName"
-        <*> c .:? "NextRecordType"
-        <*> c .: "ResourceRecordSets"
+    parseXML x = ListResourceRecordSetsResponse
+        <$> x .@ "IsTruncated"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextRecordIdentifier"
+        <*> x .@? "NextRecordName"
+        <*> x .@? "NextRecordType"
+        <*> x .@ "ResourceRecordSets"

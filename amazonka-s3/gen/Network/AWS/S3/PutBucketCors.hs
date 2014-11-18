@@ -99,10 +99,12 @@ instance ToHeaders PutBucketCors where
         [ "Content-MD5" =: _pbcContentMD5
         ]
 
-instance ToXML PutBucketCors where
-    toXML PutBucketCors{..} = node "PutBucketCors"
-        [ "CORSConfiguration" .= _pbcCORSConfiguration
+instance ToXMLRoot PutBucketCors where
+    toXMLRoot PutBucketCors{..} = element "PutBucketCors"
+        [ "CORSConfiguration" =@ _pbcCORSConfiguration
         ]
+
+instance ToXML PutBucketCors
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3

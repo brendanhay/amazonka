@@ -131,5 +131,5 @@ instance AWSRequest CreateSAMLProvider where
     response = xmlResponse
 
 instance FromXML CreateSAMLProviderResponse where
-    parseXML c = CreateSAMLProviderResponse
-        <$> c .:? "SAMLProviderArn"
+    parseXML x = CreateSAMLProviderResponse
+        <$> x .@? "SAMLProviderArn"

@@ -179,7 +179,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2010-05-08@ of the Amazon Identity and Access Management service.
-data IAM deriving (Typeable)
+data IAM
 
 instance AWSService IAM where
     type Sg IAM = V4
@@ -216,7 +216,7 @@ instance ToText AssignmentStatusType where
         Unassigned -> "Unassigned"
 
 instance FromXML AssignmentStatusType where
-    parseXML = fromXMLText "AssignmentStatusType"
+    parseXML = parseXMLText "AssignmentStatusType"
 
 instance ToQuery AssignmentStatusType
 
@@ -328,17 +328,17 @@ ppRequireUppercaseCharacters =
         (\s a -> s { _ppRequireUppercaseCharacters = a })
 
 instance FromXML PasswordPolicy where
-    parseXML c = PasswordPolicy
-        <$> c .:? "AllowUsersToChangePassword"
-        <*> c .:? "ExpirePasswords"
-        <*> c .:? "HardExpiry"
-        <*> c .:? "MaxPasswordAge"
-        <*> c .:? "MinimumPasswordLength"
-        <*> c .:? "PasswordReusePrevention"
-        <*> c .:? "RequireLowercaseCharacters"
-        <*> c .:? "RequireNumbers"
-        <*> c .:? "RequireSymbols"
-        <*> c .:? "RequireUppercaseCharacters"
+    parseXML x = PasswordPolicy
+        <$> x .@? "AllowUsersToChangePassword"
+        <*> x .@? "ExpirePasswords"
+        <*> x .@? "HardExpiry"
+        <*> x .@? "MaxPasswordAge"
+        <*> x .@? "MinimumPasswordLength"
+        <*> x .@? "PasswordReusePrevention"
+        <*> x .@? "RequireLowercaseCharacters"
+        <*> x .@? "RequireNumbers"
+        <*> x .@? "RequireSymbols"
+        <*> x .@? "RequireUppercaseCharacters"
 
 instance ToQuery PasswordPolicy
 
@@ -404,12 +404,12 @@ gPath :: Lens' Group Text
 gPath = lens _gPath (\s a -> s { _gPath = a })
 
 instance FromXML Group where
-    parseXML c = Group
-        <$> c .: "Arn"
-        <*> c .: "CreateDate"
-        <*> c .: "GroupId"
-        <*> c .: "GroupName"
-        <*> c .: "Path"
+    parseXML x = Group
+        <$> x .@ "Arn"
+        <*> x .@ "CreateDate"
+        <*> x .@ "GroupId"
+        <*> x .@ "GroupName"
+        <*> x .@ "Path"
 
 instance ToQuery Group
 
@@ -454,10 +454,10 @@ mfadUserName :: Lens' MFADevice Text
 mfadUserName = lens _mfadUserName (\s a -> s { _mfadUserName = a })
 
 instance FromXML MFADevice where
-    parseXML c = MFADevice
-        <$> c .: "EnableDate"
-        <*> c .: "SerialNumber"
-        <*> c .: "UserName"
+    parseXML x = MFADevice
+        <$> x .@ "EnableDate"
+        <*> x .@ "SerialNumber"
+        <*> x .@ "UserName"
 
 instance ToQuery MFADevice
 
@@ -533,13 +533,13 @@ ipRoles :: Lens' InstanceProfile [Role]
 ipRoles = lens _ipRoles (\s a -> s { _ipRoles = a })
 
 instance FromXML InstanceProfile where
-    parseXML c = InstanceProfile
-        <$> c .: "Arn"
-        <*> c .: "CreateDate"
-        <*> c .: "InstanceProfileId"
-        <*> c .: "InstanceProfileName"
-        <*> c .: "Path"
-        <*> c .: "Roles"
+    parseXML x = InstanceProfile
+        <$> x .@ "Arn"
+        <*> x .@ "CreateDate"
+        <*> x .@ "InstanceProfileId"
+        <*> x .@ "InstanceProfileName"
+        <*> x .@ "Path"
+        <*> x .@ "Roles"
 
 instance ToQuery InstanceProfile
 
@@ -556,7 +556,7 @@ instance ToText ReportFormatType where
     toText TextCsv = "text/csv"
 
 instance FromXML ReportFormatType where
-    parseXML = fromXMLText "ReportFormatType"
+    parseXML = parseXMLText "ReportFormatType"
 
 instance ToQuery ReportFormatType
 
@@ -633,13 +633,13 @@ scmUploadDate = lens _scmUploadDate (\s a -> s { _scmUploadDate = a })
     . mapping _Time
 
 instance FromXML ServerCertificateMetadata where
-    parseXML c = ServerCertificateMetadata
-        <$> c .: "Arn"
-        <*> c .:? "Expiration"
-        <*> c .: "Path"
-        <*> c .: "ServerCertificateId"
-        <*> c .: "ServerCertificateName"
-        <*> c .:? "UploadDate"
+    parseXML x = ServerCertificateMetadata
+        <$> x .@ "Arn"
+        <*> x .@? "Expiration"
+        <*> x .@ "Path"
+        <*> x .@ "ServerCertificateId"
+        <*> x .@ "ServerCertificateName"
+        <*> x .@? "UploadDate"
 
 instance ToQuery ServerCertificateMetadata
 
@@ -662,8 +662,8 @@ oidcpleArn :: Lens' OpenIDConnectProviderListEntry (Maybe Text)
 oidcpleArn = lens _oidcpleArn (\s a -> s { _oidcpleArn = a })
 
 instance FromXML OpenIDConnectProviderListEntry where
-    parseXML c = OpenIDConnectProviderListEntry
-        <$> c .:? "Arn"
+    parseXML x = OpenIDConnectProviderListEntry
+        <$> x .@? "Arn"
 
 instance ToQuery OpenIDConnectProviderListEntry
 
@@ -709,10 +709,10 @@ lpUserName :: Lens' LoginProfile Text
 lpUserName = lens _lpUserName (\s a -> s { _lpUserName = a })
 
 instance FromXML LoginProfile where
-    parseXML c = LoginProfile
-        <$> c .: "CreateDate"
-        <*> c .:? "PasswordResetRequired"
-        <*> c .: "UserName"
+    parseXML x = LoginProfile
+        <$> x .@ "CreateDate"
+        <*> x .@? "PasswordResetRequired"
+        <*> x .@ "UserName"
 
 instance ToQuery LoginProfile
 
@@ -769,7 +769,7 @@ instance ToText SummaryKeyType where
         UsersQuota                      -> "UsersQuota"
 
 instance FromXML SummaryKeyType where
-    parseXML = fromXMLText "SummaryKeyType"
+    parseXML = parseXMLText "SummaryKeyType"
 
 instance ToQuery SummaryKeyType
 
@@ -793,7 +793,7 @@ instance ToText ReportStateType where
         Started    -> "STARTED"
 
 instance FromXML ReportStateType where
-    parseXML = fromXMLText "ReportStateType"
+    parseXML = parseXMLText "ReportStateType"
 
 instance ToQuery ReportStateType
 
@@ -878,13 +878,13 @@ uUserName :: Lens' User Text
 uUserName = lens _uUserName (\s a -> s { _uUserName = a })
 
 instance FromXML User where
-    parseXML c = User
-        <$> c .: "Arn"
-        <*> c .: "CreateDate"
-        <*> c .:? "PasswordLastUsed"
-        <*> c .: "Path"
-        <*> c .: "UserId"
-        <*> c .: "UserName"
+    parseXML x = User
+        <$> x .@ "Arn"
+        <*> x .@ "CreateDate"
+        <*> x .@? "PasswordLastUsed"
+        <*> x .@ "Path"
+        <*> x .@ "UserId"
+        <*> x .@ "UserName"
 
 instance ToQuery User
 
@@ -905,7 +905,7 @@ instance ToText StatusType where
         Inactive -> "Inactive"
 
 instance FromXML StatusType where
-    parseXML = fromXMLText "StatusType"
+    parseXML = parseXMLText "StatusType"
 
 instance ToQuery StatusType
 
@@ -949,10 +949,10 @@ samlpleValidUntil =
         . mapping _Time
 
 instance FromXML SAMLProviderListEntry where
-    parseXML c = SAMLProviderListEntry
-        <$> c .:? "Arn"
-        <*> c .:? "CreateDate"
-        <*> c .:? "ValidUntil"
+    parseXML x = SAMLProviderListEntry
+        <$> x .@? "Arn"
+        <*> x .@? "CreateDate"
+        <*> x .@? "ValidUntil"
 
 instance ToQuery SAMLProviderListEntry
 
@@ -1030,13 +1030,13 @@ rRoleName :: Lens' Role Text
 rRoleName = lens _rRoleName (\s a -> s { _rRoleName = a })
 
 instance FromXML Role where
-    parseXML c = Role
-        <$> c .: "Arn"
-        <*> c .:? "AssumeRolePolicyDocument"
-        <*> c .: "CreateDate"
-        <*> c .: "Path"
-        <*> c .: "RoleId"
-        <*> c .: "RoleName"
+    parseXML x = Role
+        <$> x .@ "Arn"
+        <*> x .@? "AssumeRolePolicyDocument"
+        <*> x .@ "CreateDate"
+        <*> x .@ "Path"
+        <*> x .@ "RoleId"
+        <*> x .@ "RoleName"
 
 instance ToQuery Role
 
@@ -1083,10 +1083,10 @@ scServerCertificateMetadata =
         (\s a -> s { _scServerCertificateMetadata = a })
 
 instance FromXML ServerCertificate where
-    parseXML c = ServerCertificate
-        <$> c .: "CertificateBody"
-        <*> c .:? "CertificateChain"
-        <*> c .: "ServerCertificateMetadata"
+    parseXML x = ServerCertificate
+        <$> x .@ "CertificateBody"
+        <*> x .@? "CertificateChain"
+        <*> x .@ "ServerCertificateMetadata"
 
 instance ToQuery ServerCertificate
 
@@ -1150,12 +1150,12 @@ akUserName :: Lens' AccessKey Text
 akUserName = lens _akUserName (\s a -> s { _akUserName = a })
 
 instance FromXML AccessKey where
-    parseXML c = AccessKey
-        <$> c .: "AccessKeyId"
-        <*> c .:? "CreateDate"
-        <*> c .: "SecretAccessKey"
-        <*> c .: "Status"
-        <*> c .: "UserName"
+    parseXML x = AccessKey
+        <$> x .@ "AccessKeyId"
+        <*> x .@? "CreateDate"
+        <*> x .@ "SecretAccessKey"
+        <*> x .@ "Status"
+        <*> x .@ "UserName"
 
 instance ToQuery AccessKey
 
@@ -1220,12 +1220,12 @@ vmfadUser :: Lens' VirtualMFADevice (Maybe User)
 vmfadUser = lens _vmfadUser (\s a -> s { _vmfadUser = a })
 
 instance FromXML VirtualMFADevice where
-    parseXML c = VirtualMFADevice
-        <$> c .:? "Base32StringSeed"
-        <*> c .:? "EnableDate"
-        <*> c .:? "QRCodePNG"
-        <*> c .: "SerialNumber"
-        <*> c .:? "User"
+    parseXML x = VirtualMFADevice
+        <$> x .@? "Base32StringSeed"
+        <*> x .@? "EnableDate"
+        <*> x .@? "QRCodePNG"
+        <*> x .@ "SerialNumber"
+        <*> x .@? "User"
 
 instance ToQuery VirtualMFADevice
 
@@ -1288,12 +1288,12 @@ sc1UserName :: Lens' SigningCertificate Text
 sc1UserName = lens _sc1UserName (\s a -> s { _sc1UserName = a })
 
 instance FromXML SigningCertificate where
-    parseXML c = SigningCertificate
-        <$> c .: "CertificateBody"
-        <*> c .: "CertificateId"
-        <*> c .: "Status"
-        <*> c .:? "UploadDate"
-        <*> c .: "UserName"
+    parseXML x = SigningCertificate
+        <$> x .@ "CertificateBody"
+        <*> x .@ "CertificateId"
+        <*> x .@ "Status"
+        <*> x .@? "UploadDate"
+        <*> x .@ "UserName"
 
 instance ToQuery SigningCertificate
 
@@ -1343,10 +1343,10 @@ akmUserName :: Lens' AccessKeyMetadata (Maybe Text)
 akmUserName = lens _akmUserName (\s a -> s { _akmUserName = a })
 
 instance FromXML AccessKeyMetadata where
-    parseXML c = AccessKeyMetadata
-        <$> c .:? "AccessKeyId"
-        <*> c .:? "CreateDate"
-        <*> c .:? "Status"
-        <*> c .:? "UserName"
+    parseXML x = AccessKeyMetadata
+        <$> x .@? "AccessKeyId"
+        <*> x .@? "CreateDate"
+        <*> x .@? "Status"
+        <*> x .@? "UserName"
 
 instance ToQuery AccessKeyMetadata

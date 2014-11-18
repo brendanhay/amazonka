@@ -128,10 +128,12 @@ instance ToQuery ChangeResourceRecordSets where
 
 instance ToHeaders ChangeResourceRecordSets
 
-instance ToXML ChangeResourceRecordSets where
-    toXML ChangeResourceRecordSets{..} = node "ChangeResourceRecordSets"
-        [ "ChangeBatch" .= _crrsChangeBatch
+instance ToXMLRoot ChangeResourceRecordSets where
+    toXMLRoot ChangeResourceRecordSets{..} = element "ChangeResourceRecordSets"
+        [ "ChangeBatch" =@ _crrsChangeBatch
         ]
+
+instance ToXML ChangeResourceRecordSets
 
 instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
@@ -141,5 +143,5 @@ instance AWSRequest ChangeResourceRecordSets where
     response = xmlResponse
 
 instance FromXML ChangeResourceRecordSetsResponse where
-    parseXML c = ChangeResourceRecordSetsResponse
-        <$> c .: "ChangeInfo"
+    parseXML x = ChangeResourceRecordSetsResponse
+        <$> x .@ "ChangeInfo"

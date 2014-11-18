@@ -88,8 +88,10 @@ instance ToQuery DeleteHealthCheck where
 
 instance ToHeaders DeleteHealthCheck
 
-instance ToXML DeleteHealthCheck where
-    toXML = const (node "DeleteHealthCheck" [])
+instance ToXMLRoot DeleteHealthCheck where
+    toXMLRoot = const (element "DeleteHealthCheck" [])
+
+instance ToXML DeleteHealthCheck
 
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53

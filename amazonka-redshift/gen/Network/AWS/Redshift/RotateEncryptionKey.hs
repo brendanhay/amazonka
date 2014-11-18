@@ -100,5 +100,5 @@ instance AWSRequest RotateEncryptionKey where
     response = xmlResponse
 
 instance FromXML RotateEncryptionKeyResponse where
-    parseXML c = RotateEncryptionKeyResponse
-        <$> c .:? "Cluster"
+    parseXML x = RotateEncryptionKeyResponse
+        <$> x .@? "Cluster"

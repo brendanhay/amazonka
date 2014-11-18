@@ -93,8 +93,10 @@ instance ToQuery GetBucketLocation where
 
 instance ToHeaders GetBucketLocation
 
-instance ToXML GetBucketLocation where
-    toXML = const (node "GetBucketLocation" [])
+instance ToXMLRoot GetBucketLocation where
+    toXMLRoot = const (element "GetBucketLocation" [])
+
+instance ToXML GetBucketLocation
 
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
@@ -104,5 +106,5 @@ instance AWSRequest GetBucketLocation where
     response = xmlResponse
 
 instance FromXML GetBucketLocationResponse where
-    parseXML c = GetBucketLocationResponse
-        <$> c .:? "LocationConstraint"
+    parseXML x = GetBucketLocationResponse
+        <$> x .@? "LocationConstraint"

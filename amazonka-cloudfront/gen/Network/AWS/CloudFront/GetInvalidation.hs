@@ -106,8 +106,10 @@ instance ToQuery GetInvalidation where
 
 instance ToHeaders GetInvalidation
 
-instance ToXML GetInvalidation where
-    toXML = const (node "GetInvalidation" [])
+instance ToXMLRoot GetInvalidation where
+    toXMLRoot = const (element "GetInvalidation" [])
+
+instance ToXML GetInvalidation
 
 instance AWSRequest GetInvalidation where
     type Sv GetInvalidation = CloudFront
@@ -117,5 +119,5 @@ instance AWSRequest GetInvalidation where
     response = xmlResponse
 
 instance FromXML GetInvalidationResponse where
-    parseXML c = GetInvalidationResponse
-        <$> c .:? "Invalidation"
+    parseXML x = GetInvalidationResponse
+        <$> x .@? "Invalidation"

@@ -124,5 +124,5 @@ instance AWSRequest ModifyReservedInstances where
     response = xmlResponse
 
 instance FromXML ModifyReservedInstancesResponse where
-    parseXML c = ModifyReservedInstancesResponse
-        <$> c .:? "reservedInstancesModificationId"
+    parseXML x = ModifyReservedInstancesResponse
+        <$> x .@? "reservedInstancesModificationId"

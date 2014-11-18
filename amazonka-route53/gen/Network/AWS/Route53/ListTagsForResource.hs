@@ -109,8 +109,10 @@ instance ToQuery ListTagsForResource where
 
 instance ToHeaders ListTagsForResource
 
-instance ToXML ListTagsForResource where
-    toXML = const (node "ListTagsForResource" [])
+instance ToXMLRoot ListTagsForResource where
+    toXMLRoot = const (element "ListTagsForResource" [])
+
+instance ToXML ListTagsForResource
 
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = Route53
@@ -120,5 +122,5 @@ instance AWSRequest ListTagsForResource where
     response = xmlResponse
 
 instance FromXML ListTagsForResourceResponse where
-    parseXML c = ListTagsForResourceResponse
-        <$> c .: "ResourceTagSet"
+    parseXML x = ListTagsForResourceResponse
+        <$> x .@ "ResourceTagSet"

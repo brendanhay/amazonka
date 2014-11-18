@@ -104,5 +104,5 @@ instance AWSRequest GetRole where
     response = xmlResponse
 
 instance FromXML GetRoleResponse where
-    parseXML c = GetRoleResponse
-        <$> c .: "Role"
+    parseXML x = GetRoleResponse
+        <$> x .@ "Role"

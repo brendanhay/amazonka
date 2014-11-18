@@ -125,6 +125,6 @@ instance AWSRequest ListStackResources where
     response = xmlResponse
 
 instance FromXML ListStackResourcesResponse where
-    parseXML c = ListStackResourcesResponse
-        <$> c .:? "NextToken"
-        <*> c .: "StackResourceSummaries"
+    parseXML x = ListStackResourcesResponse
+        <$> x .@? "NextToken"
+        <*> x .@ "StackResourceSummaries"

@@ -153,5 +153,5 @@ instance AWSRequest DescribeAlarmsForMetric where
     response = xmlResponse
 
 instance FromXML DescribeAlarmsForMetricResponse where
-    parseXML c = DescribeAlarmsForMetricResponse
-        <$> c .: "MetricAlarms"
+    parseXML x = DescribeAlarmsForMetricResponse
+        <$> x .@ "MetricAlarms"

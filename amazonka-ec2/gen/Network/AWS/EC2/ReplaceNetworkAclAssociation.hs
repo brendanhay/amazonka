@@ -122,5 +122,5 @@ instance AWSRequest ReplaceNetworkAclAssociation where
     response = xmlResponse
 
 instance FromXML ReplaceNetworkAclAssociationResponse where
-    parseXML c = ReplaceNetworkAclAssociationResponse
-        <$> c .:? "newAssociationId"
+    parseXML x = ReplaceNetworkAclAssociationResponse
+        <$> x .@? "newAssociationId"

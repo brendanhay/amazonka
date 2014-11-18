@@ -98,7 +98,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-05-15@ of the Amazon Route 53 Domains service.
-data Route53Domains deriving (Typeable)
+data Route53Domains
 
 instance AWSService Route53Domains where
     type Sg Route53Domains = V4
@@ -240,7 +240,7 @@ instance ToText ExtraParamName where
         VatNumber           -> "VAT_NUMBER"
 
 instance FromJSON ExtraParamName where
-    parseJSON = fromJSONText "ExtraParamName"
+    parseJSON = parseJSONText "ExtraParamName"
 
 instance ToJSON ExtraParamName where
     toJSON = toJSONText
@@ -316,7 +316,7 @@ instance ToText OperationStatus where
         Successful -> "SUCCESSFUL"
 
 instance FromJSON OperationStatus where
-    parseJSON = fromJSONText "OperationStatus"
+    parseJSON = parseJSONText "OperationStatus"
 
 instance ToJSON OperationStatus where
     toJSON = toJSONText
@@ -353,7 +353,7 @@ instance ToText DomainAvailability where
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
 instance FromJSON DomainAvailability where
-    parseJSON = fromJSONText "DomainAvailability"
+    parseJSON = parseJSONText "DomainAvailability"
 
 instance ToJSON DomainAvailability where
     toJSON = toJSONText
@@ -390,7 +390,7 @@ instance ToText OperationType where
         OTUpdateNameserver        -> "UPDATE_NAMESERVER"
 
 instance FromJSON OperationType where
-    parseJSON = fromJSONText "OperationType"
+    parseJSON = parseJSONText "OperationType"
 
 instance ToJSON OperationType where
     toJSON = toJSONText
@@ -1093,7 +1093,7 @@ instance ToText CountryCode where
         Zw  -> "ZW"
 
 instance FromJSON CountryCode where
-    parseJSON = fromJSONText "CountryCode"
+    parseJSON = parseJSONText "CountryCode"
 
 instance ToJSON CountryCode where
     toJSON = toJSONText
@@ -1172,7 +1172,7 @@ instance ToText ContactType where
         CTReseller    -> "RESELLER"
 
 instance FromJSON ContactType where
-    parseJSON = fromJSONText "ContactType"
+    parseJSON = parseJSONText "ContactType"
 
 instance ToJSON ContactType where
     toJSON = toJSONText

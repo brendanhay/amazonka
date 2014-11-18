@@ -208,6 +208,6 @@ instance AWSRequest GetMetricStatistics where
     response = xmlResponse
 
 instance FromXML GetMetricStatisticsResponse where
-    parseXML c = GetMetricStatisticsResponse
-        <$> c .: "Datapoints"
-        <*> c .:? "Label"
+    parseXML x = GetMetricStatisticsResponse
+        <$> x .@ "Datapoints"
+        <*> x .@? "Label"

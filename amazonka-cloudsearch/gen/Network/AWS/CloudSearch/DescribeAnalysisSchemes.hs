@@ -131,5 +131,5 @@ instance AWSRequest DescribeAnalysisSchemes where
     response = xmlResponse
 
 instance FromXML DescribeAnalysisSchemesResponse where
-    parseXML c = DescribeAnalysisSchemesResponse
-        <$> c .: "AnalysisSchemes"
+    parseXML x = DescribeAnalysisSchemesResponse
+        <$> x .@ "AnalysisSchemes"

@@ -101,10 +101,12 @@ instance ToHeaders PutBucketPolicy where
         [ "Content-MD5" =: _pbpContentMD5
         ]
 
-instance ToXML PutBucketPolicy where
-    toXML PutBucketPolicy{..} = node "PutBucketPolicy"
-        [ "Policy" .= _pbpPolicy
+instance ToXMLRoot PutBucketPolicy where
+    toXMLRoot PutBucketPolicy{..} = element "PutBucketPolicy"
+        [ "Policy" =@ _pbpPolicy
         ]
+
+instance ToXML PutBucketPolicy
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

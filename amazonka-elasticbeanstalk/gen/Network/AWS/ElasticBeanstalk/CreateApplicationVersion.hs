@@ -158,5 +158,5 @@ instance AWSRequest CreateApplicationVersion where
     response = xmlResponse
 
 instance FromXML CreateApplicationVersionResponse where
-    parseXML c = CreateApplicationVersionResponse
-        <$> c .:? "ApplicationVersion"
+    parseXML x = CreateApplicationVersionResponse
+        <$> x .@? "ApplicationVersion"

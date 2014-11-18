@@ -189,10 +189,12 @@ instance ToQuery CompleteMultipartUpload where
 
 instance ToHeaders CompleteMultipartUpload
 
-instance ToXML CompleteMultipartUpload where
-    toXML CompleteMultipartUpload{..} = node "CompleteMultipartUpload"
-        [ "CompleteMultipartUpload" .= _cmu1MultipartUpload
+instance ToXMLRoot CompleteMultipartUpload where
+    toXMLRoot CompleteMultipartUpload{..} = element "CompleteMultipartUpload"
+        [ "CompleteMultipartUpload" =@ _cmu1MultipartUpload
         ]
+
+instance ToXML CompleteMultipartUpload
 
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
@@ -200,11 +202,11 @@ instance AWSRequest CompleteMultipartUpload where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CompleteMultipartUploadResponse
-        <$> x %| "Bucket"
-        <*> x %| "ETag"
+        <$> x .@? "Bucket"
+        <*> x .@? "ETag"
         <*> h ~:? "x-amz-expiration"
-        <*> x %| "Key"
-        <*> x %| "Location"
+        <*> x .@? "Key"
+        <*> x .@? "Location"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"

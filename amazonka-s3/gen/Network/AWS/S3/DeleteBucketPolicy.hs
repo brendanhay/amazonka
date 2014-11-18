@@ -79,8 +79,10 @@ instance ToQuery DeleteBucketPolicy where
 
 instance ToHeaders DeleteBucketPolicy
 
-instance ToXML DeleteBucketPolicy where
-    toXML = const (node "DeleteBucketPolicy" [])
+instance ToXMLRoot DeleteBucketPolicy where
+    toXMLRoot = const (element "DeleteBucketPolicy" [])
+
+instance ToXML DeleteBucketPolicy
 
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3

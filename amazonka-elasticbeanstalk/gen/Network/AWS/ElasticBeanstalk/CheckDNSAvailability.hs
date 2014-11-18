@@ -112,6 +112,6 @@ instance AWSRequest CheckDNSAvailability where
     response = xmlResponse
 
 instance FromXML CheckDNSAvailabilityResponse where
-    parseXML c = CheckDNSAvailabilityResponse
-        <$> c .:? "Available"
-        <*> c .:? "FullyQualifiedCNAME"
+    parseXML x = CheckDNSAvailabilityResponse
+        <$> x .@? "Available"
+        <*> x .@? "FullyQualifiedCNAME"

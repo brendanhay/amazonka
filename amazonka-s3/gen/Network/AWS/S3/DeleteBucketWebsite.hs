@@ -79,8 +79,10 @@ instance ToQuery DeleteBucketWebsite where
 
 instance ToHeaders DeleteBucketWebsite
 
-instance ToXML DeleteBucketWebsite where
-    toXML = const (node "DeleteBucketWebsite" [])
+instance ToXMLRoot DeleteBucketWebsite where
+    toXMLRoot = const (element "DeleteBucketWebsite" [])
+
+instance ToXML DeleteBucketWebsite
 
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3

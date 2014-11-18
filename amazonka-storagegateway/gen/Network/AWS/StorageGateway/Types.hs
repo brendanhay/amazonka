@@ -169,7 +169,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2013-06-30@ of the Amazon Storage Gateway service.
-data StorageGateway deriving (Typeable)
+data StorageGateway
 
 instance AWSService StorageGateway where
     type Sg StorageGateway = V4
@@ -1106,7 +1106,7 @@ instance ToText ErrorCode where
         VolumeNotReady                    -> "VolumeNotReady"
 
 instance FromJSON ErrorCode where
-    parseJSON = fromJSONText "ErrorCode"
+    parseJSON = parseJSONText "ErrorCode"
 
 instance ToJSON ErrorCode where
     toJSON = toJSONText

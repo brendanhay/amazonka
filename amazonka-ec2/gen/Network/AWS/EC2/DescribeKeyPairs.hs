@@ -122,5 +122,5 @@ instance AWSRequest DescribeKeyPairs where
     response = xmlResponse
 
 instance FromXML DescribeKeyPairsResponse where
-    parseXML c = DescribeKeyPairsResponse
-        <$> c .: "keySet"
+    parseXML x = DescribeKeyPairsResponse
+        <$> x .@ "keySet"

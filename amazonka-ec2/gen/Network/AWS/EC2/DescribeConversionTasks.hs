@@ -122,5 +122,5 @@ instance AWSRequest DescribeConversionTasks where
     response = xmlResponse
 
 instance FromXML DescribeConversionTasksResponse where
-    parseXML c = DescribeConversionTasksResponse
-        <$> c .: "conversionTasks"
+    parseXML x = DescribeConversionTasksResponse
+        <$> x .@ "conversionTasks"

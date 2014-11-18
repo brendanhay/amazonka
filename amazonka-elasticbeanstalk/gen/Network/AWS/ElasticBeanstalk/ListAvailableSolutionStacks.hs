@@ -96,6 +96,6 @@ instance AWSRequest ListAvailableSolutionStacks where
     response = xmlResponse
 
 instance FromXML ListAvailableSolutionStacksResponse where
-    parseXML c = ListAvailableSolutionStacksResponse
-        <$> c .: "SolutionStackDetails"
-        <*> c .: "SolutionStacks"
+    parseXML x = ListAvailableSolutionStacksResponse
+        <$> x .@ "SolutionStackDetails"
+        <*> x .@ "SolutionStacks"

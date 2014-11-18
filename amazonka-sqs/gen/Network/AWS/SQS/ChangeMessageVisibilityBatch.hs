@@ -124,6 +124,6 @@ instance AWSRequest ChangeMessageVisibilityBatch where
     response = xmlResponse
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
-    parseXML c = ChangeMessageVisibilityBatchResponse
-        <$> c .: "Failed"
-        <*> c .: "Successful"
+    parseXML x = ChangeMessageVisibilityBatchResponse
+        <$> x .@ "Failed"
+        <*> x .@ "Successful"

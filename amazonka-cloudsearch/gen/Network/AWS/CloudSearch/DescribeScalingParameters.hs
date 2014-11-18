@@ -101,5 +101,5 @@ instance AWSRequest DescribeScalingParameters where
     response = xmlResponse
 
 instance FromXML DescribeScalingParametersResponse where
-    parseXML c = DescribeScalingParametersResponse
-        <$> c .: "ScalingParameters"
+    parseXML x = DescribeScalingParametersResponse
+        <$> x .@ "ScalingParameters"

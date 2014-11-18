@@ -188,16 +188,18 @@ instance ToQuery UpdateHealthCheck where
 
 instance ToHeaders UpdateHealthCheck
 
-instance ToXML UpdateHealthCheck where
-    toXML UpdateHealthCheck{..} = node "UpdateHealthCheck"
-        [ "HealthCheckVersion"       .= _uhcHealthCheckVersion
-        , "IPAddress"                .= _uhcIPAddress
-        , "Port"                     .= _uhcPort
-        , "ResourcePath"             .= _uhcResourcePath
-        , "FullyQualifiedDomainName" .= _uhcFullyQualifiedDomainName
-        , "SearchString"             .= _uhcSearchString
-        , "FailureThreshold"         .= _uhcFailureThreshold
+instance ToXMLRoot UpdateHealthCheck where
+    toXMLRoot UpdateHealthCheck{..} = element "UpdateHealthCheck"
+        [ "HealthCheckVersion"       =@ _uhcHealthCheckVersion
+        , "IPAddress"                =@ _uhcIPAddress
+        , "Port"                     =@ _uhcPort
+        , "ResourcePath"             =@ _uhcResourcePath
+        , "FullyQualifiedDomainName" =@ _uhcFullyQualifiedDomainName
+        , "SearchString"             =@ _uhcSearchString
+        , "FailureThreshold"         =@ _uhcFailureThreshold
         ]
+
+instance ToXML UpdateHealthCheck
 
 instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
@@ -207,5 +209,5 @@ instance AWSRequest UpdateHealthCheck where
     response = xmlResponse
 
 instance FromXML UpdateHealthCheckResponse where
-    parseXML c = UpdateHealthCheckResponse
-        <$> c .: "HealthCheck"
+    parseXML x = UpdateHealthCheckResponse
+        <$> x .@ "HealthCheck"

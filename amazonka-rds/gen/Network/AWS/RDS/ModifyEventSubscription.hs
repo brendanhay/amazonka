@@ -150,5 +150,5 @@ instance AWSRequest ModifyEventSubscription where
     response = xmlResponse
 
 instance FromXML ModifyEventSubscriptionResponse where
-    parseXML c = ModifyEventSubscriptionResponse
-        <$> c .:? "EventSubscription"
+    parseXML x = ModifyEventSubscriptionResponse
+        <$> x .@? "EventSubscription"

@@ -74,7 +74,7 @@ import Network.AWS.Signing.V2
 import qualified GHC.Exts
 
 -- | Version @2009-04-15@ of the Amazon SimpleDB service.
-data SDB deriving (Typeable)
+data SDB
 
 instance AWSService SDB where
     type Sg SDB = V2
@@ -139,11 +139,11 @@ aValue :: Lens' Attribute Text
 aValue = lens _aValue (\s a -> s { _aValue = a })
 
 instance FromXML Attribute where
-    parseXML c = Attribute
-        <$> c .:? "AlternateNameEncoding"
-        <*> c .:? "AlternateValueEncoding"
-        <*> c .: "Name"
-        <*> c .: "Value"
+    parseXML x = Attribute
+        <$> x .@? "AlternateNameEncoding"
+        <*> x .@? "AlternateValueEncoding"
+        <*> x .@ "Name"
+        <*> x .@ "Value"
 
 instance ToQuery Attribute
 
@@ -174,9 +174,9 @@ diName :: Lens' DeletableItem Text
 diName = lens _diName (\s a -> s { _diName = a })
 
 instance FromXML DeletableItem where
-    parseXML c = DeletableItem
-        <$> c .: "Attributes"
-        <*> c .: "ItemName"
+    parseXML x = DeletableItem
+        <$> x .@ "Attributes"
+        <*> x .@ "ItemName"
 
 instance ToQuery DeletableItem
 
@@ -209,9 +209,9 @@ riName :: Lens' ReplaceableItem Text
 riName = lens _riName (\s a -> s { _riName = a })
 
 instance FromXML ReplaceableItem where
-    parseXML c = ReplaceableItem
-        <$> c .: "Attributes"
-        <*> c .: "ItemName"
+    parseXML x = ReplaceableItem
+        <$> x .@ "Attributes"
+        <*> x .@ "ItemName"
 
 instance ToQuery ReplaceableItem
 
@@ -256,10 +256,10 @@ ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
 instance FromXML UpdateCondition where
-    parseXML c = UpdateCondition
-        <$> c .:? "Exists"
-        <*> c .:? "Name"
-        <*> c .:? "Value"
+    parseXML x = UpdateCondition
+        <$> x .@? "Exists"
+        <*> x .@? "Name"
+        <*> x .@? "Value"
 
 instance ToQuery UpdateCondition
 
@@ -302,10 +302,10 @@ raValue :: Lens' ReplaceableAttribute Text
 raValue = lens _raValue (\s a -> s { _raValue = a })
 
 instance FromXML ReplaceableAttribute where
-    parseXML c = ReplaceableAttribute
-        <$> c .: "Name"
-        <*> c .:? "Replace"
-        <*> c .: "Value"
+    parseXML x = ReplaceableAttribute
+        <$> x .@ "Name"
+        <*> x .@? "Replace"
+        <*> x .@ "Value"
 
 instance ToQuery ReplaceableAttribute
 
@@ -347,9 +347,9 @@ iName :: Lens' Item Text
 iName = lens _iName (\s a -> s { _iName = a })
 
 instance FromXML Item where
-    parseXML c = Item
-        <$> c .:? "AlternateNameEncoding"
-        <*> c .: "Attributes"
-        <*> c .: "Name"
+    parseXML x = Item
+        <$> x .@? "AlternateNameEncoding"
+        <*> x .@ "Attributes"
+        <*> x .@ "Name"
 
 instance ToQuery Item

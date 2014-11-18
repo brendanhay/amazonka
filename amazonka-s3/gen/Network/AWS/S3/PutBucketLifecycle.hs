@@ -101,10 +101,12 @@ instance ToHeaders PutBucketLifecycle where
         [ "Content-MD5" =: _pbl1ContentMD5
         ]
 
-instance ToXML PutBucketLifecycle where
-    toXML PutBucketLifecycle{..} = node "PutBucketLifecycle"
-        [ "LifecycleConfiguration" .= _pbl1LifecycleConfiguration
+instance ToXMLRoot PutBucketLifecycle where
+    toXMLRoot PutBucketLifecycle{..} = element "PutBucketLifecycle"
+        [ "LifecycleConfiguration" =@ _pbl1LifecycleConfiguration
         ]
+
+instance ToXML PutBucketLifecycle
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3

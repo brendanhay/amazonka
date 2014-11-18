@@ -375,5 +375,5 @@ instance AWSRequest CreateReplicationGroup where
     response = xmlResponse
 
 instance FromXML CreateReplicationGroupResponse where
-    parseXML c = CreateReplicationGroupResponse
-        <$> c .:? "ReplicationGroup"
+    parseXML x = CreateReplicationGroupResponse
+        <$> x .@? "ReplicationGroup"

@@ -106,8 +106,10 @@ instance ToQuery GetStreamingDistributionConfig where
 
 instance ToHeaders GetStreamingDistributionConfig
 
-instance ToXML GetStreamingDistributionConfig where
-    toXML = const (node "GetStreamingDistributionConfig" [])
+instance ToXMLRoot GetStreamingDistributionConfig where
+    toXMLRoot = const (element "GetStreamingDistributionConfig" [])
+
+instance ToXML GetStreamingDistributionConfig
 
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront
@@ -116,4 +118,4 @@ instance AWSRequest GetStreamingDistributionConfig where
     request  = get
     response = xmlHeaderResponse $ \h x -> GetStreamingDistributionConfigResponse
         <$> h ~:? "ETag"
-        <*> x %| "StreamingDistributionConfig"
+        <*> x .@? "StreamingDistributionConfig"

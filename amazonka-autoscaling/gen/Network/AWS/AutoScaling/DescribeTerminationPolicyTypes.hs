@@ -94,5 +94,5 @@ instance AWSRequest DescribeTerminationPolicyTypes where
     response = xmlResponse
 
 instance FromXML DescribeTerminationPolicyTypesResponse where
-    parseXML c = DescribeTerminationPolicyTypesResponse
-        <$> c .: "TerminationPolicyTypes"
+    parseXML x = DescribeTerminationPolicyTypesResponse
+        <$> x .@ "TerminationPolicyTypes"

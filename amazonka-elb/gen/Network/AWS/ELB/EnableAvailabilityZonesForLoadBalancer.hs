@@ -124,5 +124,5 @@ instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
     response = xmlResponse
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
-    parseXML c = EnableAvailabilityZonesForLoadBalancerResponse
-        <$> c .: "AvailabilityZones"
+    parseXML x = EnableAvailabilityZonesForLoadBalancerResponse
+        <$> x .@ "AvailabilityZones"

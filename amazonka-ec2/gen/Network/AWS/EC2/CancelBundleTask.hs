@@ -106,5 +106,5 @@ instance AWSRequest CancelBundleTask where
     response = xmlResponse
 
 instance FromXML CancelBundleTaskResponse where
-    parseXML c = CancelBundleTaskResponse
-        <$> c .:? "bundleInstanceTask"
+    parseXML x = CancelBundleTaskResponse
+        <$> x .@? "bundleInstanceTask"

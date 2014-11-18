@@ -93,8 +93,10 @@ instance ToHeaders DeleteDistribution where
         [ "If-Match" =: _ddIfMatch
         ]
 
-instance ToXML DeleteDistribution where
-    toXML = const (node "DeleteDistribution" [])
+instance ToXMLRoot DeleteDistribution where
+    toXMLRoot = const (element "DeleteDistribution" [])
+
+instance ToXML DeleteDistribution
 
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront

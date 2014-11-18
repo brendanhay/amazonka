@@ -116,10 +116,12 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity where
 
 instance ToHeaders CreateCloudFrontOriginAccessIdentity
 
-instance ToXML CreateCloudFrontOriginAccessIdentity where
-    toXML CreateCloudFrontOriginAccessIdentity{..} = node "CreateCloudFrontOriginAccessIdentity"
-        [ "CloudFrontOriginAccessIdentityConfig" .= _ccfoaiCloudFrontOriginAccessIdentityConfig
+instance ToXMLRoot CreateCloudFrontOriginAccessIdentity where
+    toXMLRoot CreateCloudFrontOriginAccessIdentity{..} = element "CreateCloudFrontOriginAccessIdentity"
+        [ "CloudFrontOriginAccessIdentityConfig" =@ _ccfoaiCloudFrontOriginAccessIdentityConfig
         ]
+
+instance ToXML CreateCloudFrontOriginAccessIdentity
 
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
@@ -127,6 +129,6 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateCloudFrontOriginAccessIdentityResponse
-        <$> x %| "CloudFrontOriginAccessIdentity"
+        <$> x .@? "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"

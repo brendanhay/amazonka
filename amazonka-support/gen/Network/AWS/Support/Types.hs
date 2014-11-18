@@ -160,7 +160,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2013-04-15@ of the Amazon Support service.
-data Support deriving (Typeable)
+data Support
 
 instance AWSService Support where
     type Sg Support = V4

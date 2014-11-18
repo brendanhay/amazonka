@@ -93,8 +93,10 @@ instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
         [ "If-Match" =: _dcfoaiIfMatch
         ]
 
-instance ToXML DeleteCloudFrontOriginAccessIdentity where
-    toXML = const (node "DeleteCloudFrontOriginAccessIdentity" [])
+instance ToXMLRoot DeleteCloudFrontOriginAccessIdentity where
+    toXMLRoot = const (element "DeleteCloudFrontOriginAccessIdentity" [])
+
+instance ToXML DeleteCloudFrontOriginAccessIdentity
 
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront

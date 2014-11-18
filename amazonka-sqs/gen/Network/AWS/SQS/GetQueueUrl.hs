@@ -116,5 +116,5 @@ instance AWSRequest GetQueueUrl where
     response = xmlResponse
 
 instance FromXML GetQueueUrlResponse where
-    parseXML c = GetQueueUrlResponse
-        <$> c .:? "QueueUrl"
+    parseXML x = GetQueueUrlResponse
+        <$> x .@? "QueueUrl"

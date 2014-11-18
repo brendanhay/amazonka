@@ -120,5 +120,5 @@ instance AWSRequest ConfirmProductInstance where
     response = xmlResponse
 
 instance FromXML ConfirmProductInstanceResponse where
-    parseXML c = ConfirmProductInstanceResponse
-        <$> c .:? "ownerId"
+    parseXML x = ConfirmProductInstanceResponse
+        <$> x .@? "ownerId"

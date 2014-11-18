@@ -91,7 +91,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-03-28@ of the Amazon CloudWatch Logs service.
-data CloudWatchLogs deriving (Typeable)
+data CloudWatchLogs
 
 instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4

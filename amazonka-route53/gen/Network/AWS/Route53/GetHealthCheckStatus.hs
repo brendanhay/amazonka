@@ -108,8 +108,10 @@ instance ToQuery GetHealthCheckStatus where
 
 instance ToHeaders GetHealthCheckStatus
 
-instance ToXML GetHealthCheckStatus where
-    toXML = const (node "GetHealthCheckStatus" [])
+instance ToXMLRoot GetHealthCheckStatus where
+    toXMLRoot = const (element "GetHealthCheckStatus" [])
+
+instance ToXML GetHealthCheckStatus
 
 instance AWSRequest GetHealthCheckStatus where
     type Sv GetHealthCheckStatus = Route53
@@ -119,5 +121,5 @@ instance AWSRequest GetHealthCheckStatus where
     response = xmlResponse
 
 instance FromXML GetHealthCheckStatusResponse where
-    parseXML c = GetHealthCheckStatusResponse
-        <$> c .: "HealthCheckObservations"
+    parseXML x = GetHealthCheckStatusResponse
+        <$> x .@ "HealthCheckObservations"

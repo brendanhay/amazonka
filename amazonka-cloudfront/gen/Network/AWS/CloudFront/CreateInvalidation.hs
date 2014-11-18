@@ -116,10 +116,12 @@ instance ToQuery CreateInvalidation where
 
 instance ToHeaders CreateInvalidation
 
-instance ToXML CreateInvalidation where
-    toXML CreateInvalidation{..} = node "CreateInvalidation"
-        [ "InvalidationBatch" .= _ciInvalidationBatch
+instance ToXMLRoot CreateInvalidation where
+    toXMLRoot CreateInvalidation{..} = element "CreateInvalidation"
+        [ "InvalidationBatch" =@ _ciInvalidationBatch
         ]
+
+instance ToXML CreateInvalidation
 
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront
@@ -127,5 +129,5 @@ instance AWSRequest CreateInvalidation where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateInvalidationResponse
-        <$> x %| "Invalidation"
+        <$> x .@? "Invalidation"
         <*> h ~:? "Location"

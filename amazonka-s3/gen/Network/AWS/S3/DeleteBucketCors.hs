@@ -79,8 +79,10 @@ instance ToQuery DeleteBucketCors where
 
 instance ToHeaders DeleteBucketCors
 
-instance ToXML DeleteBucketCors where
-    toXML = const (node "DeleteBucketCors" [])
+instance ToXMLRoot DeleteBucketCors where
+    toXMLRoot = const (element "DeleteBucketCors" [])
+
+instance ToXML DeleteBucketCors
 
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3

@@ -44,7 +44,7 @@ import Network.AWS.Signing.V2
 import qualified GHC.Exts
 
 -- | Version @2010-06-01@ of the Amazon Import/Export service.
-data ImportExport deriving (Typeable)
+data ImportExport
 
 instance AWSService ImportExport where
     type Sg ImportExport = V2
@@ -78,7 +78,7 @@ instance ToText JobType where
         Import' -> "Import"
 
 instance FromXML JobType where
-    parseXML = fromXMLText "JobType"
+    parseXML = parseXMLText "JobType"
 
 instance ToQuery JobType
 
@@ -127,10 +127,10 @@ jobJobType :: Lens' Job Text
 jobJobType = lens _jobJobType (\s a -> s { _jobJobType = a })
 
 instance FromXML Job where
-    parseXML c = Job
-        <$> c .: "CreationDate"
-        <*> c .: "IsCanceled"
-        <*> c .: "JobId"
-        <*> c .: "JobType"
+    parseXML x = Job
+        <$> x .@ "CreationDate"
+        <*> x .@ "IsCanceled"
+        <*> x .@ "JobId"
+        <*> x .@ "JobType"
 
 instance ToQuery Job

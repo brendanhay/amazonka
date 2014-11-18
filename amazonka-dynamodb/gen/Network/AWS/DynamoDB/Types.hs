@@ -242,7 +242,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2012-08-10@ of the Amazon DynamoDB service.
-data DynamoDB deriving (Typeable)
+data DynamoDB
 
 instance AWSService DynamoDB where
     type Sg DynamoDB = V4
@@ -402,7 +402,7 @@ instance ToText KeyType where
         Range -> "RANGE"
 
 instance FromJSON KeyType where
-    parseJSON = fromJSONText "KeyType"
+    parseJSON = parseJSONText "KeyType"
 
 instance ToJSON KeyType where
     toJSON = toJSONText
@@ -549,7 +549,7 @@ instance ToText IndexStatus where
         Updating -> "UPDATING"
 
 instance FromJSON IndexStatus where
-    parseJSON = fromJSONText "IndexStatus"
+    parseJSON = parseJSONText "IndexStatus"
 
 instance ToJSON IndexStatus where
     toJSON = toJSONText
@@ -626,7 +626,7 @@ instance ToText TableStatus where
         TSUpdating -> "UPDATING"
 
 instance FromJSON TableStatus where
-    parseJSON = fromJSONText "TableStatus"
+    parseJSON = parseJSONText "TableStatus"
 
 instance ToJSON TableStatus where
     toJSON = toJSONText
@@ -651,7 +651,7 @@ instance ToText ProjectionType where
         KeysOnly -> "KEYS_ONLY"
 
 instance FromJSON ProjectionType where
-    parseJSON = fromJSONText "ProjectionType"
+    parseJSON = parseJSONText "ProjectionType"
 
 instance ToJSON ProjectionType where
     toJSON = toJSONText
@@ -975,7 +975,7 @@ instance ToText ReturnConsumedCapacity where
         Total   -> "TOTAL"
 
 instance FromJSON ReturnConsumedCapacity where
-    parseJSON = fromJSONText "ReturnConsumedCapacity"
+    parseJSON = parseJSONText "ReturnConsumedCapacity"
 
 instance ToJSON ReturnConsumedCapacity where
     toJSON = toJSONText
@@ -997,7 +997,7 @@ instance ToText ReturnItemCollectionMetrics where
         RICMSize -> "SIZE"
 
 instance FromJSON ReturnItemCollectionMetrics where
-    parseJSON = fromJSONText "ReturnItemCollectionMetrics"
+    parseJSON = parseJSONText "ReturnItemCollectionMetrics"
 
 instance ToJSON ReturnItemCollectionMetrics where
     toJSON = toJSONText
@@ -1325,7 +1325,7 @@ instance ToText ComparisonOperator where
         Null        -> "NULL"
 
 instance FromJSON ComparisonOperator where
-    parseJSON = fromJSONText "ComparisonOperator"
+    parseJSON = parseJSONText "ComparisonOperator"
 
 instance ToJSON ComparisonOperator where
     toJSON = toJSONText
@@ -1356,7 +1356,7 @@ instance ToText ReturnValue where
         RVUpdatedOld -> "UPDATED_OLD"
 
 instance FromJSON ReturnValue where
-    parseJSON = fromJSONText "ReturnValue"
+    parseJSON = parseJSONText "ReturnValue"
 
 instance ToJSON ReturnValue where
     toJSON = toJSONText
@@ -1826,7 +1826,7 @@ instance ToText AttributeAction where
         Put     -> "PUT"
 
 instance FromJSON AttributeAction where
-    parseJSON = fromJSONText "AttributeAction"
+    parseJSON = parseJSONText "AttributeAction"
 
 instance ToJSON AttributeAction where
     toJSON = toJSONText
@@ -1851,7 +1851,7 @@ instance ToText ScalarAttributeType where
         S -> "S"
 
 instance FromJSON ScalarAttributeType where
-    parseJSON = fromJSONText "ScalarAttributeType"
+    parseJSON = parseJSONText "ScalarAttributeType"
 
 instance ToJSON ScalarAttributeType where
     toJSON = toJSONText
@@ -1928,7 +1928,7 @@ instance ToText Select where
         SpecificAttributes     -> "SPECIFIC_ATTRIBUTES"
 
 instance FromJSON Select where
-    parseJSON = fromJSONText "Select"
+    parseJSON = parseJSONText "Select"
 
 instance ToJSON Select where
     toJSON = toJSONText
@@ -2228,7 +2228,7 @@ instance ToText ConditionalOperator where
         Or  -> "OR"
 
 instance FromJSON ConditionalOperator where
-    parseJSON = fromJSONText "ConditionalOperator"
+    parseJSON = parseJSONText "ConditionalOperator"
 
 instance ToJSON ConditionalOperator where
     toJSON = toJSONText

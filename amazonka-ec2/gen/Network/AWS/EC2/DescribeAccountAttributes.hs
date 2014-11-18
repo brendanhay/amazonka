@@ -113,5 +113,5 @@ instance AWSRequest DescribeAccountAttributes where
     response = xmlResponse
 
 instance FromXML DescribeAccountAttributesResponse where
-    parseXML c = DescribeAccountAttributesResponse
-        <$> c .: "accountAttributeSet"
+    parseXML x = DescribeAccountAttributesResponse
+        <$> x .@ "accountAttributeSet"

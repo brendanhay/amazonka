@@ -189,5 +189,5 @@ instance AWSRequest DescribeSpotInstanceRequests where
     response = xmlResponse
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
-    parseXML c = DescribeSpotInstanceRequestsResponse
-        <$> c .: "spotInstanceRequestSet"
+    parseXML x = DescribeSpotInstanceRequestsResponse
+        <$> x .@ "spotInstanceRequestSet"

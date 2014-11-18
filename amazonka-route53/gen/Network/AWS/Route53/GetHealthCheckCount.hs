@@ -79,8 +79,10 @@ instance ToQuery GetHealthCheckCount where
 
 instance ToHeaders GetHealthCheckCount
 
-instance ToXML GetHealthCheckCount where
-    toXML = const (node "GetHealthCheckCount" [])
+instance ToXMLRoot GetHealthCheckCount where
+    toXMLRoot = const (element "GetHealthCheckCount" [])
+
+instance ToXML GetHealthCheckCount
 
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
@@ -90,5 +92,5 @@ instance AWSRequest GetHealthCheckCount where
     response = xmlResponse
 
 instance FromXML GetHealthCheckCountResponse where
-    parseXML c = GetHealthCheckCountResponse
-        <$> c .: "HealthCheckCount"
+    parseXML x = GetHealthCheckCountResponse
+        <$> x .@ "HealthCheckCount"

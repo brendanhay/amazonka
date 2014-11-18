@@ -103,5 +103,5 @@ instance AWSRequest GetUser where
     response = xmlResponse
 
 instance FromXML GetUserResponse where
-    parseXML c = GetUserResponse
-        <$> c .: "User"
+    parseXML x = GetUserResponse
+        <$> x .@ "User"

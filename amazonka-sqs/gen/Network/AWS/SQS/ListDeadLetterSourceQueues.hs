@@ -107,5 +107,5 @@ instance AWSRequest ListDeadLetterSourceQueues where
     response = xmlResponse
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
-    parseXML c = ListDeadLetterSourceQueuesResponse
-        <$> c .: "queueUrls"
+    parseXML x = ListDeadLetterSourceQueuesResponse
+        <$> x .@ "queueUrls"

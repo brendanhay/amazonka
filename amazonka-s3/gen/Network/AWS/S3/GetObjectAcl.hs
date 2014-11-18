@@ -124,8 +124,10 @@ instance ToQuery GetObjectAcl where
 
 instance ToHeaders GetObjectAcl
 
-instance ToXML GetObjectAcl where
-    toXML = const (node "GetObjectAcl" [])
+instance ToXMLRoot GetObjectAcl where
+    toXMLRoot = const (element "GetObjectAcl" [])
+
+instance ToXML GetObjectAcl
 
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
@@ -135,6 +137,6 @@ instance AWSRequest GetObjectAcl where
     response = xmlResponse
 
 instance FromXML GetObjectAclResponse where
-    parseXML c = GetObjectAclResponse
-        <$> c .: "AccessControlList"
-        <*> c .:? "Owner"
+    parseXML x = GetObjectAclResponse
+        <$> x .@ "AccessControlList"
+        <*> x .@? "Owner"

@@ -267,8 +267,10 @@ instance ToQuery ListObjectVersions where
 
 instance ToHeaders ListObjectVersions
 
-instance ToXML ListObjectVersions where
-    toXML = const (node "ListObjectVersions" [])
+instance ToXMLRoot ListObjectVersions where
+    toXMLRoot = const (element "ListObjectVersions" [])
+
+instance ToXML ListObjectVersions
 
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
@@ -278,17 +280,17 @@ instance AWSRequest ListObjectVersions where
     response = xmlResponse
 
 instance FromXML ListObjectVersionsResponse where
-    parseXML c = ListObjectVersionsResponse
-        <$> c .: "CommonPrefixes"
-        <*> c .: "DeleteMarker"
-        <*> c .:? "Delimiter"
-        <*> c .:? "EncodingType"
-        <*> c .:? "IsTruncated"
-        <*> c .:? "KeyMarker"
-        <*> c .:? "MaxKeys"
-        <*> c .:? "Name"
-        <*> c .:? "NextKeyMarker"
-        <*> c .:? "NextVersionIdMarker"
-        <*> c .:? "Prefix"
-        <*> c .:? "VersionIdMarker"
-        <*> c .: "Version"
+    parseXML x = ListObjectVersionsResponse
+        <$> x .@ "CommonPrefixes"
+        <*> x .@ "DeleteMarker"
+        <*> x .@? "Delimiter"
+        <*> x .@? "EncodingType"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "KeyMarker"
+        <*> x .@? "MaxKeys"
+        <*> x .@? "Name"
+        <*> x .@? "NextKeyMarker"
+        <*> x .@? "NextVersionIdMarker"
+        <*> x .@? "Prefix"
+        <*> x .@? "VersionIdMarker"
+        <*> x .@ "Version"

@@ -134,7 +134,7 @@ instance AWSRequest GetPasswordData where
     response = xmlResponse
 
 instance FromXML GetPasswordDataResponse where
-    parseXML c = GetPasswordDataResponse
-        <$> c .:? "instanceId"
-        <*> c .:? "passwordData"
-        <*> c .:? "timestamp"
+    parseXML x = GetPasswordDataResponse
+        <$> x .@? "instanceId"
+        <*> x .@? "passwordData"
+        <*> x .@? "timestamp"

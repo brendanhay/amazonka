@@ -230,8 +230,10 @@ instance ToQuery ListParts where
 
 instance ToHeaders ListParts
 
-instance ToXML ListParts where
-    toXML = const (node "ListParts" [])
+instance ToXMLRoot ListParts where
+    toXMLRoot = const (element "ListParts" [])
+
+instance ToXML ListParts
 
 instance AWSRequest ListParts where
     type Sv ListParts = S3
@@ -241,15 +243,15 @@ instance AWSRequest ListParts where
     response = xmlResponse
 
 instance FromXML ListPartsResponse where
-    parseXML c = ListPartsResponse
-        <$> c .:? "Bucket"
-        <*> c .:? "Initiator"
-        <*> c .:? "IsTruncated"
-        <*> c .:? "Key"
-        <*> c .:? "MaxParts"
-        <*> c .:? "NextPartNumberMarker"
-        <*> c .:? "Owner"
-        <*> c .:? "PartNumberMarker"
-        <*> c .: "Part"
-        <*> c .:? "StorageClass"
-        <*> c .:? "UploadId"
+    parseXML x = ListPartsResponse
+        <$> x .@? "Bucket"
+        <*> x .@? "Initiator"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Key"
+        <*> x .@? "MaxParts"
+        <*> x .@? "NextPartNumberMarker"
+        <*> x .@? "Owner"
+        <*> x .@? "PartNumberMarker"
+        <*> x .@ "Part"
+        <*> x .@? "StorageClass"
+        <*> x .@? "UploadId"

@@ -88,8 +88,10 @@ instance ToQuery GetCheckerIpRanges where
 
 instance ToHeaders GetCheckerIpRanges
 
-instance ToXML GetCheckerIpRanges where
-    toXML = const (node "GetCheckerIpRanges" [])
+instance ToXMLRoot GetCheckerIpRanges where
+    toXMLRoot = const (element "GetCheckerIpRanges" [])
+
+instance ToXML GetCheckerIpRanges
 
 instance AWSRequest GetCheckerIpRanges where
     type Sv GetCheckerIpRanges = Route53
@@ -99,5 +101,5 @@ instance AWSRequest GetCheckerIpRanges where
     response = xmlResponse
 
 instance FromXML GetCheckerIpRangesResponse where
-    parseXML c = GetCheckerIpRangesResponse
-        <$> c .: "CheckerIpRanges"
+    parseXML x = GetCheckerIpRangesResponse
+        <$> x .@ "CheckerIpRanges"

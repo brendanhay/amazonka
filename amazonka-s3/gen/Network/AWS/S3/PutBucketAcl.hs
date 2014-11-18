@@ -161,10 +161,12 @@ instance ToHeaders PutBucketAcl where
         , "x-amz-grant-write-acp"    =: _pbaGrantWriteACP
         ]
 
-instance ToXML PutBucketAcl where
-    toXML PutBucketAcl{..} = node "PutBucketAcl"
-        [ "AccessControlPolicy" .= _pbaAccessControlPolicy
+instance ToXMLRoot PutBucketAcl where
+    toXMLRoot PutBucketAcl{..} = element "PutBucketAcl"
+        [ "AccessControlPolicy" =@ _pbaAccessControlPolicy
         ]
+
+instance ToXML PutBucketAcl
 
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3

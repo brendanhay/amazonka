@@ -152,7 +152,7 @@ instance AWSRequest ListServerCertificates where
     response = xmlResponse
 
 instance FromXML ListServerCertificatesResponse where
-    parseXML c = ListServerCertificatesResponse
-        <$> c .:? "IsTruncated"
-        <*> c .:? "Marker"
-        <*> c .: "ServerCertificateMetadataList"
+    parseXML x = ListServerCertificatesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@ "ServerCertificateMetadataList"

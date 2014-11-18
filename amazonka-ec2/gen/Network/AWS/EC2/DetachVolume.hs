@@ -196,10 +196,10 @@ instance AWSRequest DetachVolume where
     response = xmlResponse
 
 instance FromXML DetachVolumeResponse where
-    parseXML c = DetachVolumeResponse
-        <$> c .:? "attachTime"
-        <*> c .:? "deleteOnTermination"
-        <*> c .:? "device"
-        <*> c .:? "instanceId"
-        <*> c .:? "status"
-        <*> c .:? "volumeId"
+    parseXML x = DetachVolumeResponse
+        <$> x .@? "attachTime"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "device"
+        <*> x .@? "instanceId"
+        <*> x .@? "status"
+        <*> x .@? "volumeId"

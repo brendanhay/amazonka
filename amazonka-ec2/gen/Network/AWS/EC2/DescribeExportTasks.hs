@@ -108,5 +108,5 @@ instance AWSRequest DescribeExportTasks where
     response = xmlResponse
 
 instance FromXML DescribeExportTasksResponse where
-    parseXML c = DescribeExportTasksResponse
-        <$> c .: "exportTaskSet"
+    parseXML x = DescribeExportTasksResponse
+        <$> x .@ "exportTaskSet"

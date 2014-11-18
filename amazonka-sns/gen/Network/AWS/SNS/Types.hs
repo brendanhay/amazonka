@@ -66,7 +66,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2010-03-31@ of the Amazon Simple Notification Service service.
-data SNS deriving (Typeable)
+data SNS
 
 instance AWSService SNS where
     type Sg SNS = V4
@@ -103,8 +103,8 @@ tTopicArn :: Lens' Topic (Maybe Text)
 tTopicArn = lens _tTopicArn (\s a -> s { _tTopicArn = a })
 
 instance FromXML Topic where
-    parseXML c = Topic
-        <$> c .:? "TopicArn"
+    parseXML x = Topic
+        <$> x .@? "TopicArn"
 
 instance ToQuery Topic
 
@@ -148,10 +148,10 @@ mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
-    parseXML c = MessageAttributeValue
-        <$> c .:? "BinaryValue"
-        <*> c .: "DataType"
-        <*> c .:? "StringValue"
+    parseXML x = MessageAttributeValue
+        <$> x .@? "BinaryValue"
+        <*> x .@ "DataType"
+        <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -186,9 +186,9 @@ paPlatformApplicationArn =
         (\s a -> s { _paPlatformApplicationArn = a })
 
 instance FromXML PlatformApplication where
-    parseXML c = PlatformApplication
-        <$> c .: "Attributes"
-        <*> c .:? "PlatformApplicationArn"
+    parseXML x = PlatformApplication
+        <$> x .@ "Attributes"
+        <*> x .@? "PlatformApplicationArn"
 
 instance ToQuery PlatformApplication
 
@@ -245,12 +245,12 @@ s1TopicArn :: Lens' Subscription (Maybe Text)
 s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
 
 instance FromXML Subscription where
-    parseXML c = Subscription
-        <$> c .:? "Endpoint"
-        <*> c .:? "Owner"
-        <*> c .:? "Protocol"
-        <*> c .:? "SubscriptionArn"
-        <*> c .:? "TopicArn"
+    parseXML x = Subscription
+        <$> x .@? "Endpoint"
+        <*> x .@? "Owner"
+        <*> x .@? "Protocol"
+        <*> x .@? "SubscriptionArn"
+        <*> x .@? "TopicArn"
 
 instance ToQuery Subscription
 
@@ -283,8 +283,8 @@ eEndpointArn :: Lens' Endpoint (Maybe Text)
 eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 
 instance FromXML Endpoint where
-    parseXML c = Endpoint
-        <$> c .: "Attributes"
-        <*> c .:? "EndpointArn"
+    parseXML x = Endpoint
+        <$> x .@ "Attributes"
+        <*> x .@? "EndpointArn"
 
 instance ToQuery Endpoint

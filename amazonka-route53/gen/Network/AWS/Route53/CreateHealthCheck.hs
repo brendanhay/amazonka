@@ -125,11 +125,13 @@ instance ToQuery CreateHealthCheck where
 
 instance ToHeaders CreateHealthCheck
 
-instance ToXML CreateHealthCheck where
-    toXML CreateHealthCheck{..} = node "CreateHealthCheck"
-        [ "CallerReference"   .= _chcCallerReference
-        , "HealthCheckConfig" .= _chcHealthCheckConfig
+instance ToXMLRoot CreateHealthCheck where
+    toXMLRoot CreateHealthCheck{..} = element "CreateHealthCheck"
+        [ "CallerReference"   =@ _chcCallerReference
+        , "HealthCheckConfig" =@ _chcHealthCheckConfig
         ]
+
+instance ToXML CreateHealthCheck
 
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53
@@ -137,5 +139,5 @@ instance AWSRequest CreateHealthCheck where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateHealthCheckResponse
-        <$> x %| "HealthCheck"
+        <$> x .@ "HealthCheck"
         <*> h ~: "Location"

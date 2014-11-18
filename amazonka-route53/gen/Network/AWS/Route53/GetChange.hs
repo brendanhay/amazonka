@@ -103,8 +103,10 @@ instance ToQuery GetChange where
 
 instance ToHeaders GetChange
 
-instance ToXML GetChange where
-    toXML = const (node "GetChange" [])
+instance ToXMLRoot GetChange where
+    toXMLRoot = const (element "GetChange" [])
+
+instance ToXML GetChange
 
 instance AWSRequest GetChange where
     type Sv GetChange = Route53
@@ -114,5 +116,5 @@ instance AWSRequest GetChange where
     response = xmlResponse
 
 instance FromXML GetChangeResponse where
-    parseXML c = GetChangeResponse
-        <$> c .: "ChangeInfo"
+    parseXML x = GetChangeResponse
+        <$> x .@ "ChangeInfo"

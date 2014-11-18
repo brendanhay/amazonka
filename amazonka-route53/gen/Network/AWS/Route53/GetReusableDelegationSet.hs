@@ -99,8 +99,10 @@ instance ToQuery GetReusableDelegationSet where
 
 instance ToHeaders GetReusableDelegationSet
 
-instance ToXML GetReusableDelegationSet where
-    toXML = const (node "GetReusableDelegationSet" [])
+instance ToXMLRoot GetReusableDelegationSet where
+    toXMLRoot = const (element "GetReusableDelegationSet" [])
+
+instance ToXML GetReusableDelegationSet
 
 instance AWSRequest GetReusableDelegationSet where
     type Sv GetReusableDelegationSet = Route53
@@ -110,5 +112,5 @@ instance AWSRequest GetReusableDelegationSet where
     response = xmlResponse
 
 instance FromXML GetReusableDelegationSetResponse where
-    parseXML c = GetReusableDelegationSetResponse
-        <$> c .: "DelegationSet"
+    parseXML x = GetReusableDelegationSetResponse
+        <$> x .@ "DelegationSet"

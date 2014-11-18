@@ -123,5 +123,5 @@ instance AWSRequest AssociateRouteTable where
     response = xmlResponse
 
 instance FromXML AssociateRouteTableResponse where
-    parseXML c = AssociateRouteTableResponse
-        <$> c .:? "associationId"
+    parseXML x = AssociateRouteTableResponse
+        <$> x .@? "associationId"

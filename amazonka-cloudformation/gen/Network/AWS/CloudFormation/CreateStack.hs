@@ -244,5 +244,5 @@ instance AWSRequest CreateStack where
     response = xmlResponse
 
 instance FromXML CreateStackResponse where
-    parseXML c = CreateStackResponse
-        <$> c .:? "StackId"
+    parseXML x = CreateStackResponse
+        <$> x .@? "StackId"

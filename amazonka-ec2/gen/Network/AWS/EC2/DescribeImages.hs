@@ -178,5 +178,5 @@ instance AWSRequest DescribeImages where
     response = xmlResponse
 
 instance FromXML DescribeImagesResponse where
-    parseXML c = DescribeImagesResponse
-        <$> c .: "imagesSet"
+    parseXML x = DescribeImagesResponse
+        <$> x .@ "imagesSet"

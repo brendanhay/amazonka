@@ -128,11 +128,13 @@ instance ToQuery CreateReusableDelegationSet where
 
 instance ToHeaders CreateReusableDelegationSet
 
-instance ToXML CreateReusableDelegationSet where
-    toXML CreateReusableDelegationSet{..} = node "CreateReusableDelegationSet"
-        [ "CallerReference" .= _crdsCallerReference
-        , "HostedZoneId"    .= _crdsHostedZoneId
+instance ToXMLRoot CreateReusableDelegationSet where
+    toXMLRoot CreateReusableDelegationSet{..} = element "CreateReusableDelegationSet"
+        [ "CallerReference" =@ _crdsCallerReference
+        , "HostedZoneId"    =@ _crdsHostedZoneId
         ]
+
+instance ToXML CreateReusableDelegationSet
 
 instance AWSRequest CreateReusableDelegationSet where
     type Sv CreateReusableDelegationSet = Route53
@@ -140,5 +142,5 @@ instance AWSRequest CreateReusableDelegationSet where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateReusableDelegationSetResponse
-        <$> x %| "DelegationSet"
+        <$> x .@ "DelegationSet"
         <*> h ~: "Location"

@@ -105,8 +105,10 @@ instance ToQuery DeleteHostedZone where
 
 instance ToHeaders DeleteHostedZone
 
-instance ToXML DeleteHostedZone where
-    toXML = const (node "DeleteHostedZone" [])
+instance ToXMLRoot DeleteHostedZone where
+    toXMLRoot = const (element "DeleteHostedZone" [])
+
+instance ToXML DeleteHostedZone
 
 instance AWSRequest DeleteHostedZone where
     type Sv DeleteHostedZone = Route53
@@ -116,5 +118,5 @@ instance AWSRequest DeleteHostedZone where
     response = xmlResponse
 
 instance FromXML DeleteHostedZoneResponse where
-    parseXML c = DeleteHostedZoneResponse
-        <$> c .: "ChangeInfo"
+    parseXML x = DeleteHostedZoneResponse
+        <$> x .@ "ChangeInfo"

@@ -83,7 +83,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-11-01@ of the Amazon Key Management Service service.
-data KMS deriving (Typeable)
+data KMS
 
 instance AWSService KMS where
     type Sg KMS = V4
@@ -113,7 +113,7 @@ instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
 
 instance FromJSON KeyUsageType where
-    parseJSON = fromJSONText "KeyUsageType"
+    parseJSON = parseJSONText "KeyUsageType"
 
 instance ToJSON KeyUsageType where
     toJSON = toJSONText
@@ -225,7 +225,7 @@ instance ToText DataKeySpec where
         AES256 -> "AES_256"
 
 instance FromJSON DataKeySpec where
-    parseJSON = fromJSONText "DataKeySpec"
+    parseJSON = parseJSONText "DataKeySpec"
 
 instance ToJSON DataKeySpec where
     toJSON = toJSONText
@@ -442,7 +442,7 @@ instance ToText GrantOperation where
         GORetireGrant                     -> "RetireGrant"
 
 instance FromJSON GrantOperation where
-    parseJSON = fromJSONText "GrantOperation"
+    parseJSON = parseJSONText "GrantOperation"
 
 instance ToJSON GrantOperation where
     toJSON = toJSONText

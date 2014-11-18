@@ -80,8 +80,10 @@ instance ToQuery HeadBucket where
 
 instance ToHeaders HeadBucket
 
-instance ToXML HeadBucket where
-    toXML = const (node "HeadBucket" [])
+instance ToXMLRoot HeadBucket where
+    toXMLRoot = const (element "HeadBucket" [])
+
+instance ToXML HeadBucket
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3

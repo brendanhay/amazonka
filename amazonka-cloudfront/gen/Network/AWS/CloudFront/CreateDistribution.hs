@@ -112,10 +112,12 @@ instance ToQuery CreateDistribution where
 
 instance ToHeaders CreateDistribution
 
-instance ToXML CreateDistribution where
-    toXML CreateDistribution{..} = node "CreateDistribution"
-        [ "DistributionConfig" .= _cdDistributionConfig
+instance ToXMLRoot CreateDistribution where
+    toXMLRoot CreateDistribution{..} = element "CreateDistribution"
+        [ "DistributionConfig" =@ _cdDistributionConfig
         ]
+
+instance ToXML CreateDistribution
 
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront
@@ -123,6 +125,6 @@ instance AWSRequest CreateDistribution where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateDistributionResponse
-        <$> x %| "Distribution"
+        <$> x .@? "Distribution"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"

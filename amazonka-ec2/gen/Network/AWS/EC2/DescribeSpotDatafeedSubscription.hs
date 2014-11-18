@@ -99,5 +99,5 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
     response = xmlResponse
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
-    parseXML c = DescribeSpotDatafeedSubscriptionResponse
-        <$> c .:? "spotDatafeedSubscription"
+    parseXML x = DescribeSpotDatafeedSubscriptionResponse
+        <$> x .@? "spotDatafeedSubscription"

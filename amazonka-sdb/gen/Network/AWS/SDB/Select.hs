@@ -141,6 +141,6 @@ instance AWSRequest Select where
     response = xmlResponse
 
 instance FromXML SelectResponse where
-    parseXML c = SelectResponse
-        <$> c .: "Items"
-        <*> c .:? "NextToken"
+    parseXML x = SelectResponse
+        <$> x .@ "Items"
+        <*> x .@? "NextToken"

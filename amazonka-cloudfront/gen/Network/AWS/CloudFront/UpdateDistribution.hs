@@ -128,10 +128,12 @@ instance ToHeaders UpdateDistribution where
         [ "If-Match" =: _udIfMatch
         ]
 
-instance ToXML UpdateDistribution where
-    toXML UpdateDistribution{..} = node "UpdateDistribution"
-        [ "DistributionConfig" .= _udDistributionConfig
+instance ToXMLRoot UpdateDistribution where
+    toXMLRoot UpdateDistribution{..} = element "UpdateDistribution"
+        [ "DistributionConfig" =@ _udDistributionConfig
         ]
+
+instance ToXML UpdateDistribution
 
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront
@@ -139,5 +141,5 @@ instance AWSRequest UpdateDistribution where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateDistributionResponse
-        <$> x %| "Distribution"
+        <$> x .@? "Distribution"
         <*> h ~:? "ETag"

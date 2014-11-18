@@ -130,5 +130,5 @@ instance AWSRequest DescribeSuggesters where
     response = xmlResponse
 
 instance FromXML DescribeSuggestersResponse where
-    parseXML c = DescribeSuggestersResponse
-        <$> c .: "Suggesters"
+    parseXML x = DescribeSuggestersResponse
+        <$> x .@ "Suggesters"

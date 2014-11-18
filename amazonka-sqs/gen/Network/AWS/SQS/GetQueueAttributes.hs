@@ -133,5 +133,5 @@ instance AWSRequest GetQueueAttributes where
     response = xmlResponse
 
 instance FromXML GetQueueAttributesResponse where
-    parseXML c = GetQueueAttributesResponse
-        <$> c .: "Attribute"
+    parseXML x = GetQueueAttributesResponse
+        <$> x .@ "Attribute"

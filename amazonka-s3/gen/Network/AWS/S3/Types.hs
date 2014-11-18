@@ -298,7 +298,7 @@ module Network.AWS.S3.Types
 
     -- * Object
     , Object
-    , object
+    , object'
     , oETag
     , oKey
     , oLastModified
@@ -419,7 +419,7 @@ import Network.AWS.S3.Internal
 import qualified GHC.Exts
 
 -- | Version @2006-03-01@ of the Amazon Simple Storage Service service.
-data S3 deriving (Typeable)
+data S3
 
 instance AWSService S3 where
     type Sg S3 = V4
@@ -462,7 +462,7 @@ instance ToText Event where
         S3ReducedRedundancyLostObject          -> "s3:ReducedRedundancyLostObject"
 
 instance FromXML Event where
-    parseXML = fromXMLText "Event"
+    parseXML = parseXMLText "Event"
 
 instance ToXML Event where
     toXML = toXMLText
@@ -492,12 +492,12 @@ nveNoncurrentDays =
     lens _nveNoncurrentDays (\s a -> s { _nveNoncurrentDays = a })
 
 instance FromXML NoncurrentVersionExpiration where
-    parseXML c = NoncurrentVersionExpiration
-        <$> c .: "NoncurrentDays"
+    parseXML x = NoncurrentVersionExpiration
+        <$> x .@ "NoncurrentDays"
 
 instance ToXML NoncurrentVersionExpiration where
-    toXML NoncurrentVersionExpiration{..} = node "NoncurrentVersionExpiration"
-        [ "NoncurrentDays" .= _nveNoncurrentDays
+    toXML NoncurrentVersionExpiration{..} = nodes "NoncurrentVersionExpiration"
+        [ "NoncurrentDays" =@ _nveNoncurrentDays
         ]
 
 data Transition = Transition
@@ -539,16 +539,16 @@ tStorageClass :: Lens' Transition (Maybe Text)
 tStorageClass = lens _tStorageClass (\s a -> s { _tStorageClass = a })
 
 instance FromXML Transition where
-    parseXML c = Transition
-        <$> c .:? "Date"
-        <*> c .:? "Days"
-        <*> c .:? "StorageClass"
+    parseXML x = Transition
+        <$> x .@? "Date"
+        <*> x .@? "Days"
+        <*> x .@? "StorageClass"
 
 instance ToXML Transition where
-    toXML Transition{..} = node "Transition"
-        [ "Date"         .= _tDate
-        , "Days"         .= _tDays
-        , "StorageClass" .= _tStorageClass
+    toXML Transition{..} = nodes "Transition"
+        [ "Date"         =@ _tDate
+        , "Days"         =@ _tDays
+        , "StorageClass" =@ _tStorageClass
         ]
 
 data DeleteMarkerEntry = DeleteMarkerEntry
@@ -604,20 +604,20 @@ dmeVersionId :: Lens' DeleteMarkerEntry (Maybe Text)
 dmeVersionId = lens _dmeVersionId (\s a -> s { _dmeVersionId = a })
 
 instance FromXML DeleteMarkerEntry where
-    parseXML c = DeleteMarkerEntry
-        <$> c .:? "IsLatest"
-        <*> c .:? "Key"
-        <*> c .:? "LastModified"
-        <*> c .:? "Owner"
-        <*> c .:? "VersionId"
+    parseXML x = DeleteMarkerEntry
+        <$> x .@? "IsLatest"
+        <*> x .@? "Key"
+        <*> x .@? "LastModified"
+        <*> x .@? "Owner"
+        <*> x .@? "VersionId"
 
 instance ToXML DeleteMarkerEntry where
-    toXML DeleteMarkerEntry{..} = node "DeleteMarkerEntry"
-        [ "Owner"        .= _dmeOwner
-        , "Key"          .= _dmeKey
-        , "VersionId"    .= _dmeVersionId
-        , "IsLatest"     .= _dmeIsLatest
-        , "LastModified" .= _dmeLastModified
+    toXML DeleteMarkerEntry{..} = nodes "DeleteMarkerEntry"
+        [ "Owner"        =@ _dmeOwner
+        , "Key"          =@ _dmeKey
+        , "VersionId"    =@ _dmeVersionId
+        , "IsLatest"     =@ _dmeIsLatest
+        , "LastModified" =@ _dmeLastModified
         ]
 
 data ExpirationStatus
@@ -637,7 +637,7 @@ instance ToText ExpirationStatus where
         Enabled  -> "Enabled"
 
 instance FromXML ExpirationStatus where
-    parseXML = fromXMLText "ExpirationStatus"
+    parseXML = parseXMLText "ExpirationStatus"
 
 instance ToXML ExpirationStatus where
     toXML = toXMLText
@@ -687,18 +687,18 @@ pSize :: Lens' Part (Maybe Int)
 pSize = lens _pSize (\s a -> s { _pSize = a })
 
 instance FromXML Part where
-    parseXML c = Part
-        <$> c .:? "ETag"
-        <*> c .:? "LastModified"
-        <*> c .:? "PartNumber"
-        <*> c .:? "Size"
+    parseXML x = Part
+        <$> x .@? "ETag"
+        <*> x .@? "LastModified"
+        <*> x .@? "PartNumber"
+        <*> x .@? "Size"
 
 instance ToXML Part where
-    toXML Part{..} = node "Part"
-        [ "PartNumber"   .= _pPartNumber
-        , "LastModified" .= _pLastModified
-        , "ETag"         .= _pETag
-        , "Size"         .= _pSize
+    toXML Part{..} = nodes "Part"
+        [ "PartNumber"   =@ _pPartNumber
+        , "LastModified" =@ _pLastModified
+        , "ETag"         =@ _pETag
+        , "Size"         =@ _pSize
         ]
 
 data VersioningConfiguration = VersioningConfiguration
@@ -732,14 +732,14 @@ vcStatus :: Lens' VersioningConfiguration (Maybe Text)
 vcStatus = lens _vcStatus (\s a -> s { _vcStatus = a })
 
 instance FromXML VersioningConfiguration where
-    parseXML c = VersioningConfiguration
-        <$> c .:? "MfaDelete"
-        <*> c .:? "Status"
+    parseXML x = VersioningConfiguration
+        <$> x .@? "MfaDelete"
+        <*> x .@? "Status"
 
 instance ToXML VersioningConfiguration where
-    toXML VersioningConfiguration{..} = node "VersioningConfiguration"
-        [ "MfaDelete" .= _vcMFADelete
-        , "Status"    .= _vcStatus
+    toXML VersioningConfiguration{..} = nodes "VersioningConfiguration"
+        [ "MfaDelete" =@ _vcMFADelete
+        , "Status"    =@ _vcStatus
         ]
 
 data Tag = Tag
@@ -772,14 +772,14 @@ tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
-    parseXML c = Tag
-        <$> c .: "Key"
-        <*> c .: "Value"
+    parseXML x = Tag
+        <$> x .@ "Key"
+        <*> x .@ "Value"
 
 instance ToXML Tag where
-    toXML Tag{..} = node "Tag"
-        [ "Key"   .= _tagKey
-        , "Value" .= _tagValue
+    toXML Tag{..} = nodes "Tag"
+        [ "Key"   =@ _tagKey
+        , "Value" =@ _tagValue
         ]
 
 data ObjectStorageClass
@@ -802,7 +802,7 @@ instance ToText ObjectStorageClass where
         Standard          -> "STANDARD"
 
 instance FromXML ObjectStorageClass where
-    parseXML = fromXMLText "ObjectStorageClass"
+    parseXML = parseXMLText "ObjectStorageClass"
 
 instance ToXML ObjectStorageClass where
     toXML = toXMLText
@@ -824,7 +824,7 @@ instance ToText MetadataDirective where
         Replace -> "REPLACE"
 
 instance FromXML MetadataDirective where
-    parseXML = fromXMLText "MetadataDirective"
+    parseXML = parseXMLText "MetadataDirective"
 
 instance ToXML MetadataDirective where
     toXML = toXMLText
@@ -859,14 +859,14 @@ rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Text)
 rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
 
 instance FromXML RedirectAllRequestsTo where
-    parseXML c = RedirectAllRequestsTo
-        <$> c .: "HostName"
-        <*> c .:? "Protocol"
+    parseXML x = RedirectAllRequestsTo
+        <$> x .@ "HostName"
+        <*> x .@? "Protocol"
 
 instance ToXML RedirectAllRequestsTo where
-    toXML RedirectAllRequestsTo{..} = node "RedirectAllRequestsTo"
-        [ "HostName" .= _rartHostName
-        , "Protocol" .= _rartProtocol
+    toXML RedirectAllRequestsTo{..} = nodes "RedirectAllRequestsTo"
+        [ "HostName" =@ _rartHostName
+        , "Protocol" =@ _rartProtocol
         ]
 
 data RoutingRule = RoutingRule
@@ -904,14 +904,14 @@ rrRedirect :: Lens' RoutingRule Redirect
 rrRedirect = lens _rrRedirect (\s a -> s { _rrRedirect = a })
 
 instance FromXML RoutingRule where
-    parseXML c = RoutingRule
-        <$> c .:? "Condition"
-        <*> c .: "Redirect"
+    parseXML x = RoutingRule
+        <$> x .@? "Condition"
+        <*> x .@ "Redirect"
 
 instance ToXML RoutingRule where
-    toXML RoutingRule{..} = node "RoutingRule"
-        [ "Condition" .= _rrCondition
-        , "Redirect"  .= _rrRedirect
+    toXML RoutingRule{..} = nodes "RoutingRule"
+        [ "Condition" =@ _rrCondition
+        , "Redirect"  =@ _rrRedirect
         ]
 
 data NotificationConfiguration = NotificationConfiguration
@@ -951,16 +951,16 @@ ncTopicConfiguration =
     lens _ncTopicConfiguration (\s a -> s { _ncTopicConfiguration = a })
 
 instance FromXML NotificationConfiguration where
-    parseXML c = NotificationConfiguration
-        <$> c .:? "CloudFunctionConfiguration"
-        <*> c .:? "QueueConfiguration"
-        <*> c .:? "TopicConfiguration"
+    parseXML x = NotificationConfiguration
+        <$> x .@? "CloudFunctionConfiguration"
+        <*> x .@? "QueueConfiguration"
+        <*> x .@? "TopicConfiguration"
 
 instance ToXML NotificationConfiguration where
-    toXML NotificationConfiguration{..} = node "NotificationConfiguration"
-        [ "TopicConfiguration"         .= _ncTopicConfiguration
-        , "QueueConfiguration"         .= _ncQueueConfiguration
-        , "CloudFunctionConfiguration" .= _ncCloudFunctionConfiguration
+    toXML NotificationConfiguration{..} = nodes "NotificationConfiguration"
+        [ "TopicConfiguration"         =@ _ncTopicConfiguration
+        , "QueueConfiguration"         =@ _ncQueueConfiguration
+        , "CloudFunctionConfiguration" =@ _ncCloudFunctionConfiguration
         ]
 
 data S3ServiceError = S3ServiceError
@@ -1003,19 +1003,21 @@ sseVersionId :: Lens' S3ServiceError (Maybe Text)
 sseVersionId = lens _sseVersionId (\s a -> s { _sseVersionId = a })
 
 instance FromXML S3ServiceError where
-    parseXML c = S3ServiceError
-        <$> c .:? "Code"
-        <*> c .:? "Key"
-        <*> c .:? "Message"
-        <*> c .:? "VersionId"
+    parseXML x = S3ServiceError
+        <$> x .@? "Code"
+        <*> x .@? "Key"
+        <*> x .@? "Message"
+        <*> x .@? "VersionId"
 
-instance ToXML S3ServiceError where
-    toXML S3ServiceError{..} = node "S3ServiceError"
-        [ "Key"       .= _sseKey
-        , "VersionId" .= _sseVersionId
-        , "Code"      .= _sseCode
-        , "Message"   .= _sseMessage
+instance ToXMLRoot S3ServiceError where
+    toXMLRoot S3ServiceError{..} = element "S3ServiceError"
+        [ "Key"       =@ _sseKey
+        , "VersionId" =@ _sseVersionId
+        , "Code"      =@ _sseCode
+        , "Message"   =@ _sseMessage
         ]
+
+instance ToXML S3ServiceError
 
 data ObjectCannedACL
     = AuthenticatedRead      -- ^ authenticated-read
@@ -1046,7 +1048,7 @@ instance ToText ObjectCannedACL where
         PublicReadWrite        -> "public-read-write"
 
 instance FromXML ObjectCannedACL where
-    parseXML = fromXMLText "ObjectCannedACL"
+    parseXML = parseXMLText "ObjectCannedACL"
 
 instance ToXML ObjectCannedACL where
     toXML = toXMLText
@@ -1068,7 +1070,7 @@ instance ToText BucketVersioningStatus where
         BVSSuspended -> "Suspended"
 
 instance FromXML BucketVersioningStatus where
-    parseXML = fromXMLText "BucketVersioningStatus"
+    parseXML = parseXMLText "BucketVersioningStatus"
 
 instance ToXML BucketVersioningStatus where
     toXML = toXMLText
@@ -1115,18 +1117,18 @@ do1VersionId :: Lens' DeletedObject (Maybe Text)
 do1VersionId = lens _do1VersionId (\s a -> s { _do1VersionId = a })
 
 instance FromXML DeletedObject where
-    parseXML c = DeletedObject
-        <$> c .:? "DeleteMarker"
-        <*> c .:? "DeleteMarkerVersionId"
-        <*> c .:? "Key"
-        <*> c .:? "VersionId"
+    parseXML x = DeletedObject
+        <$> x .@? "DeleteMarker"
+        <*> x .@? "DeleteMarkerVersionId"
+        <*> x .@? "Key"
+        <*> x .@? "VersionId"
 
 instance ToXML DeletedObject where
-    toXML DeletedObject{..} = node "DeletedObject"
-        [ "Key"                   .= _do1Key
-        , "VersionId"             .= _do1VersionId
-        , "DeleteMarker"          .= _do1DeleteMarker
-        , "DeleteMarkerVersionId" .= _do1DeleteMarkerVersionId
+    toXML DeletedObject{..} = nodes "DeletedObject"
+        [ "Key"                   =@ _do1Key
+        , "VersionId"             =@ _do1VersionId
+        , "DeleteMarker"          =@ _do1DeleteMarker
+        , "DeleteMarkerVersionId" =@ _do1DeleteMarkerVersionId
         ]
 
 data ObjectVersionStorageClass
@@ -1142,7 +1144,7 @@ instance ToText ObjectVersionStorageClass where
     toText OVSCStandard = "STANDARD"
 
 instance FromXML ObjectVersionStorageClass where
-    parseXML = fromXMLText "ObjectVersionStorageClass"
+    parseXML = parseXMLText "ObjectVersionStorageClass"
 
 instance ToXML ObjectVersionStorageClass where
     toXML = toXMLText
@@ -1176,14 +1178,14 @@ cprLastModified = lens _cprLastModified (\s a -> s { _cprLastModified = a })
     . mapping _Time
 
 instance FromXML CopyPartResult where
-    parseXML c = CopyPartResult
-        <$> c .:? "ETag"
-        <*> c .:? "LastModified"
+    parseXML x = CopyPartResult
+        <$> x .@? "ETag"
+        <*> x .@? "LastModified"
 
 instance ToXML CopyPartResult where
-    toXML CopyPartResult{..} = node "CopyPartResult"
-        [ "ETag"         .= _cprETag
-        , "LastModified" .= _cprLastModified
+    toXML CopyPartResult{..} = nodes "CopyPartResult"
+        [ "ETag"         =@ _cprETag
+        , "LastModified" =@ _cprLastModified
         ]
 
 data EncodingType
@@ -1199,7 +1201,7 @@ instance ToText EncodingType where
     toText Url = "url"
 
 instance FromXML EncodingType where
-    parseXML = fromXMLText "EncodingType"
+    parseXML = parseXMLText "EncodingType"
 
 instance ToXML EncodingType where
     toXML = toXMLText
@@ -1225,12 +1227,12 @@ rpcPayer :: Lens' RequestPaymentConfiguration Text
 rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
 
 instance FromXML RequestPaymentConfiguration where
-    parseXML c = RequestPaymentConfiguration
-        <$> c .: "Payer"
+    parseXML x = RequestPaymentConfiguration
+        <$> x .@ "Payer"
 
 instance ToXML RequestPaymentConfiguration where
-    toXML RequestPaymentConfiguration{..} = node "RequestPaymentConfiguration"
-        [ "Payer" .= _rpcPayer
+    toXML RequestPaymentConfiguration{..} = nodes "RequestPaymentConfiguration"
+        [ "Payer" =@ _rpcPayer
         ]
 
 data CORSRule = CORSRule
@@ -1295,20 +1297,20 @@ corsrMaxAgeSeconds =
     lens _corsrMaxAgeSeconds (\s a -> s { _corsrMaxAgeSeconds = a })
 
 instance FromXML CORSRule where
-    parseXML c = CORSRule
-        <$> c .: "AllowedHeader"
-        <*> c .: "AllowedMethod"
-        <*> c .: "AllowedOrigin"
-        <*> c .: "ExposeHeader"
-        <*> c .:? "MaxAgeSeconds"
+    parseXML x = CORSRule
+        <$> x .@ "AllowedHeader"
+        <*> x .@ "AllowedMethod"
+        <*> x .@ "AllowedOrigin"
+        <*> x .@ "ExposeHeader"
+        <*> x .@? "MaxAgeSeconds"
 
 instance ToXML CORSRule where
-    toXML CORSRule{..} = node "CORSRule"
-        [ "AllowedHeader" .= _corsrAllowedHeaders
-        , "AllowedMethod" .= _corsrAllowedMethods
-        , "AllowedOrigin" .= _corsrAllowedOrigins
-        , "ExposeHeader"  .= _corsrExposeHeaders
-        , "MaxAgeSeconds" .= _corsrMaxAgeSeconds
+    toXML CORSRule{..} = nodes "CORSRule"
+        [ "AllowedHeader" =@ _corsrAllowedHeaders
+        , "AllowedMethod" =@ _corsrAllowedMethods
+        , "AllowedOrigin" =@ _corsrAllowedOrigins
+        , "ExposeHeader"  =@ _corsrExposeHeaders
+        , "MaxAgeSeconds" =@ _corsrMaxAgeSeconds
         ]
 
 data WebsiteConfiguration = WebsiteConfiguration
@@ -1352,18 +1354,18 @@ wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
 
 instance FromXML WebsiteConfiguration where
-    parseXML c = WebsiteConfiguration
-        <$> c .:? "ErrorDocument"
-        <*> c .:? "IndexDocument"
-        <*> c .:? "RedirectAllRequestsTo"
-        <*> c .: "RoutingRules"
+    parseXML x = WebsiteConfiguration
+        <$> x .@? "ErrorDocument"
+        <*> x .@? "IndexDocument"
+        <*> x .@? "RedirectAllRequestsTo"
+        <*> x .@ "RoutingRules"
 
 instance ToXML WebsiteConfiguration where
-    toXML WebsiteConfiguration{..} = node "WebsiteConfiguration"
-        [ "ErrorDocument"         .= _wcErrorDocument
-        , "IndexDocument"         .= _wcIndexDocument
-        , "RedirectAllRequestsTo" .= _wcRedirectAllRequestsTo
-        , "RoutingRules"          .= _wcRoutingRules
+    toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration"
+        [ "ErrorDocument"         =@ _wcErrorDocument
+        , "IndexDocument"         =@ _wcIndexDocument
+        , "RedirectAllRequestsTo" =@ _wcRedirectAllRequestsTo
+        , "RoutingRules"          =@ _wcRoutingRules
         ]
 
 data NoncurrentVersionTransition = NoncurrentVersionTransition
@@ -1400,14 +1402,14 @@ nvtStorageClass :: Lens' NoncurrentVersionTransition Text
 nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
 
 instance FromXML NoncurrentVersionTransition where
-    parseXML c = NoncurrentVersionTransition
-        <$> c .: "NoncurrentDays"
-        <*> c .: "StorageClass"
+    parseXML x = NoncurrentVersionTransition
+        <$> x .@ "NoncurrentDays"
+        <*> x .@ "StorageClass"
 
 instance ToXML NoncurrentVersionTransition where
-    toXML NoncurrentVersionTransition{..} = node "NoncurrentVersionTransition"
-        [ "NoncurrentDays" .= _nvtNoncurrentDays
-        , "StorageClass"   .= _nvtStorageClass
+    toXML NoncurrentVersionTransition{..} = nodes "NoncurrentVersionTransition"
+        [ "NoncurrentDays" =@ _nvtNoncurrentDays
+        , "StorageClass"   =@ _nvtStorageClass
         ]
 
 data Initiator = Initiator
@@ -1439,14 +1441,14 @@ iID :: Lens' Initiator (Maybe Text)
 iID = lens _iID (\s a -> s { _iID = a })
 
 instance FromXML Initiator where
-    parseXML c = Initiator
-        <$> c .:? "DisplayName"
-        <*> c .:? "ID"
+    parseXML x = Initiator
+        <$> x .@? "DisplayName"
+        <*> x .@? "ID"
 
 instance ToXML Initiator where
-    toXML Initiator{..} = node "Initiator"
-        [ "ID"          .= _iID
-        , "DisplayName" .= _iDisplayName
+    toXML Initiator{..} = nodes "Initiator"
+        [ "ID"          =@ _iID
+        , "DisplayName" =@ _iDisplayName
         ]
 
 data ObjectIdentifier = ObjectIdentifier
@@ -1478,14 +1480,14 @@ oiVersionId :: Lens' ObjectIdentifier (Maybe Text)
 oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
 
 instance FromXML ObjectIdentifier where
-    parseXML c = ObjectIdentifier
-        <$> c .: "Key"
-        <*> c .:? "VersionId"
+    parseXML x = ObjectIdentifier
+        <$> x .@ "Key"
+        <*> x .@? "VersionId"
 
 instance ToXML ObjectIdentifier where
-    toXML ObjectIdentifier{..} = node "ObjectIdentifier"
-        [ "Key"       .= _oiKey
-        , "VersionId" .= _oiVersionId
+    toXML ObjectIdentifier{..} = nodes "ObjectIdentifier"
+        [ "Key"       =@ _oiKey
+        , "VersionId" =@ _oiVersionId
         ]
 
 data Bucket = Bucket
@@ -1517,14 +1519,14 @@ bName :: Lens' Bucket (Maybe Text)
 bName = lens _bName (\s a -> s { _bName = a })
 
 instance FromXML Bucket where
-    parseXML c = Bucket
-        <$> c .:? "CreationDate"
-        <*> c .:? "Name"
+    parseXML x = Bucket
+        <$> x .@? "CreationDate"
+        <*> x .@? "Name"
 
 instance ToXML Bucket where
-    toXML Bucket{..} = node "Bucket"
-        [ "Name"         .= _bName
-        , "CreationDate" .= _bCreationDate
+    toXML Bucket{..} = nodes "Bucket"
+        [ "Name"         =@ _bName
+        , "CreationDate" =@ _bCreationDate
         ]
 
 data Protocol
@@ -1544,7 +1546,7 @@ instance ToText Protocol where
         Https -> "https"
 
 instance FromXML Protocol where
-    parseXML = fromXMLText "Protocol"
+    parseXML = parseXMLText "Protocol"
 
 instance ToXML Protocol where
     toXML = toXMLText
@@ -1576,15 +1578,17 @@ gPermission :: Lens' Grant (Maybe Text)
 gPermission = lens _gPermission (\s a -> s { _gPermission = a })
 
 instance FromXML Grant where
-    parseXML c = Grant
-        <$> c .:? "Grantee"
-        <*> c .:? "Permission"
+    parseXML x = Grant
+        <$> x .@? "Grantee"
+        <*> x .@? "Permission"
 
-instance ToXML Grant where
-    toXML Grant{..} = node "Grant"
-        [ "Grantee"    .= _gGrantee
-        , "Permission" .= _gPermission
+instance ToXMLRoot Grant where
+    toXMLRoot Grant{..} = element "Grant"
+        [ "Grantee"    =@ _gGrantee
+        , "Permission" =@ _gPermission
         ]
+
+instance ToXML Grant
 
 data Rule = Rule
     { _rExpiration                  :: Maybe LifecycleExpiration
@@ -1658,24 +1662,24 @@ rTransition :: Lens' Rule (Maybe Transition)
 rTransition = lens _rTransition (\s a -> s { _rTransition = a })
 
 instance FromXML Rule where
-    parseXML c = Rule
-        <$> c .:? "Expiration"
-        <*> c .:? "ID"
-        <*> c .:? "NoncurrentVersionExpiration"
-        <*> c .:? "NoncurrentVersionTransition"
-        <*> c .: "Prefix"
-        <*> c .: "Status"
-        <*> c .:? "Transition"
+    parseXML x = Rule
+        <$> x .@? "Expiration"
+        <*> x .@? "ID"
+        <*> x .@? "NoncurrentVersionExpiration"
+        <*> x .@? "NoncurrentVersionTransition"
+        <*> x .@ "Prefix"
+        <*> x .@ "Status"
+        <*> x .@? "Transition"
 
 instance ToXML Rule where
-    toXML Rule{..} = node "Rule"
-        [ "Expiration"                  .= _rExpiration
-        , "ID"                          .= _rID
-        , "Prefix"                      .= _rPrefix
-        , "Status"                      .= _rStatus
-        , "Transition"                  .= _rTransition
-        , "NoncurrentVersionTransition" .= _rNoncurrentVersionTransition
-        , "NoncurrentVersionExpiration" .= _rNoncurrentVersionExpiration
+    toXML Rule{..} = nodes "Rule"
+        [ "Expiration"                  =@ _rExpiration
+        , "ID"                          =@ _rID
+        , "Prefix"                      =@ _rPrefix
+        , "Status"                      =@ _rStatus
+        , "Transition"                  =@ _rTransition
+        , "NoncurrentVersionTransition" =@ _rNoncurrentVersionTransition
+        , "NoncurrentVersionExpiration" =@ _rNoncurrentVersionExpiration
         ]
 
 data TopicConfiguration = TopicConfiguration
@@ -1721,18 +1725,18 @@ tcTopic :: Lens' TopicConfiguration (Maybe Text)
 tcTopic = lens _tcTopic (\s a -> s { _tcTopic = a })
 
 instance FromXML TopicConfiguration where
-    parseXML c = TopicConfiguration
-        <$> c .:? "Event"
-        <*> c .: "Event"
-        <*> c .:? "Id"
-        <*> c .:? "Topic"
+    parseXML x = TopicConfiguration
+        <$> x .@? "Event"
+        <*> x .@ "Event"
+        <*> x .@? "Id"
+        <*> x .@? "Topic"
 
 instance ToXML TopicConfiguration where
-    toXML TopicConfiguration{..} = node "TopicConfiguration"
-        [ "Id"    .= _tcId
-        , "Event" .= _tcEvents
-        , "Event" .= _tcEvent
-        , "Topic" .= _tcTopic
+    toXML TopicConfiguration{..} = nodes "TopicConfiguration"
+        [ "Id"    =@ _tcId
+        , "Event" =@ _tcEvents
+        , "Event" =@ _tcEvent
+        , "Topic" =@ _tcTopic
         ]
 
 data QueueConfiguration = QueueConfiguration
@@ -1775,18 +1779,18 @@ qcQueue :: Lens' QueueConfiguration (Maybe Text)
 qcQueue = lens _qcQueue (\s a -> s { _qcQueue = a })
 
 instance FromXML QueueConfiguration where
-    parseXML c = QueueConfiguration
-        <$> c .:? "Event"
-        <*> c .: "Event"
-        <*> c .:? "Id"
-        <*> c .:? "Queue"
+    parseXML x = QueueConfiguration
+        <$> x .@? "Event"
+        <*> x .@ "Event"
+        <*> x .@? "Id"
+        <*> x .@? "Queue"
 
 instance ToXML QueueConfiguration where
-    toXML QueueConfiguration{..} = node "QueueConfiguration"
-        [ "Id"    .= _qcId
-        , "Event" .= _qcEvent
-        , "Event" .= _qcEvents
-        , "Queue" .= _qcQueue
+    toXML QueueConfiguration{..} = nodes "QueueConfiguration"
+        [ "Id"    =@ _qcId
+        , "Event" =@ _qcEvent
+        , "Event" =@ _qcEvents
+        , "Queue" =@ _qcQueue
         ]
 
 data Owner = Owner
@@ -1815,15 +1819,17 @@ oID :: Lens' Owner (Maybe Text)
 oID = lens _oID (\s a -> s { _oID = a })
 
 instance FromXML Owner where
-    parseXML c = Owner
-        <$> c .:? "DisplayName"
-        <*> c .:? "ID"
+    parseXML x = Owner
+        <$> x .@? "DisplayName"
+        <*> x .@? "ID"
 
-instance ToXML Owner where
-    toXML Owner{..} = node "Owner"
-        [ "DisplayName" .= _oDisplayName
-        , "ID"          .= _oID
+instance ToXMLRoot Owner where
+    toXMLRoot Owner{..} = element "Owner"
+        [ "DisplayName" =@ _oDisplayName
+        , "ID"          =@ _oID
         ]
+
+instance ToXML Owner
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
@@ -1845,12 +1851,12 @@ blsLoggingEnabled =
     lens _blsLoggingEnabled (\s a -> s { _blsLoggingEnabled = a })
 
 instance FromXML BucketLoggingStatus where
-    parseXML c = BucketLoggingStatus
-        <$> c .:? "LoggingEnabled"
+    parseXML x = BucketLoggingStatus
+        <$> x .@? "LoggingEnabled"
 
 instance ToXML BucketLoggingStatus where
-    toXML BucketLoggingStatus{..} = node "BucketLoggingStatus"
-        [ "LoggingEnabled" .= _blsLoggingEnabled
+    toXML BucketLoggingStatus{..} = nodes "BucketLoggingStatus"
+        [ "LoggingEnabled" =@ _blsLoggingEnabled
         ]
 
 newtype ErrorDocument = ErrorDocument
@@ -1874,12 +1880,12 @@ edKey :: Lens' ErrorDocument Text
 edKey = lens _edKey (\s a -> s { _edKey = a })
 
 instance FromXML ErrorDocument where
-    parseXML c = ErrorDocument
-        <$> c .: "Key"
+    parseXML x = ErrorDocument
+        <$> x .@ "Key"
 
 instance ToXML ErrorDocument where
-    toXML ErrorDocument{..} = node "ErrorDocument"
-        [ "Key" .= _edKey
+    toXML ErrorDocument{..} = nodes "ErrorDocument"
+        [ "Key" =@ _edKey
         ]
 
 data StorageClass
@@ -1899,7 +1905,7 @@ instance ToText StorageClass where
         SCStandard          -> "STANDARD"
 
 instance FromXML StorageClass where
-    parseXML = fromXMLText "StorageClass"
+    parseXML = parseXMLText "StorageClass"
 
 instance ToXML StorageClass where
     toXML = toXMLText
@@ -1980,26 +1986,26 @@ ovVersionId :: Lens' ObjectVersion (Maybe Text)
 ovVersionId = lens _ovVersionId (\s a -> s { _ovVersionId = a })
 
 instance FromXML ObjectVersion where
-    parseXML c = ObjectVersion
-        <$> c .:? "ETag"
-        <*> c .:? "IsLatest"
-        <*> c .:? "Key"
-        <*> c .:? "LastModified"
-        <*> c .:? "Owner"
-        <*> c .:? "Size"
-        <*> c .:? "StorageClass"
-        <*> c .:? "VersionId"
+    parseXML x = ObjectVersion
+        <$> x .@? "ETag"
+        <*> x .@? "IsLatest"
+        <*> x .@? "Key"
+        <*> x .@? "LastModified"
+        <*> x .@? "Owner"
+        <*> x .@? "Size"
+        <*> x .@? "StorageClass"
+        <*> x .@? "VersionId"
 
 instance ToXML ObjectVersion where
-    toXML ObjectVersion{..} = node "ObjectVersion"
-        [ "ETag"         .= _ovETag
-        , "Size"         .= _ovSize
-        , "StorageClass" .= _ovStorageClass
-        , "Key"          .= _ovKey
-        , "VersionId"    .= _ovVersionId
-        , "IsLatest"     .= _ovIsLatest
-        , "LastModified" .= _ovLastModified
-        , "Owner"        .= _ovOwner
+    toXML ObjectVersion{..} = nodes "ObjectVersion"
+        [ "ETag"         =@ _ovETag
+        , "Size"         =@ _ovSize
+        , "StorageClass" =@ _ovStorageClass
+        , "Key"          =@ _ovKey
+        , "VersionId"    =@ _ovVersionId
+        , "IsLatest"     =@ _ovIsLatest
+        , "LastModified" =@ _ovLastModified
+        , "Owner"        =@ _ovOwner
         ]
 
 data TargetGrant = TargetGrant
@@ -2029,14 +2035,14 @@ tgPermission :: Lens' TargetGrant (Maybe Text)
 tgPermission = lens _tgPermission (\s a -> s { _tgPermission = a })
 
 instance FromXML TargetGrant where
-    parseXML c = TargetGrant
-        <$> c .:? "Grantee"
-        <*> c .:? "Permission"
+    parseXML x = TargetGrant
+        <$> x .@? "Grantee"
+        <*> x .@? "Permission"
 
 instance ToXML TargetGrant where
-    toXML TargetGrant{..} = node "TargetGrant"
-        [ "Grantee"    .= _tgGrantee
-        , "Permission" .= _tgPermission
+    toXML TargetGrant{..} = nodes "TargetGrant"
+        [ "Grantee"    =@ _tgGrantee
+        , "Permission" =@ _tgPermission
         ]
 
 data MFADeleteStatus
@@ -2056,7 +2062,7 @@ instance ToText MFADeleteStatus where
         MFADSEnabled  -> "Enabled"
 
 instance FromXML MFADeleteStatus where
-    parseXML = fromXMLText "MFADeleteStatus"
+    parseXML = parseXMLText "MFADeleteStatus"
 
 instance ToXML MFADeleteStatus where
     toXML = toXMLText
@@ -2078,7 +2084,7 @@ instance ToText Payer where
         Requester   -> "Requester"
 
 instance FromXML Payer where
-    parseXML = fromXMLText "Payer"
+    parseXML = parseXMLText "Payer"
 
 instance ToXML Payer where
     toXML = toXMLText
@@ -2146,20 +2152,20 @@ rReplaceKeyWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyWith = lens _rReplaceKeyWith (\s a -> s { _rReplaceKeyWith = a })
 
 instance FromXML Redirect where
-    parseXML c = Redirect
-        <$> c .:? "HostName"
-        <*> c .:? "HttpRedirectCode"
-        <*> c .:? "Protocol"
-        <*> c .:? "ReplaceKeyPrefixWith"
-        <*> c .:? "ReplaceKeyWith"
+    parseXML x = Redirect
+        <$> x .@? "HostName"
+        <*> x .@? "HttpRedirectCode"
+        <*> x .@? "Protocol"
+        <*> x .@? "ReplaceKeyPrefixWith"
+        <*> x .@? "ReplaceKeyWith"
 
 instance ToXML Redirect where
-    toXML Redirect{..} = node "Redirect"
-        [ "HostName"             .= _rHostName
-        , "HttpRedirectCode"     .= _rHttpRedirectCode
-        , "Protocol"             .= _rProtocol
-        , "ReplaceKeyPrefixWith" .= _rReplaceKeyPrefixWith
-        , "ReplaceKeyWith"       .= _rReplaceKeyWith
+    toXML Redirect{..} = nodes "Redirect"
+        [ "HostName"             =@ _rHostName
+        , "HttpRedirectCode"     =@ _rHttpRedirectCode
+        , "Protocol"             =@ _rProtocol
+        , "ReplaceKeyPrefixWith" =@ _rReplaceKeyPrefixWith
+        , "ReplaceKeyWith"       =@ _rReplaceKeyWith
         ]
 
 data BucketLogsPermission
@@ -2182,7 +2188,7 @@ instance ToText BucketLogsPermission where
         Write       -> "WRITE"
 
 instance FromXML BucketLogsPermission where
-    parseXML = fromXMLText "BucketLogsPermission"
+    parseXML = parseXMLText "BucketLogsPermission"
 
 instance ToXML BucketLogsPermission where
     toXML = toXMLText
@@ -2215,14 +2221,14 @@ cpPartNumber :: Lens' CompletedPart (Maybe Int)
 cpPartNumber = lens _cpPartNumber (\s a -> s { _cpPartNumber = a })
 
 instance FromXML CompletedPart where
-    parseXML c = CompletedPart
-        <$> c .:? "ETag"
-        <*> c .:? "PartNumber"
+    parseXML x = CompletedPart
+        <$> x .@? "ETag"
+        <*> x .@? "PartNumber"
 
 instance ToXML CompletedPart where
-    toXML CompletedPart{..} = node "CompletedPart"
-        [ "ETag"       .= _cpETag
-        , "PartNumber" .= _cpPartNumber
+    toXML CompletedPart{..} = nodes "CompletedPart"
+        [ "ETag"       =@ _cpETag
+        , "PartNumber" =@ _cpPartNumber
         ]
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
@@ -2246,12 +2252,12 @@ cbcLocationConstraint =
     lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
 
 instance FromXML CreateBucketConfiguration where
-    parseXML c = CreateBucketConfiguration
-        <$> c .:? "LocationConstraint"
+    parseXML x = CreateBucketConfiguration
+        <$> x .@? "LocationConstraint"
 
 instance ToXML CreateBucketConfiguration where
-    toXML CreateBucketConfiguration{..} = node "CreateBucketConfiguration"
-        [ "LocationConstraint" .= _cbcLocationConstraint
+    toXML CreateBucketConfiguration{..} = nodes "CreateBucketConfiguration"
+        [ "LocationConstraint" =@ _cbcLocationConstraint
         ]
 
 newtype Tagging = Tagging
@@ -2279,12 +2285,12 @@ tTagSet :: Lens' Tagging [Tag]
 tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a })
 
 instance FromXML Tagging where
-    parseXML c = Tagging
-        <$> c .: "TagSet"
+    parseXML x = Tagging
+        <$> x .@ "TagSet"
 
 instance ToXML Tagging where
-    toXML Tagging{..} = node "Tagging"
-        [ "TagSet" .= _tTagSet
+    toXML Tagging{..} = nodes "Tagging"
+        [ "TagSet" =@ _tTagSet
         ]
 
 data LifecycleExpiration = LifecycleExpiration
@@ -2318,14 +2324,14 @@ leDays :: Lens' LifecycleExpiration (Maybe Int)
 leDays = lens _leDays (\s a -> s { _leDays = a })
 
 instance FromXML LifecycleExpiration where
-    parseXML c = LifecycleExpiration
-        <$> c .:? "Date"
-        <*> c .:? "Days"
+    parseXML x = LifecycleExpiration
+        <$> x .@? "Date"
+        <*> x .@? "Days"
 
 instance ToXML LifecycleExpiration where
-    toXML LifecycleExpiration{..} = node "LifecycleExpiration"
-        [ "Date" .= _leDate
-        , "Days" .= _leDays
+    toXML LifecycleExpiration{..} = nodes "LifecycleExpiration"
+        [ "Date" =@ _leDate
+        , "Days" =@ _leDays
         ]
 
 newtype CORSConfiguration = CORSConfiguration
@@ -2353,12 +2359,12 @@ corscCORSRules :: Lens' CORSConfiguration [CORSRule]
 corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
 
 instance FromXML CORSConfiguration where
-    parseXML c = CORSConfiguration
-        <$> c .: "CORSRule"
+    parseXML x = CORSConfiguration
+        <$> x .@ "CORSRule"
 
 instance ToXML CORSConfiguration where
-    toXML CORSConfiguration{..} = node "CORSConfiguration"
-        [ "CORSRule" .= _corscCORSRules
+    toXML CORSConfiguration{..} = nodes "CORSConfiguration"
+        [ "CORSRule" =@ _corscCORSRules
         ]
 
 data Object = Object
@@ -2386,14 +2392,14 @@ data Object = Object
 --
 -- * 'oStorageClass' @::@ 'Text'
 --
-object :: Text -- ^ 'oKey'
-       -> UTCTime -- ^ 'oLastModified'
-       -> Text -- ^ 'oETag'
-       -> Int -- ^ 'oSize'
-       -> Text -- ^ 'oStorageClass'
-       -> Owner -- ^ 'oOwner'
-       -> Object
-object p1 p2 p3 p4 p5 p6 = Object
+object' :: Text -- ^ 'oKey'
+        -> UTCTime -- ^ 'oLastModified'
+        -> Text -- ^ 'oETag'
+        -> Int -- ^ 'oSize'
+        -> Text -- ^ 'oStorageClass'
+        -> Owner -- ^ 'oOwner'
+        -> Object
+object' p1 p2 p3 p4 p5 p6 = Object
     { _oKey          = p1
     , _oLastModified = withIso _Time (const id) p2
     , _oETag         = p3
@@ -2423,22 +2429,22 @@ oStorageClass :: Lens' Object Text
 oStorageClass = lens _oStorageClass (\s a -> s { _oStorageClass = a })
 
 instance FromXML Object where
-    parseXML c = Object
-        <$> c .: "ETag"
-        <*> c .: "Key"
-        <*> c .: "LastModified"
-        <*> c .: "Owner"
-        <*> c .: "Size"
-        <*> c .: "StorageClass"
+    parseXML x = Object
+        <$> x .@ "ETag"
+        <*> x .@ "Key"
+        <*> x .@ "LastModified"
+        <*> x .@ "Owner"
+        <*> x .@ "Size"
+        <*> x .@ "StorageClass"
 
 instance ToXML Object where
-    toXML Object{..} = node "Object"
-        [ "Key"          .= _oKey
-        , "LastModified" .= _oLastModified
-        , "ETag"         .= _oETag
-        , "Size"         .= _oSize
-        , "StorageClass" .= _oStorageClass
-        , "Owner"        .= _oOwner
+    toXML Object{..} = nodes "Object"
+        [ "Key"          =@ _oKey
+        , "LastModified" =@ _oLastModified
+        , "ETag"         =@ _oETag
+        , "Size"         =@ _oSize
+        , "StorageClass" =@ _oStorageClass
+        , "Owner"        =@ _oOwner
         ]
 
 newtype CommonPrefix = CommonPrefix
@@ -2460,13 +2466,15 @@ cpPrefix :: Lens' CommonPrefix (Maybe Text)
 cpPrefix = lens _cpPrefix (\s a -> s { _cpPrefix = a })
 
 instance FromXML CommonPrefix where
-    parseXML c = CommonPrefix
-        <$> c .:? "Prefix"
+    parseXML x = CommonPrefix
+        <$> x .@? "Prefix"
 
-instance ToXML CommonPrefix where
-    toXML CommonPrefix{..} = node "CommonPrefix"
-        [ "Prefix" .= _cpPrefix
+instance ToXMLRoot CommonPrefix where
+    toXMLRoot CommonPrefix{..} = element "CommonPrefix"
+        [ "Prefix" =@ _cpPrefix
         ]
+
+instance ToXML CommonPrefix
 
 data MultipartUpload = MultipartUpload
     { _muInitiated    :: Maybe RFC822
@@ -2528,22 +2536,22 @@ muUploadId :: Lens' MultipartUpload (Maybe Text)
 muUploadId = lens _muUploadId (\s a -> s { _muUploadId = a })
 
 instance FromXML MultipartUpload where
-    parseXML c = MultipartUpload
-        <$> c .:? "Initiated"
-        <*> c .:? "Initiator"
-        <*> c .:? "Key"
-        <*> c .:? "Owner"
-        <*> c .:? "StorageClass"
-        <*> c .:? "UploadId"
+    parseXML x = MultipartUpload
+        <$> x .@? "Initiated"
+        <*> x .@? "Initiator"
+        <*> x .@? "Key"
+        <*> x .@? "Owner"
+        <*> x .@? "StorageClass"
+        <*> x .@? "UploadId"
 
 instance ToXML MultipartUpload where
-    toXML MultipartUpload{..} = node "MultipartUpload"
-        [ "UploadId"     .= _muUploadId
-        , "Key"          .= _muKey
-        , "Initiated"    .= _muInitiated
-        , "StorageClass" .= _muStorageClass
-        , "Owner"        .= _muOwner
-        , "Initiator"    .= _muInitiator
+    toXML MultipartUpload{..} = nodes "MultipartUpload"
+        [ "UploadId"     =@ _muUploadId
+        , "Key"          =@ _muKey
+        , "Initiated"    =@ _muInitiated
+        , "StorageClass" =@ _muStorageClass
+        , "Owner"        =@ _muOwner
+        , "Initiator"    =@ _muInitiator
         ]
 
 data Type
@@ -2566,7 +2574,7 @@ instance ToText Type where
         Group                 -> "Group"
 
 instance FromXML Type where
-    parseXML = fromXMLText "Type"
+    parseXML = parseXMLText "Type"
 
 instance ToXML Type where
     toXML = toXMLText
@@ -2584,7 +2592,7 @@ instance ToText TransitionStorageClass where
     toText TSCGlacier = "GLACIER"
 
 instance FromXML TransitionStorageClass where
-    parseXML = fromXMLText "TransitionStorageClass"
+    parseXML = parseXMLText "TransitionStorageClass"
 
 instance ToXML TransitionStorageClass where
     toXML = toXMLText
@@ -2614,12 +2622,12 @@ cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
 cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a })
 
 instance FromXML CompletedMultipartUpload where
-    parseXML c = CompletedMultipartUpload
-        <$> c .: "Part"
+    parseXML x = CompletedMultipartUpload
+        <$> x .@ "Part"
 
 instance ToXML CompletedMultipartUpload where
-    toXML CompletedMultipartUpload{..} = node "CompletedMultipartUpload"
-        [ "Part" .= _cmuParts
+    toXML CompletedMultipartUpload{..} = nodes "CompletedMultipartUpload"
+        [ "Part" =@ _cmuParts
         ]
 
 data Condition = Condition
@@ -2662,14 +2670,14 @@ cKeyPrefixEquals :: Lens' Condition (Maybe Text)
 cKeyPrefixEquals = lens _cKeyPrefixEquals (\s a -> s { _cKeyPrefixEquals = a })
 
 instance FromXML Condition where
-    parseXML c = Condition
-        <$> c .:? "HttpErrorCodeReturnedEquals"
-        <*> c .:? "KeyPrefixEquals"
+    parseXML x = Condition
+        <$> x .@? "HttpErrorCodeReturnedEquals"
+        <*> x .@? "KeyPrefixEquals"
 
 instance ToXML Condition where
-    toXML Condition{..} = node "Condition"
-        [ "HttpErrorCodeReturnedEquals" .= _cHttpErrorCodeReturnedEquals
-        , "KeyPrefixEquals"             .= _cKeyPrefixEquals
+    toXML Condition{..} = nodes "Condition"
+        [ "HttpErrorCodeReturnedEquals" =@ _cHttpErrorCodeReturnedEquals
+        , "KeyPrefixEquals"             =@ _cKeyPrefixEquals
         ]
 
 data Permission
@@ -2698,7 +2706,7 @@ instance ToText Permission where
         PWriteAcp    -> "WRITE_ACP"
 
 instance FromXML Permission where
-    parseXML = fromXMLText "Permission"
+    parseXML = parseXMLText "Permission"
 
 instance ToXML Permission where
     toXML = toXMLText
@@ -2730,15 +2738,17 @@ acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
 
 instance FromXML AccessControlPolicy where
-    parseXML c = AccessControlPolicy
-        <$> c .: "AccessControlList"
-        <*> c .:? "Owner"
+    parseXML x = AccessControlPolicy
+        <$> x .@ "AccessControlList"
+        <*> x .@? "Owner"
 
-instance ToXML AccessControlPolicy where
-    toXML AccessControlPolicy{..} = node "AccessControlPolicy"
-        [ "AccessControlList" .= _acpGrants
-        , "Owner"             .= _acpOwner
+instance ToXMLRoot AccessControlPolicy where
+    toXMLRoot AccessControlPolicy{..} = element "AccessControlPolicy"
+        [ "AccessControlList" =@ _acpGrants
+        , "Owner"             =@ _acpOwner
         ]
+
+instance ToXML AccessControlPolicy
 
 data BucketCannedACL
     = CannedAuthenticatedRead -- ^ authenticated-read
@@ -2763,7 +2773,7 @@ instance ToText BucketCannedACL where
         CannedPublicReadWrite   -> "public-read-write"
 
 instance FromXML BucketCannedACL where
-    parseXML = fromXMLText "BucketCannedACL"
+    parseXML = parseXMLText "BucketCannedACL"
 
 instance ToXML BucketCannedACL where
     toXML = toXMLText
@@ -2785,7 +2795,7 @@ instance ToText MFADelete where
         MFADEnabled  -> "Enabled"
 
 instance FromXML MFADelete where
-    parseXML = fromXMLText "MFADelete"
+    parseXML = parseXMLText "MFADelete"
 
 instance ToXML MFADelete where
     toXML = toXMLText
@@ -2838,20 +2848,20 @@ cfcInvocationRole =
     lens _cfcInvocationRole (\s a -> s { _cfcInvocationRole = a })
 
 instance FromXML CloudFunctionConfiguration where
-    parseXML c = CloudFunctionConfiguration
-        <$> c .:? "CloudFunction"
-        <*> c .:? "Event"
-        <*> c .: "Event"
-        <*> c .:? "Id"
-        <*> c .:? "InvocationRole"
+    parseXML x = CloudFunctionConfiguration
+        <$> x .@? "CloudFunction"
+        <*> x .@? "Event"
+        <*> x .@ "Event"
+        <*> x .@? "Id"
+        <*> x .@? "InvocationRole"
 
 instance ToXML CloudFunctionConfiguration where
-    toXML CloudFunctionConfiguration{..} = node "CloudFunctionConfiguration"
-        [ "Id"             .= _cfcId
-        , "Event"          .= _cfcEvent
-        , "Event"          .= _cfcEvents
-        , "CloudFunction"  .= _cfcCloudFunction
-        , "InvocationRole" .= _cfcInvocationRole
+    toXML CloudFunctionConfiguration{..} = nodes "CloudFunctionConfiguration"
+        [ "Id"             =@ _cfcId
+        , "Event"          =@ _cfcEvent
+        , "Event"          =@ _cfcEvents
+        , "CloudFunction"  =@ _cfcCloudFunction
+        , "InvocationRole" =@ _cfcInvocationRole
         ]
 
 data Grantee = Grantee
@@ -2907,20 +2917,20 @@ gURI :: Lens' Grantee (Maybe Text)
 gURI = lens _gURI (\s a -> s { _gURI = a })
 
 instance FromXML Grantee where
-    parseXML c = Grantee
-        <$> c .:? "DisplayName"
-        <*> c .:? "EmailAddress"
-        <*> c .:? "ID"
-        <*> c .: "Type"
-        <*> c .:? "URI"
+    parseXML x = Grantee
+        <$> x .@? "DisplayName"
+        <*> x .@? "EmailAddress"
+        <*> x .@? "ID"
+        <*> x .@ "Type"
+        <*> x .@? "URI"
 
 instance ToXML Grantee where
-    toXML Grantee{..} = node "Grantee"
-        [ "DisplayName"  .= _gDisplayName
-        , "EmailAddress" .= _gEmailAddress
-        , "ID"           .= _gID
-        , "Type"         .= _gType
-        , "URI"          .= _gURI
+    toXML Grantee{..} = nodes "Grantee"
+        [ "DisplayName"  =@ _gDisplayName
+        , "EmailAddress" =@ _gEmailAddress
+        , "ID"           =@ _gID
+        , "Type"         =@ _gType
+        , "URI"          =@ _gURI
         ]
 
 newtype LifecycleConfiguration = LifecycleConfiguration
@@ -2948,12 +2958,12 @@ lcRules :: Lens' LifecycleConfiguration [Rule]
 lcRules = lens _lcRules (\s a -> s { _lcRules = a })
 
 instance FromXML LifecycleConfiguration where
-    parseXML c = LifecycleConfiguration
-        <$> c .: "Rule"
+    parseXML x = LifecycleConfiguration
+        <$> x .@ "Rule"
 
 instance ToXML LifecycleConfiguration where
-    toXML LifecycleConfiguration{..} = node "LifecycleConfiguration"
-        [ "Rule" .= _lcRules
+    toXML LifecycleConfiguration{..} = nodes "LifecycleConfiguration"
+        [ "Rule" =@ _lcRules
         ]
 
 data LoggingEnabled = LoggingEnabled
@@ -2997,16 +3007,16 @@ leTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
 leTargetPrefix = lens _leTargetPrefix (\s a -> s { _leTargetPrefix = a })
 
 instance FromXML LoggingEnabled where
-    parseXML c = LoggingEnabled
-        <$> c .:? "TargetBucket"
-        <*> c .: "TargetGrants"
-        <*> c .:? "TargetPrefix"
+    parseXML x = LoggingEnabled
+        <$> x .@? "TargetBucket"
+        <*> x .@ "TargetGrants"
+        <*> x .@? "TargetPrefix"
 
 instance ToXML LoggingEnabled where
-    toXML LoggingEnabled{..} = node "LoggingEnabled"
-        [ "TargetBucket" .= _leTargetBucket
-        , "TargetGrants" .= _leTargetGrants
-        , "TargetPrefix" .= _leTargetPrefix
+    toXML LoggingEnabled{..} = nodes "LoggingEnabled"
+        [ "TargetBucket" =@ _leTargetBucket
+        , "TargetGrants" =@ _leTargetGrants
+        , "TargetPrefix" =@ _leTargetPrefix
         ]
 
 data ServerSideEncryption
@@ -3022,7 +3032,7 @@ instance ToText ServerSideEncryption where
     toText AES256 = "AES256"
 
 instance FromXML ServerSideEncryption where
-    parseXML = fromXMLText "ServerSideEncryption"
+    parseXML = parseXMLText "ServerSideEncryption"
 
 instance ToXML ServerSideEncryption where
     toXML = toXMLText
@@ -3052,12 +3062,12 @@ idSuffix :: Lens' IndexDocument Text
 idSuffix = lens _idSuffix (\s a -> s { _idSuffix = a })
 
 instance FromXML IndexDocument where
-    parseXML c = IndexDocument
-        <$> c .: "Suffix"
+    parseXML x = IndexDocument
+        <$> x .@ "Suffix"
 
 instance ToXML IndexDocument where
-    toXML IndexDocument{..} = node "IndexDocument"
-        [ "Suffix" .= _idSuffix
+    toXML IndexDocument{..} = nodes "IndexDocument"
+        [ "Suffix" =@ _idSuffix
         ]
 
 data CopyObjectResult = CopyObjectResult
@@ -3087,14 +3097,14 @@ corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a })
     . mapping _Time
 
 instance FromXML CopyObjectResult where
-    parseXML c = CopyObjectResult
-        <$> c .:? "ETag"
-        <*> c .:? "LastModified"
+    parseXML x = CopyObjectResult
+        <$> x .@? "ETag"
+        <*> x .@? "LastModified"
 
 instance ToXML CopyObjectResult where
-    toXML CopyObjectResult{..} = node "CopyObjectResult"
-        [ "ETag"         .= _corETag
-        , "LastModified" .= _corLastModified
+    toXML CopyObjectResult{..} = nodes "CopyObjectResult"
+        [ "ETag"         =@ _corETag
+        , "LastModified" =@ _corLastModified
         ]
 
 data Delete = Delete
@@ -3125,14 +3135,14 @@ dQuiet :: Lens' Delete (Maybe Bool)
 dQuiet = lens _dQuiet (\s a -> s { _dQuiet = a })
 
 instance FromXML Delete where
-    parseXML c = Delete
-        <$> c .: "Object"
-        <*> c .:? "Quiet"
+    parseXML x = Delete
+        <$> x .@ "Object"
+        <*> x .@? "Quiet"
 
 instance ToXML Delete where
-    toXML Delete{..} = node "Delete"
-        [ "Object" .= _dObjects
-        , "Quiet"  .= _dQuiet
+    toXML Delete{..} = nodes "Delete"
+        [ "Object" =@ _dObjects
+        , "Quiet"  =@ _dQuiet
         ]
 
 newtype RestoreRequest = RestoreRequest
@@ -3156,10 +3166,10 @@ rDays :: Lens' RestoreRequest Int
 rDays = lens _rDays (\s a -> s { _rDays = a })
 
 instance FromXML RestoreRequest where
-    parseXML c = RestoreRequest
-        <$> c .: "Days"
+    parseXML x = RestoreRequest
+        <$> x .@ "Days"
 
 instance ToXML RestoreRequest where
-    toXML RestoreRequest{..} = node "RestoreRequest"
-        [ "Days" .= _rDays
+    toXML RestoreRequest{..} = nodes "RestoreRequest"
+        [ "Days" =@ _rDays
         ]

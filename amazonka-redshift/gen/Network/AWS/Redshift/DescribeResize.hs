@@ -242,16 +242,16 @@ instance AWSRequest DescribeResize where
     response = xmlResponse
 
 instance FromXML DescribeResizeResponse where
-    parseXML c = DescribeResizeResponse
-        <$> c .:? "AvgResizeRateInMegaBytesPerSecond"
-        <*> c .:? "ElapsedTimeInSeconds"
-        <*> c .:? "EstimatedTimeToCompletionInSeconds"
-        <*> c .: "ImportTablesCompleted"
-        <*> c .: "ImportTablesInProgress"
-        <*> c .: "ImportTablesNotStarted"
-        <*> c .:? "ProgressInMegaBytes"
-        <*> c .:? "Status"
-        <*> c .:? "TargetClusterType"
-        <*> c .:? "TargetNodeType"
-        <*> c .:? "TargetNumberOfNodes"
-        <*> c .:? "TotalResizeDataInMegaBytes"
+    parseXML x = DescribeResizeResponse
+        <$> x .@? "AvgResizeRateInMegaBytesPerSecond"
+        <*> x .@? "ElapsedTimeInSeconds"
+        <*> x .@? "EstimatedTimeToCompletionInSeconds"
+        <*> x .@ "ImportTablesCompleted"
+        <*> x .@ "ImportTablesInProgress"
+        <*> x .@ "ImportTablesNotStarted"
+        <*> x .@? "ProgressInMegaBytes"
+        <*> x .@? "Status"
+        <*> x .@? "TargetClusterType"
+        <*> x .@? "TargetNodeType"
+        <*> x .@? "TargetNumberOfNodes"
+        <*> x .@? "TotalResizeDataInMegaBytes"

@@ -87,8 +87,10 @@ instance ToQuery DeleteReusableDelegationSet where
 
 instance ToHeaders DeleteReusableDelegationSet
 
-instance ToXML DeleteReusableDelegationSet where
-    toXML = const (node "DeleteReusableDelegationSet" [])
+instance ToXMLRoot DeleteReusableDelegationSet where
+    toXMLRoot = const (element "DeleteReusableDelegationSet" [])
+
+instance ToXML DeleteReusableDelegationSet
 
 instance AWSRequest DeleteReusableDelegationSet where
     type Sv DeleteReusableDelegationSet = Route53

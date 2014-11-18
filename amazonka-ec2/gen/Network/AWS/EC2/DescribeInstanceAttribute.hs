@@ -253,18 +253,18 @@ instance AWSRequest DescribeInstanceAttribute where
     response = xmlResponse
 
 instance FromXML DescribeInstanceAttributeResponse where
-    parseXML c = DescribeInstanceAttributeResponse
-        <$> c .: "blockDeviceMapping"
-        <*> c .:? "disableApiTermination"
-        <*> c .:? "ebsOptimized"
-        <*> c .: "groupSet"
-        <*> c .:? "instanceId"
-        <*> c .:? "instanceInitiatedShutdownBehavior"
-        <*> c .:? "instanceType"
-        <*> c .:? "kernel"
-        <*> c .: "productCodes"
-        <*> c .:? "ramdisk"
-        <*> c .:? "rootDeviceName"
-        <*> c .:? "sourceDestCheck"
-        <*> c .:? "sriovNetSupport"
-        <*> c .:? "userData"
+    parseXML x = DescribeInstanceAttributeResponse
+        <$> x .@ "blockDeviceMapping"
+        <*> x .@? "disableApiTermination"
+        <*> x .@? "ebsOptimized"
+        <*> x .@ "groupSet"
+        <*> x .@? "instanceId"
+        <*> x .@? "instanceInitiatedShutdownBehavior"
+        <*> x .@? "instanceType"
+        <*> x .@? "kernel"
+        <*> x .@ "productCodes"
+        <*> x .@? "ramdisk"
+        <*> x .@? "rootDeviceName"
+        <*> x .@? "sourceDestCheck"
+        <*> x .@? "sriovNetSupport"
+        <*> x .@? "userData"

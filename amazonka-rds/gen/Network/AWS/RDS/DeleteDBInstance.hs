@@ -137,5 +137,5 @@ instance AWSRequest DeleteDBInstance where
     response = xmlResponse
 
 instance FromXML DeleteDBInstanceResponse where
-    parseXML c = DeleteDBInstanceResponse
-        <$> c .:? "DBInstance"
+    parseXML x = DeleteDBInstanceResponse
+        <$> x .@? "DBInstance"

@@ -114,5 +114,5 @@ instance AWSRequest DescribeAvailabilityOptions where
     response = xmlResponse
 
 instance FromXML DescribeAvailabilityOptionsResponse where
-    parseXML c = DescribeAvailabilityOptionsResponse
-        <$> c .:? "AvailabilityOptions"
+    parseXML x = DescribeAvailabilityOptionsResponse
+        <$> x .@? "AvailabilityOptions"

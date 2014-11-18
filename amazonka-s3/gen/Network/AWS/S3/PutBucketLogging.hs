@@ -102,10 +102,12 @@ instance ToHeaders PutBucketLogging where
         [ "Content-MD5" =: _pblContentMD5
         ]
 
-instance ToXML PutBucketLogging where
-    toXML PutBucketLogging{..} = node "PutBucketLogging"
-        [ "BucketLoggingStatus" .= _pblBucketLoggingStatus
+instance ToXMLRoot PutBucketLogging where
+    toXMLRoot PutBucketLogging{..} = element "PutBucketLogging"
+        [ "BucketLoggingStatus" =@ _pblBucketLoggingStatus
         ]
+
+instance ToXML PutBucketLogging
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3

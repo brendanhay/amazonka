@@ -118,5 +118,5 @@ instance AWSRequest DescribeLifecycleHooks where
     response = xmlResponse
 
 instance FromXML DescribeLifecycleHooksResponse where
-    parseXML c = DescribeLifecycleHooksResponse
-        <$> c .: "LifecycleHooks"
+    parseXML x = DescribeLifecycleHooksResponse
+        <$> x .@ "LifecycleHooks"

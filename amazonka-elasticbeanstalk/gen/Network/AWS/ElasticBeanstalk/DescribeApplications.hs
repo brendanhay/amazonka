@@ -111,5 +111,5 @@ instance AWSRequest DescribeApplications where
     response = xmlResponse
 
 instance FromXML DescribeApplicationsResponse where
-    parseXML c = DescribeApplicationsResponse
-        <$> c .: "Applications"
+    parseXML x = DescribeApplicationsResponse
+        <$> x .@ "Applications"

@@ -117,5 +117,5 @@ instance AWSRequest RebootCacheCluster where
     response = xmlResponse
 
 instance FromXML RebootCacheClusterResponse where
-    parseXML c = RebootCacheClusterResponse
-        <$> c .:? "CacheCluster"
+    parseXML x = RebootCacheClusterResponse
+        <$> x .@? "CacheCluster"

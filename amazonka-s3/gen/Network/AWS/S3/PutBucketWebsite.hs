@@ -100,10 +100,12 @@ instance ToHeaders PutBucketWebsite where
         [ "Content-MD5" =: _pbwContentMD5
         ]
 
-instance ToXML PutBucketWebsite where
-    toXML PutBucketWebsite{..} = node "PutBucketWebsite"
-        [ "WebsiteConfiguration" .= _pbwWebsiteConfiguration
+instance ToXMLRoot PutBucketWebsite where
+    toXMLRoot PutBucketWebsite{..} = element "PutBucketWebsite"
+        [ "WebsiteConfiguration" =@ _pbwWebsiteConfiguration
         ]
+
+instance ToXML PutBucketWebsite
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3

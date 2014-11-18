@@ -128,11 +128,13 @@ instance ToQuery AssociateVPCWithHostedZone where
 
 instance ToHeaders AssociateVPCWithHostedZone
 
-instance ToXML AssociateVPCWithHostedZone where
-    toXML AssociateVPCWithHostedZone{..} = node "AssociateVPCWithHostedZone"
-        [ "VPC"     .= _avpcwhzVPC
-        , "Comment" .= _avpcwhzComment
+instance ToXMLRoot AssociateVPCWithHostedZone where
+    toXMLRoot AssociateVPCWithHostedZone{..} = element "AssociateVPCWithHostedZone"
+        [ "VPC"     =@ _avpcwhzVPC
+        , "Comment" =@ _avpcwhzComment
         ]
+
+instance ToXML AssociateVPCWithHostedZone
 
 instance AWSRequest AssociateVPCWithHostedZone where
     type Sv AssociateVPCWithHostedZone = Route53
@@ -142,5 +144,5 @@ instance AWSRequest AssociateVPCWithHostedZone where
     response = xmlResponse
 
 instance FromXML AssociateVPCWithHostedZoneResponse where
-    parseXML c = AssociateVPCWithHostedZoneResponse
-        <$> c .: "ChangeInfo"
+    parseXML x = AssociateVPCWithHostedZoneResponse
+        <$> x .@ "ChangeInfo"

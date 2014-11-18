@@ -139,6 +139,6 @@ instance AWSRequest ResetClusterParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetClusterParameterGroupResponse where
-    parseXML c = ResetClusterParameterGroupResponse
-        <$> c .:? "ParameterGroupName"
-        <*> c .:? "ParameterGroupStatus"
+    parseXML x = ResetClusterParameterGroupResponse
+        <$> x .@? "ParameterGroupName"
+        <*> x .@? "ParameterGroupStatus"

@@ -278,6 +278,6 @@ instance AWSRequest DescribeInstances where
     response = xmlResponse
 
 instance FromXML DescribeInstancesResponse where
-    parseXML c = DescribeInstancesResponse
-        <$> c .:? "nextToken"
-        <*> c .: "reservationSet"
+    parseXML x = DescribeInstancesResponse
+        <$> x .@? "nextToken"
+        <*> x .@ "reservationSet"

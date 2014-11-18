@@ -104,10 +104,12 @@ instance ToHeaders PutBucketRequestPayment where
         [ "Content-MD5" =: _pbrpContentMD5
         ]
 
-instance ToXML PutBucketRequestPayment where
-    toXML PutBucketRequestPayment{..} = node "PutBucketRequestPayment"
-        [ "RequestPaymentConfiguration" .= _pbrpRequestPaymentConfiguration
+instance ToXMLRoot PutBucketRequestPayment where
+    toXMLRoot PutBucketRequestPayment{..} = element "PutBucketRequestPayment"
+        [ "RequestPaymentConfiguration" =@ _pbrpRequestPaymentConfiguration
         ]
+
+instance ToXML PutBucketRequestPayment
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3

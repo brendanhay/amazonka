@@ -129,5 +129,5 @@ instance AWSRequest RevokeCacheSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML RevokeCacheSecurityGroupIngressResponse where
-    parseXML c = RevokeCacheSecurityGroupIngressResponse
-        <$> c .:? "CacheSecurityGroup"
+    parseXML x = RevokeCacheSecurityGroupIngressResponse
+        <$> x .@? "CacheSecurityGroup"

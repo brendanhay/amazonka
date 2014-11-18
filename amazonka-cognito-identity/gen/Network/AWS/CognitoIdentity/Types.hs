@@ -56,7 +56,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-06-30@ of the Amazon Cognito Identity service.
-data CognitoIdentity deriving (Typeable)
+data CognitoIdentity
 
 instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4

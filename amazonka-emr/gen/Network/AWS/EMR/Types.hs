@@ -413,7 +413,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2009-03-31@ of the Amazon Elastic MapReduce service.
-data EMR deriving (Typeable)
+data EMR
 
 instance AWSService EMR where
     type Sg EMR = V4
@@ -447,7 +447,7 @@ instance ToText MarketType where
         Spot     -> "SPOT"
 
 instance FromJSON MarketType where
-    parseJSON = fromJSONText "MarketType"
+    parseJSON = parseJSONText "MarketType"
 
 instance ToJSON MarketType where
     toJSON = toJSONText
@@ -887,7 +887,7 @@ instance ToText StepExecutionState where
         Running     -> "RUNNING"
 
 instance FromJSON StepExecutionState where
-    parseJSON = fromJSONText "StepExecutionState"
+    parseJSON = parseJSONText "StepExecutionState"
 
 instance ToJSON StepExecutionState where
     toJSON = toJSONText
@@ -915,7 +915,7 @@ instance ToText ActionOnFailure where
         AOFTerminateJobFlow -> "TERMINATE_JOB_FLOW"
 
 instance FromJSON ActionOnFailure where
-    parseJSON = fromJSONText "ActionOnFailure"
+    parseJSON = parseJSONText "ActionOnFailure"
 
 instance ToJSON ActionOnFailure where
     toJSON = toJSONText
@@ -1495,7 +1495,7 @@ instance ToText StepStateChangeReasonCode where
     toText None = "NONE"
 
 instance FromJSON StepStateChangeReasonCode where
-    parseJSON = fromJSONText "StepStateChangeReasonCode"
+    parseJSON = parseJSONText "StepStateChangeReasonCode"
 
 instance ToJSON StepStateChangeReasonCode where
     toJSON = toJSONText
@@ -1532,7 +1532,7 @@ instance ToText ClusterState where
         CSWaiting              -> "WAITING"
 
 instance FromJSON ClusterState where
-    parseJSON = fromJSONText "ClusterState"
+    parseJSON = parseJSONText "ClusterState"
 
 instance ToJSON ClusterState where
     toJSON = toJSONText
@@ -1634,7 +1634,7 @@ instance ToText JobFlowExecutionState where
         JFESWaiting       -> "WAITING"
 
 instance FromJSON JobFlowExecutionState where
-    parseJSON = fromJSONText "JobFlowExecutionState"
+    parseJSON = parseJSONText "JobFlowExecutionState"
 
 instance ToJSON JobFlowExecutionState where
     toJSON = toJSONText
@@ -1738,7 +1738,7 @@ instance ToText InstanceGroupType where
         Task   -> "TASK"
 
 instance FromJSON InstanceGroupType where
-    parseJSON = fromJSONText "InstanceGroupType"
+    parseJSON = parseJSONText "InstanceGroupType"
 
 instance ToJSON InstanceGroupType where
     toJSON = toJSONText
@@ -1766,7 +1766,7 @@ instance ToText InstanceGroupStateChangeReasonCode where
         ValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
-    parseJSON = fromJSONText "InstanceGroupStateChangeReasonCode"
+    parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
 
 instance ToJSON InstanceGroupStateChangeReasonCode where
     toJSON = toJSONText
@@ -1909,7 +1909,7 @@ instance ToText InstanceGroupState where
         IGSTerminating   -> "TERMINATING"
 
 instance FromJSON InstanceGroupState where
-    parseJSON = fromJSONText "InstanceGroupState"
+    parseJSON = parseJSONText "InstanceGroupState"
 
 instance ToJSON InstanceGroupState where
     toJSON = toJSONText
@@ -2360,7 +2360,7 @@ instance ToText ClusterStateChangeReasonCode where
         CSCRCValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON ClusterStateChangeReasonCode where
-    parseJSON = fromJSONText "ClusterStateChangeReasonCode"
+    parseJSON = parseJSONText "ClusterStateChangeReasonCode"
 
 instance ToJSON ClusterStateChangeReasonCode where
     toJSON = toJSONText
@@ -2463,7 +2463,7 @@ instance ToText StepState where
         SSRunning     -> "RUNNING"
 
 instance FromJSON StepState where
-    parseJSON = fromJSONText "StepState"
+    parseJSON = parseJSONText "StepState"
 
 instance ToJSON StepState where
     toJSON = toJSONText
@@ -2696,7 +2696,7 @@ instance ToText InstanceRoleType where
         IRTTask   -> "TASK"
 
 instance FromJSON InstanceRoleType where
-    parseJSON = fromJSONText "InstanceRoleType"
+    parseJSON = parseJSONText "InstanceRoleType"
 
 instance ToJSON InstanceRoleType where
     toJSON = toJSONText
@@ -3350,7 +3350,7 @@ instance ToText InstanceState where
         ISTerminated          -> "TERMINATED"
 
 instance FromJSON InstanceState where
-    parseJSON = fromJSONText "InstanceState"
+    parseJSON = parseJSONText "InstanceState"
 
 instance ToJSON InstanceState where
     toJSON = toJSONText
@@ -3433,7 +3433,7 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCValidationError   -> "VALIDATION_ERROR"
 
 instance FromJSON InstanceStateChangeReasonCode where
-    parseJSON = fromJSONText "InstanceStateChangeReasonCode"
+    parseJSON = parseJSONText "InstanceStateChangeReasonCode"
 
 instance ToJSON InstanceStateChangeReasonCode where
     toJSON = toJSONText

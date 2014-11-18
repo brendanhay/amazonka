@@ -126,5 +126,5 @@ instance AWSRequest CreateCacheParameterGroup where
     response = xmlResponse
 
 instance FromXML CreateCacheParameterGroupResponse where
-    parseXML c = CreateCacheParameterGroupResponse
-        <$> c .:? "CacheParameterGroup"
+    parseXML x = CreateCacheParameterGroupResponse
+        <$> x .@? "CacheParameterGroup"

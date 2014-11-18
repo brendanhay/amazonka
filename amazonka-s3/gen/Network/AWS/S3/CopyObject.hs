@@ -503,8 +503,10 @@ instance ToHeaders CopyObject where
         , "x-amz-copy-source-server-side-encryption-aws-kms-key-id"     =: _coCopySourceSSEKMSKeyId
         ]
 
-instance ToXML CopyObject where
-    toXML = const (node "CopyObject" [])
+instance ToXMLRoot CopyObject where
+    toXMLRoot = const (element "CopyObject" [])
+
+instance ToXML CopyObject
 
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
@@ -512,7 +514,7 @@ instance AWSRequest CopyObject where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> CopyObjectResponse
-        <$> x %| "CopyObjectResult"
+        <$> x .@? "CopyObjectResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-expiration"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

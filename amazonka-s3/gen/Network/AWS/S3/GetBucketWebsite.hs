@@ -120,8 +120,10 @@ instance ToQuery GetBucketWebsite where
 
 instance ToHeaders GetBucketWebsite
 
-instance ToXML GetBucketWebsite where
-    toXML = const (node "GetBucketWebsite" [])
+instance ToXMLRoot GetBucketWebsite where
+    toXMLRoot = const (element "GetBucketWebsite" [])
+
+instance ToXML GetBucketWebsite
 
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
@@ -131,8 +133,8 @@ instance AWSRequest GetBucketWebsite where
     response = xmlResponse
 
 instance FromXML GetBucketWebsiteResponse where
-    parseXML c = GetBucketWebsiteResponse
-        <$> c .:? "ErrorDocument"
-        <*> c .:? "IndexDocument"
-        <*> c .:? "RedirectAllRequestsTo"
-        <*> c .: "RoutingRules"
+    parseXML x = GetBucketWebsiteResponse
+        <$> x .@? "ErrorDocument"
+        <*> x .@? "IndexDocument"
+        <*> x .@? "RedirectAllRequestsTo"
+        <*> x .@ "RoutingRules"

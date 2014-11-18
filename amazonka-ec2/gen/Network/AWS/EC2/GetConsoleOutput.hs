@@ -137,7 +137,7 @@ instance AWSRequest GetConsoleOutput where
     response = xmlResponse
 
 instance FromXML GetConsoleOutputResponse where
-    parseXML c = GetConsoleOutputResponse
-        <$> c .:? "instanceId"
-        <*> c .:? "output"
-        <*> c .:? "timestamp"
+    parseXML x = GetConsoleOutputResponse
+        <$> x .@? "instanceId"
+        <*> x .@? "output"
+        <*> x .@? "timestamp"

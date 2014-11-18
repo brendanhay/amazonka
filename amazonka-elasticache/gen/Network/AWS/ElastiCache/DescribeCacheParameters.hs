@@ -156,7 +156,7 @@ instance AWSRequest DescribeCacheParameters where
     response = xmlResponse
 
 instance FromXML DescribeCacheParametersResponse where
-    parseXML c = DescribeCacheParametersResponse
-        <$> c .: "CacheNodeTypeSpecificParameters"
-        <*> c .:? "Marker"
-        <*> c .: "Parameters"
+    parseXML x = DescribeCacheParametersResponse
+        <$> x .@ "CacheNodeTypeSpecificParameters"
+        <*> x .@? "Marker"
+        <*> x .@ "Parameters"

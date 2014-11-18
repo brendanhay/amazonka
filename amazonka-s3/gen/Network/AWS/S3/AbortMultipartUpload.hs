@@ -101,8 +101,10 @@ instance ToQuery AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload
 
-instance ToXML AbortMultipartUpload where
-    toXML = const (node "AbortMultipartUpload" [])
+instance ToXMLRoot AbortMultipartUpload where
+    toXMLRoot = const (element "AbortMultipartUpload" [])
+
+instance ToXML AbortMultipartUpload
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3

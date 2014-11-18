@@ -107,5 +107,5 @@ instance AWSRequest DescribeTags where
     response = xmlResponse
 
 instance FromXML DescribeTagsResponse where
-    parseXML c = DescribeTagsResponse
-        <$> c .: "TagDescriptions"
+    parseXML x = DescribeTagsResponse
+        <$> x .@ "TagDescriptions"

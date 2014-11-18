@@ -104,8 +104,10 @@ instance ToQuery GetDistribution where
 
 instance ToHeaders GetDistribution
 
-instance ToXML GetDistribution where
-    toXML = const (node "GetDistribution" [])
+instance ToXMLRoot GetDistribution where
+    toXMLRoot = const (element "GetDistribution" [])
+
+instance ToXML GetDistribution
 
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront
@@ -113,5 +115,5 @@ instance AWSRequest GetDistribution where
 
     request  = get
     response = xmlHeaderResponse $ \h x -> GetDistributionResponse
-        <$> x %| "Distribution"
+        <$> x .@? "Distribution"
         <*> h ~:? "ETag"

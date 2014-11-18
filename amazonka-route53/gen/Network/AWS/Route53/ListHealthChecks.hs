@@ -162,8 +162,10 @@ instance ToQuery ListHealthChecks
 
 instance ToHeaders ListHealthChecks
 
-instance ToXML ListHealthChecks where
-    toXML = const (node "ListHealthChecks" [])
+instance ToXMLRoot ListHealthChecks where
+    toXMLRoot = const (element "ListHealthChecks" [])
+
+instance ToXML ListHealthChecks
 
 instance AWSRequest ListHealthChecks where
     type Sv ListHealthChecks = Route53
@@ -173,9 +175,9 @@ instance AWSRequest ListHealthChecks where
     response = xmlResponse
 
 instance FromXML ListHealthChecksResponse where
-    parseXML c = ListHealthChecksResponse
-        <$> c .: "HealthChecks"
-        <*> c .: "IsTruncated"
-        <*> c .: "Marker"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextMarker"
+    parseXML x = ListHealthChecksResponse
+        <$> x .@ "HealthChecks"
+        <*> x .@ "IsTruncated"
+        <*> x .@ "Marker"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextMarker"

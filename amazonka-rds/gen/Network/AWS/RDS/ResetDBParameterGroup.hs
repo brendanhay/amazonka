@@ -137,5 +137,5 @@ instance AWSRequest ResetDBParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetDBParameterGroupResponse where
-    parseXML c = ResetDBParameterGroupResponse
-        <$> c .:? "DBParameterGroupName"
+    parseXML x = ResetDBParameterGroupResponse
+        <$> x .@? "DBParameterGroupName"

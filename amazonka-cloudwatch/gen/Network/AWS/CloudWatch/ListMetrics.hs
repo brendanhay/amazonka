@@ -136,6 +136,6 @@ instance AWSRequest ListMetrics where
     response = xmlResponse
 
 instance FromXML ListMetricsResponse where
-    parseXML c = ListMetricsResponse
-        <$> c .: "Metrics"
-        <*> c .:? "NextToken"
+    parseXML x = ListMetricsResponse
+        <$> x .@ "Metrics"
+        <*> x .@? "NextToken"

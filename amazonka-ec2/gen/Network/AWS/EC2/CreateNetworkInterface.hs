@@ -169,5 +169,5 @@ instance AWSRequest CreateNetworkInterface where
     response = xmlResponse
 
 instance FromXML CreateNetworkInterfaceResponse where
-    parseXML c = CreateNetworkInterfaceResponse
-        <$> c .:? "networkInterface"
+    parseXML x = CreateNetworkInterfaceResponse
+        <$> x .@? "networkInterface"

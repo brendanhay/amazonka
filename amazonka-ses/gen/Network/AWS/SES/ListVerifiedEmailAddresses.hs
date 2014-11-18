@@ -95,5 +95,5 @@ instance AWSRequest ListVerifiedEmailAddresses where
     response = xmlResponse
 
 instance FromXML ListVerifiedEmailAddressesResponse where
-    parseXML c = ListVerifiedEmailAddressesResponse
-        <$> c .: "VerifiedEmailAddresses"
+    parseXML x = ListVerifiedEmailAddressesResponse
+        <$> x .@ "VerifiedEmailAddresses"

@@ -75,7 +75,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-11-11@ of the Amazon Lambda service.
-data Lambda deriving (Typeable)
+data Lambda
 
 instance AWSService Lambda where
     type Sg Lambda = V4
@@ -105,7 +105,7 @@ instance ToText Runtime where
     toText Nodejs = "nodejs"
 
 instance FromJSON Runtime where
-    parseJSON = fromJSONText "Runtime"
+    parseJSON = parseJSONText "Runtime"
 
 instance ToJSON Runtime where
     toJSON = toJSONText
@@ -123,7 +123,7 @@ instance ToText Mode where
     toText Event = "event"
 
 instance FromJSON Mode where
-    parseJSON = fromJSONText "Mode"
+    parseJSON = parseJSONText "Mode"
 
 instance ToJSON Mode where
     toJSON = toJSONText

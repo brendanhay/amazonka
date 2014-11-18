@@ -93,7 +93,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-06-30@ of the Amazon Cognito Sync service.
-data CognitoSync deriving (Typeable)
+data CognitoSync
 
 instance AWSService CognitoSync where
     type Sg CognitoSync = V4
@@ -197,7 +197,7 @@ instance ToText Platform where
         Gcm         -> "GCM"
 
 instance FromJSON Platform where
-    parseJSON = fromJSONText "Platform"
+    parseJSON = parseJSONText "Platform"
 
 instance ToJSON Platform where
     toJSON = toJSONText
@@ -313,7 +313,7 @@ instance ToText Operation where
         Replace -> "replace"
 
 instance FromJSON Operation where
-    parseJSON = fromJSONText "Operation"
+    parseJSON = parseJSONText "Operation"
 
 instance ToJSON Operation where
     toJSON = toJSONText

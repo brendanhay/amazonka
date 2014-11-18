@@ -150,5 +150,5 @@ instance AWSRequest CopyImage where
     response = xmlResponse
 
 instance FromXML CopyImageResponse where
-    parseXML c = CopyImageResponse
-        <$> c .:? "imageId"
+    parseXML x = CopyImageResponse
+        <$> x .@? "imageId"

@@ -123,10 +123,12 @@ instance ToHeaders DeleteObjects where
         [ "x-amz-mfa" =: _do1MFA
         ]
 
-instance ToXML DeleteObjects where
-    toXML DeleteObjects{..} = node "DeleteObjects"
-        [ "Delete" .= _do1Delete
+instance ToXMLRoot DeleteObjects where
+    toXMLRoot DeleteObjects{..} = element "DeleteObjects"
+        [ "Delete" =@ _do1Delete
         ]
+
+instance ToXML DeleteObjects
 
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
@@ -136,6 +138,6 @@ instance AWSRequest DeleteObjects where
     response = xmlResponse
 
 instance FromXML DeleteObjectsResponse where
-    parseXML c = DeleteObjectsResponse
-        <$> c .: "Deleted"
-        <*> c .: "Error"
+    parseXML x = DeleteObjectsResponse
+        <$> x .@ "Deleted"
+        <*> x .@ "Error"

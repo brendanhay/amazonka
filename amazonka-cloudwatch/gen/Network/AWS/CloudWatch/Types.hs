@@ -130,7 +130,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2010-08-01@ of the Amazon CloudWatch service.
-data CloudWatch deriving (Typeable)
+data CloudWatch
 
 instance AWSService CloudWatch where
     type Sg CloudWatch = V4
@@ -195,11 +195,11 @@ ssSum :: Lens' StatisticSet Double
 ssSum = lens _ssSum (\s a -> s { _ssSum = a })
 
 instance FromXML StatisticSet where
-    parseXML c = StatisticSet
-        <$> c .: "Maximum"
-        <*> c .: "Minimum"
-        <*> c .: "SampleCount"
-        <*> c .: "Sum"
+    parseXML x = StatisticSet
+        <$> x .@ "Maximum"
+        <*> x .@ "Minimum"
+        <*> x .@ "SampleCount"
+        <*> x .@ "Sum"
 
 instance ToQuery StatisticSet
 
@@ -418,28 +418,28 @@ maUnit :: Lens' MetricAlarm (Maybe Text)
 maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
 instance FromXML MetricAlarm where
-    parseXML c = MetricAlarm
-        <$> c .:? "ActionsEnabled"
-        <*> c .: "AlarmActions"
-        <*> c .:? "AlarmArn"
-        <*> c .:? "AlarmConfigurationUpdatedTimestamp"
-        <*> c .:? "AlarmDescription"
-        <*> c .:? "AlarmName"
-        <*> c .:? "ComparisonOperator"
-        <*> c .: "Dimensions"
-        <*> c .:? "EvaluationPeriods"
-        <*> c .: "InsufficientDataActions"
-        <*> c .:? "MetricName"
-        <*> c .:? "Namespace"
-        <*> c .: "OKActions"
-        <*> c .:? "Period"
-        <*> c .:? "StateReason"
-        <*> c .:? "StateReasonData"
-        <*> c .:? "StateUpdatedTimestamp"
-        <*> c .:? "StateValue"
-        <*> c .:? "Statistic"
-        <*> c .:? "Threshold"
-        <*> c .:? "Unit"
+    parseXML x = MetricAlarm
+        <$> x .@? "ActionsEnabled"
+        <*> x .@ "AlarmActions"
+        <*> x .@? "AlarmArn"
+        <*> x .@? "AlarmConfigurationUpdatedTimestamp"
+        <*> x .@? "AlarmDescription"
+        <*> x .@? "AlarmName"
+        <*> x .@? "ComparisonOperator"
+        <*> x .@ "Dimensions"
+        <*> x .@? "EvaluationPeriods"
+        <*> x .@ "InsufficientDataActions"
+        <*> x .@? "MetricName"
+        <*> x .@? "Namespace"
+        <*> x .@ "OKActions"
+        <*> x .@? "Period"
+        <*> x .@? "StateReason"
+        <*> x .@? "StateReasonData"
+        <*> x .@? "StateUpdatedTimestamp"
+        <*> x .@? "StateValue"
+        <*> x .@? "Statistic"
+        <*> x .@? "Threshold"
+        <*> x .@? "Unit"
 
 instance ToQuery MetricAlarm
 
@@ -463,7 +463,7 @@ instance ToText HistoryItemType where
         StateUpdate         -> "StateUpdate"
 
 instance FromXML HistoryItemType where
-    parseXML = fromXMLText "HistoryItemType"
+    parseXML = parseXMLText "HistoryItemType"
 
 instance ToQuery HistoryItemType
 
@@ -540,13 +540,13 @@ mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\s a -> s { _mdValue = a })
 
 instance FromXML MetricDatum where
-    parseXML c = MetricDatum
-        <$> c .: "Dimensions"
-        <*> c .: "MetricName"
-        <*> c .:? "StatisticValues"
-        <*> c .:? "Timestamp"
-        <*> c .:? "Unit"
-        <*> c .:? "Value"
+    parseXML x = MetricDatum
+        <$> x .@ "Dimensions"
+        <*> x .@ "MetricName"
+        <*> x .@? "StatisticValues"
+        <*> x .@? "Timestamp"
+        <*> x .@? "Unit"
+        <*> x .@? "Value"
 
 instance ToQuery MetricDatum
 
@@ -642,7 +642,7 @@ instance ToText StandardUnit where
         TerabytesSecond -> "Terabytes/Second"
 
 instance FromXML StandardUnit where
-    parseXML = fromXMLText "StandardUnit"
+    parseXML = parseXMLText "StandardUnit"
 
 instance ToQuery StandardUnit
 
@@ -676,9 +676,9 @@ dValue :: Lens' Dimension Text
 dValue = lens _dValue (\s a -> s { _dValue = a })
 
 instance FromXML Dimension where
-    parseXML c = Dimension
-        <$> c .: "Name"
-        <*> c .: "Value"
+    parseXML x = Dimension
+        <$> x .@ "Name"
+        <*> x .@ "Value"
 
 instance ToQuery Dimension
 
@@ -705,7 +705,7 @@ instance ToText ComparisonOperator where
         LessThanThreshold             -> "LessThanThreshold"
 
 instance FromXML ComparisonOperator where
-    parseXML = fromXMLText "ComparisonOperator"
+    parseXML = parseXMLText "ComparisonOperator"
 
 instance ToQuery ComparisonOperator
 
@@ -767,12 +767,12 @@ ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a })
     . mapping _Time
 
 instance FromXML AlarmHistoryItem where
-    parseXML c = AlarmHistoryItem
-        <$> c .:? "AlarmName"
-        <*> c .:? "HistoryData"
-        <*> c .:? "HistoryItemType"
-        <*> c .:? "HistorySummary"
-        <*> c .:? "Timestamp"
+    parseXML x = AlarmHistoryItem
+        <$> x .@? "AlarmName"
+        <*> x .@? "HistoryData"
+        <*> x .@? "HistoryItemType"
+        <*> x .@? "HistorySummary"
+        <*> x .@? "Timestamp"
 
 instance ToQuery AlarmHistoryItem
 
@@ -812,10 +812,10 @@ mNamespace :: Lens' Metric (Maybe Text)
 mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 
 instance FromXML Metric where
-    parseXML c = Metric
-        <$> c .: "Dimensions"
-        <*> c .:? "MetricName"
-        <*> c .:? "Namespace"
+    parseXML x = Metric
+        <$> x .@ "Dimensions"
+        <*> x .@? "MetricName"
+        <*> x .@? "Namespace"
 
 instance ToQuery Metric
 
@@ -839,7 +839,7 @@ instance ToText StateValue where
         Ok               -> "OK"
 
 instance FromXML StateValue where
-    parseXML = fromXMLText "StateValue"
+    parseXML = parseXMLText "StateValue"
 
 instance ToQuery StateValue
 
@@ -916,14 +916,14 @@ dUnit :: Lens' Datapoint (Maybe Text)
 dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
 instance FromXML Datapoint where
-    parseXML c = Datapoint
-        <$> c .:? "Average"
-        <*> c .:? "Maximum"
-        <*> c .:? "Minimum"
-        <*> c .:? "SampleCount"
-        <*> c .:? "Sum"
-        <*> c .:? "Timestamp"
-        <*> c .:? "Unit"
+    parseXML x = Datapoint
+        <$> x .@? "Average"
+        <*> x .@? "Maximum"
+        <*> x .@? "Minimum"
+        <*> x .@? "SampleCount"
+        <*> x .@? "Sum"
+        <*> x .@? "Timestamp"
+        <*> x .@? "Unit"
 
 instance ToQuery Datapoint
 
@@ -956,9 +956,9 @@ dfValue :: Lens' DimensionFilter (Maybe Text)
 dfValue = lens _dfValue (\s a -> s { _dfValue = a })
 
 instance FromXML DimensionFilter where
-    parseXML c = DimensionFilter
-        <$> c .: "Name"
-        <*> c .:? "Value"
+    parseXML x = DimensionFilter
+        <$> x .@ "Name"
+        <*> x .@? "Value"
 
 instance ToQuery DimensionFilter
 
@@ -988,6 +988,6 @@ instance ToText Statistic where
         Sum         -> "Sum"
 
 instance FromXML Statistic where
-    parseXML = fromXMLText "Statistic"
+    parseXML = parseXMLText "Statistic"
 
 instance ToQuery Statistic

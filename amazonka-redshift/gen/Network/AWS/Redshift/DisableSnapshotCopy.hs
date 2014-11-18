@@ -102,5 +102,5 @@ instance AWSRequest DisableSnapshotCopy where
     response = xmlResponse
 
 instance FromXML DisableSnapshotCopyResponse where
-    parseXML c = DisableSnapshotCopyResponse
-        <$> c .:? "Cluster"
+    parseXML x = DisableSnapshotCopyResponse
+        <$> x .@? "Cluster"

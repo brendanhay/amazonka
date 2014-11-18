@@ -129,5 +129,5 @@ instance AWSRequest DescribeBundleTasks where
     response = xmlResponse
 
 instance FromXML DescribeBundleTasksResponse where
-    parseXML c = DescribeBundleTasksResponse
-        <$> c .: "bundleInstanceTasksSet"
+    parseXML x = DescribeBundleTasksResponse
+        <$> x .@ "bundleInstanceTasksSet"

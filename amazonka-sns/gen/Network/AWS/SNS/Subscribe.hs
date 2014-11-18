@@ -136,5 +136,5 @@ instance AWSRequest Subscribe where
     response = xmlResponse
 
 instance FromXML SubscribeResponse where
-    parseXML c = SubscribeResponse
-        <$> c .:? "SubscriptionArn"
+    parseXML x = SubscribeResponse
+        <$> x .@? "SubscriptionArn"

@@ -362,8 +362,10 @@ instance ToHeaders UploadPartCopy where
         , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _upcCopySourceSSEKMSKeyId
         ]
 
-instance ToXML UploadPartCopy where
-    toXML = const (node "UploadPartCopy" [])
+instance ToXMLRoot UploadPartCopy where
+    toXMLRoot = const (element "UploadPartCopy" [])
+
+instance ToXML UploadPartCopy
 
 instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
@@ -371,7 +373,7 @@ instance AWSRequest UploadPartCopy where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UploadPartCopyResponse
-        <$> x %| "CopyPartResult"
+        <$> x .@? "CopyPartResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"

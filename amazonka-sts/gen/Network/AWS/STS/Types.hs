@@ -53,7 +53,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2011-06-15@ of the Amazon Security Token Service service.
-data STS deriving (Typeable)
+data STS
 
 instance AWSService STS where
     type Sg STS = V4
@@ -120,11 +120,11 @@ cSessionToken :: Lens' Credentials Text
 cSessionToken = lens _cSessionToken (\s a -> s { _cSessionToken = a })
 
 instance FromXML Credentials where
-    parseXML c = Credentials
-        <$> c .: "AccessKeyId"
-        <*> c .: "Expiration"
-        <*> c .: "SecretAccessKey"
-        <*> c .: "SessionToken"
+    parseXML x = Credentials
+        <$> x .@ "AccessKeyId"
+        <*> x .@ "Expiration"
+        <*> x .@ "SecretAccessKey"
+        <*> x .@ "SessionToken"
 
 instance ToQuery Credentials
 
@@ -162,9 +162,9 @@ fuFederatedUserId =
     lens _fuFederatedUserId (\s a -> s { _fuFederatedUserId = a })
 
 instance FromXML FederatedUser where
-    parseXML c = FederatedUser
-        <$> c .: "Arn"
-        <*> c .: "FederatedUserId"
+    parseXML x = FederatedUser
+        <$> x .@ "Arn"
+        <*> x .@ "FederatedUserId"
 
 instance ToQuery FederatedUser
 
@@ -202,8 +202,8 @@ aruAssumedRoleId :: Lens' AssumedRoleUser Text
 aruAssumedRoleId = lens _aruAssumedRoleId (\s a -> s { _aruAssumedRoleId = a })
 
 instance FromXML AssumedRoleUser where
-    parseXML c = AssumedRoleUser
-        <$> c .: "Arn"
-        <*> c .: "AssumedRoleId"
+    parseXML x = AssumedRoleUser
+        <$> x .@ "Arn"
+        <*> x .@ "AssumedRoleId"
 
 instance ToQuery AssumedRoleUser

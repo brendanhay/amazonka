@@ -100,5 +100,5 @@ instance AWSRequest CreateDomain where
     response = xmlResponse
 
 instance FromXML CreateDomainResponse where
-    parseXML c = CreateDomainResponse
-        <$> c .:? "DomainStatus"
+    parseXML x = CreateDomainResponse
+        <$> x .@? "DomainStatus"

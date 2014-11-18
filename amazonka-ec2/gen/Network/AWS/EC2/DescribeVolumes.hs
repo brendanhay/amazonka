@@ -183,6 +183,6 @@ instance AWSRequest DescribeVolumes where
     response = xmlResponse
 
 instance FromXML DescribeVolumesResponse where
-    parseXML c = DescribeVolumesResponse
-        <$> c .:? "nextToken"
-        <*> c .: "volumeSet"
+    parseXML x = DescribeVolumesResponse
+        <$> x .@? "nextToken"
+        <*> x .@ "volumeSet"

@@ -131,10 +131,12 @@ instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
         [ "If-Match" =: _ucfoaiIfMatch
         ]
 
-instance ToXML UpdateCloudFrontOriginAccessIdentity where
-    toXML UpdateCloudFrontOriginAccessIdentity{..} = node "UpdateCloudFrontOriginAccessIdentity"
-        [ "CloudFrontOriginAccessIdentityConfig" .= _ucfoaiCloudFrontOriginAccessIdentityConfig
+instance ToXMLRoot UpdateCloudFrontOriginAccessIdentity where
+    toXMLRoot UpdateCloudFrontOriginAccessIdentity{..} = element "UpdateCloudFrontOriginAccessIdentity"
+        [ "CloudFrontOriginAccessIdentityConfig" =@ _ucfoaiCloudFrontOriginAccessIdentityConfig
         ]
+
+instance ToXML UpdateCloudFrontOriginAccessIdentity
 
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront
@@ -142,5 +144,5 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResponse
-        <$> x %| "CloudFrontOriginAccessIdentity"
+        <$> x .@? "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"

@@ -182,5 +182,5 @@ instance AWSRequest DescribeSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeSnapshotsResponse where
-    parseXML c = DescribeSnapshotsResponse
-        <$> c .: "snapshotSet"
+    parseXML x = DescribeSnapshotsResponse
+        <$> x .@ "snapshotSet"

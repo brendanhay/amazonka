@@ -135,5 +135,5 @@ instance AWSRequest ModifyOptionGroup where
     response = xmlResponse
 
 instance FromXML ModifyOptionGroupResponse where
-    parseXML c = ModifyOptionGroupResponse
-        <$> c .:? "OptionGroup"
+    parseXML x = ModifyOptionGroupResponse
+        <$> x .@? "OptionGroup"

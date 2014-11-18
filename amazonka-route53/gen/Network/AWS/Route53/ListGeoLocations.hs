@@ -209,8 +209,10 @@ instance ToQuery ListGeoLocations
 
 instance ToHeaders ListGeoLocations
 
-instance ToXML ListGeoLocations where
-    toXML = const (node "ListGeoLocations" [])
+instance ToXMLRoot ListGeoLocations where
+    toXMLRoot = const (element "ListGeoLocations" [])
+
+instance ToXML ListGeoLocations
 
 instance AWSRequest ListGeoLocations where
     type Sv ListGeoLocations = Route53
@@ -220,10 +222,10 @@ instance AWSRequest ListGeoLocations where
     response = xmlResponse
 
 instance FromXML ListGeoLocationsResponse where
-    parseXML c = ListGeoLocationsResponse
-        <$> c .: "GeoLocationDetailsList"
-        <*> c .: "IsTruncated"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextContinentCode"
-        <*> c .:? "NextCountryCode"
-        <*> c .:? "NextSubdivisionCode"
+    parseXML x = ListGeoLocationsResponse
+        <$> x .@ "GeoLocationDetailsList"
+        <*> x .@ "IsTruncated"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextContinentCode"
+        <*> x .@? "NextCountryCode"
+        <*> x .@? "NextSubdivisionCode"

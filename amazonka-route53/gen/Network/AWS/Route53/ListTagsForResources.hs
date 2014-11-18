@@ -116,10 +116,12 @@ instance ToQuery ListTagsForResources where
 
 instance ToHeaders ListTagsForResources
 
-instance ToXML ListTagsForResources where
-    toXML ListTagsForResources{..} = node "ListTagsForResources"
-        [ "ResourceIds" .= _ltfr1ResourceIds
+instance ToXMLRoot ListTagsForResources where
+    toXMLRoot ListTagsForResources{..} = element "ListTagsForResources"
+        [ "ResourceIds" =@ _ltfr1ResourceIds
         ]
+
+instance ToXML ListTagsForResources
 
 instance AWSRequest ListTagsForResources where
     type Sv ListTagsForResources = Route53
@@ -129,5 +131,5 @@ instance AWSRequest ListTagsForResources where
     response = xmlResponse
 
 instance FromXML ListTagsForResourcesResponse where
-    parseXML c = ListTagsForResourcesResponse
-        <$> c .: "ResourceTagSets"
+    parseXML x = ListTagsForResourcesResponse
+        <$> x .@ "ResourceTagSets"

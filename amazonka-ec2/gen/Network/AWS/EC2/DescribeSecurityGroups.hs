@@ -151,5 +151,5 @@ instance AWSRequest DescribeSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeSecurityGroupsResponse where
-    parseXML c = DescribeSecurityGroupsResponse
-        <$> c .: "securityGroupInfo"
+    parseXML x = DescribeSecurityGroupsResponse
+        <$> x .@ "securityGroupInfo"

@@ -116,5 +116,5 @@ instance AWSRequest CreateClusterSnapshot where
     response = xmlResponse
 
 instance FromXML CreateClusterSnapshotResponse where
-    parseXML c = CreateClusterSnapshotResponse
-        <$> c .:? "Snapshot"
+    parseXML x = CreateClusterSnapshotResponse
+        <$> x .@? "Snapshot"

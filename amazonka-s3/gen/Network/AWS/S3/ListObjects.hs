@@ -229,8 +229,10 @@ instance ToQuery ListObjects where
 
 instance ToHeaders ListObjects
 
-instance ToXML ListObjects where
-    toXML = const (node "ListObjects" [])
+instance ToXMLRoot ListObjects where
+    toXMLRoot = const (element "ListObjects" [])
+
+instance ToXML ListObjects
 
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
@@ -240,14 +242,14 @@ instance AWSRequest ListObjects where
     response = xmlResponse
 
 instance FromXML ListObjectsResponse where
-    parseXML c = ListObjectsResponse
-        <$> c .: "CommonPrefixes"
-        <*> c .: "Contents"
-        <*> c .:? "Delimiter"
-        <*> c .:? "EncodingType"
-        <*> c .:? "IsTruncated"
-        <*> c .:? "Marker"
-        <*> c .:? "MaxKeys"
-        <*> c .:? "Name"
-        <*> c .:? "NextMarker"
-        <*> c .:? "Prefix"
+    parseXML x = ListObjectsResponse
+        <$> x .@ "CommonPrefixes"
+        <*> x .@ "Contents"
+        <*> x .@? "Delimiter"
+        <*> x .@? "EncodingType"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@? "MaxKeys"
+        <*> x .@? "Name"
+        <*> x .@? "NextMarker"
+        <*> x .@? "Prefix"

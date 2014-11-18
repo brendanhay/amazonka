@@ -272,15 +272,15 @@ instance AWSRequest CreateVolume where
     response = xmlResponse
 
 instance FromXML CreateVolumeResponse where
-    parseXML c = CreateVolumeResponse
-        <$> c .: "attachmentSet"
-        <*> c .:? "availabilityZone"
-        <*> c .:? "createTime"
-        <*> c .:? "encrypted"
-        <*> c .:? "iops"
-        <*> c .:? "size"
-        <*> c .:? "snapshotId"
-        <*> c .:? "status"
-        <*> c .: "tagSet"
-        <*> c .:? "volumeId"
-        <*> c .:? "volumeType"
+    parseXML x = CreateVolumeResponse
+        <$> x .@ "attachmentSet"
+        <*> x .@? "availabilityZone"
+        <*> x .@? "createTime"
+        <*> x .@? "encrypted"
+        <*> x .@? "iops"
+        <*> x .@? "size"
+        <*> x .@? "snapshotId"
+        <*> x .@? "status"
+        <*> x .@ "tagSet"
+        <*> x .@? "volumeId"
+        <*> x .@? "volumeType"

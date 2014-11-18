@@ -440,8 +440,10 @@ instance ToHeaders HeadObject where
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _hoSSEKMSKeyId
         ]
 
-instance ToXML HeadObject where
-    toXML = const (node "HeadObject" [])
+instance ToXMLRoot HeadObject where
+    toXMLRoot = const (element "HeadObject" [])
+
+instance ToXML HeadObject
 
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3

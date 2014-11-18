@@ -97,7 +97,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2013-01-01@ of the Amazon CloudSearch Domain service.
-data CloudSearchDomains deriving (Typeable)
+data CloudSearchDomains
 
 instance AWSService CloudSearchDomains where
     type Sg CloudSearchDomains = V4
@@ -175,7 +175,7 @@ instance ToText QueryParser where
         Structured -> "structured"
 
 instance FromJSON QueryParser where
-    parseJSON = fromJSONText "QueryParser"
+    parseJSON = parseJSONText "QueryParser"
 
 instance ToJSON QueryParser where
     toJSON = toJSONText
@@ -541,7 +541,7 @@ instance ToText ContentType where
         ApplicationXml  -> "application/xml"
 
 instance FromJSON ContentType where
-    parseJSON = fromJSONText "ContentType"
+    parseJSON = parseJSONText "ContentType"
 
 instance ToJSON ContentType where
     toJSON = toJSONText

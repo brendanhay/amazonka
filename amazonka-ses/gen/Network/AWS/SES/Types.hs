@@ -102,7 +102,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2010-12-01@ of the Amazon Simple Email Service service.
-data SES deriving (Typeable)
+data SES
 
 instance AWSService SES where
     type Sg SES = V4
@@ -155,10 +155,10 @@ dToAddresses :: Lens' Destination [Text]
 dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a })
 
 instance FromXML Destination where
-    parseXML c = Destination
-        <$> c .: "BccAddresses"
-        <*> c .: "CcAddresses"
-        <*> c .: "ToAddresses"
+    parseXML x = Destination
+        <$> x .@ "BccAddresses"
+        <*> x .@ "CcAddresses"
+        <*> x .@ "ToAddresses"
 
 instance ToQuery Destination
 
@@ -213,10 +213,10 @@ idaDkimVerificationStatus =
         (\s a -> s { _idaDkimVerificationStatus = a })
 
 instance FromXML IdentityDkimAttributes where
-    parseXML c = IdentityDkimAttributes
-        <$> c .: "DkimEnabled"
-        <*> c .: "DkimTokens"
-        <*> c .: "DkimVerificationStatus"
+    parseXML x = IdentityDkimAttributes
+        <$> x .@ "DkimEnabled"
+        <*> x .@ "DkimTokens"
+        <*> x .@ "DkimVerificationStatus"
 
 instance ToQuery IdentityDkimAttributes
 
@@ -251,9 +251,9 @@ bText :: Lens' Body (Maybe Content)
 bText = lens _bText (\s a -> s { _bText = a })
 
 instance FromXML Body where
-    parseXML c = Body
-        <$> c .:? "Html"
-        <*> c .:? "Text"
+    parseXML x = Body
+        <$> x .@? "Html"
+        <*> x .@? "Text"
 
 instance ToQuery Body
 
@@ -290,9 +290,9 @@ ivaVerificationToken =
     lens _ivaVerificationToken (\s a -> s { _ivaVerificationToken = a })
 
 instance FromXML IdentityVerificationAttributes where
-    parseXML c = IdentityVerificationAttributes
-        <$> c .: "VerificationStatus"
-        <*> c .:? "VerificationToken"
+    parseXML x = IdentityVerificationAttributes
+        <$> x .@ "VerificationStatus"
+        <*> x .@? "VerificationToken"
 
 instance ToQuery IdentityVerificationAttributes
 
@@ -350,12 +350,12 @@ sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
     . mapping _Time
 
 instance FromXML SendDataPoint where
-    parseXML c = SendDataPoint
-        <$> c .:? "Bounces"
-        <*> c .:? "Complaints"
-        <*> c .:? "DeliveryAttempts"
-        <*> c .:? "Rejects"
-        <*> c .:? "Timestamp"
+    parseXML x = SendDataPoint
+        <$> x .@? "Bounces"
+        <*> x .@? "Complaints"
+        <*> x .@? "DeliveryAttempts"
+        <*> x .@? "Rejects"
+        <*> x .@? "Timestamp"
 
 instance ToQuery SendDataPoint
 
@@ -376,7 +376,7 @@ instance ToText IdentityType where
         ITEmailAddress -> "EmailAddress"
 
 instance FromXML IdentityType where
-    parseXML = fromXMLText "IdentityType"
+    parseXML = parseXMLText "IdentityType"
 
 instance ToQuery IdentityType
 
@@ -409,9 +409,9 @@ cData :: Lens' Content Text
 cData = lens _cData (\s a -> s { _cData = a })
 
 instance FromXML Content where
-    parseXML c = Content
-        <$> c .:? "Charset"
-        <*> c .: "Data"
+    parseXML x = Content
+        <$> x .@? "Charset"
+        <*> x .@ "Data"
 
 instance ToQuery Content
 
@@ -472,11 +472,11 @@ inaForwardingEnabled =
     lens _inaForwardingEnabled (\s a -> s { _inaForwardingEnabled = a })
 
 instance FromXML IdentityNotificationAttributes where
-    parseXML c = IdentityNotificationAttributes
-        <$> c .: "BounceTopic"
-        <*> c .: "ComplaintTopic"
-        <*> c .: "DeliveryTopic"
-        <*> c .: "ForwardingEnabled"
+    parseXML x = IdentityNotificationAttributes
+        <$> x .@ "BounceTopic"
+        <*> x .@ "ComplaintTopic"
+        <*> x .@ "DeliveryTopic"
+        <*> x .@ "ForwardingEnabled"
 
 instance ToQuery IdentityNotificationAttributes
 
@@ -505,8 +505,8 @@ rmData :: Lens' RawMessage Base64
 rmData = lens _rmData (\s a -> s { _rmData = a })
 
 instance FromXML RawMessage where
-    parseXML c = RawMessage
-        <$> c .: "Data"
+    parseXML x = RawMessage
+        <$> x .@ "Data"
 
 instance ToQuery RawMessage
 
@@ -530,7 +530,7 @@ instance ToText NotificationType where
         Delivery  -> "Delivery"
 
 instance FromXML NotificationType where
-    parseXML = fromXMLText "NotificationType"
+    parseXML = parseXMLText "NotificationType"
 
 instance ToQuery NotificationType
 
@@ -560,7 +560,7 @@ instance ToText VerificationStatus where
         TemporaryFailure -> "TemporaryFailure"
 
 instance FromXML VerificationStatus where
-    parseXML = fromXMLText "VerificationStatus"
+    parseXML = parseXMLText "VerificationStatus"
 
 instance ToQuery VerificationStatus
 
@@ -595,8 +595,8 @@ mSubject :: Lens' Message Content
 mSubject = lens _mSubject (\s a -> s { _mSubject = a })
 
 instance FromXML Message where
-    parseXML c = Message
-        <$> c .: "Body"
-        <*> c .: "Subject"
+    parseXML x = Message
+        <$> x .@ "Body"
+        <*> x .@ "Subject"
 
 instance ToQuery Message

@@ -395,7 +395,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-05-31@ of the Amazon CloudFront service.
-data CloudFront deriving (Typeable)
+data CloudFront
 
 instance AWSService CloudFront where
     type Sg CloudFront = V4
@@ -485,22 +485,22 @@ cfoailQuantity :: Lens' CloudFrontOriginAccessIdentityList Int
 cfoailQuantity = lens _cfoailQuantity (\s a -> s { _cfoailQuantity = a })
 
 instance FromXML CloudFrontOriginAccessIdentityList where
-    parseXML c = CloudFrontOriginAccessIdentityList
-        <$> c .: "IsTruncated"
-        <*> c .: "Items"
-        <*> c .: "Marker"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextMarker"
-        <*> c .: "Quantity"
+    parseXML x = CloudFrontOriginAccessIdentityList
+        <$> x .@ "IsTruncated"
+        <*> x .@ "Items"
+        <*> x .@ "Marker"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextMarker"
+        <*> x .@ "Quantity"
 
 instance ToXML CloudFrontOriginAccessIdentityList where
-    toXML CloudFrontOriginAccessIdentityList{..} = node "CloudFrontOriginAccessIdentityList"
-        [ "Marker"      .= _cfoailMarker
-        , "NextMarker"  .= _cfoailNextMarker
-        , "MaxItems"    .= _cfoailMaxItems
-        , "IsTruncated" .= _cfoailIsTruncated
-        , "Quantity"    .= _cfoailQuantity
-        , "Items"       .= _cfoailItems
+    toXML CloudFrontOriginAccessIdentityList{..} = nodes "CloudFrontOriginAccessIdentityList"
+        [ "Marker"      =@ _cfoailMarker
+        , "NextMarker"  =@ _cfoailNextMarker
+        , "MaxItems"    =@ _cfoailMaxItems
+        , "IsTruncated" =@ _cfoailIsTruncated
+        , "Quantity"    =@ _cfoailQuantity
+        , "Items"       =@ _cfoailItems
         ]
 
 data Invalidation = Invalidation
@@ -555,19 +555,21 @@ iStatus :: Lens' Invalidation Text
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
 instance FromXML Invalidation where
-    parseXML c = Invalidation
-        <$> c .: "CreateTime"
-        <*> c .: "Id"
-        <*> c .: "InvalidationBatch"
-        <*> c .: "Status"
+    parseXML x = Invalidation
+        <$> x .@ "CreateTime"
+        <*> x .@ "Id"
+        <*> x .@ "InvalidationBatch"
+        <*> x .@ "Status"
 
-instance ToXML Invalidation where
-    toXML Invalidation{..} = node "Invalidation"
-        [ "Id"                .= _iId
-        , "Status"            .= _iStatus
-        , "CreateTime"        .= _iCreateTime
-        , "InvalidationBatch" .= _iInvalidationBatch
+instance ToXMLRoot Invalidation where
+    toXMLRoot Invalidation{..} = element "Invalidation"
+        [ "Id"                =@ _iId
+        , "Status"            =@ _iStatus
+        , "CreateTime"        =@ _iCreateTime
+        , "InvalidationBatch" =@ _iInvalidationBatch
         ]
+
+instance ToXML Invalidation
 
 data SSLSupportMethod
     = SniOnly -- ^ sni-only
@@ -586,7 +588,7 @@ instance ToText SSLSupportMethod where
         Vip     -> "vip"
 
 instance FromXML SSLSupportMethod where
-    parseXML = fromXMLText "SSLSupportMethod"
+    parseXML = parseXMLText "SSLSupportMethod"
 
 instance ToXML SSLSupportMethod where
     toXML = toXMLText
@@ -623,14 +625,14 @@ amQuantity :: Lens' AllowedMethods Int
 amQuantity = lens _amQuantity (\s a -> s { _amQuantity = a })
 
 instance FromXML AllowedMethods where
-    parseXML c = AllowedMethods
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = AllowedMethods
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML AllowedMethods where
-    toXML AllowedMethods{..} = node "AllowedMethods"
-        [ "Quantity" .= _amQuantity
-        , "Items"    .= _amItems
+    toXML AllowedMethods{..} = nodes "AllowedMethods"
+        [ "Quantity" =@ _amQuantity
+        , "Items"    =@ _amItems
         ]
 
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
@@ -675,14 +677,14 @@ cfoaicComment :: Lens' CloudFrontOriginAccessIdentityConfig Text
 cfoaicComment = lens _cfoaicComment (\s a -> s { _cfoaicComment = a })
 
 instance FromXML CloudFrontOriginAccessIdentityConfig where
-    parseXML c = CloudFrontOriginAccessIdentityConfig
-        <$> c .: "CallerReference"
-        <*> c .: "Comment"
+    parseXML x = CloudFrontOriginAccessIdentityConfig
+        <$> x .@ "CallerReference"
+        <*> x .@ "Comment"
 
 instance ToXML CloudFrontOriginAccessIdentityConfig where
-    toXML CloudFrontOriginAccessIdentityConfig{..} = node "CloudFrontOriginAccessIdentityConfig"
-        [ "CallerReference" .= _cfoaicCallerReference
-        , "Comment"         .= _cfoaicComment
+    toXML CloudFrontOriginAccessIdentityConfig{..} = nodes "CloudFrontOriginAccessIdentityConfig"
+        [ "CallerReference" =@ _cfoaicCallerReference
+        , "Comment"         =@ _cfoaicComment
         ]
 
 data Origin = Origin
@@ -742,18 +744,18 @@ oS3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
 oS3OriginConfig = lens _oS3OriginConfig (\s a -> s { _oS3OriginConfig = a })
 
 instance FromXML Origin where
-    parseXML c = Origin
-        <$> c .:? "CustomOriginConfig"
-        <*> c .: "DomainName"
-        <*> c .: "Id"
-        <*> c .:? "S3OriginConfig"
+    parseXML x = Origin
+        <$> x .@? "CustomOriginConfig"
+        <*> x .@ "DomainName"
+        <*> x .@ "Id"
+        <*> x .@? "S3OriginConfig"
 
 instance ToXML Origin where
-    toXML Origin{..} = node "Origin"
-        [ "Id"                 .= _oId
-        , "DomainName"         .= _oDomainName
-        , "S3OriginConfig"     .= _oS3OriginConfig
-        , "CustomOriginConfig" .= _oCustomOriginConfig
+    toXML Origin{..} = nodes "Origin"
+        [ "Id"                 =@ _oId
+        , "DomainName"         =@ _oDomainName
+        , "S3OriginConfig"     =@ _oS3OriginConfig
+        , "CustomOriginConfig" =@ _oCustomOriginConfig
         ]
 
 data ViewerProtocolPolicy
@@ -776,7 +778,7 @@ instance ToText ViewerProtocolPolicy where
         RedirectToHttps -> "redirect-to-https"
 
 instance FromXML ViewerProtocolPolicy where
-    parseXML = fromXMLText "ViewerProtocolPolicy"
+    parseXML = parseXMLText "ViewerProtocolPolicy"
 
 instance ToXML ViewerProtocolPolicy where
     toXML = toXMLText
@@ -852,22 +854,22 @@ sdlQuantity :: Lens' StreamingDistributionList Int
 sdlQuantity = lens _sdlQuantity (\s a -> s { _sdlQuantity = a })
 
 instance FromXML StreamingDistributionList where
-    parseXML c = StreamingDistributionList
-        <$> c .: "IsTruncated"
-        <*> c .: "Items"
-        <*> c .: "Marker"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextMarker"
-        <*> c .: "Quantity"
+    parseXML x = StreamingDistributionList
+        <$> x .@ "IsTruncated"
+        <*> x .@ "Items"
+        <*> x .@ "Marker"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextMarker"
+        <*> x .@ "Quantity"
 
 instance ToXML StreamingDistributionList where
-    toXML StreamingDistributionList{..} = node "StreamingDistributionList"
-        [ "Marker"      .= _sdlMarker
-        , "NextMarker"  .= _sdlNextMarker
-        , "MaxItems"    .= _sdlMaxItems
-        , "IsTruncated" .= _sdlIsTruncated
-        , "Quantity"    .= _sdlQuantity
-        , "Items"       .= _sdlItems
+    toXML StreamingDistributionList{..} = nodes "StreamingDistributionList"
+        [ "Marker"      =@ _sdlMarker
+        , "NextMarker"  =@ _sdlNextMarker
+        , "MaxItems"    =@ _sdlMaxItems
+        , "IsTruncated" =@ _sdlIsTruncated
+        , "Quantity"    =@ _sdlQuantity
+        , "Items"       =@ _sdlItems
         ]
 
 data StreamingDistributionConfig = StreamingDistributionConfig
@@ -982,26 +984,26 @@ sdcTrustedSigners =
     lens _sdcTrustedSigners (\s a -> s { _sdcTrustedSigners = a })
 
 instance FromXML StreamingDistributionConfig where
-    parseXML c = StreamingDistributionConfig
-        <$> c .: "Aliases"
-        <*> c .: "CallerReference"
-        <*> c .: "Comment"
-        <*> c .: "Enabled"
-        <*> c .: "Logging"
-        <*> c .: "PriceClass"
-        <*> c .: "S3Origin"
-        <*> c .: "TrustedSigners"
+    parseXML x = StreamingDistributionConfig
+        <$> x .@ "Aliases"
+        <*> x .@ "CallerReference"
+        <*> x .@ "Comment"
+        <*> x .@ "Enabled"
+        <*> x .@ "Logging"
+        <*> x .@ "PriceClass"
+        <*> x .@ "S3Origin"
+        <*> x .@ "TrustedSigners"
 
 instance ToXML StreamingDistributionConfig where
-    toXML StreamingDistributionConfig{..} = node "StreamingDistributionConfig"
-        [ "CallerReference" .= _sdcCallerReference
-        , "S3Origin"        .= _sdcS3Origin
-        , "Aliases"         .= _sdcAliases
-        , "Comment"         .= _sdcComment
-        , "Logging"         .= _sdcLogging
-        , "TrustedSigners"  .= _sdcTrustedSigners
-        , "PriceClass"      .= _sdcPriceClass
-        , "Enabled"         .= _sdcEnabled
+    toXML StreamingDistributionConfig{..} = nodes "StreamingDistributionConfig"
+        [ "CallerReference" =@ _sdcCallerReference
+        , "S3Origin"        =@ _sdcS3Origin
+        , "Aliases"         =@ _sdcAliases
+        , "Comment"         =@ _sdcComment
+        , "Logging"         =@ _sdcLogging
+        , "TrustedSigners"  =@ _sdcTrustedSigners
+        , "PriceClass"      =@ _sdcPriceClass
+        , "Enabled"         =@ _sdcEnabled
         ]
 
 data Signer = Signer
@@ -1037,14 +1039,14 @@ sKeyPairIds :: Lens' Signer (Maybe KeyPairIds)
 sKeyPairIds = lens _sKeyPairIds (\s a -> s { _sKeyPairIds = a })
 
 instance FromXML Signer where
-    parseXML c = Signer
-        <$> c .:? "AwsAccountNumber"
-        <*> c .:? "KeyPairIds"
+    parseXML x = Signer
+        <$> x .@? "AwsAccountNumber"
+        <*> x .@? "KeyPairIds"
 
 instance ToXML Signer where
-    toXML Signer{..} = node "Signer"
-        [ "AwsAccountNumber" .= _sAwsAccountNumber
-        , "KeyPairIds"       .= _sKeyPairIds
+    toXML Signer{..} = nodes "Signer"
+        [ "AwsAccountNumber" =@ _sAwsAccountNumber
+        , "KeyPairIds"       =@ _sKeyPairIds
         ]
 
 data CookiePreference = CookiePreference
@@ -1082,14 +1084,14 @@ cpWhitelistedNames =
     lens _cpWhitelistedNames (\s a -> s { _cpWhitelistedNames = a })
 
 instance FromXML CookiePreference where
-    parseXML c = CookiePreference
-        <$> c .: "Forward"
-        <*> c .:? "WhitelistedNames"
+    parseXML x = CookiePreference
+        <$> x .@ "Forward"
+        <*> x .@? "WhitelistedNames"
 
 instance ToXML CookiePreference where
-    toXML CookiePreference{..} = node "CookiePreference"
-        [ "Forward"          .= _cpForward
-        , "WhitelistedNames" .= _cpWhitelistedNames
+    toXML CookiePreference{..} = nodes "CookiePreference"
+        [ "Forward"          =@ _cpForward
+        , "WhitelistedNames" =@ _cpWhitelistedNames
         ]
 
 data OriginProtocolPolicy
@@ -1109,7 +1111,7 @@ instance ToText OriginProtocolPolicy where
         MatchViewer -> "match-viewer"
 
 instance FromXML OriginProtocolPolicy where
-    parseXML = fromXMLText "OriginProtocolPolicy"
+    parseXML = parseXMLText "OriginProtocolPolicy"
 
 instance ToXML OriginProtocolPolicy where
     toXML = toXMLText
@@ -1205,25 +1207,27 @@ dStatus :: Lens' Distribution Text
 dStatus = lens _dStatus (\s a -> s { _dStatus = a })
 
 instance FromXML Distribution where
-    parseXML c = Distribution
-        <$> c .: "ActiveTrustedSigners"
-        <*> c .: "DistributionConfig"
-        <*> c .: "DomainName"
-        <*> c .: "Id"
-        <*> c .: "InProgressInvalidationBatches"
-        <*> c .: "LastModifiedTime"
-        <*> c .: "Status"
+    parseXML x = Distribution
+        <$> x .@ "ActiveTrustedSigners"
+        <*> x .@ "DistributionConfig"
+        <*> x .@ "DomainName"
+        <*> x .@ "Id"
+        <*> x .@ "InProgressInvalidationBatches"
+        <*> x .@ "LastModifiedTime"
+        <*> x .@ "Status"
 
-instance ToXML Distribution where
-    toXML Distribution{..} = node "Distribution"
-        [ "Id"                            .= _dId
-        , "Status"                        .= _dStatus
-        , "LastModifiedTime"              .= _dLastModifiedTime
-        , "InProgressInvalidationBatches" .= _dInProgressInvalidationBatches
-        , "DomainName"                    .= _dDomainName
-        , "ActiveTrustedSigners"          .= _dActiveTrustedSigners
-        , "DistributionConfig"            .= _dDistributionConfig
+instance ToXMLRoot Distribution where
+    toXMLRoot Distribution{..} = element "Distribution"
+        [ "Id"                            =@ _dId
+        , "Status"                        =@ _dStatus
+        , "LastModifiedTime"              =@ _dLastModifiedTime
+        , "InProgressInvalidationBatches" =@ _dInProgressInvalidationBatches
+        , "DomainName"                    =@ _dDomainName
+        , "ActiveTrustedSigners"          =@ _dActiveTrustedSigners
+        , "DistributionConfig"            =@ _dDistributionConfig
         ]
+
+instance ToXML Distribution
 
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary
     { _cfoaisComment           :: Text
@@ -1268,16 +1272,16 @@ cfoaisS3CanonicalUserId =
     lens _cfoaisS3CanonicalUserId (\s a -> s { _cfoaisS3CanonicalUserId = a })
 
 instance FromXML CloudFrontOriginAccessIdentitySummary where
-    parseXML c = CloudFrontOriginAccessIdentitySummary
-        <$> c .: "Comment"
-        <*> c .: "Id"
-        <*> c .: "S3CanonicalUserId"
+    parseXML x = CloudFrontOriginAccessIdentitySummary
+        <$> x .@ "Comment"
+        <*> x .@ "Id"
+        <*> x .@ "S3CanonicalUserId"
 
 instance ToXML CloudFrontOriginAccessIdentitySummary where
-    toXML CloudFrontOriginAccessIdentitySummary{..} = node "CloudFrontOriginAccessIdentitySummary"
-        [ "Id"                .= _cfoaisId
-        , "S3CanonicalUserId" .= _cfoaisS3CanonicalUserId
-        , "Comment"           .= _cfoaisComment
+    toXML CloudFrontOriginAccessIdentitySummary{..} = nodes "CloudFrontOriginAccessIdentitySummary"
+        [ "Id"                =@ _cfoaisId
+        , "S3CanonicalUserId" =@ _cfoaisS3CanonicalUserId
+        , "Comment"           =@ _cfoaisComment
         ]
 
 data StreamingDistributionSummary = StreamingDistributionSummary
@@ -1401,30 +1405,30 @@ sdsTrustedSigners =
     lens _sdsTrustedSigners (\s a -> s { _sdsTrustedSigners = a })
 
 instance FromXML StreamingDistributionSummary where
-    parseXML c = StreamingDistributionSummary
-        <$> c .: "Aliases"
-        <*> c .: "Comment"
-        <*> c .: "DomainName"
-        <*> c .: "Enabled"
-        <*> c .: "Id"
-        <*> c .: "LastModifiedTime"
-        <*> c .: "PriceClass"
-        <*> c .: "S3Origin"
-        <*> c .: "Status"
-        <*> c .: "TrustedSigners"
+    parseXML x = StreamingDistributionSummary
+        <$> x .@ "Aliases"
+        <*> x .@ "Comment"
+        <*> x .@ "DomainName"
+        <*> x .@ "Enabled"
+        <*> x .@ "Id"
+        <*> x .@ "LastModifiedTime"
+        <*> x .@ "PriceClass"
+        <*> x .@ "S3Origin"
+        <*> x .@ "Status"
+        <*> x .@ "TrustedSigners"
 
 instance ToXML StreamingDistributionSummary where
-    toXML StreamingDistributionSummary{..} = node "StreamingDistributionSummary"
-        [ "Id"               .= _sdsId
-        , "Status"           .= _sdsStatus
-        , "LastModifiedTime" .= _sdsLastModifiedTime
-        , "DomainName"       .= _sdsDomainName
-        , "S3Origin"         .= _sdsS3Origin
-        , "Aliases"          .= _sdsAliases
-        , "TrustedSigners"   .= _sdsTrustedSigners
-        , "Comment"          .= _sdsComment
-        , "PriceClass"       .= _sdsPriceClass
-        , "Enabled"          .= _sdsEnabled
+    toXML StreamingDistributionSummary{..} = nodes "StreamingDistributionSummary"
+        [ "Id"               =@ _sdsId
+        , "Status"           =@ _sdsStatus
+        , "LastModifiedTime" =@ _sdsLastModifiedTime
+        , "DomainName"       =@ _sdsDomainName
+        , "S3Origin"         =@ _sdsS3Origin
+        , "Aliases"          =@ _sdsAliases
+        , "TrustedSigners"   =@ _sdsTrustedSigners
+        , "Comment"          =@ _sdsComment
+        , "PriceClass"       =@ _sdsPriceClass
+        , "Enabled"          =@ _sdsEnabled
         ]
 
 data CustomOriginConfig = CustomOriginConfig
@@ -1467,16 +1471,16 @@ cocOriginProtocolPolicy =
     lens _cocOriginProtocolPolicy (\s a -> s { _cocOriginProtocolPolicy = a })
 
 instance FromXML CustomOriginConfig where
-    parseXML c = CustomOriginConfig
-        <$> c .: "HTTPPort"
-        <*> c .: "HTTPSPort"
-        <*> c .: "OriginProtocolPolicy"
+    parseXML x = CustomOriginConfig
+        <$> x .@ "HTTPPort"
+        <*> x .@ "HTTPSPort"
+        <*> x .@ "OriginProtocolPolicy"
 
 instance ToXML CustomOriginConfig where
-    toXML CustomOriginConfig{..} = node "CustomOriginConfig"
-        [ "HTTPPort"             .= _cocHTTPPort
-        , "HTTPSPort"            .= _cocHTTPSPort
-        , "OriginProtocolPolicy" .= _cocOriginProtocolPolicy
+    toXML CustomOriginConfig{..} = nodes "CustomOriginConfig"
+        [ "HTTPPort"             =@ _cocHTTPPort
+        , "HTTPSPort"            =@ _cocHTTPSPort
+        , "OriginProtocolPolicy" =@ _cocOriginProtocolPolicy
         ]
 
 data Aliases = Aliases
@@ -1509,14 +1513,14 @@ aQuantity :: Lens' Aliases Int
 aQuantity = lens _aQuantity (\s a -> s { _aQuantity = a })
 
 instance FromXML Aliases where
-    parseXML c = Aliases
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = Aliases
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML Aliases where
-    toXML Aliases{..} = node "Aliases"
-        [ "Quantity" .= _aQuantity
-        , "Items"    .= _aItems
+    toXML Aliases{..} = nodes "Aliases"
+        [ "Quantity" =@ _aQuantity
+        , "Items"    =@ _aItems
         ]
 
 data InvalidationBatch = InvalidationBatch
@@ -1565,14 +1569,14 @@ ibPaths :: Lens' InvalidationBatch Paths
 ibPaths = lens _ibPaths (\s a -> s { _ibPaths = a })
 
 instance FromXML InvalidationBatch where
-    parseXML c = InvalidationBatch
-        <$> c .: "CallerReference"
-        <*> c .: "Paths"
+    parseXML x = InvalidationBatch
+        <$> x .@ "CallerReference"
+        <*> x .@ "Paths"
 
 instance ToXML InvalidationBatch where
-    toXML InvalidationBatch{..} = node "InvalidationBatch"
-        [ "Paths"           .= _ibPaths
-        , "CallerReference" .= _ibCallerReference
+    toXML InvalidationBatch{..} = nodes "InvalidationBatch"
+        [ "Paths"           =@ _ibPaths
+        , "CallerReference" =@ _ibCallerReference
         ]
 
 data InvalidationSummary = InvalidationSummary
@@ -1614,16 +1618,16 @@ isStatus :: Lens' InvalidationSummary Text
 isStatus = lens _isStatus (\s a -> s { _isStatus = a })
 
 instance FromXML InvalidationSummary where
-    parseXML c = InvalidationSummary
-        <$> c .: "CreateTime"
-        <*> c .: "Id"
-        <*> c .: "Status"
+    parseXML x = InvalidationSummary
+        <$> x .@ "CreateTime"
+        <*> x .@ "Id"
+        <*> x .@ "Status"
 
 instance ToXML InvalidationSummary where
-    toXML InvalidationSummary{..} = node "InvalidationSummary"
-        [ "Id"         .= _isId
-        , "CreateTime" .= _isCreateTime
-        , "Status"     .= _isStatus
+    toXML InvalidationSummary{..} = nodes "InvalidationSummary"
+        [ "Id"         =@ _isId
+        , "CreateTime" =@ _isCreateTime
+        , "Status"     =@ _isStatus
         ]
 
 data DistributionConfig = DistributionConfig
@@ -1781,36 +1785,36 @@ dcViewerCertificate =
     lens _dcViewerCertificate (\s a -> s { _dcViewerCertificate = a })
 
 instance FromXML DistributionConfig where
-    parseXML c = DistributionConfig
-        <$> c .: "Aliases"
-        <*> c .: "CacheBehaviors"
-        <*> c .: "CallerReference"
-        <*> c .: "Comment"
-        <*> c .:? "CustomErrorResponses"
-        <*> c .: "DefaultCacheBehavior"
-        <*> c .: "DefaultRootObject"
-        <*> c .: "Enabled"
-        <*> c .: "Logging"
-        <*> c .: "Origins"
-        <*> c .: "PriceClass"
-        <*> c .:? "Restrictions"
-        <*> c .:? "ViewerCertificate"
+    parseXML x = DistributionConfig
+        <$> x .@ "Aliases"
+        <*> x .@ "CacheBehaviors"
+        <*> x .@ "CallerReference"
+        <*> x .@ "Comment"
+        <*> x .@? "CustomErrorResponses"
+        <*> x .@ "DefaultCacheBehavior"
+        <*> x .@ "DefaultRootObject"
+        <*> x .@ "Enabled"
+        <*> x .@ "Logging"
+        <*> x .@ "Origins"
+        <*> x .@ "PriceClass"
+        <*> x .@? "Restrictions"
+        <*> x .@? "ViewerCertificate"
 
 instance ToXML DistributionConfig where
-    toXML DistributionConfig{..} = node "DistributionConfig"
-        [ "CallerReference"      .= _dcCallerReference
-        , "Aliases"              .= _dcAliases
-        , "DefaultRootObject"    .= _dcDefaultRootObject
-        , "Origins"              .= _dcOrigins
-        , "DefaultCacheBehavior" .= _dcDefaultCacheBehavior
-        , "CacheBehaviors"       .= _dcCacheBehaviors
-        , "CustomErrorResponses" .= _dcCustomErrorResponses
-        , "Comment"              .= _dcComment
-        , "Logging"              .= _dcLogging
-        , "PriceClass"           .= _dcPriceClass
-        , "Enabled"              .= _dcEnabled
-        , "ViewerCertificate"    .= _dcViewerCertificate
-        , "Restrictions"         .= _dcRestrictions
+    toXML DistributionConfig{..} = nodes "DistributionConfig"
+        [ "CallerReference"      =@ _dcCallerReference
+        , "Aliases"              =@ _dcAliases
+        , "DefaultRootObject"    =@ _dcDefaultRootObject
+        , "Origins"              =@ _dcOrigins
+        , "DefaultCacheBehavior" =@ _dcDefaultCacheBehavior
+        , "CacheBehaviors"       =@ _dcCacheBehaviors
+        , "CustomErrorResponses" =@ _dcCustomErrorResponses
+        , "Comment"              =@ _dcComment
+        , "Logging"              =@ _dcLogging
+        , "PriceClass"           =@ _dcPriceClass
+        , "Enabled"              =@ _dcEnabled
+        , "ViewerCertificate"    =@ _dcViewerCertificate
+        , "Restrictions"         =@ _dcRestrictions
         ]
 
 data CacheBehavior = CacheBehavior
@@ -1930,26 +1934,26 @@ cbViewerProtocolPolicy =
     lens _cbViewerProtocolPolicy (\s a -> s { _cbViewerProtocolPolicy = a })
 
 instance FromXML CacheBehavior where
-    parseXML c = CacheBehavior
-        <$> c .:? "AllowedMethods"
-        <*> c .: "ForwardedValues"
-        <*> c .: "MinTTL"
-        <*> c .: "PathPattern"
-        <*> c .:? "SmoothStreaming"
-        <*> c .: "TargetOriginId"
-        <*> c .: "TrustedSigners"
-        <*> c .: "ViewerProtocolPolicy"
+    parseXML x = CacheBehavior
+        <$> x .@? "AllowedMethods"
+        <*> x .@ "ForwardedValues"
+        <*> x .@ "MinTTL"
+        <*> x .@ "PathPattern"
+        <*> x .@? "SmoothStreaming"
+        <*> x .@ "TargetOriginId"
+        <*> x .@ "TrustedSigners"
+        <*> x .@ "ViewerProtocolPolicy"
 
 instance ToXML CacheBehavior where
-    toXML CacheBehavior{..} = node "CacheBehavior"
-        [ "PathPattern"          .= _cbPathPattern
-        , "TargetOriginId"       .= _cbTargetOriginId
-        , "ForwardedValues"      .= _cbForwardedValues
-        , "TrustedSigners"       .= _cbTrustedSigners
-        , "ViewerProtocolPolicy" .= _cbViewerProtocolPolicy
-        , "MinTTL"               .= _cbMinTTL
-        , "AllowedMethods"       .= _cbAllowedMethods
-        , "SmoothStreaming"      .= _cbSmoothStreaming
+    toXML CacheBehavior{..} = nodes "CacheBehavior"
+        [ "PathPattern"          =@ _cbPathPattern
+        , "TargetOriginId"       =@ _cbTargetOriginId
+        , "ForwardedValues"      =@ _cbForwardedValues
+        , "TrustedSigners"       =@ _cbTrustedSigners
+        , "ViewerProtocolPolicy" =@ _cbViewerProtocolPolicy
+        , "MinTTL"               =@ _cbMinTTL
+        , "AllowedMethods"       =@ _cbAllowedMethods
+        , "SmoothStreaming"      =@ _cbSmoothStreaming
         ]
 
 data DistributionList = DistributionList
@@ -2022,22 +2026,22 @@ dlQuantity :: Lens' DistributionList Int
 dlQuantity = lens _dlQuantity (\s a -> s { _dlQuantity = a })
 
 instance FromXML DistributionList where
-    parseXML c = DistributionList
-        <$> c .: "IsTruncated"
-        <*> c .: "Items"
-        <*> c .: "Marker"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextMarker"
-        <*> c .: "Quantity"
+    parseXML x = DistributionList
+        <$> x .@ "IsTruncated"
+        <*> x .@ "Items"
+        <*> x .@ "Marker"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextMarker"
+        <*> x .@ "Quantity"
 
 instance ToXML DistributionList where
-    toXML DistributionList{..} = node "DistributionList"
-        [ "Marker"      .= _dlMarker
-        , "NextMarker"  .= _dlNextMarker
-        , "MaxItems"    .= _dlMaxItems
-        , "IsTruncated" .= _dlIsTruncated
-        , "Quantity"    .= _dlQuantity
-        , "Items"       .= _dlItems
+    toXML DistributionList{..} = nodes "DistributionList"
+        [ "Marker"      =@ _dlMarker
+        , "NextMarker"  =@ _dlNextMarker
+        , "MaxItems"    =@ _dlMaxItems
+        , "IsTruncated" =@ _dlIsTruncated
+        , "Quantity"    =@ _dlQuantity
+        , "Items"       =@ _dlItems
         ]
 
 data KeyPairIds = KeyPairIds
@@ -2070,14 +2074,14 @@ kpiQuantity :: Lens' KeyPairIds Int
 kpiQuantity = lens _kpiQuantity (\s a -> s { _kpiQuantity = a })
 
 instance FromXML KeyPairIds where
-    parseXML c = KeyPairIds
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = KeyPairIds
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML KeyPairIds where
-    toXML KeyPairIds{..} = node "KeyPairIds"
-        [ "Quantity" .= _kpiQuantity
-        , "Items"    .= _kpiItems
+    toXML KeyPairIds{..} = nodes "KeyPairIds"
+        [ "Quantity" =@ _kpiQuantity
+        , "Items"    =@ _kpiItems
         ]
 
 data PriceClass
@@ -2100,7 +2104,7 @@ instance ToText PriceClass where
         PriceClassAll -> "PriceClass_All"
 
 instance FromXML PriceClass where
-    parseXML = fromXMLText "PriceClass"
+    parseXML = parseXMLText "PriceClass"
 
 instance ToXML PriceClass where
     toXML = toXMLText
@@ -2135,14 +2139,14 @@ cerQuantity :: Lens' CustomErrorResponses Int
 cerQuantity = lens _cerQuantity (\s a -> s { _cerQuantity = a })
 
 instance FromXML CustomErrorResponses where
-    parseXML c = CustomErrorResponses
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = CustomErrorResponses
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML CustomErrorResponses where
-    toXML CustomErrorResponses{..} = node "CustomErrorResponses"
-        [ "Quantity" .= _cerQuantity
-        , "Items"    .= _cerItems
+    toXML CustomErrorResponses{..} = nodes "CustomErrorResponses"
+        [ "Quantity" =@ _cerQuantity
+        , "Items"    =@ _cerItems
         ]
 
 newtype S3OriginConfig = S3OriginConfig
@@ -2178,12 +2182,12 @@ socOriginAccessIdentity =
     lens _socOriginAccessIdentity (\s a -> s { _socOriginAccessIdentity = a })
 
 instance FromXML S3OriginConfig where
-    parseXML c = S3OriginConfig
-        <$> c .: "OriginAccessIdentity"
+    parseXML x = S3OriginConfig
+        <$> x .@ "OriginAccessIdentity"
 
 instance ToXML S3OriginConfig where
-    toXML S3OriginConfig{..} = node "S3OriginConfig"
-        [ "OriginAccessIdentity" .= _socOriginAccessIdentity
+    toXML S3OriginConfig{..} = nodes "S3OriginConfig"
+        [ "OriginAccessIdentity" =@ _socOriginAccessIdentity
         ]
 
 data GeoRestriction = GeoRestriction
@@ -2242,16 +2246,16 @@ grRestrictionType =
     lens _grRestrictionType (\s a -> s { _grRestrictionType = a })
 
 instance FromXML GeoRestriction where
-    parseXML c = GeoRestriction
-        <$> c .: "Items"
-        <*> c .: "Quantity"
-        <*> c .: "RestrictionType"
+    parseXML x = GeoRestriction
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
+        <*> x .@ "RestrictionType"
 
 instance ToXML GeoRestriction where
-    toXML GeoRestriction{..} = node "GeoRestriction"
-        [ "RestrictionType" .= _grRestrictionType
-        , "Quantity"        .= _grQuantity
-        , "Items"           .= _grItems
+    toXML GeoRestriction{..} = nodes "GeoRestriction"
+        [ "RestrictionType" =@ _grRestrictionType
+        , "Quantity"        =@ _grQuantity
+        , "Items"           =@ _grItems
         ]
 
 data S3Origin = S3Origin
@@ -2285,14 +2289,14 @@ soOriginAccessIdentity =
     lens _soOriginAccessIdentity (\s a -> s { _soOriginAccessIdentity = a })
 
 instance FromXML S3Origin where
-    parseXML c = S3Origin
-        <$> c .: "DomainName"
-        <*> c .: "OriginAccessIdentity"
+    parseXML x = S3Origin
+        <$> x .@ "DomainName"
+        <*> x .@ "OriginAccessIdentity"
 
 instance ToXML S3Origin where
-    toXML S3Origin{..} = node "S3Origin"
-        [ "DomainName"           .= _soDomainName
-        , "OriginAccessIdentity" .= _soOriginAccessIdentity
+    toXML S3Origin{..} = nodes "S3Origin"
+        [ "DomainName"           =@ _soDomainName
+        , "OriginAccessIdentity" =@ _soOriginAccessIdentity
         ]
 
 data Headers = Headers
@@ -2332,14 +2336,14 @@ hQuantity :: Lens' Headers Int
 hQuantity = lens _hQuantity (\s a -> s { _hQuantity = a })
 
 instance FromXML Headers where
-    parseXML c = Headers
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = Headers
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML Headers where
-    toXML Headers{..} = node "Headers"
-        [ "Quantity" .= _hQuantity
-        , "Items"    .= _hItems
+    toXML Headers{..} = nodes "Headers"
+        [ "Quantity" =@ _hQuantity
+        , "Items"    =@ _hItems
         ]
 
 data ViewerCertificate = ViewerCertificate
@@ -2398,16 +2402,16 @@ vcSSLSupportMethod =
     lens _vcSSLSupportMethod (\s a -> s { _vcSSLSupportMethod = a })
 
 instance FromXML ViewerCertificate where
-    parseXML c = ViewerCertificate
-        <$> c .:? "CloudFrontDefaultCertificate"
-        <*> c .:? "IAMCertificateId"
-        <*> c .:? "SSLSupportMethod"
+    parseXML x = ViewerCertificate
+        <$> x .@? "CloudFrontDefaultCertificate"
+        <*> x .@? "IAMCertificateId"
+        <*> x .@? "SSLSupportMethod"
 
 instance ToXML ViewerCertificate where
-    toXML ViewerCertificate{..} = node "ViewerCertificate"
-        [ "IAMCertificateId"             .= _vcIAMCertificateId
-        , "CloudFrontDefaultCertificate" .= _vcCloudFrontDefaultCertificate
-        , "SSLSupportMethod"             .= _vcSSLSupportMethod
+    toXML ViewerCertificate{..} = nodes "ViewerCertificate"
+        [ "IAMCertificateId"             =@ _vcIAMCertificateId
+        , "CloudFrontDefaultCertificate" =@ _vcCloudFrontDefaultCertificate
+        , "SSLSupportMethod"             =@ _vcSSLSupportMethod
         ]
 
 newtype Restrictions = Restrictions
@@ -2430,12 +2434,12 @@ rGeoRestriction :: Lens' Restrictions GeoRestriction
 rGeoRestriction = lens _rGeoRestriction (\s a -> s { _rGeoRestriction = a })
 
 instance FromXML Restrictions where
-    parseXML c = Restrictions
-        <$> c .: "GeoRestriction"
+    parseXML x = Restrictions
+        <$> x .@ "GeoRestriction"
 
 instance ToXML Restrictions where
-    toXML Restrictions{..} = node "Restrictions"
-        [ "GeoRestriction" .= _rGeoRestriction
+    toXML Restrictions{..} = nodes "Restrictions"
+        [ "GeoRestriction" =@ _rGeoRestriction
         ]
 
 data Origins = Origins
@@ -2469,14 +2473,14 @@ oQuantity :: Lens' Origins Int
 oQuantity = lens _oQuantity (\s a -> s { _oQuantity = a })
 
 instance FromXML Origins where
-    parseXML c = Origins
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = Origins
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML Origins where
-    toXML Origins{..} = node "Origins"
-        [ "Quantity" .= _oQuantity
-        , "Items"    .= _oItems
+    toXML Origins{..} = nodes "Origins"
+        [ "Quantity" =@ _oQuantity
+        , "Items"    =@ _oItems
         ]
 
 data Method
@@ -2511,7 +2515,7 @@ instance ToText Method where
         Put     -> "PUT"
 
 instance FromXML Method where
-    parseXML = fromXMLText "Method"
+    parseXML = parseXMLText "Method"
 
 instance ToXML Method where
     toXML = toXMLText
@@ -2557,16 +2561,16 @@ fvQueryString :: Lens' ForwardedValues Bool
 fvQueryString = lens _fvQueryString (\s a -> s { _fvQueryString = a })
 
 instance FromXML ForwardedValues where
-    parseXML c = ForwardedValues
-        <$> c .: "Cookies"
-        <*> c .:? "Headers"
-        <*> c .: "QueryString"
+    parseXML x = ForwardedValues
+        <$> x .@ "Cookies"
+        <*> x .@? "Headers"
+        <*> x .@ "QueryString"
 
 instance ToXML ForwardedValues where
-    toXML ForwardedValues{..} = node "ForwardedValues"
-        [ "QueryString" .= _fvQueryString
-        , "Cookies"     .= _fvCookies
-        , "Headers"     .= _fvHeaders
+    toXML ForwardedValues{..} = nodes "ForwardedValues"
+        [ "QueryString" =@ _fvQueryString
+        , "Cookies"     =@ _fvCookies
+        , "Headers"     =@ _fvHeaders
         ]
 
 data TrustedSigners = TrustedSigners
@@ -2609,16 +2613,16 @@ tsQuantity :: Lens' TrustedSigners Int
 tsQuantity = lens _tsQuantity (\s a -> s { _tsQuantity = a })
 
 instance FromXML TrustedSigners where
-    parseXML c = TrustedSigners
-        <$> c .: "Enabled"
-        <*> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = TrustedSigners
+        <$> x .@ "Enabled"
+        <*> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML TrustedSigners where
-    toXML TrustedSigners{..} = node "TrustedSigners"
-        [ "Enabled"  .= _tsEnabled
-        , "Quantity" .= _tsQuantity
-        , "Items"    .= _tsItems
+    toXML TrustedSigners{..} = nodes "TrustedSigners"
+        [ "Enabled"  =@ _tsEnabled
+        , "Quantity" =@ _tsQuantity
+        , "Items"    =@ _tsItems
         ]
 
 data ItemSelection
@@ -2641,7 +2645,7 @@ instance ToText ItemSelection where
         Whitelist -> "whitelist"
 
 instance FromXML ItemSelection where
-    parseXML = fromXMLText "ItemSelection"
+    parseXML = parseXMLText "ItemSelection"
 
 instance ToXML ItemSelection where
     toXML = toXMLText
@@ -2694,16 +2698,16 @@ slcPrefix :: Lens' StreamingLoggingConfig Text
 slcPrefix = lens _slcPrefix (\s a -> s { _slcPrefix = a })
 
 instance FromXML StreamingLoggingConfig where
-    parseXML c = StreamingLoggingConfig
-        <$> c .: "Bucket"
-        <*> c .: "Enabled"
-        <*> c .: "Prefix"
+    parseXML x = StreamingLoggingConfig
+        <$> x .@ "Bucket"
+        <*> x .@ "Enabled"
+        <*> x .@ "Prefix"
 
 instance ToXML StreamingLoggingConfig where
-    toXML StreamingLoggingConfig{..} = node "StreamingLoggingConfig"
-        [ "Enabled" .= _slcEnabled
-        , "Bucket"  .= _slcBucket
-        , "Prefix"  .= _slcPrefix
+    toXML StreamingLoggingConfig{..} = nodes "StreamingLoggingConfig"
+        [ "Enabled" =@ _slcEnabled
+        , "Bucket"  =@ _slcBucket
+        , "Prefix"  =@ _slcPrefix
         ]
 
 data CookieNames = CookieNames
@@ -2736,14 +2740,14 @@ cnQuantity :: Lens' CookieNames Int
 cnQuantity = lens _cnQuantity (\s a -> s { _cnQuantity = a })
 
 instance FromXML CookieNames where
-    parseXML c = CookieNames
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = CookieNames
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML CookieNames where
-    toXML CookieNames{..} = node "CookieNames"
-        [ "Quantity" .= _cnQuantity
-        , "Items"    .= _cnItems
+    toXML CookieNames{..} = nodes "CookieNames"
+        [ "Quantity" =@ _cnQuantity
+        , "Items"    =@ _cnItems
         ]
 
 data CustomErrorResponse = CustomErrorResponse
@@ -2804,18 +2808,18 @@ cerResponsePagePath =
     lens _cerResponsePagePath (\s a -> s { _cerResponsePagePath = a })
 
 instance FromXML CustomErrorResponse where
-    parseXML c = CustomErrorResponse
-        <$> c .:? "ErrorCachingMinTTL"
-        <*> c .: "ErrorCode"
-        <*> c .:? "ResponseCode"
-        <*> c .:? "ResponsePagePath"
+    parseXML x = CustomErrorResponse
+        <$> x .@? "ErrorCachingMinTTL"
+        <*> x .@ "ErrorCode"
+        <*> x .@? "ResponseCode"
+        <*> x .@? "ResponsePagePath"
 
 instance ToXML CustomErrorResponse where
-    toXML CustomErrorResponse{..} = node "CustomErrorResponse"
-        [ "ErrorCode"          .= _cerErrorCode
-        , "ResponsePagePath"   .= _cerResponsePagePath
-        , "ResponseCode"       .= _cerResponseCode
-        , "ErrorCachingMinTTL" .= _cerErrorCachingMinTTL
+    toXML CustomErrorResponse{..} = nodes "CustomErrorResponse"
+        [ "ErrorCode"          =@ _cerErrorCode
+        , "ResponsePagePath"   =@ _cerResponsePagePath
+        , "ResponseCode"       =@ _cerResponseCode
+        , "ErrorCachingMinTTL" =@ _cerErrorCachingMinTTL
         ]
 
 data CacheBehaviors = CacheBehaviors
@@ -2848,14 +2852,14 @@ cbQuantity :: Lens' CacheBehaviors Int
 cbQuantity = lens _cbQuantity (\s a -> s { _cbQuantity = a })
 
 instance FromXML CacheBehaviors where
-    parseXML c = CacheBehaviors
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = CacheBehaviors
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML CacheBehaviors where
-    toXML CacheBehaviors{..} = node "CacheBehaviors"
-        [ "Quantity" .= _cbQuantity
-        , "Items"    .= _cbItems
+    toXML CacheBehaviors{..} = nodes "CacheBehaviors"
+        [ "Quantity" =@ _cbQuantity
+        , "Items"    =@ _cbItems
         ]
 
 data DefaultCacheBehavior = DefaultCacheBehavior
@@ -2962,24 +2966,24 @@ dcbViewerProtocolPolicy =
     lens _dcbViewerProtocolPolicy (\s a -> s { _dcbViewerProtocolPolicy = a })
 
 instance FromXML DefaultCacheBehavior where
-    parseXML c = DefaultCacheBehavior
-        <$> c .:? "AllowedMethods"
-        <*> c .: "ForwardedValues"
-        <*> c .: "MinTTL"
-        <*> c .:? "SmoothStreaming"
-        <*> c .: "TargetOriginId"
-        <*> c .: "TrustedSigners"
-        <*> c .: "ViewerProtocolPolicy"
+    parseXML x = DefaultCacheBehavior
+        <$> x .@? "AllowedMethods"
+        <*> x .@ "ForwardedValues"
+        <*> x .@ "MinTTL"
+        <*> x .@? "SmoothStreaming"
+        <*> x .@ "TargetOriginId"
+        <*> x .@ "TrustedSigners"
+        <*> x .@ "ViewerProtocolPolicy"
 
 instance ToXML DefaultCacheBehavior where
-    toXML DefaultCacheBehavior{..} = node "DefaultCacheBehavior"
-        [ "TargetOriginId"       .= _dcbTargetOriginId
-        , "ForwardedValues"      .= _dcbForwardedValues
-        , "TrustedSigners"       .= _dcbTrustedSigners
-        , "ViewerProtocolPolicy" .= _dcbViewerProtocolPolicy
-        , "MinTTL"               .= _dcbMinTTL
-        , "AllowedMethods"       .= _dcbAllowedMethods
-        , "SmoothStreaming"      .= _dcbSmoothStreaming
+    toXML DefaultCacheBehavior{..} = nodes "DefaultCacheBehavior"
+        [ "TargetOriginId"       =@ _dcbTargetOriginId
+        , "ForwardedValues"      =@ _dcbForwardedValues
+        , "TrustedSigners"       =@ _dcbTrustedSigners
+        , "ViewerProtocolPolicy" =@ _dcbViewerProtocolPolicy
+        , "MinTTL"               =@ _dcbMinTTL
+        , "AllowedMethods"       =@ _dcbAllowedMethods
+        , "SmoothStreaming"      =@ _dcbSmoothStreaming
         ]
 
 data InvalidationList = InvalidationList
@@ -3053,22 +3057,22 @@ ilQuantity :: Lens' InvalidationList Int
 ilQuantity = lens _ilQuantity (\s a -> s { _ilQuantity = a })
 
 instance FromXML InvalidationList where
-    parseXML c = InvalidationList
-        <$> c .: "IsTruncated"
-        <*> c .: "Items"
-        <*> c .: "Marker"
-        <*> c .: "MaxItems"
-        <*> c .:? "NextMarker"
-        <*> c .: "Quantity"
+    parseXML x = InvalidationList
+        <$> x .@ "IsTruncated"
+        <*> x .@ "Items"
+        <*> x .@ "Marker"
+        <*> x .@ "MaxItems"
+        <*> x .@? "NextMarker"
+        <*> x .@ "Quantity"
 
 instance ToXML InvalidationList where
-    toXML InvalidationList{..} = node "InvalidationList"
-        [ "Marker"      .= _ilMarker
-        , "NextMarker"  .= _ilNextMarker
-        , "MaxItems"    .= _ilMaxItems
-        , "IsTruncated" .= _ilIsTruncated
-        , "Quantity"    .= _ilQuantity
-        , "Items"       .= _ilItems
+    toXML InvalidationList{..} = nodes "InvalidationList"
+        [ "Marker"      =@ _ilMarker
+        , "NextMarker"  =@ _ilNextMarker
+        , "MaxItems"    =@ _ilMaxItems
+        , "IsTruncated" =@ _ilIsTruncated
+        , "Quantity"    =@ _ilQuantity
+        , "Items"       =@ _ilItems
         ]
 
 data StreamingDistribution = StreamingDistribution
@@ -3152,23 +3156,25 @@ sdStreamingDistributionConfig =
         (\s a -> s { _sdStreamingDistributionConfig = a })
 
 instance FromXML StreamingDistribution where
-    parseXML c = StreamingDistribution
-        <$> c .: "ActiveTrustedSigners"
-        <*> c .: "DomainName"
-        <*> c .: "Id"
-        <*> c .:? "LastModifiedTime"
-        <*> c .: "Status"
-        <*> c .: "StreamingDistributionConfig"
+    parseXML x = StreamingDistribution
+        <$> x .@ "ActiveTrustedSigners"
+        <*> x .@ "DomainName"
+        <*> x .@ "Id"
+        <*> x .@? "LastModifiedTime"
+        <*> x .@ "Status"
+        <*> x .@ "StreamingDistributionConfig"
 
-instance ToXML StreamingDistribution where
-    toXML StreamingDistribution{..} = node "StreamingDistribution"
-        [ "Id"                          .= _sdId
-        , "Status"                      .= _sdStatus
-        , "LastModifiedTime"            .= _sdLastModifiedTime
-        , "DomainName"                  .= _sdDomainName
-        , "ActiveTrustedSigners"        .= _sdActiveTrustedSigners
-        , "StreamingDistributionConfig" .= _sdStreamingDistributionConfig
+instance ToXMLRoot StreamingDistribution where
+    toXMLRoot StreamingDistribution{..} = element "StreamingDistribution"
+        [ "Id"                          =@ _sdId
+        , "Status"                      =@ _sdStatus
+        , "LastModifiedTime"            =@ _sdLastModifiedTime
+        , "DomainName"                  =@ _sdDomainName
+        , "ActiveTrustedSigners"        =@ _sdActiveTrustedSigners
+        , "StreamingDistributionConfig" =@ _sdStreamingDistributionConfig
         ]
+
+instance ToXML StreamingDistribution
 
 data Paths = Paths
     { _pItems    :: [Text]
@@ -3200,14 +3206,14 @@ pQuantity :: Lens' Paths Int
 pQuantity = lens _pQuantity (\s a -> s { _pQuantity = a })
 
 instance FromXML Paths where
-    parseXML c = Paths
-        <$> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = Paths
+        <$> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML Paths where
-    toXML Paths{..} = node "Paths"
-        [ "Quantity" .= _pQuantity
-        , "Items"    .= _pItems
+    toXML Paths{..} = nodes "Paths"
+        [ "Quantity" =@ _pQuantity
+        , "Items"    =@ _pItems
         ]
 
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
@@ -3253,17 +3259,19 @@ cfoaiS3CanonicalUserId =
     lens _cfoaiS3CanonicalUserId (\s a -> s { _cfoaiS3CanonicalUserId = a })
 
 instance FromXML CloudFrontOriginAccessIdentity where
-    parseXML c = CloudFrontOriginAccessIdentity
-        <$> c .:? "CloudFrontOriginAccessIdentityConfig"
-        <*> c .: "Id"
-        <*> c .: "S3CanonicalUserId"
+    parseXML x = CloudFrontOriginAccessIdentity
+        <$> x .@? "CloudFrontOriginAccessIdentityConfig"
+        <*> x .@ "Id"
+        <*> x .@ "S3CanonicalUserId"
 
-instance ToXML CloudFrontOriginAccessIdentity where
-    toXML CloudFrontOriginAccessIdentity{..} = node "CloudFrontOriginAccessIdentity"
-        [ "Id"                                   .= _cfoaiId
-        , "S3CanonicalUserId"                    .= _cfoaiS3CanonicalUserId
-        , "CloudFrontOriginAccessIdentityConfig" .= _cfoaiCloudFrontOriginAccessIdentityConfig
+instance ToXMLRoot CloudFrontOriginAccessIdentity where
+    toXMLRoot CloudFrontOriginAccessIdentity{..} = element "CloudFrontOriginAccessIdentity"
+        [ "Id"                                   =@ _cfoaiId
+        , "S3CanonicalUserId"                    =@ _cfoaiS3CanonicalUserId
+        , "CloudFrontOriginAccessIdentityConfig" =@ _cfoaiCloudFrontOriginAccessIdentityConfig
         ]
+
+instance ToXML CloudFrontOriginAccessIdentity
 
 data ActiveTrustedSigners = ActiveTrustedSigners
     { _atsEnabled  :: Bool
@@ -3308,16 +3316,16 @@ atsQuantity :: Lens' ActiveTrustedSigners Int
 atsQuantity = lens _atsQuantity (\s a -> s { _atsQuantity = a })
 
 instance FromXML ActiveTrustedSigners where
-    parseXML c = ActiveTrustedSigners
-        <$> c .: "Enabled"
-        <*> c .: "Items"
-        <*> c .: "Quantity"
+    parseXML x = ActiveTrustedSigners
+        <$> x .@ "Enabled"
+        <*> x .@ "Items"
+        <*> x .@ "Quantity"
 
 instance ToXML ActiveTrustedSigners where
-    toXML ActiveTrustedSigners{..} = node "ActiveTrustedSigners"
-        [ "Enabled"  .= _atsEnabled
-        , "Quantity" .= _atsQuantity
-        , "Items"    .= _atsItems
+    toXML ActiveTrustedSigners{..} = nodes "ActiveTrustedSigners"
+        [ "Enabled"  =@ _atsEnabled
+        , "Quantity" =@ _atsQuantity
+        , "Items"    =@ _atsItems
         ]
 
 data DistributionSummary = DistributionSummary
@@ -3469,38 +3477,38 @@ dsViewerCertificate =
     lens _dsViewerCertificate (\s a -> s { _dsViewerCertificate = a })
 
 instance FromXML DistributionSummary where
-    parseXML c = DistributionSummary
-        <$> c .: "Aliases"
-        <*> c .: "CacheBehaviors"
-        <*> c .: "Comment"
-        <*> c .: "CustomErrorResponses"
-        <*> c .: "DefaultCacheBehavior"
-        <*> c .: "DomainName"
-        <*> c .: "Enabled"
-        <*> c .: "Id"
-        <*> c .: "LastModifiedTime"
-        <*> c .: "Origins"
-        <*> c .: "PriceClass"
-        <*> c .: "Restrictions"
-        <*> c .: "Status"
-        <*> c .: "ViewerCertificate"
+    parseXML x = DistributionSummary
+        <$> x .@ "Aliases"
+        <*> x .@ "CacheBehaviors"
+        <*> x .@ "Comment"
+        <*> x .@ "CustomErrorResponses"
+        <*> x .@ "DefaultCacheBehavior"
+        <*> x .@ "DomainName"
+        <*> x .@ "Enabled"
+        <*> x .@ "Id"
+        <*> x .@ "LastModifiedTime"
+        <*> x .@ "Origins"
+        <*> x .@ "PriceClass"
+        <*> x .@ "Restrictions"
+        <*> x .@ "Status"
+        <*> x .@ "ViewerCertificate"
 
 instance ToXML DistributionSummary where
-    toXML DistributionSummary{..} = node "DistributionSummary"
-        [ "Id"                   .= _dsId
-        , "Status"               .= _dsStatus
-        , "LastModifiedTime"     .= _dsLastModifiedTime
-        , "DomainName"           .= _dsDomainName
-        , "Aliases"              .= _dsAliases
-        , "Origins"              .= _dsOrigins
-        , "DefaultCacheBehavior" .= _dsDefaultCacheBehavior
-        , "CacheBehaviors"       .= _dsCacheBehaviors
-        , "CustomErrorResponses" .= _dsCustomErrorResponses
-        , "Comment"              .= _dsComment
-        , "PriceClass"           .= _dsPriceClass
-        , "Enabled"              .= _dsEnabled
-        , "ViewerCertificate"    .= _dsViewerCertificate
-        , "Restrictions"         .= _dsRestrictions
+    toXML DistributionSummary{..} = nodes "DistributionSummary"
+        [ "Id"                   =@ _dsId
+        , "Status"               =@ _dsStatus
+        , "LastModifiedTime"     =@ _dsLastModifiedTime
+        , "DomainName"           =@ _dsDomainName
+        , "Aliases"              =@ _dsAliases
+        , "Origins"              =@ _dsOrigins
+        , "DefaultCacheBehavior" =@ _dsDefaultCacheBehavior
+        , "CacheBehaviors"       =@ _dsCacheBehaviors
+        , "CustomErrorResponses" =@ _dsCustomErrorResponses
+        , "Comment"              =@ _dsComment
+        , "PriceClass"           =@ _dsPriceClass
+        , "Enabled"              =@ _dsEnabled
+        , "ViewerCertificate"    =@ _dsViewerCertificate
+        , "Restrictions"         =@ _dsRestrictions
         ]
 
 data GeoRestrictionType
@@ -3523,7 +3531,7 @@ instance ToText GeoRestrictionType where
         GRTWhitelist -> "whitelist"
 
 instance FromXML GeoRestrictionType where
-    parseXML = fromXMLText "GeoRestrictionType"
+    parseXML = parseXMLText "GeoRestrictionType"
 
 instance ToXML GeoRestrictionType where
     toXML = toXMLText
@@ -3591,16 +3599,16 @@ lcPrefix :: Lens' LoggingConfig Text
 lcPrefix = lens _lcPrefix (\s a -> s { _lcPrefix = a })
 
 instance FromXML LoggingConfig where
-    parseXML c = LoggingConfig
-        <$> c .: "Bucket"
-        <*> c .: "Enabled"
-        <*> c .: "IncludeCookies"
-        <*> c .: "Prefix"
+    parseXML x = LoggingConfig
+        <$> x .@ "Bucket"
+        <*> x .@ "Enabled"
+        <*> x .@ "IncludeCookies"
+        <*> x .@ "Prefix"
 
 instance ToXML LoggingConfig where
-    toXML LoggingConfig{..} = node "LoggingConfig"
-        [ "Enabled"        .= _lcEnabled
-        , "IncludeCookies" .= _lcIncludeCookies
-        , "Bucket"         .= _lcBucket
-        , "Prefix"         .= _lcPrefix
+    toXML LoggingConfig{..} = nodes "LoggingConfig"
+        [ "Enabled"        =@ _lcEnabled
+        , "IncludeCookies" =@ _lcIncludeCookies
+        , "Bucket"         =@ _lcBucket
+        , "Prefix"         =@ _lcPrefix
         ]

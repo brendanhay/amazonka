@@ -118,11 +118,13 @@ instance ToQuery ChangeTagsForResource where
 
 instance ToHeaders ChangeTagsForResource
 
-instance ToXML ChangeTagsForResource where
-    toXML ChangeTagsForResource{..} = node "ChangeTagsForResource"
-        [ "AddTags"       .= _ctfrAddTags
-        , "RemoveTagKeys" .= _ctfrRemoveTagKeys
+instance ToXMLRoot ChangeTagsForResource where
+    toXMLRoot ChangeTagsForResource{..} = element "ChangeTagsForResource"
+        [ "AddTags"       =@ _ctfrAddTags
+        , "RemoveTagKeys" =@ _ctfrRemoveTagKeys
         ]
+
+instance ToXML ChangeTagsForResource
 
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53

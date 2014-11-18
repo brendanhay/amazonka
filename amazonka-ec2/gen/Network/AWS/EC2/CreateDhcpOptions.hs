@@ -129,5 +129,5 @@ instance AWSRequest CreateDhcpOptions where
     response = xmlResponse
 
 instance FromXML CreateDhcpOptionsResponse where
-    parseXML c = CreateDhcpOptionsResponse
-        <$> c .:? "dhcpOptions"
+    parseXML x = CreateDhcpOptionsResponse
+        <$> x .@? "dhcpOptions"

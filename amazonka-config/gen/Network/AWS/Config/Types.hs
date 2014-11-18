@@ -126,7 +126,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2014-11-12@ of the Amazon Config service.
-data Config deriving (Typeable)
+data Config
 
 instance AWSService Config where
     type Sg Config = V4
@@ -408,7 +408,7 @@ instance ToText ChronologicalOrder where
         Reverse -> "Reverse"
 
 instance FromJSON ChronologicalOrder where
-    parseJSON = fromJSONText "ChronologicalOrder"
+    parseJSON = parseJSONText "ChronologicalOrder"
 
 instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
@@ -466,7 +466,7 @@ instance ToText ResourceType where
         AWSEC2Volume           -> "AWS::EC2::Volume"
 
 instance FromJSON ResourceType where
-    parseJSON = fromJSONText "ResourceType"
+    parseJSON = parseJSONText "ResourceType"
 
 instance ToJSON ResourceType where
     toJSON = toJSONText
@@ -675,7 +675,7 @@ instance ToText DeliveryStatus where
         Success -> "Success"
 
 instance FromJSON DeliveryStatus where
-    parseJSON = fromJSONText "DeliveryStatus"
+    parseJSON = parseJSONText "DeliveryStatus"
 
 instance ToJSON DeliveryStatus where
     toJSON = toJSONText
@@ -873,7 +873,7 @@ instance ToText ConfigurationItemStatus where
         Ok         -> "Ok"
 
 instance FromJSON ConfigurationItemStatus where
-    parseJSON = fromJSONText "ConfigurationItemStatus"
+    parseJSON = parseJSONText "ConfigurationItemStatus"
 
 instance ToJSON ConfigurationItemStatus where
     toJSON = toJSONText
@@ -939,7 +939,7 @@ instance ToText RecorderStatus where
         RSSuccess -> "Success"
 
 instance FromJSON RecorderStatus where
-    parseJSON = fromJSONText "RecorderStatus"
+    parseJSON = parseJSONText "RecorderStatus"
 
 instance ToJSON RecorderStatus where
     toJSON = toJSONText

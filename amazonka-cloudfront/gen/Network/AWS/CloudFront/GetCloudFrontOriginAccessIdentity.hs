@@ -106,8 +106,10 @@ instance ToQuery GetCloudFrontOriginAccessIdentity where
 
 instance ToHeaders GetCloudFrontOriginAccessIdentity
 
-instance ToXML GetCloudFrontOriginAccessIdentity where
-    toXML = const (node "GetCloudFrontOriginAccessIdentity" [])
+instance ToXMLRoot GetCloudFrontOriginAccessIdentity where
+    toXMLRoot = const (element "GetCloudFrontOriginAccessIdentity" [])
+
+instance ToXML GetCloudFrontOriginAccessIdentity
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity where
     type Sv GetCloudFrontOriginAccessIdentity = CloudFront
@@ -115,5 +117,5 @@ instance AWSRequest GetCloudFrontOriginAccessIdentity where
 
     request  = get
     response = xmlHeaderResponse $ \h x -> GetCloudFrontOriginAccessIdentityResponse
-        <$> x %| "CloudFrontOriginAccessIdentity"
+        <$> x .@? "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"

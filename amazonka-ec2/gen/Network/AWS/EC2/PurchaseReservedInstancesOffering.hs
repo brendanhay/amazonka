@@ -141,5 +141,5 @@ instance AWSRequest PurchaseReservedInstancesOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedInstancesOfferingResponse where
-    parseXML c = PurchaseReservedInstancesOfferingResponse
-        <$> c .:? "reservedInstancesId"
+    parseXML x = PurchaseReservedInstancesOfferingResponse
+        <$> x .@? "reservedInstancesId"

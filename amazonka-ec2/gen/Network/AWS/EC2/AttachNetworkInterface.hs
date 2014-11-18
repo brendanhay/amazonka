@@ -127,5 +127,5 @@ instance AWSRequest AttachNetworkInterface where
     response = xmlResponse
 
 instance FromXML AttachNetworkInterfaceResponse where
-    parseXML c = AttachNetworkInterfaceResponse
-        <$> c .:? "attachmentId"
+    parseXML x = AttachNetworkInterfaceResponse
+        <$> x .@? "attachmentId"

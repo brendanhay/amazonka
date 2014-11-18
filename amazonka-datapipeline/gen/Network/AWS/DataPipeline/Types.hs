@@ -111,7 +111,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2012-10-29@ of the Amazon Data Pipeline service.
-data DataPipeline deriving (Typeable)
+data DataPipeline
 
 instance AWSService DataPipeline where
     type Sg DataPipeline = V4
@@ -583,7 +583,7 @@ instance ToText OperatorType where
         OperatorRefEq   -> "REF_EQ"
 
 instance FromJSON OperatorType where
-    parseJSON = fromJSONText "OperatorType"
+    parseJSON = parseJSONText "OperatorType"
 
 instance ToJSON OperatorType where
     toJSON = toJSONText
@@ -647,7 +647,7 @@ instance ToText TaskStatus where
         Finished -> "FINISHED"
 
 instance FromJSON TaskStatus where
-    parseJSON = fromJSONText "TaskStatus"
+    parseJSON = parseJSONText "TaskStatus"
 
 instance ToJSON TaskStatus where
     toJSON = toJSONText

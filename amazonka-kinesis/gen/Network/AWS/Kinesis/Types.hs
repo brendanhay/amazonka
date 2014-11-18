@@ -83,7 +83,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2013-12-02@ of the Amazon Kinesis service.
-data Kinesis deriving (Typeable)
+data Kinesis
 
 instance AWSService Kinesis where
     type Sg Kinesis = V4
@@ -319,7 +319,7 @@ instance ToText StreamStatus where
         Updating -> "UPDATING"
 
 instance FromJSON StreamStatus where
-    parseJSON = fromJSONText "StreamStatus"
+    parseJSON = parseJSONText "StreamStatus"
 
 instance ToJSON StreamStatus where
     toJSON = toJSONText
@@ -485,7 +485,7 @@ instance ToText ShardIteratorType where
         TrimHorizon         -> "TRIM_HORIZON"
 
 instance FromJSON ShardIteratorType where
-    parseJSON = fromJSONText "ShardIteratorType"
+    parseJSON = parseJSONText "ShardIteratorType"
 
 instance ToJSON ShardIteratorType where
     toJSON = toJSONText

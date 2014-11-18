@@ -393,8 +393,10 @@ instance ToHeaders CreateMultipartUpload where
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
         ]
 
-instance ToXML CreateMultipartUpload where
-    toXML = const (node "CreateMultipartUpload" [])
+instance ToXMLRoot CreateMultipartUpload where
+    toXMLRoot = const (element "CreateMultipartUpload" [])
+
+instance ToXML CreateMultipartUpload
 
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
@@ -402,10 +404,10 @@ instance AWSRequest CreateMultipartUpload where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateMultipartUploadResponse
-        <$> x %| "Bucket"
-        <*> x %| "Key"
+        <$> x .@? "Bucket"
+        <*> x .@? "Key"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
-        <*> x %| "UploadId"
+        <*> x .@? "UploadId"

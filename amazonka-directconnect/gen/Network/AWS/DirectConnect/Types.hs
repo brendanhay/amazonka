@@ -150,7 +150,7 @@ import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
 -- | Version @2012-10-25@ of the Amazon Direct Connect service.
-data DirectConnect deriving (Typeable)
+data DirectConnect
 
 instance AWSService DirectConnect where
     type Sg DirectConnect = V4
@@ -513,7 +513,7 @@ instance ToText VirtualInterfaceState where
         Verifying  -> "verifying"
 
 instance FromJSON VirtualInterfaceState where
-    parseJSON = fromJSONText "VirtualInterfaceState"
+    parseJSON = parseJSONText "VirtualInterfaceState"
 
 instance ToJSON VirtualInterfaceState where
     toJSON = toJSONText
@@ -813,7 +813,7 @@ instance ToText InterconnectState where
         ISRequested -> "requested"
 
 instance FromJSON InterconnectState where
-    parseJSON = fromJSONText "InterconnectState"
+    parseJSON = parseJSONText "InterconnectState"
 
 instance ToJSON InterconnectState where
     toJSON = toJSONText
@@ -1035,7 +1035,7 @@ instance ToText ConnectionState where
         CSRequested -> "requested"
 
 instance FromJSON ConnectionState where
-    parseJSON = fromJSONText "ConnectionState"
+    parseJSON = parseJSONText "ConnectionState"
 
 instance ToJSON ConnectionState where
     toJSON = toJSONText

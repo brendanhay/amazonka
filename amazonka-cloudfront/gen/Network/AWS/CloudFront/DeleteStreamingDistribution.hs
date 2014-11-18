@@ -93,8 +93,10 @@ instance ToHeaders DeleteStreamingDistribution where
         [ "If-Match" =: _dsdIfMatch
         ]
 
-instance ToXML DeleteStreamingDistribution where
-    toXML = const (node "DeleteStreamingDistribution" [])
+instance ToXMLRoot DeleteStreamingDistribution where
+    toXMLRoot = const (element "DeleteStreamingDistribution" [])
+
+instance ToXML DeleteStreamingDistribution
 
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront

@@ -127,11 +127,13 @@ instance ToQuery DisassociateVPCFromHostedZone where
 
 instance ToHeaders DisassociateVPCFromHostedZone
 
-instance ToXML DisassociateVPCFromHostedZone where
-    toXML DisassociateVPCFromHostedZone{..} = node "DisassociateVPCFromHostedZone"
-        [ "VPC"     .= _dvpcfhzVPC
-        , "Comment" .= _dvpcfhzComment
+instance ToXMLRoot DisassociateVPCFromHostedZone where
+    toXMLRoot DisassociateVPCFromHostedZone{..} = element "DisassociateVPCFromHostedZone"
+        [ "VPC"     =@ _dvpcfhzVPC
+        , "Comment" =@ _dvpcfhzComment
         ]
+
+instance ToXML DisassociateVPCFromHostedZone
 
 instance AWSRequest DisassociateVPCFromHostedZone where
     type Sv DisassociateVPCFromHostedZone = Route53
@@ -141,5 +143,5 @@ instance AWSRequest DisassociateVPCFromHostedZone where
     response = xmlResponse
 
 instance FromXML DisassociateVPCFromHostedZoneResponse where
-    parseXML c = DisassociateVPCFromHostedZoneResponse
-        <$> c .: "ChangeInfo"
+    parseXML x = DisassociateVPCFromHostedZoneResponse
+        <$> x .@ "ChangeInfo"

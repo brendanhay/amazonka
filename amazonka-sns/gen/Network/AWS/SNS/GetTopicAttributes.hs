@@ -111,5 +111,5 @@ instance AWSRequest GetTopicAttributes where
     response = xmlResponse
 
 instance FromXML GetTopicAttributesResponse where
-    parseXML c = GetTopicAttributesResponse
-        <$> c .: "Attributes"
+    parseXML x = GetTopicAttributesResponse
+        <$> x .@ "Attributes"

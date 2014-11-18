@@ -113,10 +113,12 @@ instance ToHeaders PutBucketVersioning where
         , "x-amz-mfa"   =: _pbvMFA
         ]
 
-instance ToXML PutBucketVersioning where
-    toXML PutBucketVersioning{..} = node "PutBucketVersioning"
-        [ "VersioningConfiguration" .= _pbvVersioningConfiguration
+instance ToXMLRoot PutBucketVersioning where
+    toXMLRoot PutBucketVersioning{..} = element "PutBucketVersioning"
+        [ "VersioningConfiguration" =@ _pbvVersioningConfiguration
         ]
+
+instance ToXML PutBucketVersioning
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3

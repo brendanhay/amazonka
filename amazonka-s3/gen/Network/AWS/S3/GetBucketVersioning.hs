@@ -105,8 +105,10 @@ instance ToQuery GetBucketVersioning where
 
 instance ToHeaders GetBucketVersioning
 
-instance ToXML GetBucketVersioning where
-    toXML = const (node "GetBucketVersioning" [])
+instance ToXMLRoot GetBucketVersioning where
+    toXMLRoot = const (element "GetBucketVersioning" [])
+
+instance ToXML GetBucketVersioning
 
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
@@ -116,6 +118,6 @@ instance AWSRequest GetBucketVersioning where
     response = xmlResponse
 
 instance FromXML GetBucketVersioningResponse where
-    parseXML c = GetBucketVersioningResponse
-        <$> c .:? "MfaDelete"
-        <*> c .:? "Status"
+    parseXML x = GetBucketVersioningResponse
+        <$> x .@? "MfaDelete"
+        <*> x .@? "Status"

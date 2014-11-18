@@ -109,5 +109,5 @@ instance AWSRequest CreateNetworkAcl where
     response = xmlResponse
 
 instance FromXML CreateNetworkAclResponse where
-    parseXML c = CreateNetworkAclResponse
-        <$> c .:? "networkAcl"
+    parseXML x = CreateNetworkAclResponse
+        <$> x .@? "networkAcl"

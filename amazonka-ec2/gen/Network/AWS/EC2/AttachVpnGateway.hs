@@ -119,5 +119,5 @@ instance AWSRequest AttachVpnGateway where
     response = xmlResponse
 
 instance FromXML AttachVpnGatewayResponse where
-    parseXML c = AttachVpnGatewayResponse
-        <$> c .:? "attachment"
+    parseXML x = AttachVpnGatewayResponse
+        <$> x .@? "attachment"

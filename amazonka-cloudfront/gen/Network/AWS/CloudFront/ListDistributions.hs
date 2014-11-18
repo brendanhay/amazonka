@@ -103,8 +103,10 @@ instance ToQuery ListDistributions
 
 instance ToHeaders ListDistributions
 
-instance ToXML ListDistributions where
-    toXML = const (node "ListDistributions" [])
+instance ToXMLRoot ListDistributions where
+    toXMLRoot = const (element "ListDistributions" [])
+
+instance ToXML ListDistributions
 
 instance AWSRequest ListDistributions where
     type Sv ListDistributions = CloudFront
@@ -114,5 +116,5 @@ instance AWSRequest ListDistributions where
     response = xmlResponse
 
 instance FromXML ListDistributionsResponse where
-    parseXML c = ListDistributionsResponse
-        <$> c .:? "DistributionList"
+    parseXML x = ListDistributionsResponse
+        <$> x .@? "DistributionList"

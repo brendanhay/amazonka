@@ -167,5 +167,5 @@ instance AWSRequest PutScalingPolicy where
     response = xmlResponse
 
 instance FromXML PutScalingPolicyResponse where
-    parseXML c = PutScalingPolicyResponse
-        <$> c .:? "PolicyARN"
+    parseXML x = PutScalingPolicyResponse
+        <$> x .@? "PolicyARN"

@@ -104,5 +104,5 @@ instance AWSRequest GetInstanceProfile where
     response = xmlResponse
 
 instance FromXML GetInstanceProfileResponse where
-    parseXML c = GetInstanceProfileResponse
-        <$> c .: "InstanceProfile"
+    parseXML x = GetInstanceProfileResponse
+        <$> x .@ "InstanceProfile"

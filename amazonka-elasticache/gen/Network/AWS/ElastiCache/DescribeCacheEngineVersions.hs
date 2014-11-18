@@ -168,6 +168,6 @@ instance AWSRequest DescribeCacheEngineVersions where
     response = xmlResponse
 
 instance FromXML DescribeCacheEngineVersionsResponse where
-    parseXML c = DescribeCacheEngineVersionsResponse
-        <$> c .: "CacheEngineVersions"
-        <*> c .:? "Marker"
+    parseXML x = DescribeCacheEngineVersionsResponse
+        <$> x .@ "CacheEngineVersions"
+        <*> x .@? "Marker"

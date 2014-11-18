@@ -109,5 +109,5 @@ instance AWSRequest CreateAccessKey where
     response = xmlResponse
 
 instance FromXML CreateAccessKeyResponse where
-    parseXML c = CreateAccessKeyResponse
-        <$> c .: "AccessKey"
+    parseXML x = CreateAccessKeyResponse
+        <$> x .@ "AccessKey"

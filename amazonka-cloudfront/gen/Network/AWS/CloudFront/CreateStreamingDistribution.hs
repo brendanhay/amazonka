@@ -116,10 +116,12 @@ instance ToQuery CreateStreamingDistribution where
 
 instance ToHeaders CreateStreamingDistribution
 
-instance ToXML CreateStreamingDistribution where
-    toXML CreateStreamingDistribution{..} = node "CreateStreamingDistribution"
-        [ "StreamingDistributionConfig" .= _csdStreamingDistributionConfig
+instance ToXMLRoot CreateStreamingDistribution where
+    toXMLRoot CreateStreamingDistribution{..} = element "CreateStreamingDistribution"
+        [ "StreamingDistributionConfig" =@ _csdStreamingDistributionConfig
         ]
+
+instance ToXML CreateStreamingDistribution
 
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront
@@ -129,4 +131,4 @@ instance AWSRequest CreateStreamingDistribution where
     response = xmlHeaderResponse $ \h x -> CreateStreamingDistributionResponse
         <$> h ~:? "ETag"
         <*> h ~:? "Location"
-        <*> x %| "StreamingDistribution"
+        <*> x .@? "StreamingDistribution"

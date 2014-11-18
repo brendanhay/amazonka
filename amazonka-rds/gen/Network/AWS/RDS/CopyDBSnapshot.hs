@@ -130,5 +130,5 @@ instance AWSRequest CopyDBSnapshot where
     response = xmlResponse
 
 instance FromXML CopyDBSnapshotResponse where
-    parseXML c = CopyDBSnapshotResponse
-        <$> c .:? "DBSnapshot"
+    parseXML x = CopyDBSnapshotResponse
+        <$> x .@? "DBSnapshot"

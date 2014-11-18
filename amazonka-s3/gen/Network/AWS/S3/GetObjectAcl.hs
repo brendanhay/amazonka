@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -117,8 +118,8 @@ instance ToPath GetObjectAcl where
 
 instance ToQuery GetObjectAcl where
     toQuery GetObjectAcl{..} = mconcat
-          [   "acl"
-          ,   "versionId" =? _goaVersionId
+        [ "acl"
+        , "versionId" =? _goaVersionId
         ]
 
 instance ToHeaders GetObjectAcl

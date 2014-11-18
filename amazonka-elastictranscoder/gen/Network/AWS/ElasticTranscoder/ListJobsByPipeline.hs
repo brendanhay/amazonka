@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -128,8 +129,8 @@ instance ToPath ListJobsByPipeline where
 
 instance ToQuery ListJobsByPipeline where
     toQuery ListJobsByPipeline{..} = mconcat
-          [   "Ascending" =? _ljbpAscending
-          ,   "PageToken" =? _ljbpPageToken
+        [ "Ascending" =? _ljbpAscending
+        , "PageToken" =? _ljbpPageToken
         ]
 
 instance ToHeaders ListJobsByPipeline

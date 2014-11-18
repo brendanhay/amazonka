@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -222,9 +223,9 @@ instance ToPath ListParts where
 
 instance ToQuery ListParts where
     toQuery ListParts{..} = mconcat
-          [   "max-parts"          =? _lpMaxParts
-          ,   "part-number-marker" =? _lpPartNumberMarker
-          ,   "uploadId"           =? _lpUploadId
+        [ "max-parts"          =? _lpMaxParts
+        , "part-number-marker" =? _lpPartNumberMarker
+        , "uploadId"           =? _lpUploadId
         ]
 
 instance ToHeaders ListParts

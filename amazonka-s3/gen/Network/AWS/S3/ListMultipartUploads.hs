@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -257,13 +258,13 @@ instance ToPath ListMultipartUploads where
 
 instance ToQuery ListMultipartUploads where
     toQuery ListMultipartUploads{..} = mconcat
-          [   "uploads"
-          ,   "delimiter"        =? _lmuDelimiter
-          ,   "encoding-type"    =? _lmuEncodingType
-          ,   "key-marker"       =? _lmuKeyMarker
-          ,   "max-uploads"      =? _lmuMaxUploads
-          ,   "prefix"           =? _lmuPrefix
-          ,   "upload-id-marker" =? _lmuUploadIdMarker
+        [ "uploads"
+        , "delimiter"        =? _lmuDelimiter
+        , "encoding-type"    =? _lmuEncodingType
+        , "key-marker"       =? _lmuKeyMarker
+        , "max-uploads"      =? _lmuMaxUploads
+        , "prefix"           =? _lmuPrefix
+        , "upload-id-marker" =? _lmuUploadIdMarker
         ]
 
 instance ToHeaders ListMultipartUploads

@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -116,8 +117,8 @@ instance ToPath ListInvalidations where
 
 instance ToQuery ListInvalidations where
     toQuery ListInvalidations{..} = mconcat
-          [   "Marker"   =? _liMarker
-          ,   "MaxItems" =? _liMaxItems
+        [ "Marker"   =? _liMarker
+        , "MaxItems" =? _liMaxItems
         ]
 
 instance ToHeaders ListInvalidations

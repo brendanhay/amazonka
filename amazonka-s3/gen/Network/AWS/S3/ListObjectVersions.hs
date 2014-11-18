@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -255,13 +256,13 @@ instance ToPath ListObjectVersions where
 
 instance ToQuery ListObjectVersions where
     toQuery ListObjectVersions{..} = mconcat
-          [   "versions"
-          ,   "delimiter"         =? _lovDelimiter
-          ,   "encoding-type"     =? _lovEncodingType
-          ,   "key-marker"        =? _lovKeyMarker
-          ,   "max-keys"          =? _lovMaxKeys
-          ,   "prefix"            =? _lovPrefix
-          ,   "version-id-marker" =? _lovVersionIdMarker
+        [ "versions"
+        , "delimiter"         =? _lovDelimiter
+        , "encoding-type"     =? _lovEncodingType
+        , "key-marker"        =? _lovKeyMarker
+        , "max-keys"          =? _lovMaxKeys
+        , "prefix"            =? _lovPrefix
+        , "version-id-marker" =? _lovVersionIdMarker
         ]
 
 instance ToHeaders ListObjectVersions

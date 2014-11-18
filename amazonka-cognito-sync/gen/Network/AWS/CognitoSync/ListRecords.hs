@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -240,10 +241,10 @@ instance ToPath ListRecords where
 
 instance ToQuery ListRecords where
     toQuery ListRecords{..} = mconcat
-          [   "lastSyncCount"    =? _lrLastSyncCount
-          ,   "nextToken"        =? _lrNextToken
-          ,   "maxResults"       =? _lrMaxResults
-          ,   "syncSessionToken" =? _lrSyncSessionToken
+        [ "lastSyncCount"    =? _lrLastSyncCount
+        , "nextToken"        =? _lrNextToken
+        , "maxResults"       =? _lrMaxResults
+        , "syncSessionToken" =? _lrSyncSessionToken
         ]
 
 instance ToHeaders ListRecords

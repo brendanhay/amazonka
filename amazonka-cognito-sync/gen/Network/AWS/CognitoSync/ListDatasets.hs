@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -147,8 +148,8 @@ instance ToPath ListDatasets where
 
 instance ToQuery ListDatasets where
     toQuery ListDatasets{..} = mconcat
-          [   "nextToken"  =? _ldNextToken
-          ,   "maxResults" =? _ldMaxResults
+        [ "nextToken"  =? _ldNextToken
+        , "maxResults" =? _ldMaxResults
         ]
 
 instance ToHeaders ListDatasets

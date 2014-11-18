@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -237,10 +238,10 @@ instance ToPath ListResourceRecordSets where
 
 instance ToQuery ListResourceRecordSets where
     toQuery ListResourceRecordSets{..} = mconcat
-          [   "name"       =? _lrrsStartRecordName
-          ,   "type"       =? _lrrsStartRecordType
-          ,   "identifier" =? _lrrsStartRecordIdentifier
-          ,   "maxitems"   =? _lrrsMaxItems
+        [ "name"       =? _lrrsStartRecordName
+        , "type"       =? _lrrsStartRecordType
+        , "identifier" =? _lrrsStartRecordIdentifier
+        , "maxitems"   =? _lrrsMaxItems
         ]
 
 instance ToHeaders ListResourceRecordSets

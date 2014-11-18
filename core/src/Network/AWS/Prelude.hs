@@ -15,10 +15,6 @@ module Network.AWS.Prelude
     -- * Re-exported
       module Export
 
-    -- * Deriving
-    , Generic
-    , Typeable
-
     -- * Primitives
     , ByteString
     , ClientRequest
@@ -37,6 +33,7 @@ module Network.AWS.Prelude
     , AWSPager        (..)
     , AWSRequest      (..)
     , AWSService      (..)
+    , Generic
     , IsString        (..)
     , Semigroup
     , Whole
@@ -66,7 +63,6 @@ import Data.List.NonEmpty        (NonEmpty)
 import Data.Semigroup            (Semigroup)
 import Data.String               (IsString(..))
 import Data.Text                 (Text)
-import Data.Typeable             (Typeable)
 import GHC.Generics              (Generic)
 import Network.HTTP.Client       (HttpException, RequestBody)
 import Network.HTTP.Types.Status (Status)

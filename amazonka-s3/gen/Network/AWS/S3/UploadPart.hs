@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -245,8 +246,8 @@ instance ToPath UploadPart where
 
 instance ToQuery UploadPart where
     toQuery UploadPart{..} = mconcat
-          [   "partNumber" =? _upPartNumber
-          ,   "uploadId"   =? _upUploadId
+        [ "partNumber" =? _upPartNumber
+        , "uploadId"   =? _upUploadId
         ]
 
 instance ToHeaders UploadPart where

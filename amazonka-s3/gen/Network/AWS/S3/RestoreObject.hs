@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -102,8 +103,8 @@ instance ToPath RestoreObject where
 
 instance ToQuery RestoreObject where
     toQuery RestoreObject{..} = mconcat
-          [   "restore"
-          ,   "versionId" =? _roVersionId
+        [ "restore"
+        , "versionId" =? _roVersionId
         ]
 
 instance ToHeaders RestoreObject

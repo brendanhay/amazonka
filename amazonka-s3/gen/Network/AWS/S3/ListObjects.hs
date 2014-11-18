@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -219,11 +220,11 @@ instance ToPath ListObjects where
 
 instance ToQuery ListObjects where
     toQuery ListObjects{..} = mconcat
-          [   "delimiter"     =? _loDelimiter
-          ,   "encoding-type" =? _loEncodingType
-          ,   "marker"        =? _loMarker
-          ,   "max-keys"      =? _loMaxKeys
-          ,   "prefix"        =? _loPrefix
+        [ "delimiter"     =? _loDelimiter
+        , "encoding-type" =? _loEncodingType
+        , "marker"        =? _loMarker
+        , "max-keys"      =? _loMaxKeys
+        , "prefix"        =? _loPrefix
         ]
 
 instance ToHeaders ListObjects

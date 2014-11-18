@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -303,13 +304,13 @@ instance ToPath UploadFunction where
 
 instance ToQuery UploadFunction where
     toQuery UploadFunction{..} = mconcat
-          [   "Runtime"     =? _ufRuntime
-          ,   "Role"        =? _ufRole
-          ,   "Handler"     =? _ufHandler
-          ,   "Mode"        =? _ufMode
-          ,   "Description" =? _ufDescription
-          ,   "Timeout"     =? _ufTimeout
-          ,   "MemorySize"  =? _ufMemorySize
+        [ "Runtime"     =? _ufRuntime
+        , "Role"        =? _ufRole
+        , "Handler"     =? _ufHandler
+        , "Mode"        =? _ufMode
+        , "Description" =? _ufDescription
+        , "Timeout"     =? _ufTimeout
+        , "MemorySize"  =? _ufMemorySize
         ]
 
 instance ToHeaders UploadFunction

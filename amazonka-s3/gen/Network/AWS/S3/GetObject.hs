@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -496,13 +497,13 @@ instance ToPath GetObject where
 
 instance ToQuery GetObject where
     toQuery GetObject{..} = mconcat
-          [   "response-cache-control"       =? _goResponseCacheControl
-          ,   "response-content-disposition" =? _goResponseContentDisposition
-          ,   "response-content-encoding"    =? _goResponseContentEncoding
-          ,   "response-content-language"    =? _goResponseContentLanguage
-          ,   "response-content-type"        =? _goResponseContentType
-          ,   "response-expires"             =? _goResponseExpires
-          ,   "versionId"                    =? _goVersionId
+        [ "response-cache-control"       =? _goResponseCacheControl
+        , "response-content-disposition" =? _goResponseContentDisposition
+        , "response-content-encoding"    =? _goResponseContentEncoding
+        , "response-content-language"    =? _goResponseContentLanguage
+        , "response-content-type"        =? _goResponseContentType
+        , "response-expires"             =? _goResponseExpires
+        , "versionId"                    =? _goVersionId
         ]
 
 instance ToHeaders GetObject where

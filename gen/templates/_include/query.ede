@@ -27,11 +27,11 @@ instance ToQuery {{ request.name }} where
     {% for qry in request.query %}
       {% case qry.value.type %}
       {% when "var" %}
-          {% if qry.first %}[  {% else %},  {% endif %} toText {{ qry.value.value }}
+        {% include "list.ede" with field = qry %} toText {{ qry.value.value }}
       {% when "const" %}
-          {% if qry.first %}[  {% else %},  {% endif %} "{{ qry.value.value }}"
+        {% include "list.ede" with field = qry %} "{{ qry.value.value }}"
       {% when "field" %}
-          {% if qry.first %}[  {% else %},  {% endif %} "{{ qry.value.locationName  | concat("\"") | justifyLeft(request.queryPad) }} =? {{ qry.value.field }}
+        {% include "list.ede" with field = qry %} "{{ qry.value.locationName  | concat("\"") | justifyLeft(request.queryPad) }} =? {{ qry.value.field }}
       {% endcase %}
     {% endfor %}
     {% if (request.query | length) > 0 %}

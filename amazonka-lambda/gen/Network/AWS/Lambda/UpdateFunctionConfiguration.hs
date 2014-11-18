@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
@@ -263,11 +264,11 @@ instance ToPath UpdateFunctionConfiguration where
 
 instance ToQuery UpdateFunctionConfiguration where
     toQuery UpdateFunctionConfiguration{..} = mconcat
-          [   "Role"        =? _ufcRole
-          ,   "Handler"     =? _ufcHandler
-          ,   "Description" =? _ufcDescription
-          ,   "Timeout"     =? _ufcTimeout
-          ,   "MemorySize"  =? _ufcMemorySize
+        [ "Role"        =? _ufcRole
+        , "Handler"     =? _ufcHandler
+        , "Description" =? _ufcDescription
+        , "Timeout"     =? _ufcTimeout
+        , "MemorySize"  =? _ufcMemorySize
         ]
 
 instance ToHeaders UpdateFunctionConfiguration

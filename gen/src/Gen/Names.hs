@@ -95,4 +95,5 @@ reserved x
         , "true"
         , "false"
         , "map"
+        , "object"
         ]

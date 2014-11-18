@@ -159,7 +159,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2013-04-15@) of the Amazon Support.
+-- | Version @2013-04-15@ of the Amazon Support service.
 data Support deriving (Typeable)
 
 instance AWSService Support where

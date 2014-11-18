@@ -1,3 +1,5 @@
+Split into amazonka-core and amazonka?
+
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Data.Internal.JSON

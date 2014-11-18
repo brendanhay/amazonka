@@ -266,7 +266,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-09-25@) of the Amazon Elastic Transcoder.
+-- | Version @2012-09-25@ of the Amazon Elastic Transcoder service.
 data ElasticTranscoder deriving (Typeable)
 
 instance AWSService ElasticTranscoder where

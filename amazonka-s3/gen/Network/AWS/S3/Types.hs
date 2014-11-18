@@ -418,7 +418,7 @@ import Network.AWS.Signing.V4
 import Network.AWS.S3.Internal
 import qualified GHC.Exts
 
--- | Supported version (@2006-03-01@) of the Amazon Simple Storage Service.
+-- | Version @2006-03-01@ of the Amazon Simple Storage Service service.
 data S3 deriving (Typeable)
 
 instance AWSService S3 where

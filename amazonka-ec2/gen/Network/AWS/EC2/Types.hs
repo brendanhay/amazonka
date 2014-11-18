@@ -1397,7 +1397,7 @@ import Network.AWS.Signing.V4
 import Network.AWS.EC2.Internal
 import qualified GHC.Exts
 
--- | Supported version (@2014-09-01@) of the Amazon Elastic Compute Cloud.
+-- | Version @2014-09-01@ of the Amazon Elastic Compute Cloud service.
 data EC2 deriving (Typeable)
 
 instance AWSService EC2 where

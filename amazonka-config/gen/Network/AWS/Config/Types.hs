@@ -125,7 +125,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-11-12@) of the Amazon Config.
+-- | Version @2014-11-12@ of the Amazon Config service.
 data Config deriving (Typeable)
 
 instance AWSService Config where

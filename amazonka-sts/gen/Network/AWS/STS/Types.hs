@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2011-06-15@) of the Amazon Security Token Service.
+-- | Version @2011-06-15@ of the Amazon Security Token Service service.
 data STS deriving (Typeable)
 
 instance AWSService STS where

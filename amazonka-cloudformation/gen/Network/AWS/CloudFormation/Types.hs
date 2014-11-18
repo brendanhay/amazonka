@@ -165,7 +165,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2010-05-15@) of the Amazon CloudFormation.
+-- | Version @2010-05-15@ of the Amazon CloudFormation service.
 data CloudFormation deriving (Typeable)
 
 instance AWSService CloudFormation where

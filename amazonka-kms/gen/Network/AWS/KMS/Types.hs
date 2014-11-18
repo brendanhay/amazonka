@@ -82,7 +82,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-11-01@) of the Amazon Key Management Service.
+-- | Version @2014-11-01@ of the Amazon Key Management Service service.
 data KMS deriving (Typeable)
 
 instance AWSService KMS where

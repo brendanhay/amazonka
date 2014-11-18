@@ -268,7 +268,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2010-12-01@) of the Amazon Elastic Beanstalk.
+-- | Version @2010-12-01@ of the Amazon Elastic Beanstalk service.
 data ElasticBeanstalk deriving (Typeable)
 
 instance AWSService ElasticBeanstalk where

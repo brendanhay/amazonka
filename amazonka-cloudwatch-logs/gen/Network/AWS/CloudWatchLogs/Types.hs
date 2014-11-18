@@ -90,7 +90,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-03-28@) of the Amazon CloudWatch Logs.
+-- | Version @2014-03-28@ of the Amazon CloudWatch Logs service.
 data CloudWatchLogs deriving (Typeable)
 
 instance AWSService CloudWatchLogs where

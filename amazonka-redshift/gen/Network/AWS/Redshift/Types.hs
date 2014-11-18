@@ -359,7 +359,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-12-01@) of the Amazon Redshift.
+-- | Version @2012-12-01@ of the Amazon Redshift service.
 data Redshift deriving (Typeable)
 
 instance AWSService Redshift where

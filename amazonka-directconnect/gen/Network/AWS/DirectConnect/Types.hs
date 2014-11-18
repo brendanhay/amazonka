@@ -149,7 +149,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-10-25@) of the Amazon Direct Connect.
+-- | Version @2012-10-25@ of the Amazon Direct Connect service.
 data DirectConnect deriving (Typeable)
 
 instance AWSService DirectConnect where

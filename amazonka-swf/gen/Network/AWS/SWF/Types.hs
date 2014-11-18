@@ -781,7 +781,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-01-25@) of the Amazon Simple Workflow Service.
+-- | Version @2012-01-25@ of the Amazon Simple Workflow Service service.
 data SWF deriving (Typeable)
 
 instance AWSService SWF where

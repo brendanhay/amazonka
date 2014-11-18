@@ -252,7 +252,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2011-01-01@) of the Amazon Auto Scaling.
+-- | Version @2011-01-01@ of the Amazon Auto Scaling service.
 data AutoScaling deriving (Typeable)
 
 instance AWSService AutoScaling where

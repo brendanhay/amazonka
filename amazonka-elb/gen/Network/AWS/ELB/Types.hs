@@ -211,7 +211,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-06-01@) of the Amazon Elastic Load Balancing.
+-- | Version @2012-06-01@ of the Amazon Elastic Load Balancing service.
 data ELB deriving (Typeable)
 
 instance AWSService ELB where

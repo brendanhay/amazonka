@@ -96,7 +96,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2013-01-01@) of the Amazon CloudSearch Domain.
+-- | Version @2013-01-01@ of the Amazon CloudSearch Domain service.
 data CloudSearchDomains deriving (Typeable)
 
 instance AWSService CloudSearchDomains where

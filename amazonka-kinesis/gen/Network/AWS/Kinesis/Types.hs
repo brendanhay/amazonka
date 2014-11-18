@@ -82,7 +82,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2013-12-02@) of the Amazon Kinesis.
+-- | Version @2013-12-02@ of the Amazon Kinesis service.
 data Kinesis deriving (Typeable)
 
 instance AWSService Kinesis where

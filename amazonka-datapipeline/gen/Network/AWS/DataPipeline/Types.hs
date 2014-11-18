@@ -110,7 +110,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-10-29@) of the Amazon Data Pipeline.
+-- | Version @2012-10-29@ of the Amazon Data Pipeline service.
 data DataPipeline deriving (Typeable)
 
 instance AWSService DataPipeline where

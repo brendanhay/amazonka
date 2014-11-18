@@ -178,7 +178,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2010-05-08@) of the Amazon Identity and Access Management.
+-- | Version @2010-05-08@ of the Amazon Identity and Access Management service.
 data IAM deriving (Typeable)
 
 instance AWSService IAM where

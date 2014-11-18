@@ -187,7 +187,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V3
 import qualified GHC.Exts
 
--- | Supported version (@2013-04-01@) of the Amazon Route 53.
+-- | Version @2013-04-01@ of the Amazon Route 53 service.
 data Route53 deriving (Typeable)
 
 instance AWSService Route53 where

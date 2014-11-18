@@ -97,7 +97,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-05-15@) of the Amazon Route 53 Domains.
+-- | Version @2014-05-15@ of the Amazon Route 53 Domains service.
 data Route53Domains deriving (Typeable)
 
 instance AWSService Route53Domains where

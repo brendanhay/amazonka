@@ -168,7 +168,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2013-06-30@) of the Amazon Storage Gateway.
+-- | Version @2013-06-30@ of the Amazon Storage Gateway service.
 data StorageGateway deriving (Typeable)
 
 instance AWSService StorageGateway where

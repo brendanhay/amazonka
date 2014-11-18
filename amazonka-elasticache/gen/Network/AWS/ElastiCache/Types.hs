@@ -327,7 +327,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-09-30@) of the Amazon ElastiCache.
+-- | Version @2014-09-30@ of the Amazon ElastiCache service.
 data ElastiCache deriving (Typeable)
 
 instance AWSService ElastiCache where

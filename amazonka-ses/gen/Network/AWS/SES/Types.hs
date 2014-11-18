@@ -101,7 +101,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2010-12-01@) of the Amazon Simple Email Service.
+-- | Version @2010-12-01@ of the Amazon Simple Email Service service.
 data SES deriving (Typeable)
 
 instance AWSService SES where

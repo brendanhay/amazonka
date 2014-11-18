@@ -1,4 +1,4 @@
--- | Supported version (@{{ service.version }}@) of the {{ service.name }}.
+-- | Version @{{ service.version }}@ of the {{ service.name }} service.
 data {{ service.abbrev }} deriving (Typeable)
 
 instance AWSService {{ service.abbrev }} where

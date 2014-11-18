@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V2
 import qualified GHC.Exts
 
--- | Supported version (@2010-06-01@) of the Amazon Import/Export.
+-- | Version @2010-06-01@ of the Amazon Import/Export service.
 data ImportExport deriving (Typeable)
 
 instance AWSService ImportExport where

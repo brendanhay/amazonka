@@ -394,7 +394,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-05-31@) of the Amazon CloudFront.
+-- | Version @2014-05-31@ of the Amazon CloudFront service.
 data CloudFront deriving (Typeable)
 
 instance AWSService CloudFront where

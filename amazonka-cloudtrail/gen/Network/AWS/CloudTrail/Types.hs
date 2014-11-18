@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2013-11-01@) of the Amazon CloudTrail.
+-- | Version @2013-11-01@ of the Amazon CloudTrail service.
 data CloudTrail deriving (Typeable)
 
 instance AWSService CloudTrail where

@@ -129,7 +129,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2010-08-01@) of the Amazon CloudWatch.
+-- | Version @2010-08-01@ of the Amazon CloudWatch service.
 data CloudWatch deriving (Typeable)
 
 instance AWSService CloudWatch where

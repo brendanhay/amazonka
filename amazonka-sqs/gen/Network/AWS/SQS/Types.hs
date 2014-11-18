@@ -102,7 +102,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2012-11-05@) of the Amazon Simple Queue Service.
+-- | Version @2012-11-05@ of the Amazon Simple Queue Service service.
 data SQS deriving (Typeable)
 
 instance AWSService SQS where

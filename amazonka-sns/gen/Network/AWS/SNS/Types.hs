@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2010-03-31@) of the Amazon Simple Notification Service.
+-- | Version @2010-03-31@ of the Amazon Simple Notification Service service.
 data SNS deriving (Typeable)
 
 instance AWSService SNS where

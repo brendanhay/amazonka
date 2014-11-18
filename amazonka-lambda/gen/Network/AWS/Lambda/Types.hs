@@ -74,7 +74,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-11-11@) of the Amazon Lambda.
+-- | Version @2014-11-11@ of the Amazon Lambda service.
 data Lambda deriving (Typeable)
 
 instance AWSService Lambda where

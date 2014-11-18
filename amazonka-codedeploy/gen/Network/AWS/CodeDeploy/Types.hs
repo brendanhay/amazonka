@@ -218,7 +218,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
--- | Supported version (@2014-10-06@) of the Amazon CodeDeploy.
+-- | Version @2014-10-06@ of the Amazon CodeDeploy service.
 data CodeDeploy deriving (Typeable)
 
 instance AWSService CodeDeploy where

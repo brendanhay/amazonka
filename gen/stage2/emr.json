@@ -8648,7 +8648,11 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Tag",
+            "StepConfig"
+        ]
     },
     "operations": [
         {

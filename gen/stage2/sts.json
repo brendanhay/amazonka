@@ -332,7 +332,11 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Credentials",
+            "AssumedRoleUser"
+        ]
     },
     "operations": [
         {

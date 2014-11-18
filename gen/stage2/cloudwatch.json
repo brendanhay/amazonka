@@ -1734,7 +1734,11 @@
                 "branchPad": 11
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "MetricAlarm",
+            "Dimension"
+        ]
     },
     "operations": [
         {

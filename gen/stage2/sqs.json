@@ -1180,7 +1180,10 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "BatchResultErrorEntry"
+        ]
     },
     "operations": [
         {

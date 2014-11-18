@@ -195,7 +195,8 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": []
     },
     "operations": [
         {

@@ -17205,7 +17205,20 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "ExecutionTimeFilter",
+            "WorkflowExecutionCount",
+            "CloseStatusFilter",
+            "WorkflowExecutionFilter",
+            "WorkflowExecutionInfos",
+            "TaskList",
+            "WorkflowExecutionInfo",
+            "TagFilter",
+            "WorkflowTypeFilter",
+            "HistoryEvent",
+            "PendingTaskCount"
+        ]
     },
     "operations": [
         {

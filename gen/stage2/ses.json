@@ -994,7 +994,8 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": []
     },
     "operations": [
         {

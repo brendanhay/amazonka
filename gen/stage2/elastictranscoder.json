@@ -6348,7 +6348,15 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "PipelineOutputConfig",
+            "Job'",
+            "CreateJobOutput",
+            "Pipeline",
+            "Preset",
+            "Notifications"
+        ]
     },
     "operations": [
         {

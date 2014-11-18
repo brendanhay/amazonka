@@ -4137,7 +4137,12 @@
                 "branchPad": 31
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Tag",
+            "ScalingProcessQuery",
+            "Activity"
+        ]
     },
     "operations": [
         {

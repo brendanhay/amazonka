@@ -1624,7 +1624,11 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Nameserver",
+            "ContactDetail"
+        ]
     },
     "operations": [
         {

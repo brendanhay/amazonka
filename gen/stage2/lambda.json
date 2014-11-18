@@ -1118,7 +1118,11 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "FunctionConfiguration",
+            "EventSourceConfiguration"
+        ]
     },
     "operations": [
         {

@@ -2474,7 +2474,10 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Parameter"
+        ]
     },
     "operations": [
         {

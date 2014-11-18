@@ -1086,7 +1086,10 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "KeyMetadata"
+        ]
     },
     "operations": [
         {

@@ -3854,7 +3854,14 @@
                 "branchPad": 11
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "ApplicationInfo",
+            "AutoScalingGroup",
+            "RevisionLocation",
+            "EC2TagFilter",
+            "DeploymentInfo"
+        ]
     },
     "operations": [
         {

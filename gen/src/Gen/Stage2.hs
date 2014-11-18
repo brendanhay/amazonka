@@ -722,6 +722,7 @@ data Types = Types
     { _tNamespace :: !NS
     , _tImports   :: [NS]
     , _tTypes     :: [Data]
+    , _tShared    :: HashSet Text
     } deriving (Eq, Show)
 
 record stage2 ''Types

@@ -3050,7 +3050,14 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "VirtualInterface",
+            "Connections",
+            "Connection",
+            "Interconnect",
+            "RouteFilterPrefix"
+        ]
     },
     "operations": [
         {

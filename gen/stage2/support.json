@@ -3015,7 +3015,10 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Attachment"
+        ]
     },
     "operations": [
         {

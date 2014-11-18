@@ -545,7 +545,10 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "IdentityPool"
+        ]
     },
     "operations": [
         {

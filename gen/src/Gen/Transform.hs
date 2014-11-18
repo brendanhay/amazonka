@@ -25,7 +25,6 @@ import           Control.Error
 import           Control.Lens               hiding (op, ignored, filtered, indexed)
 import           Control.Monad
 import           Control.Monad.State.Strict
-import           Data.Bifunctor
 import qualified Data.CaseInsensitive       as CI
 import           Data.Char
 import           Data.HashMap.Strict        (HashMap)
@@ -82,6 +81,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         { _tNamespace = typesNamespace
         , _tImports   = overrides ^. oTypesModules
         , _tTypes     = filter (not . isVoid) (Map.elems ts)
+        , _tShared    = share
         }
 
     typesNamespace = typesNS abbrev
@@ -96,7 +96,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
     protocol = s1 ^. mProtocol
     version  = s1 ^. mApiVersion
 
-    (ops, ts) = dataTypes overrides abbrev s1
+    (ops, ts, share) = dataTypes overrides abbrev s1
 
     help = Doc (s1 ^. s1Documentation)
 
@@ -117,17 +117,20 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 dataTypes :: Overrides
           -> Abbrev
           -> Stage1
-          -> ([Operation], HashMap Text Data)
-dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
+          -> ([Operation], HashMap Text Data, HashSet Text)
+dataTypes o a s1 = res (runState run ds)
   where
+    res (x, y) = (sort (Map.elems x), y, ss)
+
     run = Map.traverseWithKey
         (operation a proto url (o ^. oOperationsModules) ss (s1 ^. s1Pagination))
         (s1' ^. s1Operations)
 
     (s1', prefixed -> ds) = runState (requests s1 ss) datas
 
-    ss = evalState (shared s1) datas
+    ss = evalState share datas
 
+    share = shared s1
     datas = overriden overrides (shapes proto (s1 ^. s1Shapes))
 
     proto     = s1 ^. mProtocol

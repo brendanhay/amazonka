@@ -2610,7 +2610,13 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Group",
+            "InstanceProfile",
+            "ServerCertificateMetadata",
+            "User"
+        ]
     },
     "operations": [
         {

@@ -654,7 +654,11 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Attribute",
+            "UpdateCondition"
+        ]
     },
     "operations": [
         {

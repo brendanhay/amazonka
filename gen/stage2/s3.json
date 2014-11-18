@@ -7257,6 +7257,13 @@
         ],
         "imports": [
             "Network.AWS.S3.Internal"
+        ],
+        "shared": [
+            "S3ServiceError",
+            "Grant",
+            "Owner",
+            "CommonPrefix",
+            "AccessControlPolicy"
         ]
     },
     "operations": [

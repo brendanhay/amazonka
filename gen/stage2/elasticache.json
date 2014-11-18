@@ -5267,7 +5267,18 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Snapshot",
+            "ParameterNameValue",
+            "CacheSubnetGroup",
+            "ReservedCacheNode",
+            "CacheCluster",
+            "CacheParameterGroup",
+            "CacheSecurityGroup",
+            "ReplicationGroup",
+            "CacheParameterGroupNameMessage"
+        ]
     },
     "operations": [
         {

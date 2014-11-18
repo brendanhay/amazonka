@@ -3541,7 +3541,8 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": []
     },
     "operations": [
         {

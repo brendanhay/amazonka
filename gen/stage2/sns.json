@@ -564,7 +564,10 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Subscription"
+        ]
     },
     "operations": [
         {

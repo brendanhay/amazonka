@@ -3328,7 +3328,12 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "VPC",
+            "DelegationSet",
+            "HealthCheckObservation"
+        ]
     },
     "operations": [
         {

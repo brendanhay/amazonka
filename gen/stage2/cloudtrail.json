@@ -365,7 +365,8 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": []
     },
     "operations": [
         {

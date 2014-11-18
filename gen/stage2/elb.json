@@ -2870,7 +2870,13 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Tag",
+            "LoadBalancerAttributes",
+            "Listener",
+            "Instance"
+        ]
     },
     "operations": [
         {

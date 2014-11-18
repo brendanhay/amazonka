@@ -3782,7 +3782,19 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "ApplicationDescription",
+            "ApplicationVersionDescriptionMessage",
+            "ConfigurationOptionSetting",
+            "ConfigurationSettingsDescription",
+            "ApplicationVersionDescription",
+            "OptionSpecification",
+            "ApplicationDescriptionMessage",
+            "EnvironmentTier",
+            "EnvironmentResourcesDescription",
+            "EnvironmentDescription"
+        ]
     },
     "operations": [
         {

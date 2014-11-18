@@ -11093,7 +11093,17 @@
                 "branchPad": 6
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "SslConfiguration",
+            "ChefConfiguration",
+            "AutoScalingThresholds",
+            "Source",
+            "DataSource",
+            "StackConfigurationManager",
+            "VolumeConfiguration",
+            "Recipes"
+        ]
     },
     "operations": [
         {

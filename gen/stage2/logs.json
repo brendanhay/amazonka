@@ -1428,7 +1428,8 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": []
     },
     "operations": [
         {

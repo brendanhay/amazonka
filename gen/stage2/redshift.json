@@ -6035,7 +6035,21 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Snapshot",
+            "ClusterParameterGroup",
+            "HsmClientCertificate",
+            "Cluster",
+            "ClusterSecurityGroup",
+            "ClusterSubnetGroup",
+            "ReservedNode",
+            "LoggingStatus",
+            "EventSubscription",
+            "ClusterParameterGroupNameMessage",
+            "HsmConfiguration",
+            "Parameter"
+        ]
     },
     "operations": [
         {

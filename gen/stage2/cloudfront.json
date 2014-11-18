@@ -8386,7 +8386,13 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "Invalidation",
+            "Distribution",
+            "StreamingDistribution",
+            "CloudFrontOriginAccessIdentity"
+        ]
     },
     "operations": [
         {

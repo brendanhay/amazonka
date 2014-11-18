@@ -1443,7 +1443,13 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "IdentityPoolUsage",
+            "Dataset",
+            "Record",
+            "PushSync"
+        ]
     },
     "operations": [
         {

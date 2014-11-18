@@ -4186,7 +4186,17 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "WriteRequest",
+            "AttributeValue",
+            "TableDescription",
+            "KeysAndAttributes",
+            "ExpectedAttributeValue",
+            "ItemCollectionMetrics",
+            "ConsumedCapacity",
+            "Condition"
+        ]
     },
     "operations": [
         {

@@ -4381,7 +4381,11 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [],
+        "shared": [
+            "DomainStatus",
+            "AvailabilityOptionsStatus"
+        ]
     },
     "operations": [
         {

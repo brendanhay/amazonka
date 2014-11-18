@@ -121,19 +121,12 @@ findElem n = listToMaybe . mapMaybe f
     f _     = Nothing
 {-# INLINE findElem #-}
 
-withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a
-withNode n f = \case
-    [x] -> f x
-    []  -> Left $ "empty nodes when parsing " ++ n
-    _   -> Left $ "encountered many nodes, expected one, when parsing " ++ n
-{-# INLINE withNode #-}
-
-withElem :: String -> (Element -> Either String a) -> [Node] -> Either String a
-withElem n f = withNode n (join . fmap f . g)
-  where
-    g (NodeElement x) = Right x
-    g _               = Left $ "expected node element, when parsing " ++ n
-{-# INLINE withElem #-}
+-- withElem :: String -> (Element -> Either String a) -> [Node] -> Either String a
+-- withElem n f = withNode n (join . fmap f . g)
+--   where
+--     g (NodeElement x) = Right x
+--     g _               = Left $ "expected node element, when parsing " ++ n
+-- {-# INLINE withElem #-}
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
 withContent n f = withNode n (join . fmap f . g)
@@ -141,6 +134,13 @@ withContent n f = withNode n (join . fmap f . g)
     g (NodeContent x) = Right x
     g _               = Left $ "expected node content, when parsing" ++ n
 {-# INLINE withContent #-}
+
+withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a
+withNode n f = \case
+    [x] -> f x
+    []  -> Left $ "empty nodes when parsing " ++ n
+    _   -> Left $ "encountered many nodes, expected one, when parsing " ++ n
+{-# INLINE withNode #-}
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -173,7 +173,7 @@ class ToXMLRoot a where
 class ToXML a where
     toXML :: a -> [Node]
 
-    default ToXMLRoot a => a -> [Node]
+    default toXML :: ToXMLRoot a => a -> [Node]
     toXML = (:[]) . NodeElement . toXMLRoot
 
 instance ToXML a => ToXML (Maybe a) where

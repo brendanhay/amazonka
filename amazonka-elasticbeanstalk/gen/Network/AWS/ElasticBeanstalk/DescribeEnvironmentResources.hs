@@ -115,5 +115,6 @@ instance AWSRequest DescribeEnvironmentResources where
     response = xmlResponse
 
 instance FromXML DescribeEnvironmentResourcesResponse where
-    parseXML x = DescribeEnvironmentResourcesResponse
-        <$> x .@? "EnvironmentResources"
+    parseXML = withElement "DescribeEnvironmentResourcesResult" $ \x ->
+        DescribeEnvironmentResourcesResponse
+            <$> x .@? "EnvironmentResources"

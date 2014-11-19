@@ -129,6 +129,7 @@ instance AWSRequest ModifyClusterParameterGroup where
     response = xmlResponse
 
 instance FromXML ModifyClusterParameterGroupResponse where
-    parseXML x = ModifyClusterParameterGroupResponse
-        <$> x .@? "ParameterGroupName"
-        <*> x .@? "ParameterGroupStatus"
+    parseXML = withElement "ModifyClusterParameterGroupResult" $ \x ->
+        ModifyClusterParameterGroupResponse
+            <$> x .@? "ParameterGroupName"
+            <*> x .@? "ParameterGroupStatus"

@@ -99,5 +99,6 @@ instance AWSRequest DeleteEventSubscription where
     response = xmlResponse
 
 instance FromXML DeleteEventSubscriptionResponse where
-    parseXML x = DeleteEventSubscriptionResponse
-        <$> x .@? "EventSubscription"
+    parseXML = withElement "DeleteEventSubscriptionResult" $ \x ->
+        DeleteEventSubscriptionResponse
+            <$> x .@? "EventSubscription"

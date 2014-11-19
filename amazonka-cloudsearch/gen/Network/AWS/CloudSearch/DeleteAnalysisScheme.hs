@@ -111,5 +111,6 @@ instance AWSRequest DeleteAnalysisScheme where
     response = xmlResponse
 
 instance FromXML DeleteAnalysisSchemeResponse where
-    parseXML x = DeleteAnalysisSchemeResponse
-        <$> x .@ "AnalysisScheme"
+    parseXML = withElement "DeleteAnalysisSchemeResult" $ \x ->
+        DeleteAnalysisSchemeResponse
+            <$> x .@ "AnalysisScheme"

@@ -118,5 +118,6 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod where
     response = xmlResponse
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
-    parseXML x = ModifySnapshotCopyRetentionPeriodResponse
-        <$> x .@? "Cluster"
+    parseXML = withElement "ModifySnapshotCopyRetentionPeriodResult" $ \x ->
+        ModifySnapshotCopyRetentionPeriodResponse
+            <$> x .@? "Cluster"

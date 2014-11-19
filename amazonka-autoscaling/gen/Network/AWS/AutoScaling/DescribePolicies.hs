@@ -143,6 +143,7 @@ instance AWSRequest DescribePolicies where
     response = xmlResponse
 
 instance FromXML DescribePoliciesResponse where
-    parseXML x = DescribePoliciesResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "ScalingPolicies"
+    parseXML = withElement "DescribePoliciesResult" $ \x ->
+        DescribePoliciesResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "ScalingPolicies"

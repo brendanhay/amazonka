@@ -167,6 +167,7 @@ instance AWSRequest DescribeScheduledActions where
     response = xmlResponse
 
 instance FromXML DescribeScheduledActionsResponse where
-    parseXML x = DescribeScheduledActionsResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "ScheduledUpdateGroupActions"
+    parseXML = withElement "DescribeScheduledActionsResult" $ \x ->
+        DescribeScheduledActionsResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "ScheduledUpdateGroupActions"

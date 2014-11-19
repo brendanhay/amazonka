@@ -153,10 +153,11 @@ instance AWSRequest DescribeLoggingStatus where
     response = xmlResponse
 
 instance FromXML DescribeLoggingStatusResponse where
-    parseXML x = DescribeLoggingStatusResponse
-        <$> x .@? "BucketName"
-        <*> x .@? "LastFailureMessage"
-        <*> x .@? "LastFailureTime"
-        <*> x .@? "LastSuccessfulDeliveryTime"
-        <*> x .@? "LoggingEnabled"
-        <*> x .@? "S3KeyPrefix"
+    parseXML = withElement "DescribeLoggingStatusResult" $ \x ->
+        DescribeLoggingStatusResponse
+            <$> x .@? "BucketName"
+            <*> x .@? "LastFailureMessage"
+            <*> x .@? "LastFailureTime"
+            <*> x .@? "LastSuccessfulDeliveryTime"
+            <*> x .@? "LoggingEnabled"
+            <*> x .@? "S3KeyPrefix"

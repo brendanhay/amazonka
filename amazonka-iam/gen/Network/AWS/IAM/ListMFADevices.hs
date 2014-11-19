@@ -148,7 +148,8 @@ instance AWSRequest ListMFADevices where
     response = xmlResponse
 
 instance FromXML ListMFADevicesResponse where
-    parseXML x = ListMFADevicesResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@ "MFADevices"
-        <*> x .@? "Marker"
+    parseXML = withElement "ListMFADevicesResult" $ \x ->
+        ListMFADevicesResponse
+            <$> x .@? "IsTruncated"
+            <*> x .@ "MFADevices"
+            <*> x .@? "Marker"

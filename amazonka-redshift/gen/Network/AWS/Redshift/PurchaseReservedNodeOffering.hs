@@ -115,5 +115,6 @@ instance AWSRequest PurchaseReservedNodeOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
-    parseXML x = PurchaseReservedNodeOfferingResponse
-        <$> x .@? "ReservedNode"
+    parseXML = withElement "PurchaseReservedNodeOfferingResult" $ \x ->
+        PurchaseReservedNodeOfferingResponse
+            <$> x .@? "ReservedNode"

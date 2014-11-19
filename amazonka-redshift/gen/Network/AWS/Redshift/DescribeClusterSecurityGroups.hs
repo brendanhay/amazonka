@@ -151,6 +151,7 @@ instance AWSRequest DescribeClusterSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
-    parseXML x = DescribeClusterSecurityGroupsResponse
-        <$> x .@ "ClusterSecurityGroups"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeClusterSecurityGroupsResult" $ \x ->
+        DescribeClusterSecurityGroupsResponse
+            <$> x .@ "ClusterSecurityGroups"
+            <*> x .@? "Marker"

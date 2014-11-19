@@ -114,5 +114,6 @@ instance AWSRequest UpdateScalingParameters where
     response = xmlResponse
 
 instance FromXML UpdateScalingParametersResponse where
-    parseXML x = UpdateScalingParametersResponse
-        <$> x .@ "ScalingParameters"
+    parseXML = withElement "UpdateScalingParametersResult" $ \x ->
+        UpdateScalingParametersResponse
+            <$> x .@ "ScalingParameters"

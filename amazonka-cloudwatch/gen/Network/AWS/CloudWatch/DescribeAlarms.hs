@@ -157,6 +157,7 @@ instance AWSRequest DescribeAlarms where
     response = xmlResponse
 
 instance FromXML DescribeAlarmsResponse where
-    parseXML x = DescribeAlarmsResponse
-        <$> x .@ "MetricAlarms"
-        <*> x .@? "NextToken"
+    parseXML = withElement "DescribeAlarmsResult" $ \x ->
+        DescribeAlarmsResponse
+            <$> x .@ "MetricAlarms"
+            <*> x .@? "NextToken"

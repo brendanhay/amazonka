@@ -82,7 +82,7 @@ ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrDomainNames :: [Text]
+    { _ldrDomainNames :: Flatten [Text]
     , _ldrNextToken   :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -94,15 +94,17 @@ data ListDomainsResponse = ListDomainsResponse
 --
 -- * 'ldrNextToken' @::@ 'Maybe' 'Text'
 --
-listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse
-    { _ldrDomainNames = mempty
+listDomainsResponse :: [Text] -- ^ 'ldrDomainNames'
+                    -> ListDomainsResponse
+listDomainsResponse p1 = ListDomainsResponse
+    { _ldrDomainNames = withIso _Flatten (const id) p1
     , _ldrNextToken   = Nothing
     }
 
 -- | A list of domain names that match the expression.
 ldrDomainNames :: Lens' ListDomainsResponse [Text]
 ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
+    . _Flatten
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
@@ -124,6 +126,7 @@ instance AWSRequest ListDomains where
     response = xmlResponse
 
 instance FromXML ListDomainsResponse where
-    parseXML x = ListDomainsResponse
-        <$> x .@ "DomainNames"
-        <*> x .@? "NextToken"
+    parseXML = withElement "ListDomainsResult" $ \x ->
+        ListDomainsResponse
+            <$> parseXML x
+            <*> x .@? "NextToken"

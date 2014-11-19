@@ -120,8 +120,8 @@ loPrefix :: Lens' ListObjects (Maybe Text)
 loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
 
 data ListObjectsResponse = ListObjectsResponse
-    { _lorCommonPrefixes :: [CommonPrefix]
-    , _lorContents       :: [Object]
+    { _lorCommonPrefixes :: Flatten [CommonPrefix]
+    , _lorContents       :: Flatten [Object]
     , _lorDelimiter      :: Maybe Text
     , _lorEncodingType   :: Maybe Text
     , _lorIsTruncated    :: Maybe Bool
@@ -156,26 +156,30 @@ data ListObjectsResponse = ListObjectsResponse
 --
 -- * 'lorPrefix' @::@ 'Maybe' 'Text'
 --
-listObjectsResponse :: ListObjectsResponse
-listObjectsResponse = ListObjectsResponse
-    { _lorIsTruncated    = Nothing
+listObjectsResponse :: [Object] -- ^ 'lorContents'
+                    -> [CommonPrefix] -- ^ 'lorCommonPrefixes'
+                    -> ListObjectsResponse
+listObjectsResponse p1 p2 = ListObjectsResponse
+    { _lorContents       = withIso _Flatten (const id) p1
+    , _lorCommonPrefixes = withIso _Flatten (const id) p2
+    , _lorIsTruncated    = Nothing
     , _lorMarker         = Nothing
     , _lorNextMarker     = Nothing
-    , _lorContents       = mempty
     , _lorName           = Nothing
     , _lorPrefix         = Nothing
     , _lorDelimiter      = Nothing
     , _lorMaxKeys        = Nothing
-    , _lorCommonPrefixes = mempty
     , _lorEncodingType   = Nothing
     }
 
 lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorCommonPrefixes =
     lens _lorCommonPrefixes (\s a -> s { _lorCommonPrefixes = a })
+        . _Flatten
 
 lorContents :: Lens' ListObjectsResponse [Object]
 lorContents = lens _lorContents (\s a -> s { _lorContents = a })
+    . _Flatten
 
 lorDelimiter :: Lens' ListObjectsResponse (Maybe Text)
 lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })

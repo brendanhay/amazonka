@@ -178,6 +178,7 @@ instance AWSRequest DescribeDBLogFiles where
     response = xmlResponse
 
 instance FromXML DescribeDBLogFilesResponse where
-    parseXML x = DescribeDBLogFilesResponse
-        <$> x .@ "DescribeDBLogFiles"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBLogFilesResult" $ \x ->
+        DescribeDBLogFilesResponse
+            <$> x .@ "DescribeDBLogFiles"
+            <*> x .@? "Marker"

@@ -117,5 +117,6 @@ instance AWSRequest DescribeApplicationVersions where
     response = xmlResponse
 
 instance FromXML DescribeApplicationVersionsResponse where
-    parseXML x = DescribeApplicationVersionsResponse
-        <$> x .@ "ApplicationVersions"
+    parseXML = withElement "DescribeApplicationVersionsResult" $ \x ->
+        DescribeApplicationVersionsResponse
+            <$> x .@ "ApplicationVersions"

@@ -136,7 +136,7 @@ lmuUploadIdMarker =
 
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     { _lmurBucket             :: Maybe Text
-    , _lmurCommonPrefixes     :: [CommonPrefix]
+    , _lmurCommonPrefixes     :: Flatten [CommonPrefix]
     , _lmurDelimiter          :: Maybe Text
     , _lmurEncodingType       :: Maybe Text
     , _lmurIsTruncated        :: Maybe Bool
@@ -146,7 +146,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurNextUploadIdMarker :: Maybe Text
     , _lmurPrefix             :: Maybe Text
     , _lmurUploadIdMarker     :: Maybe Text
-    , _lmurUploads            :: [MultipartUpload]
+    , _lmurUploads            :: Flatten [MultipartUpload]
     } deriving (Eq, Show, Generic)
 
 -- | 'ListMultipartUploadsResponse' constructor.
@@ -177,9 +177,13 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 --
 -- * 'lmurUploads' @::@ ['MultipartUpload']
 --
-listMultipartUploadsResponse :: ListMultipartUploadsResponse
-listMultipartUploadsResponse = ListMultipartUploadsResponse
-    { _lmurBucket             = Nothing
+listMultipartUploadsResponse :: [MultipartUpload] -- ^ 'lmurUploads'
+                             -> [CommonPrefix] -- ^ 'lmurCommonPrefixes'
+                             -> ListMultipartUploadsResponse
+listMultipartUploadsResponse p1 p2 = ListMultipartUploadsResponse
+    { _lmurUploads            = withIso _Flatten (const id) p1
+    , _lmurCommonPrefixes     = withIso _Flatten (const id) p2
+    , _lmurBucket             = Nothing
     , _lmurKeyMarker          = Nothing
     , _lmurUploadIdMarker     = Nothing
     , _lmurNextKeyMarker      = Nothing
@@ -188,8 +192,6 @@ listMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurNextUploadIdMarker = Nothing
     , _lmurMaxUploads         = Nothing
     , _lmurIsTruncated        = Nothing
-    , _lmurUploads            = mempty
-    , _lmurCommonPrefixes     = mempty
     , _lmurEncodingType       = Nothing
     }
 
@@ -200,6 +202,7 @@ lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
 lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmurCommonPrefixes =
     lens _lmurCommonPrefixes (\s a -> s { _lmurCommonPrefixes = a })
+        . _Flatten
 
 lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
@@ -249,6 +252,7 @@ lmurUploadIdMarker =
 
 lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a })
+    . _Flatten
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat

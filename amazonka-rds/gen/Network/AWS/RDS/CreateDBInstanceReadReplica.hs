@@ -261,5 +261,6 @@ instance AWSRequest CreateDBInstanceReadReplica where
     response = xmlResponse
 
 instance FromXML CreateDBInstanceReadReplicaResponse where
-    parseXML x = CreateDBInstanceReadReplicaResponse
-        <$> x .@? "DBInstance"
+    parseXML = withElement "CreateDBInstanceReadReplicaResult" $ \x ->
+        CreateDBInstanceReadReplicaResponse
+            <$> x .@? "DBInstance"

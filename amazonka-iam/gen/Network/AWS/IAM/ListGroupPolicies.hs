@@ -147,7 +147,8 @@ instance AWSRequest ListGroupPolicies where
     response = xmlResponse
 
 instance FromXML ListGroupPoliciesResponse where
-    parseXML x = ListGroupPoliciesResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@ "PolicyNames"
+    parseXML = withElement "ListGroupPoliciesResult" $ \x ->
+        ListGroupPoliciesResponse
+            <$> x .@? "IsTruncated"
+            <*> x .@? "Marker"
+            <*> x .@ "PolicyNames"

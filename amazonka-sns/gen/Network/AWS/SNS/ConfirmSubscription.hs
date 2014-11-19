@@ -127,5 +127,6 @@ instance AWSRequest ConfirmSubscription where
     response = xmlResponse
 
 instance FromXML ConfirmSubscriptionResponse where
-    parseXML x = ConfirmSubscriptionResponse
-        <$> x .@? "SubscriptionArn"
+    parseXML = withElement "ConfirmSubscriptionResult" $ \x ->
+        ConfirmSubscriptionResponse
+            <$> x .@? "SubscriptionArn"

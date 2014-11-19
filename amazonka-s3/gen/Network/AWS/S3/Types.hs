@@ -462,7 +462,7 @@ instance ToText Event where
         S3ReducedRedundancyLostObject          -> "s3:ReducedRedundancyLostObject"
 
 instance FromXML Event where
-    parseXML = parseXMLText "Event"
+    parseXML = withElement "Event" (const (return Event))
 
 instance ToXML Event where
     toXML = toXMLText
@@ -637,7 +637,7 @@ instance ToText ExpirationStatus where
         Enabled  -> "Enabled"
 
 instance FromXML ExpirationStatus where
-    parseXML = parseXMLText "ExpirationStatus"
+    parseXML = withElement "ExpirationStatus" (const (return ExpirationStatus))
 
 instance ToXML ExpirationStatus where
     toXML = toXMLText
@@ -802,7 +802,7 @@ instance ToText ObjectStorageClass where
         Standard          -> "STANDARD"
 
 instance FromXML ObjectStorageClass where
-    parseXML = parseXMLText "ObjectStorageClass"
+    parseXML = withElement "ObjectStorageClass" (const (return ObjectStorageClass))
 
 instance ToXML ObjectStorageClass where
     toXML = toXMLText
@@ -824,7 +824,7 @@ instance ToText MetadataDirective where
         Replace -> "REPLACE"
 
 instance FromXML MetadataDirective where
-    parseXML = parseXMLText "MetadataDirective"
+    parseXML = withElement "MetadataDirective" (const (return MetadataDirective))
 
 instance ToXML MetadataDirective where
     toXML = toXMLText
@@ -1048,7 +1048,7 @@ instance ToText ObjectCannedACL where
         PublicReadWrite        -> "public-read-write"
 
 instance FromXML ObjectCannedACL where
-    parseXML = parseXMLText "ObjectCannedACL"
+    parseXML = withElement "ObjectCannedACL" (const (return ObjectCannedACL))
 
 instance ToXML ObjectCannedACL where
     toXML = toXMLText
@@ -1070,7 +1070,7 @@ instance ToText BucketVersioningStatus where
         BVSSuspended -> "Suspended"
 
 instance FromXML BucketVersioningStatus where
-    parseXML = parseXMLText "BucketVersioningStatus"
+    parseXML = withElement "BucketVersioningStatus" (const (return BucketVersioningStatus))
 
 instance ToXML BucketVersioningStatus where
     toXML = toXMLText
@@ -1144,7 +1144,7 @@ instance ToText ObjectVersionStorageClass where
     toText OVSCStandard = "STANDARD"
 
 instance FromXML ObjectVersionStorageClass where
-    parseXML = parseXMLText "ObjectVersionStorageClass"
+    parseXML = withElement "ObjectVersionStorageClass" (const (return ObjectVersionStorageClass))
 
 instance ToXML ObjectVersionStorageClass where
     toXML = toXMLText
@@ -1201,7 +1201,7 @@ instance ToText EncodingType where
     toText Url = "url"
 
 instance FromXML EncodingType where
-    parseXML = parseXMLText "EncodingType"
+    parseXML = withElement "EncodingType" (const (return EncodingType))
 
 instance ToXML EncodingType where
     toXML = toXMLText
@@ -1236,10 +1236,10 @@ instance ToXML RequestPaymentConfiguration where
         ]
 
 data CORSRule = CORSRule
-    { _corsrAllowedHeaders :: [Text]
-    , _corsrAllowedMethods :: [Text]
-    , _corsrAllowedOrigins :: [Text]
-    , _corsrExposeHeaders  :: [Text]
+    { _corsrAllowedHeaders :: Flatten [Text]
+    , _corsrAllowedMethods :: Flatten [Text]
+    , _corsrAllowedOrigins :: Flatten [Text]
+    , _corsrExposeHeaders  :: Flatten [Text]
     , _corsrMaxAgeSeconds  :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1257,12 +1257,16 @@ data CORSRule = CORSRule
 --
 -- * 'corsrMaxAgeSeconds' @::@ 'Maybe' 'Int'
 --
-corsrule :: CORSRule
-corsrule = CORSRule
-    { _corsrAllowedHeaders = mempty
-    , _corsrAllowedMethods = mempty
-    , _corsrAllowedOrigins = mempty
-    , _corsrExposeHeaders  = mempty
+corsrule :: [Text] -- ^ 'corsrAllowedHeaders'
+         -> [Text] -- ^ 'corsrAllowedMethods'
+         -> [Text] -- ^ 'corsrAllowedOrigins'
+         -> [Text] -- ^ 'corsrExposeHeaders'
+         -> CORSRule
+corsrule p1 p2 p3 p4 = CORSRule
+    { _corsrAllowedHeaders = withIso _Flatten (const id) p1
+    , _corsrAllowedMethods = withIso _Flatten (const id) p2
+    , _corsrAllowedOrigins = withIso _Flatten (const id) p3
+    , _corsrExposeHeaders  = withIso _Flatten (const id) p4
     , _corsrMaxAgeSeconds  = Nothing
     }
 
@@ -1270,18 +1274,21 @@ corsrule = CORSRule
 corsrAllowedHeaders :: Lens' CORSRule [Text]
 corsrAllowedHeaders =
     lens _corsrAllowedHeaders (\s a -> s { _corsrAllowedHeaders = a })
+        . _Flatten
 
 -- | Identifies HTTP methods that the domain/origin specified in the rule is
 -- allowed to execute.
 corsrAllowedMethods :: Lens' CORSRule [Text]
 corsrAllowedMethods =
     lens _corsrAllowedMethods (\s a -> s { _corsrAllowedMethods = a })
+        . _Flatten
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
 corsrAllowedOrigins :: Lens' CORSRule [Text]
 corsrAllowedOrigins =
     lens _corsrAllowedOrigins (\s a -> s { _corsrAllowedOrigins = a })
+        . _Flatten
 
 -- | One or more headers in the response that you want customers to be able to
 -- access from their applications (for example, from a JavaScript
@@ -1289,6 +1296,7 @@ corsrAllowedOrigins =
 corsrExposeHeaders :: Lens' CORSRule [Text]
 corsrExposeHeaders =
     lens _corsrExposeHeaders (\s a -> s { _corsrExposeHeaders = a })
+        . _Flatten
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -1546,7 +1554,7 @@ instance ToText Protocol where
         Https -> "https"
 
 instance FromXML Protocol where
-    parseXML = parseXMLText "Protocol"
+    parseXML = withElement "Protocol" (const (return Protocol))
 
 instance ToXML Protocol where
     toXML = toXMLText
@@ -1684,7 +1692,7 @@ instance ToXML Rule where
 
 data TopicConfiguration = TopicConfiguration
     { _tcEvent  :: Maybe Text
-    , _tcEvents :: [Text]
+    , _tcEvents :: Flatten [Text]
     , _tcId     :: Maybe Text
     , _tcTopic  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1701,10 +1709,11 @@ data TopicConfiguration = TopicConfiguration
 --
 -- * 'tcTopic' @::@ 'Maybe' 'Text'
 --
-topicConfiguration :: TopicConfiguration
-topicConfiguration = TopicConfiguration
-    { _tcId     = Nothing
-    , _tcEvents = mempty
+topicConfiguration :: [Text] -- ^ 'tcEvents'
+                   -> TopicConfiguration
+topicConfiguration p1 = TopicConfiguration
+    { _tcEvents = withIso _Flatten (const id) p1
+    , _tcId     = Nothing
     , _tcEvent  = Nothing
     , _tcTopic  = Nothing
     }
@@ -1715,6 +1724,7 @@ tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
 
 tcEvents :: Lens' TopicConfiguration [Text]
 tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a })
+    . _Flatten
 
 tcId :: Lens' TopicConfiguration (Maybe Text)
 tcId = lens _tcId (\s a -> s { _tcId = a })
@@ -1741,7 +1751,7 @@ instance ToXML TopicConfiguration where
 
 data QueueConfiguration = QueueConfiguration
     { _qcEvent  :: Maybe Text
-    , _qcEvents :: [Text]
+    , _qcEvents :: Flatten [Text]
     , _qcId     :: Maybe Text
     , _qcQueue  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1758,11 +1768,12 @@ data QueueConfiguration = QueueConfiguration
 --
 -- * 'qcQueue' @::@ 'Maybe' 'Text'
 --
-queueConfiguration :: QueueConfiguration
-queueConfiguration = QueueConfiguration
-    { _qcId     = Nothing
+queueConfiguration :: [Text] -- ^ 'qcEvents'
+                   -> QueueConfiguration
+queueConfiguration p1 = QueueConfiguration
+    { _qcEvents = withIso _Flatten (const id) p1
+    , _qcId     = Nothing
     , _qcEvent  = Nothing
-    , _qcEvents = mempty
     , _qcQueue  = Nothing
     }
 
@@ -1771,6 +1782,7 @@ qcEvent = lens _qcEvent (\s a -> s { _qcEvent = a })
 
 qcEvents :: Lens' QueueConfiguration [Text]
 qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a })
+    . _Flatten
 
 qcId :: Lens' QueueConfiguration (Maybe Text)
 qcId = lens _qcId (\s a -> s { _qcId = a })
@@ -1905,7 +1917,7 @@ instance ToText StorageClass where
         SCStandard          -> "STANDARD"
 
 instance FromXML StorageClass where
-    parseXML = parseXMLText "StorageClass"
+    parseXML = withElement "StorageClass" (const (return StorageClass))
 
 instance ToXML StorageClass where
     toXML = toXMLText
@@ -2062,7 +2074,7 @@ instance ToText MFADeleteStatus where
         MFADSEnabled  -> "Enabled"
 
 instance FromXML MFADeleteStatus where
-    parseXML = parseXMLText "MFADeleteStatus"
+    parseXML = withElement "MFADeleteStatus" (const (return MFADeleteStatus))
 
 instance ToXML MFADeleteStatus where
     toXML = toXMLText
@@ -2084,7 +2096,7 @@ instance ToText Payer where
         Requester   -> "Requester"
 
 instance FromXML Payer where
-    parseXML = parseXMLText "Payer"
+    parseXML = withElement "Payer" (const (return Payer))
 
 instance ToXML Payer where
     toXML = toXMLText
@@ -2188,7 +2200,7 @@ instance ToText BucketLogsPermission where
         Write       -> "WRITE"
 
 instance FromXML BucketLogsPermission where
-    parseXML = parseXMLText "BucketLogsPermission"
+    parseXML = withElement "BucketLogsPermission" (const (return BucketLogsPermission))
 
 instance ToXML BucketLogsPermission where
     toXML = toXMLText
@@ -2335,14 +2347,8 @@ instance ToXML LifecycleExpiration where
         ]
 
 newtype CORSConfiguration = CORSConfiguration
-    { _corscCORSRules :: [CORSRule]
+    { _corscCORSRules :: Flatten [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList CORSConfiguration where
-    type Item CORSConfiguration = CORSRule
-
-    fromList = CORSConfiguration . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _corscCORSRules
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2350,13 +2356,15 @@ instance GHC.Exts.IsList CORSConfiguration where
 --
 -- * 'corscCORSRules' @::@ ['CORSRule']
 --
-corsconfiguration :: CORSConfiguration
-corsconfiguration = CORSConfiguration
-    { _corscCORSRules = mempty
+corsconfiguration :: [CORSRule] -- ^ 'corscCORSRules'
+                  -> CORSConfiguration
+corsconfiguration p1 = CORSConfiguration
+    { _corscCORSRules = withIso _Flatten (const id) p1
     }
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
 corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
+    . _Flatten
 
 instance FromXML CORSConfiguration where
     parseXML x = CORSConfiguration
@@ -2574,7 +2582,7 @@ instance ToText Type where
         Group                 -> "Group"
 
 instance FromXML Type where
-    parseXML = parseXMLText "Type"
+    parseXML = withElement "Type" (const (return Type))
 
 instance ToXML Type where
     toXML = toXMLText
@@ -2592,20 +2600,14 @@ instance ToText TransitionStorageClass where
     toText TSCGlacier = "GLACIER"
 
 instance FromXML TransitionStorageClass where
-    parseXML = parseXMLText "TransitionStorageClass"
+    parseXML = withElement "TransitionStorageClass" (const (return TransitionStorageClass))
 
 instance ToXML TransitionStorageClass where
     toXML = toXMLText
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
-    { _cmuParts :: [CompletedPart]
+    { _cmuParts :: Flatten [CompletedPart]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList CompletedMultipartUpload where
-    type Item CompletedMultipartUpload = CompletedPart
-
-    fromList = CompletedMultipartUpload . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _cmuParts
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2613,13 +2615,15 @@ instance GHC.Exts.IsList CompletedMultipartUpload where
 --
 -- * 'cmuParts' @::@ ['CompletedPart']
 --
-completedMultipartUpload :: CompletedMultipartUpload
-completedMultipartUpload = CompletedMultipartUpload
-    { _cmuParts = mempty
+completedMultipartUpload :: [CompletedPart] -- ^ 'cmuParts'
+                         -> CompletedMultipartUpload
+completedMultipartUpload p1 = CompletedMultipartUpload
+    { _cmuParts = withIso _Flatten (const id) p1
     }
 
 cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
 cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a })
+    . _Flatten
 
 instance FromXML CompletedMultipartUpload where
     parseXML x = CompletedMultipartUpload
@@ -2706,7 +2710,7 @@ instance ToText Permission where
         PWriteAcp    -> "WRITE_ACP"
 
 instance FromXML Permission where
-    parseXML = parseXMLText "Permission"
+    parseXML = withElement "Permission" (const (return Permission))
 
 instance ToXML Permission where
     toXML = toXMLText
@@ -2773,7 +2777,7 @@ instance ToText BucketCannedACL where
         CannedPublicReadWrite   -> "public-read-write"
 
 instance FromXML BucketCannedACL where
-    parseXML = parseXMLText "BucketCannedACL"
+    parseXML = withElement "BucketCannedACL" (const (return BucketCannedACL))
 
 instance ToXML BucketCannedACL where
     toXML = toXMLText
@@ -2795,7 +2799,7 @@ instance ToText MFADelete where
         MFADEnabled  -> "Enabled"
 
 instance FromXML MFADelete where
-    parseXML = parseXMLText "MFADelete"
+    parseXML = withElement "MFADelete" (const (return MFADelete))
 
 instance ToXML MFADelete where
     toXML = toXMLText
@@ -2803,7 +2807,7 @@ instance ToXML MFADelete where
 data CloudFunctionConfiguration = CloudFunctionConfiguration
     { _cfcCloudFunction  :: Maybe Text
     , _cfcEvent          :: Maybe Text
-    , _cfcEvents         :: [Text]
+    , _cfcEvents         :: Flatten [Text]
     , _cfcId             :: Maybe Text
     , _cfcInvocationRole :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2822,11 +2826,12 @@ data CloudFunctionConfiguration = CloudFunctionConfiguration
 --
 -- * 'cfcInvocationRole' @::@ 'Maybe' 'Text'
 --
-cloudFunctionConfiguration :: CloudFunctionConfiguration
-cloudFunctionConfiguration = CloudFunctionConfiguration
-    { _cfcId             = Nothing
+cloudFunctionConfiguration :: [Text] -- ^ 'cfcEvents'
+                           -> CloudFunctionConfiguration
+cloudFunctionConfiguration p1 = CloudFunctionConfiguration
+    { _cfcEvents         = withIso _Flatten (const id) p1
+    , _cfcId             = Nothing
     , _cfcEvent          = Nothing
-    , _cfcEvents         = mempty
     , _cfcCloudFunction  = Nothing
     , _cfcInvocationRole = Nothing
     }
@@ -2839,6 +2844,7 @@ cfcEvent = lens _cfcEvent (\s a -> s { _cfcEvent = a })
 
 cfcEvents :: Lens' CloudFunctionConfiguration [Text]
 cfcEvents = lens _cfcEvents (\s a -> s { _cfcEvents = a })
+    . _Flatten
 
 cfcId :: Lens' CloudFunctionConfiguration (Maybe Text)
 cfcId = lens _cfcId (\s a -> s { _cfcId = a })
@@ -2934,14 +2940,8 @@ instance ToXML Grantee where
         ]
 
 newtype LifecycleConfiguration = LifecycleConfiguration
-    { _lcRules :: [Rule]
+    { _lcRules :: Flatten [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList LifecycleConfiguration where
-    type Item LifecycleConfiguration = Rule
-
-    fromList = LifecycleConfiguration . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _lcRules
 
 -- | 'LifecycleConfiguration' constructor.
 --
@@ -2949,13 +2949,15 @@ instance GHC.Exts.IsList LifecycleConfiguration where
 --
 -- * 'lcRules' @::@ ['Rule']
 --
-lifecycleConfiguration :: LifecycleConfiguration
-lifecycleConfiguration = LifecycleConfiguration
-    { _lcRules = mempty
+lifecycleConfiguration :: [Rule] -- ^ 'lcRules'
+                       -> LifecycleConfiguration
+lifecycleConfiguration p1 = LifecycleConfiguration
+    { _lcRules = withIso _Flatten (const id) p1
     }
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
 lcRules = lens _lcRules (\s a -> s { _lcRules = a })
+    . _Flatten
 
 instance FromXML LifecycleConfiguration where
     parseXML x = LifecycleConfiguration
@@ -3032,7 +3034,7 @@ instance ToText ServerSideEncryption where
     toText AES256 = "AES256"
 
 instance FromXML ServerSideEncryption where
-    parseXML = parseXMLText "ServerSideEncryption"
+    parseXML = withElement "ServerSideEncryption" (const (return ServerSideEncryption))
 
 instance ToXML ServerSideEncryption where
     toXML = toXMLText
@@ -3108,7 +3110,7 @@ instance ToXML CopyObjectResult where
         ]
 
 data Delete = Delete
-    { _dObjects :: [ObjectIdentifier]
+    { _dObjects :: Flatten [ObjectIdentifier]
     , _dQuiet   :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
@@ -3120,14 +3122,16 @@ data Delete = Delete
 --
 -- * 'dQuiet' @::@ 'Maybe' 'Bool'
 --
-delete' :: Delete
-delete' = Delete
-    { _dObjects = mempty
+delete' :: [ObjectIdentifier] -- ^ 'dObjects'
+        -> Delete
+delete' p1 = Delete
+    { _dObjects = withIso _Flatten (const id) p1
     , _dQuiet   = Nothing
     }
 
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\s a -> s { _dObjects = a })
+    . _Flatten
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.

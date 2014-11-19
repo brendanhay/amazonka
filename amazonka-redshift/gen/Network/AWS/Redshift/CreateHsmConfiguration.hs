@@ -165,5 +165,6 @@ instance AWSRequest CreateHsmConfiguration where
     response = xmlResponse
 
 instance FromXML CreateHsmConfigurationResponse where
-    parseXML x = CreateHsmConfigurationResponse
-        <$> x .@? "HsmConfiguration"
+    parseXML = withElement "CreateHsmConfigurationResult" $ \x ->
+        CreateHsmConfigurationResponse
+            <$> x .@? "HsmConfiguration"

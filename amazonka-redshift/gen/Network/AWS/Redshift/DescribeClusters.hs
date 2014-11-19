@@ -146,6 +146,7 @@ instance AWSRequest DescribeClusters where
     response = xmlResponse
 
 instance FromXML DescribeClustersResponse where
-    parseXML x = DescribeClustersResponse
-        <$> x .@ "Clusters"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeClustersResult" $ \x ->
+        DescribeClustersResponse
+            <$> x .@ "Clusters"
+            <*> x .@? "Marker"

@@ -104,5 +104,6 @@ instance AWSRequest CreateTopic where
     response = xmlResponse
 
 instance FromXML CreateTopicResponse where
-    parseXML x = CreateTopicResponse
-        <$> x .@? "TopicArn"
+    parseXML = withElement "CreateTopicResult" $ \x ->
+        CreateTopicResponse
+            <$> x .@? "TopicArn"

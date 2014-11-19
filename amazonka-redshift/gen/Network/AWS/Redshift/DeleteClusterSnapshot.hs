@@ -119,5 +119,6 @@ instance AWSRequest DeleteClusterSnapshot where
     response = xmlResponse
 
 instance FromXML DeleteClusterSnapshotResponse where
-    parseXML x = DeleteClusterSnapshotResponse
-        <$> x .@? "Snapshot"
+    parseXML = withElement "DeleteClusterSnapshotResult" $ \x ->
+        DeleteClusterSnapshotResponse
+            <$> x .@? "Snapshot"

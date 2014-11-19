@@ -795,7 +795,7 @@ instance ToText PendingAutomaticFailoverStatus where
         Enabled  -> "enabled"
 
 instance FromXML PendingAutomaticFailoverStatus where
-    parseXML = parseXMLText "PendingAutomaticFailoverStatus"
+    parseXML = withElement "PendingAutomaticFailoverStatus" (const (return PendingAutomaticFailoverStatus))
 
 instance ToQuery PendingAutomaticFailoverStatus
 
@@ -977,7 +977,7 @@ instance ToText SourceType where
         STCacheSubnetGroup    -> "cache-subnet-group"
 
 instance FromXML SourceType where
-    parseXML = parseXMLText "SourceType"
+    parseXML = withElement "SourceType" (const (return SourceType))
 
 instance ToQuery SourceType
 
@@ -1887,7 +1887,7 @@ instance ToText AutomaticFailoverStatus where
         AFSEnabling  -> "enabling"
 
 instance FromXML AutomaticFailoverStatus where
-    parseXML = parseXMLText "AutomaticFailoverStatus"
+    parseXML = withElement "AutomaticFailoverStatus" (const (return AutomaticFailoverStatus))
 
 instance ToQuery AutomaticFailoverStatus
 
@@ -2062,7 +2062,7 @@ instance ToText AZMode where
         SingleAz -> "single-az"
 
 instance FromXML AZMode where
-    parseXML = parseXMLText "AZMode"
+    parseXML = withElement "AZMode" (const (return AZMode))
 
 instance ToQuery AZMode
 

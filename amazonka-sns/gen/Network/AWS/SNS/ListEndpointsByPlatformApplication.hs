@@ -131,6 +131,7 @@ instance AWSRequest ListEndpointsByPlatformApplication where
     response = xmlResponse
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
-    parseXML x = ListEndpointsByPlatformApplicationResponse
-        <$> x .@ "Endpoints"
-        <*> x .@? "NextToken"
+    parseXML = withElement "ListEndpointsByPlatformApplicationResult" $ \x ->
+        ListEndpointsByPlatformApplicationResponse
+            <$> x .@ "Endpoints"
+            <*> x .@? "NextToken"

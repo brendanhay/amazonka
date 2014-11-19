@@ -132,7 +132,8 @@ instance AWSRequest GetUserPolicy where
     response = xmlResponse
 
 instance FromXML GetUserPolicyResponse where
-    parseXML x = GetUserPolicyResponse
-        <$> x .@ "PolicyDocument"
-        <*> x .@ "PolicyName"
-        <*> x .@ "UserName"
+    parseXML = withElement "GetUserPolicyResult" $ \x ->
+        GetUserPolicyResponse
+            <$> x .@ "PolicyDocument"
+            <*> x .@ "PolicyName"
+            <*> x .@ "UserName"

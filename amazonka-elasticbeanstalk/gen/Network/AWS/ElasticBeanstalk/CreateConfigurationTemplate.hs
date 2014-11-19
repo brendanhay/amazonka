@@ -280,13 +280,14 @@ instance AWSRequest CreateConfigurationTemplate where
     response = xmlResponse
 
 instance FromXML CreateConfigurationTemplateResponse where
-    parseXML x = CreateConfigurationTemplateResponse
-        <$> x .@? "ApplicationName"
-        <*> x .@? "DateCreated"
-        <*> x .@? "DateUpdated"
-        <*> x .@? "DeploymentStatus"
-        <*> x .@? "Description"
-        <*> x .@? "EnvironmentName"
-        <*> x .@ "OptionSettings"
-        <*> x .@? "SolutionStackName"
-        <*> x .@? "TemplateName"
+    parseXML = withElement "CreateConfigurationTemplateResult" $ \x ->
+        CreateConfigurationTemplateResponse
+            <$> x .@? "ApplicationName"
+            <*> x .@? "DateCreated"
+            <*> x .@? "DateUpdated"
+            <*> x .@? "DeploymentStatus"
+            <*> x .@? "Description"
+            <*> x .@? "EnvironmentName"
+            <*> x .@ "OptionSettings"
+            <*> x .@? "SolutionStackName"
+            <*> x .@? "TemplateName"

@@ -64,14 +64,8 @@ gbcBucket :: Lens' GetBucketCors Text
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
-    { _gbcrCORSRules :: [CORSRule]
+    { _gbcrCORSRules :: Flatten [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList GetBucketCorsResponse where
-    type Item GetBucketCorsResponse = CORSRule
-
-    fromList = GetBucketCorsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _gbcrCORSRules
 
 -- | 'GetBucketCorsResponse' constructor.
 --
@@ -79,13 +73,15 @@ instance GHC.Exts.IsList GetBucketCorsResponse where
 --
 -- * 'gbcrCORSRules' @::@ ['CORSRule']
 --
-getBucketCorsResponse :: GetBucketCorsResponse
-getBucketCorsResponse = GetBucketCorsResponse
-    { _gbcrCORSRules = mempty
+getBucketCorsResponse :: [CORSRule] -- ^ 'gbcrCORSRules'
+                      -> GetBucketCorsResponse
+getBucketCorsResponse p1 = GetBucketCorsResponse
+    { _gbcrCORSRules = withIso _Flatten (const id) p1
     }
 
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
+    . _Flatten
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat

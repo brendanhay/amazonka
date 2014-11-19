@@ -135,6 +135,7 @@ instance AWSRequest DescribeLoadBalancers where
     response = xmlResponse
 
 instance FromXML DescribeLoadBalancersResponse where
-    parseXML x = DescribeLoadBalancersResponse
-        <$> x .@ "LoadBalancerDescriptions"
-        <*> x .@? "NextMarker"
+    parseXML = withElement "DescribeLoadBalancersResult" $ \x ->
+        DescribeLoadBalancersResponse
+            <$> x .@ "LoadBalancerDescriptions"
+            <*> x .@? "NextMarker"

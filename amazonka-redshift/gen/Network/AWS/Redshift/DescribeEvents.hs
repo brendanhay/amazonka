@@ -202,6 +202,7 @@ instance AWSRequest DescribeEvents where
     response = xmlResponse
 
 instance FromXML DescribeEventsResponse where
-    parseXML x = DescribeEventsResponse
-        <$> x .@ "Events"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeEventsResult" $ \x ->
+        DescribeEventsResponse
+            <$> x .@ "Events"
+            <*> x .@? "Marker"

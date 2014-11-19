@@ -148,7 +148,7 @@ instance FromXML Attribute where
 instance ToQuery Attribute
 
 data DeletableItem = DeletableItem
-    { _diAttributes :: [Attribute]
+    { _diAttributes :: Flatten [Attribute]
     , _diName       :: Text
     } deriving (Eq, Show, Generic)
 
@@ -161,14 +161,16 @@ data DeletableItem = DeletableItem
 -- * 'diName' @::@ 'Text'
 --
 deletableItem :: Text -- ^ 'diName'
+              -> [Attribute] -- ^ 'diAttributes'
               -> DeletableItem
-deletableItem p1 = DeletableItem
+deletableItem p1 p2 = DeletableItem
     { _diName       = p1
-    , _diAttributes = mempty
+    , _diAttributes = withIso _Flatten (const id) p2
     }
 
 diAttributes :: Lens' DeletableItem [Attribute]
 diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a })
+    . _Flatten
 
 diName :: Lens' DeletableItem Text
 diName = lens _diName (\s a -> s { _diName = a })
@@ -181,7 +183,7 @@ instance FromXML DeletableItem where
 instance ToQuery DeletableItem
 
 data ReplaceableItem = ReplaceableItem
-    { _riAttributes :: [ReplaceableAttribute]
+    { _riAttributes :: Flatten [ReplaceableAttribute]
     , _riName       :: Text
     } deriving (Eq, Show, Generic)
 
@@ -194,15 +196,17 @@ data ReplaceableItem = ReplaceableItem
 -- * 'riName' @::@ 'Text'
 --
 replaceableItem :: Text -- ^ 'riName'
+                -> [ReplaceableAttribute] -- ^ 'riAttributes'
                 -> ReplaceableItem
-replaceableItem p1 = ReplaceableItem
+replaceableItem p1 p2 = ReplaceableItem
     { _riName       = p1
-    , _riAttributes = mempty
+    , _riAttributes = withIso _Flatten (const id) p2
     }
 
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
 riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a })
+    . _Flatten
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text
@@ -311,7 +315,7 @@ instance ToQuery ReplaceableAttribute
 
 data Item = Item
     { _iAlternateNameEncoding :: Maybe Text
-    , _iAttributes            :: [Attribute]
+    , _iAttributes            :: Flatten [Attribute]
     , _iName                  :: Text
     } deriving (Eq, Show, Generic)
 
@@ -326,11 +330,12 @@ data Item = Item
 -- * 'iName' @::@ 'Text'
 --
 item :: Text -- ^ 'iName'
+     -> [Attribute] -- ^ 'iAttributes'
      -> Item
-item p1 = Item
+item p1 p2 = Item
     { _iName                  = p1
+    , _iAttributes            = withIso _Flatten (const id) p2
     , _iAlternateNameEncoding = Nothing
-    , _iAttributes            = mempty
     }
 
 -- | 
@@ -341,6 +346,7 @@ iAlternateNameEncoding =
 -- | A list of attributes.
 iAttributes :: Lens' Item [Attribute]
 iAttributes = lens _iAttributes (\s a -> s { _iAttributes = a })
+    . _Flatten
 
 -- | The name of the item.
 iName :: Lens' Item Text

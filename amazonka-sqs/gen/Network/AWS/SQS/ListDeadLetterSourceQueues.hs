@@ -67,14 +67,8 @@ ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
 
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls :: [Text]
+    { _ldlsqrQueueUrls :: Flatten [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList ListDeadLetterSourceQueuesResponse where
-    type Item ListDeadLetterSourceQueuesResponse = Text
-
-    fromList = ListDeadLetterSourceQueuesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ldlsqrQueueUrls
 
 -- | 'ListDeadLetterSourceQueuesResponse' constructor.
 --
@@ -82,15 +76,17 @@ instance GHC.Exts.IsList ListDeadLetterSourceQueuesResponse where
 --
 -- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = mempty
+listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
+                                   -> ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
+    { _ldlsqrQueueUrls = withIso _Flatten (const id) p1
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
+    . _Flatten
 
 instance ToPath ListDeadLetterSourceQueues where
     toPath = const "/"
@@ -107,5 +103,6 @@ instance AWSRequest ListDeadLetterSourceQueues where
     response = xmlResponse
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
-    parseXML x = ListDeadLetterSourceQueuesResponse
-        <$> x .@ "queueUrls"
+    parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x ->
+        ListDeadLetterSourceQueuesResponse
+            <$> parseXML x

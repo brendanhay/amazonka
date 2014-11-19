@@ -118,5 +118,6 @@ instance AWSRequest CreateClusterSecurityGroup where
     response = xmlResponse
 
 instance FromXML CreateClusterSecurityGroupResponse where
-    parseXML x = CreateClusterSecurityGroupResponse
-        <$> x .@? "ClusterSecurityGroup"
+    parseXML = withElement "CreateClusterSecurityGroupResult" $ \x ->
+        CreateClusterSecurityGroupResponse
+            <$> x .@? "ClusterSecurityGroup"

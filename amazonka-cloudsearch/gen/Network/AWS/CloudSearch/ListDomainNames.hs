@@ -85,5 +85,6 @@ instance AWSRequest ListDomainNames where
     response = xmlResponse
 
 instance FromXML ListDomainNamesResponse where
-    parseXML x = ListDomainNamesResponse
-        <$> x .@ "DomainNames"
+    parseXML = withElement "ListDomainNamesResult" $ \x ->
+        ListDomainNamesResponse
+            <$> x .@ "DomainNames"

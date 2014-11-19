@@ -115,6 +115,7 @@ instance AWSRequest ListJobs where
     response = xmlResponse
 
 instance FromXML ListJobsResponse where
-    parseXML x = ListJobsResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@ "Jobs"
+    parseXML = withElement "ListJobsResult" $ \x ->
+        ListJobsResponse
+            <$> x .@? "IsTruncated"
+            <*> x .@ "Jobs"

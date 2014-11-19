@@ -144,5 +144,6 @@ instance AWSRequest AuthorizeClusterSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
-    parseXML x = AuthorizeClusterSecurityGroupIngressResponse
-        <$> x .@? "ClusterSecurityGroup"
+    parseXML = withElement "AuthorizeClusterSecurityGroupIngressResult" $ \x ->
+        AuthorizeClusterSecurityGroupIngressResponse
+            <$> x .@? "ClusterSecurityGroup"

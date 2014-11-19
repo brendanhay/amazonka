@@ -110,5 +110,6 @@ instance AWSRequest DeleteExpression where
     response = xmlResponse
 
 instance FromXML DeleteExpressionResponse where
-    parseXML x = DeleteExpressionResponse
-        <$> x .@ "Expression"
+    parseXML = withElement "DeleteExpressionResult" $ \x ->
+        DeleteExpressionResponse
+            <$> x .@ "Expression"

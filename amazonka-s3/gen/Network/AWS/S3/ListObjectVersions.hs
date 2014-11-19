@@ -131,8 +131,8 @@ lovVersionIdMarker =
     lens _lovVersionIdMarker (\s a -> s { _lovVersionIdMarker = a })
 
 data ListObjectVersionsResponse = ListObjectVersionsResponse
-    { _lovrCommonPrefixes      :: [CommonPrefix]
-    , _lovrDeleteMarkers       :: [DeleteMarkerEntry]
+    { _lovrCommonPrefixes      :: Flatten [CommonPrefix]
+    , _lovrDeleteMarkers       :: Flatten [DeleteMarkerEntry]
     , _lovrDelimiter           :: Maybe Text
     , _lovrEncodingType        :: Maybe Text
     , _lovrIsTruncated         :: Maybe Bool
@@ -143,7 +143,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrNextVersionIdMarker :: Maybe Text
     , _lovrPrefix              :: Maybe Text
     , _lovrVersionIdMarker     :: Maybe Text
-    , _lovrVersions            :: [ObjectVersion]
+    , _lovrVersions            :: Flatten [ObjectVersion]
     } deriving (Eq, Show, Generic)
 
 -- | 'ListObjectVersionsResponse' constructor.
@@ -176,30 +176,35 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 --
 -- * 'lovrVersions' @::@ ['ObjectVersion']
 --
-listObjectVersionsResponse :: ListObjectVersionsResponse
-listObjectVersionsResponse = ListObjectVersionsResponse
-    { _lovrIsTruncated         = Nothing
+listObjectVersionsResponse :: [ObjectVersion] -- ^ 'lovrVersions'
+                           -> [DeleteMarkerEntry] -- ^ 'lovrDeleteMarkers'
+                           -> [CommonPrefix] -- ^ 'lovrCommonPrefixes'
+                           -> ListObjectVersionsResponse
+listObjectVersionsResponse p1 p2 p3 = ListObjectVersionsResponse
+    { _lovrVersions            = withIso _Flatten (const id) p1
+    , _lovrDeleteMarkers       = withIso _Flatten (const id) p2
+    , _lovrCommonPrefixes      = withIso _Flatten (const id) p3
+    , _lovrIsTruncated         = Nothing
     , _lovrKeyMarker           = Nothing
     , _lovrVersionIdMarker     = Nothing
     , _lovrNextKeyMarker       = Nothing
     , _lovrNextVersionIdMarker = Nothing
-    , _lovrVersions            = mempty
-    , _lovrDeleteMarkers       = mempty
     , _lovrName                = Nothing
     , _lovrPrefix              = Nothing
     , _lovrDelimiter           = Nothing
     , _lovrMaxKeys             = Nothing
-    , _lovrCommonPrefixes      = mempty
     , _lovrEncodingType        = Nothing
     }
 
 lovrCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
 lovrCommonPrefixes =
     lens _lovrCommonPrefixes (\s a -> s { _lovrCommonPrefixes = a })
+        . _Flatten
 
 lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lovrDeleteMarkers =
     lens _lovrDeleteMarkers (\s a -> s { _lovrDeleteMarkers = a })
+        . _Flatten
 
 lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
@@ -247,6 +252,7 @@ lovrVersionIdMarker =
 
 lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a })
+    . _Flatten
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat

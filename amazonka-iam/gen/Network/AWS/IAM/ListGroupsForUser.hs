@@ -144,7 +144,8 @@ instance AWSRequest ListGroupsForUser where
     response = xmlResponse
 
 instance FromXML ListGroupsForUserResponse where
-    parseXML x = ListGroupsForUserResponse
-        <$> x .@ "Groups"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
+    parseXML = withElement "ListGroupsForUserResult" $ \x ->
+        ListGroupsForUserResponse
+            <$> x .@ "Groups"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "Marker"

@@ -78,7 +78,7 @@ instance ToText JobType where
         Import' -> "Import"
 
 instance FromXML JobType where
-    parseXML = parseXMLText "JobType"
+    parseXML = withElement "JobType" (const (return JobType))
 
 instance ToQuery JobType
 

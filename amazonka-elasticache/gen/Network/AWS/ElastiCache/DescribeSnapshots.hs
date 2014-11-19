@@ -160,6 +160,7 @@ instance AWSRequest DescribeSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeSnapshotsResponse where
-    parseXML x = DescribeSnapshotsResponse
-        <$> x .@? "Marker"
-        <*> x .@ "Snapshots"
+    parseXML = withElement "DescribeSnapshotsResult" $ \x ->
+        DescribeSnapshotsResponse
+            <$> x .@? "Marker"
+            <*> x .@ "Snapshots"

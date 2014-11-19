@@ -148,6 +148,7 @@ instance AWSRequest DescribeHsmClientCertificates where
     response = xmlResponse
 
 instance FromXML DescribeHsmClientCertificatesResponse where
-    parseXML x = DescribeHsmClientCertificatesResponse
-        <$> x .@ "HsmClientCertificates"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeHsmClientCertificatesResult" $ \x ->
+        DescribeHsmClientCertificatesResponse
+            <$> x .@ "HsmClientCertificates"
+            <*> x .@? "Marker"

@@ -227,20 +227,21 @@ instance AWSRequest GetStatus where
     response = xmlResponse
 
 instance FromXML GetStatusResponse where
-    parseXML x = GetStatusResponse
-        <$> x .@? "AwsShippingAddress"
-        <*> x .@? "Carrier"
-        <*> x .@? "CreationDate"
-        <*> x .@? "CurrentManifest"
-        <*> x .@? "ErrorCount"
-        <*> x .@? "JobId"
-        <*> x .@? "JobType"
-        <*> x .@? "LocationCode"
-        <*> x .@? "LocationMessage"
-        <*> x .@? "LogBucket"
-        <*> x .@? "LogKey"
-        <*> x .@? "ProgressCode"
-        <*> x .@? "ProgressMessage"
-        <*> x .@? "Signature"
-        <*> x .@? "SignatureFileContents"
-        <*> x .@? "TrackingNumber"
+    parseXML = withElement "GetStatusResult" $ \x ->
+        GetStatusResponse
+            <$> x .@? "AwsShippingAddress"
+            <*> x .@? "Carrier"
+            <*> x .@? "CreationDate"
+            <*> x .@? "CurrentManifest"
+            <*> x .@? "ErrorCount"
+            <*> x .@? "JobId"
+            <*> x .@? "JobType"
+            <*> x .@? "LocationCode"
+            <*> x .@? "LocationMessage"
+            <*> x .@? "LogBucket"
+            <*> x .@? "LogKey"
+            <*> x .@? "ProgressCode"
+            <*> x .@? "ProgressMessage"
+            <*> x .@? "Signature"
+            <*> x .@? "SignatureFileContents"
+            <*> x .@? "TrackingNumber"

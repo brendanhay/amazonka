@@ -64,14 +64,8 @@ gbl1Bucket :: Lens' GetBucketLifecycle Text
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules :: [Rule]
+    { _gblrRules :: Flatten [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList GetBucketLifecycleResponse where
-    type Item GetBucketLifecycleResponse = Rule
-
-    fromList = GetBucketLifecycleResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _gblrRules
 
 -- | 'GetBucketLifecycleResponse' constructor.
 --
@@ -79,13 +73,15 @@ instance GHC.Exts.IsList GetBucketLifecycleResponse where
 --
 -- * 'gblrRules' @::@ ['Rule']
 --
-getBucketLifecycleResponse :: GetBucketLifecycleResponse
-getBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules = mempty
+getBucketLifecycleResponse :: [Rule] -- ^ 'gblrRules'
+                           -> GetBucketLifecycleResponse
+getBucketLifecycleResponse p1 = GetBucketLifecycleResponse
+    { _gblrRules = withIso _Flatten (const id) p1
     }
 
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
+    . _Flatten
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat

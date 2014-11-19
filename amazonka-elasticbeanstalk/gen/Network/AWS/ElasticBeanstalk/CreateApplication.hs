@@ -111,5 +111,6 @@ instance AWSRequest CreateApplication where
     response = xmlResponse
 
 instance FromXML CreateApplicationResponse where
-    parseXML x = CreateApplicationResponse
-        <$> x .@? "Application"
+    parseXML = withElement "CreateApplicationResult" $ \x ->
+        CreateApplicationResponse
+            <$> x .@? "Application"

@@ -103,5 +103,6 @@ instance AWSRequest GetServerCertificate where
     response = xmlResponse
 
 instance FromXML GetServerCertificateResponse where
-    parseXML x = GetServerCertificateResponse
-        <$> x .@ "ServerCertificate"
+    parseXML = withElement "GetServerCertificateResult" $ \x ->
+        GetServerCertificateResponse
+            <$> x .@ "ServerCertificate"

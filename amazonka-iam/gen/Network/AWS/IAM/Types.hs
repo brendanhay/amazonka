@@ -216,7 +216,7 @@ instance ToText AssignmentStatusType where
         Unassigned -> "Unassigned"
 
 instance FromXML AssignmentStatusType where
-    parseXML = parseXMLText "AssignmentStatusType"
+    parseXML = withElement "AssignmentStatusType" (const (return AssignmentStatusType))
 
 instance ToQuery AssignmentStatusType
 
@@ -556,7 +556,7 @@ instance ToText ReportFormatType where
     toText TextCsv = "text/csv"
 
 instance FromXML ReportFormatType where
-    parseXML = parseXMLText "ReportFormatType"
+    parseXML = withElement "ReportFormatType" (const (return ReportFormatType))
 
 instance ToQuery ReportFormatType
 
@@ -769,7 +769,7 @@ instance ToText SummaryKeyType where
         UsersQuota                      -> "UsersQuota"
 
 instance FromXML SummaryKeyType where
-    parseXML = parseXMLText "SummaryKeyType"
+    parseXML = withElement "SummaryKeyType" (const (return SummaryKeyType))
 
 instance ToQuery SummaryKeyType
 
@@ -793,7 +793,7 @@ instance ToText ReportStateType where
         Started    -> "STARTED"
 
 instance FromXML ReportStateType where
-    parseXML = parseXMLText "ReportStateType"
+    parseXML = withElement "ReportStateType" (const (return ReportStateType))
 
 instance ToQuery ReportStateType
 
@@ -905,7 +905,7 @@ instance ToText StatusType where
         Inactive -> "Inactive"
 
 instance FromXML StatusType where
-    parseXML = parseXMLText "StatusType"
+    parseXML = withElement "StatusType" (const (return StatusType))
 
 instance ToQuery StatusType
 

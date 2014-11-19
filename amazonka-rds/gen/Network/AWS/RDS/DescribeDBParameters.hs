@@ -156,6 +156,7 @@ instance AWSRequest DescribeDBParameters where
     response = xmlResponse
 
 instance FromXML DescribeDBParametersResponse where
-    parseXML x = DescribeDBParametersResponse
-        <$> x .@? "Marker"
-        <*> x .@ "Parameters"
+    parseXML = withElement "DescribeDBParametersResult" $ \x ->
+        DescribeDBParametersResponse
+            <$> x .@? "Marker"
+            <*> x .@ "Parameters"

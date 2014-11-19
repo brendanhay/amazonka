@@ -469,5 +469,6 @@ instance AWSRequest ModifyDBInstance where
     response = xmlResponse
 
 instance FromXML ModifyDBInstanceResponse where
-    parseXML x = ModifyDBInstanceResponse
-        <$> x .@? "DBInstance"
+    parseXML = withElement "ModifyDBInstanceResult" $ \x ->
+        ModifyDBInstanceResponse
+            <$> x .@? "DBInstance"

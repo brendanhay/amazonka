@@ -471,5 +471,6 @@ instance AWSRequest CreateDBInstance where
     response = xmlResponse
 
 instance FromXML CreateDBInstanceResponse where
-    parseXML x = CreateDBInstanceResponse
-        <$> x .@? "DBInstance"
+    parseXML = withElement "CreateDBInstanceResult" $ \x ->
+        CreateDBInstanceResponse
+            <$> x .@? "DBInstance"

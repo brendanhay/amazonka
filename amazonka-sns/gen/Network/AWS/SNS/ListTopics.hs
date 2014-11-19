@@ -110,6 +110,7 @@ instance AWSRequest ListTopics where
     response = xmlResponse
 
 instance FromXML ListTopicsResponse where
-    parseXML x = ListTopicsResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "Topics"
+    parseXML = withElement "ListTopicsResult" $ \x ->
+        ListTopicsResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "Topics"

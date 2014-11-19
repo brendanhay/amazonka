@@ -101,5 +101,6 @@ instance AWSRequest GetLoginProfile where
     response = xmlResponse
 
 instance FromXML GetLoginProfileResponse where
-    parseXML x = GetLoginProfileResponse
-        <$> x .@ "LoginProfile"
+    parseXML = withElement "GetLoginProfileResult" $ \x ->
+        GetLoginProfileResponse
+            <$> x .@ "LoginProfile"

@@ -123,5 +123,6 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     response = xmlResponse
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
-    parseXML x = ApplySecurityGroupsToLoadBalancerResponse
-        <$> x .@ "SecurityGroups"
+    parseXML = withElement "ApplySecurityGroupsToLoadBalancerResult" $ \x ->
+        ApplySecurityGroupsToLoadBalancerResponse
+            <$> x .@ "SecurityGroups"

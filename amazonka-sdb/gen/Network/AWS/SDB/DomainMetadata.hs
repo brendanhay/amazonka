@@ -161,11 +161,12 @@ instance AWSRequest DomainMetadata where
     response = xmlResponse
 
 instance FromXML DomainMetadataResponse where
-    parseXML x = DomainMetadataResponse
-        <$> x .@? "AttributeNameCount"
-        <*> x .@? "AttributeNamesSizeBytes"
-        <*> x .@? "AttributeValueCount"
-        <*> x .@? "AttributeValuesSizeBytes"
-        <*> x .@? "ItemCount"
-        <*> x .@? "ItemNamesSizeBytes"
-        <*> x .@? "Timestamp"
+    parseXML = withElement "DomainMetadataResult" $ \x ->
+        DomainMetadataResponse
+            <$> x .@? "AttributeNameCount"
+            <*> x .@? "AttributeNamesSizeBytes"
+            <*> x .@? "AttributeValueCount"
+            <*> x .@? "AttributeValuesSizeBytes"
+            <*> x .@? "ItemCount"
+            <*> x .@? "ItemNamesSizeBytes"
+            <*> x .@? "Timestamp"

@@ -318,5 +318,6 @@ instance AWSRequest ModifyCluster where
     response = xmlResponse
 
 instance FromXML ModifyClusterResponse where
-    parseXML x = ModifyClusterResponse
-        <$> x .@? "Cluster"
+    parseXML = withElement "ModifyClusterResult" $ \x ->
+        ModifyClusterResponse
+            <$> x .@? "Cluster"

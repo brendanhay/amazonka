@@ -124,6 +124,7 @@ instance AWSRequest DescribeStackEvents where
     response = xmlResponse
 
 instance FromXML DescribeStackEventsResponse where
-    parseXML x = DescribeStackEventsResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "StackEvents"
+    parseXML = withElement "DescribeStackEventsResult" $ \x ->
+        DescribeStackEventsResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "StackEvents"

@@ -148,7 +148,8 @@ instance AWSRequest ListRolePolicies where
     response = xmlResponse
 
 instance FromXML ListRolePoliciesResponse where
-    parseXML x = ListRolePoliciesResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@ "PolicyNames"
+    parseXML = withElement "ListRolePoliciesResult" $ \x ->
+        ListRolePoliciesResponse
+            <$> x .@? "IsTruncated"
+            <*> x .@? "Marker"
+            <*> x .@ "PolicyNames"

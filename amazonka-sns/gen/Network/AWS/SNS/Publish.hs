@@ -189,5 +189,6 @@ instance AWSRequest Publish where
     response = xmlResponse
 
 instance FromXML PublishResponse where
-    parseXML x = PublishResponse
-        <$> x .@? "MessageId"
+    parseXML = withElement "PublishResult" $ \x ->
+        PublishResponse
+            <$> x .@? "MessageId"

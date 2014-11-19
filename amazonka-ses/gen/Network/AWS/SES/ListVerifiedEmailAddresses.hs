@@ -95,5 +95,6 @@ instance AWSRequest ListVerifiedEmailAddresses where
     response = xmlResponse
 
 instance FromXML ListVerifiedEmailAddressesResponse where
-    parseXML x = ListVerifiedEmailAddressesResponse
-        <$> x .@ "VerifiedEmailAddresses"
+    parseXML = withElement "ListVerifiedEmailAddressesResult" $ \x ->
+        ListVerifiedEmailAddressesResponse
+            <$> x .@ "VerifiedEmailAddresses"

@@ -53,7 +53,7 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data DeleteAttributes = DeleteAttributes
-    { _daAttributes :: [Attribute]
+    { _daAttributes :: Flatten [Attribute]
     , _daDomainName :: Text
     , _daExpected   :: Maybe UpdateCondition
     , _daItemName   :: Text
@@ -73,11 +73,12 @@ data DeleteAttributes = DeleteAttributes
 --
 deleteAttributes :: Text -- ^ 'daDomainName'
                  -> Text -- ^ 'daItemName'
+                 -> [Attribute] -- ^ 'daAttributes'
                  -> DeleteAttributes
-deleteAttributes p1 p2 = DeleteAttributes
+deleteAttributes p1 p2 p3 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName   = p2
-    , _daAttributes = mempty
+    , _daAttributes = withIso _Flatten (const id) p3
     , _daExpected   = Nothing
     }
 
@@ -85,6 +86,7 @@ deleteAttributes p1 p2 = DeleteAttributes
 -- represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
 daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a })
+    . _Flatten
 
 -- | The name of the domain in which to perform the operation.
 daDomainName :: Lens' DeleteAttributes Text

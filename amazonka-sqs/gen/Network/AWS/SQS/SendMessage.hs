@@ -60,7 +60,7 @@ import qualified GHC.Exts
 
 data SendMessage = SendMessage
     { _smDelaySeconds      :: Maybe Int
-    , _smMessageAttributes :: Map Text MessageAttributeValue
+    , _smMessageAttributes :: Flatten (Map Text MessageAttributeValue)
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
     } deriving (Eq, Show, Generic)
@@ -71,7 +71,7 @@ data SendMessage = SendMessage
 --
 -- * 'smDelaySeconds' @::@ 'Maybe' 'Int'
 --
--- * 'smMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
+-- * 'smMessageAttributes' @::@ ('HashMap' 'Text' 'MessageAttributeValue')
 --
 -- * 'smMessageBody' @::@ 'Text'
 --
@@ -79,12 +79,13 @@ data SendMessage = SendMessage
 --
 sendMessage :: Text -- ^ 'smQueueUrl'
             -> Text -- ^ 'smMessageBody'
+            -> (HashMap Text MessageAttributeValue) -- ^ 'smMessageAttributes'
             -> SendMessage
-sendMessage p1 p2 = SendMessage
+sendMessage p1 p2 p3 = SendMessage
     { _smQueueUrl          = p1
     , _smMessageBody       = p2
+    , _smMessageAttributes = withIso _Flatten (const id) p3
     , _smDelaySeconds      = Nothing
-    , _smMessageAttributes = mempty
     }
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific
@@ -96,10 +97,10 @@ smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
+smMessageAttributes :: Lens' SendMessage ((HashMap Text MessageAttributeValue))
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
-        . _Map
+        . _Flatten . _Map
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.
@@ -171,7 +172,8 @@ instance AWSRequest SendMessage where
     response = xmlResponse
 
 instance FromXML SendMessageResponse where
-    parseXML x = SendMessageResponse
-        <$> x .@? "MD5OfMessageAttributes"
-        <*> x .@? "MD5OfMessageBody"
-        <*> x .@? "MessageId"
+    parseXML = withElement "SendMessageResult" $ \x ->
+        SendMessageResponse
+            <$> x .@? "MD5OfMessageAttributes"
+            <*> x .@? "MD5OfMessageBody"
+            <*> x .@? "MessageId"

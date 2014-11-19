@@ -170,7 +170,7 @@ instance ToText QueueAttributeName where
         VisibilityTimeout                     -> "VisibilityTimeout"
 
 instance FromXML QueueAttributeName where
-    parseXML = parseXMLText "QueueAttributeName"
+    parseXML = withElement "QueueAttributeName" (const (return QueueAttributeName))
 
 instance ToQuery QueueAttributeName
 
@@ -385,11 +385,11 @@ instance FromXML DeleteMessageBatchResultEntry where
 instance ToQuery DeleteMessageBatchResultEntry
 
 data Message = Message
-    { _mAttributes             :: Map Text Text
+    { _mAttributes             :: Flatten (Map Text Text)
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
-    , _mMessageAttributes      :: Map Text MessageAttributeValue
+    , _mMessageAttributes      :: Flatten (Map Text MessageAttributeValue)
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -398,7 +398,7 @@ data Message = Message
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'mAttributes' @::@ ('HashMap' 'Text' 'Text')
 --
 -- * 'mBody' @::@ 'Maybe' 'Text'
 --
@@ -406,30 +406,32 @@ data Message = Message
 --
 -- * 'mMD5OfMessageAttributes' @::@ 'Maybe' 'Text'
 --
--- * 'mMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
+-- * 'mMessageAttributes' @::@ ('HashMap' 'Text' 'MessageAttributeValue')
 --
 -- * 'mMessageId' @::@ 'Maybe' 'Text'
 --
 -- * 'mReceiptHandle' @::@ 'Maybe' 'Text'
 --
-message :: Message
-message = Message
-    { _mMessageId              = Nothing
+message :: (HashMap Text Text) -- ^ 'mAttributes'
+        -> (HashMap Text MessageAttributeValue) -- ^ 'mMessageAttributes'
+        -> Message
+message p1 p2 = Message
+    { _mAttributes             = withIso _Flatten (const id) p1
+    , _mMessageAttributes      = withIso _Flatten (const id) p2
+    , _mMessageId              = Nothing
     , _mReceiptHandle          = Nothing
     , _mMD5OfBody              = Nothing
     , _mBody                   = Nothing
-    , _mAttributes             = mempty
     , _mMD5OfMessageAttributes = Nothing
-    , _mMessageAttributes      = mempty
     }
 
 -- | SenderId, SentTimestamp, ApproximateReceiveCount, and/or
 -- ApproximateFirstReceiveTimestamp. SentTimestamp and
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
 -- representing the epoch time in milliseconds.
-mAttributes :: Lens' Message (HashMap Text Text)
+mAttributes :: Lens' Message ((HashMap Text Text))
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
-    . _Map
+    . _Flatten . _Map
 
 -- | The message's contents (not URL-encoded).
 mBody :: Lens' Message (Maybe Text)
@@ -449,10 +451,10 @@ mMD5OfMessageAttributes =
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
+mMessageAttributes :: Lens' Message ((HashMap Text MessageAttributeValue))
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
-        . _Map
+        . _Flatten . _Map
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
@@ -481,7 +483,7 @@ instance ToQuery Message
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreDelaySeconds      :: Maybe Int
     , _smbreId                :: Text
-    , _smbreMessageAttributes :: Map Text MessageAttributeValue
+    , _smbreMessageAttributes :: Flatten (Map Text MessageAttributeValue)
     , _smbreMessageBody       :: Text
     } deriving (Eq, Show, Generic)
 
@@ -493,18 +495,19 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 --
 -- * 'smbreId' @::@ 'Text'
 --
--- * 'smbreMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
+-- * 'smbreMessageAttributes' @::@ ('HashMap' 'Text' 'MessageAttributeValue')
 --
 -- * 'smbreMessageBody' @::@ 'Text'
 --
 sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
                              -> Text -- ^ 'smbreMessageBody'
+                             -> (HashMap Text MessageAttributeValue) -- ^ 'smbreMessageAttributes'
                              -> SendMessageBatchRequestEntry
-sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
+sendMessageBatchRequestEntry p1 p2 p3 = SendMessageBatchRequestEntry
     { _smbreId                = p1
     , _smbreMessageBody       = p2
+    , _smbreMessageAttributes = withIso _Flatten (const id) p3
     , _smbreDelaySeconds      = Nothing
-    , _smbreMessageAttributes = mempty
     }
 
 -- | The number of seconds for which the message has to be delayed.
@@ -520,10 +523,10 @@ smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
+smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry ((HashMap Text MessageAttributeValue))
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
-        . _Map
+        . _Flatten . _Map
 
 -- | Body of the message.
 smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text

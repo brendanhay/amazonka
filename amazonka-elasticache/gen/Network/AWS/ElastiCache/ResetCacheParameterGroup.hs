@@ -130,5 +130,6 @@ instance AWSRequest ResetCacheParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetCacheParameterGroupResponse where
-    parseXML x = ResetCacheParameterGroupResponse
-        <$> x .@? "CacheParameterGroupName"
+    parseXML = withElement "ResetCacheParameterGroupResult" $ \x ->
+        ResetCacheParameterGroupResponse
+            <$> x .@? "CacheParameterGroupName"

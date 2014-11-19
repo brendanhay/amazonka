@@ -102,6 +102,7 @@ instance AWSRequest DescribeAccountLimits where
     response = xmlResponse
 
 instance FromXML DescribeAccountLimitsResponse where
-    parseXML x = DescribeAccountLimitsResponse
-        <$> x .@? "MaxNumberOfAutoScalingGroups"
-        <*> x .@? "MaxNumberOfLaunchConfigurations"
+    parseXML = withElement "DescribeAccountLimitsResult" $ \x ->
+        DescribeAccountLimitsResponse
+            <$> x .@? "MaxNumberOfAutoScalingGroups"
+            <*> x .@? "MaxNumberOfLaunchConfigurations"

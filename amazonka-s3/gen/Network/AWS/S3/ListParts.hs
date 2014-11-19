@@ -121,7 +121,7 @@ data ListPartsResponse = ListPartsResponse
     , _lprNextPartNumberMarker :: Maybe Int
     , _lprOwner                :: Maybe Owner
     , _lprPartNumberMarker     :: Maybe Int
-    , _lprParts                :: [Part]
+    , _lprParts                :: Flatten [Part]
     , _lprStorageClass         :: Maybe Text
     , _lprUploadId             :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -152,16 +152,17 @@ data ListPartsResponse = ListPartsResponse
 --
 -- * 'lprUploadId' @::@ 'Maybe' 'Text'
 --
-listPartsResponse :: ListPartsResponse
-listPartsResponse = ListPartsResponse
-    { _lprBucket               = Nothing
+listPartsResponse :: [Part] -- ^ 'lprParts'
+                  -> ListPartsResponse
+listPartsResponse p1 = ListPartsResponse
+    { _lprParts                = withIso _Flatten (const id) p1
+    , _lprBucket               = Nothing
     , _lprKey                  = Nothing
     , _lprUploadId             = Nothing
     , _lprPartNumberMarker     = Nothing
     , _lprNextPartNumberMarker = Nothing
     , _lprMaxParts             = Nothing
     , _lprIsTruncated          = Nothing
-    , _lprParts                = mempty
     , _lprInitiator            = Nothing
     , _lprOwner                = Nothing
     , _lprStorageClass         = Nothing
@@ -204,6 +205,7 @@ lprPartNumberMarker =
 
 lprParts :: Lens' ListPartsResponse [Part]
 lprParts = lens _lprParts (\s a -> s { _lprParts = a })
+    . _Flatten
 
 -- | The class of storage used to store the object.
 lprStorageClass :: Lens' ListPartsResponse (Maybe Text)

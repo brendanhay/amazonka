@@ -123,5 +123,6 @@ instance AWSRequest CreateVirtualMFADevice where
     response = xmlResponse
 
 instance FromXML CreateVirtualMFADeviceResponse where
-    parseXML x = CreateVirtualMFADeviceResponse
-        <$> x .@ "VirtualMFADevice"
+    parseXML = withElement "CreateVirtualMFADeviceResult" $ \x ->
+        CreateVirtualMFADeviceResponse
+            <$> x .@ "VirtualMFADevice"

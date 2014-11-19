@@ -56,7 +56,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data CreateQueue = CreateQueue
-    { _cqAttributes :: Map Text Text
+    { _cqAttributes :: Flatten (Map Text Text)
     , _cqQueueName  :: Text
     } deriving (Eq, Show, Generic)
 
@@ -64,15 +64,16 @@ data CreateQueue = CreateQueue
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cqAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'cqAttributes' @::@ ('HashMap' 'Text' 'Text')
 --
 -- * 'cqQueueName' @::@ 'Text'
 --
 createQueue :: Text -- ^ 'cqQueueName'
+            -> (HashMap Text Text) -- ^ 'cqAttributes'
             -> CreateQueue
-createQueue p1 = CreateQueue
+createQueue p1 p2 = CreateQueue
     { _cqQueueName  = p1
-    , _cqAttributes = mempty
+    , _cqAttributes = withIso _Flatten (const id) p2
     }
 
 -- | A map of attributes with their corresponding values. The following lists
@@ -96,9 +97,9 @@ createQueue p1 = CreateQueue
 -- timeout for the queue. An integer from 0 to 43200 (12 hours). The default
 -- for this attribute is 30. For more information about visibility timeout,
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
-cqAttributes :: Lens' CreateQueue (HashMap Text Text)
+cqAttributes :: Lens' CreateQueue ((HashMap Text Text))
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
-    . _Map
+    . _Flatten . _Map
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
@@ -138,5 +139,6 @@ instance AWSRequest CreateQueue where
     response = xmlResponse
 
 instance FromXML CreateQueueResponse where
-    parseXML x = CreateQueueResponse
-        <$> x .@? "QueueUrl"
+    parseXML = withElement "CreateQueueResult" $ \x ->
+        CreateQueueResponse
+            <$> x .@? "QueueUrl"

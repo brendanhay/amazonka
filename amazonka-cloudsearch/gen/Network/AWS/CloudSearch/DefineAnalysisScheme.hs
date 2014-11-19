@@ -111,5 +111,6 @@ instance AWSRequest DefineAnalysisScheme where
     response = xmlResponse
 
 instance FromXML DefineAnalysisSchemeResponse where
-    parseXML x = DefineAnalysisSchemeResponse
-        <$> x .@ "AnalysisScheme"
+    parseXML = withElement "DefineAnalysisSchemeResult" $ \x ->
+        DefineAnalysisSchemeResponse
+            <$> x .@ "AnalysisScheme"

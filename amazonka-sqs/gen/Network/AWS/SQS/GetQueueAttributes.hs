@@ -70,7 +70,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data GetQueueAttributes = GetQueueAttributes
-    { _gqaAttributeNames :: [Text]
+    { _gqaAttributeNames :: Flatten [Text]
     , _gqaQueueUrl       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -83,40 +83,43 @@ data GetQueueAttributes = GetQueueAttributes
 -- * 'gqaQueueUrl' @::@ 'Text'
 --
 getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
+                   -> [Text] -- ^ 'gqaAttributeNames'
                    -> GetQueueAttributes
-getQueueAttributes p1 = GetQueueAttributes
+getQueueAttributes p1 p2 = GetQueueAttributes
     { _gqaQueueUrl       = p1
-    , _gqaAttributeNames = mempty
+    , _gqaAttributeNames = withIso _Flatten (const id) p2
     }
 
 -- | A list of attributes to retrieve information for.
 gqaAttributeNames :: Lens' GetQueueAttributes [Text]
 gqaAttributeNames =
     lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
+        . _Flatten
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: Map Text Text
+    { _gqarAttributes :: Flatten (Map Text Text)
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'gqarAttributes' @::@ ('HashMap' 'Text' 'Text')
 --
-getQueueAttributesResponse :: GetQueueAttributesResponse
-getQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes = mempty
+getQueueAttributesResponse :: (HashMap Text Text) -- ^ 'gqarAttributes'
+                           -> GetQueueAttributesResponse
+getQueueAttributesResponse p1 = GetQueueAttributesResponse
+    { _gqarAttributes = withIso _Flatten (const id) p1
     }
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
+gqarAttributes :: Lens' GetQueueAttributesResponse ((HashMap Text Text))
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
-    . _Map
+    . _Flatten . _Map
 
 instance ToPath GetQueueAttributes where
     toPath = const "/"
@@ -133,5 +136,6 @@ instance AWSRequest GetQueueAttributes where
     response = xmlResponse
 
 instance FromXML GetQueueAttributesResponse where
-    parseXML x = GetQueueAttributesResponse
-        <$> x .@ "Attribute"
+    parseXML = withElement "GetQueueAttributesResult" $ \x ->
+        GetQueueAttributesResponse
+            <$> parseXML x

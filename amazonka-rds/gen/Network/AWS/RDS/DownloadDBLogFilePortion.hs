@@ -170,7 +170,8 @@ instance AWSRequest DownloadDBLogFilePortion where
     response = xmlResponse
 
 instance FromXML DownloadDBLogFilePortionResponse where
-    parseXML x = DownloadDBLogFilePortionResponse
-        <$> x .@? "AdditionalDataPending"
-        <*> x .@? "LogFileData"
-        <*> x .@? "Marker"
+    parseXML = withElement "DownloadDBLogFilePortionResult" $ \x ->
+        DownloadDBLogFilePortionResponse
+            <$> x .@? "AdditionalDataPending"
+            <*> x .@? "LogFileData"
+            <*> x .@? "Marker"

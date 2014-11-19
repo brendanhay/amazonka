@@ -340,19 +340,20 @@ instance AWSRequest UpdateEnvironment where
     response = xmlResponse
 
 instance FromXML UpdateEnvironmentResponse where
-    parseXML x = UpdateEnvironmentResponse
-        <$> x .@? "ApplicationName"
-        <*> x .@? "CNAME"
-        <*> x .@? "DateCreated"
-        <*> x .@? "DateUpdated"
-        <*> x .@? "Description"
-        <*> x .@? "EndpointURL"
-        <*> x .@? "EnvironmentId"
-        <*> x .@? "EnvironmentName"
-        <*> x .@? "Health"
-        <*> x .@? "Resources"
-        <*> x .@? "SolutionStackName"
-        <*> x .@? "Status"
-        <*> x .@? "TemplateName"
-        <*> x .@? "Tier"
-        <*> x .@? "VersionLabel"
+    parseXML = withElement "UpdateEnvironmentResult" $ \x ->
+        UpdateEnvironmentResponse
+            <$> x .@? "ApplicationName"
+            <*> x .@? "CNAME"
+            <*> x .@? "DateCreated"
+            <*> x .@? "DateUpdated"
+            <*> x .@? "Description"
+            <*> x .@? "EndpointURL"
+            <*> x .@? "EnvironmentId"
+            <*> x .@? "EnvironmentName"
+            <*> x .@? "Health"
+            <*> x .@? "Resources"
+            <*> x .@? "SolutionStackName"
+            <*> x .@? "Status"
+            <*> x .@? "TemplateName"
+            <*> x .@? "Tier"
+            <*> x .@? "VersionLabel"

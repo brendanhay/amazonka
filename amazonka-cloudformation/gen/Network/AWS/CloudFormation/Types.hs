@@ -279,7 +279,7 @@ instance ToText StackStatus where
         UpdateRollbackInProgress                -> "UPDATE_ROLLBACK_IN_PROGRESS"
 
 instance FromXML StackStatus where
-    parseXML = parseXMLText "StackStatus"
+    parseXML = withElement "StackStatus" (const (return StackStatus))
 
 instance ToQuery StackStatus
 
@@ -659,7 +659,7 @@ instance ToText ResourceStatus where
         RSUpdateInProgress -> "UPDATE_IN_PROGRESS"
 
 instance FromXML ResourceStatus where
-    parseXML = parseXMLText "ResourceStatus"
+    parseXML = withElement "ResourceStatus" (const (return ResourceStatus))
 
 instance ToQuery ResourceStatus
 
@@ -1024,7 +1024,7 @@ instance ToText Capability where
     toText CapabilityIam = "CAPABILITY_IAM"
 
 instance FromXML Capability where
-    parseXML = parseXMLText "Capability"
+    parseXML = withElement "Capability" (const (return Capability))
 
 instance ToQuery Capability
 
@@ -1045,7 +1045,7 @@ instance ToText ResourceSignalStatus where
         Success -> "SUCCESS"
 
 instance FromXML ResourceSignalStatus where
-    parseXML = parseXMLText "ResourceSignalStatus"
+    parseXML = withElement "ResourceSignalStatus" (const (return ResourceSignalStatus))
 
 instance ToQuery ResourceSignalStatus
 
@@ -1222,7 +1222,7 @@ instance ToText OnFailure where
         Rollback  -> "ROLLBACK"
 
 instance FromXML OnFailure where
-    parseXML = parseXMLText "OnFailure"
+    parseXML = withElement "OnFailure" (const (return OnFailure))
 
 instance ToQuery OnFailure
 

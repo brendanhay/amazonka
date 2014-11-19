@@ -463,7 +463,7 @@ instance ToText HistoryItemType where
         StateUpdate         -> "StateUpdate"
 
 instance FromXML HistoryItemType where
-    parseXML = parseXMLText "HistoryItemType"
+    parseXML = withElement "HistoryItemType" (const (return HistoryItemType))
 
 instance ToQuery HistoryItemType
 
@@ -642,7 +642,7 @@ instance ToText StandardUnit where
         TerabytesSecond -> "Terabytes/Second"
 
 instance FromXML StandardUnit where
-    parseXML = parseXMLText "StandardUnit"
+    parseXML = withElement "StandardUnit" (const (return StandardUnit))
 
 instance ToQuery StandardUnit
 
@@ -705,7 +705,7 @@ instance ToText ComparisonOperator where
         LessThanThreshold             -> "LessThanThreshold"
 
 instance FromXML ComparisonOperator where
-    parseXML = parseXMLText "ComparisonOperator"
+    parseXML = withElement "ComparisonOperator" (const (return ComparisonOperator))
 
 instance ToQuery ComparisonOperator
 
@@ -839,7 +839,7 @@ instance ToText StateValue where
         Ok               -> "OK"
 
 instance FromXML StateValue where
-    parseXML = parseXMLText "StateValue"
+    parseXML = withElement "StateValue" (const (return StateValue))
 
 instance ToQuery StateValue
 
@@ -988,6 +988,6 @@ instance ToText Statistic where
         Sum         -> "Sum"
 
 instance FromXML Statistic where
-    parseXML = parseXMLText "Statistic"
+    parseXML = withElement "Statistic" (const (return Statistic))
 
 instance ToQuery Statistic

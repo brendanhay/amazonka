@@ -130,5 +130,6 @@ instance AWSRequest DescribeExpressions where
     response = xmlResponse
 
 instance FromXML DescribeExpressionsResponse where
-    parseXML x = DescribeExpressionsResponse
-        <$> x .@ "Expressions"
+    parseXML = withElement "DescribeExpressionsResult" $ \x ->
+        DescribeExpressionsResponse
+            <$> x .@ "Expressions"

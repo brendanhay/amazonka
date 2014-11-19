@@ -323,5 +323,6 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot where
     response = xmlResponse
 
 instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
-    parseXML x = RestoreDBInstanceFromDBSnapshotResponse
-        <$> x .@? "DBInstance"
+    parseXML = withElement "RestoreDBInstanceFromDBSnapshotResult" $ \x ->
+        RestoreDBInstanceFromDBSnapshotResponse
+            <$> x .@? "DBInstance"

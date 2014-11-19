@@ -119,5 +119,6 @@ instance AWSRequest DescribeInstanceHealth where
     response = xmlResponse
 
 instance FromXML DescribeInstanceHealthResponse where
-    parseXML x = DescribeInstanceHealthResponse
-        <$> x .@ "InstanceStates"
+    parseXML = withElement "DescribeInstanceHealthResult" $ \x ->
+        DescribeInstanceHealthResponse
+            <$> x .@ "InstanceStates"

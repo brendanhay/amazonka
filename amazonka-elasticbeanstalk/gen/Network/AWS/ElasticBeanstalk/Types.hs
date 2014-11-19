@@ -391,7 +391,7 @@ instance ToText EventSeverity where
         Warn  -> "WARN"
 
 instance FromXML EventSeverity where
-    parseXML = parseXMLText "EventSeverity"
+    parseXML = withElement "EventSeverity" (const (return EventSeverity))
 
 instance ToQuery EventSeverity
 
@@ -616,7 +616,7 @@ instance ToText ConfigurationDeploymentStatus where
         Pending  -> "pending"
 
 instance FromXML ConfigurationDeploymentStatus where
-    parseXML = parseXMLText "ConfigurationDeploymentStatus"
+    parseXML = withElement "ConfigurationDeploymentStatus" (const (return ConfigurationDeploymentStatus))
 
 instance ToQuery ConfigurationDeploymentStatus
 
@@ -680,7 +680,7 @@ instance ToText ConfigurationOptionValueType where
         Scalar -> "Scalar"
 
 instance FromXML ConfigurationOptionValueType where
-    parseXML = parseXMLText "ConfigurationOptionValueType"
+    parseXML = withElement "ConfigurationOptionValueType" (const (return ConfigurationOptionValueType))
 
 instance ToQuery ConfigurationOptionValueType
 
@@ -1052,7 +1052,7 @@ instance ToText EnvironmentStatus where
         Updating    -> "Updating"
 
 instance FromXML EnvironmentStatus where
-    parseXML = parseXMLText "EnvironmentStatus"
+    parseXML = withElement "EnvironmentStatus" (const (return EnvironmentStatus))
 
 instance ToQuery EnvironmentStatus
 
@@ -1603,7 +1603,7 @@ instance ToText ValidationSeverity where
         VSWarning -> "warning"
 
 instance FromXML ValidationSeverity where
-    parseXML = parseXMLText "ValidationSeverity"
+    parseXML = withElement "ValidationSeverity" (const (return ValidationSeverity))
 
 instance ToQuery ValidationSeverity
 
@@ -1645,7 +1645,7 @@ instance ToText EnvironmentInfoType where
     toText Tail' = "tail"
 
 instance FromXML EnvironmentInfoType where
-    parseXML = parseXMLText "EnvironmentInfoType"
+    parseXML = withElement "EnvironmentInfoType" (const (return EnvironmentInfoType))
 
 instance ToQuery EnvironmentInfoType
 
@@ -1881,7 +1881,7 @@ instance ToText EnvironmentHealth where
         Yellow -> "Yellow"
 
 instance FromXML EnvironmentHealth where
-    parseXML = parseXMLText "EnvironmentHealth"
+    parseXML = withElement "EnvironmentHealth" (const (return EnvironmentHealth))
 
 instance ToQuery EnvironmentHealth
 

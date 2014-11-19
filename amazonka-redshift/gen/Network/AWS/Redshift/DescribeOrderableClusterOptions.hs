@@ -163,6 +163,7 @@ instance AWSRequest DescribeOrderableClusterOptions where
     response = xmlResponse
 
 instance FromXML DescribeOrderableClusterOptionsResponse where
-    parseXML x = DescribeOrderableClusterOptionsResponse
-        <$> x .@? "Marker"
-        <*> x .@ "OrderableClusterOptions"
+    parseXML = withElement "DescribeOrderableClusterOptionsResult" $ \x ->
+        DescribeOrderableClusterOptionsResponse
+            <$> x .@? "Marker"
+            <*> x .@ "OrderableClusterOptions"

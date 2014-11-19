@@ -77,7 +77,7 @@ import qualified GHC.Exts
 
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
-    , _bpaItems      :: [ReplaceableItem]
+    , _bpaItems      :: Flatten [ReplaceableItem]
     } deriving (Eq, Show, Generic)
 
 -- | 'BatchPutAttributes' constructor.
@@ -89,10 +89,11 @@ data BatchPutAttributes = BatchPutAttributes
 -- * 'bpaItems' @::@ ['ReplaceableItem']
 --
 batchPutAttributes :: Text -- ^ 'bpaDomainName'
+                   -> [ReplaceableItem] -- ^ 'bpaItems'
                    -> BatchPutAttributes
-batchPutAttributes p1 = BatchPutAttributes
+batchPutAttributes p1 p2 = BatchPutAttributes
     { _bpaDomainName = p1
-    , _bpaItems      = mempty
+    , _bpaItems      = withIso _Flatten (const id) p2
     }
 
 -- | The name of the domain in which the attributes are being stored.
@@ -102,6 +103,7 @@ bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
+    . _Flatten
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
     deriving (Eq, Ord, Show, Generic)

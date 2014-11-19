@@ -145,6 +145,7 @@ instance AWSRequest DescribeHsmConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeHsmConfigurationsResponse where
-    parseXML x = DescribeHsmConfigurationsResponse
-        <$> x .@ "HsmConfigurations"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeHsmConfigurationsResult" $ \x ->
+        DescribeHsmConfigurationsResponse
+            <$> x .@ "HsmConfigurations"
+            <*> x .@? "Marker"

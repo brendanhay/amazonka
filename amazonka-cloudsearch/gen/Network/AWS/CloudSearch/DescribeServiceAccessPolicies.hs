@@ -115,5 +115,6 @@ instance AWSRequest DescribeServiceAccessPolicies where
     response = xmlResponse
 
 instance FromXML DescribeServiceAccessPoliciesResponse where
-    parseXML x = DescribeServiceAccessPoliciesResponse
-        <$> x .@ "AccessPolicies"
+    parseXML = withElement "DescribeServiceAccessPoliciesResult" $ \x ->
+        DescribeServiceAccessPoliciesResponse
+            <$> x .@ "AccessPolicies"

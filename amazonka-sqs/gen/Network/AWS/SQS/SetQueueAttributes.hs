@@ -47,7 +47,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data SetQueueAttributes = SetQueueAttributes
-    { _sqaAttributes :: Map Text Text
+    { _sqaAttributes :: Flatten (Map Text Text)
     , _sqaQueueUrl   :: Text
     } deriving (Eq, Show, Generic)
 
@@ -55,15 +55,16 @@ data SetQueueAttributes = SetQueueAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sqaAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'sqaAttributes' @::@ ('HashMap' 'Text' 'Text')
 --
 -- * 'sqaQueueUrl' @::@ 'Text'
 --
 setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
+                   -> (HashMap Text Text) -- ^ 'sqaAttributes'
                    -> SetQueueAttributes
-setQueueAttributes p1 = SetQueueAttributes
+setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl   = p1
-    , _sqaAttributes = mempty
+    , _sqaAttributes = withIso _Flatten (const id) p2
     }
 
 -- | A map of attributes to set. The following lists the names, descriptions,
@@ -90,9 +91,9 @@ setQueueAttributes p1 = SetQueueAttributes
 -- The parameters for dead letter queue functionality of the source queue.
 -- For more information about RedrivePolicy and dead letter queues, see
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
-sqaAttributes :: Lens' SetQueueAttributes (HashMap Text Text)
+sqaAttributes :: Lens' SetQueueAttributes ((HashMap Text Text))
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
-    . _Map
+    . _Flatten . _Map
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text

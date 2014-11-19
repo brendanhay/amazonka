@@ -153,7 +153,8 @@ instance AWSRequest ListInstanceProfiles where
     response = xmlResponse
 
 instance FromXML ListInstanceProfilesResponse where
-    parseXML x = ListInstanceProfilesResponse
-        <$> x .@ "InstanceProfiles"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
+    parseXML = withElement "ListInstanceProfilesResult" $ \x ->
+        ListInstanceProfilesResponse
+            <$> x .@ "InstanceProfiles"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "Marker"

@@ -118,5 +118,6 @@ instance AWSRequest GetIdentityDkimAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityDkimAttributesResponse where
-    parseXML x = GetIdentityDkimAttributesResponse
-        <$> x .@ "DkimAttributes"
+    parseXML = withElement "GetIdentityDkimAttributesResult" $ \x ->
+        GetIdentityDkimAttributesResponse
+            <$> x .@ "DkimAttributes"

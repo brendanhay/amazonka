@@ -148,6 +148,7 @@ instance AWSRequest DescribeScalingActivities where
     response = xmlResponse
 
 instance FromXML DescribeScalingActivitiesResponse where
-    parseXML x = DescribeScalingActivitiesResponse
-        <$> x .@ "Activities"
-        <*> x .@? "NextToken"
+    parseXML = withElement "DescribeScalingActivitiesResult" $ \x ->
+        DescribeScalingActivitiesResponse
+            <$> x .@ "Activities"
+            <*> x .@? "NextToken"

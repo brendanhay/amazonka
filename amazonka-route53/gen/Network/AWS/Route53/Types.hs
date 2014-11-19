@@ -529,7 +529,7 @@ instance ToText VPCRegion where
         UsWest2      -> "us-west-2"
 
 instance FromXML VPCRegion where
-    parseXML = parseXMLText "VPCRegion"
+    parseXML = withElement "VPCRegion" (const (return VPCRegion))
 
 instance ToXML VPCRegion where
     toXML = toXMLText
@@ -554,7 +554,7 @@ instance ToText ChangeAction where
         Upsert  -> "UPSERT"
 
 instance FromXML ChangeAction where
-    parseXML = parseXMLText "ChangeAction"
+    parseXML = withElement "ChangeAction" (const (return ChangeAction))
 
 instance ToXML ChangeAction where
     toXML = toXMLText
@@ -572,7 +572,7 @@ instance ToText TagResourceType where
     toText Healthcheck = "healthcheck"
 
 instance FromXML TagResourceType where
-    parseXML = parseXMLText "TagResourceType"
+    parseXML = withElement "TagResourceType" (const (return TagResourceType))
 
 instance ToXML TagResourceType where
     toXML = toXMLText
@@ -755,7 +755,7 @@ instance ToText ResourceRecordSetFailover where
         Secondary -> "SECONDARY"
 
 instance FromXML ResourceRecordSetFailover where
-    parseXML = parseXMLText "ResourceRecordSetFailover"
+    parseXML = withElement "ResourceRecordSetFailover" (const (return ResourceRecordSetFailover))
 
 instance ToXML ResourceRecordSetFailover where
     toXML = toXMLText
@@ -909,7 +909,7 @@ instance ToText ChangeStatus where
         Pending -> "PENDING"
 
 instance FromXML ChangeStatus where
-    parseXML = parseXMLText "ChangeStatus"
+    parseXML = withElement "ChangeStatus" (const (return ChangeStatus))
 
 instance ToXML ChangeStatus where
     toXML = toXMLText
@@ -1024,7 +1024,7 @@ instance ToText HealthCheckType where
         Tcp           -> "TCP"
 
 instance FromXML HealthCheckType where
-    parseXML = parseXMLText "HealthCheckType"
+    parseXML = withElement "HealthCheckType" (const (return HealthCheckType))
 
 instance ToXML HealthCheckType where
     toXML = toXMLText

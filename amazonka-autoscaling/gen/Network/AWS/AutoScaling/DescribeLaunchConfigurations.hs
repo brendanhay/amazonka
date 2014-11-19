@@ -130,6 +130,7 @@ instance AWSRequest DescribeLaunchConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeLaunchConfigurationsResponse where
-    parseXML x = DescribeLaunchConfigurationsResponse
-        <$> x .@ "LaunchConfigurations"
-        <*> x .@? "NextToken"
+    parseXML = withElement "DescribeLaunchConfigurationsResult" $ \x ->
+        DescribeLaunchConfigurationsResponse
+            <$> x .@ "LaunchConfigurations"
+            <*> x .@? "NextToken"

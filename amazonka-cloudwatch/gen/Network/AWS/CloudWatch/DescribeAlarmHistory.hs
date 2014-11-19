@@ -159,6 +159,7 @@ instance AWSRequest DescribeAlarmHistory where
     response = xmlResponse
 
 instance FromXML DescribeAlarmHistoryResponse where
-    parseXML x = DescribeAlarmHistoryResponse
-        <$> x .@ "AlarmHistoryItems"
-        <*> x .@? "NextToken"
+    parseXML = withElement "DescribeAlarmHistoryResult" $ \x ->
+        DescribeAlarmHistoryResponse
+            <$> x .@ "AlarmHistoryItems"
+            <*> x .@? "NextToken"

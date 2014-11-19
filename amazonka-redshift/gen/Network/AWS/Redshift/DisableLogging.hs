@@ -153,10 +153,11 @@ instance AWSRequest DisableLogging where
     response = xmlResponse
 
 instance FromXML DisableLoggingResponse where
-    parseXML x = DisableLoggingResponse
-        <$> x .@? "BucketName"
-        <*> x .@? "LastFailureMessage"
-        <*> x .@? "LastFailureTime"
-        <*> x .@? "LastSuccessfulDeliveryTime"
-        <*> x .@? "LoggingEnabled"
-        <*> x .@? "S3KeyPrefix"
+    parseXML = withElement "DisableLoggingResult" $ \x ->
+        DisableLoggingResponse
+            <$> x .@? "BucketName"
+            <*> x .@? "LastFailureMessage"
+            <*> x .@? "LastFailureTime"
+            <*> x .@? "LastSuccessfulDeliveryTime"
+            <*> x .@? "LoggingEnabled"
+            <*> x .@? "S3KeyPrefix"

@@ -118,5 +118,6 @@ instance AWSRequest DeleteCacheCluster where
     response = xmlResponse
 
 instance FromXML DeleteCacheClusterResponse where
-    parseXML x = DeleteCacheClusterResponse
-        <$> x .@? "CacheCluster"
+    parseXML = withElement "DeleteCacheClusterResult" $ \x ->
+        DeleteCacheClusterResponse
+            <$> x .@? "CacheCluster"

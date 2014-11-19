@@ -121,6 +121,7 @@ instance AWSRequest DescribeStacks where
     response = xmlResponse
 
 instance FromXML DescribeStacksResponse where
-    parseXML x = DescribeStacksResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "Stacks"
+    parseXML = withElement "DescribeStacksResult" $ \x ->
+        DescribeStacksResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "Stacks"

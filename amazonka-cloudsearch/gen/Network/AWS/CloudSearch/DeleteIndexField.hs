@@ -111,5 +111,6 @@ instance AWSRequest DeleteIndexField where
     response = xmlResponse
 
 instance FromXML DeleteIndexFieldResponse where
-    parseXML x = DeleteIndexFieldResponse
-        <$> x .@ "IndexField"
+    parseXML = withElement "DeleteIndexFieldResult" $ \x ->
+        DeleteIndexFieldResponse
+            <$> x .@ "IndexField"

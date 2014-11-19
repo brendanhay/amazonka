@@ -130,5 +130,6 @@ instance AWSRequest ModifyDBParameterGroup where
     response = xmlResponse
 
 instance FromXML ModifyDBParameterGroupResponse where
-    parseXML x = ModifyDBParameterGroupResponse
-        <$> x .@? "DBParameterGroupName"
+    parseXML = withElement "ModifyDBParameterGroupResult" $ \x ->
+        ModifyDBParameterGroupResponse
+            <$> x .@? "DBParameterGroupName"

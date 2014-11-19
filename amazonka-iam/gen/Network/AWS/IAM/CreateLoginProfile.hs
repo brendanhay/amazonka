@@ -125,5 +125,6 @@ instance AWSRequest CreateLoginProfile where
     response = xmlResponse
 
 instance FromXML CreateLoginProfileResponse where
-    parseXML x = CreateLoginProfileResponse
-        <$> x .@ "LoginProfile"
+    parseXML = withElement "CreateLoginProfileResult" $ \x ->
+        CreateLoginProfileResponse
+            <$> x .@ "LoginProfile"

@@ -131,6 +131,7 @@ instance AWSRequest DescribeNotificationConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeNotificationConfigurationsResponse where
-    parseXML x = DescribeNotificationConfigurationsResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "NotificationConfigurations"
+    parseXML = withElement "DescribeNotificationConfigurationsResult" $ \x ->
+        DescribeNotificationConfigurationsResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "NotificationConfigurations"

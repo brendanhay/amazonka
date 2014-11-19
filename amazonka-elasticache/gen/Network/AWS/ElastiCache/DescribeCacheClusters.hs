@@ -161,6 +161,7 @@ instance AWSRequest DescribeCacheClusters where
     response = xmlResponse
 
 instance FromXML DescribeCacheClustersResponse where
-    parseXML x = DescribeCacheClustersResponse
-        <$> x .@ "CacheClusters"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeCacheClustersResult" $ \x ->
+        DescribeCacheClustersResponse
+            <$> x .@ "CacheClusters"
+            <*> x .@? "Marker"

@@ -52,7 +52,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data DeleteMessageBatch = DeleteMessageBatch
-    { _dmbEntries  :: [DeleteMessageBatchRequestEntry]
+    { _dmbEntries  :: Flatten [DeleteMessageBatchRequestEntry]
     , _dmbQueueUrl :: Text
     } deriving (Eq, Show, Generic)
 
@@ -65,23 +65,25 @@ data DeleteMessageBatch = DeleteMessageBatch
 -- * 'dmbQueueUrl' @::@ 'Text'
 --
 deleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
+                   -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
                    -> DeleteMessageBatch
-deleteMessageBatch p1 = DeleteMessageBatch
+deleteMessageBatch p1 p2 = DeleteMessageBatch
     { _dmbQueueUrl = p1
-    , _dmbEntries  = mempty
+    , _dmbEntries  = withIso _Flatten (const id) p2
     }
 
 -- | A list of receipt handles for the messages to be deleted.
 dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
 dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a })
+    . _Flatten
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmbQueueUrl :: Lens' DeleteMessageBatch Text
 dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
 
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrFailed     :: [BatchResultErrorEntry]
-    , _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
+    { _dmbrFailed     :: Flatten [BatchResultErrorEntry]
+    , _dmbrSuccessful :: Flatten [DeleteMessageBatchResultEntry]
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteMessageBatchResponse' constructor.
@@ -92,19 +94,23 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
 --
 -- * 'dmbrSuccessful' @::@ ['DeleteMessageBatchResultEntry']
 --
-deleteMessageBatchResponse :: DeleteMessageBatchResponse
-deleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrSuccessful = mempty
-    , _dmbrFailed     = mempty
+deleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
+                           -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
+                           -> DeleteMessageBatchResponse
+deleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
+    { _dmbrSuccessful = withIso _Flatten (const id) p1
+    , _dmbrFailed     = withIso _Flatten (const id) p2
     }
 
 -- | A list of BatchResultErrorEntry items.
 dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
+    . _Flatten
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
+    . _Flatten
 
 instance ToPath DeleteMessageBatch where
     toPath = const "/"
@@ -121,6 +127,7 @@ instance AWSRequest DeleteMessageBatch where
     response = xmlResponse
 
 instance FromXML DeleteMessageBatchResponse where
-    parseXML x = DeleteMessageBatchResponse
-        <$> x .@ "Failed"
-        <*> x .@ "Successful"
+    parseXML = withElement "DeleteMessageBatchResult" $ \x ->
+        DeleteMessageBatchResponse
+            <$> parseXML x
+            <*> parseXML x

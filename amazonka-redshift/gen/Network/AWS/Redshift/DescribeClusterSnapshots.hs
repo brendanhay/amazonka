@@ -204,6 +204,7 @@ instance AWSRequest DescribeClusterSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeClusterSnapshotsResponse where
-    parseXML x = DescribeClusterSnapshotsResponse
-        <$> x .@? "Marker"
-        <*> x .@ "Snapshots"
+    parseXML = withElement "DescribeClusterSnapshotsResult" $ \x ->
+        DescribeClusterSnapshotsResponse
+            <$> x .@? "Marker"
+            <*> x .@ "Snapshots"

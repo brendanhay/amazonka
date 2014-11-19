@@ -155,8 +155,9 @@ instance AWSRequest GetGroup where
     response = xmlResponse
 
 instance FromXML GetGroupResponse where
-    parseXML x = GetGroupResponse
-        <$> x .@ "Group"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@ "Users"
+    parseXML = withElement "GetGroupResult" $ \x ->
+        GetGroupResponse
+            <$> x .@ "Group"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "Marker"
+            <*> x .@ "Users"

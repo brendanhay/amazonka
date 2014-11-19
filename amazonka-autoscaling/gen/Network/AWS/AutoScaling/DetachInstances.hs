@@ -134,5 +134,6 @@ instance AWSRequest DetachInstances where
     response = xmlResponse
 
 instance FromXML DetachInstancesResponse where
-    parseXML x = DetachInstancesResponse
-        <$> x .@ "Activities"
+    parseXML = withElement "DetachInstancesResult" $ \x ->
+        DetachInstancesResponse
+            <$> x .@ "Activities"

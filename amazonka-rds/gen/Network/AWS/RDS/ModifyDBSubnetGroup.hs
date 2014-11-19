@@ -122,5 +122,6 @@ instance AWSRequest ModifyDBSubnetGroup where
     response = xmlResponse
 
 instance FromXML ModifyDBSubnetGroupResponse where
-    parseXML x = ModifyDBSubnetGroupResponse
-        <$> x .@? "DBSubnetGroup"
+    parseXML = withElement "ModifyDBSubnetGroupResult" $ \x ->
+        ModifyDBSubnetGroupResponse
+            <$> x .@? "DBSubnetGroup"

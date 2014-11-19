@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
-    , _bdaItems      :: [DeletableItem]
+    , _bdaItems      :: Flatten [DeletableItem]
     } deriving (Eq, Show, Generic)
 
 -- | 'BatchDeleteAttributes' constructor.
@@ -61,10 +61,11 @@ data BatchDeleteAttributes = BatchDeleteAttributes
 -- * 'bdaItems' @::@ ['DeletableItem']
 --
 batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
+                      -> [DeletableItem] -- ^ 'bdaItems'
                       -> BatchDeleteAttributes
-batchDeleteAttributes p1 = BatchDeleteAttributes
+batchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdaDomainName = p1
-    , _bdaItems      = mempty
+    , _bdaItems      = withIso _Flatten (const id) p2
     }
 
 -- | The name of the domain in which the attributes are being deleted.
@@ -74,6 +75,7 @@ bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
+    . _Flatten
 
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
     deriving (Eq, Ord, Show, Generic)

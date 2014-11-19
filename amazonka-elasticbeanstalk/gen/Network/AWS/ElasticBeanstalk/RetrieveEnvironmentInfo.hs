@@ -132,5 +132,6 @@ instance AWSRequest RetrieveEnvironmentInfo where
     response = xmlResponse
 
 instance FromXML RetrieveEnvironmentInfoResponse where
-    parseXML x = RetrieveEnvironmentInfoResponse
-        <$> x .@ "EnvironmentInfo"
+    parseXML = withElement "RetrieveEnvironmentInfoResult" $ \x ->
+        RetrieveEnvironmentInfoResponse
+            <$> x .@ "EnvironmentInfo"

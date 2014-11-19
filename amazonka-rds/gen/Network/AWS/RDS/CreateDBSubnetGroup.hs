@@ -131,5 +131,6 @@ instance AWSRequest CreateDBSubnetGroup where
     response = xmlResponse
 
 instance FromXML CreateDBSubnetGroupResponse where
-    parseXML x = CreateDBSubnetGroupResponse
-        <$> x .@? "DBSubnetGroup"
+    parseXML = withElement "CreateDBSubnetGroupResult" $ \x ->
+        CreateDBSubnetGroupResponse
+            <$> x .@? "DBSubnetGroup"

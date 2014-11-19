@@ -300,5 +300,6 @@ instance AWSRequest ModifyReplicationGroup where
     response = xmlResponse
 
 instance FromXML ModifyReplicationGroupResponse where
-    parseXML x = ModifyReplicationGroupResponse
-        <$> x .@? "ReplicationGroup"
+    parseXML = withElement "ModifyReplicationGroupResult" $ \x ->
+        ModifyReplicationGroupResponse
+            <$> x .@? "ReplicationGroup"

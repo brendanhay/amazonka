@@ -129,5 +129,6 @@ instance AWSRequest RevokeSnapshotAccess where
     response = xmlResponse
 
 instance FromXML RevokeSnapshotAccessResponse where
-    parseXML x = RevokeSnapshotAccessResponse
-        <$> x .@? "Snapshot"
+    parseXML = withElement "RevokeSnapshotAccessResult" $ \x ->
+        RevokeSnapshotAccessResponse
+            <$> x .@? "Snapshot"

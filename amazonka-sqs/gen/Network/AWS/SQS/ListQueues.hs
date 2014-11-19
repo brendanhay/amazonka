@@ -69,14 +69,8 @@ lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
 
 newtype ListQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls :: [Text]
+    { _lqrQueueUrls :: Flatten [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
-
-instance GHC.Exts.IsList ListQueuesResponse where
-    type Item ListQueuesResponse = Text
-
-    fromList = ListQueuesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _lqrQueueUrls
 
 -- | 'ListQueuesResponse' constructor.
 --
@@ -84,14 +78,16 @@ instance GHC.Exts.IsList ListQueuesResponse where
 --
 -- * 'lqrQueueUrls' @::@ ['Text']
 --
-listQueuesResponse :: ListQueuesResponse
-listQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls = mempty
+listQueuesResponse :: [Text] -- ^ 'lqrQueueUrls'
+                   -> ListQueuesResponse
+listQueuesResponse p1 = ListQueuesResponse
+    { _lqrQueueUrls = withIso _Flatten (const id) p1
     }
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
+    . _Flatten
 
 instance ToPath ListQueues where
     toPath = const "/"
@@ -108,5 +104,6 @@ instance AWSRequest ListQueues where
     response = xmlResponse
 
 instance FromXML ListQueuesResponse where
-    parseXML x = ListQueuesResponse
-        <$> x .@ "QueueUrls"
+    parseXML = withElement "ListQueuesResult" $ \x ->
+        ListQueuesResponse
+            <$> parseXML x

@@ -147,6 +147,7 @@ instance AWSRequest DescribeDBInstances where
     response = xmlResponse
 
 instance FromXML DescribeDBInstancesResponse where
-    parseXML x = DescribeDBInstancesResponse
-        <$> x .@ "DBInstances"
-        <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBInstancesResult" $ \x ->
+        DescribeDBInstancesResponse
+            <$> x .@ "DBInstances"
+            <*> x .@? "Marker"

@@ -96,5 +96,6 @@ instance AWSRequest DescribeAutoScalingNotificationTypes where
     response = xmlResponse
 
 instance FromXML DescribeAutoScalingNotificationTypesResponse where
-    parseXML x = DescribeAutoScalingNotificationTypesResponse
-        <$> x .@ "AutoScalingNotificationTypes"
+    parseXML = withElement "DescribeAutoScalingNotificationTypesResult" $ \x ->
+        DescribeAutoScalingNotificationTypesResponse
+            <$> x .@ "AutoScalingNotificationTypes"

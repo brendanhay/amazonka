@@ -149,5 +149,6 @@ instance AWSRequest DescribeStackResources where
     response = xmlResponse
 
 instance FromXML DescribeStackResourcesResponse where
-    parseXML x = DescribeStackResourcesResponse
-        <$> x .@ "StackResources"
+    parseXML = withElement "DescribeStackResourcesResult" $ \x ->
+        DescribeStackResourcesResponse
+            <$> x .@ "StackResources"

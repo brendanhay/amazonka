@@ -125,6 +125,7 @@ instance AWSRequest ListStackResources where
     response = xmlResponse
 
 instance FromXML ListStackResourcesResponse where
-    parseXML x = ListStackResourcesResponse
-        <$> x .@? "NextToken"
-        <*> x .@ "StackResourceSummaries"
+    parseXML = withElement "ListStackResourcesResult" $ \x ->
+        ListStackResourcesResponse
+            <$> x .@? "NextToken"
+            <*> x .@ "StackResourceSummaries"

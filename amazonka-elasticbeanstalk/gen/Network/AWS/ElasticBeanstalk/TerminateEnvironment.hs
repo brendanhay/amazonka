@@ -280,19 +280,20 @@ instance AWSRequest TerminateEnvironment where
     response = xmlResponse
 
 instance FromXML TerminateEnvironmentResponse where
-    parseXML x = TerminateEnvironmentResponse
-        <$> x .@? "ApplicationName"
-        <*> x .@? "CNAME"
-        <*> x .@? "DateCreated"
-        <*> x .@? "DateUpdated"
-        <*> x .@? "Description"
-        <*> x .@? "EndpointURL"
-        <*> x .@? "EnvironmentId"
-        <*> x .@? "EnvironmentName"
-        <*> x .@? "Health"
-        <*> x .@? "Resources"
-        <*> x .@? "SolutionStackName"
-        <*> x .@? "Status"
-        <*> x .@? "TemplateName"
-        <*> x .@? "Tier"
-        <*> x .@? "VersionLabel"
+    parseXML = withElement "TerminateEnvironmentResult" $ \x ->
+        TerminateEnvironmentResponse
+            <$> x .@? "ApplicationName"
+            <*> x .@? "CNAME"
+            <*> x .@? "DateCreated"
+            <*> x .@? "DateUpdated"
+            <*> x .@? "Description"
+            <*> x .@? "EndpointURL"
+            <*> x .@? "EnvironmentId"
+            <*> x .@? "EnvironmentName"
+            <*> x .@? "Health"
+            <*> x .@? "Resources"
+            <*> x .@? "SolutionStackName"
+            <*> x .@? "Status"
+            <*> x .@? "TemplateName"
+            <*> x .@? "Tier"
+            <*> x .@? "VersionLabel"

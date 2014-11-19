@@ -98,7 +98,7 @@ sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
 
 data SelectResponse = SelectResponse
-    { _srItems     :: [Item]
+    { _srItems     :: Flatten [Item]
     , _srNextToken :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -110,15 +110,17 @@ data SelectResponse = SelectResponse
 --
 -- * 'srNextToken' @::@ 'Maybe' 'Text'
 --
-selectResponse :: SelectResponse
-selectResponse = SelectResponse
-    { _srItems     = mempty
+selectResponse :: [Item] -- ^ 'srItems'
+               -> SelectResponse
+selectResponse p1 = SelectResponse
+    { _srItems     = withIso _Flatten (const id) p1
     , _srNextToken = Nothing
     }
 
 -- | A list of items that match the select expression.
 srItems :: Lens' SelectResponse [Item]
 srItems = lens _srItems (\s a -> s { _srItems = a })
+    . _Flatten
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
@@ -141,6 +143,7 @@ instance AWSRequest Select where
     response = xmlResponse
 
 instance FromXML SelectResponse where
-    parseXML x = SelectResponse
-        <$> x .@ "Items"
-        <*> x .@? "NextToken"
+    parseXML = withElement "SelectResult" $ \x ->
+        SelectResponse
+            <$> parseXML x
+            <*> x .@? "NextToken"

@@ -1444,7 +1444,7 @@ instance ToText ImageAttributeName where
         ImageRamdisk            -> "ramdisk"
 
 instance FromXML ImageAttributeName where
-    parseXML = parseXMLText "ImageAttributeName"
+    parseXML = withElement "ImageAttributeName" (const (return ImageAttributeName))
 
 instance ToQuery ImageAttributeName
 
@@ -1461,7 +1461,7 @@ instance ToText PermissionGroup where
     toText All = "all"
 
 instance FromXML PermissionGroup where
-    parseXML = parseXMLText "PermissionGroup"
+    parseXML = withElement "PermissionGroup" (const (return PermissionGroup))
 
 instance ToQuery PermissionGroup
 
@@ -1943,7 +1943,7 @@ instance ToText VpnStaticRouteSource where
     toText Static = "Static"
 
 instance FromXML VpnStaticRouteSource where
-    parseXML = parseXMLText "VpnStaticRouteSource"
+    parseXML = withElement "VpnStaticRouteSource" (const (return VpnStaticRouteSource))
 
 instance ToQuery VpnStaticRouteSource
 
@@ -2074,7 +2074,7 @@ instance ToText InstanceLifecycleType where
     toText Spot = "spot"
 
 instance FromXML InstanceLifecycleType where
-    parseXML = parseXMLText "InstanceLifecycleType"
+    parseXML = withElement "InstanceLifecycleType" (const (return InstanceLifecycleType))
 
 instance ToQuery InstanceLifecycleType
 
@@ -2095,7 +2095,7 @@ instance ToText VirtualizationType where
         Paravirtual -> "paravirtual"
 
 instance FromXML VirtualizationType where
-    parseXML = parseXMLText "VirtualizationType"
+    parseXML = withElement "VirtualizationType" (const (return VirtualizationType))
 
 instance ToQuery VirtualizationType
 
@@ -2122,7 +2122,7 @@ instance ToText NetworkInterfaceStatus where
         InUse     -> "in-use"
 
 instance FromXML NetworkInterfaceStatus where
-    parseXML = parseXMLText "NetworkInterfaceStatus"
+    parseXML = withElement "NetworkInterfaceStatus" (const (return NetworkInterfaceStatus))
 
 instance ToQuery NetworkInterfaceStatus
 
@@ -2139,7 +2139,7 @@ instance ToText PlatformValues where
     toText Windows = "Windows"
 
 instance FromXML PlatformValues where
-    parseXML = parseXMLText "PlatformValues"
+    parseXML = withElement "PlatformValues" (const (return PlatformValues))
 
 instance ToQuery PlatformValues
 
@@ -2228,7 +2228,7 @@ instance ToText RecurringChargeFrequency where
     toText Hourly = "Hourly"
 
 instance FromXML RecurringChargeFrequency where
-    parseXML = parseXMLText "RecurringChargeFrequency"
+    parseXML = withElement "RecurringChargeFrequency" (const (return RecurringChargeFrequency))
 
 instance ToQuery RecurringChargeFrequency
 
@@ -2435,7 +2435,7 @@ instance ToText VolumeState where
         VSInUse     -> "in-use"
 
 instance FromXML VolumeState where
-    parseXML = parseXMLText "VolumeState"
+    parseXML = withElement "VolumeState" (const (return VolumeState))
 
 instance ToQuery VolumeState
 
@@ -2823,7 +2823,7 @@ instance ToText AccountAttributeName where
         SupportedPlatforms -> "supported-platforms"
 
 instance FromXML AccountAttributeName where
-    parseXML = parseXMLText "AccountAttributeName"
+    parseXML = withElement "AccountAttributeName" (const (return AccountAttributeName))
 
 instance ToQuery AccountAttributeName
 
@@ -3084,7 +3084,7 @@ instance ToText VpcState where
         VpcStatePending   -> "pending"
 
 instance FromXML VpcState where
-    parseXML = parseXMLText "VpcState"
+    parseXML = withElement "VpcState" (const (return VpcState))
 
 instance ToQuery VpcState
 
@@ -3150,7 +3150,7 @@ instance ToText ResourceType where
         RTVpnGateway           -> "vpn-gateway"
 
 instance FromXML ResourceType where
-    parseXML = parseXMLText "ResourceType"
+    parseXML = withElement "ResourceType" (const (return ResourceType))
 
 instance ToQuery ResourceType
 
@@ -3171,7 +3171,7 @@ instance ToText ReportStatusType where
         Ok       -> "ok"
 
 instance FromXML ReportStatusType where
-    parseXML = parseXMLText "ReportStatusType"
+    parseXML = withElement "ReportStatusType" (const (return ReportStatusType))
 
 instance ToQuery ReportStatusType
 
@@ -3188,7 +3188,7 @@ instance ToText CurrencyCodeValues where
     toText Usd = "USD"
 
 instance FromXML CurrencyCodeValues where
-    parseXML = parseXMLText "CurrencyCodeValues"
+    parseXML = withElement "CurrencyCodeValues" (const (return CurrencyCodeValues))
 
 instance ToQuery CurrencyCodeValues
 
@@ -3484,7 +3484,7 @@ instance ToText AttachmentStatus where
         ASDetaching -> "detaching"
 
 instance FromXML AttachmentStatus where
-    parseXML = parseXMLText "AttachmentStatus"
+    parseXML = withElement "AttachmentStatus" (const (return AttachmentStatus))
 
 instance ToQuery AttachmentStatus
 
@@ -3508,7 +3508,7 @@ instance ToText RouteOrigin where
         OriginEnableVgwRoutePropagation -> "EnableVgwRoutePropagation"
 
 instance FromXML RouteOrigin where
-    parseXML = parseXMLText "RouteOrigin"
+    parseXML = withElement "RouteOrigin" (const (return RouteOrigin))
 
 instance ToQuery RouteOrigin
 
@@ -3535,7 +3535,7 @@ instance ToText ListingState where
         LSSold      -> "sold"
 
 instance FromXML ListingState where
-    parseXML = parseXMLText "ListingState"
+    parseXML = withElement "ListingState" (const (return ListingState))
 
 instance ToQuery ListingState
 
@@ -3739,7 +3739,7 @@ instance ToText AvailabilityZoneState where
     toText AZSAvailable = "available"
 
 instance FromXML AvailabilityZoneState where
-    parseXML = parseXMLText "AvailabilityZoneState"
+    parseXML = withElement "AvailabilityZoneState" (const (return AvailabilityZoneState))
 
 instance ToQuery AvailabilityZoneState
 
@@ -4448,7 +4448,7 @@ instance ToText SummaryStatus where
         SSOk               -> "ok"
 
 instance FromXML SummaryStatus where
-    parseXML = parseXMLText "SummaryStatus"
+    parseXML = withElement "SummaryStatus" (const (return SummaryStatus))
 
 instance ToQuery SummaryStatus
 
@@ -4575,7 +4575,7 @@ instance ToText RuleAction where
         Deny  -> "deny"
 
 instance FromXML RuleAction where
-    parseXML = parseXMLText "RuleAction"
+    parseXML = withElement "RuleAction" (const (return RuleAction))
 
 instance ToQuery RuleAction
 
@@ -4782,7 +4782,7 @@ instance ToText TelemetryStatus where
         Up   -> "UP"
 
 instance FromXML TelemetryStatus where
-    parseXML = parseXMLText "TelemetryStatus"
+    parseXML = withElement "TelemetryStatus" (const (return TelemetryStatus))
 
 instance ToQuery TelemetryStatus
 
@@ -4982,7 +4982,7 @@ instance ToText SnapshotState where
         Pending   -> "pending"
 
 instance FromXML SnapshotState where
-    parseXML = parseXMLText "SnapshotState"
+    parseXML = withElement "SnapshotState" (const (return SnapshotState))
 
 instance ToQuery SnapshotState
 
@@ -5317,7 +5317,7 @@ instance ToText VolumeAttachmentState where
         VASDetaching -> "detaching"
 
 instance FromXML VolumeAttachmentState where
-    parseXML = parseXMLText "VolumeAttachmentState"
+    parseXML = withElement "VolumeAttachmentState" (const (return VolumeAttachmentState))
 
 instance ToQuery VolumeAttachmentState
 
@@ -5372,7 +5372,7 @@ instance ToText RouteState where
         Blackhole -> "blackhole"
 
 instance FromXML RouteState where
-    parseXML = parseXMLText "RouteState"
+    parseXML = withElement "RouteState" (const (return RouteState))
 
 instance ToQuery RouteState
 
@@ -5462,7 +5462,7 @@ instance ToText BundleTaskState where
         BTSWaitingForShutdown -> "waiting-for-shutdown"
 
 instance FromXML BundleTaskState where
-    parseXML = parseXMLText "BundleTaskState"
+    parseXML = withElement "BundleTaskState" (const (return BundleTaskState))
 
 instance ToQuery BundleTaskState
 
@@ -5517,7 +5517,7 @@ instance ToText VpcAttributeName where
         EnableDnsSupport   -> "enableDnsSupport"
 
 instance FromXML VpcAttributeName where
-    parseXML = parseXMLText "VpcAttributeName"
+    parseXML = withElement "VpcAttributeName" (const (return VpcAttributeName))
 
 instance ToQuery VpcAttributeName
 
@@ -5635,7 +5635,7 @@ instance ToText SpotInstanceState where
         SISOpen      -> "open"
 
 instance FromXML SpotInstanceState where
-    parseXML = parseXMLText "SpotInstanceState"
+    parseXML = withElement "SpotInstanceState" (const (return SpotInstanceState))
 
 instance ToQuery SpotInstanceState
 
@@ -6129,7 +6129,7 @@ instance ToText InstanceType where
         T2Small    -> "t2.small"
 
 instance FromXML InstanceType where
-    parseXML = parseXMLText "InstanceType"
+    parseXML = withElement "InstanceType" (const (return InstanceType))
 
 instance ToQuery InstanceType
 
@@ -6435,7 +6435,7 @@ instance ToText CancelSpotInstanceRequestState where
         CSIRSOpen      -> "open"
 
 instance FromXML CancelSpotInstanceRequestState where
-    parseXML = parseXMLText "CancelSpotInstanceRequestState"
+    parseXML = withElement "CancelSpotInstanceRequestState" (const (return CancelSpotInstanceRequestState))
 
 instance ToQuery CancelSpotInstanceRequestState
 
@@ -6462,7 +6462,7 @@ instance ToText PlacementGroupState where
         PGSPending   -> "pending"
 
 instance FromXML PlacementGroupState where
-    parseXML = parseXMLText "PlacementGroupState"
+    parseXML = withElement "PlacementGroupState" (const (return PlacementGroupState))
 
 instance ToQuery PlacementGroupState
 
@@ -6578,7 +6578,7 @@ instance ToText ExportEnvironment where
         Vmware    -> "vmware"
 
 instance FromXML ExportEnvironment where
-    parseXML = parseXMLText "ExportEnvironment"
+    parseXML = withElement "ExportEnvironment" (const (return ExportEnvironment))
 
 instance ToQuery ExportEnvironment
 
@@ -6800,7 +6800,7 @@ instance ToText ShutdownBehavior where
         Terminate -> "terminate"
 
 instance FromXML ShutdownBehavior where
-    parseXML = parseXMLText "ShutdownBehavior"
+    parseXML = withElement "ShutdownBehavior" (const (return ShutdownBehavior))
 
 instance ToQuery ShutdownBehavior
 
@@ -6941,7 +6941,7 @@ instance ToText SubnetState where
         SSPending   -> "pending"
 
 instance FromXML SubnetState where
-    parseXML = parseXMLText "SubnetState"
+    parseXML = withElement "SubnetState" (const (return SubnetState))
 
 instance ToQuery SubnetState
 
@@ -6958,7 +6958,7 @@ instance ToText ContainerFormat where
     toText Ova = "ova"
 
 instance FromXML ContainerFormat where
-    parseXML = parseXMLText "ContainerFormat"
+    parseXML = withElement "ContainerFormat" (const (return ContainerFormat))
 
 instance ToQuery ContainerFormat
 
@@ -7076,7 +7076,7 @@ instance ToText StatusType where
         Passed           -> "passed"
 
 instance FromXML StatusType where
-    parseXML = parseXMLText "StatusType"
+    parseXML = withElement "StatusType" (const (return StatusType))
 
 instance ToQuery StatusType
 
@@ -7155,7 +7155,7 @@ instance ToText NetworkInterfaceAttribute where
         SourceDestCheck -> "sourceDestCheck"
 
 instance FromXML NetworkInterfaceAttribute where
-    parseXML = parseXMLText "NetworkInterfaceAttribute"
+    parseXML = withElement "NetworkInterfaceAttribute" (const (return NetworkInterfaceAttribute))
 
 instance ToQuery NetworkInterfaceAttribute
 
@@ -7179,7 +7179,7 @@ instance ToText ImageTypeValues where
         Ramdisk -> "ramdisk"
 
 instance FromXML ImageTypeValues where
-    parseXML = parseXMLText "ImageTypeValues"
+    parseXML = withElement "ImageTypeValues" (const (return ImageTypeValues))
 
 instance ToQuery ImageTypeValues
 
@@ -7235,7 +7235,7 @@ instance ToText SnapshotAttributeName where
         SANProductCodes           -> "productCodes"
 
 instance FromXML SnapshotAttributeName where
-    parseXML = parseXMLText "SnapshotAttributeName"
+    parseXML = withElement "SnapshotAttributeName" (const (return SnapshotAttributeName))
 
 instance ToQuery SnapshotAttributeName
 
@@ -7314,7 +7314,7 @@ instance ToText VpnState where
         VpnStatePending   -> "pending"
 
 instance FromXML VpnState where
-    parseXML = parseXMLText "VpnState"
+    parseXML = withElement "VpnState" (const (return VpnState))
 
 instance ToQuery VpnState
 
@@ -7406,7 +7406,7 @@ instance ToText HypervisorType where
         Xen -> "xen"
 
 instance FromXML HypervisorType where
-    parseXML = parseXMLText "HypervisorType"
+    parseXML = withElement "HypervisorType" (const (return HypervisorType))
 
 instance ToQuery HypervisorType
 
@@ -7548,7 +7548,7 @@ instance ToText ReservedInstanceState where
         RISRetired        -> "retired"
 
 instance FromXML ReservedInstanceState where
-    parseXML = parseXMLText "ReservedInstanceState"
+    parseXML = withElement "ReservedInstanceState" (const (return ReservedInstanceState))
 
 instance ToQuery ReservedInstanceState
 
@@ -7602,7 +7602,7 @@ instance ToText InstanceAttributeName where
         IANInstanceUserData                          -> "userData"
 
 instance FromXML InstanceAttributeName where
-    parseXML = parseXMLText "InstanceAttributeName"
+    parseXML = withElement "InstanceAttributeName" (const (return InstanceAttributeName))
 
 instance ToQuery InstanceAttributeName
 
@@ -7699,7 +7699,7 @@ instance ToText ConversionTaskState where
         CTSCompleted  -> "completed"
 
 instance FromXML ConversionTaskState where
-    parseXML = parseXMLText "ConversionTaskState"
+    parseXML = withElement "ConversionTaskState" (const (return ConversionTaskState))
 
 instance ToQuery ConversionTaskState
 
@@ -7760,7 +7760,7 @@ instance ToText Tenancy where
         Default'  -> "default"
 
 instance FromXML Tenancy where
-    parseXML = parseXMLText "Tenancy"
+    parseXML = withElement "Tenancy" (const (return Tenancy))
 
 instance ToQuery Tenancy
 
@@ -7912,7 +7912,7 @@ instance ToText PlacementStrategy where
     toText Cluster = "cluster"
 
 instance FromXML PlacementStrategy where
-    parseXML = parseXMLText "PlacementStrategy"
+    parseXML = withElement "PlacementStrategy" (const (return PlacementStrategy))
 
 instance ToQuery PlacementStrategy
 
@@ -8369,7 +8369,7 @@ instance ToText ArchitectureValues where
         X8664 -> "x86_64"
 
 instance FromXML ArchitectureValues where
-    parseXML = parseXMLText "ArchitectureValues"
+    parseXML = withElement "ArchitectureValues" (const (return ArchitectureValues))
 
 instance ToQuery ArchitectureValues
 
@@ -8411,7 +8411,7 @@ instance ToText ReportInstanceReasonCodes where
         Unresponsive             -> "unresponsive"
 
 instance FromXML ReportInstanceReasonCodes where
-    parseXML = parseXMLText "ReportInstanceReasonCodes"
+    parseXML = withElement "ReportInstanceReasonCodes" (const (return ReportInstanceReasonCodes))
 
 instance ToQuery ReportInstanceReasonCodes
 
@@ -8620,7 +8620,7 @@ instance ToText DeviceType where
         InstanceStore -> "instance-store"
 
 instance FromXML DeviceType where
-    parseXML = parseXMLText "DeviceType"
+    parseXML = withElement "DeviceType" (const (return DeviceType))
 
 instance ToQuery DeviceType
 
@@ -8641,7 +8641,7 @@ instance ToText DomainType where
         DTVpc      -> "vpc"
 
 instance FromXML DomainType where
-    parseXML = parseXMLText "DomainType"
+    parseXML = withElement "DomainType" (const (return DomainType))
 
 instance ToQuery DomainType
 
@@ -8724,7 +8724,7 @@ instance ToText OfferingTypeValues where
         MediumUtilization -> "Medium Utilization"
 
 instance FromXML OfferingTypeValues where
-    parseXML = parseXMLText "OfferingTypeValues"
+    parseXML = withElement "OfferingTypeValues" (const (return OfferingTypeValues))
 
 instance ToQuery OfferingTypeValues
 
@@ -8854,7 +8854,7 @@ instance ToText VolumeType where
         Standard -> "standard"
 
 instance FromXML VolumeType where
-    parseXML = parseXMLText "VolumeType"
+    parseXML = withElement "VolumeType" (const (return VolumeType))
 
 instance ToQuery VolumeType
 
@@ -8988,7 +8988,7 @@ instance ToText ImageState where
         ISDeregistered -> "deregistered"
 
 instance FromXML ImageState where
-    parseXML = parseXMLText "ImageState"
+    parseXML = withElement "ImageState" (const (return ImageState))
 
 instance ToQuery ImageState
 
@@ -9005,7 +9005,7 @@ instance ToText GatewayType where
     toText Ipsec1 = "ipsec.1"
 
 instance FromXML GatewayType where
-    parseXML = parseXMLText "GatewayType"
+    parseXML = withElement "GatewayType" (const (return GatewayType))
 
 instance ToQuery GatewayType
 
@@ -9228,7 +9228,7 @@ instance ToText MonitoringState where
         MSPending  -> "pending"
 
 instance FromXML MonitoringState where
-    parseXML = parseXMLText "MonitoringState"
+    parseXML = withElement "MonitoringState" (const (return MonitoringState))
 
 instance ToQuery MonitoringState
 
@@ -9271,7 +9271,7 @@ instance ToText StatusName where
     toText Reachability = "reachability"
 
 instance FromXML StatusName where
-    parseXML = parseXMLText "StatusName"
+    parseXML = withElement "StatusName" (const (return StatusName))
 
 instance ToQuery StatusName
 
@@ -9337,7 +9337,7 @@ instance ToText VolumeStatusName where
         IoPerformance -> "io-performance"
 
 instance FromXML VolumeStatusName where
-    parseXML = parseXMLText "VolumeStatusName"
+    parseXML = withElement "VolumeStatusName" (const (return VolumeStatusName))
 
 instance ToQuery VolumeStatusName
 
@@ -9358,7 +9358,7 @@ instance ToText VolumeAttributeName where
         ProductCodes -> "productCodes"
 
 instance FromXML VolumeAttributeName where
-    parseXML = parseXMLText "VolumeAttributeName"
+    parseXML = withElement "VolumeAttributeName" (const (return VolumeAttributeName))
 
 instance ToQuery VolumeAttributeName
 
@@ -9512,7 +9512,7 @@ instance ToText ListingStatus where
         ListingStatusPending   -> "pending"
 
 instance FromXML ListingStatus where
-    parseXML = parseXMLText "ListingStatus"
+    parseXML = withElement "ListingStatus" (const (return ListingStatus))
 
 instance ToQuery ListingStatus
 
@@ -9563,7 +9563,7 @@ instance ToText VolumeStatusInfoStatus where
         VSISOk               -> "ok"
 
 instance FromXML VolumeStatusInfoStatus where
-    parseXML = parseXMLText "VolumeStatusInfoStatus"
+    parseXML = withElement "VolumeStatusInfoStatus" (const (return VolumeStatusInfoStatus))
 
 instance ToQuery VolumeStatusInfoStatus
 
@@ -9616,7 +9616,7 @@ instance ToText RIProductDescription where
         RIPDWindowsAmazonVPC   -> "Windows (Amazon VPC)"
 
 instance FromXML RIProductDescription where
-    parseXML = parseXMLText "RIProductDescription"
+    parseXML = withElement "RIProductDescription" (const (return RIProductDescription))
 
 instance ToQuery RIProductDescription
 
@@ -9950,7 +9950,7 @@ instance ToText DatafeedSubscriptionState where
         DSSInactive -> "Inactive"
 
 instance FromXML DatafeedSubscriptionState where
-    parseXML = parseXMLText "DatafeedSubscriptionState"
+    parseXML = withElement "DatafeedSubscriptionState" (const (return DatafeedSubscriptionState))
 
 instance ToQuery DatafeedSubscriptionState
 
@@ -9977,7 +9977,7 @@ instance ToText ExportTaskState where
         ETSCompleted  -> "completed"
 
 instance FromXML ExportTaskState where
-    parseXML = parseXMLText "ExportTaskState"
+    parseXML = withElement "ExportTaskState" (const (return ExportTaskState))
 
 instance ToQuery ExportTaskState
 
@@ -9998,7 +9998,7 @@ instance ToText ProductCodeValues where
         Marketplace -> "marketplace"
 
 instance FromXML ProductCodeValues where
-    parseXML = parseXMLText "ProductCodeValues"
+    parseXML = withElement "ProductCodeValues" (const (return ProductCodeValues))
 
 instance ToQuery ProductCodeValues
 
@@ -10227,7 +10227,7 @@ instance ToText EventCode where
         SystemReboot       -> "system-reboot"
 
 instance FromXML EventCode where
-    parseXML = parseXMLText "EventCode"
+    parseXML = withElement "EventCode" (const (return EventCode))
 
 instance ToQuery EventCode
 
@@ -10248,7 +10248,7 @@ instance ToText SpotInstanceType where
         Persistent -> "persistent"
 
 instance FromXML SpotInstanceType where
-    parseXML = parseXMLText "SpotInstanceType"
+    parseXML = withElement "SpotInstanceType" (const (return SpotInstanceType))
 
 instance ToQuery SpotInstanceType
 
@@ -10536,7 +10536,7 @@ instance ToText InstanceStateName where
         ISNTerminated   -> "terminated"
 
 instance FromXML InstanceStateName where
-    parseXML = parseXMLText "InstanceStateName"
+    parseXML = withElement "InstanceStateName" (const (return InstanceStateName))
 
 instance ToQuery InstanceStateName
 
@@ -11000,7 +11000,7 @@ instance ToText ResetImageAttributeName where
     toText RIANLaunchPermission = "launchPermission"
 
 instance FromXML ResetImageAttributeName where
-    parseXML = parseXMLText "ResetImageAttributeName"
+    parseXML = withElement "ResetImageAttributeName" (const (return ResetImageAttributeName))
 
 instance ToQuery ResetImageAttributeName
 
@@ -11307,7 +11307,7 @@ instance ToText DiskImageFormat where
         Vmdk -> "VMDK"
 
 instance FromXML DiskImageFormat where
-    parseXML = parseXMLText "DiskImageFormat"
+    parseXML = withElement "DiskImageFormat" (const (return DiskImageFormat))
 
 instance ToQuery DiskImageFormat
 

@@ -106,7 +106,8 @@ instance AWSRequest GetSendQuota where
     response = xmlResponse
 
 instance FromXML GetSendQuotaResponse where
-    parseXML x = GetSendQuotaResponse
-        <$> x .@? "Max24HourSend"
-        <*> x .@? "MaxSendRate"
-        <*> x .@? "SentLast24Hours"
+    parseXML = withElement "GetSendQuotaResult" $ \x ->
+        GetSendQuotaResponse
+            <$> x .@? "Max24HourSend"
+            <*> x .@? "MaxSendRate"
+            <*> x .@? "SentLast24Hours"

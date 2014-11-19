@@ -121,5 +121,6 @@ instance AWSRequest VerifyDomainDkim where
     response = xmlResponse
 
 instance FromXML VerifyDomainDkimResponse where
-    parseXML x = VerifyDomainDkimResponse
-        <$> x .@ "DkimTokens"
+    parseXML = withElement "VerifyDomainDkimResult" $ \x ->
+        VerifyDomainDkimResponse
+            <$> x .@ "DkimTokens"

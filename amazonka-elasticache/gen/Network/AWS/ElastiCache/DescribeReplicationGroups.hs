@@ -137,6 +137,7 @@ instance AWSRequest DescribeReplicationGroups where
     response = xmlResponse
 
 instance FromXML DescribeReplicationGroupsResponse where
-    parseXML x = DescribeReplicationGroupsResponse
-        <$> x .@? "Marker"
-        <*> x .@ "ReplicationGroups"
+    parseXML = withElement "DescribeReplicationGroupsResult" $ \x ->
+        DescribeReplicationGroupsResponse
+            <$> x .@? "Marker"
+            <*> x .@ "ReplicationGroups"

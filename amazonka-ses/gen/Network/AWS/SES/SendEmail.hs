@@ -161,5 +161,6 @@ instance AWSRequest SendEmail where
     response = xmlResponse
 
 instance FromXML SendEmailResponse where
-    parseXML x = SendEmailResponse
-        <$> x .@ "MessageId"
+    parseXML = withElement "SendEmailResult" $ \x ->
+        SendEmailResponse
+            <$> x .@ "MessageId"

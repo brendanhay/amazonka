@@ -171,10 +171,11 @@ instance AWSRequest CreateJob where
     response = xmlResponse
 
 instance FromXML CreateJobResponse where
-    parseXML x = CreateJobResponse
-        <$> x .@? "AwsShippingAddress"
-        <*> x .@? "JobId"
-        <*> x .@? "JobType"
-        <*> x .@? "Signature"
-        <*> x .@? "SignatureFileContents"
-        <*> x .@? "WarningMessage"
+    parseXML = withElement "CreateJobResult" $ \x ->
+        CreateJobResponse
+            <$> x .@? "AwsShippingAddress"
+            <*> x .@? "JobId"
+            <*> x .@? "JobType"
+            <*> x .@? "Signature"
+            <*> x .@? "SignatureFileContents"
+            <*> x .@? "WarningMessage"

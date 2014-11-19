@@ -183,6 +183,7 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
     response = xmlResponse
 
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
-    parseXML x = DescribeReservedCacheNodesOfferingsResponse
-        <$> x .@? "Marker"
-        <*> x .@ "ReservedCacheNodesOfferings"
+    parseXML = withElement "DescribeReservedCacheNodesOfferingsResult" $ \x ->
+        DescribeReservedCacheNodesOfferingsResponse
+            <$> x .@? "Marker"
+            <*> x .@ "ReservedCacheNodesOfferings"

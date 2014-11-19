@@ -70,7 +70,7 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data PutAttributes = PutAttributes
-    { _paAttributes :: [ReplaceableAttribute]
+    { _paAttributes :: Flatten [ReplaceableAttribute]
     , _paDomainName :: Text
     , _paExpected   :: Maybe UpdateCondition
     , _paItemName   :: Text
@@ -90,17 +90,19 @@ data PutAttributes = PutAttributes
 --
 putAttributes :: Text -- ^ 'paDomainName'
               -> Text -- ^ 'paItemName'
+              -> [ReplaceableAttribute] -- ^ 'paAttributes'
               -> PutAttributes
-putAttributes p1 p2 = PutAttributes
+putAttributes p1 p2 p3 = PutAttributes
     { _paDomainName = p1
     , _paItemName   = p2
-    , _paAttributes = mempty
+    , _paAttributes = withIso _Flatten (const id) p3
     , _paExpected   = Nothing
     }
 
 -- | The list of attributes.
 paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
 paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a })
+    . _Flatten
 
 -- | The name of the domain in which to perform the operation.
 paDomainName :: Lens' PutAttributes Text

@@ -108,5 +108,6 @@ instance AWSRequest GetSubscriptionAttributes where
     response = xmlResponse
 
 instance FromXML GetSubscriptionAttributesResponse where
-    parseXML x = GetSubscriptionAttributesResponse
-        <$> x .@ "Attributes"
+    parseXML = withElement "GetSubscriptionAttributesResult" $ \x ->
+        GetSubscriptionAttributesResponse
+            <$> x .@ "Attributes"

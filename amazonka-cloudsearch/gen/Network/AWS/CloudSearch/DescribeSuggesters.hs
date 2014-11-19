@@ -130,5 +130,6 @@ instance AWSRequest DescribeSuggesters where
     response = xmlResponse
 
 instance FromXML DescribeSuggestersResponse where
-    parseXML x = DescribeSuggestersResponse
-        <$> x .@ "Suggesters"
+    parseXML = withElement "DescribeSuggestersResult" $ \x ->
+        DescribeSuggestersResponse
+            <$> x .@ "Suggesters"

@@ -105,5 +105,6 @@ instance AWSRequest GetTemplate where
     response = xmlResponse
 
 instance FromXML GetTemplateResponse where
-    parseXML x = GetTemplateResponse
-        <$> x .@? "TemplateBody"
+    parseXML = withElement "GetTemplateResult" $ \x ->
+        GetTemplateResponse
+            <$> x .@? "TemplateBody"

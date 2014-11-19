@@ -104,5 +104,4 @@ instance AWSRequest GetStackPolicy where
 
 instance FromXML GetStackPolicyResponse where
     parseXML = withElement "GetStackPolicyResult" $ \x ->
-        GetStackPolicyResponse
             <$> x .@? "StackPolicyBody"

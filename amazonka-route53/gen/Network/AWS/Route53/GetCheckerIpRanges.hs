@@ -102,4 +102,4 @@ instance AWSRequest GetCheckerIpRanges where
 
 instance FromXML GetCheckerIpRangesResponse where
     parseXML x = GetCheckerIpRangesResponse
-        <$> x .@ "CheckerIpRanges"
+            <$> x .@ "CheckerIpRanges"

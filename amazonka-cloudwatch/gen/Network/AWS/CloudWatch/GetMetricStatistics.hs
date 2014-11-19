@@ -116,7 +116,7 @@ getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     , _gmsStartTime  = withIso _Time (const id) p3
     , _gmsEndTime    = withIso _Time (const id) p4
     , _gmsPeriod     = withIso _Nat (const id) p5
-    , _gmsStatistics = withIso _List1 (const id) p6
+    , _gmsStatistics = p6
     , _gmsDimensions = mempty
     , _gmsUnit       = Nothing
     }
@@ -160,7 +160,6 @@ gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a })
 -- SampleCount | Maximum | Minimum.
 gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Text)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a })
-    . _List1
 
 -- | The unit for the metric.
 gmsUnit :: Lens' GetMetricStatistics (Maybe Text)
@@ -209,6 +208,5 @@ instance AWSRequest GetMetricStatistics where
 
 instance FromXML GetMetricStatisticsResponse where
     parseXML = withElement "GetMetricStatisticsResult" $ \x ->
-        GetMetricStatisticsResponse
             <$> x .@ "Datapoints"
             <*> x .@? "Label"

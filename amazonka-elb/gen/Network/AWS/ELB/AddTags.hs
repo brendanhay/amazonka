@@ -64,7 +64,7 @@ data AddTags = AddTags
 addTags :: NonEmpty Tag -- ^ 'atTags'
         -> AddTags
 addTags p1 = AddTags
-    { _atTags              = withIso _List1 (const id) p1
+    { _atTags              = p1
     , _atLoadBalancerNames = mempty
     }
 
@@ -77,7 +77,6 @@ atLoadBalancerNames =
 -- | A list of tags for each load balancer.
 atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a })
-    . _List1
 
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Ord, Show, Generic)

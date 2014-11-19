@@ -50,8 +50,8 @@ import qualified GHC.Exts
 
 data DescribeVpnGateways = DescribeVpnGateways
     { _dvg2DryRun        :: Maybe Bool
-    , _dvg2Filters       :: [Filter]
-    , _dvg2VpnGatewayIds :: [Text]
+    , _dvg2Filters       :: List "Filter" Filter
+    , _dvg2VpnGatewayIds :: List "VpnGatewayId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpnGateways' constructor.
@@ -93,15 +93,17 @@ dvg2DryRun = lens _dvg2DryRun (\s a -> s { _dvg2DryRun = a })
 -- private gateway.
 dvg2Filters :: Lens' DescribeVpnGateways [Filter]
 dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a })
+    . _List
 
 -- | One or more virtual private gateway IDs. Default: Describes all your
 -- virtual private gateways.
 dvg2VpnGatewayIds :: Lens' DescribeVpnGateways [Text]
 dvg2VpnGatewayIds =
     lens _dvg2VpnGatewayIds (\s a -> s { _dvg2VpnGatewayIds = a })
+        . _List
 
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
-    { _dvgrVpnGateways :: [VpnGateway]
+    { _dvgrVpnGateways :: List "item" VpnGateway
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpnGatewaysResponse where
@@ -124,6 +126,7 @@ describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 -- | Information about one or more virtual private gateways.
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
+    . _List
 
 instance ToPath DescribeVpnGateways where
     toPath = const "/"

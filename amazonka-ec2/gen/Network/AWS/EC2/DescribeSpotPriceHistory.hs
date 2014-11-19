@@ -74,11 +74,11 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphAvailabilityZone    :: Maybe Text
     , _dsphDryRun              :: Maybe Bool
     , _dsphEndTime             :: Maybe RFC822
-    , _dsphFilters             :: [Filter]
-    , _dsphInstanceTypes       :: [Text]
+    , _dsphFilters             :: List "Filter" Filter
+    , _dsphInstanceTypes       :: List "InstanceType" Text
     , _dsphMaxResults          :: Maybe Int
     , _dsphNextToken           :: Maybe Text
-    , _dsphProductDescriptions :: [Text]
+    , _dsphProductDescriptions :: List "String" Text
     , _dsphStartTime           :: Maybe RFC822
     } deriving (Eq, Show, Generic)
 
@@ -142,11 +142,13 @@ dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a })
 -- supported.
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
 dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a })
+    . _List
 
 -- | One or more instance types.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [Text]
 dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
+        . _List
 
 -- | The number of rows to return.
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
@@ -160,6 +162,7 @@ dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
 dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
 dsphProductDescriptions =
     lens _dsphProductDescriptions (\s a -> s { _dsphProductDescriptions = a })
+        . _List
 
 -- | The start date and time of the Spot Price history data.
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
@@ -168,7 +171,7 @@ dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a })
 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrNextToken        :: Maybe Text
-    , _dsphrSpotPriceHistory :: [SpotPrice]
+    , _dsphrSpotPriceHistory :: List "item" SpotPrice
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSpotPriceHistoryResponse' constructor.
@@ -194,6 +197,7 @@ dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory =
     lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
+        . _List
 
 instance ToPath DescribeSpotPriceHistory where
     toPath = const "/"

@@ -75,7 +75,7 @@ putMetricFilter p1 p2 p3 p4 = PutMetricFilter
     { _pmfLogGroupName          = p1
     , _pmfFilterName            = p2
     , _pmfFilterPattern         = p3
-    , _pmfMetricTransformations = withIso _List1 (const id) p4
+    , _pmfMetricTransformations = p4
     }
 
 pmfFilterName :: Lens' PutMetricFilter Text
@@ -91,7 +91,6 @@ pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation
 pmfMetricTransformations =
     lens _pmfMetricTransformations
         (\s a -> s { _pmfMetricTransformations = a })
-            . _List1
 
 data PutMetricFilterResponse = PutMetricFilterResponse
     deriving (Eq, Ord, Show, Generic)

@@ -50,8 +50,8 @@ import qualified GHC.Exts
 
 data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1DryRun           :: Maybe Bool
-    , _dvc1Filters          :: [Filter]
-    , _dvc1VpnConnectionIds :: [Text]
+    , _dvc1Filters          :: List "Filter" Filter
+    , _dvc1VpnConnectionIds :: List "VpnConnectionId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpnConnections' constructor.
@@ -97,14 +97,16 @@ dvc1DryRun = lens _dvc1DryRun (\s a -> s { _dvc1DryRun = a })
 -- of a virtual private gateway associated with the VPN connection.
 dvc1Filters :: Lens' DescribeVpnConnections [Filter]
 dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
+    . _List
 
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
 dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvc1VpnConnectionIds =
     lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
+        . _List
 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
-    { _dvcrVpnConnections :: [VpnConnection]
+    { _dvcrVpnConnections :: List "item" VpnConnection
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpnConnectionsResponse where
@@ -128,6 +130,7 @@ describeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 dvcrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvcrVpnConnections =
     lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })
+        . _List
 
 instance ToPath DescribeVpnConnections where
     toPath = const "/"

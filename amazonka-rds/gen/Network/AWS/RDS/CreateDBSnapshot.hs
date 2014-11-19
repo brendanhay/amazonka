@@ -126,5 +126,4 @@ instance AWSRequest CreateDBSnapshot where
 
 instance FromXML CreateDBSnapshotResponse where
     parseXML = withElement "CreateDBSnapshotResult" $ \x ->
-        CreateDBSnapshotResponse
             <$> x .@? "DBSnapshot"

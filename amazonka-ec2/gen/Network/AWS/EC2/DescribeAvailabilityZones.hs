@@ -53,8 +53,8 @@ import qualified GHC.Exts
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazDryRun    :: Maybe Bool
-    , _dazFilters   :: [Filter]
-    , _dazZoneNames :: [Text]
+    , _dazFilters   :: List "Filter" Filter
+    , _dazZoneNames :: List "ZoneName" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAvailabilityZones' constructor.
@@ -84,13 +84,15 @@ dazDryRun = lens _dazDryRun (\s a -> s { _dazDryRun = a })
 -- Availability Zone (for example, us-east-1a).
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
 dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
+    . _List
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
+    . _List
 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
-    { _dazrAvailabilityZones :: [AvailabilityZone]
+    { _dazrAvailabilityZones :: List "item" AvailabilityZone
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAvailabilityZonesResponse where
@@ -114,6 +116,7 @@ describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
+        . _List
 
 instance ToPath DescribeAvailabilityZones where
     toPath = const "/"

@@ -1573,8 +1573,8 @@ instance ToQuery BlobAttributeValue
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { _iilsAdditionalInfo                    :: Maybe Text
     , _iilsArchitecture                      :: Maybe Text
-    , _iilsGroupIds                          :: [Text]
-    , _iilsGroupNames                        :: [Text]
+    , _iilsGroupIds                          :: List "SecurityGroupId" Text
+    , _iilsGroupNames                        :: List "SecurityGroup" Text
     , _iilsInstanceInitiatedShutdownBehavior :: Maybe Text
     , _iilsInstanceType                      :: Maybe Text
     , _iilsMonitoring                        :: Maybe Bool
@@ -1635,10 +1635,12 @@ iilsArchitecture = lens _iilsArchitecture (\s a -> s { _iilsArchitecture = a })
 
 iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
 iilsGroupIds = lens _iilsGroupIds (\s a -> s { _iilsGroupIds = a })
+    . _List
 
 -- | One or more security group names.
 iilsGroupNames :: Lens' ImportInstanceLaunchSpecification [Text]
 iilsGroupNames = lens _iilsGroupNames (\s a -> s { _iilsGroupNames = a })
+    . _List
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
@@ -1698,7 +1700,7 @@ data Snapshot = Snapshot
     , _sSnapshotId  :: Maybe Text
     , _sStartTime   :: Maybe RFC822
     , _sState       :: Maybe Text
-    , _sTags        :: [Tag]
+    , _sTags        :: List "item" Tag
     , _sVolumeId    :: Maybe Text
     , _sVolumeSize  :: Maybe Int
     } deriving (Eq, Show, Generic)
@@ -1781,6 +1783,7 @@ sState = lens _sState (\s a -> s { _sState = a })
 -- | Any tags assigned to the snapshot.
 sTags :: Lens' Snapshot [Tag]
 sTags = lens _sTags (\s a -> s { _sTags = a })
+    . _List
 
 -- | The ID of the volume.
 sVolumeId :: Lens' Snapshot (Maybe Text)
@@ -1950,13 +1953,13 @@ instance ToQuery VpnStaticRouteSource
 data ReservedInstancesListing = ReservedInstancesListing
     { _rilClientToken                :: Maybe Text
     , _rilCreateDate                 :: Maybe RFC822
-    , _rilInstanceCounts             :: [InstanceCount]
-    , _rilPriceSchedules             :: [PriceSchedule]
+    , _rilInstanceCounts             :: List "item" InstanceCount
+    , _rilPriceSchedules             :: List "item" PriceSchedule
     , _rilReservedInstancesId        :: Maybe Text
     , _rilReservedInstancesListingId :: Maybe Text
     , _rilStatus                     :: Maybe Text
     , _rilStatusMessage              :: Maybe Text
-    , _rilTags                       :: [Tag]
+    , _rilTags                       :: List "item" Tag
     , _rilUpdateDate                 :: Maybe RFC822
     } deriving (Eq, Show, Generic)
 
@@ -2011,11 +2014,13 @@ rilCreateDate = lens _rilCreateDate (\s a -> s { _rilCreateDate = a })
 rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
 rilInstanceCounts =
     lens _rilInstanceCounts (\s a -> s { _rilInstanceCounts = a })
+        . _List
 
 -- | The price of the Reserved Instance listing.
 rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
 rilPriceSchedules =
     lens _rilPriceSchedules (\s a -> s { _rilPriceSchedules = a })
+        . _List
 
 -- | The ID of the Reserved Instance.
 rilReservedInstancesId :: Lens' ReservedInstancesListing (Maybe Text)
@@ -2040,6 +2045,7 @@ rilStatusMessage = lens _rilStatusMessage (\s a -> s { _rilStatusMessage = a })
 -- | Any tags assigned to the resource.
 rilTags :: Lens' ReservedInstancesListing [Tag]
 rilTags = lens _rilTags (\s a -> s { _rilTags = a })
+    . _List
 
 -- | The last modified timestamp of the listing.
 rilUpdateDate :: Lens' ReservedInstancesListing (Maybe UTCTime)
@@ -2233,9 +2239,9 @@ instance FromXML RecurringChargeFrequency where
 instance ToQuery RecurringChargeFrequency
 
 data DhcpOptions = DhcpOptions
-    { _doDhcpConfigurations :: [DhcpConfiguration]
+    { _doDhcpConfigurations :: List "item" DhcpConfiguration
     , _doDhcpOptionsId      :: Maybe Text
-    , _doTags               :: [Tag]
+    , _doTags               :: List "item" Tag
     } deriving (Eq, Show, Generic)
 
 -- | 'DhcpOptions' constructor.
@@ -2259,6 +2265,7 @@ dhcpOptions = DhcpOptions
 doDhcpConfigurations :: Lens' DhcpOptions [DhcpConfiguration]
 doDhcpConfigurations =
     lens _doDhcpConfigurations (\s a -> s { _doDhcpConfigurations = a })
+        . _List
 
 -- | The ID of the set of DHCP options.
 doDhcpOptionsId :: Lens' DhcpOptions (Maybe Text)
@@ -2267,6 +2274,7 @@ doDhcpOptionsId = lens _doDhcpOptionsId (\s a -> s { _doDhcpOptionsId = a })
 -- | Any tags assigned to the DHCP options set.
 doTags :: Lens' DhcpOptions [Tag]
 doTags = lens _doTags (\s a -> s { _doTags = a })
+    . _List
 
 instance FromXML DhcpOptions where
     parseXML x = DhcpOptions
@@ -2281,10 +2289,10 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     , _inisDeleteOnTermination            :: Maybe Bool
     , _inisDescription                    :: Maybe Text
     , _inisDeviceIndex                    :: Maybe Int
-    , _inisGroups                         :: [Text]
+    , _inisGroups                         :: List "SecurityGroupId" Text
     , _inisNetworkInterfaceId             :: Maybe Text
     , _inisPrivateIpAddress               :: Maybe Text
-    , _inisPrivateIpAddresses             :: [PrivateIpAddressSpecification]
+    , _inisPrivateIpAddresses             :: List "item" PrivateIpAddressSpecification
     , _inisSecondaryPrivateIpAddressCount :: Maybe Int
     , _inisSubnetId                       :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -2360,6 +2368,7 @@ inisDeviceIndex = lens _inisDeviceIndex (\s a -> s { _inisDeviceIndex = a })
 -- creating a network interface when launching an instance.
 inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
 inisGroups = lens _inisGroups (\s a -> s { _inisGroups = a })
+    . _List
 
 -- | The ID of the network interface.
 inisNetworkInterfaceId :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
@@ -2377,6 +2386,7 @@ inisPrivateIpAddress =
 inisPrivateIpAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIpAddressSpecification]
 inisPrivateIpAddresses =
     lens _inisPrivateIpAddresses (\s a -> s { _inisPrivateIpAddresses = a })
+        . _List
 
 -- | The number of secondary private IP addresses. You can't specify this
 -- option and specify more than one private IP address using the private IP
@@ -2502,7 +2512,7 @@ instance ToQuery PrivateIpAddressSpecification
 
 data Image = Image
     { _iArchitecture        :: Text
-    , _iBlockDeviceMappings :: [BlockDeviceMapping]
+    , _iBlockDeviceMappings :: List "item" BlockDeviceMapping
     , _iDescription         :: Maybe Text
     , _iHypervisor          :: Text
     , _iImageId             :: Text
@@ -2513,7 +2523,7 @@ data Image = Image
     , _iName                :: Text
     , _iOwnerId             :: Text
     , _iPlatform            :: Maybe Text
-    , _iProductCodes        :: [ProductCode]
+    , _iProductCodes        :: List "item" ProductCode
     , _iPublic              :: Bool
     , _iRamdiskId           :: Maybe Text
     , _iRootDeviceName      :: Maybe Text
@@ -2521,7 +2531,7 @@ data Image = Image
     , _iSriovNetSupport     :: Maybe Text
     , _iState               :: Text
     , _iStateReason         :: Maybe StateReason
-    , _iTags                :: [Tag]
+    , _iTags                :: List "item" Tag
     , _iVirtualizationType  :: Text
     } deriving (Eq, Show, Generic)
 
@@ -2618,6 +2628,7 @@ iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
 iBlockDeviceMappings :: Lens' Image [BlockDeviceMapping]
 iBlockDeviceMappings =
     lens _iBlockDeviceMappings (\s a -> s { _iBlockDeviceMappings = a })
+        . _List
 
 -- | The description of the AMI that was provided during image creation.
 iDescription :: Lens' Image (Maybe Text)
@@ -2664,6 +2675,7 @@ iPlatform = lens _iPlatform (\s a -> s { _iPlatform = a })
 -- | Any product codes associated with the AMI.
 iProductCodes :: Lens' Image [ProductCode]
 iProductCodes = lens _iProductCodes (\s a -> s { _iProductCodes = a })
+    . _List
 
 -- | Indicates whether the image has public launch permissions. The value is
 -- true if this image has public launch permissions or false if it has only
@@ -2701,6 +2713,7 @@ iStateReason = lens _iStateReason (\s a -> s { _iStateReason = a })
 -- | Any tags assigned to the image.
 iTags :: Lens' Image [Tag]
 iTags = lens _iTags (\s a -> s { _iTags = a })
+    . _List
 
 -- | The type of virtualization of the AMI.
 iVirtualizationType :: Lens' Image Text
@@ -2736,7 +2749,7 @@ instance ToQuery Image
 
 data DhcpConfiguration = DhcpConfiguration
     { _dcKey    :: Maybe Text
-    , _dcValues :: [AttributeValue]
+    , _dcValues :: List "item" AttributeValue
     } deriving (Eq, Show, Generic)
 
 -- | 'DhcpConfiguration' constructor.
@@ -2760,6 +2773,7 @@ dcKey = lens _dcKey (\s a -> s { _dcKey = a })
 -- | One or more values for the DHCP option.
 dcValues :: Lens' DhcpConfiguration [AttributeValue]
 dcValues = lens _dcValues (\s a -> s { _dcValues = a })
+    . _List
 
 instance FromXML DhcpConfiguration where
     parseXML x = DhcpConfiguration
@@ -2937,7 +2951,7 @@ instance FromXML RunInstancesMonitoringEnabled where
 instance ToQuery RunInstancesMonitoringEnabled
 
 data VolumeStatusInfo = VolumeStatusInfo
-    { _vsiDetails :: [VolumeStatusDetails]
+    { _vsiDetails :: List "item" VolumeStatusDetails
     , _vsiStatus  :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -2958,6 +2972,7 @@ volumeStatusInfo = VolumeStatusInfo
 -- | The details of the volume status.
 vsiDetails :: Lens' VolumeStatusInfo [VolumeStatusDetails]
 vsiDetails = lens _vsiDetails (\s a -> s { _vsiDetails = a })
+    . _List
 
 -- | The status of the volume.
 vsiStatus :: Lens' VolumeStatusInfo (Maybe Text)
@@ -3032,8 +3047,8 @@ instance FromXML NetworkInterfaceAssociation where
 instance ToQuery NetworkInterfaceAssociation
 
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications
-    { _cvpmAdd    :: [CreateVolumePermission]
-    , _cvpmRemove :: [CreateVolumePermission]
+    { _cvpmAdd    :: List "item" CreateVolumePermission
+    , _cvpmRemove :: List "item" CreateVolumePermission
     } deriving (Eq, Show, Generic)
 
 -- | 'CreateVolumePermissionModifications' constructor.
@@ -3054,11 +3069,13 @@ createVolumePermissionModifications = CreateVolumePermissionModifications
 -- volume permissions.
 cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmAdd = lens _cvpmAdd (\s a -> s { _cvpmAdd = a })
+    . _List
 
 -- | Removes a specific AWS account ID or group from a volume's list of create
 -- volume permissions.
 cvpmRemove :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmRemove = lens _cvpmRemove (\s a -> s { _cvpmRemove = a })
+    . _List
 
 instance FromXML CreateVolumePermissionModifications where
     parseXML x = CreateVolumePermissionModifications
@@ -3384,7 +3401,7 @@ data ConversionTask = ConversionTask
     , _ctImportVolume     :: Maybe ImportVolumeTaskDetails
     , _ctState            :: Text
     , _ctStatusMessage    :: Maybe Text
-    , _ctTags             :: [Tag]
+    , _ctTags             :: List "item" Tag
     } deriving (Eq, Show, Generic)
 
 -- | 'ConversionTask' constructor.
@@ -3448,6 +3465,7 @@ ctStatusMessage = lens _ctStatusMessage (\s a -> s { _ctStatusMessage = a })
 
 ctTags :: Lens' ConversionTask [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a })
+    . _List
 
 instance FromXML ConversionTask where
     parseXML x = ConversionTask
@@ -3756,7 +3774,7 @@ data SpotInstanceRequest = SpotInstanceRequest
     , _siSpotPrice                :: Maybe Text
     , _siState                    :: Maybe Text
     , _siStatus                   :: Maybe SpotInstanceStatus
-    , _siTags                     :: [Tag]
+    , _siTags                     :: List "item" Tag
     , _siType                     :: Maybe Text
     , _siValidFrom                :: Maybe RFC822
     , _siValidUntil               :: Maybe RFC822
@@ -3884,6 +3902,7 @@ siStatus = lens _siStatus (\s a -> s { _siStatus = a })
 -- | Any tags assigned to the resource.
 siTags :: Lens' SpotInstanceRequest [Tag]
 siTags = lens _siTags (\s a -> s { _siTags = a })
+    . _List
 
 -- | The Spot Instance request type.
 siType :: Lens' SpotInstanceRequest (Maybe Text)
@@ -3929,7 +3948,7 @@ instance ToQuery SpotInstanceRequest
 
 data LaunchSpecification = LaunchSpecification
     { _lsAddressingType      :: Maybe Text
-    , _lsBlockDeviceMappings :: [BlockDeviceMapping]
+    , _lsBlockDeviceMappings :: List "item" BlockDeviceMapping
     , _lsEbsOptimized        :: Maybe Bool
     , _lsIamInstanceProfile  :: Maybe IamInstanceProfileSpecification
     , _lsImageId             :: Maybe Text
@@ -3937,10 +3956,10 @@ data LaunchSpecification = LaunchSpecification
     , _lsKernelId            :: Maybe Text
     , _lsKeyName             :: Maybe Text
     , _lsMonitoring          :: Maybe RunInstancesMonitoringEnabled
-    , _lsNetworkInterfaces   :: [InstanceNetworkInterfaceSpecification]
+    , _lsNetworkInterfaces   :: List "item" InstanceNetworkInterfaceSpecification
     , _lsPlacement           :: Maybe SpotPlacement
     , _lsRamdiskId           :: Maybe Text
-    , _lsSecurityGroups      :: [GroupIdentifier]
+    , _lsSecurityGroups      :: List "item" GroupIdentifier
     , _lsSubnetId            :: Maybe Text
     , _lsUserData            :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -4006,6 +4025,7 @@ lsAddressingType = lens _lsAddressingType (\s a -> s { _lsAddressingType = a })
 lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
 lsBlockDeviceMappings =
     lens _lsBlockDeviceMappings (\s a -> s { _lsBlockDeviceMappings = a })
+        . _List
 
 -- | Indicates whether the instance is optimized for EBS I/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an optimized
@@ -4043,6 +4063,7 @@ lsMonitoring = lens _lsMonitoring (\s a -> s { _lsMonitoring = a })
 lsNetworkInterfaces :: Lens' LaunchSpecification [InstanceNetworkInterfaceSpecification]
 lsNetworkInterfaces =
     lens _lsNetworkInterfaces (\s a -> s { _lsNetworkInterfaces = a })
+        . _List
 
 -- | The placement information for the instance.
 lsPlacement :: Lens' LaunchSpecification (Maybe SpotPlacement)
@@ -4058,6 +4079,7 @@ lsRamdiskId = lens _lsRamdiskId (\s a -> s { _lsRamdiskId = a })
 -- security group name or ID.
 lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
 lsSecurityGroups = lens _lsSecurityGroups (\s a -> s { _lsSecurityGroups = a })
+    . _List
 
 -- | The ID of the subnet in which to launch the Spot Instance.
 lsSubnetId :: Lens' LaunchSpecification (Maybe Text)
@@ -4151,7 +4173,7 @@ instance FromXML VolumeStatusEvent where
 instance ToQuery VolumeStatusEvent
 
 data Volume = Volume
-    { _vAttachments      :: [VolumeAttachment]
+    { _vAttachments      :: List "item" VolumeAttachment
     , _vAvailabilityZone :: Maybe Text
     , _vCreateTime       :: Maybe RFC822
     , _vEncrypted        :: Maybe Bool
@@ -4159,7 +4181,7 @@ data Volume = Volume
     , _vSize             :: Maybe Int
     , _vSnapshotId       :: Maybe Text
     , _vState            :: Maybe Text
-    , _vTags             :: [Tag]
+    , _vTags             :: List "item" Tag
     , _vVolumeId         :: Maybe Text
     , _vVolumeType       :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -4207,6 +4229,7 @@ volume = Volume
 
 vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\s a -> s { _vAttachments = a })
+    . _List
 
 -- | The Availability Zone for the volume.
 vAvailabilityZone :: Lens' Volume (Maybe Text)
@@ -4251,6 +4274,7 @@ vState = lens _vState (\s a -> s { _vState = a })
 -- | Any tags assigned to the volume.
 vTags :: Lens' Volume [Tag]
 vTags = lens _vTags (\s a -> s { _vTags = a })
+    . _List
 
 -- | The ID of the volume.
 vVolumeId :: Lens' Volume (Maybe Text)
@@ -4278,8 +4302,8 @@ instance FromXML Volume where
 instance ToQuery Volume
 
 data Reservation = Reservation
-    { _rGroups        :: [GroupIdentifier]
-    , _rInstances     :: [Instance]
+    { _rGroups        :: List "item" GroupIdentifier
+    , _rInstances     :: List "item" Instance
     , _rOwnerId       :: Maybe Text
     , _rRequesterId   :: Maybe Text
     , _rReservationId :: Maybe Text
@@ -4311,10 +4335,12 @@ reservation = Reservation
 -- | One or more security groups.
 rGroups :: Lens' Reservation [GroupIdentifier]
 rGroups = lens _rGroups (\s a -> s { _rGroups = a })
+    . _List
 
 -- | One or more instances.
 rInstances :: Lens' Reservation [Instance]
 rInstances = lens _rInstances (\s a -> s { _rInstances = a })
+    . _List
 
 -- | The ID of the AWS account that owns the reservation.
 rOwnerId :: Lens' Reservation (Maybe Text)
@@ -4456,8 +4482,8 @@ data ReservedInstancesModification = ReservedInstancesModification
     { _rimClientToken                     :: Maybe Text
     , _rimCreateDate                      :: Maybe RFC822
     , _rimEffectiveDate                   :: Maybe RFC822
-    , _rimModificationResults             :: [ReservedInstancesModificationResult]
-    , _rimReservedInstancesIds            :: [ReservedInstancesId]
+    , _rimModificationResults             :: List "item" ReservedInstancesModificationResult
+    , _rimReservedInstancesIds            :: List "item" ReservedInstancesId
     , _rimReservedInstancesModificationId :: Maybe Text
     , _rimStatus                          :: Maybe Text
     , _rimStatusMessage                   :: Maybe Text
@@ -4519,11 +4545,13 @@ rimEffectiveDate = lens _rimEffectiveDate (\s a -> s { _rimEffectiveDate = a })
 rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
 rimModificationResults =
     lens _rimModificationResults (\s a -> s { _rimModificationResults = a })
+        . _List
 
 -- | The IDs of one or more Reserved Instances.
 rimReservedInstancesIds :: Lens' ReservedInstancesModification [ReservedInstancesId]
 rimReservedInstancesIds =
     lens _rimReservedInstancesIds (\s a -> s { _rimReservedInstancesIds = a })
+        . _List
 
 -- | A unique ID for the Reserved Instance modification.
 rimReservedInstancesModificationId :: Lens' ReservedInstancesModification (Maybe Text)
@@ -4584,19 +4612,19 @@ data NetworkInterface = NetworkInterface
     , _niAttachment         :: Maybe NetworkInterfaceAttachment
     , _niAvailabilityZone   :: Maybe Text
     , _niDescription        :: Maybe Text
-    , _niGroups             :: [GroupIdentifier]
+    , _niGroups             :: List "item" GroupIdentifier
     , _niMacAddress         :: Maybe Text
     , _niNetworkInterfaceId :: Maybe Text
     , _niOwnerId            :: Maybe Text
     , _niPrivateDnsName     :: Maybe Text
     , _niPrivateIpAddress   :: Maybe Text
-    , _niPrivateIpAddresses :: [NetworkInterfacePrivateIpAddress]
+    , _niPrivateIpAddresses :: List "item" NetworkInterfacePrivateIpAddress
     , _niRequesterId        :: Maybe Text
     , _niRequesterManaged   :: Maybe Bool
     , _niSourceDestCheck    :: Maybe Bool
     , _niStatus             :: Maybe Text
     , _niSubnetId           :: Maybe Text
-    , _niTagSet             :: [Tag]
+    , _niTagSet             :: List "item" Tag
     , _niVpcId              :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -4683,6 +4711,7 @@ niDescription = lens _niDescription (\s a -> s { _niDescription = a })
 -- | Any security groups for the network interface.
 niGroups :: Lens' NetworkInterface [GroupIdentifier]
 niGroups = lens _niGroups (\s a -> s { _niGroups = a })
+    . _List
 
 -- | The MAC address.
 niMacAddress :: Lens' NetworkInterface (Maybe Text)
@@ -4710,6 +4739,7 @@ niPrivateIpAddress =
 niPrivateIpAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIpAddress]
 niPrivateIpAddresses =
     lens _niPrivateIpAddresses (\s a -> s { _niPrivateIpAddresses = a })
+        . _List
 
 -- | The ID of the entity that launched the instance on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
@@ -4737,6 +4767,7 @@ niSubnetId = lens _niSubnetId (\s a -> s { _niSubnetId = a })
 -- | Any tags assigned to the network interface.
 niTagSet :: Lens' NetworkInterface [Tag]
 niTagSet = lens _niTagSet (\s a -> s { _niTagSet = a })
+    . _List
 
 -- | The ID of the VPC.
 niVpcId :: Lens' NetworkInterface (Maybe Text)
@@ -4794,7 +4825,7 @@ data Subnet = Subnet
     , _s1MapPublicIpOnLaunch     :: Maybe Bool
     , _s1State                   :: Maybe Text
     , _s1SubnetId                :: Maybe Text
-    , _s1Tags                    :: [Tag]
+    , _s1Tags                    :: List "item" Tag
     , _s1VpcId                   :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -4870,6 +4901,7 @@ s1SubnetId = lens _s1SubnetId (\s a -> s { _s1SubnetId = a })
 -- | Any tags assigned to the subnet.
 s1Tags :: Lens' Subnet [Tag]
 s1Tags = lens _s1Tags (\s a -> s { _s1Tags = a })
+    . _List
 
 -- | The ID of the VPC the subnet is in.
 s1VpcId :: Lens' Subnet (Maybe Text)
@@ -4928,8 +4960,8 @@ instance FromXML KeyPairInfo where
 instance ToQuery KeyPairInfo
 
 data LaunchPermissionModifications = LaunchPermissionModifications
-    { _lpmAdd    :: [LaunchPermission]
-    , _lpmRemove :: [LaunchPermission]
+    { _lpmAdd    :: List "item" LaunchPermission
+    , _lpmRemove :: List "item" LaunchPermission
     } deriving (Eq, Show, Generic)
 
 -- | 'LaunchPermissionModifications' constructor.
@@ -4949,11 +4981,13 @@ launchPermissionModifications = LaunchPermissionModifications
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
 lpmAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
 lpmAdd = lens _lpmAdd (\s a -> s { _lpmAdd = a })
+    . _List
 
 -- | The AWS account ID to remove from the list of launch permissions for the
 -- AMI.
 lpmRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
 lpmRemove = lens _lpmRemove (\s a -> s { _lpmRemove = a })
+    . _List
 
 instance FromXML LaunchPermissionModifications where
     parseXML x = LaunchPermissionModifications
@@ -5710,7 +5744,7 @@ instance FromXML UserIdGroupPair where
 instance ToQuery UserIdGroupPair
 
 data InstanceStatusSummary = InstanceStatusSummary
-    { _issDetails :: [InstanceStatusDetails]
+    { _issDetails :: List "item" InstanceStatusDetails
     , _issStatus  :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -5731,6 +5765,7 @@ instanceStatusSummary = InstanceStatusSummary
 -- | The system instance health or application instance health.
 issDetails :: Lens' InstanceStatusSummary [InstanceStatusDetails]
 issDetails = lens _issDetails (\s a -> s { _issDetails = a })
+    . _List
 
 -- | The status.
 issStatus :: Lens' InstanceStatusSummary (Maybe Text)
@@ -6320,10 +6355,10 @@ data SecurityGroup = SecurityGroup
     { _sgDescription         :: Text
     , _sgGroupId             :: Text
     , _sgGroupName           :: Text
-    , _sgIpPermissions       :: [IpPermission]
-    , _sgIpPermissionsEgress :: [IpPermission]
+    , _sgIpPermissions       :: List "item" IpPermission
+    , _sgIpPermissionsEgress :: List "item" IpPermission
     , _sgOwnerId             :: Text
-    , _sgTags                :: [Tag]
+    , _sgTags                :: List "item" Tag
     , _sgVpcId               :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -6378,11 +6413,13 @@ sgGroupName = lens _sgGroupName (\s a -> s { _sgGroupName = a })
 -- | One or more inbound rules associated with the security group.
 sgIpPermissions :: Lens' SecurityGroup [IpPermission]
 sgIpPermissions = lens _sgIpPermissions (\s a -> s { _sgIpPermissions = a })
+    . _List
 
 -- | [EC2-VPC] One or more outbound rules associated with the security group.
 sgIpPermissionsEgress :: Lens' SecurityGroup [IpPermission]
 sgIpPermissionsEgress =
     lens _sgIpPermissionsEgress (\s a -> s { _sgIpPermissionsEgress = a })
+        . _List
 
 -- | The AWS account ID of the owner of the security group.
 sgOwnerId :: Lens' SecurityGroup Text
@@ -6391,6 +6428,7 @@ sgOwnerId = lens _sgOwnerId (\s a -> s { _sgOwnerId = a })
 -- | Any tags assigned to the security group.
 sgTags :: Lens' SecurityGroup [Tag]
 sgTags = lens _sgTags (\s a -> s { _sgTags = a })
+    . _List
 
 -- | [EC2-VPC] The ID of the VPC for the security group.
 sgVpcId :: Lens' SecurityGroup (Maybe Text)
@@ -6660,7 +6698,7 @@ data CustomerGateway = CustomerGateway
     , _cgCustomerGatewayId :: Maybe Text
     , _cgIpAddress         :: Maybe Text
     , _cgState             :: Maybe Text
-    , _cgTags              :: [Tag]
+    , _cgTags              :: List "item" Tag
     , _cgType              :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -6713,6 +6751,7 @@ cgState = lens _cgState (\s a -> s { _cgState = a })
 -- | Any tags assigned to the customer gateway.
 cgTags :: Lens' CustomerGateway [Tag]
 cgTags = lens _cgTags (\s a -> s { _cgTags = a })
+    . _List
 
 -- | The type of VPN connection the customer gateway supports (ipsec.1).
 cgType :: Lens' CustomerGateway (Maybe Text)
@@ -7240,7 +7279,7 @@ instance FromXML SnapshotAttributeName where
 instance ToQuery SnapshotAttributeName
 
 data AvailabilityZone = AvailabilityZone
-    { _azMessages   :: [AvailabilityZoneMessage]
+    { _azMessages   :: List "item" AvailabilityZoneMessage
     , _azRegionName :: Maybe Text
     , _azState      :: Maybe Text
     , _azZoneName   :: Maybe Text
@@ -7269,6 +7308,7 @@ availabilityZone = AvailabilityZone
 -- | Any messages about the Availability Zone.
 azMessages :: Lens' AvailabilityZone [AvailabilityZoneMessage]
 azMessages = lens _azMessages (\s a -> s { _azMessages = a })
+    . _List
 
 -- | The name of the region.
 azRegionName :: Lens' AvailabilityZone (Maybe Text)
@@ -7319,11 +7359,11 @@ instance FromXML VpnState where
 instance ToQuery VpnState
 
 data RouteTable = RouteTable
-    { _rtAssociations    :: [RouteTableAssociation]
-    , _rtPropagatingVgws :: [PropagatingVgw]
+    { _rtAssociations    :: List "item" RouteTableAssociation
+    , _rtPropagatingVgws :: List "item" PropagatingVgw
     , _rtRouteTableId    :: Maybe Text
-    , _rtRoutes          :: [Route]
-    , _rtTags            :: [Tag]
+    , _rtRoutes          :: List "item" Route
+    , _rtTags            :: List "item" Tag
     , _rtVpcId           :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -7356,11 +7396,13 @@ routeTable = RouteTable
 -- | The associations between the route table and one or more subnets.
 rtAssociations :: Lens' RouteTable [RouteTableAssociation]
 rtAssociations = lens _rtAssociations (\s a -> s { _rtAssociations = a })
+    . _List
 
 -- | Any virtual private gateway (VGW) propagating routes.
 rtPropagatingVgws :: Lens' RouteTable [PropagatingVgw]
 rtPropagatingVgws =
     lens _rtPropagatingVgws (\s a -> s { _rtPropagatingVgws = a })
+        . _List
 
 -- | The ID of the route table.
 rtRouteTableId :: Lens' RouteTable (Maybe Text)
@@ -7369,10 +7411,12 @@ rtRouteTableId = lens _rtRouteTableId (\s a -> s { _rtRouteTableId = a })
 -- | The routes in the route table.
 rtRoutes :: Lens' RouteTable [Route]
 rtRoutes = lens _rtRoutes (\s a -> s { _rtRoutes = a })
+    . _List
 
 -- | Any tags assigned to the route table.
 rtTags :: Lens' RouteTable [Tag]
 rtTags = lens _rtTags (\s a -> s { _rtTags = a })
+    . _List
 
 -- | The ID of the VPC.
 rtVpcId :: Lens' RouteTable (Maybe Text)
@@ -7609,9 +7653,9 @@ instance ToQuery InstanceAttributeName
 data IpPermission = IpPermission
     { _ipFromPort         :: Int
     , _ipIpProtocol       :: Text
-    , _ipIpRanges         :: [IpRange]
+    , _ipIpRanges         :: List "item" IpRange
     , _ipToPort           :: Int
-    , _ipUserIdGroupPairs :: [UserIdGroupPair]
+    , _ipUserIdGroupPairs :: List "item" UserIdGroupPair
     } deriving (Eq, Show, Generic)
 
 -- | 'IpPermission' constructor.
@@ -7655,6 +7699,7 @@ ipIpProtocol = lens _ipIpProtocol (\s a -> s { _ipIpProtocol = a })
 -- | One or more IP ranges.
 ipIpRanges :: Lens' IpPermission [IpRange]
 ipIpRanges = lens _ipIpRanges (\s a -> s { _ipIpRanges = a })
+    . _List
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code. A
 -- value of -1 indicates all ICMP codes for the specified ICMP type.
@@ -7665,6 +7710,7 @@ ipToPort = lens _ipToPort (\s a -> s { _ipToPort = a })
 ipUserIdGroupPairs :: Lens' IpPermission [UserIdGroupPair]
 ipUserIdGroupPairs =
     lens _ipUserIdGroupPairs (\s a -> s { _ipUserIdGroupPairs = a })
+        . _List
 
 instance FromXML IpPermission where
     parseXML x = IpPermission
@@ -7920,13 +7966,13 @@ data InstanceNetworkInterface = InstanceNetworkInterface
     { _iniAssociation        :: Maybe InstanceNetworkInterfaceAssociation
     , _iniAttachment         :: Maybe InstanceNetworkInterfaceAttachment
     , _iniDescription        :: Maybe Text
-    , _iniGroups             :: [GroupIdentifier]
+    , _iniGroups             :: List "item" GroupIdentifier
     , _iniMacAddress         :: Maybe Text
     , _iniNetworkInterfaceId :: Maybe Text
     , _iniOwnerId            :: Maybe Text
     , _iniPrivateDnsName     :: Maybe Text
     , _iniPrivateIpAddress   :: Maybe Text
-    , _iniPrivateIpAddresses :: [InstancePrivateIpAddress]
+    , _iniPrivateIpAddresses :: List "item" InstancePrivateIpAddress
     , _iniSourceDestCheck    :: Maybe Bool
     , _iniStatus             :: Maybe Text
     , _iniSubnetId           :: Maybe Text
@@ -7999,6 +8045,7 @@ iniDescription = lens _iniDescription (\s a -> s { _iniDescription = a })
 -- | One or more security groups.
 iniGroups :: Lens' InstanceNetworkInterface [GroupIdentifier]
 iniGroups = lens _iniGroups (\s a -> s { _iniGroups = a })
+    . _List
 
 -- | The MAC address.
 iniMacAddress :: Lens' InstanceNetworkInterface (Maybe Text)
@@ -8027,6 +8074,7 @@ iniPrivateIpAddress =
 iniPrivateIpAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIpAddress]
 iniPrivateIpAddresses =
     lens _iniPrivateIpAddresses (\s a -> s { _iniPrivateIpAddresses = a })
+        . _List
 
 -- | Indicates whether to validate network traffic to or from this network
 -- interface.
@@ -8202,7 +8250,7 @@ data Vpc = Vpc
     , _vpcInstanceTenancy :: Maybe Text
     , _vpcIsDefault       :: Maybe Bool
     , _vpcState           :: Maybe Text
-    , _vpcTags            :: [Tag]
+    , _vpcTags            :: List "item" Tag
     , _vpcVpcId           :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -8260,6 +8308,7 @@ vpcState = lens _vpcState (\s a -> s { _vpcState = a })
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' Vpc [Tag]
 vpcTags = lens _vpcTags (\s a -> s { _vpcTags = a })
+    . _List
 
 -- | The ID of the VPC.
 vpcVpcId :: Lens' Vpc (Maybe Text)
@@ -8279,7 +8328,7 @@ instance ToQuery Vpc
 
 data InstanceStatus = InstanceStatus
     { _isAvailabilityZone :: Maybe Text
-    , _isEvents           :: [InstanceStatusEvent]
+    , _isEvents           :: List "item" InstanceStatusEvent
     , _isInstanceId       :: Maybe Text
     , _isInstanceState    :: Maybe InstanceState
     , _isInstanceStatus   :: Maybe InstanceStatusSummary
@@ -8320,6 +8369,7 @@ isAvailabilityZone =
 -- | Extra information regarding events associated with the instance.
 isEvents :: Lens' InstanceStatus [InstanceStatusEvent]
 isEvents = lens _isEvents (\s a -> s { _isEvents = a })
+    . _List
 
 -- | The ID of the instance.
 isInstanceId :: Lens' InstanceStatus (Maybe Text)
@@ -8508,7 +8558,7 @@ instance ToQuery EbsBlockDevice
 
 data AccountAttribute = AccountAttribute
     { _aaAttributeName   :: Maybe Text
-    , _aaAttributeValues :: [AccountAttributeValue]
+    , _aaAttributeValues :: List "item" AccountAttributeValue
     } deriving (Eq, Show, Generic)
 
 -- | 'AccountAttribute' constructor.
@@ -8533,6 +8583,7 @@ aaAttributeName = lens _aaAttributeName (\s a -> s { _aaAttributeName = a })
 aaAttributeValues :: Lens' AccountAttribute [AccountAttributeValue]
 aaAttributeValues =
     lens _aaAttributeValues (\s a -> s { _aaAttributeValues = a })
+        . _List
 
 instance FromXML AccountAttribute where
     parseXML x = AccountAttribute
@@ -8731,9 +8782,9 @@ instance ToQuery OfferingTypeValues
 data VpnGateway = VpnGateway
     { _vgAvailabilityZone :: Maybe Text
     , _vgState            :: Maybe Text
-    , _vgTags             :: [Tag]
+    , _vgTags             :: List "item" Tag
     , _vgType             :: Maybe Text
-    , _vgVpcAttachments   :: [VpcAttachment]
+    , _vgVpcAttachments   :: List "item" VpcAttachment
     , _vgVpnGatewayId     :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -8775,6 +8826,7 @@ vgState = lens _vgState (\s a -> s { _vgState = a })
 -- | Any tags assigned to the virtual private gateway.
 vgTags :: Lens' VpnGateway [Tag]
 vgTags = lens _vgTags (\s a -> s { _vgTags = a })
+    . _List
 
 -- | The type of VPN connection the virtual private gateway supports.
 vgType :: Lens' VpnGateway (Maybe Text)
@@ -8783,6 +8835,7 @@ vgType = lens _vgType (\s a -> s { _vgType = a })
 -- | Any VPCs attached to the virtual private gateway.
 vgVpcAttachments :: Lens' VpnGateway [VpcAttachment]
 vgVpcAttachments = lens _vgVpcAttachments (\s a -> s { _vgVpcAttachments = a })
+    . _List
 
 -- | The ID of the virtual private gateway.
 vgVpnGatewayId :: Lens' VpnGateway (Maybe Text)
@@ -8801,7 +8854,7 @@ instance ToQuery VpnGateway
 
 data Filter = Filter
     { _fName   :: Text
-    , _fValues :: [Text]
+    , _fValues :: List "item" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Filter' constructor.
@@ -8826,6 +8879,7 @@ fName = lens _fName (\s a -> s { _fName = a })
 -- | One or more filter values.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\s a -> s { _fValues = a })
+    . _List
 
 instance FromXML Filter where
     parseXML x = Filter
@@ -8902,11 +8956,11 @@ instance FromXML InstanceStateChange where
 instance ToQuery InstanceStateChange
 
 data NetworkAcl = NetworkAcl
-    { _naAssociations :: [NetworkAclAssociation]
-    , _naEntries      :: [NetworkAclEntry]
+    { _naAssociations :: List "item" NetworkAclAssociation
+    , _naEntries      :: List "item" NetworkAclEntry
     , _naIsDefault    :: Maybe Bool
     , _naNetworkAclId :: Maybe Text
-    , _naTags         :: [Tag]
+    , _naTags         :: List "item" Tag
     , _naVpcId        :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -8939,10 +8993,12 @@ networkAcl = NetworkAcl
 -- | Any associations between the network ACL and one or more subnets.
 naAssociations :: Lens' NetworkAcl [NetworkAclAssociation]
 naAssociations = lens _naAssociations (\s a -> s { _naAssociations = a })
+    . _List
 
 -- | One or more entries (rules) in the network ACL.
 naEntries :: Lens' NetworkAcl [NetworkAclEntry]
 naEntries = lens _naEntries (\s a -> s { _naEntries = a })
+    . _List
 
 -- | Indicates whether this is the default network ACL for the VPC.
 naIsDefault :: Lens' NetworkAcl (Maybe Bool)
@@ -8955,6 +9011,7 @@ naNetworkAclId = lens _naNetworkAclId (\s a -> s { _naNetworkAclId = a })
 -- | Any tags assigned to the network ACL.
 naTags :: Lens' NetworkAcl [Tag]
 naTags = lens _naTags (\s a -> s { _naTags = a })
+    . _List
 
 -- | The ID of the VPC for the network ACL.
 naVpcId :: Lens' NetworkAcl (Maybe Text)
@@ -9134,7 +9191,7 @@ instance ToQuery RecurringCharge
 
 data NewDhcpConfiguration = NewDhcpConfiguration
     { _ndcKey    :: Maybe Text
-    , _ndcValues :: [Text]
+    , _ndcValues :: List "item" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NewDhcpConfiguration' constructor.
@@ -9156,6 +9213,7 @@ ndcKey = lens _ndcKey (\s a -> s { _ndcKey = a })
 
 ndcValues :: Lens' NewDhcpConfiguration [Text]
 ndcValues = lens _ndcValues (\s a -> s { _ndcValues = a })
+    . _List
 
 instance FromXML NewDhcpConfiguration where
     parseXML x = NewDhcpConfiguration
@@ -9276,9 +9334,9 @@ instance FromXML StatusName where
 instance ToQuery StatusName
 
 data InternetGateway = InternetGateway
-    { _igAttachments       :: [InternetGatewayAttachment]
+    { _igAttachments       :: List "item" InternetGatewayAttachment
     , _igInternetGatewayId :: Text
-    , _igTags              :: [Tag]
+    , _igTags              :: List "item" Tag
     } deriving (Eq, Show, Generic)
 
 -- | 'InternetGateway' constructor.
@@ -9302,6 +9360,7 @@ internetGateway p1 = InternetGateway
 -- | Any VPCs attached to the Internet gateway.
 igAttachments :: Lens' InternetGateway [InternetGatewayAttachment]
 igAttachments = lens _igAttachments (\s a -> s { _igAttachments = a })
+    . _List
 
 -- | The ID of the Internet gateway.
 igInternetGatewayId :: Lens' InternetGateway Text
@@ -9311,6 +9370,7 @@ igInternetGatewayId =
 -- | Any tags assigned to the Internet gateway.
 igTags :: Lens' InternetGateway [Tag]
 igTags = lens _igTags (\s a -> s { _igTags = a })
+    . _List
 
 instance FromXML InternetGateway where
     parseXML x = InternetGateway
@@ -9366,7 +9426,7 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     { _iitdDescription :: Maybe Text
     , _iitdInstanceId  :: Maybe Text
     , _iitdPlatform    :: Maybe Text
-    , _iitdVolumes     :: [ImportInstanceVolumeDetailItem]
+    , _iitdVolumes     :: List "item" ImportInstanceVolumeDetailItem
     } deriving (Eq, Show, Generic)
 
 -- | 'ImportInstanceTaskDetails' constructor.
@@ -9401,6 +9461,7 @@ iitdPlatform = lens _iitdPlatform (\s a -> s { _iitdPlatform = a })
 
 iitdVolumes :: Lens' ImportInstanceTaskDetails [ImportInstanceVolumeDetailItem]
 iitdVolumes = lens _iitdVolumes (\s a -> s { _iitdVolumes = a })
+    . _List
 
 instance FromXML ImportInstanceTaskDetails where
     parseXML x = ImportInstanceTaskDetails
@@ -9629,9 +9690,9 @@ data ReservedInstancesOffering = ReservedInstancesOffering
     , _rioInstanceType                :: Maybe Text
     , _rioMarketplace                 :: Maybe Bool
     , _rioOfferingType                :: Maybe Text
-    , _rioPricingDetails              :: [PricingDetail]
+    , _rioPricingDetails              :: List "item" PricingDetail
     , _rioProductDescription          :: Maybe Text
-    , _rioRecurringCharges            :: [RecurringCharge]
+    , _rioRecurringCharges            :: List "item" RecurringCharge
     , _rioReservedInstancesOfferingId :: Maybe Text
     , _rioUsagePrice                  :: Maybe Double
     } deriving (Eq, Show, Generic)
@@ -9725,6 +9786,7 @@ rioOfferingType = lens _rioOfferingType (\s a -> s { _rioOfferingType = a })
 rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
 rioPricingDetails =
     lens _rioPricingDetails (\s a -> s { _rioPricingDetails = a })
+        . _List
 
 -- | The Reserved Instance description.
 rioProductDescription :: Lens' ReservedInstancesOffering (Maybe Text)
@@ -9735,6 +9797,7 @@ rioProductDescription =
 rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
 rioRecurringCharges =
     lens _rioRecurringCharges (\s a -> s { _rioRecurringCharges = a })
+        . _List
 
 -- | The ID of the Reserved Instance offering.
 rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
@@ -9775,11 +9838,11 @@ data ReservedInstances = ReservedInstances
     , _ri1InstanceType        :: Maybe Text
     , _ri1OfferingType        :: Maybe Text
     , _ri1ProductDescription  :: Maybe Text
-    , _ri1RecurringCharges    :: [RecurringCharge]
+    , _ri1RecurringCharges    :: List "item" RecurringCharge
     , _ri1ReservedInstancesId :: Maybe Text
     , _ri1Start               :: Maybe RFC822
     , _ri1State               :: Maybe Text
-    , _ri1Tags                :: [Tag]
+    , _ri1Tags                :: List "item" Tag
     , _ri1UsagePrice          :: Maybe Double
     } deriving (Eq, Show, Generic)
 
@@ -9889,6 +9952,7 @@ ri1ProductDescription =
 ri1RecurringCharges :: Lens' ReservedInstances [RecurringCharge]
 ri1RecurringCharges =
     lens _ri1RecurringCharges (\s a -> s { _ri1RecurringCharges = a })
+        . _List
 
 -- | The ID of the Reserved Instance.
 ri1ReservedInstancesId :: Lens' ReservedInstances (Maybe Text)
@@ -9907,6 +9971,7 @@ ri1State = lens _ri1State (\s a -> s { _ri1State = a })
 -- | Any tags assigned to the resource.
 ri1Tags :: Lens' ReservedInstances [Tag]
 ri1Tags = lens _ri1Tags (\s a -> s { _ri1Tags = a })
+    . _List
 
 -- | The usage price of the Reserved Instance, per hour.
 ri1UsagePrice :: Lens' ReservedInstances (Maybe Double)
@@ -10006,11 +10071,11 @@ data VpnConnection = VpnConnection
     { _vcCustomerGatewayConfiguration :: Maybe Text
     , _vcCustomerGatewayId            :: Maybe Text
     , _vcOptions                      :: Maybe VpnConnectionOptions
-    , _vcRoutes                       :: [VpnStaticRoute]
+    , _vcRoutes                       :: List "item" VpnStaticRoute
     , _vcState                        :: Maybe Text
-    , _vcTags                         :: [Tag]
+    , _vcTags                         :: List "item" Tag
     , _vcType                         :: Maybe Text
-    , _vcVgwTelemetry                 :: [VgwTelemetry]
+    , _vcVgwTelemetry                 :: List "item" VgwTelemetry
     , _vcVpnConnectionId              :: Maybe Text
     , _vcVpnGatewayId                 :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -10075,6 +10140,7 @@ vcOptions = lens _vcOptions (\s a -> s { _vcOptions = a })
 -- | The static routes associated with the VPN connection.
 vcRoutes :: Lens' VpnConnection [VpnStaticRoute]
 vcRoutes = lens _vcRoutes (\s a -> s { _vcRoutes = a })
+    . _List
 
 -- | The current state of the VPN connection.
 vcState :: Lens' VpnConnection (Maybe Text)
@@ -10083,6 +10149,7 @@ vcState = lens _vcState (\s a -> s { _vcState = a })
 -- | Any tags assigned to the VPN connection.
 vcTags :: Lens' VpnConnection [Tag]
 vcTags = lens _vcTags (\s a -> s { _vcTags = a })
+    . _List
 
 -- | The type of VPN connection.
 vcType :: Lens' VpnConnection (Maybe Text)
@@ -10091,6 +10158,7 @@ vcType = lens _vcType (\s a -> s { _vcType = a })
 -- | Information about the VPN tunnel.
 vcVgwTelemetry :: Lens' VpnConnection [VgwTelemetry]
 vcVgwTelemetry = lens _vcVgwTelemetry (\s a -> s { _vcVgwTelemetry = a })
+    . _List
 
 -- | The ID of the VPN connection.
 vcVpnConnectionId :: Lens' VpnConnection (Maybe Text)
@@ -10257,7 +10325,7 @@ data VpcPeeringConnection = VpcPeeringConnection
     , _vpc1ExpirationTime         :: Maybe RFC822
     , _vpc1RequesterVpcInfo       :: Maybe VpcPeeringConnectionVpcInfo
     , _vpc1Status                 :: Maybe VpcPeeringConnectionStateReason
-    , _vpc1Tags                   :: [Tag]
+    , _vpc1Tags                   :: List "item" Tag
     , _vpc1VpcPeeringConnectionId :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -10310,6 +10378,7 @@ vpc1Status = lens _vpc1Status (\s a -> s { _vpc1Status = a })
 -- | Any tags assigned to the resource.
 vpc1Tags :: Lens' VpcPeeringConnection [Tag]
 vpc1Tags = lens _vpc1Tags (\s a -> s { _vpc1Tags = a })
+    . _List
 
 -- | The ID of the VPC peering connection.
 vpc1VpcPeeringConnectionId :: Lens' VpcPeeringConnection (Maybe Text)
@@ -10543,7 +10612,7 @@ instance ToQuery InstanceStateName
 data Instance = Instance
     { _i1AmiLaunchIndex        :: Maybe Int
     , _i1Architecture          :: Maybe Text
-    , _i1BlockDeviceMappings   :: [InstanceBlockDeviceMapping]
+    , _i1BlockDeviceMappings   :: List "item" InstanceBlockDeviceMapping
     , _i1ClientToken           :: Maybe Text
     , _i1EbsOptimized          :: Maybe Bool
     , _i1Hypervisor            :: Maybe Text
@@ -10556,18 +10625,18 @@ data Instance = Instance
     , _i1KeyName               :: Maybe Text
     , _i1LaunchTime            :: Maybe RFC822
     , _i1Monitoring            :: Maybe Monitoring
-    , _i1NetworkInterfaces     :: [InstanceNetworkInterface]
+    , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
     , _i1Placement             :: Maybe Placement
     , _i1Platform              :: Maybe Text
     , _i1PrivateDnsName        :: Maybe Text
     , _i1PrivateIpAddress      :: Maybe Text
-    , _i1ProductCodes          :: [ProductCode]
+    , _i1ProductCodes          :: List "item" ProductCode
     , _i1PublicDnsName         :: Maybe Text
     , _i1PublicIpAddress       :: Maybe Text
     , _i1RamdiskId             :: Maybe Text
     , _i1RootDeviceName        :: Maybe Text
     , _i1RootDeviceType        :: Maybe Text
-    , _i1SecurityGroups        :: [GroupIdentifier]
+    , _i1SecurityGroups        :: List "item" GroupIdentifier
     , _i1SourceDestCheck       :: Maybe Bool
     , _i1SpotInstanceRequestId :: Maybe Text
     , _i1SriovNetSupport       :: Maybe Text
@@ -10575,7 +10644,7 @@ data Instance = Instance
     , _i1StateReason           :: Maybe StateReason
     , _i1StateTransitionReason :: Maybe Text
     , _i1SubnetId              :: Maybe Text
-    , _i1Tags                  :: [Tag]
+    , _i1Tags                  :: List "item" Tag
     , _i1VirtualizationType    :: Maybe Text
     , _i1VpcId                 :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -10712,6 +10781,7 @@ i1Architecture = lens _i1Architecture (\s a -> s { _i1Architecture = a })
 i1BlockDeviceMappings :: Lens' Instance [InstanceBlockDeviceMapping]
 i1BlockDeviceMappings =
     lens _i1BlockDeviceMappings (\s a -> s { _i1BlockDeviceMappings = a })
+        . _List
 
 -- | The idempotency token you provided when you launched the instance.
 i1ClientToken :: Lens' Instance (Maybe Text)
@@ -10773,6 +10843,7 @@ i1Monitoring = lens _i1Monitoring (\s a -> s { _i1Monitoring = a })
 i1NetworkInterfaces :: Lens' Instance [InstanceNetworkInterface]
 i1NetworkInterfaces =
     lens _i1NetworkInterfaces (\s a -> s { _i1NetworkInterfaces = a })
+        . _List
 
 -- | The location where the instance launched.
 i1Placement :: Lens' Instance (Maybe Placement)
@@ -10796,6 +10867,7 @@ i1PrivateIpAddress =
 -- | The product codes attached to this instance.
 i1ProductCodes :: Lens' Instance [ProductCode]
 i1ProductCodes = lens _i1ProductCodes (\s a -> s { _i1ProductCodes = a })
+    . _List
 
 -- | The public DNS name assigned to the instance. This name is not available
 -- until the instance enters the running state.
@@ -10823,6 +10895,7 @@ i1RootDeviceType = lens _i1RootDeviceType (\s a -> s { _i1RootDeviceType = a })
 -- | One or more security groups for the instance.
 i1SecurityGroups :: Lens' Instance [GroupIdentifier]
 i1SecurityGroups = lens _i1SecurityGroups (\s a -> s { _i1SecurityGroups = a })
+    . _List
 
 -- | Specifies whether to enable an instance launched in a VPC to perform NAT.
 -- This controls whether source/destination checking is enabled on the
@@ -10865,6 +10938,7 @@ i1SubnetId = lens _i1SubnetId (\s a -> s { _i1SubnetId = a })
 -- | Any tags assigned to the instance.
 i1Tags :: Lens' Instance [Tag]
 i1Tags = lens _i1Tags (\s a -> s { _i1Tags = a })
+    . _List
 
 -- | The virtualization type of the instance.
 i1VirtualizationType :: Lens' Instance (Maybe Text)
@@ -11006,7 +11080,7 @@ instance ToQuery ResetImageAttributeName
 
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification
     { _rslsAddressingType      :: Maybe Text
-    , _rslsBlockDeviceMappings :: [BlockDeviceMapping]
+    , _rslsBlockDeviceMappings :: List "item" BlockDeviceMapping
     , _rslsEbsOptimized        :: Maybe Bool
     , _rslsIamInstanceProfile  :: Maybe IamInstanceProfileSpecification
     , _rslsImageId             :: Maybe Text
@@ -11014,11 +11088,11 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification
     , _rslsKernelId            :: Maybe Text
     , _rslsKeyName             :: Maybe Text
     , _rslsMonitoring          :: Maybe RunInstancesMonitoringEnabled
-    , _rslsNetworkInterfaces   :: [InstanceNetworkInterfaceSpecification]
+    , _rslsNetworkInterfaces   :: List "item" InstanceNetworkInterfaceSpecification
     , _rslsPlacement           :: Maybe SpotPlacement
     , _rslsRamdiskId           :: Maybe Text
-    , _rslsSecurityGroupIds    :: [Text]
-    , _rslsSecurityGroups      :: [Text]
+    , _rslsSecurityGroupIds    :: List "item" Text
+    , _rslsSecurityGroups      :: List "item" Text
     , _rslsSubnetId            :: Maybe Text
     , _rslsUserData            :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -11088,6 +11162,7 @@ rslsAddressingType =
 rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
 rslsBlockDeviceMappings =
     lens _rslsBlockDeviceMappings (\s a -> s { _rslsBlockDeviceMappings = a })
+        . _List
 
 -- | Indicates whether the instance is optimized for EBS I/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an optimized
@@ -11125,6 +11200,7 @@ rslsMonitoring = lens _rslsMonitoring (\s a -> s { _rslsMonitoring = a })
 rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
 rslsNetworkInterfaces =
     lens _rslsNetworkInterfaces (\s a -> s { _rslsNetworkInterfaces = a })
+        . _List
 
 -- | The placement information for the instance.
 rslsPlacement :: Lens' RequestSpotLaunchSpecification (Maybe SpotPlacement)
@@ -11137,10 +11213,12 @@ rslsRamdiskId = lens _rslsRamdiskId (\s a -> s { _rslsRamdiskId = a })
 rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroupIds =
     lens _rslsSecurityGroupIds (\s a -> s { _rslsSecurityGroupIds = a })
+        . _List
 
 rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroups =
     lens _rslsSecurityGroups (\s a -> s { _rslsSecurityGroups = a })
+        . _List
 
 -- | The ID of the subnet in which to launch the Spot Instance.
 rslsSubnetId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
@@ -11346,9 +11424,9 @@ instance FromXML BundleTaskError where
 instance ToQuery BundleTaskError
 
 data VolumeStatusItem = VolumeStatusItem
-    { _vsiActions          :: [VolumeStatusAction]
+    { _vsiActions          :: List "item" VolumeStatusAction
     , _vsiAvailabilityZone :: Maybe Text
-    , _vsiEvents           :: [VolumeStatusEvent]
+    , _vsiEvents           :: List "item" VolumeStatusEvent
     , _vsiVolumeId         :: Maybe Text
     , _vsiVolumeStatus     :: Maybe VolumeStatusInfo
     } deriving (Eq, Show, Generic)
@@ -11379,6 +11457,7 @@ volumeStatusItem = VolumeStatusItem
 -- | The details of the operation.
 vsiActions :: Lens' VolumeStatusItem [VolumeStatusAction]
 vsiActions = lens _vsiActions (\s a -> s { _vsiActions = a })
+    . _List
 
 -- | The Availability Zone of the volume.
 vsiAvailabilityZone :: Lens' VolumeStatusItem (Maybe Text)
@@ -11388,6 +11467,7 @@ vsiAvailabilityZone =
 -- | A list of events associated with the volume.
 vsiEvents :: Lens' VolumeStatusItem [VolumeStatusEvent]
 vsiEvents = lens _vsiEvents (\s a -> s { _vsiEvents = a })
+    . _List
 
 -- | The volume ID.
 vsiVolumeId :: Lens' VolumeStatusItem (Maybe Text)

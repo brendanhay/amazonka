@@ -119,5 +119,5 @@ instance AWSRequest GetBucketVersioning where
 
 instance FromXML GetBucketVersioningResponse where
     parseXML x = GetBucketVersioningResponse
-        <$> x .@? "MfaDelete"
-        <*> x .@? "Status"
+            <$> x .@? "MfaDelete"
+            <*> x .@? "Status"

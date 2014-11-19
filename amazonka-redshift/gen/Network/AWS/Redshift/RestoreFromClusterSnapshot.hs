@@ -311,5 +311,4 @@ instance AWSRequest RestoreFromClusterSnapshot where
 
 instance FromXML RestoreFromClusterSnapshotResponse where
     parseXML = withElement "RestoreFromClusterSnapshotResult" $ \x ->
-        RestoreFromClusterSnapshotResponse
             <$> x .@? "Cluster"

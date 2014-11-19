@@ -352,5 +352,4 @@ instance AWSRequest ModifyCacheCluster where
 
 instance FromXML ModifyCacheClusterResponse where
     parseXML = withElement "ModifyCacheClusterResult" $ \x ->
-        ModifyCacheClusterResponse
             <$> x .@? "CacheCluster"

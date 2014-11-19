@@ -58,8 +58,8 @@ data ReportInstanceStatus = ReportInstanceStatus
     { _risDescription :: Maybe Text
     , _risDryRun      :: Maybe Bool
     , _risEndTime     :: Maybe RFC822
-    , _risInstances   :: [Text]
-    , _risReasonCodes :: [Text]
+    , _risInstances   :: List "InstanceId" Text
+    , _risReasonCodes :: List "item" Text
     , _risStartTime   :: Maybe RFC822
     , _risStatus      :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -109,6 +109,7 @@ risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a })
 -- | One or more instances.
 risInstances :: Lens' ReportInstanceStatus [Text]
 risInstances = lens _risInstances (\s a -> s { _risInstances = a })
+    . _List
 
 -- | One or more reason codes that describes the health state of your
 -- instance. instance-stuck-in-state: My instance is stuck in a state.
@@ -124,6 +125,7 @@ risInstances = lens _risInstances (\s a -> s { _risInstances = a })
 -- description parameter].
 risReasonCodes :: Lens' ReportInstanceStatus [Text]
 risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a })
+    . _List
 
 -- | The time at which the reported instance health state began.
 risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)

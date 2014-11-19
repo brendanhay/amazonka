@@ -120,7 +120,7 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     parseXML x = ListCloudFrontOriginAccessIdentitiesResponse
-        <$> x .@ "CloudFrontOriginAccessIdentityList"
+            <$> x .@ "CloudFrontOriginAccessIdentityList"
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs

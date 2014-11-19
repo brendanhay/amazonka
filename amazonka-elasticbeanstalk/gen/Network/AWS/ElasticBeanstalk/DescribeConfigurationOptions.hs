@@ -156,6 +156,5 @@ instance AWSRequest DescribeConfigurationOptions where
 
 instance FromXML DescribeConfigurationOptionsResponse where
     parseXML = withElement "DescribeConfigurationOptionsResult" $ \x ->
-        DescribeConfigurationOptionsResponse
             <$> x .@ "Options"
             <*> x .@? "SolutionStackName"

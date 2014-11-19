@@ -396,10 +396,10 @@ nsSnapshotCreateTime =
 
 instance FromXML NodeSnapshot where
     parseXML x = NodeSnapshot
-        <$> x .@? "CacheNodeCreateTime"
-        <*> x .@? "CacheNodeId"
-        <*> x .@? "CacheSize"
-        <*> x .@? "SnapshotCreateTime"
+            <$> x .@? "CacheNodeCreateTime"
+            <*> x .@? "CacheNodeId"
+            <*> x .@? "CacheSize"
+            <*> x .@? "SnapshotCreateTime"
 
 instance ToQuery NodeSnapshot
 
@@ -608,26 +608,26 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
 instance FromXML Snapshot where
     parseXML x = Snapshot
-        <$> x .@? "AutoMinorVersionUpgrade"
-        <*> x .@? "CacheClusterCreateTime"
-        <*> x .@? "CacheClusterId"
-        <*> x .@? "CacheNodeType"
-        <*> x .@? "CacheParameterGroupName"
-        <*> x .@? "CacheSubnetGroupName"
-        <*> x .@? "Engine"
-        <*> x .@? "EngineVersion"
-        <*> x .@ "NodeSnapshots"
-        <*> x .@? "NumCacheNodes"
-        <*> x .@? "Port"
-        <*> x .@? "PreferredAvailabilityZone"
-        <*> x .@? "PreferredMaintenanceWindow"
-        <*> x .@? "SnapshotName"
-        <*> x .@? "SnapshotRetentionLimit"
-        <*> x .@? "SnapshotSource"
-        <*> x .@? "SnapshotStatus"
-        <*> x .@? "SnapshotWindow"
-        <*> x .@? "TopicArn"
-        <*> x .@? "VpcId"
+            <$> x .@? "AutoMinorVersionUpgrade"
+            <*> x .@? "CacheClusterCreateTime"
+            <*> x .@? "CacheClusterId"
+            <*> x .@? "CacheNodeType"
+            <*> x .@? "CacheParameterGroupName"
+            <*> x .@? "CacheSubnetGroupName"
+            <*> x .@? "Engine"
+            <*> x .@? "EngineVersion"
+            <*> x .@ "NodeSnapshots"
+            <*> x .@? "NumCacheNodes"
+            <*> x .@? "Port"
+            <*> x .@? "PreferredAvailabilityZone"
+            <*> x .@? "PreferredMaintenanceWindow"
+            <*> x .@? "SnapshotName"
+            <*> x .@? "SnapshotRetentionLimit"
+            <*> x .@? "SnapshotSource"
+            <*> x .@? "SnapshotStatus"
+            <*> x .@? "SnapshotWindow"
+            <*> x .@? "TopicArn"
+            <*> x .@? "VpcId"
 
 instance ToQuery Snapshot
 
@@ -681,10 +681,10 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
     parseXML x = Event
-        <$> x .@? "Date"
-        <*> x .@? "Message"
-        <*> x .@? "SourceIdentifier"
-        <*> x .@? "SourceType"
+            <$> x .@? "Date"
+            <*> x .@? "Message"
+            <*> x .@? "SourceIdentifier"
+            <*> x .@? "SourceType"
 
 instance ToQuery Event
 
@@ -736,10 +736,10 @@ ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 
 instance FromXML NodeGroup where
     parseXML x = NodeGroup
-        <$> x .@? "NodeGroupId"
-        <*> x .@ "NodeGroupMembers"
-        <*> x .@? "PrimaryEndpoint"
-        <*> x .@? "Status"
+            <$> x .@? "NodeGroupId"
+            <*> x .@ "NodeGroupMembers"
+            <*> x .@? "PrimaryEndpoint"
+            <*> x .@? "Status"
 
 instance ToQuery NodeGroup
 
@@ -773,8 +773,8 @@ cntsvValue = lens _cntsvValue (\s a -> s { _cntsvValue = a })
 
 instance FromXML CacheNodeTypeSpecificValue where
     parseXML x = CacheNodeTypeSpecificValue
-        <$> x .@? "CacheNodeType"
-        <*> x .@? "Value"
+            <$> x .@? "CacheNodeType"
+            <*> x .@? "Value"
 
 instance ToQuery CacheNodeTypeSpecificValue
 
@@ -828,8 +828,8 @@ ncTopicStatus = lens _ncTopicStatus (\s a -> s { _ncTopicStatus = a })
 
 instance FromXML NotificationConfiguration where
     parseXML x = NotificationConfiguration
-        <$> x .@? "TopicArn"
-        <*> x .@? "TopicStatus"
+            <$> x .@? "TopicArn"
+            <*> x .@? "TopicStatus"
 
 instance ToQuery NotificationConfiguration
 
@@ -867,8 +867,8 @@ rgpmvPrimaryClusterId =
 
 instance FromXML ReplicationGroupPendingModifiedValues where
     parseXML x = ReplicationGroupPendingModifiedValues
-        <$> x .@? "AutomaticFailoverStatus"
-        <*> x .@? "PrimaryClusterId"
+            <$> x .@? "AutomaticFailoverStatus"
+            <*> x .@? "PrimaryClusterId"
 
 instance ToQuery ReplicationGroupPendingModifiedValues
 
@@ -913,9 +913,9 @@ ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     parseXML x = EC2SecurityGroup
-        <$> x .@? "EC2SecurityGroupName"
-        <*> x .@? "EC2SecurityGroupOwnerId"
-        <*> x .@? "Status"
+            <$> x .@? "EC2SecurityGroupName"
+            <*> x .@? "EC2SecurityGroupOwnerId"
+            <*> x .@? "Status"
 
 instance ToQuery EC2SecurityGroup
 
@@ -949,8 +949,8 @@ pnvParameterValue =
 
 instance FromXML ParameterNameValue where
     parseXML x = ParameterNameValue
-        <$> x .@? "ParameterName"
-        <*> x .@? "ParameterValue"
+            <$> x .@? "ParameterName"
+            <*> x .@? "ParameterValue"
 
 instance ToQuery ParameterNameValue
 
@@ -1030,10 +1030,10 @@ csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
 instance FromXML CacheSubnetGroup where
     parseXML x = CacheSubnetGroup
-        <$> x .@? "CacheSubnetGroupDescription"
-        <*> x .@? "CacheSubnetGroupName"
-        <*> x .@ "Subnets"
-        <*> x .@? "VpcId"
+            <$> x .@? "CacheSubnetGroupDescription"
+            <*> x .@? "CacheSubnetGroupName"
+            <*> x .@ "Subnets"
+            <*> x .@? "VpcId"
 
 instance ToQuery CacheSubnetGroup
 
@@ -1153,18 +1153,18 @@ rcnUsagePrice = lens _rcnUsagePrice (\s a -> s { _rcnUsagePrice = a })
 
 instance FromXML ReservedCacheNode where
     parseXML x = ReservedCacheNode
-        <$> x .@? "CacheNodeCount"
-        <*> x .@? "CacheNodeType"
-        <*> x .@? "Duration"
-        <*> x .@? "FixedPrice"
-        <*> x .@? "OfferingType"
-        <*> x .@? "ProductDescription"
-        <*> x .@ "RecurringCharges"
-        <*> x .@? "ReservedCacheNodeId"
-        <*> x .@? "ReservedCacheNodesOfferingId"
-        <*> x .@? "StartTime"
-        <*> x .@? "State"
-        <*> x .@? "UsagePrice"
+            <$> x .@? "CacheNodeCount"
+            <*> x .@? "CacheNodeType"
+            <*> x .@? "Duration"
+            <*> x .@? "FixedPrice"
+            <*> x .@? "OfferingType"
+            <*> x .@? "ProductDescription"
+            <*> x .@ "RecurringCharges"
+            <*> x .@? "ReservedCacheNodeId"
+            <*> x .@? "ReservedCacheNodesOfferingId"
+            <*> x .@? "StartTime"
+            <*> x .@? "State"
+            <*> x .@? "UsagePrice"
 
 instance ToQuery ReservedCacheNode
 
@@ -1199,8 +1199,8 @@ sSubnetIdentifier =
 
 instance FromXML Subnet where
     parseXML x = Subnet
-        <$> x .@? "SubnetAvailabilityZone"
-        <*> x .@? "SubnetIdentifier"
+            <$> x .@? "SubnetAvailabilityZone"
+            <*> x .@? "SubnetIdentifier"
 
 instance ToQuery Subnet
 
@@ -1236,8 +1236,8 @@ sgmStatus = lens _sgmStatus (\s a -> s { _sgmStatus = a })
 
 instance FromXML SecurityGroupMembership where
     parseXML x = SecurityGroupMembership
-        <$> x .@? "SecurityGroupId"
-        <*> x .@? "Status"
+            <$> x .@? "SecurityGroupId"
+            <*> x .@? "Status"
 
 instance ToQuery SecurityGroupMembership
 
@@ -1465,28 +1465,28 @@ ccSnapshotWindow = lens _ccSnapshotWindow (\s a -> s { _ccSnapshotWindow = a })
 
 instance FromXML CacheCluster where
     parseXML x = CacheCluster
-        <$> x .@? "AutoMinorVersionUpgrade"
-        <*> x .@? "CacheClusterCreateTime"
-        <*> x .@? "CacheClusterId"
-        <*> x .@? "CacheClusterStatus"
-        <*> x .@? "CacheNodeType"
-        <*> x .@ "CacheNodes"
-        <*> x .@? "CacheParameterGroup"
-        <*> x .@ "CacheSecurityGroups"
-        <*> x .@? "CacheSubnetGroupName"
-        <*> x .@? "ClientDownloadLandingPage"
-        <*> x .@? "ConfigurationEndpoint"
-        <*> x .@? "Engine"
-        <*> x .@? "EngineVersion"
-        <*> x .@? "NotificationConfiguration"
-        <*> x .@? "NumCacheNodes"
-        <*> x .@? "PendingModifiedValues"
-        <*> x .@? "PreferredAvailabilityZone"
-        <*> x .@? "PreferredMaintenanceWindow"
-        <*> x .@? "ReplicationGroupId"
-        <*> x .@ "SecurityGroups"
-        <*> x .@? "SnapshotRetentionLimit"
-        <*> x .@? "SnapshotWindow"
+            <$> x .@? "AutoMinorVersionUpgrade"
+            <*> x .@? "CacheClusterCreateTime"
+            <*> x .@? "CacheClusterId"
+            <*> x .@? "CacheClusterStatus"
+            <*> x .@? "CacheNodeType"
+            <*> x .@ "CacheNodes"
+            <*> x .@? "CacheParameterGroup"
+            <*> x .@ "CacheSecurityGroups"
+            <*> x .@? "CacheSubnetGroupName"
+            <*> x .@? "ClientDownloadLandingPage"
+            <*> x .@? "ConfigurationEndpoint"
+            <*> x .@? "Engine"
+            <*> x .@? "EngineVersion"
+            <*> x .@? "NotificationConfiguration"
+            <*> x .@? "NumCacheNodes"
+            <*> x .@? "PendingModifiedValues"
+            <*> x .@? "PreferredAvailabilityZone"
+            <*> x .@? "PreferredMaintenanceWindow"
+            <*> x .@? "ReplicationGroupId"
+            <*> x .@ "SecurityGroups"
+            <*> x .@? "SnapshotRetentionLimit"
+            <*> x .@? "SnapshotWindow"
 
 instance ToQuery CacheCluster
 
@@ -1541,10 +1541,10 @@ edParameters = lens _edParameters (\s a -> s { _edParameters = a })
 
 instance FromXML EngineDefaults where
     parseXML x = EngineDefaults
-        <$> x .@ "CacheNodeTypeSpecificParameters"
-        <*> x .@? "CacheParameterGroupFamily"
-        <*> x .@? "Marker"
-        <*> x .@ "Parameters"
+            <$> x .@ "CacheNodeTypeSpecificParameters"
+            <*> x .@? "CacheParameterGroupFamily"
+            <*> x .@? "Marker"
+            <*> x .@ "Parameters"
 
 instance ToQuery EngineDefaults
 
@@ -1593,9 +1593,9 @@ cpgsParameterApplyStatus =
 
 instance FromXML CacheParameterGroupStatus where
     parseXML x = CacheParameterGroupStatus
-        <$> x .@ "CacheNodeIdsToReboot"
-        <*> x .@? "CacheParameterGroupName"
-        <*> x .@? "ParameterApplyStatus"
+            <$> x .@ "CacheNodeIdsToReboot"
+            <*> x .@? "CacheParameterGroupName"
+            <*> x .@? "ParameterApplyStatus"
 
 instance ToQuery CacheParameterGroupStatus
 
@@ -1679,13 +1679,13 @@ cnSourceCacheNodeId =
 
 instance FromXML CacheNode where
     parseXML x = CacheNode
-        <$> x .@? "CacheNodeCreateTime"
-        <*> x .@? "CacheNodeId"
-        <*> x .@? "CacheNodeStatus"
-        <*> x .@? "CustomerAvailabilityZone"
-        <*> x .@? "Endpoint"
-        <*> x .@? "ParameterGroupStatus"
-        <*> x .@? "SourceCacheNodeId"
+            <$> x .@? "CacheNodeCreateTime"
+            <*> x .@? "CacheNodeId"
+            <*> x .@? "CacheNodeStatus"
+            <*> x .@? "CustomerAvailabilityZone"
+            <*> x .@? "Endpoint"
+            <*> x .@? "ParameterGroupStatus"
+            <*> x .@? "SourceCacheNodeId"
 
 instance ToQuery CacheNode
 
@@ -1722,8 +1722,8 @@ csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 
 instance FromXML CacheSecurityGroupMembership where
     parseXML x = CacheSecurityGroupMembership
-        <$> x .@? "CacheSecurityGroupName"
-        <*> x .@? "Status"
+            <$> x .@? "CacheSecurityGroupName"
+            <*> x .@? "Status"
 
 instance ToQuery CacheSecurityGroupMembership
 
@@ -1748,7 +1748,7 @@ azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-        <$> x .@? "Name"
+            <$> x .@? "Name"
 
 instance ToQuery AvailabilityZone
 
@@ -1808,11 +1808,11 @@ ngmReadEndpoint = lens _ngmReadEndpoint (\s a -> s { _ngmReadEndpoint = a })
 
 instance FromXML NodeGroupMember where
     parseXML x = NodeGroupMember
-        <$> x .@? "CacheClusterId"
-        <*> x .@? "CacheNodeId"
-        <*> x .@? "CurrentRole"
-        <*> x .@? "PreferredAvailabilityZone"
-        <*> x .@? "ReadEndpoint"
+            <$> x .@? "CacheClusterId"
+            <*> x .@? "CacheNodeId"
+            <*> x .@? "CurrentRole"
+            <*> x .@? "PreferredAvailabilityZone"
+            <*> x .@? "ReadEndpoint"
 
 instance ToQuery NodeGroupMember
 
@@ -1858,9 +1858,9 @@ cpgDescription = lens _cpgDescription (\s a -> s { _cpgDescription = a })
 
 instance FromXML CacheParameterGroup where
     parseXML x = CacheParameterGroup
-        <$> x .@? "CacheParameterGroupFamily"
-        <*> x .@? "CacheParameterGroupName"
-        <*> x .@? "Description"
+            <$> x .@? "CacheParameterGroupFamily"
+            <*> x .@? "CacheParameterGroupName"
+            <*> x .@? "Description"
 
 instance ToQuery CacheParameterGroup
 
@@ -1940,10 +1940,10 @@ csgOwnerId = lens _csgOwnerId (\s a -> s { _csgOwnerId = a })
 
 instance FromXML CacheSecurityGroup where
     parseXML x = CacheSecurityGroup
-        <$> x .@? "CacheSecurityGroupName"
-        <*> x .@? "Description"
-        <*> x .@ "EC2SecurityGroups"
-        <*> x .@? "OwnerId"
+            <$> x .@? "CacheSecurityGroupName"
+            <*> x .@? "Description"
+            <*> x .@ "EC2SecurityGroups"
+            <*> x .@? "OwnerId"
 
 instance ToQuery CacheSecurityGroup
 
@@ -2034,14 +2034,14 @@ cntspSource = lens _cntspSource (\s a -> s { _cntspSource = a })
 
 instance FromXML CacheNodeTypeSpecificParameter where
     parseXML x = CacheNodeTypeSpecificParameter
-        <$> x .@? "AllowedValues"
-        <*> x .@ "CacheNodeTypeSpecificValues"
-        <*> x .@? "DataType"
-        <*> x .@? "Description"
-        <*> x .@? "IsModifiable"
-        <*> x .@? "MinimumEngineVersion"
-        <*> x .@? "ParameterName"
-        <*> x .@? "Source"
+            <$> x .@? "AllowedValues"
+            <*> x .@ "CacheNodeTypeSpecificValues"
+            <*> x .@? "DataType"
+            <*> x .@? "Description"
+            <*> x .@? "IsModifiable"
+            <*> x .@? "MinimumEngineVersion"
+            <*> x .@? "ParameterName"
+            <*> x .@? "Source"
 
 instance ToQuery CacheNodeTypeSpecificParameter
 
@@ -2126,11 +2126,11 @@ cevEngineVersion = lens _cevEngineVersion (\s a -> s { _cevEngineVersion = a })
 
 instance FromXML CacheEngineVersion where
     parseXML x = CacheEngineVersion
-        <$> x .@? "CacheEngineDescription"
-        <*> x .@? "CacheEngineVersionDescription"
-        <*> x .@? "CacheParameterGroupFamily"
-        <*> x .@? "Engine"
-        <*> x .@? "EngineVersion"
+            <$> x .@? "CacheEngineDescription"
+            <*> x .@? "CacheEngineVersionDescription"
+            <*> x .@? "CacheParameterGroupFamily"
+            <*> x .@? "Engine"
+            <*> x .@? "EngineVersion"
 
 instance ToQuery CacheEngineVersion
 
@@ -2219,14 +2219,14 @@ rgStatus = lens _rgStatus (\s a -> s { _rgStatus = a })
 
 instance FromXML ReplicationGroup where
     parseXML x = ReplicationGroup
-        <$> x .@? "AutomaticFailover"
-        <*> x .@? "Description"
-        <*> x .@ "MemberClusters"
-        <*> x .@ "NodeGroups"
-        <*> x .@? "PendingModifiedValues"
-        <*> x .@? "ReplicationGroupId"
-        <*> x .@? "SnapshottingClusterId"
-        <*> x .@? "Status"
+            <$> x .@? "AutomaticFailover"
+            <*> x .@? "Description"
+            <*> x .@ "MemberClusters"
+            <*> x .@ "NodeGroups"
+            <*> x .@? "PendingModifiedValues"
+            <*> x .@? "ReplicationGroupId"
+            <*> x .@? "SnapshottingClusterId"
+            <*> x .@? "Status"
 
 instance ToQuery ReplicationGroup
 
@@ -2262,8 +2262,8 @@ rcRecurringChargeFrequency =
 
 instance FromXML RecurringCharge where
     parseXML x = RecurringCharge
-        <$> x .@? "RecurringChargeAmount"
-        <*> x .@? "RecurringChargeFrequency"
+            <$> x .@? "RecurringChargeAmount"
+            <*> x .@? "RecurringChargeFrequency"
 
 instance ToQuery RecurringCharge
 
@@ -2349,14 +2349,14 @@ rcnoUsagePrice = lens _rcnoUsagePrice (\s a -> s { _rcnoUsagePrice = a })
 
 instance FromXML ReservedCacheNodesOffering where
     parseXML x = ReservedCacheNodesOffering
-        <$> x .@? "CacheNodeType"
-        <*> x .@? "Duration"
-        <*> x .@? "FixedPrice"
-        <*> x .@? "OfferingType"
-        <*> x .@? "ProductDescription"
-        <*> x .@ "RecurringCharges"
-        <*> x .@? "ReservedCacheNodesOfferingId"
-        <*> x .@? "UsagePrice"
+            <$> x .@? "CacheNodeType"
+            <*> x .@? "Duration"
+            <*> x .@? "FixedPrice"
+            <*> x .@? "OfferingType"
+            <*> x .@? "ProductDescription"
+            <*> x .@ "RecurringCharges"
+            <*> x .@? "ReservedCacheNodesOfferingId"
+            <*> x .@? "UsagePrice"
 
 instance ToQuery ReservedCacheNodesOffering
 
@@ -2389,8 +2389,8 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-        <$> x .@? "Address"
-        <*> x .@? "Port"
+            <$> x .@? "Address"
+            <*> x .@? "Port"
 
 instance ToQuery Endpoint
 
@@ -2433,9 +2433,9 @@ pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 
 instance FromXML PendingModifiedValues where
     parseXML x = PendingModifiedValues
-        <$> x .@ "CacheNodeIdsToRemove"
-        <*> x .@? "EngineVersion"
-        <*> x .@? "NumCacheNodes"
+            <$> x .@ "CacheNodeIdsToRemove"
+            <*> x .@? "EngineVersion"
+            <*> x .@? "NumCacheNodes"
 
 instance ToQuery PendingModifiedValues
 
@@ -2462,7 +2462,7 @@ cpgnmCacheParameterGroupName =
 
 instance FromXML CacheParameterGroupNameMessage where
     parseXML x = CacheParameterGroupNameMessage
-        <$> x .@? "CacheParameterGroupName"
+            <$> x .@? "CacheParameterGroupName"
 
 instance ToQuery CacheParameterGroupNameMessage
 
@@ -2546,13 +2546,13 @@ pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     parseXML x = Parameter
-        <$> x .@? "AllowedValues"
-        <*> x .@? "DataType"
-        <*> x .@? "Description"
-        <*> x .@? "IsModifiable"
-        <*> x .@? "MinimumEngineVersion"
-        <*> x .@? "ParameterName"
-        <*> x .@? "ParameterValue"
-        <*> x .@? "Source"
+            <$> x .@? "AllowedValues"
+            <*> x .@? "DataType"
+            <*> x .@? "Description"
+            <*> x .@? "IsModifiable"
+            <*> x .@? "MinimumEngineVersion"
+            <*> x .@? "ParameterName"
+            <*> x .@? "ParameterValue"
+            <*> x .@? "Source"
 
 instance ToQuery Parameter

@@ -124,5 +124,4 @@ instance AWSRequest UpdateApplicationVersion where
 
 instance FromXML UpdateApplicationVersionResponse where
     parseXML = withElement "UpdateApplicationVersionResult" $ \x ->
-        UpdateApplicationVersionResponse
             <$> x .@? "ApplicationVersion"

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data ImportInstance = ImportInstance
     { _iiDescription         :: Maybe Text
-    , _iiDiskImages          :: [DiskImage]
+    , _iiDiskImages          :: List "DiskImage" DiskImage
     , _iiDryRun              :: Maybe Bool
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiPlatform            :: Text
@@ -90,6 +90,7 @@ iiDescription = lens _iiDescription (\s a -> s { _iiDescription = a })
 
 iiDiskImages :: Lens' ImportInstance [DiskImage]
 iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a })
+    . _List
 
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\s a -> s { _iiDryRun = a })

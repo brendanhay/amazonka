@@ -130,7 +130,7 @@ data MetricFilter = MetricFilter
 metricFilter :: NonEmpty MetricTransformation -- ^ 'mfMetricTransformations'
              -> MetricFilter
 metricFilter p1 = MetricFilter
-    { _mfMetricTransformations = withIso _List1 (const id) p1
+    { _mfMetricTransformations = p1
     , _mfFilterName            = Nothing
     , _mfFilterPattern         = Nothing
     , _mfCreationTime          = Nothing
@@ -149,7 +149,6 @@ mfFilterPattern = lens _mfFilterPattern (\s a -> s { _mfFilterPattern = a })
 mfMetricTransformations :: Lens' MetricFilter (NonEmpty MetricTransformation)
 mfMetricTransformations =
     lens _mfMetricTransformations (\s a -> s { _mfMetricTransformations = a })
-        . _List1
 
 instance FromJSON MetricFilter where
     parseJSON = withObject "MetricFilter" $ \o -> MetricFilter

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirDryRun                 :: Maybe Bool
-    , _csirSpotInstanceRequestIds :: [Text]
+    , _csirSpotInstanceRequestIds :: List "SpotInstanceRequestId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelSpotInstanceRequests' constructor.
@@ -79,9 +79,10 @@ csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds =
     lens _csirSpotInstanceRequestIds
         (\s a -> s { _csirSpotInstanceRequestIds = a })
+            . _List
 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
+    { _csirrCancelledSpotInstanceRequests :: List "item" CancelledSpotInstanceRequest
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CancelSpotInstanceRequestsResponse where
@@ -106,6 +107,7 @@ csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
+            . _List
 
 instance ToPath CancelSpotInstanceRequests where
     toPath = const "/"

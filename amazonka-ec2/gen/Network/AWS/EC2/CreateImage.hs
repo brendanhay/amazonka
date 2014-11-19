@@ -56,7 +56,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data CreateImage = CreateImage
-    { _ci1BlockDeviceMappings :: [BlockDeviceMapping]
+    { _ci1BlockDeviceMappings :: List "BlockDeviceMapping" BlockDeviceMapping
     , _ci1Description         :: Maybe Text
     , _ci1DryRun              :: Maybe Bool
     , _ci1InstanceId          :: Text
@@ -96,6 +96,7 @@ createImage p1 p2 = CreateImage
 ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
 ci1BlockDeviceMappings =
     lens _ci1BlockDeviceMappings (\s a -> s { _ci1BlockDeviceMappings = a })
+        . _List
 
 -- | A description for the new image.
 ci1Description :: Lens' CreateImage (Maybe Text)

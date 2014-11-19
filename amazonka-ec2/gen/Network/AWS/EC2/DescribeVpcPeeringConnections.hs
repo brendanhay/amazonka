@@ -48,8 +48,8 @@ import qualified GHC.Exts
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1DryRun                  :: Maybe Bool
-    , _dvpc1Filters                 :: [Filter]
-    , _dvpc1VpcPeeringConnectionIds :: [Text]
+    , _dvpc1Filters                 :: List "Filter" Filter
+    , _dvpc1VpcPeeringConnectionIds :: List "item" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpcPeeringConnections' constructor.
@@ -95,6 +95,7 @@ dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
 -- vpc-peering-connection-id - The ID of the VPC peering connection.
 dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
 dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
+    . _List
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
@@ -102,9 +103,10 @@ dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
 dvpc1VpcPeeringConnectionIds =
     lens _dvpc1VpcPeeringConnectionIds
         (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
+            . _List
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
+    { _dvpcrVpcPeeringConnections :: List "item" VpcPeeringConnection
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpcPeeringConnectionsResponse where
@@ -129,6 +131,7 @@ dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPe
 dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections
         (\s a -> s { _dvpcrVpcPeeringConnections = a })
+            . _List
 
 instance ToPath DescribeVpcPeeringConnections where
     toPath = const "/"

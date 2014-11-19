@@ -69,7 +69,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data CreateDhcpOptions = CreateDhcpOptions
-    { _cdoDhcpConfigurations :: [NewDhcpConfiguration]
+    { _cdoDhcpConfigurations :: List "item" NewDhcpConfiguration
     , _cdoDryRun             :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
@@ -91,6 +91,7 @@ createDhcpOptions = CreateDhcpOptions
 cdoDhcpConfigurations :: Lens' CreateDhcpOptions [NewDhcpConfiguration]
 cdoDhcpConfigurations =
     lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
+        . _List
 
 cdoDryRun :: Lens' CreateDhcpOptions (Maybe Bool)
 cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })

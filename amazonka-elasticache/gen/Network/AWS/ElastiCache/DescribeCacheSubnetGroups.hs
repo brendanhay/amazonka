@@ -137,7 +137,6 @@ instance AWSRequest DescribeCacheSubnetGroups where
 
 instance FromXML DescribeCacheSubnetGroupsResponse where
     parseXML = withElement "DescribeCacheSubnetGroupsResult" $ \x ->
-        DescribeCacheSubnetGroupsResponse
             <$> x .@ "CacheSubnetGroups"
             <*> x .@? "Marker"
 

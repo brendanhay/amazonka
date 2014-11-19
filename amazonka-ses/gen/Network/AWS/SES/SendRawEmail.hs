@@ -148,5 +148,4 @@ instance AWSRequest SendRawEmail where
 
 instance FromXML SendRawEmailResponse where
     parseXML = withElement "SendRawEmailResult" $ \x ->
-        SendRawEmailResponse
             <$> x .@ "MessageId"

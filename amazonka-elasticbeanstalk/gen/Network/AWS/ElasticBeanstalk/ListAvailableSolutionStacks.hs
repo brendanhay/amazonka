@@ -97,6 +97,5 @@ instance AWSRequest ListAvailableSolutionStacks where
 
 instance FromXML ListAvailableSolutionStacksResponse where
     parseXML = withElement "ListAvailableSolutionStacksResult" $ \x ->
-        ListAvailableSolutionStacksResponse
             <$> x .@ "SolutionStackDetails"
             <*> x .@ "SolutionStacks"

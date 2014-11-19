@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 data TerminateInstances = TerminateInstances
     { _tiDryRun      :: Maybe Bool
-    , _tiInstanceIds :: [Text]
+    , _tiInstanceIds :: List "InstanceId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TerminateInstances' constructor.
@@ -84,9 +84,10 @@ tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
+    . _List
 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
-    { _tirTerminatingInstances :: [InstanceStateChange]
+    { _tirTerminatingInstances :: List "item" InstanceStateChange
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TerminateInstancesResponse where
@@ -110,6 +111,7 @@ terminateInstancesResponse = TerminateInstancesResponse
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
+        . _List
 
 instance ToPath TerminateInstances where
     toPath = const "/"

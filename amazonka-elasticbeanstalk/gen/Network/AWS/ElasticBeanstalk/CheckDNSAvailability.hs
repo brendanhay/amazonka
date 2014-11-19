@@ -113,6 +113,5 @@ instance AWSRequest CheckDNSAvailability where
 
 instance FromXML CheckDNSAvailabilityResponse where
     parseXML = withElement "CheckDNSAvailabilityResult" $ \x ->
-        CheckDNSAvailabilityResponse
             <$> x .@? "Available"
             <*> x .@? "FullyQualifiedCNAME"

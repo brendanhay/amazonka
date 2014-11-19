@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 data RebootInstances = RebootInstances
     { _ri2DryRun      :: Maybe Bool
-    , _ri2InstanceIds :: [Text]
+    , _ri2InstanceIds :: List "InstanceId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RebootInstances' constructor.
@@ -74,6 +74,7 @@ ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 -- | One or more instance IDs.
 ri2InstanceIds :: Lens' RebootInstances [Text]
 ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a })
+    . _List
 
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Ord, Show, Generic)

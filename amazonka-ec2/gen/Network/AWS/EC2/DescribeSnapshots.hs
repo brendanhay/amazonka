@@ -76,10 +76,10 @@ import qualified GHC.Exts
 
 data DescribeSnapshots = DescribeSnapshots
     { _ds1DryRun              :: Maybe Bool
-    , _ds1Filters             :: [Filter]
-    , _ds1OwnerIds            :: [Text]
-    , _ds1RestorableByUserIds :: [Text]
-    , _ds1SnapshotIds         :: [Text]
+    , _ds1Filters             :: List "Filter" Filter
+    , _ds1OwnerIds            :: List "Owner" Text
+    , _ds1RestorableByUserIds :: List "String" Text
+    , _ds1SnapshotIds         :: List "SnapshotId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSnapshots' constructor.
@@ -127,24 +127,28 @@ ds1DryRun = lens _ds1DryRun (\s a -> s { _ds1DryRun = a })
 -- - The size of the volume, in GiB.
 ds1Filters :: Lens' DescribeSnapshots [Filter]
 ds1Filters = lens _ds1Filters (\s a -> s { _ds1Filters = a })
+    . _List
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can
 -- be specified.
 ds1OwnerIds :: Lens' DescribeSnapshots [Text]
 ds1OwnerIds = lens _ds1OwnerIds (\s a -> s { _ds1OwnerIds = a })
+    . _List
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
 ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
 ds1RestorableByUserIds =
     lens _ds1RestorableByUserIds (\s a -> s { _ds1RestorableByUserIds = a })
+        . _List
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a })
+    . _List
 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrSnapshots :: [Snapshot]
+    { _dsrSnapshots :: List "item" Snapshot
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSnapshotsResponse where
@@ -166,6 +170,7 @@ describeSnapshotsResponse = DescribeSnapshotsResponse
 
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
+    . _List
 
 instance ToPath DescribeSnapshots where
     toPath = const "/"

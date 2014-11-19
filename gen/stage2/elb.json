@@ -184,8 +184,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -236,8 +236,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3102,8 +3102,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3171,8 +3171,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4273,8 +4273,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4502,8 +4502,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -6614,8 +6614,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_List1",
-                    "lensMapping": "_List1",
+                    "iso": null,
+                    "lensMapping": null,
                     "default": "\u003cerror\u003e",
                     "flattened": false,
                     "required": true,
@@ -6639,8 +6639,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -6672,8 +6672,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7756,8 +7756,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7825,8 +7825,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,

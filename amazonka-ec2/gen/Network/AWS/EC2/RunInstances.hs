@@ -90,7 +90,7 @@ import qualified GHC.Exts
 
 data RunInstances = RunInstances
     { _riAdditionalInfo                    :: Maybe Text
-    , _riBlockDeviceMappings               :: [BlockDeviceMapping]
+    , _riBlockDeviceMappings               :: List "BlockDeviceMapping" BlockDeviceMapping
     , _riClientToken                       :: Maybe Text
     , _riDisableApiTermination             :: Maybe Bool
     , _riDryRun                            :: Maybe Bool
@@ -104,12 +104,12 @@ data RunInstances = RunInstances
     , _riMaxCount                          :: Int
     , _riMinCount                          :: Int
     , _riMonitoring                        :: Maybe RunInstancesMonitoringEnabled
-    , _riNetworkInterfaces                 :: [InstanceNetworkInterfaceSpecification]
+    , _riNetworkInterfaces                 :: List "item" InstanceNetworkInterfaceSpecification
     , _riPlacement                         :: Maybe Placement
     , _riPrivateIpAddress                  :: Maybe Text
     , _riRamdiskId                         :: Maybe Text
-    , _riSecurityGroupIds                  :: [Text]
-    , _riSecurityGroups                    :: [Text]
+    , _riSecurityGroupIds                  :: List "SecurityGroupId" Text
+    , _riSecurityGroups                    :: List "SecurityGroup" Text
     , _riSubnetId                          :: Maybe Text
     , _riUserData                          :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -202,6 +202,7 @@ riAdditionalInfo = lens _riAdditionalInfo (\s a -> s { _riAdditionalInfo = a })
 riBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
 riBlockDeviceMappings =
     lens _riBlockDeviceMappings (\s a -> s { _riBlockDeviceMappings = a })
+        . _List
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see How to Ensure Idempotency in
@@ -294,6 +295,7 @@ riMonitoring = lens _riMonitoring (\s a -> s { _riMonitoring = a })
 riNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
 riNetworkInterfaces =
     lens _riNetworkInterfaces (\s a -> s { _riNetworkInterfaces = a })
+        . _List
 
 -- | The placement for the instance.
 riPlacement :: Lens' RunInstances (Maybe Placement)
@@ -320,12 +322,14 @@ riRamdiskId = lens _riRamdiskId (\s a -> s { _riRamdiskId = a })
 riSecurityGroupIds :: Lens' RunInstances [Text]
 riSecurityGroupIds =
     lens _riSecurityGroupIds (\s a -> s { _riSecurityGroupIds = a })
+        . _List
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead. Default: Amazon
 -- EC2 uses the default security group.
 riSecurityGroups :: Lens' RunInstances [Text]
 riSecurityGroups = lens _riSecurityGroups (\s a -> s { _riSecurityGroups = a })
+    . _List
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
 riSubnetId :: Lens' RunInstances (Maybe Text)
@@ -336,8 +340,8 @@ riUserData :: Lens' RunInstances (Maybe Text)
 riUserData = lens _riUserData (\s a -> s { _riUserData = a })
 
 data RunInstancesResponse = RunInstancesResponse
-    { _rirGroups        :: [GroupIdentifier]
-    , _rirInstances     :: [Instance]
+    { _rirGroups        :: List "item" GroupIdentifier
+    , _rirInstances     :: List "item" Instance
     , _rirOwnerId       :: Maybe Text
     , _rirRequesterId   :: Maybe Text
     , _rirReservationId :: Maybe Text
@@ -369,10 +373,12 @@ runInstancesResponse = RunInstancesResponse
 -- | One or more security groups.
 rirGroups :: Lens' RunInstancesResponse [GroupIdentifier]
 rirGroups = lens _rirGroups (\s a -> s { _rirGroups = a })
+    . _List
 
 -- | One or more instances.
 rirInstances :: Lens' RunInstancesResponse [Instance]
 rirInstances = lens _rirInstances (\s a -> s { _rirInstances = a })
+    . _List
 
 -- | The ID of the AWS account that owns the reservation.
 rirOwnerId :: Lens' RunInstancesResponse (Maybe Text)

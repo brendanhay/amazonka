@@ -129,5 +129,4 @@ instance AWSRequest RebootDBInstance where
 
 instance FromXML RebootDBInstanceResponse where
     parseXML = withElement "RebootDBInstanceResult" $ \x ->
-        RebootDBInstanceResponse
             <$> x .@? "DBInstance"

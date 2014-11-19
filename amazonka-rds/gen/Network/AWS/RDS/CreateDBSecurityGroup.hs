@@ -126,5 +126,4 @@ instance AWSRequest CreateDBSecurityGroup where
 
 instance FromXML CreateDBSecurityGroupResponse where
     parseXML = withElement "CreateDBSecurityGroupResult" $ \x ->
-        CreateDBSecurityGroupResponse
             <$> x .@? "DBSecurityGroup"

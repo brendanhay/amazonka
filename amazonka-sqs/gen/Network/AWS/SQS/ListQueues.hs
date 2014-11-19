@@ -105,5 +105,4 @@ instance AWSRequest ListQueues where
 
 instance FromXML ListQueuesResponse where
     parseXML = withElement "ListQueuesResult" $ \x ->
-        ListQueuesResponse
             <$> parseXML x

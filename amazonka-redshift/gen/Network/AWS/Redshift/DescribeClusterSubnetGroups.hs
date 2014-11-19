@@ -146,7 +146,6 @@ instance AWSRequest DescribeClusterSubnetGroups where
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
     parseXML = withElement "DescribeClusterSubnetGroupsResult" $ \x ->
-        DescribeClusterSubnetGroupsResponse
             <$> x .@ "ClusterSubnetGroups"
             <*> x .@? "Marker"
 

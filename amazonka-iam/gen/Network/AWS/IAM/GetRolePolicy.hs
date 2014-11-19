@@ -134,7 +134,6 @@ instance AWSRequest GetRolePolicy where
 
 instance FromXML GetRolePolicyResponse where
     parseXML = withElement "GetRolePolicyResult" $ \x ->
-        GetRolePolicyResponse
             <$> x .@ "PolicyDocument"
             <*> x .@ "PolicyName"
             <*> x .@ "RoleName"

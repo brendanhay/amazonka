@@ -97,7 +97,7 @@ createLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
                    -> CreateLoadBalancer
 createLoadBalancer p1 p2 = CreateLoadBalancer
     { _clbLoadBalancerName  = p1
-    , _clbTags              = withIso _List1 (const id) p2
+    , _clbTags              = p2
     , _clbListeners         = mempty
     , _clbAvailabilityZones = mempty
     , _clbSubnets           = mempty
@@ -151,7 +151,6 @@ clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a })
 -- setting tags for your load balancer, see Tagging.
 clbTags :: Lens' CreateLoadBalancer (NonEmpty Tag)
 clbTags = lens _clbTags (\s a -> s { _clbTags = a })
-    . _List1
 
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName :: Maybe Text
@@ -188,5 +187,4 @@ instance AWSRequest CreateLoadBalancer where
 
 instance FromXML CreateLoadBalancerResponse where
     parseXML = withElement "CreateLoadBalancerResult" $ \x ->
-        CreateLoadBalancerResponse
             <$> x .@? "DNSName"

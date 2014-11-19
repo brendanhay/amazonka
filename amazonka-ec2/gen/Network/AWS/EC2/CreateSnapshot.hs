@@ -120,7 +120,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     , _csr1SnapshotId  :: Maybe Text
     , _csr1StartTime   :: Maybe RFC822
     , _csr1State       :: Maybe Text
-    , _csr1Tags        :: [Tag]
+    , _csr1Tags        :: List "item" Tag
     , _csr1VolumeId    :: Maybe Text
     , _csr1VolumeSize  :: Maybe Int
     } deriving (Eq, Show, Generic)
@@ -203,6 +203,7 @@ csr1State = lens _csr1State (\s a -> s { _csr1State = a })
 -- | Any tags assigned to the snapshot.
 csr1Tags :: Lens' CreateSnapshotResponse [Tag]
 csr1Tags = lens _csr1Tags (\s a -> s { _csr1Tags = a })
+    . _List
 
 -- | The ID of the volume.
 csr1VolumeId :: Lens' CreateSnapshotResponse (Maybe Text)

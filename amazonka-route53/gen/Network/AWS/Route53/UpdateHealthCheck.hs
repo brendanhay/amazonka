@@ -210,4 +210,4 @@ instance AWSRequest UpdateHealthCheck where
 
 instance FromXML UpdateHealthCheckResponse where
     parseXML x = UpdateHealthCheckResponse
-        <$> x .@ "HealthCheck"
+            <$> x .@ "HealthCheck"

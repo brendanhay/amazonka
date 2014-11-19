@@ -104,5 +104,4 @@ instance AWSRequest GetUser where
 
 instance FromXML GetUserResponse where
     parseXML = withElement "GetUserResult" $ \x ->
-        GetUserResponse
             <$> x .@ "User"

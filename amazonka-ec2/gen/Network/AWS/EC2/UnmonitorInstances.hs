@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data UnmonitorInstances = UnmonitorInstances
     { _uiDryRun      :: Maybe Bool
-    , _uiInstanceIds :: [Text]
+    , _uiInstanceIds :: List "InstanceId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UnmonitorInstances' constructor.
@@ -72,9 +72,10 @@ uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
+    . _List
 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
-    { _uirInstanceMonitorings :: [InstanceMonitoring]
+    { _uirInstanceMonitorings :: List "item" InstanceMonitoring
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UnmonitorInstancesResponse where
@@ -98,6 +99,7 @@ unmonitorInstancesResponse = UnmonitorInstancesResponse
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
+        . _List
 
 instance ToPath UnmonitorInstances where
     toPath = const "/"

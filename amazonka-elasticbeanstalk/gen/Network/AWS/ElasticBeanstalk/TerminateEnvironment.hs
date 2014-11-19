@@ -281,7 +281,6 @@ instance AWSRequest TerminateEnvironment where
 
 instance FromXML TerminateEnvironmentResponse where
     parseXML = withElement "TerminateEnvironmentResult" $ \x ->
-        TerminateEnvironmentResponse
             <$> x .@? "ApplicationName"
             <*> x .@? "CNAME"
             <*> x .@? "DateCreated"

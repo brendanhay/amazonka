@@ -333,11 +333,11 @@ tdValue = lens _tdValue (\s a -> s { _tdValue = a })
 
 instance FromXML TagDescription where
     parseXML x = TagDescription
-        <$> x .@ "Key"
-        <*> x .@ "PropagateAtLaunch"
-        <*> x .@ "ResourceId"
-        <*> x .@ "ResourceType"
-        <*> x .@ "Value"
+            <$> x .@ "Key"
+            <*> x .@ "PropagateAtLaunch"
+            <*> x .@ "ResourceId"
+            <*> x .@ "ResourceType"
+            <*> x .@ "Value"
 
 instance ToQuery TagDescription
 
@@ -404,11 +404,11 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-        <$> x .@ "Key"
-        <*> x .@ "PropagateAtLaunch"
-        <*> x .@ "ResourceId"
-        <*> x .@ "ResourceType"
-        <*> x .@ "Value"
+            <$> x .@ "Key"
+            <*> x .@ "PropagateAtLaunch"
+            <*> x .@ "ResourceId"
+            <*> x .@ "ResourceType"
+            <*> x .@ "Value"
 
 instance ToQuery Tag
 
@@ -452,9 +452,9 @@ ncTopicARN = lens _ncTopicARN (\s a -> s { _ncTopicARN = a })
 
 instance FromXML NotificationConfiguration where
     parseXML x = NotificationConfiguration
-        <$> x .@? "AutoScalingGroupName"
-        <*> x .@? "NotificationType"
-        <*> x .@? "TopicARN"
+            <$> x .@? "AutoScalingGroupName"
+            <*> x .@? "NotificationType"
+            <*> x .@? "TopicARN"
 
 instance ToQuery NotificationConfiguration
 
@@ -504,10 +504,10 @@ bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
 
 instance FromXML BlockDeviceMapping where
     parseXML x = BlockDeviceMapping
-        <$> x .@ "DeviceName"
-        <*> x .@? "Ebs"
-        <*> x .@? "NoDevice"
-        <*> x .@? "VirtualName"
+            <$> x .@ "DeviceName"
+            <*> x .@? "Ebs"
+            <*> x .@? "NoDevice"
+            <*> x .@? "VirtualName"
 
 instance ToQuery BlockDeviceMapping
 
@@ -685,23 +685,23 @@ lcUserData = lens _lcUserData (\s a -> s { _lcUserData = a })
 
 instance FromXML LaunchConfiguration where
     parseXML x = LaunchConfiguration
-        <$> x .@? "AssociatePublicIpAddress"
-        <*> x .@ "BlockDeviceMappings"
-        <*> x .@ "CreatedTime"
-        <*> x .@? "EbsOptimized"
-        <*> x .@? "IamInstanceProfile"
-        <*> x .@ "ImageId"
-        <*> x .@? "InstanceMonitoring"
-        <*> x .@ "InstanceType"
-        <*> x .@? "KernelId"
-        <*> x .@? "KeyName"
-        <*> x .@? "LaunchConfigurationARN"
-        <*> x .@ "LaunchConfigurationName"
-        <*> x .@? "PlacementTenancy"
-        <*> x .@? "RamdiskId"
-        <*> x .@ "SecurityGroups"
-        <*> x .@? "SpotPrice"
-        <*> x .@? "UserData"
+            <$> x .@? "AssociatePublicIpAddress"
+            <*> x .@ "BlockDeviceMappings"
+            <*> x .@ "CreatedTime"
+            <*> x .@? "EbsOptimized"
+            <*> x .@? "IamInstanceProfile"
+            <*> x .@ "ImageId"
+            <*> x .@? "InstanceMonitoring"
+            <*> x .@ "InstanceType"
+            <*> x .@? "KernelId"
+            <*> x .@? "KeyName"
+            <*> x .@? "LaunchConfigurationARN"
+            <*> x .@ "LaunchConfigurationName"
+            <*> x .@? "PlacementTenancy"
+            <*> x .@? "RamdiskId"
+            <*> x .@ "SecurityGroups"
+            <*> x .@? "SpotPrice"
+            <*> x .@? "UserData"
 
 instance ToQuery LaunchConfiguration
 
@@ -789,7 +789,7 @@ autoScalingGroup p1 p2 p3 p4 p5 p6 p7 p8 p9 = AutoScalingGroup
     , _asgMaxSize                 = p4
     , _asgDesiredCapacity         = p5
     , _asgDefaultCooldown         = p6
-    , _asgAvailabilityZones       = withIso _List1 (const id) p7
+    , _asgAvailabilityZones       = p7
     , _asgHealthCheckType         = p8
     , _asgCreatedTime             = withIso _Time (const id) p9
     , _asgAutoScalingGroupARN     = Nothing
@@ -819,7 +819,6 @@ asgAutoScalingGroupName =
 asgAvailabilityZones :: Lens' AutoScalingGroup (NonEmpty Text)
 asgAvailabilityZones =
     lens _asgAvailabilityZones (\s a -> s { _asgAvailabilityZones = a })
-        . _List1
 
 -- | Specifies the date and time the Auto Scaling group was created.
 asgCreatedTime :: Lens' AutoScalingGroup UTCTime
@@ -915,26 +914,26 @@ asgVPCZoneIdentifier =
 
 instance FromXML AutoScalingGroup where
     parseXML x = AutoScalingGroup
-        <$> x .@? "AutoScalingGroupARN"
-        <*> x .@ "AutoScalingGroupName"
-        <*> x .@ "AvailabilityZones"
-        <*> x .@ "CreatedTime"
-        <*> x .@ "DefaultCooldown"
-        <*> x .@ "DesiredCapacity"
-        <*> x .@ "EnabledMetrics"
-        <*> x .@? "HealthCheckGracePeriod"
-        <*> x .@ "HealthCheckType"
-        <*> x .@ "Instances"
-        <*> x .@ "LaunchConfigurationName"
-        <*> x .@ "LoadBalancerNames"
-        <*> x .@ "MaxSize"
-        <*> x .@ "MinSize"
-        <*> x .@? "PlacementGroup"
-        <*> x .@? "Status"
-        <*> x .@ "SuspendedProcesses"
-        <*> x .@ "Tags"
-        <*> x .@ "TerminationPolicies"
-        <*> x .@? "VPCZoneIdentifier"
+            <$> x .@? "AutoScalingGroupARN"
+            <*> x .@ "AutoScalingGroupName"
+            <*> x .@ "AvailabilityZones"
+            <*> x .@ "CreatedTime"
+            <*> x .@ "DefaultCooldown"
+            <*> x .@ "DesiredCapacity"
+            <*> x .@ "EnabledMetrics"
+            <*> x .@? "HealthCheckGracePeriod"
+            <*> x .@ "HealthCheckType"
+            <*> x .@ "Instances"
+            <*> x .@ "LaunchConfigurationName"
+            <*> x .@ "LoadBalancerNames"
+            <*> x .@ "MaxSize"
+            <*> x .@ "MinSize"
+            <*> x .@? "PlacementGroup"
+            <*> x .@? "Status"
+            <*> x .@ "SuspendedProcesses"
+            <*> x .@ "Tags"
+            <*> x .@ "TerminationPolicies"
+            <*> x .@? "VPCZoneIdentifier"
 
 instance ToQuery AutoScalingGroup
 
@@ -1025,14 +1024,14 @@ sp1ScalingAdjustment =
 
 instance FromXML ScalingPolicy where
     parseXML x = ScalingPolicy
-        <$> x .@? "AdjustmentType"
-        <*> x .@ "Alarms"
-        <*> x .@? "AutoScalingGroupName"
-        <*> x .@? "Cooldown"
-        <*> x .@? "MinAdjustmentStep"
-        <*> x .@? "PolicyARN"
-        <*> x .@? "PolicyName"
-        <*> x .@? "ScalingAdjustment"
+            <$> x .@? "AdjustmentType"
+            <*> x .@ "Alarms"
+            <*> x .@? "AutoScalingGroupName"
+            <*> x .@? "Cooldown"
+            <*> x .@? "MinAdjustmentStep"
+            <*> x .@? "PolicyARN"
+            <*> x .@? "PolicyName"
+            <*> x .@? "ScalingAdjustment"
 
 instance ToQuery ScalingPolicy
 
@@ -1057,7 +1056,7 @@ imEnabled = lens _imEnabled (\s a -> s { _imEnabled = a })
 
 instance FromXML InstanceMonitoring where
     parseXML x = InstanceMonitoring
-        <$> x .@? "Enabled"
+            <$> x .@? "Enabled"
 
 instance ToQuery InstanceMonitoring
 
@@ -1168,16 +1167,16 @@ sugaTime = lens _sugaTime (\s a -> s { _sugaTime = a })
 
 instance FromXML ScheduledUpdateGroupAction where
     parseXML x = ScheduledUpdateGroupAction
-        <$> x .@? "AutoScalingGroupName"
-        <*> x .@? "DesiredCapacity"
-        <*> x .@? "EndTime"
-        <*> x .@? "MaxSize"
-        <*> x .@? "MinSize"
-        <*> x .@? "Recurrence"
-        <*> x .@? "ScheduledActionARN"
-        <*> x .@? "ScheduledActionName"
-        <*> x .@? "StartTime"
-        <*> x .@? "Time"
+            <$> x .@? "AutoScalingGroupName"
+            <*> x .@? "DesiredCapacity"
+            <*> x .@? "EndTime"
+            <*> x .@? "MaxSize"
+            <*> x .@? "MinSize"
+            <*> x .@? "Recurrence"
+            <*> x .@? "ScheduledActionARN"
+            <*> x .@? "ScheduledActionName"
+            <*> x .@? "StartTime"
+            <*> x .@? "Time"
 
 instance ToQuery ScheduledUpdateGroupAction
 
@@ -1216,8 +1215,8 @@ spqScalingProcesses =
 
 instance FromXML ScalingProcessQuery where
     parseXML x = ScalingProcessQuery
-        <$> x .@ "AutoScalingGroupName"
-        <*> x .@ "ScalingProcesses"
+            <$> x .@ "AutoScalingGroupName"
+            <*> x .@ "ScalingProcesses"
 
 instance ToQuery ScalingProcessQuery
 
@@ -1283,11 +1282,11 @@ ebsVolumeType = lens _ebsVolumeType (\s a -> s { _ebsVolumeType = a })
 
 instance FromXML Ebs where
     parseXML x = Ebs
-        <$> x .@? "DeleteOnTermination"
-        <*> x .@? "Iops"
-        <*> x .@? "SnapshotId"
-        <*> x .@? "VolumeSize"
-        <*> x .@? "VolumeType"
+            <$> x .@? "DeleteOnTermination"
+            <*> x .@? "Iops"
+            <*> x .@? "SnapshotId"
+            <*> x .@? "VolumeSize"
+            <*> x .@? "VolumeType"
 
 instance ToQuery Ebs
 
@@ -1313,7 +1312,7 @@ atAdjustmentType = lens _atAdjustmentType (\s a -> s { _atAdjustmentType = a })
 
 instance FromXML AdjustmentType where
     parseXML x = AdjustmentType
-        <$> x .@? "AdjustmentType"
+            <$> x .@? "AdjustmentType"
 
 instance ToQuery AdjustmentType
 
@@ -1337,7 +1336,7 @@ mctMetric = lens _mctMetric (\s a -> s { _mctMetric = a })
 
 instance FromXML MetricCollectionType where
     parseXML x = MetricCollectionType
-        <$> x .@? "Metric"
+            <$> x .@? "Metric"
 
 instance ToQuery MetricCollectionType
 
@@ -1448,15 +1447,15 @@ lhRoleARN = lens _lhRoleARN (\s a -> s { _lhRoleARN = a })
 
 instance FromXML LifecycleHook where
     parseXML x = LifecycleHook
-        <$> x .@? "AutoScalingGroupName"
-        <*> x .@? "DefaultResult"
-        <*> x .@? "GlobalTimeout"
-        <*> x .@? "HeartbeatTimeout"
-        <*> x .@? "LifecycleHookName"
-        <*> x .@? "LifecycleTransition"
-        <*> x .@? "NotificationMetadata"
-        <*> x .@? "NotificationTargetARN"
-        <*> x .@? "RoleARN"
+            <$> x .@? "AutoScalingGroupName"
+            <*> x .@? "DefaultResult"
+            <*> x .@? "GlobalTimeout"
+            <*> x .@? "HeartbeatTimeout"
+            <*> x .@? "LifecycleHookName"
+            <*> x .@? "LifecycleTransition"
+            <*> x .@? "NotificationMetadata"
+            <*> x .@? "NotificationTargetARN"
+            <*> x .@? "RoleARN"
 
 instance ToQuery LifecycleHook
 
@@ -1562,16 +1561,16 @@ aStatusMessage = lens _aStatusMessage (\s a -> s { _aStatusMessage = a })
 
 instance FromXML Activity where
     parseXML x = Activity
-        <$> x .@ "ActivityId"
-        <*> x .@ "AutoScalingGroupName"
-        <*> x .@ "Cause"
-        <*> x .@? "Description"
-        <*> x .@? "Details"
-        <*> x .@? "EndTime"
-        <*> x .@? "Progress"
-        <*> x .@ "StartTime"
-        <*> x .@ "StatusCode"
-        <*> x .@? "StatusMessage"
+            <$> x .@ "ActivityId"
+            <*> x .@ "AutoScalingGroupName"
+            <*> x .@ "Cause"
+            <*> x .@? "Description"
+            <*> x .@? "Details"
+            <*> x .@? "EndTime"
+            <*> x .@? "Progress"
+            <*> x .@ "StartTime"
+            <*> x .@ "StatusCode"
+            <*> x .@? "StatusMessage"
 
 instance ToQuery Activity
 
@@ -1605,8 +1604,8 @@ spSuspensionReason =
 
 instance FromXML SuspendedProcess where
     parseXML x = SuspendedProcess
-        <$> x .@? "ProcessName"
-        <*> x .@? "SuspensionReason"
+            <$> x .@? "ProcessName"
+            <*> x .@? "SuspensionReason"
 
 instance ToQuery SuspendedProcess
 
@@ -1631,7 +1630,7 @@ mgtGranularity = lens _mgtGranularity (\s a -> s { _mgtGranularity = a })
 
 instance FromXML MetricGranularityType where
     parseXML x = MetricGranularityType
-        <$> x .@? "Granularity"
+            <$> x .@? "Granularity"
 
 instance ToQuery MetricGranularityType
 
@@ -1666,8 +1665,8 @@ fValues = lens _fValues (\s a -> s { _fValues = a })
 
 instance FromXML Filter where
     parseXML x = Filter
-        <$> x .@ "Name"
-        <*> x .@ "Values"
+            <$> x .@ "Name"
+            <*> x .@ "Values"
 
 instance ToQuery Filter
 
@@ -1693,7 +1692,7 @@ ptProcessName = lens _ptProcessName (\s a -> s { _ptProcessName = a })
 
 instance FromXML ProcessType where
     parseXML x = ProcessType
-        <$> x .@ "ProcessName"
+            <$> x .@ "ProcessName"
 
 instance ToQuery ProcessType
 
@@ -1726,8 +1725,8 @@ aAlarmName = lens _aAlarmName (\s a -> s { _aAlarmName = a })
 
 instance FromXML Alarm where
     parseXML x = Alarm
-        <$> x .@? "AlarmARN"
-        <*> x .@? "AlarmName"
+            <$> x .@? "AlarmARN"
+            <*> x .@? "AlarmName"
 
 instance ToQuery Alarm
 
@@ -1760,8 +1759,8 @@ emMetric = lens _emMetric (\s a -> s { _emMetric = a })
 
 instance FromXML EnabledMetric where
     parseXML x = EnabledMetric
-        <$> x .@? "Granularity"
-        <*> x .@? "Metric"
+            <$> x .@? "Granularity"
+            <*> x .@? "Metric"
 
 instance ToQuery EnabledMetric
 
@@ -1826,11 +1825,11 @@ iLifecycleState = lens _iLifecycleState (\s a -> s { _iLifecycleState = a })
 
 instance FromXML Instance where
     parseXML x = Instance
-        <$> x .@ "AvailabilityZone"
-        <*> x .@ "HealthStatus"
-        <*> x .@ "InstanceId"
-        <*> x .@ "LaunchConfigurationName"
-        <*> x .@ "LifecycleState"
+            <$> x .@ "AvailabilityZone"
+            <*> x .@ "HealthStatus"
+            <*> x .@ "InstanceId"
+            <*> x .@ "LaunchConfigurationName"
+            <*> x .@ "LifecycleState"
 
 instance ToQuery Instance
 
@@ -1964,12 +1963,12 @@ asidLifecycleState =
 
 instance FromXML AutoScalingInstanceDetails where
     parseXML x = AutoScalingInstanceDetails
-        <$> x .@ "AutoScalingGroupName"
-        <*> x .@ "AvailabilityZone"
-        <*> x .@ "HealthStatus"
-        <*> x .@ "InstanceId"
-        <*> x .@ "LaunchConfigurationName"
-        <*> x .@ "LifecycleState"
+            <$> x .@ "AutoScalingGroupName"
+            <*> x .@ "AvailabilityZone"
+            <*> x .@ "HealthStatus"
+            <*> x .@ "InstanceId"
+            <*> x .@ "LaunchConfigurationName"
+            <*> x .@ "LifecycleState"
 
 instance ToQuery AutoScalingInstanceDetails
 

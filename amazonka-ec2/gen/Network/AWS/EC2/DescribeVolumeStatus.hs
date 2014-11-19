@@ -76,10 +76,10 @@ import qualified GHC.Exts
 
 data DescribeVolumeStatus = DescribeVolumeStatus
     { _dvsDryRun     :: Maybe Bool
-    , _dvsFilters    :: [Filter]
+    , _dvsFilters    :: List "Filter" Filter
     , _dvsMaxResults :: Maybe Int
     , _dvsNextToken  :: Maybe Text
-    , _dvsVolumeIds  :: [Text]
+    , _dvsVolumeIds  :: List "VolumeId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumeStatus' constructor.
@@ -125,6 +125,7 @@ dvsDryRun = lens _dvsDryRun (\s a -> s { _dvsDryRun = a })
 -- volume (ok | impaired | warning | insufficient-data).
 dvsFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a })
+    . _List
 
 -- | The maximum number of paginated volume items per response.
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
@@ -138,10 +139,11 @@ dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 -- | One or more volume IDs. Default: Describes all your volumes.
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
+    . _List
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrNextToken      :: Maybe Text
-    , _dvsrVolumeStatuses :: [VolumeStatusItem]
+    , _dvsrVolumeStatuses :: List "item" VolumeStatusItem
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumeStatusResponse' constructor.
@@ -166,6 +168,7 @@ dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
+        . _List
 
 instance ToPath DescribeVolumeStatus where
     toPath = const "/"

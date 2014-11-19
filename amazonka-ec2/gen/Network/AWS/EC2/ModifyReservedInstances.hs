@@ -52,8 +52,8 @@ import qualified GHC.Exts
 
 data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken          :: Maybe Text
-    , _mriReservedInstancesIds :: [Text]
-    , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
+    , _mriReservedInstancesIds :: List "ReservedInstancesId" Text
+    , _mriTargetConfigurations :: List "item" ReservedInstancesConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'ModifyReservedInstances' constructor.
@@ -82,11 +82,13 @@ mriClientToken = lens _mriClientToken (\s a -> s { _mriClientToken = a })
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mriReservedInstancesIds =
     lens _mriReservedInstancesIds (\s a -> s { _mriReservedInstancesIds = a })
+        . _List
 
 -- | The configuration settings for the Reserved Instances to modify.
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations =
     lens _mriTargetConfigurations (\s a -> s { _mriTargetConfigurations = a })
+        . _List
 
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text

@@ -145,4 +145,4 @@ instance AWSRequest AssociateVPCWithHostedZone where
 
 instance FromXML AssociateVPCWithHostedZoneResponse where
     parseXML x = AssociateVPCWithHostedZoneResponse
-        <$> x .@ "ChangeInfo"
+            <$> x .@ "ChangeInfo"

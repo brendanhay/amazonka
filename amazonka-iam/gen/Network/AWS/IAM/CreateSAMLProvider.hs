@@ -132,5 +132,4 @@ instance AWSRequest CreateSAMLProvider where
 
 instance FromXML CreateSAMLProviderResponse where
     parseXML = withElement "CreateSAMLProviderResult" $ \x ->
-        CreateSAMLProviderResponse
             <$> x .@? "SAMLProviderArn"

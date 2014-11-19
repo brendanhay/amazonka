@@ -146,5 +146,4 @@ instance AWSRequest RevokeClusterSecurityGroupIngress where
 
 instance FromXML RevokeClusterSecurityGroupIngressResponse where
     parseXML = withElement "RevokeClusterSecurityGroupIngressResult" $ \x ->
-        RevokeClusterSecurityGroupIngressResponse
             <$> x .@? "ClusterSecurityGroup"

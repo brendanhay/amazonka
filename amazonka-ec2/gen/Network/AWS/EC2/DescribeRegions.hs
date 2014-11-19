@@ -49,8 +49,8 @@ import qualified GHC.Exts
 
 data DescribeRegions = DescribeRegions
     { _dr1DryRun      :: Maybe Bool
-    , _dr1Filters     :: [Filter]
-    , _dr1RegionNames :: [Text]
+    , _dr1Filters     :: List "Filter" Filter
+    , _dr1RegionNames :: List "RegionName" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeRegions' constructor.
@@ -78,13 +78,15 @@ dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 -- example, us-east-1).
 dr1Filters :: Lens' DescribeRegions [Filter]
 dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
+    . _List
 
 -- | The names of one or more regions.
 dr1RegionNames :: Lens' DescribeRegions [Text]
 dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
+    . _List
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
-    { _drrRegions :: [Region]
+    { _drrRegions :: List "item" Region
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRegionsResponse where
@@ -107,6 +109,7 @@ describeRegionsResponse = DescribeRegionsResponse
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
+    . _List
 
 instance ToPath DescribeRegions where
     toPath = const "/"

@@ -138,6 +138,5 @@ instance AWSRequest SendMessageBatch where
 
 instance FromXML SendMessageBatchResponse where
     parseXML = withElement "SendMessageBatchResult" $ \x ->
-        SendMessageBatchResponse
             <$> parseXML x
             <*> parseXML x

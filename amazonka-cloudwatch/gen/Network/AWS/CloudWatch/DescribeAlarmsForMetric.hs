@@ -154,5 +154,4 @@ instance AWSRequest DescribeAlarmsForMetric where
 
 instance FromXML DescribeAlarmsForMetricResponse where
     parseXML = withElement "DescribeAlarmsForMetricResult" $ \x ->
-        DescribeAlarmsForMetricResponse
             <$> x .@ "MetricAlarms"

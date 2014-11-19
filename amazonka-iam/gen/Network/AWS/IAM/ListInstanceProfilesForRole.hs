@@ -152,7 +152,6 @@ instance AWSRequest ListInstanceProfilesForRole where
 
 instance FromXML ListInstanceProfilesForRoleResponse where
     parseXML = withElement "ListInstanceProfilesForRoleResult" $ \x ->
-        ListInstanceProfilesForRoleResponse
             <$> x .@ "InstanceProfiles"
             <*> x .@? "IsTruncated"
             <*> x .@? "Marker"

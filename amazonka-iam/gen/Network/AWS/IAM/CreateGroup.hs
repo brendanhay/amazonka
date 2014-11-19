@@ -112,5 +112,4 @@ instance AWSRequest CreateGroup where
 
 instance FromXML CreateGroupResponse where
     parseXML = withElement "CreateGroupResult" $ \x ->
-        CreateGroupResponse
             <$> x .@ "Group"

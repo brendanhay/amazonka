@@ -145,5 +145,4 @@ instance AWSRequest CreateOptionGroup where
 
 instance FromXML CreateOptionGroupResponse where
     parseXML = withElement "CreateOptionGroupResult" $ \x ->
-        CreateOptionGroupResponse
             <$> x .@? "OptionGroup"

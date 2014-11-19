@@ -113,4 +113,4 @@ instance AWSRequest GetReusableDelegationSet where
 
 instance FromXML GetReusableDelegationSetResponse where
     parseXML x = GetReusableDelegationSetResponse
-        <$> x .@ "DelegationSet"
+            <$> x .@ "DelegationSet"

@@ -88,7 +88,7 @@ dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
-    , _dvarProductCodes :: [ProductCode]
+    , _dvarProductCodes :: List "item" ProductCode
     , _dvarVolumeId     :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -116,6 +116,7 @@ dvarAutoEnableIO = lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 -- | A list of product codes.
 dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
+    . _List
 
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)

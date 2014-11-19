@@ -57,14 +57,13 @@ newtype DescribeTags = DescribeTags
 describeTags :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
              -> DescribeTags
 describeTags p1 = DescribeTags
-    { _dtLoadBalancerNames = withIso _List1 (const id) p1
+    { _dtLoadBalancerNames = p1
     }
 
 -- | The names of the load balancers.
 dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
-        . _List1
 
 newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: [TagDescription]
@@ -108,5 +107,4 @@ instance AWSRequest DescribeTags where
 
 instance FromXML DescribeTagsResponse where
     parseXML = withElement "DescribeTagsResult" $ \x ->
-        DescribeTagsResponse
             <$> x .@ "TagDescriptions"

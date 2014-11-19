@@ -119,5 +119,4 @@ instance AWSRequest GetIdentityDkimAttributes where
 
 instance FromXML GetIdentityDkimAttributesResponse where
     parseXML = withElement "GetIdentityDkimAttributesResult" $ \x ->
-        GetIdentityDkimAttributesResponse
             <$> x .@ "DkimAttributes"

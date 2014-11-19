@@ -118,5 +118,4 @@ instance AWSRequest DescribeStackResource where
 
 instance FromXML DescribeStackResourceResponse where
     parseXML = withElement "DescribeStackResourceResult" $ \x ->
-        DescribeStackResourceResponse
             <$> x .@? "StackResourceDetail"

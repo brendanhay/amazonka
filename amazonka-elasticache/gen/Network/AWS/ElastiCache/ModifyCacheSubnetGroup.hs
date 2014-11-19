@@ -124,5 +124,4 @@ instance AWSRequest ModifyCacheSubnetGroup where
 
 instance FromXML ModifyCacheSubnetGroupResponse where
     parseXML = withElement "ModifyCacheSubnetGroupResult" $ \x ->
-        ModifyCacheSubnetGroupResponse
             <$> x .@? "CacheSubnetGroup"

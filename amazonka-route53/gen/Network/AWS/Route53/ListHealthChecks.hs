@@ -176,11 +176,11 @@ instance AWSRequest ListHealthChecks where
 
 instance FromXML ListHealthChecksResponse where
     parseXML x = ListHealthChecksResponse
-        <$> x .@ "HealthChecks"
-        <*> x .@ "IsTruncated"
-        <*> x .@ "Marker"
-        <*> x .@ "MaxItems"
-        <*> x .@? "NextMarker"
+            <$> x .@ "HealthChecks"
+            <*> x .@ "IsTruncated"
+            <*> x .@ "Marker"
+            <*> x .@ "MaxItems"
+            <*> x .@? "NextMarker"
 
 instance AWSPager ListHealthChecks where
     next rq rs

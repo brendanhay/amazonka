@@ -50,8 +50,8 @@ import qualified GHC.Exts
 
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1DryRun     :: Maybe Bool
-    , _dpg1Filters    :: [Filter]
-    , _dpg1GroupNames :: [Text]
+    , _dpg1Filters    :: List "Filter" Filter
+    , _dpg1GroupNames :: List "String" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribePlacementGroups' constructor.
@@ -79,14 +79,16 @@ dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
 -- deleted). strategy - The strategy of the placement group (cluster).
 dpg1Filters :: Lens' DescribePlacementGroups [Filter]
 dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
+    . _List
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
+    . _List
 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgrPlacementGroups :: [PlacementGroup]
+    { _dpgrPlacementGroups :: List "item" PlacementGroup
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePlacementGroupsResponse where
@@ -110,6 +112,7 @@ describePlacementGroupsResponse = DescribePlacementGroupsResponse
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
+        . _List
 
 instance ToPath DescribePlacementGroups where
     toPath = const "/"

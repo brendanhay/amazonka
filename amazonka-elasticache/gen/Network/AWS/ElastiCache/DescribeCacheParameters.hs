@@ -157,7 +157,6 @@ instance AWSRequest DescribeCacheParameters where
 
 instance FromXML DescribeCacheParametersResponse where
     parseXML = withElement "DescribeCacheParametersResult" $ \x ->
-        DescribeCacheParametersResponse
             <$> x .@ "CacheNodeTypeSpecificParameters"
             <*> x .@? "Marker"
             <*> x .@ "Parameters"

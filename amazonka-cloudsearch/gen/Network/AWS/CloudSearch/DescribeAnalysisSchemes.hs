@@ -132,5 +132,4 @@ instance AWSRequest DescribeAnalysisSchemes where
 
 instance FromXML DescribeAnalysisSchemesResponse where
     parseXML = withElement "DescribeAnalysisSchemesResult" $ \x ->
-        DescribeAnalysisSchemesResponse
             <$> x .@ "AnalysisSchemes"

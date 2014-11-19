@@ -49,8 +49,8 @@ import qualified GHC.Exts
 
 data DescribeSubnets = DescribeSubnets
     { _dsDryRun    :: Maybe Bool
-    , _dsFilters   :: [Filter]
-    , _dsSubnetIds :: [Text]
+    , _dsFilters   :: List "Filter" Filter
+    , _dsSubnetIds :: List "SubnetId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSubnets' constructor.
@@ -95,13 +95,15 @@ dsDryRun = lens _dsDryRun (\s a -> s { _dsDryRun = a })
 -- for the subnet.
 dsFilters :: Lens' DescribeSubnets [Filter]
 dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a })
+    . _List
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
 dsSubnetIds :: Lens' DescribeSubnets [Text]
 dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a })
+    . _List
 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
-    { _dsrSubnets :: [Subnet]
+    { _dsrSubnets :: List "item" Subnet
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSubnetsResponse where
@@ -124,6 +126,7 @@ describeSubnetsResponse = DescribeSubnetsResponse
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
+    . _List
 
 instance ToPath DescribeSubnets where
     toPath = const "/"

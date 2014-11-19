@@ -49,8 +49,8 @@ import qualified GHC.Exts
 
 data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
-    , _dt1Resources :: [Text]
-    , _dt1Tags      :: [Tag]
+    , _dt1Resources :: List "String" Text
+    , _dt1Tags      :: List "item" Tag
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteTags' constructor.
@@ -77,6 +77,7 @@ dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
 -- than one resource ID.
 dt1Resources :: Lens' DeleteTags [Text]
 dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a })
+    . _List
 
 -- | One or more tags to delete. If you omit the value parameter, we delete
 -- the tag regardless of its value. If you specify this parameter with an
@@ -84,6 +85,7 @@ dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a })
 -- empty string.
 dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a })
+    . _List
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Ord, Show, Generic)

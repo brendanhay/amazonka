@@ -152,7 +152,6 @@ instance AWSRequest ListRoles where
 
 instance FromXML ListRolesResponse where
     parseXML = withElement "ListRolesResult" $ \x ->
-        ListRolesResponse
             <$> x .@? "IsTruncated"
             <*> x .@? "Marker"
             <*> x .@ "Roles"

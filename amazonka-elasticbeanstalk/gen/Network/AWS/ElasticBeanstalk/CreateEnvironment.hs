@@ -376,7 +376,6 @@ instance AWSRequest CreateEnvironment where
 
 instance FromXML CreateEnvironmentResponse where
     parseXML = withElement "CreateEnvironmentResult" $ \x ->
-        CreateEnvironmentResponse
             <$> x .@? "ApplicationName"
             <*> x .@? "CNAME"
             <*> x .@? "DateCreated"

@@ -62,7 +62,7 @@ import qualified GHC.Exts
 data StartInstances = StartInstances
     { _si1AdditionalInfo :: Maybe Text
     , _si1DryRun         :: Maybe Bool
-    , _si1InstanceIds    :: [Text]
+    , _si1InstanceIds    :: List "InstanceId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StartInstances' constructor.
@@ -93,9 +93,10 @@ si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
 -- | One or more instance IDs.
 si1InstanceIds :: Lens' StartInstances [Text]
 si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
+    . _List
 
 newtype StartInstancesResponse = StartInstancesResponse
-    { _sirStartingInstances :: [InstanceStateChange]
+    { _sirStartingInstances :: List "item" InstanceStateChange
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList StartInstancesResponse where
@@ -119,6 +120,7 @@ startInstancesResponse = StartInstancesResponse
 sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
+        . _List
 
 instance ToPath StartInstances where
     toPath = const "/"

@@ -158,5 +158,4 @@ instance AWSRequest CreateOpenIDConnectProvider where
 
 instance FromXML CreateOpenIDConnectProviderResponse where
     parseXML = withElement "CreateOpenIDConnectProviderResult" $ \x ->
-        CreateOpenIDConnectProviderResponse
             <$> x .@? "OpenIDConnectProviderArn"

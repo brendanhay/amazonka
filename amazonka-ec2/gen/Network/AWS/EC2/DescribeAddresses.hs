@@ -51,10 +51,10 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeAddresses = DescribeAddresses
-    { _daAllocationIds :: [Text]
+    { _daAllocationIds :: List "AllocationId" Text
     , _daDryRun        :: Maybe Bool
-    , _daFilters       :: [Filter]
-    , _daPublicIps     :: [Text]
+    , _daFilters       :: List "Filter" Filter
+    , _daPublicIps     :: List "PublicIp" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAddresses' constructor.
@@ -81,6 +81,7 @@ describeAddresses = DescribeAddresses
 -- IP addresses.
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a })
+    . _List
 
 daDryRun :: Lens' DescribeAddresses (Maybe Bool)
 daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
@@ -97,14 +98,16 @@ daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
 -- Elastic IP address. public-ip - The Elastic IP address.
 daFilters :: Lens' DescribeAddresses [Filter]
 daFilters = lens _daFilters (\s a -> s { _daFilters = a })
+    . _List
 
 -- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all
 -- your Elastic IP addresses.
 daPublicIps :: Lens' DescribeAddresses [Text]
 daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
+    . _List
 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
-    { _darAddresses :: [Address]
+    { _darAddresses :: List "item" Address
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAddressesResponse where
@@ -127,6 +130,7 @@ describeAddressesResponse = DescribeAddressesResponse
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
+    . _List
 
 instance ToPath DescribeAddresses where
     toPath = const "/"

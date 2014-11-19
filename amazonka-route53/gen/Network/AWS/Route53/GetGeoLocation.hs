@@ -136,4 +136,4 @@ instance AWSRequest GetGeoLocation where
 
 instance FromXML GetGeoLocationResponse where
     parseXML x = GetGeoLocationResponse
-        <$> x .@ "GeoLocationDetails"
+            <$> x .@ "GeoLocationDetails"

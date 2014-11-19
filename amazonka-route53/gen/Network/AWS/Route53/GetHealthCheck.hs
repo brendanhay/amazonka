@@ -111,4 +111,4 @@ instance AWSRequest GetHealthCheck where
 
 instance FromXML GetHealthCheckResponse where
     parseXML x = GetHealthCheckResponse
-        <$> x .@ "HealthCheck"
+            <$> x .@ "HealthCheck"

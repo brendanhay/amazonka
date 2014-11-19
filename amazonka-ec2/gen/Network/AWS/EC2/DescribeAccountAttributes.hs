@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeAccountAttributes = DescribeAccountAttributes
-    { _daaAttributeNames :: [Text]
+    { _daaAttributeNames :: List "attributeName" Text
     , _daaDryRun         :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -68,12 +68,13 @@ describeAccountAttributes = DescribeAccountAttributes
 daaAttributeNames :: Lens' DescribeAccountAttributes [Text]
 daaAttributeNames =
     lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
+        . _List
 
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
-    { _daarAccountAttributes :: [AccountAttribute]
+    { _daarAccountAttributes :: List "item" AccountAttribute
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAccountAttributesResponse where
@@ -97,6 +98,7 @@ describeAccountAttributesResponse = DescribeAccountAttributesResponse
 daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
+        . _List
 
 instance ToPath DescribeAccountAttributes where
     toPath = const "/"

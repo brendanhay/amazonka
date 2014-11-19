@@ -208,8 +208,8 @@ dmbreReceiptHandle =
 
 instance FromXML DeleteMessageBatchRequestEntry where
     parseXML x = DeleteMessageBatchRequestEntry
-        <$> x .@ "Id"
-        <*> x .@ "ReceiptHandle"
+            <$> x .@ "Id"
+            <*> x .@ "ReceiptHandle"
 
 instance ToQuery DeleteMessageBatchRequestEntry
 
@@ -273,11 +273,11 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-        <$> x .@ "BinaryListValue"
-        <*> x .@? "BinaryValue"
-        <*> x .@ "DataType"
-        <*> x .@ "StringListValue"
-        <*> x .@? "StringValue"
+            <$> x .@ "BinaryListValue"
+            <*> x .@? "BinaryValue"
+            <*> x .@ "DataType"
+            <*> x .@ "StringListValue"
+            <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -304,7 +304,7 @@ cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
     parseXML x = ChangeMessageVisibilityBatchResultEntry
-        <$> x .@ "Id"
+            <$> x .@ "Id"
 
 instance ToQuery ChangeMessageVisibilityBatchResultEntry
 
@@ -352,9 +352,9 @@ cmvbre1VisibilityTimeout =
 
 instance FromXML ChangeMessageVisibilityBatchRequestEntry where
     parseXML x = ChangeMessageVisibilityBatchRequestEntry
-        <$> x .@ "Id"
-        <*> x .@ "ReceiptHandle"
-        <*> x .@? "VisibilityTimeout"
+            <$> x .@ "Id"
+            <*> x .@ "ReceiptHandle"
+            <*> x .@? "VisibilityTimeout"
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry
 
@@ -380,7 +380,7 @@ dmbre1Id = lens _dmbre1Id (\s a -> s { _dmbre1Id = a })
 
 instance FromXML DeleteMessageBatchResultEntry where
     parseXML x = DeleteMessageBatchResultEntry
-        <$> x .@ "Id"
+            <$> x .@ "Id"
 
 instance ToQuery DeleteMessageBatchResultEntry
 
@@ -470,13 +470,13 @@ mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
 
 instance FromXML Message where
     parseXML x = Message
-        <$> x .@ "Attribute"
-        <*> x .@? "Body"
-        <*> x .@? "MD5OfBody"
-        <*> x .@? "MD5OfMessageAttributes"
-        <*> x .@ "MessageAttribute"
-        <*> x .@? "MessageId"
-        <*> x .@? "ReceiptHandle"
+            <$> parseXML x
+            <*> x .@? "Body"
+            <*> x .@? "MD5OfBody"
+            <*> x .@? "MD5OfMessageAttributes"
+            <*> parseXML x
+            <*> x .@? "MessageId"
+            <*> x .@? "ReceiptHandle"
 
 instance ToQuery Message
 
@@ -534,10 +534,10 @@ smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 
 instance FromXML SendMessageBatchRequestEntry where
     parseXML x = SendMessageBatchRequestEntry
-        <$> x .@? "DelaySeconds"
-        <*> x .@ "Id"
-        <*> x .@ "MessageAttribute"
-        <*> x .@ "MessageBody"
+            <$> x .@? "DelaySeconds"
+            <*> x .@ "Id"
+            <*> parseXML x
+            <*> x .@ "MessageBody"
 
 instance ToQuery SendMessageBatchRequestEntry
 
@@ -598,10 +598,10 @@ smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 
 instance FromXML SendMessageBatchResultEntry where
     parseXML x = SendMessageBatchResultEntry
-        <$> x .@ "Id"
-        <*> x .@? "MD5OfMessageAttributes"
-        <*> x .@ "MD5OfMessageBody"
-        <*> x .@ "MessageId"
+            <$> x .@ "Id"
+            <*> x .@? "MD5OfMessageAttributes"
+            <*> x .@ "MD5OfMessageBody"
+            <*> x .@ "MessageId"
 
 instance ToQuery SendMessageBatchResultEntry
 
@@ -653,9 +653,9 @@ breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
 
 instance FromXML BatchResultErrorEntry where
     parseXML x = BatchResultErrorEntry
-        <$> x .@ "Code"
-        <*> x .@ "Id"
-        <*> x .@? "Message"
-        <*> x .@ "SenderFault"
+            <$> x .@ "Code"
+            <*> x .@ "Id"
+            <*> x .@? "Message"
+            <*> x .@ "SenderFault"
 
 instance ToQuery BatchResultErrorEntry

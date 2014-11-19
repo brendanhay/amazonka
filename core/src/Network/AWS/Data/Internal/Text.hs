@@ -47,11 +47,12 @@ import           Numeric.Natural
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
 
+-- FIXME: improve the error messages for partial match, or extra input etc.
 match :: Text -> a -> Parser a
-match x y = AText.string x >> return y
+match x y = AText.string x <* AText.endOfInput >> return y
 
 matchCI :: Text -> a -> Parser a
-matchCI x y = AText.asciiCI x >> return y
+matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y
 
 class FromText a where
     parser :: Parser a

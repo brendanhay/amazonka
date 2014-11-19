@@ -150,7 +150,6 @@ instance AWSRequest DescribeClusterParameterGroups where
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     parseXML = withElement "DescribeClusterParameterGroupsResult" $ \x ->
-        DescribeClusterParameterGroupsResponse
             <$> x .@? "Marker"
             <*> x .@ "ParameterGroups"
 

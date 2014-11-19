@@ -243,7 +243,6 @@ instance AWSRequest DescribeResize where
 
 instance FromXML DescribeResizeResponse where
     parseXML = withElement "DescribeResizeResult" $ \x ->
-        DescribeResizeResponse
             <$> x .@? "AvgResizeRateInMegaBytesPerSecond"
             <*> x .@? "ElapsedTimeInSeconds"
             <*> x .@? "EstimatedTimeToCompletionInSeconds"

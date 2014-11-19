@@ -53,9 +53,9 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimFilters                          :: [Filter]
+    { _drimFilters                          :: List "Filter" Filter
     , _drimNextToken                        :: Maybe Text
-    , _drimReservedInstancesModificationIds :: [Text]
+    , _drimReservedInstancesModificationIds :: List "ReservedInstancesModificationId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesModifications' constructor.
@@ -97,6 +97,7 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications
 -- updated.
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a })
+    . _List
 
 -- | The token for the next page of data.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
@@ -107,10 +108,11 @@ drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModificat
 drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
         (\s a -> s { _drimReservedInstancesModificationIds = a })
+            . _List
 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrNextToken                      :: Maybe Text
-    , _drimrReservedInstancesModifications :: [ReservedInstancesModification]
+    , _drimrReservedInstancesModifications :: List "item" ReservedInstancesModification
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesModificationsResponse' constructor.
@@ -136,6 +138,7 @@ drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificati
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications
         (\s a -> s { _drimrReservedInstancesModifications = a })
+            . _List
 
 instance ToPath DescribeReservedInstancesModifications where
     toPath = const "/"

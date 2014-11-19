@@ -141,5 +141,4 @@ instance AWSRequest CreateClusterParameterGroup where
 
 instance FromXML CreateClusterParameterGroupResponse where
     parseXML = withElement "CreateClusterParameterGroupResult" $ \x ->
-        CreateClusterParameterGroupResponse
             <$> x .@? "ClusterParameterGroup"

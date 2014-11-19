@@ -140,5 +140,4 @@ instance AWSRequest GetAttributes where
 
 instance FromXML GetAttributesResponse where
     parseXML = withElement "GetAttributesResult" $ \x ->
-        GetAttributesResponse
             <$> parseXML x

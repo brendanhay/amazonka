@@ -254,9 +254,9 @@ atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
 instance FromXML AliasTarget where
     parseXML x = AliasTarget
-        <$> x .@ "DNSName"
-        <*> x .@ "EvaluateTargetHealth"
-        <*> x .@ "HostedZoneId"
+            <$> x .@ "DNSName"
+            <*> x .@ "EvaluateTargetHealth"
+            <*> x .@ "HostedZoneId"
 
 instance ToXML AliasTarget where
     toXML AliasTarget{..} = nodes "AliasTarget"
@@ -287,7 +287,7 @@ rrValue = lens _rrValue (\s a -> s { _rrValue = a })
 
 instance FromXML ResourceRecord where
     parseXML x = ResourceRecord
-        <$> x .@ "Value"
+            <$> x .@ "Value"
 
 instance ToXML ResourceRecord where
     toXML ResourceRecord{..} = nodes "ResourceRecord"
@@ -323,8 +323,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-        <$> x .@? "Key"
-        <*> x .@? "Value"
+            <$> x .@? "Key"
+            <*> x .@? "Value"
 
 instance ToXML Tag where
     toXML Tag{..} = nodes "Tag"
@@ -403,12 +403,12 @@ gldSubdivisionName =
 
 instance FromXML GeoLocationDetails where
     parseXML x = GeoLocationDetails
-        <$> x .@? "ContinentCode"
-        <*> x .@? "ContinentName"
-        <*> x .@? "CountryCode"
-        <*> x .@? "CountryName"
-        <*> x .@? "SubdivisionCode"
-        <*> x .@? "SubdivisionName"
+            <$> x .@? "ContinentCode"
+            <*> x .@? "ContinentName"
+            <*> x .@? "CountryCode"
+            <*> x .@? "CountryName"
+            <*> x .@? "SubdivisionCode"
+            <*> x .@? "SubdivisionName"
 
 instance ToXML GeoLocationDetails where
     toXML GeoLocationDetails{..} = nodes "GeoLocationDetails"
@@ -475,10 +475,10 @@ hcId = lens _hcId (\s a -> s { _hcId = a })
 
 instance FromXML HealthCheck where
     parseXML x = HealthCheck
-        <$> x .@ "CallerReference"
-        <*> x .@ "HealthCheckConfig"
-        <*> x .@ "HealthCheckVersion"
-        <*> x .@ "Id"
+            <$> x .@ "CallerReference"
+            <*> x .@ "HealthCheckConfig"
+            <*> x .@ "HealthCheckVersion"
+            <*> x .@ "Id"
 
 instance ToXML HealthCheck where
     toXML HealthCheck{..} = nodes "HealthCheck"
@@ -676,14 +676,14 @@ hccType = lens _hccType (\s a -> s { _hccType = a })
 
 instance FromXML HealthCheckConfig where
     parseXML x = HealthCheckConfig
-        <$> x .@? "FailureThreshold"
-        <*> x .@? "FullyQualifiedDomainName"
-        <*> x .@? "IPAddress"
-        <*> x .@? "Port"
-        <*> x .@? "RequestInterval"
-        <*> x .@? "ResourcePath"
-        <*> x .@? "SearchString"
-        <*> x .@ "Type"
+            <$> x .@? "FailureThreshold"
+            <*> x .@? "FullyQualifiedDomainName"
+            <*> x .@? "IPAddress"
+            <*> x .@? "Port"
+            <*> x .@? "RequestInterval"
+            <*> x .@? "ResourcePath"
+            <*> x .@? "SearchString"
+            <*> x .@ "Type"
 
 instance ToXML HealthCheckConfig where
     toXML HealthCheckConfig{..} = nodes "HealthCheckConfig"
@@ -729,8 +729,8 @@ cResourceRecordSet =
 
 instance FromXML Change where
     parseXML x = Change
-        <$> x .@ "Action"
-        <*> x .@ "ResourceRecordSet"
+            <$> x .@ "Action"
+            <*> x .@ "ResourceRecordSet"
 
 instance ToXML Change where
     toXML Change{..} = nodes "Change"
@@ -826,11 +826,11 @@ hzResourceRecordSetCount =
 
 instance FromXML HostedZone where
     parseXML x = HostedZone
-        <$> x .@ "CallerReference"
-        <*> x .@? "Config"
-        <*> x .@ "Id"
-        <*> x .@ "Name"
-        <*> x .@? "ResourceRecordSetCount"
+            <$> x .@ "CallerReference"
+            <*> x .@? "Config"
+            <*> x .@ "Id"
+            <*> x .@ "Name"
+            <*> x .@? "ResourceRecordSetCount"
 
 instance ToXML HostedZone where
     toXML HostedZone{..} = nodes "HostedZone"
@@ -860,7 +860,7 @@ data ResourceTagSet = ResourceTagSet
 resourceTagSet :: NonEmpty Tag -- ^ 'rtsTags'
                -> ResourceTagSet
 resourceTagSet p1 = ResourceTagSet
-    { _rtsTags         = withIso _List1 (const id) p1
+    { _rtsTags         = p1
     , _rtsResourceType = Nothing
     , _rtsResourceId   = Nothing
     }
@@ -877,13 +877,12 @@ rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 -- | The tags associated with the specified resource.
 rtsTags :: Lens' ResourceTagSet (NonEmpty Tag)
 rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
-    . _List1
 
 instance FromXML ResourceTagSet where
     parseXML x = ResourceTagSet
-        <$> x .@? "ResourceId"
-        <*> x .@? "ResourceType"
-        <*> x .@ "Tags"
+            <$> x .@? "ResourceId"
+            <*> x .@? "ResourceType"
+            <*> x .@ "Tags"
 
 instance ToXML ResourceTagSet where
     toXML ResourceTagSet{..} = nodes "ResourceTagSet"
@@ -930,7 +929,7 @@ data ChangeBatch = ChangeBatch
 changeBatch :: NonEmpty Change -- ^ 'cbChanges'
             -> ChangeBatch
 changeBatch p1 = ChangeBatch
-    { _cbChanges = withIso _List1 (const id) p1
+    { _cbChanges = p1
     , _cbComment = Nothing
     }
 
@@ -938,7 +937,6 @@ changeBatch p1 = ChangeBatch
 -- set that you want to create or delete.
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
-    . _List1
 
 -- | Optional: Any comments you want to include about a change batch request.
 cbComment :: Lens' ChangeBatch (Maybe Text)
@@ -946,8 +944,8 @@ cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
 instance FromXML ChangeBatch where
     parseXML x = ChangeBatch
-        <$> x .@ "Changes"
-        <*> x .@? "Comment"
+            <$> x .@ "Changes"
+            <*> x .@? "Comment"
 
 instance ToXML ChangeBatch where
     toXML ChangeBatch{..} = nodes "ChangeBatch"
@@ -989,8 +987,8 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 instance FromXML StatusReport where
     parseXML x = StatusReport
-        <$> x .@? "CheckedTime"
-        <*> x .@? "Status"
+            <$> x .@? "CheckedTime"
+            <*> x .@? "Status"
 
 instance ToXML StatusReport where
     toXML StatusReport{..} = nodes "StatusReport"
@@ -1056,8 +1054,8 @@ vpcVPCRegion = lens _vpcVPCRegion (\s a -> s { _vpcVPCRegion = a })
 
 instance FromXML VPC where
     parseXML x = VPC
-        <$> x .@? "VPCId"
-        <*> x .@? "VPCRegion"
+            <$> x .@? "VPCId"
+            <*> x .@? "VPCRegion"
 
 instance ToXMLRoot VPC where
     toXMLRoot VPC{..} = element "VPC"
@@ -1097,8 +1095,8 @@ hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
 
 instance FromXML HostedZoneConfig where
     parseXML x = HostedZoneConfig
-        <$> x .@? "Comment"
-        <*> x .@? "PrivateZone"
+            <$> x .@? "Comment"
+            <*> x .@? "PrivateZone"
 
 instance ToXML HostedZoneConfig where
     toXML HostedZoneConfig{..} = nodes "HostedZoneConfig"
@@ -1153,7 +1151,7 @@ resourceRecordSet :: Text -- ^ 'rrsName'
 resourceRecordSet p1 p2 p3 = ResourceRecordSet
     { _rrsName            = p1
     , _rrsType            = p2
-    , _rrsResourceRecords = withIso _List1 (const id) p3
+    , _rrsResourceRecords = p3
     , _rrsSetIdentifier   = Nothing
     , _rrsWeight          = Nothing
     , _rrsRegion          = Nothing
@@ -1214,7 +1212,6 @@ rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
 rrsResourceRecords =
     lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
-        . _List1
 
 -- | Weighted, Latency, Geo, and Failover resource record sets only: An
 -- identifier that differentiates among multiple resource record sets that
@@ -1241,17 +1238,17 @@ rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 
 instance FromXML ResourceRecordSet where
     parseXML x = ResourceRecordSet
-        <$> x .@? "AliasTarget"
-        <*> x .@? "Failover"
-        <*> x .@? "GeoLocation"
-        <*> x .@? "HealthCheckId"
-        <*> x .@ "Name"
-        <*> x .@? "Region"
-        <*> x .@ "ResourceRecords"
-        <*> x .@? "SetIdentifier"
-        <*> x .@? "TTL"
-        <*> x .@ "Type"
-        <*> x .@? "Weight"
+            <$> x .@? "AliasTarget"
+            <*> x .@? "Failover"
+            <*> x .@? "GeoLocation"
+            <*> x .@? "HealthCheckId"
+            <*> x .@ "Name"
+            <*> x .@? "Region"
+            <*> x .@ "ResourceRecords"
+            <*> x .@? "SetIdentifier"
+            <*> x .@? "TTL"
+            <*> x .@ "Type"
+            <*> x .@? "Weight"
 
 instance ToXML ResourceRecordSet where
     toXML ResourceRecordSet{..} = nodes "ResourceRecordSet"
@@ -1287,7 +1284,7 @@ data DelegationSet = DelegationSet
 delegationSet :: NonEmpty Text -- ^ 'dsNameServers'
               -> DelegationSet
 delegationSet p1 = DelegationSet
-    { _dsNameServers     = withIso _List1 (const id) p1
+    { _dsNameServers     = p1
     , _dsId              = Nothing
     , _dsCallerReference = Nothing
     }
@@ -1305,13 +1302,12 @@ dsId = lens _dsId (\s a -> s { _dsId = a })
 -- hosted zone.
 dsNameServers :: Lens' DelegationSet (NonEmpty Text)
 dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
-    . _List1
 
 instance FromXML DelegationSet where
     parseXML x = DelegationSet
-        <$> x .@? "CallerReference"
-        <*> x .@? "Id"
-        <*> x .@ "NameServers"
+            <$> x .@? "CallerReference"
+            <*> x .@? "Id"
+            <*> x .@ "NameServers"
 
 instance ToXMLRoot DelegationSet where
     toXMLRoot DelegationSet{..} = element "DelegationSet"
@@ -1381,10 +1377,10 @@ ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
 
 instance FromXML ChangeInfo where
     parseXML x = ChangeInfo
-        <$> x .@? "Comment"
-        <*> x .@ "Id"
-        <*> x .@ "Status"
-        <*> x .@ "SubmittedAt"
+            <$> x .@? "Comment"
+            <*> x .@ "Id"
+            <*> x .@ "Status"
+            <*> x .@ "SubmittedAt"
 
 instance ToXML ChangeInfo where
     toXML ChangeInfo{..} = nodes "ChangeInfo"
@@ -1441,9 +1437,9 @@ glSubdivisionCode =
 
 instance FromXML GeoLocation where
     parseXML x = GeoLocation
-        <$> x .@? "ContinentCode"
-        <*> x .@? "CountryCode"
-        <*> x .@? "SubdivisionCode"
+            <$> x .@? "ContinentCode"
+            <*> x .@? "CountryCode"
+            <*> x .@? "SubdivisionCode"
 
 instance ToXML GeoLocation where
     toXML GeoLocation{..} = nodes "GeoLocation"
@@ -1483,8 +1479,8 @@ hcoStatusReport = lens _hcoStatusReport (\s a -> s { _hcoStatusReport = a })
 
 instance FromXML HealthCheckObservation where
     parseXML x = HealthCheckObservation
-        <$> x .@? "IPAddress"
-        <*> x .@? "StatusReport"
+            <$> x .@? "IPAddress"
+            <*> x .@? "StatusReport"
 
 instance ToXMLRoot HealthCheckObservation where
     toXMLRoot HealthCheckObservation{..} = element "HealthCheckObservation"

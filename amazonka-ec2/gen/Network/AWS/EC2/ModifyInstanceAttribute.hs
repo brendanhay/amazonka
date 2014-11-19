@@ -61,11 +61,11 @@ import qualified GHC.Exts
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _mia1Attribute                         :: Maybe Text
-    , _mia1BlockDeviceMappings               :: [InstanceBlockDeviceMappingSpecification]
+    , _mia1BlockDeviceMappings               :: List "item" InstanceBlockDeviceMappingSpecification
     , _mia1DisableApiTermination             :: Maybe AttributeBooleanValue
     , _mia1DryRun                            :: Maybe Bool
     , _mia1EbsOptimized                      :: Maybe AttributeBooleanValue
-    , _mia1Groups                            :: [Text]
+    , _mia1Groups                            :: List "groupId" Text
     , _mia1InstanceId                        :: Text
     , _mia1InstanceInitiatedShutdownBehavior :: Maybe AttributeValue
     , _mia1InstanceType                      :: Maybe AttributeValue
@@ -146,6 +146,7 @@ mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 mia1BlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
 mia1BlockDeviceMappings =
     lens _mia1BlockDeviceMappings (\s a -> s { _mia1BlockDeviceMappings = a })
+        . _List
 
 -- | If the value is true, you can't terminate the instance using the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
@@ -172,6 +173,7 @@ mia1EbsOptimized = lens _mia1EbsOptimized (\s a -> s { _mia1EbsOptimized = a })
 -- and sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
 mia1Groups :: Lens' ModifyInstanceAttribute [Text]
 mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a })
+    . _List
 
 -- | The ID of the instance.
 mia1InstanceId :: Lens' ModifyInstanceAttribute Text

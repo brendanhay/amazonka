@@ -144,4 +144,4 @@ instance AWSRequest DisassociateVPCFromHostedZone where
 
 instance FromXML DisassociateVPCFromHostedZoneResponse where
     parseXML x = DisassociateVPCFromHostedZoneResponse
-        <$> x .@ "ChangeInfo"
+            <$> x .@ "ChangeInfo"

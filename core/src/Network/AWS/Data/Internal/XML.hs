@@ -1,7 +1,8 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE DefaultSignatures   #-}
+{-# LANGUAGE LambdaCase          #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE RecordWildCards     #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 -- Module      : Network.AWS.Data.Internal.XML
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,9 +15,10 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.XML
-    (
+    ( XMLRoot   (..)
+
     -- * FromXML
-      FromXML   (..)
+    , FromXML   (..)
     , decodeXML
     , parseXMLText
     , (.@)
@@ -27,7 +29,6 @@ module Network.AWS.Data.Internal.XML
 
     -- * ToXML
     , ToXML     (..)
-    , ToXMLRoot (..)
     , encodeXML
     , toXMLText
     , element
@@ -50,6 +51,7 @@ import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Tagged
+import           Data.Tagged
 import           Data.Text                            (Text)
 import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
@@ -64,14 +66,14 @@ decodeXML :: LazyByteString -> Either String [Node]
 decodeXML = either failure success . parseLBS def
   where
     failure = Left  . show
-    success = Right . (:[]) . NodeElement . documentRoot
+    success = Right . elementNodes . documentRoot
 
-encodeXML :: ToXMLRoot a => a -> LazyByteString
+encodeXML :: forall a. (XMLRoot a, ToXML a) => a -> LazyByteString
 encodeXML x = renderLBS def doc
   where
     doc = Document
         { documentPrologue = pro
-        , documentRoot     = toXMLRoot x
+        , documentRoot     = element n (toXML x)
         , documentEpilogue = []
         }
 
@@ -80,6 +82,8 @@ encodeXML x = renderLBS def doc
         , prologueDoctype = Nothing
         , prologueAfter   = []
         }
+
+    n = untag (rootXML :: Tagged a Name)
 
 parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n fromText
@@ -117,6 +121,8 @@ withContent n f = withNode n (join . fmap f . g)
   where
     g (NodeContent x)
         = Right x
+    g (NodeElement e)
+        = Left $ "unexpected element " ++ show (elementName e) ++ " when expecting node content: " ++ n
     g _ = Left $ "unexpected element, when expecting node content: " ++ n
 {-# INLINE withContent #-}
 
@@ -132,15 +138,18 @@ withElement n f = join . fmap f . findElement n
 {-# INLINE withElement #-}
 
 findElement :: Text -> [Node] -> Either String [Node]
-findElement n = maybe err Right . listToMaybe . mapMaybe f
+findElement n = maybe err Right . listToMaybe . mapMaybe (children n)
   where
-    f (NodeElement e)
-        | nameLocalName (elementName e) == n
-            = Just (elementNodes e)
-    f _     = Nothing
-
     err = Left $ "unable to find element " ++ show n
 {-# INLINE findElement #-}
+
+children :: Text -> Node -> Maybe [Node]
+children n (NodeElement e)
+    | nameLocalName (elementName e) == n = Just (elementNodes e)
+children _ _ = Nothing
+
+class XMLRoot a where
+    rootXML :: Tagged a Name
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -150,15 +159,17 @@ instance FromXML a => FromXML (Maybe a) where
     parseXML ns = Just <$> parseXML ns
     {-# INLINE parseXML #-}
 
-instance FromXML a => FromXML [a] where
-    parseXML = traverse (parseXML . (:[]))
-    {-# INLINE parseXML #-}
+-- instance (XMLRoot a, FromXML a) => FromXML [a] where
+--     parseXML = traverse parseXML . mapMaybe (children n)
+--       where
+--         n = nameLocalName $ untag (rootXML :: Tagged a Name)
+--     {-# INLINE parseXML #-}
 
-instance FromXML a => FromXML (NonEmpty a) where
-    parseXML = parseXML >=> \case
-        []   -> Left  "Empty list, expected at least 1 element."
-        x:xs -> Right (x :| xs)
-    {-# INLINE parseXML #-}
+-- instance FromXML a => FromXML (NonEmpty a) where
+--     parseXML = parseXML >=> \case
+--         []   -> Left  "Empty list, expected at least 1 element."
+--         x:xs -> Right (x :| xs)
+--     {-# INLINE parseXML #-}
 
 instance FromXML Text    where parseXML = parseXMLText "Text"
 instance FromXML Int     where parseXML = parseXMLText "Int"
@@ -167,23 +178,41 @@ instance FromXML Natural where parseXML = parseXMLText "Natural"
 instance FromXML Double  where parseXML = parseXMLText "Double"
 instance FromXML Bool    where parseXML = parseXMLText "Bool"
 
-class ToXMLRoot a where
-    toXMLRoot :: a -> Element
-
 class ToXML a where
     toXML :: a -> [Node]
-
-    default toXML :: ToXMLRoot a => a -> [Node]
-    toXML = (:[]) . NodeElement . toXMLRoot
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = []
     {-# INLINE toXML #-}
 
-instance ToXML a => ToXML [a] where
-    toXML = concatMap toXML
-    {-# INLINE toXML #-}
+-- flattened:
+-- instance (XMLRoot a, ToXML a) => ToXML (Flatten [a]) where
+--     toXML = map (NodeElement . element n . toXML) . flatten
+--       where
+--         n = untag (rootXML :: Tagged a Name)
+--     {-# INLINE toXML #-}
+
+-- unflattened:
+-- instance (XMLRoot a, ToXML a) => ToXML [a] where
+--     toXML = nodes n . map (NodeElement . element n . toXML)
+--       where
+--         n = untag (rootXML :: Tagged a Name)
+--     {-# INLINE toXML #-}
+
+
+-- instance ToXMLRoot a => ToXML [a] where
+--     toXML = map (NodeElement . toXMLRoot)
+--     {-# INLINE toXML #-}
+
+-- how to correctly annotate the name of a list element
+
+-- 1. Extra type class?
+
+-- 2. Don't provide a instance for list, and rely on it being locally
+--    defined alongside type using a helper function?
+
+-- 3. toXML/fromXML always take the name as first parameter?
 
 instance ToXML Text    where toXML = toXMLText
 instance ToXML Int     where toXML = toXMLText

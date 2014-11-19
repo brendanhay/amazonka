@@ -90,7 +90,7 @@ dniaNetworkInterfaceId =
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarAttachment         :: Maybe NetworkInterfaceAttachment
     , _dniarDescription        :: Maybe AttributeValue
-    , _dniarGroups             :: [GroupIdentifier]
+    , _dniarGroups             :: List "item" GroupIdentifier
     , _dniarNetworkInterfaceId :: Maybe Text
     , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
     } deriving (Eq, Show, Generic)
@@ -129,6 +129,7 @@ dniarDescription = lens _dniarDescription (\s a -> s { _dniarDescription = a })
 -- | The security groups associated with the network interface.
 dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
 dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
+    . _List
 
 -- | The ID of the network interface.
 dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)

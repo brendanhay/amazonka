@@ -349,5 +349,4 @@ instance AWSRequest RestoreDBInstanceToPointInTime where
 
 instance FromXML RestoreDBInstanceToPointInTimeResponse where
     parseXML = withElement "RestoreDBInstanceToPointInTimeResult" $ \x ->
-        RestoreDBInstanceToPointInTimeResponse
             <$> x .@? "DBInstance"

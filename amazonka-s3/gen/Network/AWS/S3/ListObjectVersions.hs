@@ -287,19 +287,19 @@ instance AWSRequest ListObjectVersions where
 
 instance FromXML ListObjectVersionsResponse where
     parseXML x = ListObjectVersionsResponse
-        <$> x .@ "CommonPrefixes"
-        <*> x .@ "DeleteMarker"
-        <*> x .@? "Delimiter"
-        <*> x .@? "EncodingType"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "KeyMarker"
-        <*> x .@? "MaxKeys"
-        <*> x .@? "Name"
-        <*> x .@? "NextKeyMarker"
-        <*> x .@? "NextVersionIdMarker"
-        <*> x .@? "Prefix"
-        <*> x .@? "VersionIdMarker"
-        <*> x .@ "Version"
+            <$> parseXML x
+            <*> parseXML x
+            <*> x .@? "Delimiter"
+            <*> x .@? "EncodingType"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "KeyMarker"
+            <*> x .@? "MaxKeys"
+            <*> x .@? "Name"
+            <*> x .@? "NextKeyMarker"
+            <*> x .@? "NextVersionIdMarker"
+            <*> x .@? "Prefix"
+            <*> x .@? "VersionIdMarker"
+            <*> parseXML x
 
 instance AWSPager ListObjectVersions where
     next rq rs

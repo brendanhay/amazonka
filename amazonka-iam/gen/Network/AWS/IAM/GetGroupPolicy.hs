@@ -133,7 +133,6 @@ instance AWSRequest GetGroupPolicy where
 
 instance FromXML GetGroupPolicyResponse where
     parseXML = withElement "GetGroupPolicyResult" $ \x ->
-        GetGroupPolicyResponse
             <$> x .@ "GroupName"
             <*> x .@ "PolicyDocument"
             <*> x .@ "PolicyName"

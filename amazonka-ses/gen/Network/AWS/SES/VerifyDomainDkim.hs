@@ -122,5 +122,4 @@ instance AWSRequest VerifyDomainDkim where
 
 instance FromXML VerifyDomainDkimResponse where
     parseXML = withElement "VerifyDomainDkimResult" $ \x ->
-        VerifyDomainDkimResponse
             <$> x .@ "DkimTokens"

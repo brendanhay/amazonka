@@ -65,7 +65,7 @@ import qualified GHC.Exts
 data CreateReservedInstancesListing = CreateReservedInstancesListing
     { _crilClientToken         :: Text
     , _crilInstanceCount       :: Int
-    , _crilPriceSchedules      :: [PriceScheduleSpecification]
+    , _crilPriceSchedules      :: List "item" PriceScheduleSpecification
     , _crilReservedInstancesId :: Text
     } deriving (Eq, Show, Generic)
 
@@ -111,6 +111,7 @@ crilInstanceCount =
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 crilPriceSchedules =
     lens _crilPriceSchedules (\s a -> s { _crilPriceSchedules = a })
+        . _List
 
 -- | The ID of the active Reserved Instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
@@ -118,7 +119,7 @@ crilReservedInstancesId =
     lens _crilReservedInstancesId (\s a -> s { _crilReservedInstancesId = a })
 
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
-    { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
+    { _crilr1ReservedInstancesListings :: List "item" ReservedInstancesListing
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateReservedInstancesListingResponse where
@@ -143,6 +144,7 @@ crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse 
 crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings
         (\s a -> s { _crilr1ReservedInstancesListings = a })
+            . _List
 
 instance ToPath CreateReservedInstancesListing where
     toPath = const "/"

@@ -150,7 +150,6 @@ instance AWSRequest DescribeReservedNodeOfferings where
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
     parseXML = withElement "DescribeReservedNodeOfferingsResult" $ \x ->
-        DescribeReservedNodeOfferingsResponse
             <$> x .@? "Marker"
             <*> x .@ "ReservedNodeOfferings"
 

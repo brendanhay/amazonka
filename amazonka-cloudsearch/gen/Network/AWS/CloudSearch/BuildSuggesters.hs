@@ -104,5 +104,4 @@ instance AWSRequest BuildSuggesters where
 
 instance FromXML BuildSuggestersResponse where
     parseXML = withElement "BuildSuggestersResult" $ \x ->
-        BuildSuggestersResponse
             <$> x .@ "FieldNames"

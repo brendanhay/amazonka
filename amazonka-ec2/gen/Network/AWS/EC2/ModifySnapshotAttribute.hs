@@ -57,10 +57,10 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msaAttribute              :: Maybe Text
     , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
     , _msaDryRun                 :: Maybe Bool
-    , _msaGroupNames             :: [Text]
+    , _msaGroupNames             :: List "GroupName" Text
     , _msaOperationType          :: Maybe Text
     , _msaSnapshotId             :: Text
-    , _msaUserIds                :: [Text]
+    , _msaUserIds                :: List "UserId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'ModifySnapshotAttribute' constructor.
@@ -109,6 +109,7 @@ msaDryRun = lens _msaDryRun (\s a -> s { _msaDryRun = a })
 -- | The group to modify for the snapshot.
 msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
 msaGroupNames = lens _msaGroupNames (\s a -> s { _msaGroupNames = a })
+    . _List
 
 -- | The type of operation to perform to the attribute.
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
@@ -121,6 +122,7 @@ msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
 -- | The account ID to modify for the snapshot.
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
 msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
+    . _List
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
     deriving (Eq, Ord, Show, Generic)

@@ -110,5 +110,4 @@ instance AWSRequest DefineExpression where
 
 instance FromXML DefineExpressionResponse where
     parseXML = withElement "DefineExpressionResult" $ \x ->
-        DefineExpressionResponse
             <$> x .@ "Expression"

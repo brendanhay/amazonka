@@ -129,6 +129,5 @@ instance AWSRequest ModifyLoadBalancerAttributes where
 
 instance FromXML ModifyLoadBalancerAttributesResponse where
     parseXML = withElement "ModifyLoadBalancerAttributesResult" $ \x ->
-        ModifyLoadBalancerAttributesResponse
             <$> x .@? "LoadBalancerAttributes"
             <*> x .@? "LoadBalancerName"

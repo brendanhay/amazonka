@@ -108,4 +108,4 @@ instance AWSRequest GetBucketCors where
 
 instance FromXML GetBucketCorsResponse where
     parseXML x = GetBucketCorsResponse
-        <$> x .@ "CORSRule"
+            <$> parseXML x

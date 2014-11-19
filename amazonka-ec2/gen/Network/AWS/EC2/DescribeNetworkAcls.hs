@@ -50,8 +50,8 @@ import qualified GHC.Exts
 
 data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1DryRun        :: Maybe Bool
-    , _dna1Filters       :: [Filter]
-    , _dna1NetworkAclIds :: [Text]
+    , _dna1Filters       :: List "Filter" Filter
+    , _dna1NetworkAclIds :: List "item" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeNetworkAcls' constructor.
@@ -100,14 +100,16 @@ dna1DryRun = lens _dna1DryRun (\s a -> s { _dna1DryRun = a })
 -- tag-key filter. vpc-id - The ID of the VPC for the network ACL.
 dna1Filters :: Lens' DescribeNetworkAcls [Filter]
 dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a })
+    . _List
 
 -- | One or more network ACL IDs. Default: Describes all your network ACLs.
 dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
 dna1NetworkAclIds =
     lens _dna1NetworkAclIds (\s a -> s { _dna1NetworkAclIds = a })
+        . _List
 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
-    { _dnarNetworkAcls :: [NetworkAcl]
+    { _dnarNetworkAcls :: List "item" NetworkAcl
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeNetworkAclsResponse where
@@ -130,6 +132,7 @@ describeNetworkAclsResponse = DescribeNetworkAclsResponse
 -- | Information about one or more network ACLs.
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
+    . _List
 
 instance ToPath DescribeNetworkAcls where
     toPath = const "/"

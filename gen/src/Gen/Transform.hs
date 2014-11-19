@@ -426,13 +426,13 @@ overriden = flip (Map.foldlWithKey' run)
         go False = id
 
         retype :: Type -> Type
-        retype TMaybe   {} = TMaybe z
-        retype TList    {} = TList  z
-        retype TList1   {} = TList1 z
-        retype TFlatten {} = TFlatten z
-        retype TType    {} = z
-        retype TPrim    {} = z
-        retype e           = error $ "Unsupported retyping of: " ++ show (e, y)
+        retype TMaybe   {}  = TMaybe   z
+        retype (TList  i _) = TList  i z
+        retype (TList1 i _) = TList1 i z
+        retype TFlatten {}  = TFlatten z
+        retype TType    {}  = z
+        retype TPrim    {}  = z
+        retype e            = error $ "Unsupported retyping of: " ++ show (e, y)
 
         z = TType y
 
@@ -547,8 +547,12 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
 
         list l = flat (_lstFlattened l) .
              if fromMaybe 0 (_lstMin l) > 0
-                 then TList1
-                 else TList
+                 then TList1 loc
+                 else TList  loc
+          where
+            loc = fromMaybe
+                (l ^. lstMember . refShape)
+                (l ^. lstMember . refLocationName)
 
     flat :: Maybe Bool -> Type -> Type
     flat (Just True) = TFlatten

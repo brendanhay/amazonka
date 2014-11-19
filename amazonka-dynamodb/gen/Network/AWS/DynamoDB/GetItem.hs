@@ -89,7 +89,7 @@ getItem :: Text -- ^ 'giTableName'
         -> GetItem
 getItem p1 p2 = GetItem
     { _giTableName                = p1
-    , _giAttributesToGet          = withIso _List1 (const id) p2
+    , _giAttributesToGet          = p2
     , _giKey                      = mempty
     , _giConsistentRead           = Nothing
     , _giReturnConsumedCapacity   = Nothing
@@ -111,7 +111,6 @@ getItem p1 p2 = GetItem
 giAttributesToGet :: Lens' GetItem (NonEmpty Text)
 giAttributesToGet =
     lens _giAttributesToGet (\s a -> s { _giAttributesToGet = a })
-        . _List1
 
 -- | A value that if set to true, then the operation uses strongly consistent
 -- reads; otherwise, eventually consistent reads are used.

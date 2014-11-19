@@ -53,10 +53,10 @@ import qualified GHC.Exts
 
 data DescribeImages = DescribeImages
     { _di2DryRun          :: Maybe Bool
-    , _di2ExecutableUsers :: [Text]
-    , _di2Filters         :: [Filter]
-    , _di2ImageIds        :: [Text]
-    , _di2Owners          :: [Text]
+    , _di2ExecutableUsers :: List "ExecutableBy" Text
+    , _di2Filters         :: List "Filter" Filter
+    , _di2ImageIds        :: List "ImageId" Text
+    , _di2Owners          :: List "Owner" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeImages' constructor.
@@ -90,6 +90,7 @@ di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 di2ExecutableUsers :: Lens' DescribeImages [Text]
 di2ExecutableUsers =
     lens _di2ExecutableUsers (\s a -> s { _di2ExecutableUsers = a })
+        . _List
 
 -- | One or more filters. architecture - The image architecture (i386 |
 -- x86_64). block-device-mapping.delete-on-termination - A Boolean value
@@ -127,19 +128,22 @@ di2ExecutableUsers =
 -- virtualization-type - The virtualization type (paravirtual | hvm).
 di2Filters :: Lens' DescribeImages [Filter]
 di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a })
+    . _List
 
 -- | One or more image IDs. Default: Describes all images available to you.
 di2ImageIds :: Lens' DescribeImages [Text]
 di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a })
+    . _List
 
 -- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
 -- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is
 -- the sender of the request), or all (all owners).
 di2Owners :: Lens' DescribeImages [Text]
 di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a })
+    . _List
 
 newtype DescribeImagesResponse = DescribeImagesResponse
-    { _dirImages :: [Image]
+    { _dirImages :: List "item" Image
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeImagesResponse where
@@ -162,6 +166,7 @@ describeImagesResponse = DescribeImagesResponse
 -- | Information about one or more images.
 dirImages :: Lens' DescribeImagesResponse [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a })
+    . _List
 
 instance ToPath DescribeImages where
     toPath = const "/"

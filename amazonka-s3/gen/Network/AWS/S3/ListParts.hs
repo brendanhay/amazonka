@@ -246,17 +246,17 @@ instance AWSRequest ListParts where
 
 instance FromXML ListPartsResponse where
     parseXML x = ListPartsResponse
-        <$> x .@? "Bucket"
-        <*> x .@? "Initiator"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Key"
-        <*> x .@? "MaxParts"
-        <*> x .@? "NextPartNumberMarker"
-        <*> x .@? "Owner"
-        <*> x .@? "PartNumberMarker"
-        <*> x .@ "Part"
-        <*> x .@? "StorageClass"
-        <*> x .@? "UploadId"
+            <$> x .@? "Bucket"
+            <*> x .@? "Initiator"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "Key"
+            <*> x .@? "MaxParts"
+            <*> x .@? "NextPartNumberMarker"
+            <*> x .@? "Owner"
+            <*> x .@? "PartNumberMarker"
+            <*> parseXML x
+            <*> x .@? "StorageClass"
+            <*> x .@? "UploadId"
 
 instance AWSPager ListParts where
     next rq rs

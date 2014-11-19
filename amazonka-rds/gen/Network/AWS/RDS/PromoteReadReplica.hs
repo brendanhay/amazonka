@@ -134,5 +134,4 @@ instance AWSRequest PromoteReadReplica where
 
 instance FromXML PromoteReadReplicaResponse where
     parseXML = withElement "PromoteReadReplicaResult" $ \x ->
-        PromoteReadReplicaResponse
             <$> x .@? "DBInstance"

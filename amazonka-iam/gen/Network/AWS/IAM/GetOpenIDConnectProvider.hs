@@ -140,7 +140,6 @@ instance AWSRequest GetOpenIDConnectProvider where
 
 instance FromXML GetOpenIDConnectProviderResponse where
     parseXML = withElement "GetOpenIDConnectProviderResult" $ \x ->
-        GetOpenIDConnectProviderResponse
             <$> x .@ "ClientIDList"
             <*> x .@? "CreateDate"
             <*> x .@ "ThumbprintList"

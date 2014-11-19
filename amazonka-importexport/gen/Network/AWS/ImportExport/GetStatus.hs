@@ -228,7 +228,6 @@ instance AWSRequest GetStatus where
 
 instance FromXML GetStatusResponse where
     parseXML = withElement "GetStatusResult" $ \x ->
-        GetStatusResponse
             <$> x .@? "AwsShippingAddress"
             <*> x .@? "Carrier"
             <*> x .@? "CreationDate"

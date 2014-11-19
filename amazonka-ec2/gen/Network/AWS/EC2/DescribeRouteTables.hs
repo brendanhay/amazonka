@@ -50,8 +50,8 @@ import qualified GHC.Exts
 
 data DescribeRouteTables = DescribeRouteTables
     { _drt2DryRun        :: Maybe Bool
-    , _drt2Filters       :: [Filter]
-    , _drt2RouteTableIds :: [Text]
+    , _drt2Filters       :: List "Filter" Filter
+    , _drt2RouteTableIds :: List "item" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeRouteTables' constructor.
@@ -105,14 +105,16 @@ drt2DryRun = lens _drt2DryRun (\s a -> s { _drt2DryRun = a })
 -- for the route table.
 drt2Filters :: Lens' DescribeRouteTables [Filter]
 drt2Filters = lens _drt2Filters (\s a -> s { _drt2Filters = a })
+    . _List
 
 -- | One or more route table IDs. Default: Describes all your route tables.
 drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
 drt2RouteTableIds =
     lens _drt2RouteTableIds (\s a -> s { _drt2RouteTableIds = a })
+        . _List
 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
-    { _drtrRouteTables :: [RouteTable]
+    { _drtrRouteTables :: List "item" RouteTable
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRouteTablesResponse where
@@ -135,6 +137,7 @@ describeRouteTablesResponse = DescribeRouteTablesResponse
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
+    . _List
 
 instance ToPath DescribeRouteTables where
     toPath = const "/"

@@ -110,5 +110,4 @@ instance AWSRequest CopySnapshot where
 
 instance FromXML CopySnapshotResponse where
     parseXML = withElement "CopySnapshotResult" $ \x ->
-        CopySnapshotResponse
             <$> x .@? "Snapshot"

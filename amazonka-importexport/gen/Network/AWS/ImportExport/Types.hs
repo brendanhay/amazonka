@@ -128,9 +128,9 @@ jobJobType = lens _jobJobType (\s a -> s { _jobJobType = a })
 
 instance FromXML Job where
     parseXML x = Job
-        <$> x .@ "CreationDate"
-        <*> x .@ "IsCanceled"
-        <*> x .@ "JobId"
-        <*> x .@ "JobType"
+            <$> x .@ "CreationDate"
+            <*> x .@ "IsCanceled"
+            <*> x .@ "JobId"
+            <*> x .@ "JobType"
 
 instance ToQuery Job

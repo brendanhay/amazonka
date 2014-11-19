@@ -54,9 +54,7 @@ module Network.AWS.Data
     , module Network.AWS.Data.Internal.JSON
 
     -- * Collections
-    -- ** Non-empty List
-    , module Network.AWS.Data.Internal.List1
-    -- ** Unordered Map
+    , module Network.AWS.Data.Internal.List
     , module Network.AWS.Data.Internal.Map
     ) where
 
@@ -66,7 +64,7 @@ import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Flatten
 import Network.AWS.Data.Internal.Header
 import Network.AWS.Data.Internal.JSON
-import Network.AWS.Data.Internal.List1
+import Network.AWS.Data.Internal.List
 import Network.AWS.Data.Internal.Map
 import Network.AWS.Data.Internal.Numeric
 import Network.AWS.Data.Internal.Path

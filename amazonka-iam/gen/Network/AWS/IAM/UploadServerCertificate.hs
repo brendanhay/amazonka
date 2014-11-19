@@ -153,5 +153,4 @@ instance AWSRequest UploadServerCertificate where
 
 instance FromXML UploadServerCertificateResponse where
     parseXML = withElement "UploadServerCertificateResult" $ \x ->
-        UploadServerCertificateResponse
             <$> x .@? "ServerCertificateMetadata"

@@ -108,7 +108,6 @@ instance AWSRequest GetCredentialReport where
 
 instance FromXML GetCredentialReportResponse where
     parseXML = withElement "GetCredentialReportResult" $ \x ->
-        GetCredentialReportResponse
             <$> x .@? "Content"
             <*> x .@? "GeneratedTime"
             <*> x .@? "ReportFormat"

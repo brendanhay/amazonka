@@ -63,14 +63,13 @@ listTagsForResources :: Text -- ^ 'ltfr1ResourceType'
                      -> ListTagsForResources
 listTagsForResources p1 p2 = ListTagsForResources
     { _ltfr1ResourceType = p1
-    , _ltfr1ResourceIds  = withIso _List1 (const id) p2
+    , _ltfr1ResourceIds  = p2
     }
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
 ltfr1ResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
 ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
-    . _List1
 
 -- | The type of the resources. The resource type for health checks is
 -- healthcheck.
@@ -132,4 +131,4 @@ instance AWSRequest ListTagsForResources where
 
 instance FromXML ListTagsForResourcesResponse where
     parseXML x = ListTagsForResourcesResponse
-        <$> x .@ "ResourceTagSets"
+            <$> x .@ "ResourceTagSets"

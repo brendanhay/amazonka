@@ -129,5 +129,4 @@ instance AWSRequest CreateRole where
 
 instance FromXML CreateRoleResponse where
     parseXML = withElement "CreateRoleResult" $ \x ->
-        CreateRoleResponse
             <$> x .@ "Role"

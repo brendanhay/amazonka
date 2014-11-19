@@ -341,7 +341,6 @@ instance AWSRequest UpdateEnvironment where
 
 instance FromXML UpdateEnvironmentResponse where
     parseXML = withElement "UpdateEnvironmentResult" $ \x ->
-        UpdateEnvironmentResponse
             <$> x .@? "ApplicationName"
             <*> x .@? "CNAME"
             <*> x .@? "DateCreated"

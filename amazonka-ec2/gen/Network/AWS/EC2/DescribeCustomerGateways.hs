@@ -49,9 +49,9 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcgCustomerGatewayIds :: [Text]
+    { _dcgCustomerGatewayIds :: List "CustomerGatewayId" Text
     , _dcgDryRun             :: Maybe Bool
-    , _dcgFilters            :: [Filter]
+    , _dcgFilters            :: List "Filter" Filter
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeCustomerGateways' constructor.
@@ -76,6 +76,7 @@ describeCustomerGateways = DescribeCustomerGateways
 dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
 dcgCustomerGatewayIds =
     lens _dcgCustomerGatewayIds (\s a -> s { _dcgCustomerGatewayIds = a })
+        . _List
 
 dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
 dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
@@ -97,9 +98,10 @@ dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
 -- resource. This filter is independent of the tag-key filter.
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
 dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a })
+    . _List
 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgrCustomerGateways :: [CustomerGateway]
+    { _dcgrCustomerGateways :: List "item" CustomerGateway
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCustomerGatewaysResponse where
@@ -123,6 +125,7 @@ describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
+        . _List
 
 instance ToPath DescribeCustomerGateways where
     toPath = const "/"

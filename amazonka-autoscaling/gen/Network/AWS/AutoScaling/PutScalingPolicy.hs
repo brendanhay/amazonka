@@ -168,5 +168,4 @@ instance AWSRequest PutScalingPolicy where
 
 instance FromXML PutScalingPolicyResponse where
     parseXML = withElement "PutScalingPolicyResult" $ \x ->
-        PutScalingPolicyResponse
             <$> x .@? "PolicyARN"

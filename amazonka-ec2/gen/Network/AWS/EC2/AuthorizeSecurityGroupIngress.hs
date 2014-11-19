@@ -69,7 +69,7 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     , _asgiFromPort                   :: Maybe Int
     , _asgiGroupId                    :: Maybe Text
     , _asgiGroupName                  :: Maybe Text
-    , _asgiIpPermissions              :: [IpPermission]
+    , _asgiIpPermissions              :: List "item" IpPermission
     , _asgiIpProtocol                 :: Maybe Text
     , _asgiSourceSecurityGroupName    :: Maybe Text
     , _asgiSourceSecurityGroupOwnerId :: Maybe Text
@@ -140,6 +140,7 @@ asgiGroupName = lens _asgiGroupName (\s a -> s { _asgiGroupName = a })
 asgiIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
 asgiIpPermissions =
     lens _asgiIpPermissions (\s a -> s { _asgiIpPermissions = a })
+        . _List
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 -- Use -1 to specify all.

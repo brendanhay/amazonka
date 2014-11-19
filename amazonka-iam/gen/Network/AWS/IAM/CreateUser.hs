@@ -112,5 +112,4 @@ instance AWSRequest CreateUser where
 
 instance FromXML CreateUserResponse where
     parseXML = withElement "CreateUserResult" $ \x ->
-        CreateUserResponse
             <$> x .@? "User"

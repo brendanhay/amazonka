@@ -98,9 +98,9 @@ import qualified GHC.Exts
 
 data DescribeInstanceStatus = DescribeInstanceStatus
     { _disDryRun              :: Maybe Bool
-    , _disFilters             :: [Filter]
+    , _disFilters             :: List "Filter" Filter
     , _disIncludeAllInstances :: Maybe Bool
-    , _disInstanceIds         :: [Text]
+    , _disInstanceIds         :: List "InstanceId" Text
     , _disMaxResults          :: Maybe Int
     , _disNextToken           :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -158,6 +158,7 @@ disDryRun = lens _disDryRun (\s a -> s { _disDryRun = a })
 -- initializing | insufficient-data | not-applicable).
 disFilters :: Lens' DescribeInstanceStatus [Filter]
 disFilters = lens _disFilters (\s a -> s { _disFilters = a })
+    . _List
 
 -- | When true, includes the health status for all instances. When false,
 -- includes the health status for running instances only. Default: false.
@@ -169,6 +170,7 @@ disIncludeAllInstances =
 -- Constraints: Maximum 100 explicitly specified instance IDs.
 disInstanceIds :: Lens' DescribeInstanceStatus [Text]
 disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a })
+    . _List
 
 -- | The maximum number of paginated instance items per response. The call
 -- also returns a token that you can specify in a subsequent call to get the
@@ -183,7 +185,7 @@ disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
-    { _disrInstanceStatuses :: [InstanceStatus]
+    { _disrInstanceStatuses :: List "item" InstanceStatus
     , _disrNextToken        :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -205,6 +207,7 @@ describeInstanceStatusResponse = DescribeInstanceStatusResponse
 disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
 disrInstanceStatuses =
     lens _disrInstanceStatuses (\s a -> s { _disrInstanceStatuses = a })
+        . _List
 
 -- | The next paginated set of results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)

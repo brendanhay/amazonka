@@ -120,4 +120,4 @@ instance AWSRequest GetInvalidation where
 
 instance FromXML GetInvalidationResponse where
     parseXML x = GetInvalidationResponse
-        <$> x .@? "Invalidation"
+            <$> x .@? "Invalidation"

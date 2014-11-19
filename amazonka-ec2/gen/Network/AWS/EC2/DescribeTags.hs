@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data DescribeTags = DescribeTags
     { _dtDryRun     :: Maybe Bool
-    , _dtFilters    :: [Filter]
+    , _dtFilters    :: List "Filter" Filter
     , _dtMaxResults :: Maybe Int
     , _dtNextToken  :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -88,6 +88,7 @@ dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
 -- vpn-gateway). value - The tag value.
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a })
+    . _List
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the next
@@ -103,7 +104,7 @@ dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
-    , _dtrTags      :: [TagDescription]
+    , _dtrTags      :: List "item" TagDescription
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeTagsResponse' constructor.
@@ -128,6 +129,7 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
+    . _List
 
 instance ToPath DescribeTags where
     toPath = const "/"

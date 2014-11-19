@@ -154,5 +154,4 @@ instance AWSRequest CreateDBParameterGroup where
 
 instance FromXML CreateDBParameterGroupResponse where
     parseXML = withElement "CreateDBParameterGroupResult" $ \x ->
-        CreateDBParameterGroupResponse
             <$> x .@? "DBParameterGroup"

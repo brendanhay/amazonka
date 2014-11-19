@@ -123,4 +123,4 @@ instance AWSRequest GetHealthCheckLastFailureReason where
 
 instance FromXML GetHealthCheckLastFailureReasonResponse where
     parseXML x = GetHealthCheckLastFailureReasonResponse
-        <$> x .@ "HealthCheckObservations"
+            <$> x .@ "HealthCheckObservations"

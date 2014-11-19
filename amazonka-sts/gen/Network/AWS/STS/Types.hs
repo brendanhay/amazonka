@@ -121,10 +121,10 @@ cSessionToken = lens _cSessionToken (\s a -> s { _cSessionToken = a })
 
 instance FromXML Credentials where
     parseXML x = Credentials
-        <$> x .@ "AccessKeyId"
-        <*> x .@ "Expiration"
-        <*> x .@ "SecretAccessKey"
-        <*> x .@ "SessionToken"
+            <$> x .@ "AccessKeyId"
+            <*> x .@ "Expiration"
+            <*> x .@ "SecretAccessKey"
+            <*> x .@ "SessionToken"
 
 instance ToQuery Credentials
 
@@ -163,8 +163,8 @@ fuFederatedUserId =
 
 instance FromXML FederatedUser where
     parseXML x = FederatedUser
-        <$> x .@ "Arn"
-        <*> x .@ "FederatedUserId"
+            <$> x .@ "Arn"
+            <*> x .@ "FederatedUserId"
 
 instance ToQuery FederatedUser
 
@@ -203,7 +203,7 @@ aruAssumedRoleId = lens _aruAssumedRoleId (\s a -> s { _aruAssumedRoleId = a })
 
 instance FromXML AssumedRoleUser where
     parseXML x = AssumedRoleUser
-        <$> x .@ "Arn"
-        <*> x .@ "AssumedRoleId"
+            <$> x .@ "Arn"
+            <*> x .@ "AssumedRoleId"
 
 instance ToQuery AssumedRoleUser

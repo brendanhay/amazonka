@@ -148,7 +148,6 @@ instance AWSRequest ValidateTemplate where
 
 instance FromXML ValidateTemplateResponse where
     parseXML = withElement "ValidateTemplateResult" $ \x ->
-        ValidateTemplateResponse
             <$> x .@ "Capabilities"
             <*> x .@? "CapabilitiesReason"
             <*> x .@? "Description"

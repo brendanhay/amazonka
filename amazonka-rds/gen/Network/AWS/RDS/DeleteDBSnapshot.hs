@@ -102,5 +102,4 @@ instance AWSRequest DeleteDBSnapshot where
 
 instance FromXML DeleteDBSnapshotResponse where
     parseXML = withElement "DeleteDBSnapshotResult" $ \x ->
-        DeleteDBSnapshotResponse
             <$> x .@? "DBSnapshot"

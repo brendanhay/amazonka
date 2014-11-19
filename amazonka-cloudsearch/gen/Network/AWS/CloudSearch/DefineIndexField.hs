@@ -115,5 +115,4 @@ instance AWSRequest DefineIndexField where
 
 instance FromXML DefineIndexFieldResponse where
     parseXML = withElement "DefineIndexFieldResult" $ \x ->
-        DefineIndexFieldResponse
             <$> x .@ "IndexField"

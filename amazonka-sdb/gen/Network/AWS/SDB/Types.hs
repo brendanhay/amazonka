@@ -140,10 +140,10 @@ aValue = lens _aValue (\s a -> s { _aValue = a })
 
 instance FromXML Attribute where
     parseXML x = Attribute
-        <$> x .@? "AlternateNameEncoding"
-        <*> x .@? "AlternateValueEncoding"
-        <*> x .@ "Name"
-        <*> x .@ "Value"
+            <$> x .@? "AlternateNameEncoding"
+            <*> x .@? "AlternateValueEncoding"
+            <*> x .@ "Name"
+            <*> x .@ "Value"
 
 instance ToQuery Attribute
 
@@ -177,8 +177,8 @@ diName = lens _diName (\s a -> s { _diName = a })
 
 instance FromXML DeletableItem where
     parseXML x = DeletableItem
-        <$> x .@ "Attributes"
-        <*> x .@ "ItemName"
+            <$> parseXML x
+            <*> x .@ "ItemName"
 
 instance ToQuery DeletableItem
 
@@ -214,8 +214,8 @@ riName = lens _riName (\s a -> s { _riName = a })
 
 instance FromXML ReplaceableItem where
     parseXML x = ReplaceableItem
-        <$> x .@ "Attributes"
-        <*> x .@ "ItemName"
+            <$> parseXML x
+            <*> x .@ "ItemName"
 
 instance ToQuery ReplaceableItem
 
@@ -261,9 +261,9 @@ ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
 instance FromXML UpdateCondition where
     parseXML x = UpdateCondition
-        <$> x .@? "Exists"
-        <*> x .@? "Name"
-        <*> x .@? "Value"
+            <$> x .@? "Exists"
+            <*> x .@? "Name"
+            <*> x .@? "Value"
 
 instance ToQuery UpdateCondition
 
@@ -307,9 +307,9 @@ raValue = lens _raValue (\s a -> s { _raValue = a })
 
 instance FromXML ReplaceableAttribute where
     parseXML x = ReplaceableAttribute
-        <$> x .@ "Name"
-        <*> x .@? "Replace"
-        <*> x .@ "Value"
+            <$> x .@ "Name"
+            <*> x .@? "Replace"
+            <*> x .@ "Value"
 
 instance ToQuery ReplaceableAttribute
 
@@ -354,8 +354,8 @@ iName = lens _iName (\s a -> s { _iName = a })
 
 instance FromXML Item where
     parseXML x = Item
-        <$> x .@? "AlternateNameEncoding"
-        <*> x .@ "Attributes"
-        <*> x .@ "Name"
+            <$> x .@? "AlternateNameEncoding"
+            <*> parseXML x
+            <*> x .@ "Name"
 
 instance ToQuery Item

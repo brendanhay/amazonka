@@ -144,4 +144,4 @@ instance AWSRequest ChangeResourceRecordSets where
 
 instance FromXML ChangeResourceRecordSetsResponse where
     parseXML x = ChangeResourceRecordSetsResponse
-        <$> x .@ "ChangeInfo"
+            <$> x .@ "ChangeInfo"

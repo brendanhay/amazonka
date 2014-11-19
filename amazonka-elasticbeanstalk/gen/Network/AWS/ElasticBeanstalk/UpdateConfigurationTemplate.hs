@@ -241,7 +241,6 @@ instance AWSRequest UpdateConfigurationTemplate where
 
 instance FromXML UpdateConfigurationTemplateResponse where
     parseXML = withElement "UpdateConfigurationTemplateResult" $ \x ->
-        UpdateConfigurationTemplateResponse
             <$> x .@? "ApplicationName"
             <*> x .@? "DateCreated"
             <*> x .@? "DateUpdated"

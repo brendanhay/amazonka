@@ -51,7 +51,7 @@ library
         , Network.AWS.Data.Internal.Flatten
         , Network.AWS.Data.Internal.Header
         , Network.AWS.Data.Internal.JSON
-        , Network.AWS.Data.Internal.List1
+        , Network.AWS.Data.Internal.List
         , Network.AWS.Data.Internal.Map
         , Network.AWS.Data.Internal.Numeric
         , Network.AWS.Data.Internal.Path

@@ -92,5 +92,4 @@ instance AWSRequest DescribeScalingProcessTypes where
 
 instance FromXML DescribeScalingProcessTypesResponse where
     parseXML = withElement "DescribeScalingProcessTypesResult" $ \x ->
-        DescribeScalingProcessTypesResponse
             <$> x .@ "Processes"

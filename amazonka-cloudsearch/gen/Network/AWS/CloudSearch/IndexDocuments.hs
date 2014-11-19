@@ -106,5 +106,4 @@ instance AWSRequest IndexDocuments where
 
 instance FromXML IndexDocumentsResponse where
     parseXML = withElement "IndexDocumentsResult" $ \x ->
-        IndexDocumentsResponse
             <$> x .@ "FieldNames"

@@ -119,7 +119,7 @@ createAutoScalingGroup p1 p2 p3 p4 = CreateAutoScalingGroup
     { _casgAutoScalingGroupName    = p1
     , _casgMinSize                 = p2
     , _casgMaxSize                 = p3
-    , _casgAvailabilityZones       = withIso _List1 (const id) p4
+    , _casgAvailabilityZones       = p4
     , _casgLaunchConfigurationName = Nothing
     , _casgInstanceId              = Nothing
     , _casgDesiredCapacity         = Nothing
@@ -144,7 +144,6 @@ casgAutoScalingGroupName =
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (NonEmpty Text)
 casgAvailabilityZones =
     lens _casgAvailabilityZones (\s a -> s { _casgAvailabilityZones = a })
-        . _List1
 
 -- | The amount of time, in seconds, between a successful scaling activity and
 -- the succeeding scaling activity. If a DefaultCooldown period is not

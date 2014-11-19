@@ -62,7 +62,7 @@ removeTagsFromStream :: Text -- ^ 'rtfsStreamName'
                      -> RemoveTagsFromStream
 removeTagsFromStream p1 p2 = RemoveTagsFromStream
     { _rtfsStreamName = p1
-    , _rtfsTagKeys    = withIso _List1 (const id) p2
+    , _rtfsTagKeys    = p2
     }
 
 -- | The name of the stream.
@@ -72,7 +72,6 @@ rtfsStreamName = lens _rtfsStreamName (\s a -> s { _rtfsStreamName = a })
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
 rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a })
-    . _List1
 
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
     deriving (Eq, Ord, Show, Generic)

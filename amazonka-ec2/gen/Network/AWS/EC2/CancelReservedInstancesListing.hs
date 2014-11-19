@@ -69,7 +69,7 @@ crilReservedInstancesListingId =
         (\s a -> s { _crilReservedInstancesListingId = a })
 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { _crilrReservedInstancesListings :: [ReservedInstancesListing]
+    { _crilrReservedInstancesListings :: List "item" ReservedInstancesListing
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CancelReservedInstancesListingResponse where
@@ -94,6 +94,7 @@ crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
         (\s a -> s { _crilrReservedInstancesListings = a })
+            . _List
 
 instance ToPath CancelReservedInstancesListing where
     toPath = const "/"

@@ -53,9 +53,9 @@ import qualified GHC.Exts
 
 data DescribeSecurityGroups = DescribeSecurityGroups
     { _dsg1DryRun     :: Maybe Bool
-    , _dsg1Filters    :: [Filter]
-    , _dsg1GroupIds   :: [Text]
-    , _dsg1GroupNames :: [Text]
+    , _dsg1Filters    :: List "Filter" Filter
+    , _dsg1GroupIds   :: List "groupId" Text
+    , _dsg1GroupNames :: List "GroupName" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSecurityGroups' constructor.
@@ -98,20 +98,23 @@ dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
 -- The ID of the VPC specified when the security group was created.
 dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
 dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
+    . _List
 
 -- | One or more security group IDs. Required for nondefault VPCs. Default:
 -- Describes all your security groups.
 dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
+    . _List
 
 -- | [EC2-Classic, default VPC] One or more security group names. You can
 -- specify either the security group name or the security group ID. Default:
 -- Describes all your security groups.
 dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
+    . _List
 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { _dsgrSecurityGroups :: [SecurityGroup]
+    { _dsgrSecurityGroups :: List "item" SecurityGroup
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSecurityGroupsResponse where
@@ -135,6 +138,7 @@ describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
+        . _List
 
 instance ToPath DescribeSecurityGroups where
     toPath = const "/"

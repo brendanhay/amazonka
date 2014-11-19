@@ -118,7 +118,7 @@ instance AWSRequest ListDistributions where
 
 instance FromXML ListDistributionsResponse where
     parseXML x = ListDistributionsResponse
-        <$> x .@ "DistributionList"
+            <$> x .@ "DistributionList"
 
 instance AWSPager ListDistributions where
     next rq rs

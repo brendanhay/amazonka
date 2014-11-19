@@ -381,5 +381,4 @@ instance AWSRequest CreateCacheCluster where
 
 instance FromXML CreateCacheClusterResponse where
     parseXML = withElement "CreateCacheClusterResult" $ \x ->
-        CreateCacheClusterResponse
             <$> x .@? "CacheCluster"

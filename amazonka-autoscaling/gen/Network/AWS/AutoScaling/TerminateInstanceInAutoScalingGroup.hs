@@ -113,5 +113,4 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     parseXML = withElement "TerminateInstanceInAutoScalingGroupResult" $ \x ->
-        TerminateInstanceInAutoScalingGroupResponse
             <$> x .@? "Activity"

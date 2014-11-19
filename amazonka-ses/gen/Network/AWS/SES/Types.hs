@@ -156,9 +156,9 @@ dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a })
 
 instance FromXML Destination where
     parseXML x = Destination
-        <$> x .@ "BccAddresses"
-        <*> x .@ "CcAddresses"
-        <*> x .@ "ToAddresses"
+            <$> x .@ "BccAddresses"
+            <*> x .@ "CcAddresses"
+            <*> x .@ "ToAddresses"
 
 instance ToQuery Destination
 
@@ -214,9 +214,9 @@ idaDkimVerificationStatus =
 
 instance FromXML IdentityDkimAttributes where
     parseXML x = IdentityDkimAttributes
-        <$> x .@ "DkimEnabled"
-        <*> x .@ "DkimTokens"
-        <*> x .@ "DkimVerificationStatus"
+            <$> x .@ "DkimEnabled"
+            <*> x .@ "DkimTokens"
+            <*> x .@ "DkimVerificationStatus"
 
 instance ToQuery IdentityDkimAttributes
 
@@ -252,8 +252,8 @@ bText = lens _bText (\s a -> s { _bText = a })
 
 instance FromXML Body where
     parseXML x = Body
-        <$> x .@? "Html"
-        <*> x .@? "Text"
+            <$> x .@? "Html"
+            <*> x .@? "Text"
 
 instance ToQuery Body
 
@@ -291,8 +291,8 @@ ivaVerificationToken =
 
 instance FromXML IdentityVerificationAttributes where
     parseXML x = IdentityVerificationAttributes
-        <$> x .@ "VerificationStatus"
-        <*> x .@? "VerificationToken"
+            <$> x .@ "VerificationStatus"
+            <*> x .@? "VerificationToken"
 
 instance ToQuery IdentityVerificationAttributes
 
@@ -351,11 +351,11 @@ sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
 
 instance FromXML SendDataPoint where
     parseXML x = SendDataPoint
-        <$> x .@? "Bounces"
-        <*> x .@? "Complaints"
-        <*> x .@? "DeliveryAttempts"
-        <*> x .@? "Rejects"
-        <*> x .@? "Timestamp"
+            <$> x .@? "Bounces"
+            <*> x .@? "Complaints"
+            <*> x .@? "DeliveryAttempts"
+            <*> x .@? "Rejects"
+            <*> x .@? "Timestamp"
 
 instance ToQuery SendDataPoint
 
@@ -410,8 +410,8 @@ cData = lens _cData (\s a -> s { _cData = a })
 
 instance FromXML Content where
     parseXML x = Content
-        <$> x .@? "Charset"
-        <*> x .@ "Data"
+            <$> x .@? "Charset"
+            <*> x .@ "Data"
 
 instance ToQuery Content
 
@@ -473,10 +473,10 @@ inaForwardingEnabled =
 
 instance FromXML IdentityNotificationAttributes where
     parseXML x = IdentityNotificationAttributes
-        <$> x .@ "BounceTopic"
-        <*> x .@ "ComplaintTopic"
-        <*> x .@ "DeliveryTopic"
-        <*> x .@ "ForwardingEnabled"
+            <$> x .@ "BounceTopic"
+            <*> x .@ "ComplaintTopic"
+            <*> x .@ "DeliveryTopic"
+            <*> x .@ "ForwardingEnabled"
 
 instance ToQuery IdentityNotificationAttributes
 
@@ -506,7 +506,7 @@ rmData = lens _rmData (\s a -> s { _rmData = a })
 
 instance FromXML RawMessage where
     parseXML x = RawMessage
-        <$> x .@ "Data"
+            <$> x .@ "Data"
 
 instance ToQuery RawMessage
 
@@ -596,7 +596,7 @@ mSubject = lens _mSubject (\s a -> s { _mSubject = a })
 
 instance FromXML Message where
     parseXML x = Message
-        <$> x .@ "Body"
-        <*> x .@ "Subject"
+            <$> x .@ "Body"
+            <*> x .@ "Subject"
 
 instance ToQuery Message

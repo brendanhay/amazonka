@@ -130,5 +130,4 @@ instance AWSRequest DescribeIndexFields where
 
 instance FromXML DescribeIndexFieldsResponse where
     parseXML = withElement "DescribeIndexFieldsResult" $ \x ->
-        DescribeIndexFieldsResponse
             <$> x .@ "IndexFields"

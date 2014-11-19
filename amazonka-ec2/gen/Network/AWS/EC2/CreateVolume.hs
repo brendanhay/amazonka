@@ -147,7 +147,7 @@ cv1VolumeType :: Lens' CreateVolume (Maybe Text)
 cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
 data CreateVolumeResponse = CreateVolumeResponse
-    { _cvrAttachments      :: [VolumeAttachment]
+    { _cvrAttachments      :: List "item" VolumeAttachment
     , _cvrAvailabilityZone :: Maybe Text
     , _cvrCreateTime       :: Maybe RFC822
     , _cvrEncrypted        :: Maybe Bool
@@ -155,7 +155,7 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrSize             :: Maybe Int
     , _cvrSnapshotId       :: Maybe Text
     , _cvrState            :: Maybe Text
-    , _cvrTags             :: [Tag]
+    , _cvrTags             :: List "item" Tag
     , _cvrVolumeId         :: Maybe Text
     , _cvrVolumeType       :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -203,6 +203,7 @@ createVolumeResponse = CreateVolumeResponse
 
 cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
 cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a })
+    . _List
 
 -- | The Availability Zone for the volume.
 cvrAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
@@ -247,6 +248,7 @@ cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 -- | Any tags assigned to the volume.
 cvrTags :: Lens' CreateVolumeResponse [Tag]
 cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a })
+    . _List
 
 -- | The ID of the volume.
 cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)

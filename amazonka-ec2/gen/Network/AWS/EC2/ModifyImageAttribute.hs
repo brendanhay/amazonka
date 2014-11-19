@@ -59,9 +59,9 @@ data ModifyImageAttribute = ModifyImageAttribute
     , _miaImageId          :: Text
     , _miaLaunchPermission :: Maybe LaunchPermissionModifications
     , _miaOperationType    :: Maybe Text
-    , _miaProductCodes     :: [Text]
-    , _miaUserGroups       :: [Text]
-    , _miaUserIds          :: [Text]
+    , _miaProductCodes     :: List "ProductCode" Text
+    , _miaUserGroups       :: List "UserGroup" Text
+    , _miaUserIds          :: List "UserId" Text
     , _miaValue            :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -133,16 +133,19 @@ miaOperationType = lens _miaOperationType (\s a -> s { _miaOperationType = a })
 -- attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
+    . _List
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
 miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
+    . _List
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
 miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
+    . _List
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.

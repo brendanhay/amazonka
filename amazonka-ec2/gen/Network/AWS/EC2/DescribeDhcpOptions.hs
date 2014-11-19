@@ -49,9 +49,9 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddoDhcpOptionsIds :: [Text]
+    { _ddoDhcpOptionsIds :: List "DhcpOptionsId" Text
     , _ddoDryRun         :: Maybe Bool
-    , _ddoFilters        :: [Filter]
+    , _ddoFilters        :: List "Filter" Filter
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDhcpOptions' constructor.
@@ -76,6 +76,7 @@ describeDhcpOptions = DescribeDhcpOptions
 ddoDhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
 ddoDhcpOptionsIds =
     lens _ddoDhcpOptionsIds (\s a -> s { _ddoDhcpOptionsIds = a })
+        . _List
 
 ddoDryRun :: Lens' DescribeDhcpOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
@@ -94,9 +95,10 @@ ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
 -- tag-key filter.
 ddoFilters :: Lens' DescribeDhcpOptions [Filter]
 ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a })
+    . _List
 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { _ddorDhcpOptions :: [DhcpOptions]
+    { _ddorDhcpOptions :: List "item" DhcpOptions
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDhcpOptionsResponse where
@@ -119,6 +121,7 @@ describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 -- | Information about one or more DHCP options sets.
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
+    . _List
 
 instance ToPath DescribeDhcpOptions where
     toPath = const "/"

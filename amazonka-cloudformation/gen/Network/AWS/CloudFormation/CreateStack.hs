@@ -245,5 +245,4 @@ instance AWSRequest CreateStack where
 
 instance FromXML CreateStackResponse where
     parseXML = withElement "CreateStackResult" $ \x ->
-        CreateStackResponse
             <$> x .@? "StackId"

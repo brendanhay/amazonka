@@ -46,7 +46,7 @@ import qualified GHC.Exts
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
-    , _upiaPrivateIpAddresses :: [Text]
+    , _upiaPrivateIpAddresses :: List "PrivateIpAddress" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UnassignPrivateIpAddresses' constructor.
@@ -75,6 +75,7 @@ upiaNetworkInterfaceId =
 upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiaPrivateIpAddresses =
     lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })
+        . _List
 
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
     deriving (Eq, Ord, Show, Generic)

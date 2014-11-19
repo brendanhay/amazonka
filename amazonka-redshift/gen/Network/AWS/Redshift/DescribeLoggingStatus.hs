@@ -154,7 +154,6 @@ instance AWSRequest DescribeLoggingStatus where
 
 instance FromXML DescribeLoggingStatusResponse where
     parseXML = withElement "DescribeLoggingStatusResult" $ \x ->
-        DescribeLoggingStatusResponse
             <$> x .@? "BucketName"
             <*> x .@? "LastFailureMessage"
             <*> x .@? "LastFailureTime"

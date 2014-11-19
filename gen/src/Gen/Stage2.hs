@@ -166,8 +166,8 @@ primitive int = \case
 data Type
     = TType      !Text
     | TPrim      !Prim
-    | TList      !Type
-    | TList1     !Type
+    | TList      !Text !Type
+    | TList1     !Text !Type
     | TMap       !Type !Type
     | TMaybe     !Type
     | TSensitive !Type
@@ -179,9 +179,9 @@ isRequired (TMaybe _) = False
 isRequired _          = True
 
 isMonoid :: Type -> Bool
-isMonoid (TList  _) = True
-isMonoid (TMap _ _) = True
-isMonoid _          = False
+isMonoid (TList _ _) = True
+isMonoid (TMap  _ _) = True
+isMonoid _           = False
 
 isFlattened :: Type -> Bool
 isFlattened = any f . universe
@@ -190,13 +190,13 @@ isFlattened = any f . universe
     f _            = False
 
 listElement :: Type -> Maybe Type
-listElement (TList l) = Just l
-listElement _         = Nothing
+listElement (TList _ x) = Just x
+listElement _           = Nothing
 
 instance Plated Type where
     plate f = \case
-        TList      x   -> TList      <$> f x
-        TList1     x   -> TList1     <$> f x
+        TList      l x -> TList  l   <$> f x
+        TList1     l x -> TList1 l   <$> f x
         TMap       k v -> TMap       <$> f k <*> f v
         TMaybe     x   -> TMaybe     <$> f x
         TSensitive x   -> TSensitive <$> f x
@@ -209,8 +209,8 @@ instance ToJSON (Exposed Type) where
         go = \case
             TType      t   -> upperHead t
             TPrim      p   -> primitive False p
-            TList      x   -> "["          <> wrap (go x) <> "]"
-            TList1     x   -> "NonEmpty "  <> wrap (go x)
+            TList      _ x -> "["          <> wrap (go x) <> "]"
+            TList1     _ x -> "NonEmpty "  <> wrap (go x)
             TMap       k v -> "HashMap "   <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> wrap (go x)
@@ -225,15 +225,16 @@ instance ToJSON (Internal Type) where
         go = \case
             TType      t   -> upperHead t
             TPrim      p   -> primitive True p
-            TList      x   -> "["          <> wrap (go x) <> "]"
-            TList1     x   -> "List1 "     <> wrap (go x)
+            TList      l x -> "List "      <> witness l <> " " <> wrap (go x)
+            TList1     l x -> "List1 "     <> witness l <> " " <> wrap (go x)
             TMap       k v -> "Map "       <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> "Sensitive " <> wrap (go x)
             TFlatten   x   -> "Flatten "   <> wrap (go x)
 
-        wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
-        parens t = "(" <> t <> ")"
+        wrap    t = maybe t (const (parens t)) (Text.findIndex isSpace t)
+        witness t = "\"" <> t <> "\""
+        parens  t = "("  <> t <> ")"
 
 typeMapping :: Type -> Maybe Text
 typeMapping t
@@ -243,8 +244,8 @@ typeMapping t
     go y = case y of
         TType      _   -> []
         TPrim      p   -> maybeToList (primIso p)
-        TList      _   -> maybeToList (typeIso y)
-        TList1     _   -> maybeToList (typeIso y)
+        TList      _ _ -> maybeToList (typeIso y)
+        TList1     _ _ -> maybeToList (typeIso y)
         TMap       _ _ -> maybeToList (typeIso y)
         TMaybe     x   -> wrap (go x)
         TSensitive x   -> maybeToList (typeIso y) ++ go x
@@ -255,15 +256,13 @@ typeMapping t
 
 typeIso :: Type -> Maybe Text
 typeIso = \case
-    TPrim      p              -> primIso p
-    TList      x
-        | Just y <- typeIso x -> Just ("mapping " <> y)
-        | otherwise           -> Nothing
-    TList1     _              -> Just "_List1" -- No nested mappings, since it's Coercible.
-    TMap       _ _            -> Just "_Map"   -- No nested mappings, since it's Coercible.
-    TSensitive _              -> Just "_Sensitive"
-    TFlatten   _              -> Just "_Flatten"
-    _                         -> Nothing
+    TPrim      p   -> primIso p
+    TMap       _ _ -> Just "_Map"   -- No nested mappings, since it's Coercible.
+    TSensitive _   -> Just "_Sensitive"
+    TFlatten   _   -> Just "_Flatten"
+    TList      _ _ -> Just "_List"  -- No nested mappings, since it's Coercible.
+    TList1     _ _ -> Just "_List1" -- No nested mappings, since it's Coercible.
+    _              -> Nothing
 
 primIso :: Prim -> Maybe Text
 primIso = \case
@@ -284,8 +283,8 @@ typesOf :: HasType a => Traversal' a Type
 typesOf = typeOf . go
   where
     go f = \case
-        TList      x   -> TList      <$> f x
-        TList1     x   -> TList1     <$> f x
+        TList      l x -> TList    l <$> f x
+        TList1     l x -> TList1   l <$> f x
         TMap       k v -> TMap       <$> f k <*> f v
         TMaybe     x   -> TMaybe     <$> f x
         TSensitive x   -> TSensitive <$> f x
@@ -525,8 +524,8 @@ instance DerivingOf Type where
         TMaybe     x   -> prim (derivingOf x)
         TSensitive x   -> derivingOf x
         TFlatten   x   -> derivingOf x
-        TList      x   -> list (derivingOf x)
-        TList1     x   -> Set.delete Monoid' . list $ derivingOf x
+        TList      _ x -> list (derivingOf x)
+        TList1     _ x -> Set.delete Monoid' . list $ derivingOf x
         TMap       k v -> Set.delete Ord' . list $
             derivingOf k `Set.intersection` derivingOf v
       where

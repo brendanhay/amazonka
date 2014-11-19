@@ -117,4 +117,4 @@ instance AWSRequest GetChange where
 
 instance FromXML GetChangeResponse where
     parseXML x = GetChangeResponse
-        <$> x .@ "ChangeInfo"
+            <$> x .@ "ChangeInfo"

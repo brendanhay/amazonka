@@ -62,7 +62,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
-    { _drilFilters                    :: [Filter]
+    { _drilFilters                    :: List "Filter" Filter
     , _drilReservedInstancesId        :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -91,6 +91,7 @@ describeReservedInstancesListings = DescribeReservedInstancesListings
 -- the status.
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
+    . _List
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
@@ -104,7 +105,7 @@ drilReservedInstancesListingId =
         (\s a -> s { _drilReservedInstancesListingId = a })
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
-    { _drilrReservedInstancesListings :: [ReservedInstancesListing]
+    { _drilrReservedInstancesListings :: List "item" ReservedInstancesListing
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeReservedInstancesListingsResponse where
@@ -129,6 +130,7 @@ drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsRespons
 drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings
         (\s a -> s { _drilrReservedInstancesListings = a })
+            . _List
 
 instance ToPath DescribeReservedInstancesListings where
     toPath = const "/"

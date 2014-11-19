@@ -131,7 +131,6 @@ instance AWSRequest DescribeDefaultClusterParameters where
 
 instance FromXML DescribeDefaultClusterParametersResponse where
     parseXML = withElement "DescribeDefaultClusterParametersResult" $ \x ->
-        DescribeDefaultClusterParametersResponse
             <$> x .@? "DefaultClusterParameters"
 
 instance AWSPager DescribeDefaultClusterParameters where

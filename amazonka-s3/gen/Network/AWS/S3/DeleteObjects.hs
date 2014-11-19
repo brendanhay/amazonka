@@ -143,5 +143,5 @@ instance AWSRequest DeleteObjects where
 
 instance FromXML DeleteObjectsResponse where
     parseXML x = DeleteObjectsResponse
-        <$> x .@ "Deleted"
-        <*> x .@ "Error"
+            <$> parseXML x
+            <*> parseXML x

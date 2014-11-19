@@ -126,7 +126,7 @@ scan :: Text -- ^ 'sTableName'
      -> Scan
 scan p1 p2 = Scan
     { _sTableName                 = p1
-    , _sAttributesToGet           = withIso _List1 (const id) p2
+    , _sAttributesToGet           = p2
     , _sLimit                     = Nothing
     , _sSelect                    = Nothing
     , _sScanFilter                = mempty
@@ -154,7 +154,6 @@ scan p1 p2 = Scan
 -- that is returned to an application.
 sAttributesToGet :: Lens' Scan (NonEmpty Text)
 sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a })
-    . _List1
 
 -- | There is a newer parameter available. Use ConditionExpression instead.
 -- Note that if you use ConditionalOperator and ConditionExpression at the

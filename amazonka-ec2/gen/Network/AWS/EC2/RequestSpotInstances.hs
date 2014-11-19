@@ -174,7 +174,7 @@ rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a })
     . mapping _Time
 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
-    { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
+    { _rsirSpotInstanceRequests :: List "item" SpotInstanceRequest
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RequestSpotInstancesResponse where
@@ -199,6 +199,7 @@ rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequ
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests
         (\s a -> s { _rsirSpotInstanceRequests = a })
+            . _List
 
 instance ToPath RequestSpotInstances where
     toPath = const "/"

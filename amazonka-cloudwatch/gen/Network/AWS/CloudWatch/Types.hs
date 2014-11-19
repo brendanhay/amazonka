@@ -196,10 +196,10 @@ ssSum = lens _ssSum (\s a -> s { _ssSum = a })
 
 instance FromXML StatisticSet where
     parseXML x = StatisticSet
-        <$> x .@ "Maximum"
-        <*> x .@ "Minimum"
-        <*> x .@ "SampleCount"
-        <*> x .@ "Sum"
+            <$> x .@ "Maximum"
+            <*> x .@ "Minimum"
+            <*> x .@ "SampleCount"
+            <*> x .@ "Sum"
 
 instance ToQuery StatisticSet
 
@@ -419,27 +419,27 @@ maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
 instance FromXML MetricAlarm where
     parseXML x = MetricAlarm
-        <$> x .@? "ActionsEnabled"
-        <*> x .@ "AlarmActions"
-        <*> x .@? "AlarmArn"
-        <*> x .@? "AlarmConfigurationUpdatedTimestamp"
-        <*> x .@? "AlarmDescription"
-        <*> x .@? "AlarmName"
-        <*> x .@? "ComparisonOperator"
-        <*> x .@ "Dimensions"
-        <*> x .@? "EvaluationPeriods"
-        <*> x .@ "InsufficientDataActions"
-        <*> x .@? "MetricName"
-        <*> x .@? "Namespace"
-        <*> x .@ "OKActions"
-        <*> x .@? "Period"
-        <*> x .@? "StateReason"
-        <*> x .@? "StateReasonData"
-        <*> x .@? "StateUpdatedTimestamp"
-        <*> x .@? "StateValue"
-        <*> x .@? "Statistic"
-        <*> x .@? "Threshold"
-        <*> x .@? "Unit"
+            <$> x .@? "ActionsEnabled"
+            <*> x .@ "AlarmActions"
+            <*> x .@? "AlarmArn"
+            <*> x .@? "AlarmConfigurationUpdatedTimestamp"
+            <*> x .@? "AlarmDescription"
+            <*> x .@? "AlarmName"
+            <*> x .@? "ComparisonOperator"
+            <*> x .@ "Dimensions"
+            <*> x .@? "EvaluationPeriods"
+            <*> x .@ "InsufficientDataActions"
+            <*> x .@? "MetricName"
+            <*> x .@? "Namespace"
+            <*> x .@ "OKActions"
+            <*> x .@? "Period"
+            <*> x .@? "StateReason"
+            <*> x .@? "StateReasonData"
+            <*> x .@? "StateUpdatedTimestamp"
+            <*> x .@? "StateValue"
+            <*> x .@? "Statistic"
+            <*> x .@? "Threshold"
+            <*> x .@? "Unit"
 
 instance ToQuery MetricAlarm
 
@@ -541,12 +541,12 @@ mdValue = lens _mdValue (\s a -> s { _mdValue = a })
 
 instance FromXML MetricDatum where
     parseXML x = MetricDatum
-        <$> x .@ "Dimensions"
-        <*> x .@ "MetricName"
-        <*> x .@? "StatisticValues"
-        <*> x .@? "Timestamp"
-        <*> x .@? "Unit"
-        <*> x .@? "Value"
+            <$> x .@ "Dimensions"
+            <*> x .@ "MetricName"
+            <*> x .@? "StatisticValues"
+            <*> x .@? "Timestamp"
+            <*> x .@? "Unit"
+            <*> x .@? "Value"
 
 instance ToQuery MetricDatum
 
@@ -677,8 +677,8 @@ dValue = lens _dValue (\s a -> s { _dValue = a })
 
 instance FromXML Dimension where
     parseXML x = Dimension
-        <$> x .@ "Name"
-        <*> x .@ "Value"
+            <$> x .@ "Name"
+            <*> x .@ "Value"
 
 instance ToQuery Dimension
 
@@ -768,11 +768,11 @@ ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a })
 
 instance FromXML AlarmHistoryItem where
     parseXML x = AlarmHistoryItem
-        <$> x .@? "AlarmName"
-        <*> x .@? "HistoryData"
-        <*> x .@? "HistoryItemType"
-        <*> x .@? "HistorySummary"
-        <*> x .@? "Timestamp"
+            <$> x .@? "AlarmName"
+            <*> x .@? "HistoryData"
+            <*> x .@? "HistoryItemType"
+            <*> x .@? "HistorySummary"
+            <*> x .@? "Timestamp"
 
 instance ToQuery AlarmHistoryItem
 
@@ -813,9 +813,9 @@ mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 
 instance FromXML Metric where
     parseXML x = Metric
-        <$> x .@ "Dimensions"
-        <*> x .@? "MetricName"
-        <*> x .@? "Namespace"
+            <$> x .@ "Dimensions"
+            <*> x .@? "MetricName"
+            <*> x .@? "Namespace"
 
 instance ToQuery Metric
 
@@ -917,13 +917,13 @@ dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
 instance FromXML Datapoint where
     parseXML x = Datapoint
-        <$> x .@? "Average"
-        <*> x .@? "Maximum"
-        <*> x .@? "Minimum"
-        <*> x .@? "SampleCount"
-        <*> x .@? "Sum"
-        <*> x .@? "Timestamp"
-        <*> x .@? "Unit"
+            <$> x .@? "Average"
+            <*> x .@? "Maximum"
+            <*> x .@? "Minimum"
+            <*> x .@? "SampleCount"
+            <*> x .@? "Sum"
+            <*> x .@? "Timestamp"
+            <*> x .@? "Unit"
 
 instance ToQuery Datapoint
 
@@ -957,8 +957,8 @@ dfValue = lens _dfValue (\s a -> s { _dfValue = a })
 
 instance FromXML DimensionFilter where
     parseXML x = DimensionFilter
-        <$> x .@ "Name"
-        <*> x .@? "Value"
+            <$> x .@ "Name"
+            <*> x .@? "Value"
 
 instance ToQuery DimensionFilter
 

@@ -250,5 +250,4 @@ instance AWSRequest UpdateStack where
 
 instance FromXML UpdateStackResponse where
     parseXML = withElement "UpdateStackResult" $ \x ->
-        UpdateStackResponse
             <$> x .@? "StackId"

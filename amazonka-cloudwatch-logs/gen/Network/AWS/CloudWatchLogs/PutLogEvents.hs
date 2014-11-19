@@ -83,13 +83,12 @@ putLogEvents :: Text -- ^ 'pleLogGroupName'
 putLogEvents p1 p2 p3 = PutLogEvents
     { _pleLogGroupName  = p1
     , _pleLogStreamName = p2
-    , _pleLogEvents     = withIso _List1 (const id) p3
+    , _pleLogEvents     = p3
     , _pleSequenceToken = Nothing
     }
 
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
-    . _List1
 
 pleLogGroupName :: Lens' PutLogEvents Text
 pleLogGroupName = lens _pleLogGroupName (\s a -> s { _pleLogGroupName = a })

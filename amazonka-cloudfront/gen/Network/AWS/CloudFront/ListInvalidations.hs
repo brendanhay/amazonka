@@ -138,7 +138,7 @@ instance AWSRequest ListInvalidations where
 
 instance FromXML ListInvalidationsResponse where
     parseXML x = ListInvalidationsResponse
-        <$> x .@ "InvalidationList"
+            <$> x .@ "InvalidationList"
 
 instance AWSPager ListInvalidations where
     next rq rs

@@ -108,4 +108,4 @@ instance AWSRequest GetBucketLogging where
 
 instance FromXML GetBucketLoggingResponse where
     parseXML x = GetBucketLoggingResponse
-        <$> x .@? "LoggingEnabled"
+            <$> x .@? "LoggingEnabled"

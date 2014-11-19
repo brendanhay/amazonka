@@ -150,5 +150,4 @@ instance AWSRequest CreatePlatformEndpoint where
 
 instance FromXML CreatePlatformEndpointResponse where
     parseXML = withElement "CreatePlatformEndpointResult" $ \x ->
-        CreatePlatformEndpointResponse
             <$> x .@? "EndpointArn"

@@ -696,7 +696,7 @@ data TableDescription = TableDescription
 tableDescription :: NonEmpty KeySchemaElement -- ^ 'tdKeySchema'
                  -> TableDescription
 tableDescription p1 = TableDescription
-    { _tdKeySchema              = withIso _List1 (const id) p1
+    { _tdKeySchema              = p1
     , _tdAttributeDefinitions   = mempty
     , _tdTableName              = Nothing
     , _tdTableStatus            = Nothing
@@ -771,7 +771,6 @@ tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 -- primary keys, see Primary Key in the Amazon DynamoDB Developer Guide.
 tdKeySchema :: Lens' TableDescription (NonEmpty KeySchemaElement)
 tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
-    . _List1
 
 -- | Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given hash key value. Tables with one or more local
@@ -882,8 +881,8 @@ keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -- ^ 'kaaKeys'
                   -> NonEmpty Text -- ^ 'kaaAttributesToGet'
                   -> KeysAndAttributes
 keysAndAttributes p1 p2 = KeysAndAttributes
-    { _kaaKeys                     = withIso _List1 (const id) p1
-    , _kaaAttributesToGet          = withIso _List1 (const id) p2
+    { _kaaKeys                     = p1
+    , _kaaAttributesToGet          = p2
     , _kaaConsistentRead           = Nothing
     , _kaaProjectionExpression     = Nothing
     , _kaaExpressionAttributeNames = mempty
@@ -896,7 +895,6 @@ keysAndAttributes p1 p2 = KeysAndAttributes
 kaaAttributesToGet :: Lens' KeysAndAttributes (NonEmpty Text)
 kaaAttributesToGet =
     lens _kaaAttributesToGet (\s a -> s { _kaaAttributesToGet = a })
-        . _List1
 
 -- | The consistency of a read operation. If set to true, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
@@ -927,7 +925,6 @@ kaaExpressionAttributeNames =
 -- associated with the items.
 kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
-    . _List1
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -1383,7 +1380,7 @@ localSecondaryIndex :: Text -- ^ 'lsiIndexName'
                     -> LocalSecondaryIndex
 localSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
     { _lsiIndexName  = p1
-    , _lsiKeySchema  = withIso _List1 (const id) p2
+    , _lsiKeySchema  = p2
     , _lsiProjection = p3
     }
 
@@ -1396,7 +1393,6 @@ lsiIndexName = lens _lsiIndexName (\s a -> s { _lsiIndexName = a })
 -- or more pairs of attribute names and key types (HASH or RANGE).
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
-    . _List1
 
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
@@ -1445,7 +1441,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 globalSecondaryIndexDescription :: NonEmpty KeySchemaElement -- ^ 'gsidKeySchema'
                                 -> GlobalSecondaryIndexDescription
 globalSecondaryIndexDescription p1 = GlobalSecondaryIndexDescription
-    { _gsidKeySchema             = withIso _List1 (const id) p1
+    { _gsidKeySchema             = p1
     , _gsidIndexName             = Nothing
     , _gsidProjection            = Nothing
     , _gsidIndexStatus           = Nothing
@@ -1483,7 +1479,6 @@ gsidItemCount = lens _gsidItemCount (\s a -> s { _gsidItemCount = a })
 -- or more pairs of attribute names and key types (HASH or RANGE).
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (NonEmpty KeySchemaElement)
 gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a })
-    . _List1
 
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
 gsidProjection = lens _gsidProjection (\s a -> s { _gsidProjection = a })
@@ -1692,7 +1687,7 @@ globalSecondaryIndex :: Text -- ^ 'gsiIndexName'
                      -> GlobalSecondaryIndex
 globalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
     { _gsiIndexName             = p1
-    , _gsiKeySchema             = withIso _List1 (const id) p2
+    , _gsiKeySchema             = p2
     , _gsiProjection            = p3
     , _gsiProvisionedThroughput = p4
     }
@@ -1706,7 +1701,6 @@ gsiIndexName = lens _gsiIndexName (\s a -> s { _gsiIndexName = a })
 -- one or more pairs of attribute names and key types (HASH or RANGE).
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a })
-    . _List1
 
 gsiProjection :: Lens' GlobalSecondaryIndex Projection
 gsiProjection = lens _gsiProjection (\s a -> s { _gsiProjection = a })
@@ -1756,7 +1750,7 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
 localSecondaryIndexDescription :: NonEmpty KeySchemaElement -- ^ 'lsidKeySchema'
                                -> LocalSecondaryIndexDescription
 localSecondaryIndexDescription p1 = LocalSecondaryIndexDescription
-    { _lsidKeySchema      = withIso _List1 (const id) p1
+    { _lsidKeySchema      = p1
     , _lsidIndexName      = Nothing
     , _lsidProjection     = Nothing
     , _lsidIndexSizeBytes = Nothing
@@ -1784,7 +1778,6 @@ lsidItemCount = lens _lsidItemCount (\s a -> s { _lsidItemCount = a })
 -- attribute names and key types (HASH or RANGE).
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (NonEmpty KeySchemaElement)
 lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
-    . _List1
 
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
@@ -1872,7 +1865,7 @@ data Projection = Projection
 projection :: NonEmpty Text -- ^ 'pNonKeyAttributes'
            -> Projection
 projection p1 = Projection
-    { _pNonKeyAttributes = withIso _List1 (const id) p1
+    { _pNonKeyAttributes = p1
     , _pProjectionType   = Nothing
     }
 
@@ -1884,7 +1877,6 @@ projection p1 = Projection
 pNonKeyAttributes :: Lens' Projection (NonEmpty Text)
 pNonKeyAttributes =
     lens _pNonKeyAttributes (\s a -> s { _pNonKeyAttributes = a })
-        . _List1
 
 -- | The set of attributes that are projected into the index: KEYS_ONLY - Only
 -- the index and primary keys are projected into the index. INCLUDE - Only

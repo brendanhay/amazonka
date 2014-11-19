@@ -128,6 +128,5 @@ instance AWSRequest DeleteMessageBatch where
 
 instance FromXML DeleteMessageBatchResponse where
     parseXML = withElement "DeleteMessageBatchResult" $ \x ->
-        DeleteMessageBatchResponse
             <$> parseXML x
             <*> parseXML x

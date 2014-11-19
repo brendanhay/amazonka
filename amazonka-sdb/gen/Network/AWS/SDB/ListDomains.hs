@@ -127,7 +127,6 @@ instance AWSRequest ListDomains where
 
 instance FromXML ListDomainsResponse where
     parseXML = withElement "ListDomainsResult" $ \x ->
-        ListDomainsResponse
             <$> parseXML x
             <*> x .@? "NextToken"
 

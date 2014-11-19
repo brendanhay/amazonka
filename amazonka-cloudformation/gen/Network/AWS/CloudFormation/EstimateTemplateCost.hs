@@ -127,5 +127,4 @@ instance AWSRequest EstimateTemplateCost where
 
 instance FromXML EstimateTemplateCostResponse where
     parseXML = withElement "EstimateTemplateCostResult" $ \x ->
-        EstimateTemplateCostResponse
             <$> x .@? "Url"

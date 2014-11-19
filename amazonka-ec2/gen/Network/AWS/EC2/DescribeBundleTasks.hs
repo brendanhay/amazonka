@@ -47,9 +47,9 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeBundleTasks = DescribeBundleTasks
-    { _dbtBundleIds :: [Text]
+    { _dbtBundleIds :: List "BundleId" Text
     , _dbtDryRun    :: Maybe Bool
-    , _dbtFilters   :: [Filter]
+    , _dbtFilters   :: List "Filter" Filter
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeBundleTasks' constructor.
@@ -72,6 +72,7 @@ describeBundleTasks = DescribeBundleTasks
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
 dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
+    . _List
 
 dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
 dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
@@ -88,9 +89,10 @@ dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
 -- the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
+    . _List
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
-    { _dbtrBundleTasks :: [BundleTask]
+    { _dbtrBundleTasks :: List "item" BundleTask
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeBundleTasksResponse where
@@ -113,6 +115,7 @@ describeBundleTasksResponse = DescribeBundleTasksResponse
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
+    . _List
 
 instance ToPath DescribeBundleTasks where
     toPath = const "/"

@@ -3480,8 +3480,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3669,8 +3669,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_List1",
-                        "lensMapping": "_List1",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,

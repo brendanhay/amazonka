@@ -289,7 +289,6 @@ instance AWSRequest AssumeRoleWithWebIdentity where
 
 instance FromXML AssumeRoleWithWebIdentityResponse where
     parseXML = withElement "AssumeRoleWithWebIdentityResult" $ \x ->
-        AssumeRoleWithWebIdentityResponse
             <$> x .@? "AssumedRoleUser"
             <*> x .@? "Audience"
             <*> x .@? "Credentials"

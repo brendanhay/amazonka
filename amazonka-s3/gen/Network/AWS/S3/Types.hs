@@ -493,7 +493,7 @@ nveNoncurrentDays =
 
 instance FromXML NoncurrentVersionExpiration where
     parseXML x = NoncurrentVersionExpiration
-        <$> x .@ "NoncurrentDays"
+            <$> x .@ "NoncurrentDays"
 
 instance ToXML NoncurrentVersionExpiration where
     toXML NoncurrentVersionExpiration{..} = nodes "NoncurrentVersionExpiration"
@@ -540,9 +540,9 @@ tStorageClass = lens _tStorageClass (\s a -> s { _tStorageClass = a })
 
 instance FromXML Transition where
     parseXML x = Transition
-        <$> x .@? "Date"
-        <*> x .@? "Days"
-        <*> x .@? "StorageClass"
+            <$> x .@? "Date"
+            <*> x .@? "Days"
+            <*> x .@? "StorageClass"
 
 instance ToXML Transition where
     toXML Transition{..} = nodes "Transition"
@@ -605,11 +605,11 @@ dmeVersionId = lens _dmeVersionId (\s a -> s { _dmeVersionId = a })
 
 instance FromXML DeleteMarkerEntry where
     parseXML x = DeleteMarkerEntry
-        <$> x .@? "IsLatest"
-        <*> x .@? "Key"
-        <*> x .@? "LastModified"
-        <*> x .@? "Owner"
-        <*> x .@? "VersionId"
+            <$> x .@? "IsLatest"
+            <*> x .@? "Key"
+            <*> x .@? "LastModified"
+            <*> x .@? "Owner"
+            <*> x .@? "VersionId"
 
 instance ToXML DeleteMarkerEntry where
     toXML DeleteMarkerEntry{..} = nodes "DeleteMarkerEntry"
@@ -688,10 +688,10 @@ pSize = lens _pSize (\s a -> s { _pSize = a })
 
 instance FromXML Part where
     parseXML x = Part
-        <$> x .@? "ETag"
-        <*> x .@? "LastModified"
-        <*> x .@? "PartNumber"
-        <*> x .@? "Size"
+            <$> x .@? "ETag"
+            <*> x .@? "LastModified"
+            <*> x .@? "PartNumber"
+            <*> x .@? "Size"
 
 instance ToXML Part where
     toXML Part{..} = nodes "Part"
@@ -733,8 +733,8 @@ vcStatus = lens _vcStatus (\s a -> s { _vcStatus = a })
 
 instance FromXML VersioningConfiguration where
     parseXML x = VersioningConfiguration
-        <$> x .@? "MfaDelete"
-        <*> x .@? "Status"
+            <$> x .@? "MfaDelete"
+            <*> x .@? "Status"
 
 instance ToXML VersioningConfiguration where
     toXML VersioningConfiguration{..} = nodes "VersioningConfiguration"
@@ -773,8 +773,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-        <$> x .@ "Key"
-        <*> x .@ "Value"
+            <$> x .@ "Key"
+            <*> x .@ "Value"
 
 instance ToXML Tag where
     toXML Tag{..} = nodes "Tag"
@@ -860,8 +860,8 @@ rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
 
 instance FromXML RedirectAllRequestsTo where
     parseXML x = RedirectAllRequestsTo
-        <$> x .@ "HostName"
-        <*> x .@? "Protocol"
+            <$> x .@ "HostName"
+            <*> x .@? "Protocol"
 
 instance ToXML RedirectAllRequestsTo where
     toXML RedirectAllRequestsTo{..} = nodes "RedirectAllRequestsTo"
@@ -905,8 +905,8 @@ rrRedirect = lens _rrRedirect (\s a -> s { _rrRedirect = a })
 
 instance FromXML RoutingRule where
     parseXML x = RoutingRule
-        <$> x .@? "Condition"
-        <*> x .@ "Redirect"
+            <$> x .@? "Condition"
+            <*> x .@ "Redirect"
 
 instance ToXML RoutingRule where
     toXML RoutingRule{..} = nodes "RoutingRule"
@@ -952,9 +952,9 @@ ncTopicConfiguration =
 
 instance FromXML NotificationConfiguration where
     parseXML x = NotificationConfiguration
-        <$> x .@? "CloudFunctionConfiguration"
-        <*> x .@? "QueueConfiguration"
-        <*> x .@? "TopicConfiguration"
+            <$> x .@? "CloudFunctionConfiguration"
+            <*> x .@? "QueueConfiguration"
+            <*> x .@? "TopicConfiguration"
 
 instance ToXML NotificationConfiguration where
     toXML NotificationConfiguration{..} = nodes "NotificationConfiguration"
@@ -1004,10 +1004,10 @@ sseVersionId = lens _sseVersionId (\s a -> s { _sseVersionId = a })
 
 instance FromXML S3ServiceError where
     parseXML x = S3ServiceError
-        <$> x .@? "Code"
-        <*> x .@? "Key"
-        <*> x .@? "Message"
-        <*> x .@? "VersionId"
+            <$> x .@? "Code"
+            <*> x .@? "Key"
+            <*> x .@? "Message"
+            <*> x .@? "VersionId"
 
 instance ToXMLRoot S3ServiceError where
     toXMLRoot S3ServiceError{..} = element "S3ServiceError"
@@ -1118,10 +1118,10 @@ do1VersionId = lens _do1VersionId (\s a -> s { _do1VersionId = a })
 
 instance FromXML DeletedObject where
     parseXML x = DeletedObject
-        <$> x .@? "DeleteMarker"
-        <*> x .@? "DeleteMarkerVersionId"
-        <*> x .@? "Key"
-        <*> x .@? "VersionId"
+            <$> x .@? "DeleteMarker"
+            <*> x .@? "DeleteMarkerVersionId"
+            <*> x .@? "Key"
+            <*> x .@? "VersionId"
 
 instance ToXML DeletedObject where
     toXML DeletedObject{..} = nodes "DeletedObject"
@@ -1179,8 +1179,8 @@ cprLastModified = lens _cprLastModified (\s a -> s { _cprLastModified = a })
 
 instance FromXML CopyPartResult where
     parseXML x = CopyPartResult
-        <$> x .@? "ETag"
-        <*> x .@? "LastModified"
+            <$> x .@? "ETag"
+            <*> x .@? "LastModified"
 
 instance ToXML CopyPartResult where
     toXML CopyPartResult{..} = nodes "CopyPartResult"
@@ -1228,7 +1228,7 @@ rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
 
 instance FromXML RequestPaymentConfiguration where
     parseXML x = RequestPaymentConfiguration
-        <$> x .@ "Payer"
+            <$> x .@ "Payer"
 
 instance ToXML RequestPaymentConfiguration where
     toXML RequestPaymentConfiguration{..} = nodes "RequestPaymentConfiguration"
@@ -1306,11 +1306,11 @@ corsrMaxAgeSeconds =
 
 instance FromXML CORSRule where
     parseXML x = CORSRule
-        <$> x .@ "AllowedHeader"
-        <*> x .@ "AllowedMethod"
-        <*> x .@ "AllowedOrigin"
-        <*> x .@ "ExposeHeader"
-        <*> x .@? "MaxAgeSeconds"
+            <$> parseXML x
+            <*> parseXML x
+            <*> parseXML x
+            <*> parseXML x
+            <*> x .@? "MaxAgeSeconds"
 
 instance ToXML CORSRule where
     toXML CORSRule{..} = nodes "CORSRule"
@@ -1363,10 +1363,10 @@ wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
 
 instance FromXML WebsiteConfiguration where
     parseXML x = WebsiteConfiguration
-        <$> x .@? "ErrorDocument"
-        <*> x .@? "IndexDocument"
-        <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@ "RoutingRules"
+            <$> x .@? "ErrorDocument"
+            <*> x .@? "IndexDocument"
+            <*> x .@? "RedirectAllRequestsTo"
+            <*> x .@ "RoutingRules"
 
 instance ToXML WebsiteConfiguration where
     toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration"
@@ -1411,8 +1411,8 @@ nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
 
 instance FromXML NoncurrentVersionTransition where
     parseXML x = NoncurrentVersionTransition
-        <$> x .@ "NoncurrentDays"
-        <*> x .@ "StorageClass"
+            <$> x .@ "NoncurrentDays"
+            <*> x .@ "StorageClass"
 
 instance ToXML NoncurrentVersionTransition where
     toXML NoncurrentVersionTransition{..} = nodes "NoncurrentVersionTransition"
@@ -1450,8 +1450,8 @@ iID = lens _iID (\s a -> s { _iID = a })
 
 instance FromXML Initiator where
     parseXML x = Initiator
-        <$> x .@? "DisplayName"
-        <*> x .@? "ID"
+            <$> x .@? "DisplayName"
+            <*> x .@? "ID"
 
 instance ToXML Initiator where
     toXML Initiator{..} = nodes "Initiator"
@@ -1489,8 +1489,8 @@ oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
 
 instance FromXML ObjectIdentifier where
     parseXML x = ObjectIdentifier
-        <$> x .@ "Key"
-        <*> x .@? "VersionId"
+            <$> x .@ "Key"
+            <*> x .@? "VersionId"
 
 instance ToXML ObjectIdentifier where
     toXML ObjectIdentifier{..} = nodes "ObjectIdentifier"
@@ -1528,8 +1528,8 @@ bName = lens _bName (\s a -> s { _bName = a })
 
 instance FromXML Bucket where
     parseXML x = Bucket
-        <$> x .@? "CreationDate"
-        <*> x .@? "Name"
+            <$> x .@? "CreationDate"
+            <*> x .@? "Name"
 
 instance ToXML Bucket where
     toXML Bucket{..} = nodes "Bucket"
@@ -1587,8 +1587,8 @@ gPermission = lens _gPermission (\s a -> s { _gPermission = a })
 
 instance FromXML Grant where
     parseXML x = Grant
-        <$> x .@? "Grantee"
-        <*> x .@? "Permission"
+            <$> x .@? "Grantee"
+            <*> x .@? "Permission"
 
 instance ToXMLRoot Grant where
     toXMLRoot Grant{..} = element "Grant"
@@ -1671,13 +1671,13 @@ rTransition = lens _rTransition (\s a -> s { _rTransition = a })
 
 instance FromXML Rule where
     parseXML x = Rule
-        <$> x .@? "Expiration"
-        <*> x .@? "ID"
-        <*> x .@? "NoncurrentVersionExpiration"
-        <*> x .@? "NoncurrentVersionTransition"
-        <*> x .@ "Prefix"
-        <*> x .@ "Status"
-        <*> x .@? "Transition"
+            <$> x .@? "Expiration"
+            <*> x .@? "ID"
+            <*> x .@? "NoncurrentVersionExpiration"
+            <*> x .@? "NoncurrentVersionTransition"
+            <*> x .@ "Prefix"
+            <*> x .@ "Status"
+            <*> x .@? "Transition"
 
 instance ToXML Rule where
     toXML Rule{..} = nodes "Rule"
@@ -1736,10 +1736,10 @@ tcTopic = lens _tcTopic (\s a -> s { _tcTopic = a })
 
 instance FromXML TopicConfiguration where
     parseXML x = TopicConfiguration
-        <$> x .@? "Event"
-        <*> x .@ "Event"
-        <*> x .@? "Id"
-        <*> x .@? "Topic"
+            <$> x .@? "Event"
+            <*> parseXML x
+            <*> x .@? "Id"
+            <*> x .@? "Topic"
 
 instance ToXML TopicConfiguration where
     toXML TopicConfiguration{..} = nodes "TopicConfiguration"
@@ -1792,10 +1792,10 @@ qcQueue = lens _qcQueue (\s a -> s { _qcQueue = a })
 
 instance FromXML QueueConfiguration where
     parseXML x = QueueConfiguration
-        <$> x .@? "Event"
-        <*> x .@ "Event"
-        <*> x .@? "Id"
-        <*> x .@? "Queue"
+            <$> x .@? "Event"
+            <*> parseXML x
+            <*> x .@? "Id"
+            <*> x .@? "Queue"
 
 instance ToXML QueueConfiguration where
     toXML QueueConfiguration{..} = nodes "QueueConfiguration"
@@ -1832,8 +1832,8 @@ oID = lens _oID (\s a -> s { _oID = a })
 
 instance FromXML Owner where
     parseXML x = Owner
-        <$> x .@? "DisplayName"
-        <*> x .@? "ID"
+            <$> x .@? "DisplayName"
+            <*> x .@? "ID"
 
 instance ToXMLRoot Owner where
     toXMLRoot Owner{..} = element "Owner"
@@ -1864,7 +1864,7 @@ blsLoggingEnabled =
 
 instance FromXML BucketLoggingStatus where
     parseXML x = BucketLoggingStatus
-        <$> x .@? "LoggingEnabled"
+            <$> x .@? "LoggingEnabled"
 
 instance ToXML BucketLoggingStatus where
     toXML BucketLoggingStatus{..} = nodes "BucketLoggingStatus"
@@ -1893,7 +1893,7 @@ edKey = lens _edKey (\s a -> s { _edKey = a })
 
 instance FromXML ErrorDocument where
     parseXML x = ErrorDocument
-        <$> x .@ "Key"
+            <$> x .@ "Key"
 
 instance ToXML ErrorDocument where
     toXML ErrorDocument{..} = nodes "ErrorDocument"
@@ -1999,14 +1999,14 @@ ovVersionId = lens _ovVersionId (\s a -> s { _ovVersionId = a })
 
 instance FromXML ObjectVersion where
     parseXML x = ObjectVersion
-        <$> x .@? "ETag"
-        <*> x .@? "IsLatest"
-        <*> x .@? "Key"
-        <*> x .@? "LastModified"
-        <*> x .@? "Owner"
-        <*> x .@? "Size"
-        <*> x .@? "StorageClass"
-        <*> x .@? "VersionId"
+            <$> x .@? "ETag"
+            <*> x .@? "IsLatest"
+            <*> x .@? "Key"
+            <*> x .@? "LastModified"
+            <*> x .@? "Owner"
+            <*> x .@? "Size"
+            <*> x .@? "StorageClass"
+            <*> x .@? "VersionId"
 
 instance ToXML ObjectVersion where
     toXML ObjectVersion{..} = nodes "ObjectVersion"
@@ -2048,8 +2048,8 @@ tgPermission = lens _tgPermission (\s a -> s { _tgPermission = a })
 
 instance FromXML TargetGrant where
     parseXML x = TargetGrant
-        <$> x .@? "Grantee"
-        <*> x .@? "Permission"
+            <$> x .@? "Grantee"
+            <*> x .@? "Permission"
 
 instance ToXML TargetGrant where
     toXML TargetGrant{..} = nodes "TargetGrant"
@@ -2165,11 +2165,11 @@ rReplaceKeyWith = lens _rReplaceKeyWith (\s a -> s { _rReplaceKeyWith = a })
 
 instance FromXML Redirect where
     parseXML x = Redirect
-        <$> x .@? "HostName"
-        <*> x .@? "HttpRedirectCode"
-        <*> x .@? "Protocol"
-        <*> x .@? "ReplaceKeyPrefixWith"
-        <*> x .@? "ReplaceKeyWith"
+            <$> x .@? "HostName"
+            <*> x .@? "HttpRedirectCode"
+            <*> x .@? "Protocol"
+            <*> x .@? "ReplaceKeyPrefixWith"
+            <*> x .@? "ReplaceKeyWith"
 
 instance ToXML Redirect where
     toXML Redirect{..} = nodes "Redirect"
@@ -2234,8 +2234,8 @@ cpPartNumber = lens _cpPartNumber (\s a -> s { _cpPartNumber = a })
 
 instance FromXML CompletedPart where
     parseXML x = CompletedPart
-        <$> x .@? "ETag"
-        <*> x .@? "PartNumber"
+            <$> x .@? "ETag"
+            <*> x .@? "PartNumber"
 
 instance ToXML CompletedPart where
     toXML CompletedPart{..} = nodes "CompletedPart"
@@ -2265,7 +2265,7 @@ cbcLocationConstraint =
 
 instance FromXML CreateBucketConfiguration where
     parseXML x = CreateBucketConfiguration
-        <$> x .@? "LocationConstraint"
+            <$> x .@? "LocationConstraint"
 
 instance ToXML CreateBucketConfiguration where
     toXML CreateBucketConfiguration{..} = nodes "CreateBucketConfiguration"
@@ -2298,7 +2298,7 @@ tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a })
 
 instance FromXML Tagging where
     parseXML x = Tagging
-        <$> x .@ "TagSet"
+            <$> x .@ "TagSet"
 
 instance ToXML Tagging where
     toXML Tagging{..} = nodes "Tagging"
@@ -2337,8 +2337,8 @@ leDays = lens _leDays (\s a -> s { _leDays = a })
 
 instance FromXML LifecycleExpiration where
     parseXML x = LifecycleExpiration
-        <$> x .@? "Date"
-        <*> x .@? "Days"
+            <$> x .@? "Date"
+            <*> x .@? "Days"
 
 instance ToXML LifecycleExpiration where
     toXML LifecycleExpiration{..} = nodes "LifecycleExpiration"
@@ -2368,7 +2368,7 @@ corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
 
 instance FromXML CORSConfiguration where
     parseXML x = CORSConfiguration
-        <$> x .@ "CORSRule"
+            <$> parseXML x
 
 instance ToXML CORSConfiguration where
     toXML CORSConfiguration{..} = nodes "CORSConfiguration"
@@ -2438,12 +2438,12 @@ oStorageClass = lens _oStorageClass (\s a -> s { _oStorageClass = a })
 
 instance FromXML Object where
     parseXML x = Object
-        <$> x .@ "ETag"
-        <*> x .@ "Key"
-        <*> x .@ "LastModified"
-        <*> x .@ "Owner"
-        <*> x .@ "Size"
-        <*> x .@ "StorageClass"
+            <$> x .@ "ETag"
+            <*> x .@ "Key"
+            <*> x .@ "LastModified"
+            <*> x .@ "Owner"
+            <*> x .@ "Size"
+            <*> x .@ "StorageClass"
 
 instance ToXML Object where
     toXML Object{..} = nodes "Object"
@@ -2475,7 +2475,7 @@ cpPrefix = lens _cpPrefix (\s a -> s { _cpPrefix = a })
 
 instance FromXML CommonPrefix where
     parseXML x = CommonPrefix
-        <$> x .@? "Prefix"
+            <$> x .@? "Prefix"
 
 instance ToXMLRoot CommonPrefix where
     toXMLRoot CommonPrefix{..} = element "CommonPrefix"
@@ -2545,12 +2545,12 @@ muUploadId = lens _muUploadId (\s a -> s { _muUploadId = a })
 
 instance FromXML MultipartUpload where
     parseXML x = MultipartUpload
-        <$> x .@? "Initiated"
-        <*> x .@? "Initiator"
-        <*> x .@? "Key"
-        <*> x .@? "Owner"
-        <*> x .@? "StorageClass"
-        <*> x .@? "UploadId"
+            <$> x .@? "Initiated"
+            <*> x .@? "Initiator"
+            <*> x .@? "Key"
+            <*> x .@? "Owner"
+            <*> x .@? "StorageClass"
+            <*> x .@? "UploadId"
 
 instance ToXML MultipartUpload where
     toXML MultipartUpload{..} = nodes "MultipartUpload"
@@ -2627,7 +2627,7 @@ cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a })
 
 instance FromXML CompletedMultipartUpload where
     parseXML x = CompletedMultipartUpload
-        <$> x .@ "Part"
+            <$> parseXML x
 
 instance ToXML CompletedMultipartUpload where
     toXML CompletedMultipartUpload{..} = nodes "CompletedMultipartUpload"
@@ -2675,8 +2675,8 @@ cKeyPrefixEquals = lens _cKeyPrefixEquals (\s a -> s { _cKeyPrefixEquals = a })
 
 instance FromXML Condition where
     parseXML x = Condition
-        <$> x .@? "HttpErrorCodeReturnedEquals"
-        <*> x .@? "KeyPrefixEquals"
+            <$> x .@? "HttpErrorCodeReturnedEquals"
+            <*> x .@? "KeyPrefixEquals"
 
 instance ToXML Condition where
     toXML Condition{..} = nodes "Condition"
@@ -2743,8 +2743,8 @@ acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
 
 instance FromXML AccessControlPolicy where
     parseXML x = AccessControlPolicy
-        <$> x .@ "AccessControlList"
-        <*> x .@? "Owner"
+            <$> x .@ "AccessControlList"
+            <*> x .@? "Owner"
 
 instance ToXMLRoot AccessControlPolicy where
     toXMLRoot AccessControlPolicy{..} = element "AccessControlPolicy"
@@ -2855,11 +2855,11 @@ cfcInvocationRole =
 
 instance FromXML CloudFunctionConfiguration where
     parseXML x = CloudFunctionConfiguration
-        <$> x .@? "CloudFunction"
-        <*> x .@? "Event"
-        <*> x .@ "Event"
-        <*> x .@? "Id"
-        <*> x .@? "InvocationRole"
+            <$> x .@? "CloudFunction"
+            <*> x .@? "Event"
+            <*> parseXML x
+            <*> x .@? "Id"
+            <*> x .@? "InvocationRole"
 
 instance ToXML CloudFunctionConfiguration where
     toXML CloudFunctionConfiguration{..} = nodes "CloudFunctionConfiguration"
@@ -2924,11 +2924,11 @@ gURI = lens _gURI (\s a -> s { _gURI = a })
 
 instance FromXML Grantee where
     parseXML x = Grantee
-        <$> x .@? "DisplayName"
-        <*> x .@? "EmailAddress"
-        <*> x .@? "ID"
-        <*> x .@ "Type"
-        <*> x .@? "URI"
+            <$> x .@? "DisplayName"
+            <*> x .@? "EmailAddress"
+            <*> x .@? "ID"
+            <*> x .@ "Type"
+            <*> x .@? "URI"
 
 instance ToXML Grantee where
     toXML Grantee{..} = nodes "Grantee"
@@ -2961,7 +2961,7 @@ lcRules = lens _lcRules (\s a -> s { _lcRules = a })
 
 instance FromXML LifecycleConfiguration where
     parseXML x = LifecycleConfiguration
-        <$> x .@ "Rule"
+            <$> parseXML x
 
 instance ToXML LifecycleConfiguration where
     toXML LifecycleConfiguration{..} = nodes "LifecycleConfiguration"
@@ -3010,9 +3010,9 @@ leTargetPrefix = lens _leTargetPrefix (\s a -> s { _leTargetPrefix = a })
 
 instance FromXML LoggingEnabled where
     parseXML x = LoggingEnabled
-        <$> x .@? "TargetBucket"
-        <*> x .@ "TargetGrants"
-        <*> x .@? "TargetPrefix"
+            <$> x .@? "TargetBucket"
+            <*> x .@ "TargetGrants"
+            <*> x .@? "TargetPrefix"
 
 instance ToXML LoggingEnabled where
     toXML LoggingEnabled{..} = nodes "LoggingEnabled"
@@ -3065,7 +3065,7 @@ idSuffix = lens _idSuffix (\s a -> s { _idSuffix = a })
 
 instance FromXML IndexDocument where
     parseXML x = IndexDocument
-        <$> x .@ "Suffix"
+            <$> x .@ "Suffix"
 
 instance ToXML IndexDocument where
     toXML IndexDocument{..} = nodes "IndexDocument"
@@ -3100,8 +3100,8 @@ corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a })
 
 instance FromXML CopyObjectResult where
     parseXML x = CopyObjectResult
-        <$> x .@? "ETag"
-        <*> x .@? "LastModified"
+            <$> x .@? "ETag"
+            <*> x .@? "LastModified"
 
 instance ToXML CopyObjectResult where
     toXML CopyObjectResult{..} = nodes "CopyObjectResult"
@@ -3140,8 +3140,8 @@ dQuiet = lens _dQuiet (\s a -> s { _dQuiet = a })
 
 instance FromXML Delete where
     parseXML x = Delete
-        <$> x .@ "Object"
-        <*> x .@? "Quiet"
+            <$> parseXML x
+            <*> x .@? "Quiet"
 
 instance ToXML Delete where
     toXML Delete{..} = nodes "Delete"
@@ -3171,7 +3171,7 @@ rDays = lens _rDays (\s a -> s { _rDays = a })
 
 instance FromXML RestoreRequest where
     parseXML x = RestoreRequest
-        <$> x .@ "Days"
+            <$> x .@ "Days"
 
 instance ToXML RestoreRequest where
     toXML RestoreRequest{..} = nodes "RestoreRequest"

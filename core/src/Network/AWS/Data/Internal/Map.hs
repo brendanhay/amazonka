@@ -43,6 +43,8 @@ import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
 
+-- newtype MapE
+
 newtype Map k v = Map { toHashMap :: HashMap k v }
     deriving
         ( Eq
@@ -92,7 +94,13 @@ instance (ToText k, ToJSON v) => ToJSON (Map k v) where
         . toHashMap
 
 -- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
---     parseXML = fmap Map . parseXML
+
+-- instance (Eq k, Hashable k, FromText k, FromXML v) => ToXML (Map k v) where
+
+-- instance ToXML (Flatten (Map ))
+
+-- instance FromXML (Flatten (Map ))
+
 
 -- import flatten and define to/from xml here alongside map instance
 

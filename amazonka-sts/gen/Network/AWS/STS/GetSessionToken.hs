@@ -157,5 +157,4 @@ instance AWSRequest GetSessionToken where
 
 instance FromXML GetSessionTokenResponse where
     parseXML = withElement "GetSessionTokenResult" $ \x ->
-        GetSessionTokenResponse
             <$> x .@? "Credentials"

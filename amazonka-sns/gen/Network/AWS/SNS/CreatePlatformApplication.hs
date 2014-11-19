@@ -138,5 +138,4 @@ instance AWSRequest CreatePlatformApplication where
 
 instance FromXML CreatePlatformApplicationResponse where
     parseXML = withElement "CreatePlatformApplicationResult" $ \x ->
-        CreatePlatformApplicationResponse
             <$> x .@? "PlatformApplicationArn"

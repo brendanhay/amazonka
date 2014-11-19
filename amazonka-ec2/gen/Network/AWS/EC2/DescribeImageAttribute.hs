@@ -91,12 +91,12 @@ dia1ImageId :: Lens' DescribeImageAttribute Text
 dia1ImageId = lens _dia1ImageId (\s a -> s { _dia1ImageId = a })
 
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _diarBlockDeviceMappings :: [BlockDeviceMapping]
+    { _diarBlockDeviceMappings :: List "item" BlockDeviceMapping
     , _diarDescription         :: Maybe AttributeValue
     , _diarImageId             :: Maybe Text
     , _diarKernelId            :: Maybe AttributeValue
-    , _diarLaunchPermissions   :: [LaunchPermission]
-    , _diarProductCodes        :: [ProductCode]
+    , _diarLaunchPermissions   :: List "item" LaunchPermission
+    , _diarProductCodes        :: List "item" ProductCode
     , _diarRamdiskId           :: Maybe AttributeValue
     , _diarSriovNetSupport     :: Maybe AttributeValue
     } deriving (Eq, Show, Generic)
@@ -137,6 +137,7 @@ describeImageAttributeResponse = DescribeImageAttributeResponse
 diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
 diarBlockDeviceMappings =
     lens _diarBlockDeviceMappings (\s a -> s { _diarBlockDeviceMappings = a })
+        . _List
 
 -- | A description for the AMI.
 diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
@@ -154,10 +155,12 @@ diarKernelId = lens _diarKernelId (\s a -> s { _diarKernelId = a })
 diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
 diarLaunchPermissions =
     lens _diarLaunchPermissions (\s a -> s { _diarLaunchPermissions = a })
+        . _List
 
 -- | One or more product codes.
 diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
 diarProductCodes = lens _diarProductCodes (\s a -> s { _diarProductCodes = a })
+    . _List
 
 -- | The RAM disk ID.
 diarRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)

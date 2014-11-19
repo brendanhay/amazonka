@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { _apiaAllowReassignment              :: Maybe Bool
     , _apiaNetworkInterfaceId             :: Text
-    , _apiaPrivateIpAddresses             :: [Text]
+    , _apiaPrivateIpAddresses             :: List "PrivateIpAddress" Text
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
@@ -101,6 +101,7 @@ apiaNetworkInterfaceId =
 apiaPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
 apiaPrivateIpAddresses =
     lens _apiaPrivateIpAddresses (\s a -> s { _apiaPrivateIpAddresses = a })
+        . _List
 
 -- | The number of secondary IP addresses to assign to the network interface.
 -- You can't specify this parameter when also specifying private IP

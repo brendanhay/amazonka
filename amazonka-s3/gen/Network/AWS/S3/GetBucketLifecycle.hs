@@ -108,4 +108,4 @@ instance AWSRequest GetBucketLifecycle where
 
 instance FromXML GetBucketLifecycleResponse where
     parseXML x = GetBucketLifecycleResponse
-        <$> x .@ "Rule"
+            <$> parseXML x

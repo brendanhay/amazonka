@@ -133,5 +133,4 @@ instance AWSRequest PurchaseReservedDBInstancesOffering where
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     parseXML = withElement "PurchaseReservedDBInstancesOfferingResult" $ \x ->
-        PurchaseReservedDBInstancesOfferingResponse
             <$> x .@? "ReservedDBInstance"

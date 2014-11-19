@@ -140,5 +140,4 @@ instance AWSRequest CopyOptionGroup where
 
 instance FromXML CopyOptionGroupResponse where
     parseXML = withElement "CopyOptionGroupResult" $ \x ->
-        CopyOptionGroupResponse
             <$> x .@? "OptionGroup"

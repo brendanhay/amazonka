@@ -90,7 +90,7 @@ createTable :: Text -- ^ 'ctTableName'
             -> CreateTable
 createTable p1 p2 p3 = CreateTable
     { _ctTableName              = p1
-    , _ctKeySchema              = withIso _List1 (const id) p2
+    , _ctKeySchema              = p2
     , _ctProvisionedThroughput  = p3
     , _ctAttributeDefinitions   = mempty
     , _ctLocalSecondaryIndexes  = mempty
@@ -142,7 +142,6 @@ ctGlobalSecondaryIndexes =
 -- Key in the Amazon DynamoDB Developer Guide.
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
-    . _List1
 
 -- | One or more local secondary indexes (the maximum is five) to be created
 -- on the table. Each index is scoped to a given hash key value. There is a

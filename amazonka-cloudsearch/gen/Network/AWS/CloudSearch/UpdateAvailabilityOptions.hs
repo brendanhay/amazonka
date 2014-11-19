@@ -118,5 +118,4 @@ instance AWSRequest UpdateAvailabilityOptions where
 
 instance FromXML UpdateAvailabilityOptionsResponse where
     parseXML = withElement "UpdateAvailabilityOptionsResult" $ \x ->
-        UpdateAvailabilityOptionsResponse
             <$> x .@? "AvailabilityOptions"

@@ -131,6 +131,5 @@ instance AWSRequest ChangeMessageVisibilityBatch where
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x ->
-        ChangeMessageVisibilityBatchResponse
             <$> parseXML x
             <*> parseXML x

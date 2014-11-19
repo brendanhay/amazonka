@@ -260,12 +260,12 @@ instance AWSRequest ListResourceRecordSets where
 
 instance FromXML ListResourceRecordSetsResponse where
     parseXML x = ListResourceRecordSetsResponse
-        <$> x .@ "IsTruncated"
-        <*> x .@ "MaxItems"
-        <*> x .@? "NextRecordIdentifier"
-        <*> x .@? "NextRecordName"
-        <*> x .@? "NextRecordType"
-        <*> x .@ "ResourceRecordSets"
+            <$> x .@ "IsTruncated"
+            <*> x .@ "MaxItems"
+            <*> x .@? "NextRecordIdentifier"
+            <*> x .@? "NextRecordName"
+            <*> x .@? "NextRecordType"
+            <*> x .@ "ResourceRecordSets"
 
 instance AWSPager ListResourceRecordSets where
     next rq rs

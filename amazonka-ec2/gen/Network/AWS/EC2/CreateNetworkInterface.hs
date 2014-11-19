@@ -55,9 +55,9 @@ import qualified GHC.Exts
 data CreateNetworkInterface = CreateNetworkInterface
     { _cniDescription                    :: Maybe Text
     , _cniDryRun                         :: Maybe Bool
-    , _cniGroups                         :: [Text]
+    , _cniGroups                         :: List "SecurityGroupId" Text
     , _cniPrivateIpAddress               :: Maybe Text
-    , _cniPrivateIpAddresses             :: [PrivateIpAddressSpecification]
+    , _cniPrivateIpAddresses             :: List "item" PrivateIpAddressSpecification
     , _cniSecondaryPrivateIpAddressCount :: Maybe Int
     , _cniSubnetId                       :: Text
     } deriving (Eq, Show, Generic)
@@ -102,6 +102,7 @@ cniDryRun = lens _cniDryRun (\s a -> s { _cniDryRun = a })
 -- | The IDs of one or more security groups.
 cniGroups :: Lens' CreateNetworkInterface [Text]
 cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a })
+    . _List
 
 -- | The primary private IP address of the network interface. If you don't
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
@@ -116,6 +117,7 @@ cniPrivateIpAddress =
 cniPrivateIpAddresses :: Lens' CreateNetworkInterface [PrivateIpAddressSpecification]
 cniPrivateIpAddresses =
     lens _cniPrivateIpAddresses (\s a -> s { _cniPrivateIpAddresses = a })
+        . _List
 
 -- | The number of secondary private IP addresses to assign to a network
 -- interface. When you specify a number of secondary IP addresses, Amazon

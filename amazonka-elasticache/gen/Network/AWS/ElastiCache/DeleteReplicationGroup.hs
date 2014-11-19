@@ -132,5 +132,4 @@ instance AWSRequest DeleteReplicationGroup where
 
 instance FromXML DeleteReplicationGroupResponse where
     parseXML = withElement "DeleteReplicationGroupResult" $ \x ->
-        DeleteReplicationGroupResponse
             <$> x .@? "ReplicationGroup"

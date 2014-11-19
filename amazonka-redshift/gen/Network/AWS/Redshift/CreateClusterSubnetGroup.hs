@@ -129,5 +129,4 @@ instance AWSRequest CreateClusterSubnetGroup where
 
 instance FromXML CreateClusterSubnetGroupResponse where
     parseXML = withElement "CreateClusterSubnetGroupResult" $ \x ->
-        CreateClusterSubnetGroupResponse
             <$> x .@? "ClusterSubnetGroup"

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data MonitorInstances = MonitorInstances
     { _miDryRun      :: Maybe Bool
-    , _miInstanceIds :: [Text]
+    , _miInstanceIds :: List "InstanceId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'MonitorInstances' constructor.
@@ -72,9 +72,10 @@ miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
+    . _List
 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
-    { _mirInstanceMonitorings :: [InstanceMonitoring]
+    { _mirInstanceMonitorings :: List "item" InstanceMonitoring
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList MonitorInstancesResponse where
@@ -98,6 +99,7 @@ monitorInstancesResponse = MonitorInstancesResponse
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
+        . _List
 
 instance ToPath MonitorInstances where
     toPath = const "/"

@@ -59,7 +59,7 @@ data RemoveTags = RemoveTags
 removeTags :: NonEmpty TagKeyOnly -- ^ 'rtTags'
            -> RemoveTags
 removeTags p1 = RemoveTags
-    { _rtTags              = withIso _List1 (const id) p1
+    { _rtTags              = p1
     , _rtLoadBalancerNames = mempty
     }
 
@@ -72,7 +72,6 @@ rtLoadBalancerNames =
 -- | A list of tag keys to remove.
 rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\s a -> s { _rtTags = a })
-    . _List1
 
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Ord, Show, Generic)

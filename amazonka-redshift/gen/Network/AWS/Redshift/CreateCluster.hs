@@ -392,5 +392,4 @@ instance AWSRequest CreateCluster where
 
 instance FromXML CreateClusterResponse where
     parseXML = withElement "CreateClusterResult" $ \x ->
-        CreateClusterResponse
             <$> x .@? "Cluster"

@@ -100,15 +100,15 @@ diaInstanceId :: Lens' DescribeInstanceAttribute Text
 diaInstanceId = lens _diaInstanceId (\s a -> s { _diaInstanceId = a })
 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _diar1BlockDeviceMappings               :: [InstanceBlockDeviceMapping]
+    { _diar1BlockDeviceMappings               :: List "item" InstanceBlockDeviceMapping
     , _diar1DisableApiTermination             :: Maybe AttributeBooleanValue
     , _diar1EbsOptimized                      :: Maybe AttributeBooleanValue
-    , _diar1Groups                            :: [GroupIdentifier]
+    , _diar1Groups                            :: List "item" GroupIdentifier
     , _diar1InstanceId                        :: Maybe Text
     , _diar1InstanceInitiatedShutdownBehavior :: Maybe AttributeValue
     , _diar1InstanceType                      :: Maybe AttributeValue
     , _diar1KernelId                          :: Maybe AttributeValue
-    , _diar1ProductCodes                      :: [ProductCode]
+    , _diar1ProductCodes                      :: List "item" ProductCode
     , _diar1RamdiskId                         :: Maybe AttributeValue
     , _diar1RootDeviceName                    :: Maybe AttributeValue
     , _diar1SourceDestCheck                   :: Maybe AttributeBooleanValue
@@ -171,6 +171,7 @@ diar1BlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlo
 diar1BlockDeviceMappings =
     lens _diar1BlockDeviceMappings
         (\s a -> s { _diar1BlockDeviceMappings = a })
+            . _List
 
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
@@ -187,6 +188,7 @@ diar1EbsOptimized =
 -- | The security groups associated with the instance.
 diar1Groups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
 diar1Groups = lens _diar1Groups (\s a -> s { _diar1Groups = a })
+    . _List
 
 -- | The ID of the instance.
 diar1InstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
@@ -213,6 +215,7 @@ diar1KernelId = lens _diar1KernelId (\s a -> s { _diar1KernelId = a })
 diar1ProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
 diar1ProductCodes =
     lens _diar1ProductCodes (\s a -> s { _diar1ProductCodes = a })
+        . _List
 
 -- | The RAM disk ID.
 diar1RamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)

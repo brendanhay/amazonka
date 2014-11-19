@@ -66,7 +66,7 @@ import qualified GHC.Exts
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _drioAvailabilityZone             :: Maybe Text
     , _drioDryRun                       :: Maybe Bool
-    , _drioFilters                      :: [Filter]
+    , _drioFilters                      :: List "Filter" Filter
     , _drioIncludeMarketplace           :: Maybe Bool
     , _drioInstanceTenancy              :: Maybe Text
     , _drioInstanceType                 :: Maybe Text
@@ -77,7 +77,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioNextToken                    :: Maybe Text
     , _drioOfferingType                 :: Maybe Text
     , _drioProductDescription           :: Maybe Text
-    , _drioReservedInstancesOfferingIds :: [Text]
+    , _drioReservedInstancesOfferingIds :: List "String" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesOfferings' constructor.
@@ -153,6 +153,7 @@ drioDryRun = lens _drioDryRun (\s a -> s { _drioDryRun = a })
 -- Instance, per hour (for example, 0.84).
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a })
+    . _List
 
 -- | Include Marketplace offerings in the response.
 drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
@@ -214,10 +215,11 @@ drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Te
 drioReservedInstancesOfferingIds =
     lens _drioReservedInstancesOfferingIds
         (\s a -> s { _drioReservedInstancesOfferingIds = a })
+            . _List
 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorNextToken                  :: Maybe Text
-    , _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
+    , _driorReservedInstancesOfferings :: List "item" ReservedInstancesOffering
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' constructor.
@@ -243,6 +245,7 @@ driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsRespo
 driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings
         (\s a -> s { _driorReservedInstancesOfferings = a })
+            . _List
 
 instance ToPath DescribeReservedInstancesOfferings where
     toPath = const "/"

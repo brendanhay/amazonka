@@ -184,11 +184,11 @@ instance AWSRequest ListHostedZones where
 
 instance FromXML ListHostedZonesResponse where
     parseXML x = ListHostedZonesResponse
-        <$> x .@ "HostedZones"
-        <*> x .@ "IsTruncated"
-        <*> x .@ "Marker"
-        <*> x .@ "MaxItems"
-        <*> x .@? "NextMarker"
+            <$> x .@ "HostedZones"
+            <*> x .@ "IsTruncated"
+            <*> x .@ "Marker"
+            <*> x .@ "MaxItems"
+            <*> x .@? "NextMarker"
 
 instance AWSPager ListHostedZones where
     next rq rs

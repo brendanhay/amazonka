@@ -287,18 +287,18 @@ instance AWSRequest ListMultipartUploads where
 
 instance FromXML ListMultipartUploadsResponse where
     parseXML x = ListMultipartUploadsResponse
-        <$> x .@? "Bucket"
-        <*> x .@ "CommonPrefixes"
-        <*> x .@? "Delimiter"
-        <*> x .@? "EncodingType"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "KeyMarker"
-        <*> x .@? "MaxUploads"
-        <*> x .@? "NextKeyMarker"
-        <*> x .@? "NextUploadIdMarker"
-        <*> x .@? "Prefix"
-        <*> x .@? "UploadIdMarker"
-        <*> x .@ "Upload"
+            <$> x .@? "Bucket"
+            <*> parseXML x
+            <*> x .@? "Delimiter"
+            <*> x .@? "EncodingType"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "KeyMarker"
+            <*> x .@? "MaxUploads"
+            <*> x .@? "NextKeyMarker"
+            <*> x .@? "NextUploadIdMarker"
+            <*> x .@? "Prefix"
+            <*> x .@? "UploadIdMarker"
+            <*> parseXML x
 
 instance AWSPager ListMultipartUploads where
     next rq rs

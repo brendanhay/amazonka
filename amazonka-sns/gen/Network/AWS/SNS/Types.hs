@@ -104,7 +104,7 @@ tTopicArn = lens _tTopicArn (\s a -> s { _tTopicArn = a })
 
 instance FromXML Topic where
     parseXML x = Topic
-        <$> x .@? "TopicArn"
+            <$> x .@? "TopicArn"
 
 instance ToQuery Topic
 
@@ -149,9 +149,9 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-        <$> x .@? "BinaryValue"
-        <*> x .@ "DataType"
-        <*> x .@? "StringValue"
+            <$> x .@? "BinaryValue"
+            <*> x .@ "DataType"
+            <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -187,8 +187,8 @@ paPlatformApplicationArn =
 
 instance FromXML PlatformApplication where
     parseXML x = PlatformApplication
-        <$> x .@ "Attributes"
-        <*> x .@? "PlatformApplicationArn"
+            <$> x .@ "Attributes"
+            <*> x .@? "PlatformApplicationArn"
 
 instance ToQuery PlatformApplication
 
@@ -246,11 +246,11 @@ s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
 
 instance FromXML Subscription where
     parseXML x = Subscription
-        <$> x .@? "Endpoint"
-        <*> x .@? "Owner"
-        <*> x .@? "Protocol"
-        <*> x .@? "SubscriptionArn"
-        <*> x .@? "TopicArn"
+            <$> x .@? "Endpoint"
+            <*> x .@? "Owner"
+            <*> x .@? "Protocol"
+            <*> x .@? "SubscriptionArn"
+            <*> x .@? "TopicArn"
 
 instance ToQuery Subscription
 
@@ -284,7 +284,7 @@ eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-        <$> x .@ "Attributes"
-        <*> x .@? "EndpointArn"
+            <$> x .@ "Attributes"
+            <*> x .@? "EndpointArn"
 
 instance ToQuery Endpoint

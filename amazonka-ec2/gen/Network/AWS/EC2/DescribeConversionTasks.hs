@@ -49,9 +49,9 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeConversionTasks = DescribeConversionTasks
-    { _dctConversionTaskIds :: [Text]
+    { _dctConversionTaskIds :: List "item" Text
     , _dctDryRun            :: Maybe Bool
-    , _dctFilters           :: [Filter]
+    , _dctFilters           :: List "Filter" Filter
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeConversionTasks' constructor.
@@ -75,15 +75,17 @@ describeConversionTasks = DescribeConversionTasks
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
 dctConversionTaskIds =
     lens _dctConversionTaskIds (\s a -> s { _dctConversionTaskIds = a })
+        . _List
 
 dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
 dctDryRun = lens _dctDryRun (\s a -> s { _dctDryRun = a })
 
 dctFilters :: Lens' DescribeConversionTasks [Filter]
 dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a })
+    . _List
 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
-    { _dctrConversionTasks :: [ConversionTask]
+    { _dctrConversionTasks :: List "item" ConversionTask
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConversionTasksResponse where
@@ -106,6 +108,7 @@ describeConversionTasksResponse = DescribeConversionTasksResponse
 dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks =
     lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
+        . _List
 
 instance ToPath DescribeConversionTasks where
     toPath = const "/"

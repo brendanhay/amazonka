@@ -58,8 +58,8 @@ import qualified GHC.Exts
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirDryRun                 :: Maybe Bool
-    , _dsirFilters                :: [Filter]
-    , _dsirSpotInstanceRequestIds :: [Text]
+    , _dsirFilters                :: List "Filter" Filter
+    , _dsirSpotInstanceRequestIds :: List "SpotInstanceRequestId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSpotInstanceRequests' constructor.
@@ -140,15 +140,17 @@ dsirDryRun = lens _dsirDryRun (\s a -> s { _dsirDryRun = a })
 -- end date of the request.
 dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
 dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a })
+    . _List
 
 -- | One or more Spot Instance request IDs.
 dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirSpotInstanceRequestIds =
     lens _dsirSpotInstanceRequestIds
         (\s a -> s { _dsirSpotInstanceRequestIds = a })
+            . _List
 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
-    { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
+    { _dsirrSpotInstanceRequests :: List "item" SpotInstanceRequest
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSpotInstanceRequestsResponse where
@@ -173,6 +175,7 @@ dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotIns
 dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests
         (\s a -> s { _dsirrSpotInstanceRequests = a })
+            . _List
 
 instance ToPath DescribeSpotInstanceRequests where
     toPath = const "/"

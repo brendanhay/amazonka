@@ -52,7 +52,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniaAttachment         :: Maybe NetworkInterfaceAttachmentChanges
     , _mniaDescription        :: Maybe AttributeValue
     , _mniaDryRun             :: Maybe Bool
-    , _mniaGroups             :: [Text]
+    , _mniaGroups             :: List "SecurityGroupId" Text
     , _mniaNetworkInterfaceId :: Text
     , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
     } deriving (Eq, Show, Generic)
@@ -103,6 +103,7 @@ mniaDryRun = lens _mniaDryRun (\s a -> s { _mniaDryRun = a })
 -- must specify the ID of the security group, not the name.
 mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
 mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a })
+    . _List
 
 -- | The ID of the network interface.
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text

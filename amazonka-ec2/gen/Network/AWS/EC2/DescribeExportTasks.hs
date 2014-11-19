@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 newtype DescribeExportTasks = DescribeExportTasks
-    { _detExportTaskIds :: [Text]
+    { _detExportTaskIds :: List "ExportTaskId" Text
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeExportTasks where
@@ -68,9 +68,10 @@ describeExportTasks = DescribeExportTasks
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
+    . _List
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
-    { _detrExportTasks :: [ExportTask]
+    { _detrExportTasks :: List "item" ExportTask
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeExportTasksResponse where
@@ -92,6 +93,7 @@ describeExportTasksResponse = DescribeExportTasksResponse
 
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
+    . _List
 
 instance ToPath DescribeExportTasks where
     toPath = const "/"

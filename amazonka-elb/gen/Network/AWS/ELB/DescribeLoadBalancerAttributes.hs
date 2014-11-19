@@ -103,5 +103,4 @@ instance AWSRequest DescribeLoadBalancerAttributes where
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
     parseXML = withElement "DescribeLoadBalancerAttributesResult" $ \x ->
-        DescribeLoadBalancerAttributesResponse
             <$> x .@? "LoadBalancerAttributes"

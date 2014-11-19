@@ -128,5 +128,4 @@ instance AWSRequest AuthorizeSnapshotAccess where
 
 instance FromXML AuthorizeSnapshotAccessResponse where
     parseXML = withElement "AuthorizeSnapshotAccessResult" $ \x ->
-        AuthorizeSnapshotAccessResponse
             <$> x .@? "Snapshot"

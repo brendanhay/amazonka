@@ -122,7 +122,6 @@ instance AWSRequest ListSubscriptionsByTopic where
 
 instance FromXML ListSubscriptionsByTopicResponse where
     parseXML = withElement "ListSubscriptionsByTopicResult" $ \x ->
-        ListSubscriptionsByTopicResponse
             <$> x .@? "NextToken"
             <*> x .@ "Subscriptions"
 

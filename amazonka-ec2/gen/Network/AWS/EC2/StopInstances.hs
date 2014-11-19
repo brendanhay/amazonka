@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data StopInstances = StopInstances
     { _siDryRun      :: Maybe Bool
     , _siForce       :: Maybe Bool
-    , _siInstanceIds :: [Text]
+    , _siInstanceIds :: List "InstanceId" Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StopInstances' constructor.
@@ -103,9 +103,10 @@ siForce = lens _siForce (\s a -> s { _siForce = a })
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StopInstances [Text]
 siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
+    . _List
 
 newtype StopInstancesResponse = StopInstancesResponse
-    { _sirStoppingInstances :: [InstanceStateChange]
+    { _sirStoppingInstances :: List "item" InstanceStateChange
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList StopInstancesResponse where
@@ -129,6 +130,7 @@ stopInstancesResponse = StopInstancesResponse
 sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })
+        . _List
 
 instance ToPath StopInstances where
     toPath = const "/"

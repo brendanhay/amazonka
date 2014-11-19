@@ -69,7 +69,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeDryRun                     :: Maybe Bool
     , _asgeFromPort                   :: Maybe Int
     , _asgeGroupId                    :: Text
-    , _asgeIpPermissions              :: [IpPermission]
+    , _asgeIpPermissions              :: List "item" IpPermission
     , _asgeIpProtocol                 :: Maybe Text
     , _asgeSourceSecurityGroupName    :: Maybe Text
     , _asgeSourceSecurityGroupOwnerId :: Maybe Text
@@ -134,6 +134,7 @@ asgeGroupId = lens _asgeGroupId (\s a -> s { _asgeGroupId = a })
 asgeIpPermissions :: Lens' AuthorizeSecurityGroupEgress [IpPermission]
 asgeIpPermissions =
     lens _asgeIpPermissions (\s a -> s { _asgeIpPermissions = a })
+        . _List
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 -- Use -1 to specify all.

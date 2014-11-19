@@ -137,6 +137,5 @@ instance AWSRequest UpdateJob where
 
 instance FromXML UpdateJobResponse where
     parseXML = withElement "UpdateJobResult" $ \x ->
-        UpdateJobResponse
             <$> x .@? "Success"
             <*> x .@? "WarningMessage"

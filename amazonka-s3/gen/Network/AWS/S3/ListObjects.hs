@@ -247,16 +247,16 @@ instance AWSRequest ListObjects where
 
 instance FromXML ListObjectsResponse where
     parseXML x = ListObjectsResponse
-        <$> x .@ "CommonPrefixes"
-        <*> x .@ "Contents"
-        <*> x .@? "Delimiter"
-        <*> x .@? "EncodingType"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@? "MaxKeys"
-        <*> x .@? "Name"
-        <*> x .@? "NextMarker"
-        <*> x .@? "Prefix"
+            <$> parseXML x
+            <*> parseXML x
+            <*> x .@? "Delimiter"
+            <*> x .@? "EncodingType"
+            <*> x .@? "IsTruncated"
+            <*> x .@? "Marker"
+            <*> x .@? "MaxKeys"
+            <*> x .@? "Name"
+            <*> x .@? "NextMarker"
+            <*> x .@? "Prefix"
 
 instance AWSPager ListObjects where
     next rq rs

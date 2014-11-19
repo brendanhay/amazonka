@@ -64,7 +64,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     , _rsgiFromPort                   :: Maybe Int
     , _rsgiGroupId                    :: Maybe Text
     , _rsgiGroupName                  :: Maybe Text
-    , _rsgiIpPermissions              :: [IpPermission]
+    , _rsgiIpPermissions              :: List "item" IpPermission
     , _rsgiIpProtocol                 :: Maybe Text
     , _rsgiSourceSecurityGroupName    :: Maybe Text
     , _rsgiSourceSecurityGroupOwnerId :: Maybe Text
@@ -135,6 +135,7 @@ rsgiGroupName = lens _rsgiGroupName (\s a -> s { _rsgiGroupName = a })
 rsgiIpPermissions :: Lens' RevokeSecurityGroupIngress [IpPermission]
 rsgiIpPermissions =
     lens _rsgiIpPermissions (\s a -> s { _rsgiIpPermissions = a })
+        . _List
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 -- Use -1 to specify all.

@@ -144,7 +144,6 @@ instance AWSRequest Select where
 
 instance FromXML SelectResponse where
     parseXML = withElement "SelectResult" $ \x ->
-        SelectResponse
             <$> parseXML x
             <*> x .@? "NextToken"
 

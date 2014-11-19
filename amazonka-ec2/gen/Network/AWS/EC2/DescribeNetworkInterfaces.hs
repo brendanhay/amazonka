@@ -48,8 +48,8 @@ import qualified GHC.Exts
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1DryRun              :: Maybe Bool
-    , _dni1Filters             :: [Filter]
-    , _dni1NetworkInterfaceIds :: [Text]
+    , _dni1Filters             :: List "Filter" Filter
+    , _dni1NetworkInterfaceIds :: List "item" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeNetworkInterfaces' constructor.
@@ -128,15 +128,17 @@ dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 -- ID of the VPC for the network interface.
 dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
 dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a })
+    . _List
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
 dni1NetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
 dni1NetworkInterfaceIds =
     lens _dni1NetworkInterfaceIds (\s a -> s { _dni1NetworkInterfaceIds = a })
+        . _List
 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
-    { _dnirNetworkInterfaces :: [NetworkInterface]
+    { _dnirNetworkInterfaces :: List "item" NetworkInterface
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeNetworkInterfacesResponse where
@@ -160,6 +162,7 @@ describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
+        . _List
 
 instance ToPath DescribeNetworkInterfaces where
     toPath = const "/"

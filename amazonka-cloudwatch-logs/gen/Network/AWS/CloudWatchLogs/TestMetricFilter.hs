@@ -65,7 +65,7 @@ testMetricFilter :: Text -- ^ 'tmfFilterPattern'
                  -> TestMetricFilter
 testMetricFilter p1 p2 = TestMetricFilter
     { _tmfFilterPattern    = p1
-    , _tmfLogEventMessages = withIso _List1 (const id) p2
+    , _tmfLogEventMessages = p2
     }
 
 tmfFilterPattern :: Lens' TestMetricFilter Text
@@ -74,7 +74,6 @@ tmfFilterPattern = lens _tmfFilterPattern (\s a -> s { _tmfFilterPattern = a })
 tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
 tmfLogEventMessages =
     lens _tmfLogEventMessages (\s a -> s { _tmfLogEventMessages = a })
-        . _List1
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches :: [MetricFilterMatchRecord]

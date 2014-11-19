@@ -29,4 +29,7 @@ newtype Flatten a = Flatten { flatten :: a }
 _Flatten :: Iso' (Flatten a) a
 _Flatten = iso flatten Flatten
 
--- Write instances for flattened list, list1, hashmap, map,
+
+-- instance FromXML a => FromXML (Flatten [a]) where
+
+-- instance ToXML a => ToXML (Flatten [a]) where

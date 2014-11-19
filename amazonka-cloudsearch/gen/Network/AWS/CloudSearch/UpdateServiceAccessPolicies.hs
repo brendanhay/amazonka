@@ -114,5 +114,4 @@ instance AWSRequest UpdateServiceAccessPolicies where
 
 instance FromXML UpdateServiceAccessPoliciesResponse where
     parseXML = withElement "UpdateServiceAccessPoliciesResult" $ \x ->
-        UpdateServiceAccessPoliciesResponse
             <$> x .@ "AccessPolicies"

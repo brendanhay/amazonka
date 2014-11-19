@@ -48,8 +48,8 @@ import qualified GHC.Exts
 
 data DescribeInternetGateways = DescribeInternetGateways
     { _dig1DryRun             :: Maybe Bool
-    , _dig1Filters            :: [Filter]
-    , _dig1InternetGatewayIds :: [Text]
+    , _dig1Filters            :: List "Filter" Filter
+    , _dig1InternetGatewayIds :: List "item" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInternetGateways' constructor.
@@ -87,15 +87,17 @@ dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 -- filter is independent of the tag-key filter.
 dig1Filters :: Lens' DescribeInternetGateways [Filter]
 dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
+    . _List
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
 dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 dig1InternetGatewayIds =
     lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
+        . _List
 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digrInternetGateways :: [InternetGateway]
+    { _digrInternetGateways :: List "item" InternetGateway
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInternetGatewaysResponse where
@@ -119,6 +121,7 @@ describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
+        . _List
 
 instance ToPath DescribeInternetGateways where
     toPath = const "/"

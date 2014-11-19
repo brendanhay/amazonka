@@ -104,7 +104,7 @@ updateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
                        -> UpdateAutoScalingGroup
 updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName    = p1
-    , _uasgAvailabilityZones       = withIso _List1 (const id) p2
+    , _uasgAvailabilityZones       = p2
     , _uasgLaunchConfigurationName = Nothing
     , _uasgMinSize                 = Nothing
     , _uasgMaxSize                 = Nothing
@@ -127,7 +127,6 @@ uasgAutoScalingGroupName =
 uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (NonEmpty Text)
 uasgAvailabilityZones =
     lens _uasgAvailabilityZones (\s a -> s { _uasgAvailabilityZones = a })
-        . _List1
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further scaling activities can start. For more information, see

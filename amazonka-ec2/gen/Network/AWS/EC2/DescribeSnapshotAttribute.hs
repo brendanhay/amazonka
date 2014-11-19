@@ -88,8 +88,8 @@ dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
 dsaSnapshotId = lens _dsaSnapshotId (\s a -> s { _dsaSnapshotId = a })
 
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
-    { _dsarCreateVolumePermissions :: [CreateVolumePermission]
-    , _dsarProductCodes            :: [ProductCode]
+    { _dsarCreateVolumePermissions :: List "item" CreateVolumePermission
+    , _dsarProductCodes            :: List "item" ProductCode
     , _dsarSnapshotId              :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -115,10 +115,12 @@ dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVo
 dsarCreateVolumePermissions =
     lens _dsarCreateVolumePermissions
         (\s a -> s { _dsarCreateVolumePermissions = a })
+            . _List
 
 -- | A list of product codes.
 dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
 dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
+    . _List
 
 -- | The ID of the Amazon EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)

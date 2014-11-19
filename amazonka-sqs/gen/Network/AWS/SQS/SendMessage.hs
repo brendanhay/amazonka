@@ -173,7 +173,6 @@ instance AWSRequest SendMessage where
 
 instance FromXML SendMessageResponse where
     parseXML = withElement "SendMessageResult" $ \x ->
-        SendMessageResponse
             <$> x .@? "MD5OfMessageAttributes"
             <*> x .@? "MD5OfMessageBody"
             <*> x .@? "MessageId"

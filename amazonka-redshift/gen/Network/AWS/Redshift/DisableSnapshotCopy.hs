@@ -103,5 +103,4 @@ instance AWSRequest DisableSnapshotCopy where
 
 instance FromXML DisableSnapshotCopyResponse where
     parseXML = withElement "DisableSnapshotCopyResult" $ \x ->
-        DisableSnapshotCopyResponse
             <$> x .@? "Cluster"

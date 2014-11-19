@@ -65,7 +65,7 @@ import qualified GHC.Exts
 
 data RegisterImage = RegisterImage
     { _ri1Architecture        :: Maybe Text
-    , _ri1BlockDeviceMappings :: [BlockDeviceMapping]
+    , _ri1BlockDeviceMappings :: List "BlockDeviceMapping" BlockDeviceMapping
     , _ri1Description         :: Maybe Text
     , _ri1DryRun              :: Maybe Bool
     , _ri1ImageLocation       :: Maybe Text
@@ -129,6 +129,7 @@ ri1Architecture = lens _ri1Architecture (\s a -> s { _ri1Architecture = a })
 ri1BlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 ri1BlockDeviceMappings =
     lens _ri1BlockDeviceMappings (\s a -> s { _ri1BlockDeviceMappings = a })
+        . _List
 
 -- | A description for your AMI.
 ri1Description :: Lens' RegisterImage (Maybe Text)

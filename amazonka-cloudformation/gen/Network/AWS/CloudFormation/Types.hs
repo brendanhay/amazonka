@@ -215,8 +215,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-        <$> x .@? "Key"
-        <*> x .@? "Value"
+            <$> x .@? "Key"
+            <*> x .@? "Value"
 
 instance ToQuery Tag
 
@@ -387,16 +387,16 @@ seTimestamp = lens _seTimestamp (\s a -> s { _seTimestamp = a })
 
 instance FromXML StackEvent where
     parseXML x = StackEvent
-        <$> x .@ "EventId"
-        <*> x .@? "LogicalResourceId"
-        <*> x .@? "PhysicalResourceId"
-        <*> x .@? "ResourceProperties"
-        <*> x .@? "ResourceStatus"
-        <*> x .@? "ResourceStatusReason"
-        <*> x .@? "ResourceType"
-        <*> x .@ "StackId"
-        <*> x .@ "StackName"
-        <*> x .@ "Timestamp"
+            <$> x .@ "EventId"
+            <*> x .@? "LogicalResourceId"
+            <*> x .@? "PhysicalResourceId"
+            <*> x .@? "ResourceProperties"
+            <*> x .@? "ResourceStatus"
+            <*> x .@? "ResourceStatusReason"
+            <*> x .@? "ResourceType"
+            <*> x .@ "StackId"
+            <*> x .@ "StackName"
+            <*> x .@ "Timestamp"
 
 instance ToQuery StackEvent
 
@@ -487,14 +487,14 @@ ssTemplateDescription =
 
 instance FromXML StackSummary where
     parseXML x = StackSummary
-        <$> x .@ "CreationTime"
-        <*> x .@? "DeletionTime"
-        <*> x .@? "LastUpdatedTime"
-        <*> x .@? "StackId"
-        <*> x .@ "StackName"
-        <*> x .@ "StackStatus"
-        <*> x .@? "StackStatusReason"
-        <*> x .@? "TemplateDescription"
+            <$> x .@ "CreationTime"
+            <*> x .@? "DeletionTime"
+            <*> x .@? "LastUpdatedTime"
+            <*> x .@? "StackId"
+            <*> x .@ "StackName"
+            <*> x .@ "StackStatus"
+            <*> x .@? "StackStatusReason"
+            <*> x .@? "TemplateDescription"
 
 instance ToQuery StackSummary
 
@@ -605,16 +605,16 @@ srdStackName = lens _srdStackName (\s a -> s { _srdStackName = a })
 
 instance FromXML StackResourceDetail where
     parseXML x = StackResourceDetail
-        <$> x .@? "Description"
-        <*> x .@ "LastUpdatedTimestamp"
-        <*> x .@ "LogicalResourceId"
-        <*> x .@? "Metadata"
-        <*> x .@? "PhysicalResourceId"
-        <*> x .@ "ResourceStatus"
-        <*> x .@? "ResourceStatusReason"
-        <*> x .@ "ResourceType"
-        <*> x .@? "StackId"
-        <*> x .@? "StackName"
+            <$> x .@? "Description"
+            <*> x .@ "LastUpdatedTimestamp"
+            <*> x .@ "LogicalResourceId"
+            <*> x .@? "Metadata"
+            <*> x .@? "PhysicalResourceId"
+            <*> x .@ "ResourceStatus"
+            <*> x .@? "ResourceStatusReason"
+            <*> x .@ "ResourceType"
+            <*> x .@? "StackId"
+            <*> x .@? "StackName"
 
 instance ToQuery StackResourceDetail
 
@@ -709,10 +709,10 @@ tpParameterKey = lens _tpParameterKey (\s a -> s { _tpParameterKey = a })
 
 instance FromXML TemplateParameter where
     parseXML x = TemplateParameter
-        <$> x .@? "DefaultValue"
-        <*> x .@? "Description"
-        <*> x .@? "NoEcho"
-        <*> x .@? "ParameterKey"
+            <$> x .@? "DefaultValue"
+            <*> x .@? "Description"
+            <*> x .@? "NoEcho"
+            <*> x .@? "ParameterKey"
 
 instance ToQuery TemplateParameter
 
@@ -770,11 +770,11 @@ pdParameterType = lens _pdParameterType (\s a -> s { _pdParameterType = a })
 
 instance FromXML ParameterDeclaration where
     parseXML x = ParameterDeclaration
-        <$> x .@? "DefaultValue"
-        <*> x .@? "Description"
-        <*> x .@? "NoEcho"
-        <*> x .@? "ParameterKey"
-        <*> x .@? "ParameterType"
+            <$> x .@? "DefaultValue"
+            <*> x .@? "Description"
+            <*> x .@? "NoEcho"
+            <*> x .@? "ParameterKey"
+            <*> x .@? "ParameterType"
 
 instance ToQuery ParameterDeclaration
 
@@ -874,15 +874,15 @@ sr1Timestamp = lens _sr1Timestamp (\s a -> s { _sr1Timestamp = a })
 
 instance FromXML StackResource where
     parseXML x = StackResource
-        <$> x .@? "Description"
-        <*> x .@ "LogicalResourceId"
-        <*> x .@? "PhysicalResourceId"
-        <*> x .@ "ResourceStatus"
-        <*> x .@? "ResourceStatusReason"
-        <*> x .@ "ResourceType"
-        <*> x .@? "StackId"
-        <*> x .@? "StackName"
-        <*> x .@ "Timestamp"
+            <$> x .@? "Description"
+            <*> x .@ "LogicalResourceId"
+            <*> x .@? "PhysicalResourceId"
+            <*> x .@ "ResourceStatus"
+            <*> x .@? "ResourceStatusReason"
+            <*> x .@ "ResourceType"
+            <*> x .@? "StackId"
+            <*> x .@? "StackName"
+            <*> x .@ "Timestamp"
 
 instance ToQuery StackResource
 
@@ -923,9 +923,9 @@ oOutputValue = lens _oOutputValue (\s a -> s { _oOutputValue = a })
 
 instance FromXML Output where
     parseXML x = Output
-        <$> x .@? "Description"
-        <*> x .@? "OutputKey"
-        <*> x .@? "OutputValue"
+            <$> x .@? "Description"
+            <*> x .@? "OutputKey"
+            <*> x .@? "OutputValue"
 
 instance ToQuery Output
 
@@ -1002,12 +1002,12 @@ srsResourceType = lens _srsResourceType (\s a -> s { _srsResourceType = a })
 
 instance FromXML StackResourceSummary where
     parseXML x = StackResourceSummary
-        <$> x .@ "LastUpdatedTimestamp"
-        <*> x .@ "LogicalResourceId"
-        <*> x .@? "PhysicalResourceId"
-        <*> x .@ "ResourceStatus"
-        <*> x .@? "ResourceStatusReason"
-        <*> x .@ "ResourceType"
+            <$> x .@ "LastUpdatedTimestamp"
+            <*> x .@ "LogicalResourceId"
+            <*> x .@? "PhysicalResourceId"
+            <*> x .@ "ResourceStatus"
+            <*> x .@? "ResourceStatusReason"
+            <*> x .@ "ResourceType"
 
 instance ToQuery StackResourceSummary
 
@@ -1185,20 +1185,20 @@ sTimeoutInMinutes =
 
 instance FromXML Stack where
     parseXML x = Stack
-        <$> x .@ "Capabilities"
-        <*> x .@ "CreationTime"
-        <*> x .@? "Description"
-        <*> x .@? "DisableRollback"
-        <*> x .@? "LastUpdatedTime"
-        <*> x .@ "NotificationARNs"
-        <*> x .@ "Outputs"
-        <*> x .@ "Parameters"
-        <*> x .@? "StackId"
-        <*> x .@ "StackName"
-        <*> x .@ "StackStatus"
-        <*> x .@? "StackStatusReason"
-        <*> x .@ "Tags"
-        <*> x .@? "TimeoutInMinutes"
+            <$> x .@ "Capabilities"
+            <*> x .@ "CreationTime"
+            <*> x .@? "Description"
+            <*> x .@? "DisableRollback"
+            <*> x .@? "LastUpdatedTime"
+            <*> x .@ "NotificationARNs"
+            <*> x .@ "Outputs"
+            <*> x .@ "Parameters"
+            <*> x .@? "StackId"
+            <*> x .@ "StackName"
+            <*> x .@ "StackStatus"
+            <*> x .@? "StackStatusReason"
+            <*> x .@ "Tags"
+            <*> x .@? "TimeoutInMinutes"
 
 instance ToQuery Stack
 
@@ -1265,8 +1265,8 @@ pUsePreviousValue =
 
 instance FromXML Parameter where
     parseXML x = Parameter
-        <$> x .@? "ParameterKey"
-        <*> x .@? "ParameterValue"
-        <*> x .@? "UsePreviousValue"
+            <$> x .@? "ParameterKey"
+            <*> x .@? "ParameterValue"
+            <*> x .@? "UsePreviousValue"
 
 instance ToQuery Parameter

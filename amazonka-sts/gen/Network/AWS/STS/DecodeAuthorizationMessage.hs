@@ -118,5 +118,4 @@ instance AWSRequest DecodeAuthorizationMessage where
 
 instance FromXML DecodeAuthorizationMessageResponse where
     parseXML = withElement "DecodeAuthorizationMessageResult" $ \x ->
-        DecodeAuthorizationMessageResponse
             <$> x .@? "DecodedMessage"

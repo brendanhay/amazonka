@@ -51,9 +51,9 @@ import qualified GHC.Exts
 
 data DescribeReservedInstances = DescribeReservedInstances
     { _driDryRun               :: Maybe Bool
-    , _driFilters              :: [Filter]
+    , _driFilters              :: List "Filter" Filter
     , _driOfferingType         :: Maybe Text
-    , _driReservedInstancesIds :: [Text]
+    , _driReservedInstancesIds :: List "ReservedInstancesId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstances' constructor.
@@ -104,6 +104,7 @@ driDryRun = lens _driDryRun (\s a -> s { _driDryRun = a })
 -- price of the Reserved Instance, per hour (for example, 0.84).
 driFilters :: Lens' DescribeReservedInstances [Filter]
 driFilters = lens _driFilters (\s a -> s { _driFilters = a })
+    . _List
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the Medium
@@ -116,9 +117,10 @@ driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds =
     lens _driReservedInstancesIds (\s a -> s { _driReservedInstancesIds = a })
+        . _List
 
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
-    { _drirReservedInstances :: [ReservedInstances]
+    { _drirReservedInstances :: List "item" ReservedInstances
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeReservedInstancesResponse where
@@ -142,6 +144,7 @@ describeReservedInstancesResponse = DescribeReservedInstancesResponse
 drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
+        . _List
 
 instance ToPath DescribeReservedInstances where
     toPath = const "/"

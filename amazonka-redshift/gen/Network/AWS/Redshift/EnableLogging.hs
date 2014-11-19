@@ -178,7 +178,6 @@ instance AWSRequest EnableLogging where
 
 instance FromXML EnableLoggingResponse where
     parseXML = withElement "EnableLoggingResult" $ \x ->
-        EnableLoggingResponse
             <$> x .@? "BucketName"
             <*> x .@? "LastFailureMessage"
             <*> x .@? "LastFailureTime"

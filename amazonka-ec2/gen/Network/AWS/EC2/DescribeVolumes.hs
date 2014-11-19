@@ -58,10 +58,10 @@ import qualified GHC.Exts
 
 data DescribeVolumes = DescribeVolumes
     { _dv2DryRun     :: Maybe Bool
-    , _dv2Filters    :: [Filter]
+    , _dv2Filters    :: List "Filter" Filter
     , _dv2MaxResults :: Maybe Int
     , _dv2NextToken  :: Maybe Text
-    , _dv2VolumeIds  :: [Text]
+    , _dv2VolumeIds  :: List "VolumeId" Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumes' constructor.
@@ -115,6 +115,7 @@ dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
 dv2Filters :: Lens' DescribeVolumes [Filter]
 dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a })
+    . _List
 
 -- | The maximum number of volume results returned by DescribeVolumes in
 -- paginated output. When this parameter is used, DescribeVolumes only
@@ -138,10 +139,11 @@ dv2NextToken = lens _dv2NextToken (\s a -> s { _dv2NextToken = a })
 -- | One or more volume IDs.
 dv2VolumeIds :: Lens' DescribeVolumes [Text]
 dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
+    . _List
 
 data DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrNextToken :: Maybe Text
-    , _dvrVolumes   :: [Volume]
+    , _dvrVolumes   :: List "item" Volume
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumesResponse' constructor.
@@ -167,6 +169,7 @@ dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
+    . _List
 
 instance ToPath DescribeVolumes where
     toPath = const "/"

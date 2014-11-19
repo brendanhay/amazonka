@@ -159,5 +159,4 @@ instance AWSRequest CreateApplicationVersion where
 
 instance FromXML CreateApplicationVersionResponse where
     parseXML = withElement "CreateApplicationVersionResult" $ \x ->
-        CreateApplicationVersionResponse
             <$> x .@? "ApplicationVersion"

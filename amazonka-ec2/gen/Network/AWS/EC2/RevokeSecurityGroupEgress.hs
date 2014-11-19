@@ -62,7 +62,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeDryRun                     :: Maybe Bool
     , _rsgeFromPort                   :: Maybe Int
     , _rsgeGroupId                    :: Text
-    , _rsgeIpPermissions              :: [IpPermission]
+    , _rsgeIpPermissions              :: List "item" IpPermission
     , _rsgeIpProtocol                 :: Maybe Text
     , _rsgeSourceSecurityGroupName    :: Maybe Text
     , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
@@ -127,6 +127,7 @@ rsgeGroupId = lens _rsgeGroupId (\s a -> s { _rsgeGroupId = a })
 rsgeIpPermissions :: Lens' RevokeSecurityGroupEgress [IpPermission]
 rsgeIpPermissions =
     lens _rsgeIpPermissions (\s a -> s { _rsgeIpPermissions = a })
+        . _List
 
 -- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 -- Use -1 to specify all.

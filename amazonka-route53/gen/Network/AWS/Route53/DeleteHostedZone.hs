@@ -119,4 +119,4 @@ instance AWSRequest DeleteHostedZone where
 
 instance FromXML DeleteHostedZoneResponse where
     parseXML x = DeleteHostedZoneResponse
-        <$> x .@ "ChangeInfo"
+            <$> x .@ "ChangeInfo"

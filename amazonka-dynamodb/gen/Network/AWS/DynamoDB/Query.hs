@@ -140,7 +140,7 @@ query :: Text -- ^ 'qTableName'
       -> Query
 query p1 p2 = Query
     { _qTableName                 = p1
-    , _qAttributesToGet           = withIso _List1 (const id) p2
+    , _qAttributesToGet           = p2
     , _qIndexName                 = Nothing
     , _qSelect                    = Nothing
     , _qLimit                     = Nothing
@@ -181,7 +181,6 @@ query p1 p2 = Query
 -- fetch attributes from the parent table.
 qAttributesToGet :: Lens' Query (NonEmpty Text)
 qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a })
-    . _List1
 
 -- | There is a newer parameter available. Use ConditionExpression instead.
 -- Note that if you use ConditionalOperator and ConditionExpression at the

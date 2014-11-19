@@ -5,6 +5,9 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RoleAnnotations            #-}
 
+{-# LANGUAGE ScopedTypeVariables            #-}
+
+
 -- Module      : Network.AWS.Data.Internal.List
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -26,7 +29,10 @@ import           Data.Foldable                     (Foldable)
 import           Data.List.NonEmpty                (NonEmpty(..))
 import qualified Data.List.NonEmpty                as NonEmpty
 import           Data.Monoid
+import           Data.Proxy
 import           Data.Semigroup                    (Semigroup)
+import           Data.Text                         (Text)
+import qualified Data.Text                         as Text
 import           Data.Traversable
 import qualified Data.Vector                       as Vector
 import           GHC.Exts
@@ -38,17 +44,28 @@ import           Network.AWS.Data.Internal.XML
 newtype List (e :: Symbol) a = List { list :: [a] }
     deriving (Eq, Ord, Show, Semigroup, Monoid)
 
-newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
-    deriving (Eq, Ord, Show, Semigroup)
-
 type role List  phantom representational
-type role List1 phantom representational
 
 _List :: (Coercible a b, Coercible b a) => Iso' (List e a) [b]
 _List = iso (coerce . list) (List . coerce)
 
+listE :: forall e a. KnownSymbol e => List e a -> Text
+listE _ = Text.pack (symbolVal (Proxy :: Proxy e))
+
+newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
+    deriving (Eq, Ord, Show, Semigroup)
+
+type role List1 phantom representational
+
 _List1 :: (Coercible a b, Coercible b a) => Iso' (List1 e a) (NonEmpty b)
 _List1 = iso (coerce . list1) (List1 . coerce)
+
+list1E :: forall e a. KnownSymbol e => List1 e a -> Text
+list1E _ = Text.pack (symbolVal (Proxy :: Proxy e))
+
+-- list1E :: List1 e a -> Text
+-- list1E = Text.pack . symbolVal
+
 
 -- fromList :: a -> [a] -> List1 a
 -- fromList a = List1 . (:|) a

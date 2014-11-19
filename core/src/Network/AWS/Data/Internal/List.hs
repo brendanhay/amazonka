@@ -1,10 +1,13 @@
 {-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveFoldable             #-}
+{-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RoleAnnotations            #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Data.Internal.List
@@ -20,7 +23,7 @@
 module Network.AWS.Data.Internal.List where
 
 import           Control.Applicative
-import           Control.Lens                      hiding (coerce)
+import           Control.Lens                      hiding (coerce, element)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
@@ -31,6 +34,7 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
 import           Data.Semigroup                    (Semigroup)
+import           Data.String
 import           Data.Text                         (Text)
 import qualified Data.Text                         as Text
 import           Data.Traversable
@@ -40,12 +44,17 @@ import           GHC.TypeLits
 import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
+import           Text.XML
 
 newtype List (k :: Symbol) a = List { list :: [a] }
     deriving (Eq, Ord, Show, Semigroup, Monoid)
 
 newtype List1 (k :: Symbol) a = List1 { list1 :: NonEmpty a }
     deriving (Eq, Ord, Show, Semigroup)
+
+deriving instance Functor     (List1 k)
+deriving instance Foldable    (List1 k)
+deriving instance Traversable (List1 k)
 
 type role List  phantom representational
 type role List1 phantom representational
@@ -82,6 +91,21 @@ instance ToQuery a => ToQuery (List k a) where
 instance ToQuery a => ToQuery (List1 k a) where
     toQuery = toQuery . toList . list1
 
+instance FromJSON a => FromJSON (List k a) where
+    parseJSON = fmap List . parseJSON
+
+instance FromJSON a => FromJSON (List1 k a) where
+    parseJSON = withArray "List1" $ \case
+        v | Vector.null v -> fail "Empty array, expected at least 1 element."
+        v                 -> traverse parseJSON
+            . List1 $ Vector.unsafeHead v :| Vector.toList (Vector.unsafeTail v)
+
+instance ToJSON a => ToJSON (List k a) where
+    toJSON = toJSON . list
+
+instance ToJSON a => ToJSON (List1 k a) where
+    toJSON = toJSON . toList . list1
+
 instance (KnownSymbol k, FromXML a) => FromXML (List k a) where
     parseXML = fmap List . traverse parseXML . mapMaybe (childNodes n)
       where
@@ -90,8 +114,13 @@ instance (KnownSymbol k, FromXML a) => FromXML (List k a) where
 instance (KnownSymbol k, FromXML a) => FromXML (List1 k a) where
     parseXML = parseXML >=> toList1
 
--- instance ToQuery a => ToQuery (List1 a) where
---     toQuery = toQuery . toList
+instance (KnownSymbol k, ToXML a) => ToXML (List k a) where
+    toXML = map (NodeElement . element n . toXML) . list
+      where
+        n = fromString . Text.unpack $ listItem (undefined :: List k a)
+
+instance (KnownSymbol k, ToXML a) => ToXML (List1 k a) where
+    toXML = toXML . fromList1
 
 -- instance ToQuery a => ToQuery (List1 a) where
 --     toQuery = toQuery . toList
@@ -99,16 +128,8 @@ instance (KnownSymbol k, FromXML a) => FromXML (List1 k a) where
 -- instance ToQuery a => ToQuery (List1 a) where
 --     toQuery = toQuery . toList
 
--- instance FromJSON a => FromJSON (List1 a) where
---     parseJSON = withArray "List1" $ \case
---         v | Vector.null v ->
---                 fail "Empty array, expected at least 1 element."
---         v -> traverse parseJSON $
---                  Vector.unsafeHead v
---                      `fromList` Vector.toList (Vector.unsafeTail v)
-
--- instance ToJSON a => ToJSON (List1 a) where
---     toJSON = toJSON . toList
+-- instance ToQuery a => ToQuery (List1 a) where
+--     toQuery = toQuery . toList
 
 
 -- instance FromXML a => FromXML (List1 a) where

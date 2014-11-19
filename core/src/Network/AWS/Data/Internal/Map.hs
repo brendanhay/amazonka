@@ -17,14 +17,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Map where
+module Network.AWS.Data.Internal.Map
+    ( Map (..)
+    , _Map
+    ) where
     -- ( Map (..)
     -- , _Map
     -- , (~::)
     -- ) where
 
 import           Control.Applicative
-import           Control.Lens                         hiding (coerce)
+import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.CaseInsensitive                 as CI
@@ -37,10 +40,10 @@ import           Data.List
 import           Data.Monoid
 import           Data.Proxy
 import           Data.Semigroup                       (Semigroup)
+import           Data.String
 import           Data.Text                            (Text)
 import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
-import           GHC.Exts
 import           GHC.TypeLits
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Flatten
@@ -60,6 +63,12 @@ type role Map phantom phantom nominal phantom representational
 _Map :: (Coercible a b, Coercible b a) => Iso' (Map e i k j a) (HashMap k b)
 _Map = iso (coerce . toHashMap) (Map . coerce)
 
+fromList :: (Eq k, Hashable k) => [(k, v)] -> Map e i k j v
+fromList = Map . Map.fromList
+
+toList :: Map e i k j v -> [(k, v)]
+toList = Map.toList . toHashMap
+
 -- (~::) :: FromText v => [Header] -> Text -> Either String (Map e Text v)
 -- (~::) hs p = Map
 --     . Map.filterWithKey (const . Text.isPrefixOf p)
@@ -67,12 +76,6 @@ _Map = iso (coerce . toHashMap) (Map . coerce)
 --   where
 --     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
 --         <$> fromText (Text.decodeUtf8 v)
-
-instance (Eq k, Hashable k) => IsList (Map e i k j v) where
-    type Item (Map e i k j v) = (k, v)
-
-    fromList = Map . Map.fromList
-    toList   = Map.toList . toHashMap
 
 -- instance (ToByteString k, ToByteString v) => ToHeader (Map e k v) where
 --     toHeader k = map (bimap (mappend k . CI.mk . toBS) toBS) . toList
@@ -87,7 +90,7 @@ instance ( Eq k
          , FromText k
          , FromJSON v
          ) => FromJSON (Map e i k j v) where
-    parseJSON = withObject "HashMap" (fmap fromList . traverse g . toList)
+    parseJSON = withObject "HashMap" (fmap fromList . traverse g . Map.toList)
       where
         g (k, v) = (,)
             <$> either fail return (fromText k)
@@ -98,7 +101,7 @@ instance ( Eq k
          , ToText k
          , ToJSON v
          ) => ToJSON (Map e i k j v) where
-    toJSON = Object . fromList . map (bimap toText toJSON) . toList
+    toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
 
 instance ( KnownSymbol e
          , KnownSymbol i
@@ -124,20 +127,25 @@ instance ( KnownSymbol e
         j = fromString $ symbolVal (Proxy :: Proxy j)
         e = fromString $ symbolVal (Proxy :: Proxy e)
 
--- instance ( KnownSymbol e
---          , Eq k
---          , Hashable k
---          , ToXML k
---          , ToXML v
---          ) => ToXML (Map e k v) where
---     toXML = map (uncurry go) . toList
---       where
---         n = fromString $ symbolVal (Proxy :: Proxy e)
---         n = fromString $ symbolVal (Proxy :: Proxy i)
---         n = fromString $ symbolVal (Proxy :: Proxy j)
+instance ( KnownSymbol e
+         , KnownSymbol i
+         , KnownSymbol j
+         , Eq k
+         , Hashable k
+         , ToXML k
+         , ToXML v
+         ) => ToXML (Map e i k j v) where
+    toXML = map (uncurry go) . toList
+      where
+        go k v =
+            NodeElement $ element e
+                [ NodeElement (element i (toXML k))
+                , NodeElement (element j (toXML v))
+                ]
 
---         go k v =
-
+        i = fromString $ symbolVal (Proxy :: Proxy i)
+        j = fromString $ symbolVal (Proxy :: Proxy j)
+        e = fromString $ symbolVal (Proxy :: Proxy e)
 
 --    flattened: true
 -- looks for many top-level element name

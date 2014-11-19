@@ -544,14 +544,17 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
                 | isNatural x -> pure (TPrim PNatural)
                 | otherwise   -> pure (TPrim PInteger)
 
-        hmap x k' v' = flat flatten (TMap val k' v')
+        hmap x k' v' = flat flatten (TMap ann key k' val v')
           where
-            val | fromMaybe False flatten = fromMaybe "entry" (r ^. refLocationName)
+            ann | fromMaybe False flatten = fromMaybe "entry" (r ^. refLocationName)
                 | otherwise               = "entry"
+
+            key = fromMaybe "key"   (x ^. mapKey   . refLocationName)
+            val = fromMaybe "value" (x ^. mapValue . refLocationName)
 
             flatten = x ^. mapFlattened
 
-        list x = flat flatten . typ val
+        list x = flat flatten . typ ann
           where
             typ | fromMaybe 0 (_lstMin x) > 0 = TList1
                 | otherwise                   = TList
@@ -559,7 +562,7 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             flatten = x ^. lstFlattened
                   <|> x ^. lstMember . refFlattened
 
-            val = fromMaybe fld $
+            ann = fromMaybe fld $
                     x ^. lstMember . refLocationName
                 <|> r ^. refLocationName
 

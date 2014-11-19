@@ -168,7 +168,7 @@ data Type
     | TPrim      !Prim
     | TList      !Text !Type
     | TList1     !Text !Type
-    | TMap       !Text !Type !Type
+    | TMap       !(Text, Text, Text) !Type !Type
     | TMaybe     !Type
     | TSensitive !Type
     | TFlatten   !Type
@@ -195,26 +195,27 @@ listElement _           = Nothing
 
 instance Plated Type where
     plate f = \case
-        TList      l x   -> TList  l   <$> f x
-        TList1     l x   -> TList1 l   <$> f x
-        TMap       l k v -> TMap   l   <$> f k <*> f v
         TMaybe     x     -> TMaybe     <$> f x
         TSensitive x     -> TSensitive <$> f x
         TFlatten   x     -> TFlatten   <$> f x
+        TList      e x   -> TList    e <$> f x
+        TList1     e x   -> TList1   e <$> f x
+        TMap       e k v -> TMap     e <$> f k <*> f v
         x                -> pure x
 
 instance ToJSON (Exposed Type) where
     toJSON (Exposed e) = toJSON (go e)
       where
         go = \case
-            TType      t     -> upperHead t
-            TPrim      p     -> primitive False p
-            TList      _ x   -> "["          <> wrap (go x) <> "]"
-            TList1     _ x   -> "NonEmpty "  <> wrap (go x)
-            TMap       _ k v -> "HashMap "   <> wrap (go k) <> " " <> wrap (go v)
-            TMaybe     x     -> "Maybe "     <> wrap (go x)
-            TSensitive x     -> wrap (go x)
-            TFlatten   x     -> wrap (go x)
+            TType      t -> upperHead t
+            TPrim      p -> primitive False p
+            TMaybe     x -> "Maybe "     <> wrap (go x)
+            TSensitive x -> wrap (go x)
+            TFlatten   x -> wrap (go x)
+
+            TList  _ x   -> "[" <> wrap (go x) <> "]"
+            TList1 _ x   -> "NonEmpty " <> wrap (go x)
+            TMap   _ k v -> "HashMap "  <> wrap (go k) <> " " <> wrap (go v)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -223,17 +224,26 @@ instance ToJSON (Internal Type) where
     toJSON (Internal i) = toJSON (go i)
       where
         go = \case
-            TType      t     -> upperHead t
-            TPrim      p     -> primitive True p
-            TList      l x   -> "List"       <> witness l <> wrap (go x)
-            TList1     l x   -> "List1"      <> witness l <> wrap (go x)
-            TMap       l k v -> "Map"        <> witness l <> wrap (go k) <> " " <> wrap (go v)
-            TMaybe     x     -> "Maybe "     <> wrap (go x)
-            TSensitive x     -> "Sensitive " <> wrap (go x)
-            TFlatten   x     -> go x
+            TType      t -> upperHead t
+            TPrim      p -> primitive True p
+            TMaybe     x -> "Maybe "     <> wrap (go x)
+            TSensitive x -> "Sensitive " <> wrap (go x)
+            TFlatten   x -> go x
+
+            TList  e x -> "List"  <> witness e <> " " <> wrap (go x)
+            TList1 e x -> "List1" <> witness e <> " " <> wrap (go x)
+
+            TMap  (e, i', j) k v ->
+                "Map" <> witness e
+                      <> witness i'
+                      <> " "
+                      <> wrap (go k)
+                      <> witness j
+                      <> " "
+                      <> wrap (go v)
 
         wrap    t = maybe t (const (parens t)) (Text.findIndex isSpace t)
-        witness t = " \"" <> t <> "\" "
+        witness t = " \"" <> t <> "\""
         parens  t = "("  <> t <> ")"
 
 typeMapping :: Type -> Maybe Text
@@ -283,9 +293,9 @@ typesOf :: HasType a => Traversal' a Type
 typesOf = typeOf . go
   where
     go f = \case
-        TList      l x   -> TList    l <$> f x
-        TList1     l x   -> TList1   l <$> f x
-        TMap       l k v -> TMap     l <$> f k <*> f v
+        TList      e x   -> TList    e <$> f x
+        TList1     e x   -> TList1   e <$> f x
+        TMap       e k v -> TMap     e <$> f k <*> f v
         TMaybe     x     -> TMaybe     <$> f x
         TSensitive x     -> TSensitive <$> f x
         TFlatten   x     -> TFlatten   <$> f x

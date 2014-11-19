@@ -51,12 +51,13 @@ import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
 import           Text.XML
 
-newtype Map (e :: Symbol) k v = Map { toHashMap :: HashMap k v }
-    deriving (Eq, Show, Monoid, Semigroup)
+newtype Map (e :: Symbol) (i :: Symbol) k (j :: Symbol) v = Map
+    { toHashMap :: HashMap k v
+    } deriving (Eq, Show, Monoid, Semigroup)
 
-type role Map phantom nominal representational
+type role Map phantom phantom nominal phantom representational
 
-_Map :: (Coercible a b, Coercible b a) => Iso' (Map e k a) (HashMap k b)
+_Map :: (Coercible a b, Coercible b a) => Iso' (Map e i k j a) (HashMap k b)
 _Map = iso (coerce . toHashMap) (Map . coerce)
 
 -- (~::) :: FromText v => [Header] -> Text -> Either String (Map e Text v)
@@ -67,8 +68,8 @@ _Map = iso (coerce . toHashMap) (Map . coerce)
 --     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
 --         <$> fromText (Text.decodeUtf8 v)
 
-instance (Eq k, Hashable k) => IsList (Map e k v) where
-    type Item (Map e k v) = (k, v)
+instance (Eq k, Hashable k) => IsList (Map e i k j v) where
+    type Item (Map e i k j v) = (k, v)
 
     fromList = Map . Map.fromList
     toList   = Map.toList . toHashMap
@@ -81,52 +82,62 @@ instance (Eq k, Hashable k) => IsList (Map e k v) where
 -- instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
 --     toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap
 
-instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map e k v) where
+instance ( Eq k
+         , Hashable k
+         , FromText k
+         , FromJSON v
+         ) => FromJSON (Map e i k j v) where
     parseJSON = withObject "HashMap" (fmap fromList . traverse g . toList)
       where
         g (k, v) = (,)
             <$> either fail return (fromText k)
             <*> parseJSON v
 
-instance (Eq k, Hashable k, ToText k, ToJSON v) => ToJSON (Map e k v) where
+instance ( Eq k
+         , Hashable k
+         , ToText k
+         , ToJSON v
+         ) => ToJSON (Map e i k j v) where
     toJSON = Object . fromList . map (bimap toText toJSON) . toList
 
 instance ( KnownSymbol e
+         , KnownSymbol i
+         , KnownSymbol j
          , Eq k
          , Hashable k
          , FromXML k
          , FromXML v
-         ) => FromXML (Map e k v) where
-    parseXML = fmap fromList . traverse (withElement n try . (:[]))
+         ) => FromXML (Map e i k j v) where
+    parseXML = fmap fromList . traverse (withElement e pair . (:[]))
       where
-        n = Text.pack $ symbolVal (Proxy :: Proxy e)
-
-        try ns = pair "key"  "value" ns
-             <|> pair "Name" "Value" ns
-
-        pair k v ns
+        pair ns
             | length ns == 2 =
-                (,) <$> withElement k parseXML ns
-                    <*> withElement v parseXML ns
+                (,) <$> withElement i parseXML ns
+                    <*> withElement j parseXML ns
             | otherwise      =
                 Left $ "Expected two elements named "
-                     ++ show k ++ " and "
-                     ++ show v ++ " within "
-                     ++ show n
+                     ++ show i ++ " and "
+                     ++ show j ++ " within "
+                     ++ show e
 
-instance ( KnownSymbol e
-         , Eq k
-         , Hashable k
-         , ToXML k
-         , ToXML v
-         ) => ToXML (Map e k v) where
-    toXML = map (uncurry go) . toList
-      where
-        n = fromString $ symbolVal (Proxy :: Proxy e)
-        n = fromString $ symbolVal (Proxy :: Proxy i)
-        n = fromString $ symbolVal (Proxy :: Proxy j)
+        i = fromString $ symbolVal (Proxy :: Proxy i)
+        j = fromString $ symbolVal (Proxy :: Proxy j)
+        e = fromString $ symbolVal (Proxy :: Proxy e)
 
-        go k v =
+-- instance ( KnownSymbol e
+--          , Eq k
+--          , Hashable k
+--          , ToXML k
+--          , ToXML v
+--          ) => ToXML (Map e k v) where
+--     toXML = map (uncurry go) . toList
+--       where
+--         n = fromString $ symbolVal (Proxy :: Proxy e)
+--         n = fromString $ symbolVal (Proxy :: Proxy i)
+--         n = fromString $ symbolVal (Proxy :: Proxy j)
+
+--         go k v =
+
 
 --    flattened: true
 -- looks for many top-level element name

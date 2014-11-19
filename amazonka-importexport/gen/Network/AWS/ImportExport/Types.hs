@@ -82,7 +82,7 @@ instance FromXML JobType where
     parseXML = parseXMLText "JobType"
 
 instance ToQuery JobType where
-    toQuery JobType = toQuery . toText
+    toQuery = toQuery . toText
 
 data Job = Job
     { _jobCreationDate :: RFC822

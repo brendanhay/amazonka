@@ -402,7 +402,7 @@ instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
 instance ToQuery EventSeverity where
-    toQuery EventSeverity = toQuery . toText
+    toQuery = toQuery . toText
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
@@ -650,7 +650,7 @@ instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
 instance ToQuery ConfigurationDeploymentStatus where
-    toQuery ConfigurationDeploymentStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data ConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace  :: Maybe Text
@@ -720,7 +720,7 @@ instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
 
 instance ToQuery ConfigurationOptionValueType where
-    toQuery ConfigurationOptionValueType = toQuery . toText
+    toQuery = toQuery . toText
 
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdApplicationName   :: Maybe Text
@@ -1128,7 +1128,7 @@ instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
 
 instance ToQuery EnvironmentStatus where
-    toQuery EnvironmentStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data LoadBalancerDescription = LoadBalancerDescription
     { _lbdDomain           :: Maybe Text
@@ -1736,7 +1736,7 @@ instance FromXML ValidationSeverity where
     parseXML = parseXMLText "ValidationSeverity"
 
 instance ToQuery ValidationSeverity where
-    toQuery ValidationSeverity = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype Trigger = Trigger
     { _tName :: Maybe Text
@@ -1782,7 +1782,7 @@ instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
 instance ToQuery EnvironmentInfoType where
-    toQuery EnvironmentInfoType = toQuery . toText
+    toQuery = toQuery . toText
 
 data EnvironmentDescription = EnvironmentDescription
     { _ed1ApplicationName   :: Maybe Text
@@ -2038,7 +2038,7 @@ instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
 
 instance ToQuery EnvironmentHealth where
-    toQuery EnvironmentHealth = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype Instance = Instance
     { _iId :: Maybe Text

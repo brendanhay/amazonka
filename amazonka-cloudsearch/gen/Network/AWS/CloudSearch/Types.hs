@@ -855,7 +855,7 @@ instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
 instance ToQuery OptionState where
-    toQuery OptionState = toQuery . toText
+    toQuery = toQuery . toText
 
 data TextArrayOptions = TextArrayOptions
     { _taoAnalysisScheme   :: Maybe Text
@@ -953,7 +953,7 @@ instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
 instance ToQuery AlgorithmicStemming where
-    toQuery AlgorithmicStemming = toQuery . toText
+    toQuery = toQuery . toText
 
 data AnalysisScheme = AnalysisScheme
     { _asAnalysisOptions        :: Maybe AnalysisOptions
@@ -1624,7 +1624,7 @@ instance FromXML IndexFieldType where
     parseXML = parseXMLText "IndexFieldType"
 
 instance ToQuery IndexFieldType where
-    toQuery IndexFieldType = toQuery . toText
+    toQuery = toQuery . toText
 
 data LatLonOptions = LatLonOptions
     { _lloDefaultValue  :: Maybe Text
@@ -2017,7 +2017,7 @@ instance FromXML SuggesterFuzzyMatching where
     parseXML = parseXMLText "SuggesterFuzzyMatching"
 
 instance ToQuery SuggesterFuzzyMatching where
-    toQuery SuggesterFuzzyMatching = toQuery . toText
+    toQuery = toQuery . toText
 
 data DateArrayOptions = DateArrayOptions
     { _dao1DefaultValue  :: Maybe Text
@@ -2208,7 +2208,7 @@ instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
 instance ToQuery AnalysisSchemeLanguage where
-    toQuery AnalysisSchemeLanguage = toQuery . toText
+    toQuery = toQuery . toText
 
 data PartitionInstanceType
     = SearchM1Large   -- ^ search.m1.large
@@ -2236,7 +2236,7 @@ instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
 
 instance ToQuery PartitionInstanceType where
-    toQuery PartitionInstanceType = toQuery . toText
+    toQuery = toQuery . toText
 
 data Suggester = Suggester
     { _sDocumentSuggesterOptions :: DocumentSuggesterOptions

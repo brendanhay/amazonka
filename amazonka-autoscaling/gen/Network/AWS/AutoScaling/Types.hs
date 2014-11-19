@@ -2045,7 +2045,7 @@ instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
 instance ToQuery LifecycleState where
-    toQuery LifecycleState = toQuery . toText
+    toQuery = toQuery . toText
 
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     { _asidAutoScalingGroupName    :: Text
@@ -2184,4 +2184,4 @@ instance FromXML ScalingActivityStatusCode where
     parseXML = parseXMLText "ScalingActivityStatusCode"
 
 instance ToQuery ScalingActivityStatusCode where
-    toQuery ScalingActivityStatusCode = toQuery . toText
+    toQuery = toQuery . toText

@@ -1543,7 +1543,7 @@ instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
 instance ToQuery SourceType where
-    toQuery SourceType = toQuery . toText
+    toQuery = toQuery . toText
 
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterApplyStatus :: Maybe Text

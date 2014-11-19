@@ -1,13 +1,14 @@
 
-instance ToQuery {{ type.name }} where
 {% case type.type %}
 {% when "void" %}
-    toQuery {{ type.name }} = mempty
+instance ToQuery {{ type.name }}
 {% when "empty" %}
-    toQuery {{ type.name }} = mempty
+instance ToQuery {{ type.name }}
 {% when "nullary" %}
-    toQuery {{ type.name }} = toQuery . toText
+instance ToQuery {{ type.name }} where
+    toQuery = toQuery . toText
 {% else %}
+instance ToQuery {{ type.name }} where
     toQuery {{ type.name }}{..} = mconcat
   {% for field in type.fields %}
     {% if field.value.flattened %}

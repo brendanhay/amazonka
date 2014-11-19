@@ -287,7 +287,7 @@ instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
 
 instance ToQuery StackStatus where
-    toQuery StackStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data StackEvent = StackEvent
     { _seEventId              :: Text
@@ -699,7 +699,7 @@ instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
 instance ToQuery ResourceStatus where
-    toQuery ResourceStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data TemplateParameter = TemplateParameter
     { _tpDefaultValue :: Maybe Text
@@ -1101,7 +1101,7 @@ instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
 instance ToQuery Capability where
-    toQuery Capability = toQuery . toText
+    toQuery = toQuery . toText
 
 data ResourceSignalStatus
     = Failure -- ^ FAILURE
@@ -1123,7 +1123,7 @@ instance FromXML ResourceSignalStatus where
     parseXML = parseXMLText "ResourceSignalStatus"
 
 instance ToQuery ResourceSignalStatus where
-    toQuery ResourceSignalStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data Stack = Stack
     { _sCapabilities      :: List "Capabilities" Text
@@ -1316,7 +1316,7 @@ instance FromXML OnFailure where
     parseXML = parseXMLText "OnFailure"
 
 instance ToQuery OnFailure where
-    toQuery OnFailure = toQuery . toText
+    toQuery = toQuery . toText
 
 data Parameter = Parameter
     { _pParameterKey     :: Maybe Text

@@ -496,7 +496,7 @@ instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
 instance ToQuery HistoryItemType where
-    toQuery HistoryItemType = toQuery . toText
+    toQuery = toQuery . toText
 
 data MetricDatum = MetricDatum
     { _mdDimensions      :: List "Dimensions" Dimension
@@ -683,7 +683,7 @@ instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
 instance ToQuery StandardUnit where
-    toQuery StandardUnit = toQuery . toText
+    toQuery = toQuery . toText
 
 data Dimension = Dimension
     { _dName  :: Text
@@ -751,7 +751,7 @@ instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
 instance ToQuery ComparisonOperator where
-    toQuery ComparisonOperator = toQuery . toText
+    toQuery = toQuery . toText
 
 data AlarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName       :: Maybe Text
@@ -897,7 +897,7 @@ instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
 instance ToQuery StateValue where
-    toQuery StateValue = toQuery . toText
+    toQuery = toQuery . toText
 
 data Datapoint = Datapoint
     { _dAverage     :: Maybe Double
@@ -1059,4 +1059,4 @@ instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"
 
 instance ToQuery Statistic where
-    toQuery Statistic = toQuery . toText
+    toQuery = toQuery . toText

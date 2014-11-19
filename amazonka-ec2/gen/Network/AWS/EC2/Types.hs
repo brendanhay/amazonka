@@ -1448,7 +1448,7 @@ instance FromXML ImageAttributeName where
     parseXML = parseXMLText "ImageAttributeName"
 
 instance ToQuery ImageAttributeName where
-    toQuery ImageAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data PermissionGroup
     = All -- ^ all
@@ -1466,7 +1466,7 @@ instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
 
 instance ToQuery PermissionGroup where
-    toQuery PermissionGroup = toQuery . toText
+    toQuery = toQuery . toText
 
 data NetworkAclEntry = NetworkAclEntry
     { _naeCidrBlock    :: Maybe Text
@@ -2000,7 +2000,7 @@ instance FromXML VpnStaticRouteSource where
     parseXML = parseXMLText "VpnStaticRouteSource"
 
 instance ToQuery VpnStaticRouteSource where
-    toQuery VpnStaticRouteSource = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReservedInstancesListing = ReservedInstancesListing
     { _rilClientToken                :: Maybe Text
@@ -2144,7 +2144,7 @@ instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
 
 instance ToQuery InstanceLifecycleType where
-    toQuery InstanceLifecycleType = toQuery . toText
+    toQuery = toQuery . toText
 
 data VirtualizationType
     = Hvm         -- ^ hvm
@@ -2166,7 +2166,7 @@ instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
 
 instance ToQuery VirtualizationType where
-    toQuery VirtualizationType = toQuery . toText
+    toQuery = toQuery . toText
 
 data NetworkInterfaceStatus
     = Attaching -- ^ attaching
@@ -2194,7 +2194,7 @@ instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
 
 instance ToQuery NetworkInterfaceStatus where
-    toQuery NetworkInterfaceStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data PlatformValues
     = Windows -- ^ Windows
@@ -2212,7 +2212,7 @@ instance FromXML PlatformValues where
     parseXML = parseXMLText "PlatformValues"
 
 instance ToQuery PlatformValues where
-    toQuery PlatformValues = toQuery . toText
+    toQuery = toQuery . toText
 
 data CreateVolumePermission = CreateVolumePermission
     { _cvpGroup  :: Maybe Text
@@ -2310,7 +2310,7 @@ instance FromXML RecurringChargeFrequency where
     parseXML = parseXMLText "RecurringChargeFrequency"
 
 instance ToQuery RecurringChargeFrequency where
-    toQuery RecurringChargeFrequency = toQuery . toText
+    toQuery = toQuery . toText
 
 data DhcpOptions = DhcpOptions
     { _doDhcpConfigurations :: List "item" DhcpConfiguration
@@ -2537,7 +2537,7 @@ instance FromXML VolumeState where
     parseXML = parseXMLText "VolumeState"
 
 instance ToQuery VolumeState where
-    toQuery VolumeState = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype AttributeValue = AttributeValue
     { _avValue :: Maybe Text
@@ -2966,7 +2966,7 @@ instance FromXML AccountAttributeName where
     parseXML = parseXMLText "AccountAttributeName"
 
 instance ToQuery AccountAttributeName where
-    toQuery AccountAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment
     { _niaAttachTime          :: Maybe RFC822
@@ -3254,7 +3254,7 @@ instance FromXML VpcState where
     parseXML = parseXMLText "VpcState"
 
 instance ToQuery VpcState where
-    toQuery VpcState = toQuery . toText
+    toQuery = toQuery . toText
 
 data ResourceType
     = RTCustomerGateway      -- ^ customer-gateway
@@ -3321,7 +3321,7 @@ instance FromXML ResourceType where
     parseXML = parseXMLText "ResourceType"
 
 instance ToQuery ResourceType where
-    toQuery ResourceType = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReportStatusType
     = Impaired -- ^ impaired
@@ -3343,7 +3343,7 @@ instance FromXML ReportStatusType where
     parseXML = parseXMLText "ReportStatusType"
 
 instance ToQuery ReportStatusType where
-    toQuery ReportStatusType = toQuery . toText
+    toQuery = toQuery . toText
 
 data CurrencyCodeValues
     = Usd -- ^ USD
@@ -3361,7 +3361,7 @@ instance FromXML CurrencyCodeValues where
     parseXML = parseXMLText "CurrencyCodeValues"
 
 instance ToQuery CurrencyCodeValues where
-    toQuery CurrencyCodeValues = toQuery . toText
+    toQuery = toQuery . toText
 
 data IcmpTypeCode = IcmpTypeCode
     { _itcCode :: Maybe Int
@@ -3687,7 +3687,7 @@ instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
 
 instance ToQuery AttachmentStatus where
-    toQuery AttachmentStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data RouteOrigin
     = OriginCreateRoute               -- ^ CreateRoute
@@ -3712,7 +3712,7 @@ instance FromXML RouteOrigin where
     parseXML = parseXMLText "RouteOrigin"
 
 instance ToQuery RouteOrigin where
-    toQuery RouteOrigin = toQuery . toText
+    toQuery = toQuery . toText
 
 data ListingState
     = LSAvailable -- ^ available
@@ -3740,7 +3740,7 @@ instance FromXML ListingState where
     parseXML = parseXMLText "ListingState"
 
 instance ToQuery ListingState where
-    toQuery ListingState = toQuery . toText
+    toQuery = toQuery . toText
 
 data SpotPrice = SpotPrice
     { _spAvailabilityZone   :: Maybe Text
@@ -3964,7 +3964,7 @@ instance FromXML AvailabilityZoneState where
     parseXML = parseXMLText "AvailabilityZoneState"
 
 instance ToQuery AvailabilityZoneState where
-    toQuery AvailabilityZoneState = toQuery . toText
+    toQuery = toQuery . toText
 
 data SpotInstanceRequest = SpotInstanceRequest
     { _siAvailabilityZoneGroup    :: Maybe Text
@@ -4741,7 +4741,7 @@ instance FromXML SummaryStatus where
     parseXML = parseXMLText "SummaryStatus"
 
 instance ToQuery SummaryStatus where
-    toQuery SummaryStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReservedInstancesModification = ReservedInstancesModification
     { _rimClientToken                     :: Maybe Text
@@ -4879,7 +4879,7 @@ instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
 
 instance ToQuery RuleAction where
-    toQuery RuleAction = toQuery . toText
+    toQuery = toQuery . toText
 
 data NetworkInterface = NetworkInterface
     { _niAssociation        :: Maybe NetworkInterfaceAssociation
@@ -5108,7 +5108,7 @@ instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
 
 instance ToQuery TelemetryStatus where
-    toQuery TelemetryStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 data Subnet = Subnet
     { _s1AvailabilityZone        :: Maybe Text
@@ -5328,7 +5328,7 @@ instance FromXML SnapshotState where
     parseXML = parseXMLText "SnapshotState"
 
 instance ToQuery SnapshotState where
-    toQuery SnapshotState = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
     { _iniaIpOwnerId     :: Maybe Text
@@ -5697,7 +5697,7 @@ instance FromXML VolumeAttachmentState where
     parseXML = parseXMLText "VolumeAttachmentState"
 
 instance ToQuery VolumeAttachmentState where
-    toQuery VolumeAttachmentState = toQuery . toText
+    toQuery = toQuery . toText
 
 data LaunchPermission = LaunchPermission
     { _lpGroup  :: Maybe Text
@@ -5757,7 +5757,7 @@ instance FromXML RouteState where
     parseXML = parseXMLText "RouteState"
 
 instance ToQuery RouteState where
-    toQuery RouteState = toQuery . toText
+    toQuery = toQuery . toText
 
 data RouteTableAssociation = RouteTableAssociation
     { _rtaMain                    :: Maybe Bool
@@ -5854,7 +5854,7 @@ instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
 
 instance ToQuery BundleTaskState where
-    toQuery BundleTaskState = toQuery . toText
+    toQuery = toQuery . toText
 
 data PortRange = PortRange
     { _prFrom :: Maybe Int
@@ -5914,7 +5914,7 @@ instance FromXML VpcAttributeName where
     parseXML = parseXMLText "VpcAttributeName"
 
 instance ToQuery VpcAttributeName where
-    toQuery VpcAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration
     { _ricAvailabilityZone :: Maybe Text
@@ -6043,7 +6043,7 @@ instance FromXML SpotInstanceState where
     parseXML = parseXMLText "SpotInstanceState"
 
 instance ToQuery SpotInstanceState where
-    toQuery SpotInstanceState = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype VpnConnectionOptions = VpnConnectionOptions
     { _vcoStaticRoutesOnly :: Maybe Bool
@@ -6575,7 +6575,7 @@ instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
 
 instance ToQuery InstanceType where
-    toQuery InstanceType = toQuery . toText
+    toQuery = toQuery . toText
 
 data Route = Route
     { _rDestinationCidrBlock   :: Maybe Text
@@ -6913,7 +6913,7 @@ instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
 
 instance ToQuery CancelSpotInstanceRequestState where
-    toQuery CancelSpotInstanceRequestState = toQuery . toText
+    toQuery = toQuery . toText
 
 data PlacementGroupState
     = PGSAvailable -- ^ available
@@ -6941,7 +6941,7 @@ instance FromXML PlacementGroupState where
     parseXML = parseXMLText "PlacementGroupState"
 
 instance ToQuery PlacementGroupState where
-    toQuery PlacementGroupState = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult
     { _rimrReservedInstancesId :: Maybe Text
@@ -7068,7 +7068,7 @@ instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
 
 instance ToQuery ExportEnvironment where
-    toQuery ExportEnvironment = toQuery . toText
+    toQuery = toQuery . toText
 
 data VolumeAttachment = VolumeAttachment
     { _vaAttachTime          :: Maybe RFC822
@@ -7311,7 +7311,7 @@ instance FromXML ShutdownBehavior where
     parseXML = parseXMLText "ShutdownBehavior"
 
 instance ToQuery ShutdownBehavior where
-    toQuery ShutdownBehavior = toQuery . toText
+    toQuery = toQuery . toText
 
 data DiskImageDescription = DiskImageDescription
     { _did1Checksum          :: Maybe Text
@@ -7466,7 +7466,7 @@ instance FromXML SubnetState where
     parseXML = parseXMLText "SubnetState"
 
 instance ToQuery SubnetState where
-    toQuery SubnetState = toQuery . toText
+    toQuery = toQuery . toText
 
 data ContainerFormat
     = Ova -- ^ ova
@@ -7484,7 +7484,7 @@ instance FromXML ContainerFormat where
     parseXML = parseXMLText "ContainerFormat"
 
 instance ToQuery ContainerFormat where
-    toQuery ContainerFormat = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage
     { _azmMessage :: Maybe Text
@@ -7614,7 +7614,7 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 instance ToQuery StatusType where
-    toQuery StatusType = toQuery . toText
+    toQuery = toQuery . toText
 
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification
     { _etstsContainerFormat :: Maybe Text
@@ -7700,7 +7700,7 @@ instance FromXML NetworkInterfaceAttribute where
     parseXML = parseXMLText "NetworkInterfaceAttribute"
 
 instance ToQuery NetworkInterfaceAttribute where
-    toQuery NetworkInterfaceAttribute = toQuery . toText
+    toQuery = toQuery . toText
 
 data ImageTypeValues
     = Kernel  -- ^ kernel
@@ -7725,7 +7725,7 @@ instance FromXML ImageTypeValues where
     parseXML = parseXMLText "ImageTypeValues"
 
 instance ToQuery ImageTypeValues where
-    toQuery ImageTypeValues = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceExportDetails = InstanceExportDetails
     { _iedInstanceId        :: Maybe Text
@@ -7786,7 +7786,7 @@ instance FromXML SnapshotAttributeName where
     parseXML = parseXMLText "SnapshotAttributeName"
 
 instance ToQuery SnapshotAttributeName where
-    toQuery SnapshotAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data AvailabilityZone = AvailabilityZone
     { _azMessages   :: List "item" AvailabilityZoneMessage
@@ -7872,7 +7872,7 @@ instance FromXML VpnState where
     parseXML = parseXMLText "VpnState"
 
 instance ToQuery VpnState where
-    toQuery VpnState = toQuery . toText
+    toQuery = toQuery . toText
 
 data RouteTable = RouteTable
     { _rtAssociations    :: List "item" RouteTableAssociation
@@ -7974,7 +7974,7 @@ instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
 instance ToQuery HypervisorType where
-    toQuery HypervisorType = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceStatusDetails = InstanceStatusDetails
     { _isdImpairedSince :: Maybe RFC822
@@ -8129,7 +8129,7 @@ instance FromXML ReservedInstanceState where
     parseXML = parseXMLText "ReservedInstanceState"
 
 instance ToQuery ReservedInstanceState where
-    toQuery ReservedInstanceState = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceAttributeName
     = IANInstanceBlockDeviceMapping                -- ^ blockDeviceMapping
@@ -8184,7 +8184,7 @@ instance FromXML InstanceAttributeName where
     parseXML = parseXMLText "InstanceAttributeName"
 
 instance ToQuery InstanceAttributeName where
-    toQuery InstanceAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data IpPermission = IpPermission
     { _ipFromPort         :: Int
@@ -8290,7 +8290,7 @@ instance FromXML ConversionTaskState where
     parseXML = parseXMLText "ConversionTaskState"
 
 instance ToQuery ConversionTaskState where
-    toQuery ConversionTaskState = toQuery . toText
+    toQuery = toQuery . toText
 
 data DiskImage = DiskImage
     { _diDescription :: Maybe Text
@@ -8357,7 +8357,7 @@ instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
 
 instance ToQuery Tenancy where
-    toQuery Tenancy = toQuery . toText
+    toQuery = toQuery . toText
 
 data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
     { _vpcsrCode    :: Maybe Text
@@ -8525,7 +8525,7 @@ instance FromXML PlacementStrategy where
     parseXML = parseXMLText "PlacementStrategy"
 
 instance ToQuery PlacementStrategy where
-    toQuery PlacementStrategy = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceNetworkInterface = InstanceNetworkInterface
     { _iniAssociation        :: Maybe InstanceNetworkInterfaceAssociation
@@ -9032,7 +9032,7 @@ instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
 
 instance ToQuery ArchitectureValues where
-    toQuery ArchitectureValues = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReportInstanceReasonCodes
     = InstanceStuckInState     -- ^ instance-stuck-in-state
@@ -9075,7 +9075,7 @@ instance FromXML ReportInstanceReasonCodes where
     parseXML = parseXMLText "ReportInstanceReasonCodes"
 
 instance ToQuery ReportInstanceReasonCodes where
-    toQuery ReportInstanceReasonCodes = toQuery . toText
+    toQuery = toQuery . toText
 
 data EbsBlockDevice = EbsBlockDevice
     { _ebdDeleteOnTermination :: Maybe Bool
@@ -9304,7 +9304,7 @@ instance FromXML DeviceType where
     parseXML = parseXMLText "DeviceType"
 
 instance ToQuery DeviceType where
-    toQuery DeviceType = toQuery . toText
+    toQuery = toQuery . toText
 
 data DomainType
     = DTStandard -- ^ standard
@@ -9326,7 +9326,7 @@ instance FromXML DomainType where
     parseXML = parseXMLText "DomainType"
 
 instance ToQuery DomainType where
-    toQuery DomainType = toQuery . toText
+    toQuery = toQuery . toText
 
 data Region = Region
     { _rEndpoint   :: Maybe Text
@@ -9417,7 +9417,7 @@ instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
 
 instance ToQuery OfferingTypeValues where
-    toQuery OfferingTypeValues = toQuery . toText
+    toQuery = toQuery . toText
 
 data VpnGateway = VpnGateway
     { _vgAvailabilityZone :: Maybe Text
@@ -9560,7 +9560,7 @@ instance FromXML VolumeType where
     parseXML = parseXMLText "VolumeType"
 
 instance ToQuery VolumeType where
-    toQuery VolumeType = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceStateChange = InstanceStateChange
     { _iscCurrentState  :: Maybe InstanceState
@@ -9708,7 +9708,7 @@ instance FromXML ImageState where
     parseXML = parseXMLText "ImageState"
 
 instance ToQuery ImageState where
-    toQuery ImageState = toQuery . toText
+    toQuery = toQuery . toText
 
 data GatewayType
     = Ipsec1 -- ^ ipsec.1
@@ -9726,7 +9726,7 @@ instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
 
 instance ToQuery GatewayType where
-    toQuery GatewayType = toQuery . toText
+    toQuery = toQuery . toText
 
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     { _iniaAttachTime          :: Maybe RFC822
@@ -9971,7 +9971,7 @@ instance FromXML MonitoringState where
     parseXML = parseXMLText "MonitoringState"
 
 instance ToQuery MonitoringState where
-    toQuery MonitoringState = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype ReservedInstancesId = ReservedInstancesId
     { _riiReservedInstancesId :: Maybe Text
@@ -10018,7 +10018,7 @@ instance FromXML StatusName where
     parseXML = parseXMLText "StatusName"
 
 instance ToQuery StatusName where
-    toQuery StatusName = toQuery . toText
+    toQuery = toQuery . toText
 
 data InternetGateway = InternetGateway
     { _igAttachments       :: List "item" InternetGatewayAttachment
@@ -10090,7 +10090,7 @@ instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
 
 instance ToQuery VolumeStatusName where
-    toQuery VolumeStatusName = toQuery . toText
+    toQuery = toQuery . toText
 
 data VolumeAttributeName
     = AutoEnableIO -- ^ autoEnableIO
@@ -10112,7 +10112,7 @@ instance FromXML VolumeAttributeName where
     parseXML = parseXMLText "VolumeAttributeName"
 
 instance ToQuery VolumeAttributeName where
-    toQuery VolumeAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     { _iitdDescription :: Maybe Text
@@ -10282,7 +10282,7 @@ instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
 
 instance ToQuery ListingStatus where
-    toQuery ListingStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype IpRange = IpRange
     { _irCidrIp :: Text
@@ -10337,7 +10337,7 @@ instance FromXML VolumeStatusInfoStatus where
     parseXML = parseXMLText "VolumeStatusInfoStatus"
 
 instance ToQuery VolumeStatusInfoStatus where
-    toQuery VolumeStatusInfoStatus = toQuery . toText
+    toQuery = toQuery . toText
 
 newtype AccountAttributeValue = AccountAttributeValue
     { _aavAttributeValue :: Maybe Text
@@ -10394,7 +10394,7 @@ instance FromXML RIProductDescription where
     parseXML = parseXMLText "RIProductDescription"
 
 instance ToQuery RIProductDescription where
-    toQuery RIProductDescription = toQuery . toText
+    toQuery = toQuery . toText
 
 data ReservedInstancesOffering = ReservedInstancesOffering
     { _rioAvailabilityZone            :: Maybe Text
@@ -10763,7 +10763,7 @@ instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
 
 instance ToQuery DatafeedSubscriptionState where
-    toQuery DatafeedSubscriptionState = toQuery . toText
+    toQuery = toQuery . toText
 
 data ExportTaskState
     = ETSActive     -- ^ active
@@ -10791,7 +10791,7 @@ instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
 
 instance ToQuery ExportTaskState where
-    toQuery ExportTaskState = toQuery . toText
+    toQuery = toQuery . toText
 
 data ProductCodeValues
     = Devpay      -- ^ devpay
@@ -10813,7 +10813,7 @@ instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
 
 instance ToQuery ProductCodeValues where
-    toQuery ProductCodeValues = toQuery . toText
+    toQuery = toQuery . toText
 
 data VpnConnection = VpnConnection
     { _vcCustomerGatewayConfiguration :: Maybe Text
@@ -11064,7 +11064,7 @@ instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
 
 instance ToQuery EventCode where
-    toQuery EventCode = toQuery . toText
+    toQuery = toQuery . toText
 
 data SpotInstanceType
     = OneTime    -- ^ one-time
@@ -11086,7 +11086,7 @@ instance FromXML SpotInstanceType where
     parseXML = parseXMLText "SpotInstanceType"
 
 instance ToQuery SpotInstanceType where
-    toQuery SpotInstanceType = toQuery . toText
+    toQuery = toQuery . toText
 
 data VpcPeeringConnection = VpcPeeringConnection
     { _vpc1AccepterVpcInfo        :: Maybe VpcPeeringConnectionVpcInfo
@@ -11402,7 +11402,7 @@ instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
 
 instance ToQuery InstanceStateName where
-    toQuery InstanceStateName = toQuery . toText
+    toQuery = toQuery . toText
 
 data Instance = Instance
     { _i1AmiLaunchIndex        :: Maybe Int
@@ -11915,7 +11915,7 @@ instance FromXML ResetImageAttributeName where
     parseXML = parseXMLText "ResetImageAttributeName"
 
 instance ToQuery ResetImageAttributeName where
-    toQuery ResetImageAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification
     { _rslsAddressingType      :: Maybe Text
@@ -12258,7 +12258,7 @@ instance FromXML DiskImageFormat where
     parseXML = parseXMLText "DiskImageFormat"
 
 instance ToQuery DiskImageFormat where
-    toQuery DiskImageFormat = toQuery . toText
+    toQuery = toQuery . toText
 
 data BundleTaskError = BundleTaskError
     { _bteCode    :: Maybe Text

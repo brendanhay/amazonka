@@ -174,7 +174,7 @@ instance FromXML QueueAttributeName where
     parseXML = parseXMLText "QueueAttributeName"
 
 instance ToQuery QueueAttributeName where
-    toQuery QueueAttributeName = toQuery . toText
+    toQuery = toQuery . toText
 
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text

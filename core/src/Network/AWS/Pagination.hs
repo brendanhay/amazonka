@@ -29,6 +29,9 @@ instance AWSMore a => AWSMore (Maybe a) where
     more (Just x) = more x
     more Nothing  = False
 
+stop :: AWSMore a => a -> Bool
+stop = not . more
+
 index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
 index f g = f . to lastMay . to (fmap (toText . view g))
 

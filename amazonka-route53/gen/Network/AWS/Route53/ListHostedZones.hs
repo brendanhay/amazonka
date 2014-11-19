@@ -192,6 +192,6 @@ instance FromXML ListHostedZonesResponse where
 
 instance AWSPager ListHostedZones where
     next rq rs
-        | not (more (rs ^. lhzrIsTruncated)) = Nothing
+        | stop (rs ^. lhzrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lhzMarker .~ rs ^. lhzrNextMarker

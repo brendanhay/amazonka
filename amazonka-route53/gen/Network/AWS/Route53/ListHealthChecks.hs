@@ -184,6 +184,6 @@ instance FromXML ListHealthChecksResponse where
 
 instance AWSPager ListHealthChecks where
     next rq rs
-        | not (more (rs ^. lhcrIsTruncated)) = Nothing
+        | stop (rs ^. lhcrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lhcMarker .~ rs ^. lhcrNextMarker

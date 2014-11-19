@@ -156,6 +156,6 @@ instance FromXML ListRolePoliciesResponse where
 
 instance AWSPager ListRolePolicies where
     next rq rs
-        | not (more (rs ^. lrprIsTruncated)) = Nothing
+        | stop (rs ^. lrprIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lrpMarker .~ rs ^. lrprMarker

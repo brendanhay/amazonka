@@ -303,7 +303,7 @@ instance FromXML ListObjectVersionsResponse where
 
 instance AWSPager ListObjectVersions where
     next rq rs
-        | not (more (rs ^. lovrIsTruncated)) = Nothing
+        | stop (rs ^. lovrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq
             & lovKeyMarker .~ p1

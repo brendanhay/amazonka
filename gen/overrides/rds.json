@@ -7,7 +7,7 @@
         "serviceAbbreviation": "RDS"
     },
     "overrides": {
-        "DescribeEngineDefaultParametersResponse": {
+        "DescribeEngineDefaultParametersResult": {
             "required": [
                 "EngineDefaults"
             ]

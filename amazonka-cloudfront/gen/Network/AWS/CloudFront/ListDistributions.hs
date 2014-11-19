@@ -77,22 +77,23 @@ ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
 newtype ListDistributionsResponse = ListDistributionsResponse
-    { _ldrDistributionList :: Maybe DistributionList
+    { _ldrDistributionList :: DistributionList
     } deriving (Eq, Show, Generic)
 
 -- | 'ListDistributionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrDistributionList' @::@ 'Maybe' 'DistributionList'
+-- * 'ldrDistributionList' @::@ 'DistributionList'
 --
-listDistributionsResponse :: ListDistributionsResponse
-listDistributionsResponse = ListDistributionsResponse
-    { _ldrDistributionList = Nothing
+listDistributionsResponse :: DistributionList -- ^ 'ldrDistributionList'
+                          -> ListDistributionsResponse
+listDistributionsResponse p1 = ListDistributionsResponse
+    { _ldrDistributionList = p1
     }
 
 -- | The DistributionList type.
-ldrDistributionList :: Lens' ListDistributionsResponse (Maybe DistributionList)
+ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
@@ -117,10 +118,10 @@ instance AWSRequest ListDistributions where
 
 instance FromXML ListDistributionsResponse where
     parseXML x = ListDistributionsResponse
-        <$> x .@? "DistributionList"
+        <$> x .@ "DistributionList"
 
 instance AWSPager ListDistributions where
     next rq rs
-        | not (more (rs ^. ldrDistributionList . dlIsTruncated)) = Nothing
+        | stop (rs ^. ldrDistributionList . dlIsTruncated) = Nothing
         | otherwise = Just $ rq
             & ldMarker .~ rs ^. ldrDistributionList . dlNextMarker

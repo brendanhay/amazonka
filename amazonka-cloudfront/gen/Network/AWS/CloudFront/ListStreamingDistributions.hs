@@ -78,22 +78,23 @@ lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdrStreamingDistributionList :: Maybe StreamingDistributionList
+    { _lsdrStreamingDistributionList :: StreamingDistributionList
     } deriving (Eq, Show, Generic)
 
 -- | 'ListStreamingDistributionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsdrStreamingDistributionList' @::@ 'Maybe' 'StreamingDistributionList'
+-- * 'lsdrStreamingDistributionList' @::@ 'StreamingDistributionList'
 --
-listStreamingDistributionsResponse :: ListStreamingDistributionsResponse
-listStreamingDistributionsResponse = ListStreamingDistributionsResponse
-    { _lsdrStreamingDistributionList = Nothing
+listStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
+                                   -> ListStreamingDistributionsResponse
+listStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse
+    { _lsdrStreamingDistributionList = p1
     }
 
 -- | The StreamingDistributionList type.
-lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse (Maybe StreamingDistributionList)
+lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrStreamingDistributionList =
     lens _lsdrStreamingDistributionList
         (\s a -> s { _lsdrStreamingDistributionList = a })
@@ -119,10 +120,10 @@ instance AWSRequest ListStreamingDistributions where
 
 instance FromXML ListStreamingDistributionsResponse where
     parseXML x = ListStreamingDistributionsResponse
-        <$> x .@? "StreamingDistributionList"
+        <$> x .@ "StreamingDistributionList"
 
 instance AWSPager ListStreamingDistributions where
     next rq rs
-        | not (more (rs ^. lsdrStreamingDistributionList . sdlIsTruncated)) = Nothing
+        | stop (rs ^. lsdrStreamingDistributionList . sdlIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lsdMarker .~ rs ^. lsdrStreamingDistributionList . sdlNextMarker

@@ -148,6 +148,6 @@ instance FromXML ListAccountAliasesResponse where
 
 instance AWSPager ListAccountAliases where
     next rq rs
-        | not (more (rs ^. laarIsTruncated)) = Nothing
+        | stop (rs ^. laarIsTruncated) = Nothing
         | otherwise = Just $ rq
             & laaMarker .~ rs ^. laarMarker

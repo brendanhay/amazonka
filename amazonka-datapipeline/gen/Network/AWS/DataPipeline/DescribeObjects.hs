@@ -173,6 +173,6 @@ instance FromJSON DescribeObjectsResponse where
 
 instance AWSPager DescribeObjects where
     next rq rs
-        | not (more (rs ^. dorHasMoreResults)) = Nothing
+        | stop (rs ^. dorHasMoreResults) = Nothing
         | otherwise = Just $ rq
             & doMarker .~ rs ^. dorMarker

@@ -7,22 +7,22 @@
         "serviceAbbreviation": "CloudFront"
     },
     "overrides": {
-        "ListCloudFrontOriginAccessIdentitiesResponse": {
+        "ListCloudFrontOriginAccessIdentitiesResult": {
             "required": [
                 "CloudFrontOriginAccessIdentityList"
             ]
         },
-        "ListInvalidationsResponse": {
+        "ListInvalidationsResult": {
             "required": [
                 "InvalidationList"
             ]
         },
-        "ListDistributionsResponse": {
+        "ListDistributionsResult": {
             "required": [
                 "DistributionList"
             ]
         },
-        "ListStreamingDistributionsResponse": {
+        "ListStreamingDistributionsResult": {
             "required": [
                 "StreamingDistributionList"
             ]

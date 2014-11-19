@@ -161,6 +161,6 @@ instance FromXML ListInstanceProfilesResponse where
 
 instance AWSPager ListInstanceProfiles where
     next rq rs
-        | not (more (rs ^. liprIsTruncated)) = Nothing
+        | stop (rs ^. liprIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lipMarker .~ rs ^. liprMarker

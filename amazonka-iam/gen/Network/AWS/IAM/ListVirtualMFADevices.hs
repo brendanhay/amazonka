@@ -162,6 +162,6 @@ instance FromXML ListVirtualMFADevicesResponse where
 
 instance AWSPager ListVirtualMFADevices where
     next rq rs
-        | not (more (rs ^. lvmfadrIsTruncated)) = Nothing
+        | stop (rs ^. lvmfadrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lvmfadMarker .~ rs ^. lvmfadrMarker

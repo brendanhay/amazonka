@@ -122,6 +122,6 @@ instance FromXML ListJobsResponse where
 
 instance AWSPager ListJobs where
     next rq rs
-        | not (more (rs ^. ljrIsTruncated)) = Nothing
+        | stop (rs ^. ljrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & ljMarker .~ rs ^. index ljrJobs jobJobId

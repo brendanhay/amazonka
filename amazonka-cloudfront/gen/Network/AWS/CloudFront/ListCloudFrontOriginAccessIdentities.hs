@@ -78,22 +78,23 @@ lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoairCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
+    { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
     } deriving (Eq, Show, Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcfoairCloudFrontOriginAccessIdentityList' @::@ 'Maybe' 'CloudFrontOriginAccessIdentityList'
+-- * 'lcfoairCloudFrontOriginAccessIdentityList' @::@ 'CloudFrontOriginAccessIdentityList'
 --
-listCloudFrontOriginAccessIdentitiesResponse :: ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
-    { _lcfoairCloudFrontOriginAccessIdentityList = Nothing
+listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
+                                             -> ListCloudFrontOriginAccessIdentitiesResponse
+listCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse
+    { _lcfoairCloudFrontOriginAccessIdentityList = p1
     }
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse (Maybe CloudFrontOriginAccessIdentityList)
+lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
 lcfoairCloudFrontOriginAccessIdentityList =
     lens _lcfoairCloudFrontOriginAccessIdentityList
         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
@@ -119,10 +120,10 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     parseXML x = ListCloudFrontOriginAccessIdentitiesResponse
-        <$> x .@? "CloudFrontOriginAccessIdentityList"
+        <$> x .@ "CloudFrontOriginAccessIdentityList"
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs
-        | not (more (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated)) = Nothing
+        | stop (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lcfoaiMarker .~ rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker

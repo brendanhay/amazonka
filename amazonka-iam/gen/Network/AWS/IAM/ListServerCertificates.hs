@@ -160,6 +160,6 @@ instance FromXML ListServerCertificatesResponse where
 
 instance AWSPager ListServerCertificates where
     next rq rs
-        | not (more (rs ^. lscrIsTruncated)) = Nothing
+        | stop (rs ^. lscrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lscMarker .~ rs ^. lscrMarker

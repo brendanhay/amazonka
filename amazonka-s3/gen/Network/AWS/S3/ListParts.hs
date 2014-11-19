@@ -260,6 +260,6 @@ instance FromXML ListPartsResponse where
 
 instance AWSPager ListParts where
     next rq rs
-        | not (more (rs ^. lprIsTruncated)) = Nothing
+        | stop (rs ^. lprIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker

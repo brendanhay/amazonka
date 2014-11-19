@@ -12100,32 +12100,32 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "lcfoairCloudFrontOriginAccessIdentityList",
                     "name": "_lcfoairCloudFrontOriginAccessIdentityList",
                     "shape": "CloudFrontOriginAccessIdentityList",
                     "locationName": "CloudFrontOriginAccessIdentityList",
                     "documentation": "The CloudFrontOriginAccessIdentityList type.",
-                    "typeExposed": "Maybe CloudFrontOriginAccessIdentityList",
-                    "type": "Maybe CloudFrontOriginAccessIdentityList"
+                    "typeExposed": "CloudFrontOriginAccessIdentityList",
+                    "type": "CloudFrontOriginAccessIdentityList"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "lcfoairCloudFrontOriginAccessIdentityList",
                         "name": "_lcfoairCloudFrontOriginAccessIdentityList",
                         "shape": "CloudFrontOriginAccessIdentityList",
                         "locationName": "CloudFrontOriginAccessIdentityList",
                         "documentation": "The CloudFrontOriginAccessIdentityList type.",
-                        "typeExposed": "Maybe CloudFrontOriginAccessIdentityList",
-                        "type": "Maybe CloudFrontOriginAccessIdentityList"
+                        "typeExposed": "CloudFrontOriginAccessIdentityList",
+                        "type": "CloudFrontOriginAccessIdentityList"
                     }
                 ],
                 "wrapper": false,
@@ -12134,18 +12134,34 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "lcfoairCloudFrontOriginAccessIdentityList",
                     "name": "_lcfoairCloudFrontOriginAccessIdentityList",
                     "shape": "CloudFrontOriginAccessIdentityList",
                     "locationName": "CloudFrontOriginAccessIdentityList",
                     "documentation": "The CloudFrontOriginAccessIdentityList type.",
-                    "typeExposed": "Maybe CloudFrontOriginAccessIdentityList",
-                    "type": "Maybe CloudFrontOriginAccessIdentityList"
+                    "typeExposed": "CloudFrontOriginAccessIdentityList",
+                    "type": "CloudFrontOriginAccessIdentityList"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lcfoairCloudFrontOriginAccessIdentityList",
+                        "name": "_lcfoairCloudFrontOriginAccessIdentityList",
+                        "shape": "CloudFrontOriginAccessIdentityList",
+                        "locationName": "CloudFrontOriginAccessIdentityList",
+                        "documentation": "The CloudFrontOriginAccessIdentityList type.",
+                        "typeExposed": "CloudFrontOriginAccessIdentityList",
+                        "type": "CloudFrontOriginAccessIdentityList"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -12153,38 +12169,22 @@
                 "resultWrapper": null,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "lcfoairCloudFrontOriginAccessIdentityList",
-                        "name": "_lcfoairCloudFrontOriginAccessIdentityList",
-                        "shape": "CloudFrontOriginAccessIdentityList",
-                        "locationName": "CloudFrontOriginAccessIdentityList",
-                        "documentation": "The CloudFrontOriginAccessIdentityList type.",
-                        "typeExposed": "Maybe CloudFrontOriginAccessIdentityList",
-                        "type": "Maybe CloudFrontOriginAccessIdentityList"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "lcfoairCloudFrontOriginAccessIdentityList",
                         "name": "_lcfoairCloudFrontOriginAccessIdentityList",
                         "shape": "CloudFrontOriginAccessIdentityList",
                         "locationName": "CloudFrontOriginAccessIdentityList",
                         "documentation": "The CloudFrontOriginAccessIdentityList type.",
-                        "typeExposed": "Maybe CloudFrontOriginAccessIdentityList",
-                        "type": "Maybe CloudFrontOriginAccessIdentityList"
+                        "typeExposed": "CloudFrontOriginAccessIdentityList",
+                        "type": "CloudFrontOriginAccessIdentityList"
                     }
                 ]
             },
@@ -12333,32 +12333,32 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "ldrDistributionList",
                     "name": "_ldrDistributionList",
                     "shape": "DistributionList",
                     "locationName": "DistributionList",
                     "documentation": "The DistributionList type.",
-                    "typeExposed": "Maybe DistributionList",
-                    "type": "Maybe DistributionList"
+                    "typeExposed": "DistributionList",
+                    "type": "DistributionList"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "ldrDistributionList",
                         "name": "_ldrDistributionList",
                         "shape": "DistributionList",
                         "locationName": "DistributionList",
                         "documentation": "The DistributionList type.",
-                        "typeExposed": "Maybe DistributionList",
-                        "type": "Maybe DistributionList"
+                        "typeExposed": "DistributionList",
+                        "type": "DistributionList"
                     }
                 ],
                 "wrapper": false,
@@ -12367,18 +12367,34 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "ldrDistributionList",
                     "name": "_ldrDistributionList",
                     "shape": "DistributionList",
                     "locationName": "DistributionList",
                     "documentation": "The DistributionList type.",
-                    "typeExposed": "Maybe DistributionList",
-                    "type": "Maybe DistributionList"
+                    "typeExposed": "DistributionList",
+                    "type": "DistributionList"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ldrDistributionList",
+                        "name": "_ldrDistributionList",
+                        "shape": "DistributionList",
+                        "locationName": "DistributionList",
+                        "documentation": "The DistributionList type.",
+                        "typeExposed": "DistributionList",
+                        "type": "DistributionList"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -12386,38 +12402,22 @@
                 "resultWrapper": null,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "ldrDistributionList",
-                        "name": "_ldrDistributionList",
-                        "shape": "DistributionList",
-                        "locationName": "DistributionList",
-                        "documentation": "The DistributionList type.",
-                        "typeExposed": "Maybe DistributionList",
-                        "type": "Maybe DistributionList"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "ldrDistributionList",
                         "name": "_ldrDistributionList",
                         "shape": "DistributionList",
                         "locationName": "DistributionList",
                         "documentation": "The DistributionList type.",
-                        "typeExposed": "Maybe DistributionList",
-                        "type": "Maybe DistributionList"
+                        "typeExposed": "DistributionList",
+                        "type": "DistributionList"
                     }
                 ]
             },
@@ -12566,32 +12566,32 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "lirInvalidationList",
                     "name": "_lirInvalidationList",
                     "shape": "InvalidationList",
                     "locationName": "InvalidationList",
                     "documentation": "Information about invalidation batches.",
-                    "typeExposed": "Maybe InvalidationList",
-                    "type": "Maybe InvalidationList"
+                    "typeExposed": "InvalidationList",
+                    "type": "InvalidationList"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "lirInvalidationList",
                         "name": "_lirInvalidationList",
                         "shape": "InvalidationList",
                         "locationName": "InvalidationList",
                         "documentation": "Information about invalidation batches.",
-                        "typeExposed": "Maybe InvalidationList",
-                        "type": "Maybe InvalidationList"
+                        "typeExposed": "InvalidationList",
+                        "type": "InvalidationList"
                     }
                 ],
                 "wrapper": false,
@@ -12600,18 +12600,34 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "lirInvalidationList",
                     "name": "_lirInvalidationList",
                     "shape": "InvalidationList",
                     "locationName": "InvalidationList",
                     "documentation": "Information about invalidation batches.",
-                    "typeExposed": "Maybe InvalidationList",
-                    "type": "Maybe InvalidationList"
+                    "typeExposed": "InvalidationList",
+                    "type": "InvalidationList"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lirInvalidationList",
+                        "name": "_lirInvalidationList",
+                        "shape": "InvalidationList",
+                        "locationName": "InvalidationList",
+                        "documentation": "Information about invalidation batches.",
+                        "typeExposed": "InvalidationList",
+                        "type": "InvalidationList"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -12619,38 +12635,22 @@
                 "resultWrapper": null,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "lirInvalidationList",
-                        "name": "_lirInvalidationList",
-                        "shape": "InvalidationList",
-                        "locationName": "InvalidationList",
-                        "documentation": "Information about invalidation batches.",
-                        "typeExposed": "Maybe InvalidationList",
-                        "type": "Maybe InvalidationList"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "lirInvalidationList",
                         "name": "_lirInvalidationList",
                         "shape": "InvalidationList",
                         "locationName": "InvalidationList",
                         "documentation": "Information about invalidation batches.",
-                        "typeExposed": "Maybe InvalidationList",
-                        "type": "Maybe InvalidationList"
+                        "typeExposed": "InvalidationList",
+                        "type": "InvalidationList"
                     }
                 ]
             },
@@ -12838,32 +12838,32 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "lsdrStreamingDistributionList",
                     "name": "_lsdrStreamingDistributionList",
                     "shape": "StreamingDistributionList",
                     "locationName": "StreamingDistributionList",
                     "documentation": "The StreamingDistributionList type.",
-                    "typeExposed": "Maybe StreamingDistributionList",
-                    "type": "Maybe StreamingDistributionList"
+                    "typeExposed": "StreamingDistributionList",
+                    "type": "StreamingDistributionList"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "lsdrStreamingDistributionList",
                         "name": "_lsdrStreamingDistributionList",
                         "shape": "StreamingDistributionList",
                         "locationName": "StreamingDistributionList",
                         "documentation": "The StreamingDistributionList type.",
-                        "typeExposed": "Maybe StreamingDistributionList",
-                        "type": "Maybe StreamingDistributionList"
+                        "typeExposed": "StreamingDistributionList",
+                        "type": "StreamingDistributionList"
                     }
                 ],
                 "wrapper": false,
@@ -12872,18 +12872,34 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "lsdrStreamingDistributionList",
                     "name": "_lsdrStreamingDistributionList",
                     "shape": "StreamingDistributionList",
                     "locationName": "StreamingDistributionList",
                     "documentation": "The StreamingDistributionList type.",
-                    "typeExposed": "Maybe StreamingDistributionList",
-                    "type": "Maybe StreamingDistributionList"
+                    "typeExposed": "StreamingDistributionList",
+                    "type": "StreamingDistributionList"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lsdrStreamingDistributionList",
+                        "name": "_lsdrStreamingDistributionList",
+                        "shape": "StreamingDistributionList",
+                        "locationName": "StreamingDistributionList",
+                        "documentation": "The StreamingDistributionList type.",
+                        "typeExposed": "StreamingDistributionList",
+                        "type": "StreamingDistributionList"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -12891,38 +12907,22 @@
                 "resultWrapper": null,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "lsdrStreamingDistributionList",
-                        "name": "_lsdrStreamingDistributionList",
-                        "shape": "StreamingDistributionList",
-                        "locationName": "StreamingDistributionList",
-                        "documentation": "The StreamingDistributionList type.",
-                        "typeExposed": "Maybe StreamingDistributionList",
-                        "type": "Maybe StreamingDistributionList"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "lsdrStreamingDistributionList",
                         "name": "_lsdrStreamingDistributionList",
                         "shape": "StreamingDistributionList",
                         "locationName": "StreamingDistributionList",
                         "documentation": "The StreamingDistributionList type.",
-                        "typeExposed": "Maybe StreamingDistributionList",
-                        "type": "Maybe StreamingDistributionList"
+                        "typeExposed": "StreamingDistributionList",
+                        "type": "StreamingDistributionList"
                     }
                 ]
             },

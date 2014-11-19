@@ -7,7 +7,7 @@
         "serviceAbbreviation": "Redshift"
     },
     "overrides": {
-        "DescribeDefaultClusterParametersResponse": {
+        "DescribeDefaultClusterParametersResult": {
             "require": [
                 "DefaultClusterParameters"
             ]

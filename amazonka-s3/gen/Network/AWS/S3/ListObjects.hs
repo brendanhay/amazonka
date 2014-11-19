@@ -260,6 +260,6 @@ instance FromXML ListObjectsResponse where
 
 instance AWSPager ListObjects where
     next rq rs
-        | not (more (rs ^. lorIsTruncated)) = Nothing
+        | stop (rs ^. lorIsTruncated) = Nothing
         | otherwise = Just $ rq
             & loMarker .~ rs ^. lorNextMarker

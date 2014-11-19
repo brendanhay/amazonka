@@ -156,6 +156,6 @@ instance FromXML ListMFADevicesResponse where
 
 instance AWSPager ListMFADevices where
     next rq rs
-        | not (more (rs ^. lmfadrIsTruncated)) = Nothing
+        | stop (rs ^. lmfadrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lmfadMarker .~ rs ^. lmfadrMarker

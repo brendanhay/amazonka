@@ -140,6 +140,6 @@ instance FromJSON ListPipelinesResponse where
 
 instance AWSPager ListPipelines where
     next rq rs
-        | not (more (rs ^. lprHasMoreResults)) = Nothing
+        | stop (rs ^. lprHasMoreResults) = Nothing
         | otherwise = Just $ rq
             & lpMarker .~ rs ^. lprMarker

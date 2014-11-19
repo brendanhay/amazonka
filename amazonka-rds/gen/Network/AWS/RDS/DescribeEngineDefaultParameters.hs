@@ -101,21 +101,22 @@ dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprEngineDefaults :: Maybe EngineDefaults
+    { _dedprEngineDefaults :: EngineDefaults
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
+-- * 'dedprEngineDefaults' @::@ 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
-    { _dedprEngineDefaults = Nothing
+describeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
+                                        -> DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
+    { _dedprEngineDefaults = p1
     }
 
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 
@@ -136,7 +137,7 @@ instance AWSRequest DescribeEngineDefaultParameters where
 instance FromXML DescribeEngineDefaultParametersResponse where
     parseXML = withElement "DescribeEngineDefaultParametersResult" $ \x ->
         DescribeEngineDefaultParametersResponse
-            <$> x .@? "EngineDefaults"
+            <$> x .@ "EngineDefaults"
 
 instance AWSPager DescribeEngineDefaultParameters where
     next rq rs = (\x -> rq & dedpMarker ?~ x)

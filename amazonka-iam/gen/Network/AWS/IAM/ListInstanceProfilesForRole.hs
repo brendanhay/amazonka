@@ -159,6 +159,6 @@ instance FromXML ListInstanceProfilesForRoleResponse where
 
 instance AWSPager ListInstanceProfilesForRole where
     next rq rs
-        | not (more (rs ^. lipfrrIsTruncated)) = Nothing
+        | stop (rs ^. lipfrrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lipfrMarker .~ rs ^. lipfrrMarker

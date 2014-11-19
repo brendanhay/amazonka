@@ -269,7 +269,7 @@ instance FromXML ListResourceRecordSetsResponse where
 
 instance AWSPager ListResourceRecordSets where
     next rq rs
-        | not (more (rs ^. lrrsrIsTruncated)) = Nothing
+        | stop (rs ^. lrrsrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 && isNothing p3 = Nothing
         | otherwise = Just $ rq
             & lrrsStartRecordName .~ p1

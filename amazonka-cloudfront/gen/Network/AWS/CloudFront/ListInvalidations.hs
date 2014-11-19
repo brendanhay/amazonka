@@ -89,22 +89,23 @@ liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
 newtype ListInvalidationsResponse = ListInvalidationsResponse
-    { _lirInvalidationList :: Maybe InvalidationList
+    { _lirInvalidationList :: InvalidationList
     } deriving (Eq, Show, Generic)
 
 -- | 'ListInvalidationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirInvalidationList' @::@ 'Maybe' 'InvalidationList'
+-- * 'lirInvalidationList' @::@ 'InvalidationList'
 --
-listInvalidationsResponse :: ListInvalidationsResponse
-listInvalidationsResponse = ListInvalidationsResponse
-    { _lirInvalidationList = Nothing
+listInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
+                          -> ListInvalidationsResponse
+listInvalidationsResponse p1 = ListInvalidationsResponse
+    { _lirInvalidationList = p1
     }
 
 -- | Information about invalidation batches.
-lirInvalidationList :: Lens' ListInvalidationsResponse (Maybe InvalidationList)
+lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirInvalidationList =
     lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
 
@@ -137,10 +138,10 @@ instance AWSRequest ListInvalidations where
 
 instance FromXML ListInvalidationsResponse where
     parseXML x = ListInvalidationsResponse
-        <$> x .@? "InvalidationList"
+        <$> x .@ "InvalidationList"
 
 instance AWSPager ListInvalidations where
     next rq rs
-        | not (more (rs ^. lirInvalidationList . ilIsTruncated)) = Nothing
+        | stop (rs ^. lirInvalidationList . ilIsTruncated) = Nothing
         | otherwise = Just $ rq
             & liMarker .~ rs ^. lirInvalidationList . ilNextMarker

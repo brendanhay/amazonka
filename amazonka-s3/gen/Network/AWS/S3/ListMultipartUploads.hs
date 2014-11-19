@@ -302,7 +302,7 @@ instance FromXML ListMultipartUploadsResponse where
 
 instance AWSPager ListMultipartUploads where
     next rq rs
-        | not (more (rs ^. lmurIsTruncated)) = Nothing
+        | stop (rs ^. lmurIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq
             & lmuKeyMarker .~ p1

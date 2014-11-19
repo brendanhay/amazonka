@@ -159,6 +159,6 @@ instance FromXML ListAccessKeysResponse where
 
 instance AWSPager ListAccessKeys where
     next rq rs
-        | not (more (rs ^. lakrIsTruncated)) = Nothing
+        | stop (rs ^. lakrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lakMarker .~ rs ^. lakrMarker

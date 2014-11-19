@@ -67,7 +67,7 @@ gtaTopicArn :: Lens' GetTopicAttributes Text
 gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarAttributes :: Map "entry" Text Text
+    { _gtarAttributes :: Map "entry" "key" Text "value" Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetTopicAttributesResponse' constructor.

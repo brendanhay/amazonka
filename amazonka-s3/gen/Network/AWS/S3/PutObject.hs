@@ -91,7 +91,7 @@ data PutObject = PutObject
     , _poGrantReadACP            :: Maybe Text
     , _poGrantWriteACP           :: Maybe Text
     , _poKey                     :: Text
-    , _poMetadata                :: Map "entry" Text Text
+    , _poMetadata                :: Map "entry" "key" Text "value" Text
     , _poSSECustomerAlgorithm    :: Maybe Text
     , _poSSECustomerKey          :: Maybe (Sensitive Text)
     , _poSSECustomerKeyMD5       :: Maybe Text

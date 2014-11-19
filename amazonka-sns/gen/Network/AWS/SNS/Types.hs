@@ -157,7 +157,7 @@ instance FromXML MessageAttributeValue where
 instance ToQuery MessageAttributeValue
 
 data PlatformApplication = PlatformApplication
-    { _paAttributes             :: Map "entry" Text Text
+    { _paAttributes             :: Map "entry" "key" Text "value" Text
     , _paPlatformApplicationArn :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -256,7 +256,7 @@ instance FromXML Subscription where
 instance ToQuery Subscription
 
 data Endpoint = Endpoint
-    { _eAttributes  :: Map "entry" Text Text
+    { _eAttributes  :: Map "entry" "key" Text "value" Text
     , _eEndpointArn :: Maybe Text
     } deriving (Eq, Show, Generic)
 

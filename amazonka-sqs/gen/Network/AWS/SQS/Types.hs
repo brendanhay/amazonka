@@ -388,11 +388,11 @@ instance FromXML DeleteMessageBatchResultEntry where
 instance ToQuery DeleteMessageBatchResultEntry
 
 data Message = Message
-    { _mAttributes             :: Map "Attribute" Text Text
+    { _mAttributes             :: Map "Attribute" "Name" Text "Value" Text
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
-    , _mMessageAttributes      :: Map "MessageAttribute" Text MessageAttributeValue
+    , _mMessageAttributes      :: Map "MessageAttribute" "Name" Text "Value" MessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -486,7 +486,7 @@ instance ToQuery Message
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreDelaySeconds      :: Maybe Int
     , _smbreId                :: Text
-    , _smbreMessageAttributes :: Map "MessageAttribute" Text MessageAttributeValue
+    , _smbreMessageAttributes :: Map "MessageAttribute" "Name" Text "Value" MessageAttributeValue
     , _smbreMessageBody       :: Text
     } deriving (Eq, Show, Generic)
 

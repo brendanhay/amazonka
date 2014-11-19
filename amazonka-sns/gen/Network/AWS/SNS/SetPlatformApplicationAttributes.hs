@@ -47,7 +47,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
-    { _spaaAttributes             :: Map "entry" Text Text
+    { _spaaAttributes             :: Map "entry" "key" Text "value" Text
     , _spaaPlatformApplicationArn :: Text
     } deriving (Eq, Show, Generic)
 

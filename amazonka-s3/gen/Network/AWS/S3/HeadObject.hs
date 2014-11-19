@@ -219,7 +219,7 @@ data HeadObjectResponse = HeadObjectResponse
     , _horExpiration              :: Maybe RFC822
     , _horExpires                 :: Maybe RFC822
     , _horLastModified            :: Maybe RFC822
-    , _horMetadata                :: Map "entry" Text Text
+    , _horMetadata                :: Map "entry" "key" Text "value" Text
     , _horMissingMeta             :: Maybe Int
     , _horRestore                 :: Maybe Text
     , _horSSECustomerAlgorithm    :: Maybe Text

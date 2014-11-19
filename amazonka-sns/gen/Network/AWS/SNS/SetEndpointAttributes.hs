@@ -47,7 +47,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data SetEndpointAttributes = SetEndpointAttributes
-    { _seaAttributes  :: Map "entry" Text Text
+    { _seaAttributes  :: Map "entry" "key" Text "value" Text
     , _seaEndpointArn :: Text
     } deriving (Eq, Show, Generic)
 

@@ -102,7 +102,7 @@ gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: Map "Attribute" Text Text
+    { _gqarAttributes :: Map "Attribute" "Name" Text "Value" Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.

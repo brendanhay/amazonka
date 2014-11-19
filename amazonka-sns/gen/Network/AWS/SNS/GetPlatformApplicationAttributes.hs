@@ -70,7 +70,7 @@ gpaaPlatformApplicationArn =
         (\s a -> s { _gpaaPlatformApplicationArn = a })
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
-    { _gpaarAttributes :: Map "entry" Text Text
+    { _gpaarAttributes :: Map "entry" "key" Text "value" Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetPlatformApplicationAttributesResponse' constructor.

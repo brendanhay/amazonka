@@ -67,7 +67,7 @@ gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
-    { _gsarAttributes :: Map "entry" Text Text
+    { _gsarAttributes :: Map "entry" "key" Text "value" Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
